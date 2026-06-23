@@ -27,7 +27,7 @@
     </header>
     <div class="portfolio-chatbot-panel__body">
       ${isConfigured
-        ? `<iframe title="Yonatan AI Project Scout" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="${chatbotUrl}"></iframe>`
+        ? `<iframe title="Yonatan AI Project Scout" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="${chatbotUrl}?embedded=1"></iframe>`
         : `<div class="portfolio-chatbot-panel__placeholder">
             <strong>AI assistant backend is ready but not connected yet.</strong>
             <p>The site has the launcher installed. After the backend is deployed, set <code>data-chatbot-url</code> on this script to enable the live assistant.</p>
