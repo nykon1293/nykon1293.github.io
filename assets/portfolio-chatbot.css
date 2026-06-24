@@ -2,7 +2,7 @@
   position: fixed;
   right: 22px;
   bottom: 22px;
-  z-index: 80;
+  z-index: 9999;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -37,7 +37,7 @@
   position: fixed;
   right: 22px;
   bottom: 82px;
-  z-index: 79;
+  z-index: 9998;
   width: min(420px, calc(100vw - 28px));
   height: min(680px, calc(100vh - 112px));
   display: flex;
