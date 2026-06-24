@@ -17,9 +17,10 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 body {
   margin: 0;
+  overflow-x: hidden;
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-feature-settings: "cv01", "ss03";
   color: var(--text);
@@ -352,11 +353,23 @@ footer p { font-size: .92rem; }
   .contact-panel { max-width: 440px; }
 }
 @media (max-width: 680px) {
-  .site-shell { width: min(100% - 28px, 1180px); }
+  .site-shell { width: calc(100% - 28px); max-width: 1180px; }
   .nav { top: 10px; border-radius: 24px; align-items: flex-start; }
   .nav nav { display: none; }
-  .hero { padding-bottom: 56px; }
-  h1 { font-size: clamp(2.65rem, 15vw, 4rem); }
+  .hero { padding-bottom: 56px; gap: 28px; }
+  .hero-copy, .hero-card, .card, .feature-card, .service-card, .faq-item, .contact-panel { min-width: 0; }
+  .eyebrow { flex-wrap: wrap; line-height: 1.45; }
+  h1 {
+    max-width: 100%;
+    font-size: clamp(2rem, 8.8vw, 2.45rem);
+    line-height: 1;
+    letter-spacing: -.055em;
+    overflow-wrap: break-word;
+  }
+  h2 { overflow-wrap: anywhere; }
+  .lead { font-size: 1rem; overflow-wrap: anywhere; }
+  .profile-strip { align-items: flex-start; }
+  .snapshot-list strong, .snapshot-list span, .service-card p, .faq-item p { overflow-wrap: anywhere; }
   .metric-grid { grid-template-columns: 1fr; }
   .section { padding: 58px 0; }
   .card { grid-template-columns: 1fr; }
