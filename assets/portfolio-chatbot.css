@@ -43,7 +43,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border: 1px solid rgba(148, 163, 184, 0.24);
+  border: 1px solid rgba(211, 170, 85, 0.28);
   border-radius: 24px;
   background: rgba(8, 11, 10, 0.96);
   box-shadow: 0 30px 90px rgba(0,0,0,0.46);
@@ -66,7 +66,7 @@
   justify-content: space-between;
   gap: 14px;
   padding: 18px 18px 14px;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+  border-bottom: 1px solid rgba(211, 170, 85, 0.18);
   background: radial-gradient(circle at top left, rgba(211,170,85,0.22), transparent 34%), #080b0a;
 }
 
@@ -80,7 +80,7 @@
 
 .portfolio-chatbot-panel h2 {
   margin: 0;
-  color: #f8fafc;
+  color: #fff7e8;
   font: 700 18px/1.15 "IBM Plex Sans", system-ui, sans-serif;
   letter-spacing: -0.03em;
 }
@@ -88,10 +88,10 @@
 .portfolio-chatbot-panel__close {
   width: 32px;
   height: 32px;
-  border: 1px solid rgba(148, 163, 184, 0.28);
+  border: 1px solid rgba(211, 170, 85, 0.28);
   border-radius: 10px;
-  background: rgba(15, 23, 42, 0.72);
-  color: #cbd5e1;
+  background: rgba(23, 18, 11, 0.82);
+  color: #d8cdb8;
   cursor: pointer;
   font-size: 22px;
   line-height: 1;
@@ -115,19 +115,19 @@
   align-content: center;
   gap: 12px;
   padding: 28px;
-  color: #cbd5e1;
+  color: #d8cdb8;
   text-align: left;
 }
 
 .portfolio-chatbot-panel__placeholder strong {
-  color: #fff;
+  color: #fff7e8;
   font-size: 18px;
   line-height: 1.2;
 }
 
 .portfolio-chatbot-panel__placeholder p {
   margin: 0;
-  color: #94a3b8;
+  color: #b8ab91;
   font-size: 14px;
   line-height: 1.6;
 }
@@ -137,7 +137,7 @@
 }
 
 .portfolio-chatbot-panel__placeholder a {
-  color: #fff;
+  color: #fff7e8;
   font-weight: 800;
 }
 
