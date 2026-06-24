@@ -6,14 +6,14 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  border: 1px solid rgba(154, 167, 255, 0.45);
+  border: 1px solid rgba(211, 170, 85, 0.42);
   border-radius: 999px;
   padding: 13px 17px;
-  background: linear-gradient(135deg, rgba(95, 111, 255, 0.96), rgba(105, 53, 224, 0.96));
-  color: #fff;
-  box-shadow: 0 20px 60px rgba(56, 67, 180, 0.38), inset 0 1px 0 rgba(255,255,255,0.25);
+  background: #d3aa55;
+  color: #121006;
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.34), inset 0 1px 0 rgba(255,255,255,0.22);
   cursor: pointer;
-  font: 700 14px/1 Inter, system-ui, sans-serif;
+  font: 700 14px/1 "IBM Plex Sans", system-ui, sans-serif;
   letter-spacing: -0.01em;
   transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
 }
@@ -21,7 +21,7 @@
 .portfolio-chatbot-launcher:hover {
   transform: translateY(-2px);
   border-color: rgba(255, 255, 255, 0.65);
-  box-shadow: 0 24px 70px rgba(56, 67, 180, 0.48), inset 0 1px 0 rgba(255,255,255,0.3);
+  box-shadow: 0 22px 58px rgba(0, 0, 0, 0.42), inset 0 1px 0 rgba(255,255,255,0.26);
 }
 
 .portfolio-chatbot-launcher__spark {
@@ -45,7 +45,7 @@
   overflow: hidden;
   border: 1px solid rgba(148, 163, 184, 0.24);
   border-radius: 24px;
-  background: rgba(3, 7, 18, 0.96);
+  background: rgba(8, 11, 10, 0.96);
   box-shadow: 0 30px 90px rgba(0,0,0,0.46);
   opacity: 0;
   pointer-events: none;
@@ -67,21 +67,21 @@
   gap: 14px;
   padding: 18px 18px 14px;
   border-bottom: 1px solid rgba(148, 163, 184, 0.18);
-  background: radial-gradient(circle at top left, rgba(99,102,241,0.28), transparent 34%), #030712;
+  background: radial-gradient(circle at top left, rgba(211,170,85,0.22), transparent 34%), #080b0a;
 }
 
 .portfolio-chatbot-panel__kicker {
   margin: 0 0 4px;
-  color: #a5b4fc;
-  font: 700 10px/1.1 Inter, system-ui, sans-serif;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  color: #e1d2ad;
+  font: 700 11px/1.1 "IBM Plex Sans", system-ui, sans-serif;
+  letter-spacing: 0.01em;
+  text-transform: none;
 }
 
 .portfolio-chatbot-panel h2 {
   margin: 0;
   color: #f8fafc;
-  font: 800 18px/1.15 Inter, system-ui, sans-serif;
+  font: 700 18px/1.15 "IBM Plex Sans", system-ui, sans-serif;
   letter-spacing: -0.03em;
 }
 
@@ -106,7 +106,7 @@
   width: 100%;
   height: 100%;
   border: 0;
-  background: #030712;
+  background: #080b0a;
 }
 
 .portfolio-chatbot-panel__placeholder {
@@ -128,12 +128,12 @@
 .portfolio-chatbot-panel__placeholder p {
   margin: 0;
   color: #94a3b8;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.6;
 }
 
 .portfolio-chatbot-panel__placeholder code {
-  color: #c4b5fd;
+  color: #e1d2ad;
 }
 
 .portfolio-chatbot-panel__placeholder a {
@@ -141,11 +141,18 @@
   font-weight: 800;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 520px) {
   .portfolio-chatbot-launcher {
     right: 14px;
     bottom: 14px;
+    width: 52px;
+    height: 52px;
+    justify-content: center;
+    padding: 0;
+    overflow: hidden;
   }
+
+  .portfolio-chatbot-launcher__text { display: none; }
 
   .portfolio-chatbot-panel {
     right: 10px;
