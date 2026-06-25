@@ -78,16 +78,24 @@ body::after {
   font-size: .88rem;
   font-weight: 800;
 }
-.nav nav a { color: var(--muted); text-decoration: none; font-size: .92rem; font-weight: 600; padding: 8px 10px; border-radius: 999px; }
+.nav nav a { color: var(--muted); text-decoration: none; font-size: .92rem; font-weight: 600; padding: 8px 14px; border-radius: 999px; }
 .nav nav a:hover { color: var(--text); background: rgba(255,255,255,.06); }
 
 .hero {
-  min-height: clamp(760px, calc(100vh - 110px), 980px);
+  min-height: clamp(580px, calc(100vh - 150px), 760px);
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(350px, .72fr);
   gap: 44px;
   align-items: center;
-  padding: 52px 0 78px;
+  padding: 38px 0 52px;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding: 32px 0 48px;
+    gap: 32px;
+  }
 }
 .eyebrow, .section-kicker {
   display: inline-flex;
