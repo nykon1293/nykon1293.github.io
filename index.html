@@ -116,7 +116,11 @@
         <span class="brand-mark">YG</span>
         <span>Yonatan Gemmi</span>
       </a>
-      <nav aria-label="Primary navigation">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open site menu">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+        <span class="nav-toggle__label">Menu</span>
+      </button>
+      <nav id="site-nav" class="nav-links" aria-label="Primary navigation">
         <a href="#services">Services</a>
         <a href="#work">Work Examples</a>
         <a href="#faq">FAQ</a>
@@ -285,6 +289,36 @@
     </footer>
   </div>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    (() => {
+      const nav = document.querySelector('.nav');
+      const toggle = document.querySelector('.nav-toggle');
+      const links = document.getElementById('site-nav');
+      if (!nav || !toggle || !links) return;
+
+      const setOpen = (open) => {
+        nav.classList.toggle('is-menu-open', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Close site menu' : 'Open site menu');
+      };
+
+      toggle.addEventListener('click', () => setOpen(!nav.classList.contains('is-menu-open')));
+
+      links.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener('click', () => setOpen(false));
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') setOpen(false);
+      });
+
+      document.addEventListener('click', (event) => {
+        if (!nav.classList.contains('is-menu-open')) return;
+        if (nav.contains(event.target)) return;
+        setOpen(false);
+      });
+    })();
+  </script>
   <script>
     (() => {
       const form = document.querySelector('[data-lead-form]');
