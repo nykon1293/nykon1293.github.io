@@ -344,6 +344,34 @@ p { color: var(--muted); }
 }
 .contact-panel { padding: 26px; background: linear-gradient(180deg, rgba(211,170,85,.13), rgba(245,244,236,.045)); }
 .contact-panel p { margin: 10px 0 20px; }
+.contact-form { display: grid; gap: 13px; margin-top: 18px; }
+.contact-form label { display: grid; gap: 7px; color: var(--text); font-size: .92rem; font-weight: 700; }
+.contact-form label span { color: #f0e5c2; }
+.contact-form label em { color: var(--muted-2); font-style: normal; font-weight: 600; }
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(0,0,0,.24);
+  color: var(--text);
+  font: inherit;
+  padding: 12px 13px;
+  outline: none;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+}
+.contact-form textarea { resize: vertical; min-height: 112px; }
+.contact-form input::placeholder,
+.contact-form textarea::placeholder { color: rgba(200,201,189,.58); }
+.contact-form input:focus,
+.contact-form textarea:focus { border-color: rgba(211,170,85,.58); box-shadow: 0 0 0 4px rgba(211,170,85,.12); }
+.contact-form button:disabled { cursor: progress; opacity: .72; transform: none; }
+.form-honeypot { position: absolute; left: -10000px; width: 1px !important; height: 1px; opacity: 0; }
+.form-status { min-height: 1.35em; margin: 0; font-size: .92rem; }
+.form-status.is-pending { color: #e1d2ad; }
+.form-status.is-success { color: #a8f0cf; }
+.form-status.is-error { color: #ffb4a8; }
+.contact-links { margin-top: 12px; }
 footer { padding: 26px 0 48px; border-top: 1px solid var(--line-soft); color: var(--muted-2); }
 footer p { font-size: .92rem; }
 
@@ -358,23 +386,25 @@ footer p { font-size: .92rem; }
   .site-shell { width: 100%; max-width: 100vw; padding-inline: 14px; }
   .nav { top: 10px; border-radius: 24px; align-items: flex-start; }
   .nav nav { display: none; }
-  .hero { width: 100%; max-width: 100%; padding-bottom: 56px; gap: 28px; overflow: hidden; }
-  .hero-copy { width: 100%; max-width: calc(100vw - 88px); }
+  .hero { width: 100%; max-width: 100%; padding-top: 28px; padding-bottom: 48px; gap: 26px; overflow: hidden; }
+  .hero-copy { width: 100%; max-width: 100%; }
   .hero-copy, .hero-card, .card, .feature-card, .service-card, .faq-item, .contact-panel { min-width: 0; }
-  .eyebrow { flex-wrap: wrap; max-width: calc(100vw - 88px); font-size: .88rem; line-height: 1.45; overflow-wrap: anywhere; }
+  .eyebrow { flex-wrap: wrap; max-width: 100%; font-size: .86rem; line-height: 1.4; overflow-wrap: anywhere; }
   h1 {
-    max-width: calc(100vw - 88px);
-    font-size: clamp(1.62rem, 6.35vw, 1.86rem);
-    line-height: 1.08;
+    max-width: 100%;
+    font-size: clamp(1.9rem, 8vw, 2.35rem);
+    line-height: 1.02;
     letter-spacing: -.018em;
     overflow-wrap: anywhere;
     text-wrap: pretty;
   }
   h2 { overflow-wrap: anywhere; }
-  .lead { max-width: calc(100vw - 88px); font-size: .98rem; overflow-wrap: anywhere; }
-  .actions { width: 100%; max-width: calc(100vw - 88px); }
-  .hero-card { width: 100%; max-width: calc(100vw - 88px); }
+  .lead { max-width: 100%; margin-top: 20px; font-size: .98rem; overflow-wrap: anywhere; }
+  .actions { width: 100%; max-width: 100%; margin-top: 24px; }
+  .hero-card { width: 100%; max-width: 100%; padding: 18px; }
   .profile-strip { align-items: flex-start; }
+  .portrait-wrap { width: 72px; border-radius: 18px; }
+  .portrait-wrap img { border-radius: 14px; }
   .snapshot-list strong, .snapshot-list span, .service-card p, .faq-item p { overflow-wrap: anywhere; }
   .metric-grid { grid-template-columns: 1fr; }
   .section { padding: 58px 0; }

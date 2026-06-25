@@ -244,11 +244,38 @@
           <p class="section-intro">I’m interested in practical work: understanding the problem, choosing the right tools, creating, building, or fixing the system, explaining the approach, and helping people adopt it. If the request is legal, medical, financial, or otherwise regulated, I won’t replace a licensed professional — but I can often help with the technical, operational, AI, workflow, or learning side at my rate.</p>
         </div>
         <div class="contact-panel">
-          <h3>Let’s connect</h3>
-          <p>If you need an operator-builder for a project, tutoring on AI or technical workflows, help debugging a messy system, or a practical second brain for implementation, I’d be glad to talk.</p>
-          <a class="button primary full" href="https://www.linkedin.com/in/joshuah-gemmi-16046233/" target="_blank" rel="noreferrer">View LinkedIn Profile</a>
-          <a class="button full contact-secondary" href="mailto:josh.gemmi@gmail.com">Email Yonatan</a>
-          <a class="button full contact-secondary" href="https://github.com/nykon1293" target="_blank" rel="noreferrer">GitHub</a>
+          <h3>Send a quick note</h3>
+          <p>If you need an operator-builder for a project, tutoring on AI or technical workflows, help debugging a messy system, or practical implementation support, send the basics here or email me directly.</p>
+          <form class="contact-form" data-lead-form>
+            <label>
+              <span>Name</span>
+              <input name="name" type="text" autocomplete="name" required minlength="2" placeholder="Your name" />
+            </label>
+            <label>
+              <span>Email</span>
+              <input name="email" type="email" autocomplete="email" required placeholder="you@example.com" />
+            </label>
+            <label>
+              <span>Contact number <em>(optional)</em></span>
+              <input name="phone" type="tel" autocomplete="tel" placeholder="Best phone number, if you want a call/text" />
+            </label>
+            <label>
+              <span>What do you need help with?</span>
+              <textarea name="need" required minlength="8" rows="4" placeholder="Tell me about the project, workflow, problem, or tutoring/help you need."></textarea>
+            </label>
+            <label>
+              <span>Timeline / budget / context <em>(optional)</em></span>
+              <input name="timeline" type="text" placeholder="Example: this month, small project, ongoing help, etc." />
+            </label>
+            <input name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" class="form-honeypot" />
+            <button class="button primary full" type="submit">Send note to Yonatan</button>
+            <p class="form-status" data-lead-status role="status" aria-live="polite"></p>
+          </form>
+          <div class="contact-links">
+            <a class="button full contact-secondary" href="mailto:josh.gemmi@gmail.com">Email Yonatan instead</a>
+            <a class="button full contact-secondary" href="https://www.linkedin.com/in/joshuah-gemmi-16046233/" target="_blank" rel="noreferrer">View LinkedIn Profile</a>
+            <a class="button full contact-secondary" href="https://github.com/nykon1293" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
         </div>
       </section>
     </main>
@@ -258,6 +285,56 @@
     </footer>
   </div>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    (() => {
+      const form = document.querySelector('[data-lead-form]');
+      const status = document.querySelector('[data-lead-status]');
+      const chatbotBaseUrl = 'https://personal-github-pages-chatbot-lime.vercel.app';
+      if (!form || !status) return;
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const submitButton = form.querySelector('button[type="submit"]');
+        const formData = new FormData(form);
+        const payload = {
+          name: formData.get('name'),
+          email: formData.get('email'),
+          phone: formData.get('phone'),
+          need: formData.get('need'),
+          timeline: formData.get('timeline'),
+          website: formData.get('website'),
+          source: 'portfolio-contact-form'
+        };
+
+        status.textContent = 'Sending your note…';
+        status.className = 'form-status is-pending';
+        if (submitButton) submitButton.disabled = true;
+
+        try {
+          const response = await fetch(`${chatbotBaseUrl}/api/lead`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          const result = await response.json().catch(() => ({}));
+          if (!response.ok || !result.ok) {
+            throw new Error(result.error || 'The note could not be sent.');
+          }
+
+          form.reset();
+          status.textContent = result.delivered
+            ? 'Thanks — your note was sent to Yonatan.'
+            : 'Thanks — please use the email button below to send the note directly.';
+          status.className = 'form-status is-success';
+        } catch (error) {
+          status.textContent = 'Something went wrong. Please email Yonatan directly at josh.gemmi@gmail.com.';
+          status.className = 'form-status is-error';
+        } finally {
+          if (submitButton) submitButton.disabled = false;
+        }
+      });
+    })();
+  </script>
   <script src="assets/portfolio-chatbot.js" data-chatbot-url="https://personal-github-pages-chatbot-lime.vercel.app" defer></script>
 </body>
 </html>
