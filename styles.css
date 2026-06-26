@@ -487,6 +487,53 @@ footer p { font-size: .92rem; }
   .actions .button { width: 100%; justify-content: center; }
 }
 
+.service-landing-hero { padding-top: 24px; }
+.service-landing-hero h1 { max-width: 18ch; }
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0 18px;
+  font-size: .9rem;
+  color: var(--muted-2);
+}
+.breadcrumb a { color: var(--muted); text-decoration: none; }
+.breadcrumb a:hover { color: var(--text); text-decoration: underline; }
+.service-detail-card h3 { margin-top: 0; }
+.service-landing-cta .contact-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.service-card .service-card-link {
+  display: inline-flex;
+  margin-top: 14px;
+  font-weight: 600;
+  color: var(--accent-2);
+  text-decoration: none;
+}
+.service-card .service-card-link:hover { text-decoration: underline; }
+.service-page-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+.service-page-pills a {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line-soft);
+  color: var(--muted);
+  text-decoration: none;
+  font-size: .92rem;
+}
+.service-page-pills a:hover {
+  color: var(--text);
+  border-color: var(--line);
+  background: rgba(255,255,255,.03);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .nav-toggle__bars::before,
