@@ -527,6 +527,9 @@ footer p { font-size: .92rem; }
   .feature-card.large { min-height: 500px; }
   .feature-card.large::before { height: 170px; }
   .actions .button { width: 100%; justify-content: center; }
+  .service-landing-hero { width: 100%; max-width: 100%; }
+  .service-landing-hero h1 { max-width: 100%; }
+  .service-pfd-card { min-width: 0; }
 }
 
 .service-landing-hero { padding-top: 24px; }
