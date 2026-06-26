@@ -79,6 +79,37 @@ def faq_html(faqs: list[tuple[str, str]]) -> str:
     return "\n".join(parts)
 
 
+def pfd_card_html(page: dict) -> str:
+    """PFD L1/L3: buyer-recognizable pains (three rows, no catch-all)."""
+    pains = page.get("pfd_pains") or []
+    if not pains:
+        return ""
+    label = page.get("pfd_label", "Problems I help fix")
+    caption = page.get("pfd_caption", "")
+    rows = []
+    for title, body in pains[:3]:
+        rows.append(
+            f'            <div><strong>{title}</strong><span>{body}</span></div>'
+        )
+    caption_html = (
+        f'              <span class="portrait-caption">{caption}</span>\n'
+        if caption
+        else ""
+    )
+    return f"""
+        <aside class="hero-card service-pfd-card" aria-label="Typical client pains">
+          <div class="profile-strip">
+            <div>
+              <p class="snapshot-label">{label}</p>
+{caption_html}            </div>
+          </div>
+          <div class="snapshot-list">
+{chr(10).join(rows)}
+          </div>
+        </aside>
+"""
+
+
 PAGES = [
     {
         "slug": "ai-automation",
@@ -87,8 +118,24 @@ PAGES = [
         "meta_description": "Practical AI implementation, workflow automation, Custom GPTs, and agent-assisted ops for teams and founders. Remote or South Florida.",
         "service_name": "AI implementation and workflow automation",
         "eyebrow": "AI workflows",
-        "h1": "AI implementation and workflow automation that fits real operations",
-        "lead": "I help businesses and operators turn AI from scattered experiments into reviewed workflows—research, reporting, drafting, QA, intake, and internal execution—with human checkpoints where they matter.",
+        "h1": "Turn AI pilots into workflows your team runs every week",
+        "lead": "I help operators and founders move from scattered ChatGPT experiments to reviewed automations—research, reporting, drafting, QA, intake, and agent-assisted steps—with human checkpoints where they matter.",
+        "pfd_label": "When teams call for AI automation",
+        "pfd_caption": "For operators who need production workflows—not another demo that stalls in a shared doc.",
+        "pfd_pains": [
+            (
+                "AI experiments never reach daily ops",
+                "Map the real process, pick the lightest stack, and ship something the team can run without heroics.",
+            ),
+            (
+                "Manual copy-paste between tools",
+                "Connect spreadsheets, CRMs, inboxes, and APIs so assisted steps sit inside the workflow—not beside it.",
+            ),
+            (
+                "No guardrails on AI output",
+                "Add review loops, SOPs, and training so drafts and routing are trusted—not feared.",
+            ),
+        ],
         "sections": [
             (
                 "What this looks like",
@@ -129,8 +176,24 @@ PAGES = [
         "meta_description": "Dashboards, reporting, spreadsheet cleanup, and operational visibility for ecommerce and ops teams. Remote consulting and contract work.",
         "service_name": "Dashboards, reporting, and data cleanup",
         "eyebrow": "Data visibility",
-        "h1": "Dashboards, reporting, and data cleanup people actually use",
-        "lead": "Messy spreadsheets and disconnected exports slow every decision. I help teams find a source of truth, standardize key fields, and build reporting and dashboards that match how work really runs.",
+        "h1": "Reporting and dashboards your team trusts for daily decisions",
+        "lead": "When every department has its own spreadsheet version of truth, decisions slow down. I help teams standardize key fields, clean the mess, and build reporting people open every morning—not rebuild every Friday.",
+        "pfd_label": "When visibility is the bottleneck",
+        "pfd_caption": "For leaders and operators who are tired of guessing from exports and conflicting sheets.",
+        "pfd_pains": [
+            (
+                "Nobody agrees which numbers are real",
+                "Audit sources, dedupe manual entry, and define metrics that match how work actually runs.",
+            ),
+            (
+                "Reports take days to assemble",
+                "Automate the path from raw exports to a daily view—sheets with guardrails or BI when it earns its keep.",
+            ),
+            (
+                "Leadership still can’t see what’s happening",
+                "Build cockpits for orders, inventory, sales activity, or ops KPIs people use—not slide decks.",
+            ),
+        ],
         "sections": [
             (
                 "What this looks like",
@@ -171,8 +234,24 @@ PAGES = [
         "meta_description": "Ecommerce operations systems: Amazon, eBay, inventory, fulfillment, listings, and marketplace reporting. Consulting and contract support.",
         "service_name": "Ecommerce operations systems",
         "eyebrow": "Ecommerce ops",
-        "h1": "Ecommerce operations systems for marketplaces and multi-channel sellers",
-        "lead": "I help ecommerce operators reduce guesswork across listings, inventory, fulfillment, product data, and marketplace reporting—with SOPs, automations, and visibility tools grounded in real warehouse and ops experience.",
+        "h1": "Marketplace ops that stop living in emergency spreadsheets",
+        "lead": "I help multi-channel sellers fix breakpoints in listings, inventory, fulfillment, and reporting—with SOPs, automations, and visibility grounded in real warehouse and marketplace experience.",
+        "pfd_label": "When ecommerce ops feel chaotic",
+        "pfd_caption": "For Amazon, eBay, and multi-SKU teams where weekly fires eat strategic work.",
+        "pfd_pains": [
+            (
+                "Inventory and listings don’t match reality",
+                "Align channel rules, serialized SKUs, and product data so the team shares one truth.",
+            ),
+            (
+                "Fulfillment and handoffs break every peak season",
+                "Document warehouse steps, QC, and escalations so staff and VAs follow the same playbook.",
+            ),
+            (
+                "Marketplace reporting is always late",
+                "Connect exports and ops data into views that show what to fix before it becomes a chargeback.",
+            ),
+        ],
         "sections": [
             (
                 "What this looks like",
@@ -213,8 +292,24 @@ PAGES = [
         "meta_description": "One-on-one technical tutoring, AI tool coaching, workflow training, and project help for founders, students, and operators. Remote sessions.",
         "service_name": "Technical tutoring, coaching, and project help",
         "eyebrow": "Hands-on help",
-        "h1": "Technical tutoring, coaching, and project help—paid and practical",
-        "lead": "Not every request is a full consulting engagement. I help individuals and small teams learn AI tools, debug workflows, choose software, improve SOPs, or get unstuck on a build—with clear scope and my hourly project rate.",
+        "h1": "Get unstuck with a practitioner—not another generic course",
+        "lead": "Not every request needs a full consulting engagement. I help founders, students, and operators learn AI tools responsibly, debug workflows, or finish a build—with clear scope and an hourly project rate.",
+        "pfd_label": "When you need hands-on help",
+        "pfd_caption": "For people who want pairing and documentation—not dependency on every click.",
+        "pfd_pains": [
+            (
+                "Stuck on a build with no one to pair with",
+                "Walk through the system, fix the blocker, and leave steps you can repeat.",
+            ),
+            (
+                "AI tools feel powerful but unsafe",
+                "Learn prompt patterns, guardrails, and SOPs so adoption sticks on your stack.",
+            ),
+            (
+                "Unsure whether to hire consulting or DIY",
+                "Scope what to build vs buy before you commit to a larger contract.",
+            ),
+        ],
         "sections": [
             (
                 "What this looks like",
@@ -364,6 +459,7 @@ def render(page: dict) -> str:
           <a class="button primary" href="../index.html#contact">Discuss this service</a>
           <a class="button ghost" href="../index.html#work">See work examples</a>
         </div>
+{pfd_card_html(page)}
       </section>
 
       <section class="section split">

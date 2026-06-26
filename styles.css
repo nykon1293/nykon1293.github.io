@@ -530,7 +530,9 @@ footer p { font-size: .92rem; }
 }
 
 .service-landing-hero { padding-top: 24px; }
-.service-landing-hero h1 { max-width: 18ch; }
+.service-landing-hero h1 { max-width: 22ch; }
+.service-pfd-card { margin-top: 28px; width: 100%; max-width: 100%; }
+.service-pfd-card .profile-strip { margin-bottom: 4px; }
 .breadcrumb {
   display: flex;
   flex-wrap: wrap;
