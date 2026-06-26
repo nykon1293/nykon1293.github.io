@@ -177,7 +177,17 @@
         <span class="nav-toggle__label">Menu</span>
       </button>
       <nav id="site-nav" class="nav-links" aria-label="Primary navigation">
-        <a href="#services">Services</a>
+        <a href="#top">Home</a>
+        <details class="nav-dropdown">
+          <summary class="nav-dropdown-trigger">Services</summary>
+          <div class="nav-dropdown-menu">
+            <a href="services/ai-automation.html">AI automation</a>
+            <a href="services/dashboards-reporting.html">Dashboards &amp; reporting</a>
+            <a href="services/ecommerce-operations.html">Ecommerce operations</a>
+            <a href="services/tutoring-project-help.html">Tutoring &amp; project help</a>
+            <a class="nav-dropdown-muted" href="#service-hub">All services (this page)</a>
+          </div>
+        </details>
         <a href="#work">Work Examples</a>
         <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
@@ -193,7 +203,7 @@
           <div class="actions">
             <a class="button primary" href="https://www.linkedin.com/in/joshuah-gemmi-16046233/" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
             <a class="button" href="mailto:josh.gemmi@gmail.com">Email Yonatan</a>
-            <a class="button ghost" href="#work">See AI & operations work</a>
+            <a class="button ghost" href="#service-hub">Browse services</a>
           </div>
         </div>
 
@@ -239,20 +249,41 @@
         <div class="section-heading stacked">
           <p class="section-kicker">Services</p>
           <h2>Practical help for AI, automation, dashboards, ecommerce, data cleanup, and operations.</h2>
-          <p class="section-intro">These are the concrete areas where I build, fix, explain, or improve systems for clients.</p>
-          <div class="service-page-pills" aria-label="Service landing pages">
-            <a href="services/ai-automation.html">AI automation</a>
-            <a href="services/dashboards-reporting.html">Dashboards &amp; reporting</a>
-            <a href="services/ecommerce-operations.html">Ecommerce operations</a>
-            <a href="services/tutoring-project-help.html">Tutoring &amp; project help</a>
+          <p class="section-intro">These are the concrete areas where I build, fix, explain, or improve systems for clients. <strong>Pick a focused service page below</strong> for scope, FAQ, and how to start.</p>
+        </div>
+
+        <div id="service-hub" class="service-hub" aria-labelledby="service-hub-title">
+          <h3 id="service-hub-title">Focused service pages</h3>
+          <p class="service-hub-intro">Each link opens a dedicated page with more detail than this overview.</p>
+          <div class="service-hub-grid">
+            <a class="service-hub-card" href="services/ai-automation.html">
+              <span class="tag violet">AI workflows</span>
+              <strong>AI automation</strong>
+              <span class="service-hub-cta">Open page</span>
+            </a>
+            <a class="service-hub-card" href="services/dashboards-reporting.html">
+              <span class="tag">Data visibility</span>
+              <strong>Dashboards &amp; reporting</strong>
+              <span class="service-hub-cta">Open page</span>
+            </a>
+            <a class="service-hub-card" href="services/ecommerce-operations.html">
+              <span class="tag green">Ecommerce ops</span>
+              <strong>Ecommerce operations</strong>
+              <span class="service-hub-cta">Open page</span>
+            </a>
+            <a class="service-hub-card" href="services/tutoring-project-help.html">
+              <span class="tag violet">Hands-on help</span>
+              <strong>Tutoring &amp; project help</strong>
+              <span class="service-hub-cta">Open page</span>
+            </a>
           </div>
         </div>
         <div class="service-grid">
-          <article class="service-card"><span class="tag violet">AI workflows</span><h3>AI implementation & workflow automation</h3><p>Turn AI experiments into usable workflows for research, reporting, drafting, intake, QA, ecommerce, and internal operations. This can include Custom GPTs, AI assistants, prompt systems, review steps, and automations that fit the real process.</p><a class="service-card-link" href="services/ai-automation.html">AI automation service page →</a></article>
-          <article class="service-card"><span class="tag">Data visibility</span><h3>Dashboards, reporting & data cleanup</h3><p>Clean up messy spreadsheets, disconnected reports, and unclear data flows so teams can see what is happening and make better decisions. This can include dashboards, source-of-truth cleanup, data pipelines, and operational visibility tools.</p><a class="service-card-link" href="services/dashboards-reporting.html">Dashboards service page →</a></article>
-          <article class="service-card"><span class="tag green">Ecommerce ops</span><h3>Ecommerce operations systems</h3><p>Improve workflows across Amazon, eBay, inventory, fulfillment, product data, item specifics, warehouse operations, SOPs, and marketplace reporting.</p><a class="service-card-link" href="services/ecommerce-operations.html">Ecommerce ops service page →</a></article>
+          <article class="service-card"><span class="tag violet">AI workflows</span><h3>AI implementation & workflow automation</h3><p>Turn AI experiments into usable workflows for research, reporting, drafting, intake, QA, ecommerce, and internal operations. This can include Custom GPTs, AI assistants, prompt systems, review steps, and automations that fit the real process.</p><a class="button ghost service-card-btn" href="services/ai-automation.html">View AI automation page</a></article>
+          <article class="service-card"><span class="tag">Data visibility</span><h3>Dashboards, reporting & data cleanup</h3><p>Clean up messy spreadsheets, disconnected reports, and unclear data flows so teams can see what is happening and make better decisions. This can include dashboards, source-of-truth cleanup, data pipelines, and operational visibility tools.</p><a class="button ghost service-card-btn" href="services/dashboards-reporting.html">View dashboards page</a></article>
+          <article class="service-card"><span class="tag green">Ecommerce ops</span><h3>Ecommerce operations systems</h3><p>Improve workflows across Amazon, eBay, inventory, fulfillment, product data, item specifics, warehouse operations, SOPs, and marketplace reporting.</p><a class="button ghost service-card-btn" href="services/ecommerce-operations.html">View ecommerce page</a></article>
           <article class="service-card"><span class="tag">CRM & process</span><h3>CRM, sales ops & internal workflows</h3><p>Map the handoffs, clean up the process, and create practical systems for CRM activity, sales support, team follow-up, documentation, and repeatable execution.</p></article>
-          <article class="service-card"><span class="tag violet">Hands-on help</span><h3>Technical troubleshooting, tutoring & project help</h3><p>One-on-one help for learning AI tools, understanding workflows, debugging systems, choosing software, improving SOPs, training teams, or getting unstuck on a technical project.</p><a class="service-card-link" href="services/tutoring-project-help.html">Tutoring &amp; project help page →</a></article>
+          <article class="service-card"><span class="tag violet">Hands-on help</span><h3>Technical troubleshooting, tutoring & project help</h3><p>One-on-one help for learning AI tools, understanding workflows, debugging systems, choosing software, improving SOPs, training teams, or getting unstuck on a technical project.</p><a class="button ghost service-card-btn" href="services/tutoring-project-help.html">View tutoring page</a></article>
           <article class="service-card"><span class="tag green">Systems builder</span><h3>Internal tools & operator-builder support</h3><p>Create lightweight tools, automations, checklists, dashboards, and process improvements that make daily work clearer, faster, and easier to manage.</p></article>
         </div>
       </section>
@@ -368,6 +399,13 @@
 
       links.querySelectorAll('a[href^="#"]').forEach((link) => {
         link.addEventListener('click', () => setOpen(false));
+      });
+
+      links.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          setOpen(false);
+          links.querySelectorAll('details.nav-dropdown[open]').forEach((d) => d.removeAttribute('open'));
+        });
       });
 
       document.addEventListener('keydown', (event) => {

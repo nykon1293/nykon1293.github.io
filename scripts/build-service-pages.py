@@ -9,30 +9,29 @@ ROOT = Path(__file__).resolve().parent.parent
 SERVICES_DIR = ROOT / "services"
 BASE = "https://nykon1293.github.io"
 
-NAV = """
-      <nav id="site-nav" class="nav-links" aria-label="Primary navigation">
-        <a href="../index.html">Home</a>
-        <a href="ai-automation.html" aria-current="page">AI automation</a>
-        <a href="dashboards-reporting.html">Dashboards</a>
-        <a href="ecommerce-operations.html">Ecommerce</a>
-        <a href="tutoring-project-help.html">Tutoring</a>
-        <a href="../index.html#contact">Contact</a>
-      </nav>
-""".strip()
+SERVICE_PAGES = [
+    ("ai-automation.html", "AI automation", "ai-automation"),
+    ("dashboards-reporting.html", "Dashboards & reporting", "dashboards-reporting"),
+    ("ecommerce-operations.html", "Ecommerce operations", "ecommerce-operations"),
+    ("tutoring-project-help.html", "Tutoring & project help", "tutoring-project-help"),
+]
+
 
 def nav_for(slug: str) -> str:
-    items = [
-        ("../index.html", "Home", None),
-        ("ai-automation.html", "AI automation", "ai-automation"),
-        ("dashboards-reporting.html", "Dashboards", "dashboards-reporting"),
-        ("ecommerce-operations.html", "Ecommerce", "ecommerce-operations"),
-        ("tutoring-project-help.html", "Tutoring", "tutoring-project-help"),
-        ("../index.html#contact", "Contact", None),
-    ]
     lines = ['<nav id="site-nav" class="nav-links" aria-label="Primary navigation">']
-    for href, label, key in items:
+    lines.append('        <a href="../index.html">Home</a>')
+    lines.append('        <details class="nav-dropdown">')
+    lines.append('          <summary class="nav-dropdown-trigger">Services</summary>')
+    lines.append('          <div class="nav-dropdown-menu">')
+    for href, label, key in SERVICE_PAGES:
         cur = ' aria-current="page"' if key == slug else ""
-        lines.append(f'        <a href="{href}"{cur}>{label}</a>')
+        lines.append(f'            <a href="{href}"{cur}>{label}</a>')
+    lines.append('            <a class="nav-dropdown-muted" href="../index.html#service-hub">All services on homepage</a>')
+    lines.append("          </div>")
+    lines.append("        </details>")
+    lines.append('        <a href="../index.html#work">Work Examples</a>')
+    lines.append('        <a href="../index.html#faq">FAQ</a>')
+    lines.append('        <a href="../index.html#contact">Contact</a>')
     lines.append("      </nav>")
     return "\n".join(lines)
 
@@ -271,7 +270,10 @@ FOOTER_SCRIPTS = """
       };
       toggle.addEventListener('click', () => setOpen(!nav.classList.contains('is-menu-open')));
       links.querySelectorAll('a').forEach((link) => {
-        link.addEventListener('click', () => setOpen(false));
+        link.addEventListener('click', () => {
+          setOpen(false);
+          links.querySelectorAll('details.nav-dropdown[open]').forEach((d) => d.removeAttribute('open'));
+        });
       });
       document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
       document.addEventListener('click', (e) => {
