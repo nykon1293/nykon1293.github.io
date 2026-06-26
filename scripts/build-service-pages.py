@@ -150,6 +150,7 @@ PAGES = [
                 "9+ years in operations and systems, multi-brand ecommerce background, and hands-on builds—not slideware. I stay close enough to test with real data and real users before calling it done.",
             ),
         ],
+        "layout": "split",
         "faqs": [
             (
                 "Do you only build Custom GPTs?",
@@ -208,6 +209,8 @@ PAGES = [
                 "Built operational cockpits for multi-brand ecommerce—orders, inventory, ads, fulfillment, and team activity in one place. Comfortable with serialized inventory scale (95k+ items tracked) and real ops constraints.",
             ),
         ],
+        "layout": "proof",
+        "proof_strip": "From conflicting spreadsheets → one trusted morning dashboard.",
         "faqs": [
             (
                 "Can you fix our spreadsheets without a full BI project?",
@@ -266,6 +269,7 @@ PAGES = [
                 "Multi-brand ecommerce ops background, FBA and eBay experience, and builds that connected scattered activity into clearer daily workflows—not generic agency playbooks.",
             ),
         ],
+        "layout": "steps",
         "faqs": [
             (
                 "Do you only work with large brands?",
@@ -324,6 +328,7 @@ PAGES = [
                 "Students, solo founders, operators, and teams who want a practitioner in the room—not a course catalog. If the topic is legal, medical, or financial advice, I stay in the technical and operational lane.",
             ),
         ],
+        "layout": "simple",
         "faqs": [
             (
                 "Is this the same as full consulting?",
@@ -384,6 +389,83 @@ FOOTER_SCRIPTS = """
 """
 
 
+def sections_cards_html(page: dict) -> str:
+    parts: list[str] = []
+    for title, body in page["sections"]:
+        parts.append(
+            f"""        <article class="card service-detail-card">
+          <h3>{title}</h3>
+          <p>{body}</p>
+        </article>"""
+        )
+    return "\n".join(parts)
+
+
+def scope_block(page: dict) -> str:
+    layout = page.get("layout", "split")
+    name = page["service_name"].lower()
+    intro = (
+        f"This page is the dedicated entry point for <strong>{name}</strong>. "
+        "The homepage still covers the full range of offerings—consulting, contract work, and adjacent technical help."
+    )
+    cards = sections_cards_html(page)
+
+    if layout == "proof":
+        proof = page.get("proof_strip", "From scattered exports to one trusted morning view.")
+        return f"""
+      <section class="section service-layout-proof">
+        <div class="proof-strip" role="presentation">
+          <p class="proof-strip-label">{proof}</p>
+        </div>
+        <div class="section-heading stacked">
+          <p class="section-kicker">Scope</p>
+          <h2>Focused help for one kind of problem.</h2>
+          <p class="section-intro">{intro}</p>
+        </div>
+        <div class="cards capability-list service-detail-stack">
+{cards}
+        </div>
+      </section>"""
+
+    if layout == "steps":
+        return f"""
+      <section class="section split service-layout-steps">
+        <div>
+          <p class="section-kicker">Scope</p>
+          <h2>How we tighten ops, one layer at a time.</h2>
+          <p class="section-intro">{intro}</p>
+        </div>
+        <div class="cards capability-list">
+{cards}
+        </div>
+      </section>"""
+
+    if layout == "simple":
+        return f"""
+      <section class="section service-layout-simple">
+        <div class="section-heading stacked">
+          <p class="section-kicker">What sessions cover</p>
+          <h2>Practical help without a heavyweight engagement.</h2>
+          <p class="section-intro">{intro}</p>
+        </div>
+        <div class="cards service-detail-stack">
+{cards}
+        </div>
+      </section>"""
+
+    return f"""
+      <section class="section split">
+        <div>
+          <p class="section-kicker">Scope</p>
+          <h2>Focused help for one kind of problem.</h2>
+          <p class="section-intro">{intro}</p>
+        </div>
+        <div class="cards capability-list">
+{cards}
+        </div>
+      </section>"""
+
+
 def render(page: dict) -> str:
     slug = page["slug"]
     canonical = f"{BASE}/services/{page['filename']}"
@@ -394,14 +476,7 @@ def render(page: dict) -> str:
         meta_description=page["meta_description"],
         canonical=canonical,
     )
-    sections_html = ""
-    for title, body in page["sections"]:
-        sections_html += f"""
-        <article class="card service-detail-card">
-          <h3>{title}</h3>
-          <p>{body}</p>
-        </article>
-"""
+    scope_html = scope_block(page)
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -461,17 +536,7 @@ def render(page: dict) -> str:
         </div>
 {pfd_card_html(page)}
       </section>
-
-      <section class="section split">
-        <div>
-          <p class="section-kicker">Scope</p>
-          <h2>Focused help for one kind of problem.</h2>
-          <p class="section-intro">This page is the dedicated entry point for <strong>{page['service_name'].lower()}</strong>. The homepage still covers the full range of offerings—consulting, contract work, and adjacent technical help.</p>
-        </div>
-        <div class="cards capability-list">
-{sections_html}
-        </div>
-      </section>
+{scope_html}
 
       <section id="faq" class="section">
         <div class="section-heading stacked">
