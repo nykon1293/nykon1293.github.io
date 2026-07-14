@@ -39,11 +39,26 @@
   document.body.appendChild(launcher);
   document.body.appendChild(panel);
 
+  const syncLauncherVisibility = () => {
+    const shouldDelay = window.scrollY < 360 && !panel.classList.contains("is-open");
+    launcher.classList.toggle("is-delayed", shouldDelay);
+    launcher.setAttribute("aria-hidden", shouldDelay ? "true" : "false");
+    launcher.tabIndex = shouldDelay ? -1 : 0;
+  };
+  syncLauncherVisibility();
+  window.addEventListener("scroll", syncLauncherVisibility, { passive: true });
+
   const closeButton = panel.querySelector(".portfolio-chatbot-panel__close");
+  panel.inert = true;
+  closeButton.tabIndex = -1;
+
   function setOpen(open) {
     panel.classList.toggle("is-open", open);
     panel.setAttribute("aria-hidden", open ? "false" : "true");
+    panel.inert = !open;
+    closeButton.tabIndex = open ? 0 : -1;
     launcher.setAttribute("aria-expanded", open ? "true" : "false");
+    syncLauncherVisibility();
   }
 
   launcher.addEventListener("click", () => setOpen(!panel.classList.contains("is-open")));

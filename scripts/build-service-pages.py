@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+from html import escape
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ def nav_for(slug: str) -> str:
     lines.append('          <div class="nav-dropdown-menu">')
     for href, label, key in SERVICE_PAGES:
         cur = ' aria-current="page"' if key == slug else ""
-        lines.append(f'            <a href="{href}"{cur}>{label}</a>')
+        lines.append(f'            <a href="{href}"{cur}>{escape(label)}</a>')
     lines.append('            <a class="nav-dropdown-muted" href="../index.html#service-hub">All services on homepage</a>')
     lines.append("          </div>")
     lines.append("        </details>")
@@ -74,9 +75,34 @@ def faq_html(faqs: list[tuple[str, str]]) -> str:
     parts = []
     for q, a in faqs:
         parts.append(
-            f'          <article class="faq-item"><h3>{q}</h3><p>{a}</p></article>'
+            f'          <details class="faq-item"><summary>{q}</summary><p>{a}</p></details>'
         )
     return "\n".join(parts)
+
+
+def buyer_details_html(page: dict) -> str:
+    """Concrete qualification and deliverable details for prospective buyers."""
+    details = page["buyer_details"]
+    cards = []
+    for label, items in details:
+        item_html = "".join(f"<li>{item}</li>" for item in items)
+        cards.append(
+            f"""          <article class="buyer-detail-card">
+            <h3>{label}</h3>
+            <ul>{item_html}</ul>
+          </article>"""
+        )
+    return f"""
+      <section class="section service-buyer-details">
+        <div class="section-heading stacked">
+          <p class="section-kicker">Working together</p>
+          <h2>Clear scope before the build starts.</h2>
+          <p class="section-intro">The exact stack depends on the problem. The engagement should still be concrete: what is being fixed, what you receive, what access is needed, and who owns the result.</p>
+        </div>
+        <div class="buyer-detail-grid">
+{chr(10).join(cards)}
+        </div>
+      </section>"""
 
 
 def pfd_card_html(page: dict) -> str:
@@ -150,6 +176,13 @@ PAGES = [
                 "9+ years in operations and systems, multi-brand ecommerce background, and hands-on builds—not slideware. I stay close enough to test with real data and real users before calling it done.",
             ),
         ],
+        "faq_topic": "AI implementation and workflow automation",
+        "buyer_details": [
+            ("Good fit when", ["A repeated workflow is still manual", "AI experiments need guardrails and ownership", "Your team needs one reviewed process—not another tool demo"]),
+            ("What you receive", ["Workflow map and scoped implementation plan", "Working automation, assistant, or integration", "Testing notes, SOPs, and team handoff"]),
+            ("What I need from you", ["A workflow owner who knows the real process", "Representative examples or safe test data", "Access to approved tools, exports, or APIs"]),
+            ("Engagement options", ["Audit and roadmap", "Short implementation project", "Ongoing improvement and support"]),
+        ],
         "layout": "split",
         "faqs": [
             (
@@ -208,6 +241,13 @@ PAGES = [
                 "Proof you can expect",
                 "Built operational cockpits for multi-brand ecommerce—orders, inventory, ads, fulfillment, and team activity in one place. Comfortable with serialized inventory scale (95k+ items tracked) and real ops constraints.",
             ),
+        ],
+        "faq_topic": "dashboards, reporting, and data cleanup",
+        "buyer_details": [
+            ("Good fit when", ["Teams disagree about which numbers are real", "Weekly reporting depends on copy-paste", "Decision-makers need one dependable operating view"]),
+            ("What you receive", ["Source and metric audit", "Cleaned model, dashboard, or reporting workflow", "Definitions, checks, and maintenance notes"]),
+            ("What I need from you", ["Current exports, sheets, or approved system access", "The decisions each report should support", "An owner for metric definitions and sign-off"]),
+            ("Engagement options", ["Reporting audit and cleanup", "Dashboard implementation", "Ongoing reporting support"]),
         ],
         "layout": "proof",
         "proof_strip": "From conflicting spreadsheets → one trusted morning dashboard.",
@@ -269,6 +309,13 @@ PAGES = [
                 "Multi-brand ecommerce ops background, FBA and eBay experience, and builds that connected scattered activity into clearer daily workflows—not generic agency playbooks.",
             ),
         ],
+        "faq_topic": "ecommerce operations systems",
+        "buyer_details": [
+            ("Good fit when", ["Inventory, listings, or fulfillment repeatedly fall out of sync", "Peak periods expose undocumented handoffs", "Marketplace reporting arrives too late to act"]),
+            ("What you receive", ["Current-state process and failure-point map", "Improved workflow, SOPs, and lightweight tooling", "Owner checks, escalation rules, and handoff documentation"]),
+            ("What I need from you", ["Examples of the highest-cost weekly problems", "Safe exports or approved access to relevant tools", "An operations owner available for testing"]),
+            ("Engagement options", ["Ops audit and roadmap", "Focused workflow implementation", "Ongoing operator-builder support"]),
+        ],
         "layout": "steps",
         "faqs": [
             (
@@ -327,6 +374,13 @@ PAGES = [
                 "Who it is for",
                 "Students, solo founders, operators, and teams who want a practitioner in the room—not a course catalog. If the topic is legal, medical, or financial advice, I stay in the technical and operational lane.",
             ),
+        ],
+        "faq_topic": "technical tutoring, coaching, and project help",
+        "buyer_details": [
+            ("Good fit when", ["You are blocked on a specific build or workflow", "A team needs practical AI-tool training", "You want to validate an approach before a larger project"]),
+            ("What you receive", ["Focused working session or short project burst", "A resolved blocker, documented approach, or working draft", "Repeatable next steps you can own"]),
+            ("What I need from you", ["The goal and current blocker", "Relevant files, screenshots, or a safe example", "Your timezone, availability, and desired pace"]),
+            ("Engagement options", ["One-on-one working session", "Short project help", "Team workshop and follow-up"]),
         ],
         "layout": "simple",
         "faqs": [
@@ -403,9 +457,8 @@ def sections_cards_html(page: dict) -> str:
 
 def scope_block(page: dict) -> str:
     layout = page.get("layout", "split")
-    name = page["service_name"].lower()
     intro = (
-        f"This page is the dedicated entry point for <strong>{name}</strong>. "
+        f"This page is the dedicated entry point for <strong>{page['faq_topic']}</strong>. "
         "The homepage still covers the full range of offerings—consulting, contract work, and adjacent technical help."
     )
     cards = sections_cards_html(page)
@@ -470,6 +523,10 @@ def render(page: dict) -> str:
     slug = page["slug"]
     canonical = f"{BASE}/services/{page['filename']}"
     faqs = page["faqs"]
+    title = escape(page["title"])
+    meta_description = escape(page["meta_description"], quote=True)
+    service_name = escape(page["service_name"])
+    faq_topic = escape(page["faq_topic"])
     schema = faq_schema(
         faqs,
         service_name=page["service_name"],
@@ -477,31 +534,33 @@ def render(page: dict) -> str:
         canonical=canonical,
     )
     scope_html = scope_block(page)
+    buyer_html = buyer_details_html(page)
     return f"""<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{page['title']}</title>
-  <meta name="description" content="{page['meta_description']}" />
+  <title>{title}</title>
+  <meta name="description" content="{meta_description}" />
   <link rel="canonical" href="{canonical}" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Yonatan Gemmi" />
-  <meta property="og:title" content="{page['title']}" />
-  <meta property="og:description" content="{page['meta_description']}" />
+  <meta property="og:title" content="{title}" />
+  <meta property="og:description" content="{meta_description}" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="{canonical}" />
   <meta property="og:site_name" content="Yonatan Gemmi" />
   <meta property="og:image" content="{BASE}/assets/social-preview.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="{page['title']}" />
-  <meta name="twitter:description" content="{page['meta_description']}" />
+  <meta name="twitter:title" content="{title}" />
+  <meta name="twitter:description" content="{meta_description}" />
   <meta name="twitter:image" content="{BASE}/assets/social-preview.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../styles.css" />
   <link rel="stylesheet" href="../assets/portfolio-chatbot.css" />
+  <link rel="icon" href="../assets/yonatan-gemmi-pixel-portrait-256.png" type="image/png" />
   <script type="application/ld+json">
 {schema}
   </script>
@@ -509,7 +568,7 @@ def render(page: dict) -> str:
 <body>
   <div class="site-shell">
     <header class="nav">
-      <a class="brand" href="../index.html" aria-label="Yonatan Gemmi home">
+      <a class="brand" href="../index.html" aria-label="YG Yonatan Gemmi home">
         <span class="brand-mark">YG</span>
         <span>Yonatan Gemmi</span>
       </a>
@@ -526,7 +585,7 @@ def render(page: dict) -> str:
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href="../index.html">Home</a>
           <span aria-hidden="true">/</span>
-          <span>{page['service_name']}</span>
+          <span>{service_name}</span>
         </nav>
         <h1>{page['h1']}</h1>
         <p class="lead">{page['lead']}</p>
@@ -537,13 +596,14 @@ def render(page: dict) -> str:
 {pfd_card_html(page)}
       </section>
 {scope_html}
+{buyer_html}
 
       <section id="faq" class="section">
         <div class="section-heading stacked">
           <p class="section-kicker">FAQ</p>
-          <h2>Questions about {page['service_name'].lower()}.</h2>
+          <h2>Questions about {faq_topic}.</h2>
         </div>
-        <div class="faq-grid">
+        <div class="faq-grid faq-accordion">
 {faq_html(faqs)}
         </div>
       </section>
