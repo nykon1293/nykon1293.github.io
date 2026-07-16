@@ -535,6 +535,18 @@ def render(page: dict) -> str:
     )
     scope_html = scope_block(page)
     buyer_html = buyer_details_html(page)
+    related_case_study = ""
+    if slug == "ai-automation":
+        related_case_study = """
+      <section class="section related-case-study" aria-labelledby="related-ai-case-study-title">
+        <div>
+          <p class="section-kicker">Related system case study</p>
+          <h2 id="related-ai-case-study-title">See how I designed and built a governed AI production system.</h2>
+          <p class="section-intro">An anonymized walkthrough of human approval gates, automated verification, fail-closed behavior, publishing safeguards, and a continuous improvement loop.</p>
+        </div>
+        <a class="button ghost" href="../work/governed-ai-content-engine.html">View the case study</a>
+      </section>
+"""
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -595,7 +607,7 @@ def render(page: dict) -> str:
         </div>
 {pfd_card_html(page)}
       </section>
-{scope_html}
+{scope_html}{related_case_study}
 {buyer_html}
 
       <section id="faq" class="section">
