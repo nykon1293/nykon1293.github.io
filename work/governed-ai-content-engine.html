@@ -109,7 +109,7 @@
             <h2>Scaling output was easy. Scaling judgment was not.</h2>
           </div>
           <div class="case-study-prose">
-            <p>A private ecommerce portfolio needed a repeatable way to produce native-feeling short-form content across multiple brands. A chain of disconnected AI tools could create more output, but it could not guarantee that approved words stayed unchanged, visuals remained usable, costs were controlled, or publishing stayed under human authority.</p>
+            <p>A private ecommerce portfolio needed a repeatable way to produce platform-appropriate, brand-aligned short-form content across multiple brands. A chain of disconnected AI tools could create more output, but it could not guarantee that approved words stayed unchanged, visuals remained usable, costs were controlled, or publishing stayed under human authority.</p>
             <p>The real design challenge was not “make a video with AI.” It was to create one governed production system where research, generation, review, verification, drafting, publishing, and learning worked as a controlled whole.</p>
           </div>
         </section>
@@ -144,7 +144,7 @@
           <div class="section-heading stacked">
             <p class="section-kicker">The multi-agent evolution</p>
             <h2>Coordination stays responsive. Production gets its own lane.</h2>
-            <p class="section-intro">The original workflow grew into a multi-machine operating model that separates oversight from execution. The current implementation uses two coordinated Claude Code environments: a primary coordinator protects context and handles exceptions while a dedicated producer claims and completes approved video work.</p>
+            <p class="section-intro">The original workflow grew into a multi-machine operating model that separates oversight from execution. The active production path uses two coordinated Claude Code environments: a primary coordinator protects context and handles exceptions while a dedicated producer claims and completes approved video work. A Hermes agent is also connected to the shared agent network—the hive—and has passed integration testing, but it has not yet been assigned active production work. The architecture can add specialized workers through the same shared state, task claims, ownership locks, handoffs, budget controls, status reporting, and recovery model as production demand grows.</p>
           </div>
 
           <figure class="agent-architecture" aria-labelledby="agent-architecture-caption">
@@ -196,10 +196,10 @@
             <article><span>01</span><h3>Exclusive ownership</h3><p>Explicit claims, locks, and single-producer rules prevent two machines from acting on the same production task.</p></article>
             <article><span>02</span><h3>Recoverable work</h3><p>Heartbeats, stale-run detection, and orphan recovery make stalled or abandoned work visible instead of silently losing it.</p></article>
             <article><span>03</span><h3>Governed authority</h3><p>Agents can request a decision, but protected actions stay operator-controlled in governed mode. Those gates remain configurable by policy.</p></article>
-            <article><span>04</span><h3>Portable operations</h3><p>A reusable setup pack installs the same tools, routines, listener, and operating rules on another machine without copying secrets.</p></article>
+            <article><span>04</span><h3>Tested expansion path</h3><p>An additional Hermes agent is connected to the shared agent network and has passed integration testing; it remains staged rather than assigned active production work.</p></article>
           </div>
 
-          <p class="agent-evidence"><strong>Validated in operation:</strong> live cutover included two-way handoffs, questions, replies, status updates, and approval requests. The dedicated producer returned production status and review-ready draft reports through the same channel.</p>
+          <p class="agent-evidence"><strong>Validated under real production constraints:</strong> every documented completed production with recorded spend stayed within its configured budget ceiling. Generation spend is counted when work is submitted—including re-renders—and the workflow stops rather than authorizing work that would breach the limit. The ceiling can be adjusted as production type, quality requirements, and campaign priorities change.</p>
         </section>
 
         <section class="section">
@@ -238,10 +238,10 @@
             <h2>Control stays explicit. The system carries the workload.</h2>
           </div>
           <div class="case-results-grid">
-            <article><strong>Dedicated execution</strong><span>Move resource-heavy video work off the primary coordinator without losing context or control.</span></article>
-            <article><strong>Observable handoffs</strong><span>Keep questions, decisions, progress, and completed work visible in one durable operating channel.</span></article>
-            <article><strong>Recoverable automation</strong><span>Surface stalled work through ownership, heartbeat, and recovery logic instead of letting it disappear.</span></article>
-            <article><strong>Configurable control</strong><span>Run with explicit approval gates or increase autonomy as policy, risk, and workflow maturity allow.</span></article>
+            <article><strong>Budget-controlled production</strong><span>Every documented completed production with recorded spend remained within its configured ceiling, including initial renders and re-renders.</span></article>
+            <article><strong>Cost-aware approval gates</strong><span>Generate and approve comparatively inexpensive storyboard stills before committing budget to higher-cost video rendering.</span></article>
+            <article><strong>Extensible hive architecture</strong><span>The shared agent network already accepts an additional tested Hermes agent, while the same control model supports further specialized workers.</span></article>
+            <article><strong>Observable, recoverable execution</strong><span>Keep decisions and progress visible while ownership, heartbeats, and stale-task recovery surface interrupted work.</span></article>
           </div>
           <p class="case-study-disclosure">This case study describes the system’s shape and my role without exposing the client, brands, products, private applications, repositories, production assets, or operational data.</p>
         </section>
