@@ -1063,6 +1063,193 @@ footer p { font-size: .92rem; }
   background: rgba(0,0,0,.12);
   font-size: .84rem;
 }
+
+/* Multi-agent production architecture */
+.agent-architecture {
+  margin: 28px 0 20px;
+}
+.agent-architecture figcaption {
+  margin-bottom: 10px;
+  color: var(--muted-2);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.agent-map {
+  position: relative;
+  padding: clamp(20px, 3vw, 34px);
+  overflow: hidden;
+  border: 1px solid rgba(245,244,236,.11);
+  border-radius: 24px;
+  background:
+    linear-gradient(rgba(245,244,236,.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245,244,236,.022) 1px, transparent 1px),
+    radial-gradient(circle at 50% 0%, rgba(211,170,85,.1), transparent 38%),
+    radial-gradient(circle at 82% 66%, rgba(135,181,138,.08), transparent 34%),
+    rgba(8,10,9,.58);
+  background-size: 28px 28px, 28px 28px, auto, auto, auto;
+}
+.agent-node {
+  position: relative;
+  z-index: 1;
+  padding: 22px;
+  border: 1px solid var(--line-soft);
+  border-radius: 18px;
+  background: rgba(20,23,20,.94);
+  box-shadow: 0 18px 42px rgba(0,0,0,.2);
+}
+.agent-node h3,
+.agent-output h3 {
+  margin: 7px 0 8px;
+  font-size: var(--text-lg);
+}
+.agent-node p,
+.agent-output p {
+  color: var(--muted);
+  font-size: var(--text-sm);
+}
+.agent-node__tag {
+  color: var(--accent);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: .69rem;
+  font-weight: 800;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+.agent-node--operator {
+  width: min(680px, 88%);
+  margin-inline: auto;
+  border-color: rgba(211,170,85,.34);
+  text-align: center;
+  background: linear-gradient(150deg, rgba(211,170,85,.09), rgba(20,23,20,.94) 58%);
+}
+.agent-node--coordinator { border-top: 3px solid rgba(211,170,85,.72); }
+.agent-node--producer { border-top: 3px solid rgba(135,181,138,.82); }
+.agent-node--producer .agent-node__tag { color: var(--accent-2); }
+.agent-connector {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 62px;
+  color: var(--muted-2);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: .64rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.agent-connector::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(var(--accent), rgba(135,181,138,.62));
+}
+.agent-connector::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 4px);
+  width: 7px;
+  height: 7px;
+  border-right: 1px solid var(--accent-2);
+  border-bottom: 1px solid var(--accent-2);
+  transform: rotate(45deg);
+}
+.agent-connector span {
+  position: relative;
+  z-index: 1;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #0c0f0d;
+}
+.agent-system-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(170px, .64fr) minmax(0, 1fr);
+  gap: 16px;
+  align-items: stretch;
+}
+.agent-channel {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-content: center;
+  gap: 8px;
+  min-height: 100%;
+  padding: 20px 16px;
+  border: 1px dashed rgba(135,181,138,.42);
+  border-radius: 18px;
+  color: #d8ead8;
+  background: rgba(135,181,138,.065);
+  text-align: center;
+}
+.agent-channel strong { color: var(--text); font-size: .94rem; }
+.agent-channel p { color: var(--muted); font-size: .75rem; line-height: 1.55; }
+.agent-channel__pulse {
+  width: 10px;
+  height: 10px;
+  margin: 0 auto 2px;
+  border-radius: 50%;
+  background: var(--accent-2);
+  box-shadow: 0 0 0 5px rgba(135,181,138,.09), 0 0 18px rgba(135,181,138,.38);
+}
+.agent-channel__fallback {
+  color: var(--muted-2);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: .62rem;
+}
+.agent-output {
+  display: grid;
+  grid-template-columns: auto minmax(0, .92fr) minmax(0, 1.08fr);
+  gap: 16px;
+  align-items: center;
+  width: min(760px, 92%);
+  margin-inline: auto;
+  padding: 18px 22px;
+  border: 1px solid rgba(135,181,138,.34);
+  border-radius: 18px;
+  background: linear-gradient(145deg, rgba(135,181,138,.09), rgba(20,23,20,.94) 64%);
+}
+.agent-output__status {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent-2);
+  box-shadow: 0 0 16px rgba(135,181,138,.48);
+}
+.agent-proof-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+.agent-proof-grid article {
+  padding: 20px;
+  border: 1px solid var(--line-soft);
+  border-radius: 18px;
+  background: rgba(245,244,236,.032);
+}
+.agent-proof-grid article > span {
+  color: var(--accent-2);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: .7rem;
+  font-weight: 800;
+}
+.agent-proof-grid h3 { margin: 12px 0 8px; font-size: 1rem; }
+.agent-proof-grid p { color: var(--muted); font-size: .82rem; }
+.agent-evidence {
+  margin-top: 16px;
+  padding: 15px 17px;
+  border-left: 2px solid var(--accent-2);
+  color: var(--muted);
+  background: rgba(135,181,138,.055);
+  font-size: .86rem;
+}
+.agent-evidence strong { color: #d8ead8; }
 @media (max-width: 950px) {
   .case-study-hero,
   .case-study-problem,
@@ -1070,6 +1257,9 @@ footer p { font-size: .92rem; }
   .case-study-summary { max-width: 640px; }
   .case-pipeline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .case-results-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .agent-system-grid { grid-template-columns: 1fr; }
+  .agent-channel { min-height: 150px; }
+  .agent-proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 680px) {
   .case-study-hero { gap: 26px; padding-top: 28px; }
@@ -1079,9 +1269,15 @@ footer p { font-size: .92rem; }
   .case-pipeline,
   .case-principles,
   .case-ownership-grid,
-  .case-results-grid { grid-template-columns: 1fr; }
+  .case-results-grid,
+  .agent-proof-grid { grid-template-columns: 1fr; }
   .case-pipeline li { min-height: 0; }
   .case-pipeline-loop { width: 100%; flex-wrap: wrap; text-align: center; }
+  .agent-map { padding: 16px; border-radius: 20px; }
+  .agent-node--operator,
+  .agent-output { width: 100%; }
+  .agent-output { grid-template-columns: auto 1fr; }
+  .agent-output > p { grid-column: 1 / -1; }
 }
 
 /* Spreadsheets → system morph (Selected work visual) */

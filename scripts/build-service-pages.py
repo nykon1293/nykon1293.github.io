@@ -542,7 +542,7 @@ def render(page: dict) -> str:
         <div>
           <p class="section-kicker">Related system case study</p>
           <h2 id="related-ai-case-study-title">See how I designed and built a governed AI production system.</h2>
-          <p class="section-intro">An anonymized walkthrough of human approval gates, automated verification, fail-closed behavior, publishing safeguards, and a continuous improvement loop.</p>
+          <p class="section-intro">An anonymized walkthrough of configurable approval gates, automated verification, fail-closed behavior, and an optional fully autonomous operating mode.</p>
         </div>
         <a class="button ghost" href="../work/governed-ai-content-engine.html">View the case study</a>
       </section>
