@@ -4,19 +4,19 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Multi-Agent AI Production Case Study | Yonatan Gemmi</title>
-  <meta name="description" content="An anonymized multi-agent AI production case study by Yonatan Gemmi: coordinated work across machines, video execution, recovery, and operator control." />
+  <meta name="description" content="An anonymized multi-agent AI case study by Yonatan Gemmi: operator-led briefs, coordinated video execution, recovery, and configurable control." />
   <link rel="canonical" href="https://nykon1293.github.io/work/governed-ai-content-engine.html" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Yonatan Gemmi" />
   <meta property="og:title" content="Multi-Agent AI Production Case Study | Yonatan Gemmi" />
-  <meta property="og:description" content="A governed AI production operation that separates coordination from video execution across machines while keeping ownership, recovery, and operator authority visible." />
+  <meta property="og:description" content="A governed AI production operation that turns operator briefs or research into reviewable concepts, then coordinates video execution across machines." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://nykon1293.github.io/work/governed-ai-content-engine.html" />
   <meta property="og:site_name" content="Yonatan Gemmi" />
   <meta property="og:image" content="https://nykon1293.github.io/assets/social-preview.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Multi-Agent AI Production Case Study | Yonatan Gemmi" />
-  <meta name="twitter:description" content="A multi-machine AI operation built around explicit ownership, recovery, QA, and configurable operator control." />
+  <meta name="twitter:description" content="Operator-led creative briefs, multi-machine execution, explicit ownership, recovery, QA, and configurable control." />
   <meta name="twitter:image" content="https://nykon1293.github.io/assets/social-preview.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -30,14 +30,14 @@
     "@type": "CreativeWork",
     "name": "Governed Multi-Agent AI Production System — Anonymized Case Study",
     "headline": "A multi-agent production operation that separates coordination from video execution",
-    "description": "An anonymized case study of a multi-agent AI production system designed by Yonatan Gemmi to coordinate work across machines, offload video execution, recover from failures, and preserve configurable operator control.",
+    "description": "An anonymized case study of a multi-agent AI production system designed by Yonatan Gemmi to turn operator-led creative briefs or research into reviewable concepts, coordinate video execution across machines, recover from failures, and preserve configurable operator control.",
     "url": "https://nykon1293.github.io/work/governed-ai-content-engine.html",
     "author": {
       "@type": "Person",
       "name": "Yonatan Gemmi",
       "url": "https://nykon1293.github.io/"
     },
-    "about": ["Multi-agent AI systems", "Agent orchestration", "Claude Code automation", "AI video production", "Distributed AI workflows", "Human-in-the-loop systems", "Quality assurance"]
+    "about": ["Multi-agent AI systems", "Agent orchestration", "Operator-led creative direction", "AI social content workflows", "AI video production", "Distributed AI workflows", "Human-in-the-loop systems", "Quality assurance"]
   }
   </script>
 </head>
@@ -129,15 +129,26 @@
 
           <ol class="case-pipeline" aria-label="Governed AI content production pipeline">
             <li class="is-automated"><span>01</span><strong>Research</strong><p>Study proven formats and identify the mechanics that earned attention.</p></li>
-            <li class="is-automated"><span>02</span><strong>Concepts</strong><p>Rebuild useful patterns for the current brand, audience, and product constraints.</p></li>
+            <li class="is-automated"><span>02</span><strong>Concepts</strong><p>Turn research signals or an operator brief into brand-specific, production-ready concepts.</p></li>
             <li class="is-human"><span>03</span><strong>Approve words</strong><p>A human approves the script. Approved language becomes the source of truth.</p></li>
             <li class="is-human"><span>04</span><strong>Approve frames</strong><p>Review inexpensive storyboard stills before committing to full generation.</p></li>
             <li class="is-automated"><span>05</span><strong>Generate</strong><p>Create production assets from the locked script and approved visual plan.</p></li>
             <li class="is-automated"><span>06</span><strong>Verify</strong><p>Compare audio to approved words and inspect visual output for known defects.</p></li>
-            <li class="is-human"><span>07</span><strong>Approve draft</strong><p>The finished draft waits for a human yes. The system cannot approve itself.</p></li>
+            <li class="is-human"><span>07</span><strong>Approve draft</strong><p>In governed mode, the finished draft waits for a human yes before publishing.</p></li>
             <li class="is-automated"><span>08</span><strong>Publish &amp; learn</strong><p>Approved work publishes; results and rejections improve the next cycle.</p></li>
           </ol>
           <div class="case-pipeline-loop" aria-hidden="true"><span>Results + rejection lessons</span><i>↺</i><span>Stronger next run</span></div>
+        </section>
+
+        <section class="section case-study-problem">
+          <div>
+            <p class="section-kicker">The Creative Hub</p>
+            <h2>The operator can start with an idea—not only a research signal.</h2>
+          </div>
+          <div class="case-study-prose">
+            <p>I added an operator-led creative hub to the social workflow. An operator can choose a brand and production lane—UGC or commercial—type a few sentences or fragments, and request either one faithful concept or three distinct takes: a direct interpretation, an elevated production treatment, and a different angle on the same idea.</p>
+            <p>The typed brief becomes the creative source. It outranks research patterns and format defaults when they conflict, while brand, compliance, and production safeguards remain active. The resulting concept retains its origin, appears in the normal concept queue, and moves through the same script, storyboard, production, review, and publishing-readiness path. Human taste and campaign direction stay traceable instead of disappearing inside a prompt.</p>
+          </div>
         </section>
 
         <section id="multi-agent-operation" class="section case-agent-system">
@@ -213,7 +224,7 @@
             <article><span>02</span><h3>Lock what was approved</h3><p>Downstream steps cannot silently rewrite the words or visual plan a person accepted.</p></article>
             <article><span>03</span><h3>Fail closed</h3><p>If required verification cannot pass, the run stops and reports instead of guessing.</p></article>
             <article><span>04</span><h3>Reserve authority for people by default</h3><p>In governed mode, the system can prepare a draft but cannot publish or mark its own work approved.</p></article>
-            <article><span>05</span><h3>Turn misses into rules</h3><p>Rejections and observed defects become reusable constraints for future production.</p></article>
+            <article><span>05</span><h3>Repair defects, not ground truth</h3><p>Bounded visual defects can self-correct; conflicts with approved source assets stop for operator review.</p></article>
             <article><span>06</span><h3>Make autonomy configurable</h3><p>Approval gates are policy controls. They can be reduced or lifted so trusted workflows run fully autonomously.</p></article>
           </div>
         </section>
@@ -225,7 +236,7 @@
             <p class="section-intro">I owned the product and systems work needed to make the pipeline coherent from the operator’s point of view.</p>
           </div>
           <div class="case-ownership-grid">
-            <article><h3>Workflow and product design</h3><p>Mapped the production lifecycle, decision rights, approval states, failure states, and operator experience.</p></article>
+            <article><h3>Workflow, creative intake, and product design</h3><p>Mapped the lifecycle, decision rights, approval and failure states, and built the Creative Hub that turns operator direction into governed production work.</p></article>
             <article><h3>Multi-agent orchestration</h3><p>Separated coordination from execution, defined machine responsibilities, and connected handoffs, claims, status, and recovery into one operating model.</p></article>
             <article><h3>Operator control plane</h3><p>Created a shared view for agent conversations, approval requests, machine activity, task ownership, and scheduler status.</p></article>
             <article><h3>Quality and governance</h3><p>Designed source-of-truth rules, transcript comparison, visual inspection, budget boundaries, and configurable release authority.</p></article>
