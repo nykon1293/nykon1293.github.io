@@ -97,7 +97,7 @@ def buyer_details_html(page: dict) -> str:
         <div class="section-heading stacked">
           <p class="section-kicker">Working together</p>
           <h2>Clear scope before the build starts.</h2>
-          <p class="section-intro">The exact stack depends on the problem. The engagement should still be concrete: what is being fixed, what you receive, what access is needed, and who owns the result.</p>
+          <p class="section-intro">The tools depend on the problem. Before work starts, we agree on what I will fix, what you will get, what access I need, and who owns the result.</p>
         </div>
         <div class="buyer-detail-grid">
 {chr(10).join(cards)}
@@ -141,42 +141,42 @@ PAGES = [
         "slug": "ai-automation",
         "filename": "ai-automation.html",
         "title": "AI Workflow Automation | Yonatan Gemmi | South FL",
-        "meta_description": "Practical AI implementation, workflow automation, Custom GPTs, and agent-assisted ops for teams and founders. Remote or South Florida.",
-        "service_name": "AI implementation and workflow automation",
+        "meta_description": "Useful AI tools, workflow automation, Custom GPTs, and hands-on support for teams and founders. Remote or South Florida.",
+        "service_name": "AI tools and workflow automation",
         "eyebrow": "AI workflows",
-        "h1": "Turn AI pilots into workflows your team runs every week",
-        "lead": "I help operators and founders move from scattered ChatGPT experiments to reviewed automations—research, reporting, drafting, QA, intake, and agent-assisted steps—with human checkpoints where they matter.",
+        "h1": "Turn AI tests into tools your team uses each week",
+        "lead": "I help teams move from random AI tests to useful tools. These tools can help with research, reports, drafts, checks, and intake. People can review the work where needed.",
         "pfd_label": "When teams call for AI automation",
-        "pfd_caption": "For operators who need production workflows—not another demo that stalls in a shared doc.",
+        "pfd_caption": "For teams that need a working tool, not another demo.",
         "pfd_pains": [
             (
-                "AI experiments never reach daily ops",
-                "Map the real process, pick the lightest stack, and ship something the team can run without heroics.",
+                "AI tests never reach daily work",
+                "Map the real steps, choose simple tools, and build something the team can run.",
             ),
             (
                 "Manual copy-paste between tools",
-                "Connect spreadsheets, CRMs, inboxes, and APIs so assisted steps sit inside the workflow—not beside it.",
+                "Connect files, CRMs, inboxes, and apps so the work moves in one clear flow.",
             ),
             (
-                "No guardrails on AI output",
-                "Add review loops, SOPs, and training so drafts and routing are trusted—not feared.",
+                "No checks on AI output",
+                "Add reviews, clear steps, and training so people can trust the results.",
             ),
         ],
         "sections": [
             (
                 "What this looks like",
-                "I start with the process, not the model. We map where time is lost, what decisions need a human, and which steps can be assisted, routed, or automated. Deliverables might include prompt systems, Custom GPTs, lightweight agents, API glue, SOPs, and training so the team can run it without heroics.",
+                "I start with the work, not the AI model. We find where time is lost and which choices need a person. Then I build the smallest useful system and show the team how to run it.",
             ),
             (
                 "Common project types",
-                "Internal research and summarization pipelines • Reporting and briefing assistants • Ecommerce and ops intake routing • Documentation and QA helpers • Custom GPT / assistant design with review loops • Connecting spreadsheets, CRMs, and tools into one repeatable flow",
+                "Research and summary tools • Report helpers • Ecommerce and work intake • Draft and quality checks • Custom GPTs with review steps • Connections between files, CRMs, and other tools",
             ),
             (
                 "Proof you can expect",
-                "9+ years in operations and systems, multi-brand ecommerce background, and hands-on builds—not slideware. I stay close enough to test with real data and real users before calling it done.",
+                "I have 9+ years in operations and systems, including multi-brand ecommerce. I test the work with real examples and users before I call it done.",
             ),
         ],
-        "faq_topic": "AI implementation and workflow automation",
+        "faq_topic": "AI tools and workflow automation",
         "buyer_details": [
             ("Good fit when", ["A repeated workflow is still manual", "AI experiments need guardrails and ownership", "Your team needs one reviewed process—not another tool demo"]),
             ("What you receive", ["Workflow map and scoped implementation plan", "Working automation, assistant, or integration", "Testing notes, SOPs, and team handoff"]),
@@ -187,11 +187,11 @@ PAGES = [
         "faqs": [
             (
                 "Do you only build Custom GPTs?",
-                "No. Custom GPTs and AI assistants are one option. I choose the lightest stack that fits—sometimes that is scripts, automations, or dashboards with AI steps, not a standalone bot.",
+                "No. They are only one option. A simple script, automation, or dashboard may fit the job better.",
             ),
             (
                 "Can you work with our existing tools?",
-                "Usually yes. I integrate with spreadsheets, CRMs, marketplaces, email, Slack-style workflows, and cloud data tools when APIs or exports are available.",
+                "Usually. I can connect files, CRMs, online stores, email, chat tools, and cloud data when access is available.",
             ),
             (
                 "Is this remote or on-site?",
@@ -199,7 +199,7 @@ PAGES = [
             ),
             (
                 "How do we start?",
-                "Send a short note about the workflow, pain point, and tools involved via the contact form on the homepage or email. We scope from there—no invented fixed rates in chat.",
+                "Send a short note about the problem and tools. Use the homepage form or email. We can then agree on the scope.",
             ),
         ],
     },
@@ -207,39 +207,39 @@ PAGES = [
         "slug": "dashboards-reporting",
         "filename": "dashboards-reporting.html",
         "title": "Dashboards & Reporting | Yonatan Gemmi | South FL",
-        "meta_description": "Dashboards, reporting, spreadsheet cleanup, and operational visibility for ecommerce and ops teams. Remote consulting and contract work.",
+        "meta_description": "Clear dashboards, reports, and spreadsheet cleanup for ecommerce and operations teams. Remote consulting and contract work.",
         "service_name": "Dashboards, reporting, and data cleanup",
         "eyebrow": "Data visibility",
-        "h1": "Reporting and dashboards your team trusts for daily decisions",
-        "lead": "When every department has its own spreadsheet version of truth, decisions slow down. I help teams standardize key fields, clean the mess, and build reporting people open every morning—not rebuild every Friday.",
-        "pfd_label": "When visibility is the bottleneck",
-        "pfd_caption": "For leaders and operators who are tired of guessing from exports and conflicting sheets.",
+        "h1": "Clear reports your team can trust each day",
+        "lead": "Work slows down when each team has different numbers. I clean the data, set clear rules, and build reports people can trust. The goal is a useful daily view, not another report to rebuild by hand.",
+        "pfd_label": "When the numbers are not clear",
+        "pfd_caption": "For teams that are tired of guessing from exports and mixed-up files.",
         "pfd_pains": [
             (
                 "Nobody agrees which numbers are real",
-                "Audit sources, dedupe manual entry, and define metrics that match how work actually runs.",
+                "Check the sources, remove repeat entry, and agree on what each number means.",
             ),
             (
                 "Reports take days to assemble",
-                "Automate the path from raw exports to a daily view—sheets with guardrails or BI when it earns its keep.",
+                "Turn raw exports into a daily view with simple checks and tools that fit the job.",
             ),
             (
-                "Leadership still can’t see what’s happening",
-                "Build cockpits for orders, inventory, sales activity, or ops KPIs people use—not slide decks.",
+                "Leaders still can’t see what is happening",
+                "Build clear views for orders, inventory, sales, or daily work.",
             ),
         ],
         "sections": [
             (
                 "What this looks like",
-                "Audit which files and systems drive decisions, remove duplicate manual entry, define the metrics that matter, and build a path from raw data to a daily view—whether that is Looker-style BI, sheets with guardrails, or a lightweight data platform.",
+                "I check which files drive decisions and remove repeat work. We agree on the numbers that matter. Then I turn the raw data into a clear daily view.",
             ),
             (
                 "Common project types",
-                "Spreadsheet consolidation and cleanup • Ecommerce and inventory reporting • CRM and sales activity views • Fulfillment and ops KPIs • ETL-style movement into a warehouse (e.g. BigQuery) • Training teams on maintaining the pipeline",
+                "Spreadsheet cleanup • Ecommerce and inventory reports • CRM and sales views • Shipping and operations measures • Moving data into BigQuery or another store • Training teams to maintain the reports",
             ),
             (
                 "Proof you can expect",
-                "Built operational cockpits for multi-brand ecommerce—orders, inventory, ads, fulfillment, and team activity in one place. Comfortable with serialized inventory scale (95k+ items tracked) and real ops constraints.",
+                "I built daily dashboards for multi-brand ecommerce. They brought orders, inventory, ads, shipping, and team work into one place. I have also worked with 95k+ tracked items.",
             ),
         ],
         "faq_topic": "dashboards, reporting, and data cleanup",
@@ -254,19 +254,19 @@ PAGES = [
         "faqs": [
             (
                 "Can you fix our spreadsheets without a full BI project?",
-                "Often yes. Many engagements start with structure, validation, and clearer ownership in sheets before any heavier platform work.",
+                "Often. Many projects start by cleaning the files, adding checks, and naming an owner. A larger tool may not be needed.",
             ),
             (
                 "Do you build the dashboards or only advise?",
-                "Both. I implement when that is the fastest path to value—queries, models, charts, and documentation—not strategy decks alone.",
+                "Both. I can build the queries, charts, data model, and notes when that is the fastest way to help.",
             ),
             (
                 "What tools do you use?",
-                "Depends on your stack: Google Sheets, BigQuery, Looker-style tools, Python for cleanup, and marketplace or CRM exports. I match what you already pay for when possible.",
+                "It depends on your tools. I use Google Sheets, BigQuery, dashboard tools, Python, and system exports. I try to use tools you already pay for.",
             ),
             (
                 "How do we start?",
-                "Share which reports you trust today, which you do not, and who makes decisions from them. Use the homepage contact form or email to begin.",
+                "Tell me which reports you trust, which you do not, and who uses them. Use the homepage form or email to start.",
             ),
         ],
     },
@@ -277,36 +277,36 @@ PAGES = [
         "meta_description": "Ecommerce operations systems: Amazon, eBay, inventory, fulfillment, listings, and marketplace reporting. Consulting and contract support.",
         "service_name": "Ecommerce operations systems",
         "eyebrow": "Ecommerce ops",
-        "h1": "Marketplace ops that stop living in emergency spreadsheets",
-        "lead": "I help multi-channel sellers fix breakpoints in listings, inventory, fulfillment, and reporting—with SOPs, automations, and visibility grounded in real warehouse and marketplace experience.",
-        "pfd_label": "When ecommerce ops feel chaotic",
-        "pfd_caption": "For Amazon, eBay, and multi-SKU teams where weekly fires eat strategic work.",
+        "h1": "Fix the ecommerce problems that keep coming back",
+        "lead": "I help online sellers fix problems with listings, inventory, shipping, and reports. I build clear work steps, simple automation, and useful daily views. My approach comes from real warehouse and marketplace work.",
+        "pfd_label": "When ecommerce work feels chaotic",
+        "pfd_caption": "For Amazon, eBay, and product teams that spend each week putting out fires.",
         "pfd_pains": [
             (
                 "Inventory and listings don’t match reality",
-                "Align channel rules, serialized SKUs, and product data so the team shares one truth.",
+                "Match sales-channel rules, tracked items, and product data so the team uses the same facts.",
             ),
             (
-                "Fulfillment and handoffs break every peak season",
-                "Document warehouse steps, QC, and escalations so staff and VAs follow the same playbook.",
+                "Shipping and handoffs break in busy seasons",
+                "Write down warehouse steps, quality checks, and when to ask for help.",
             ),
             (
-                "Marketplace reporting is always late",
-                "Connect exports and ops data into views that show what to fix before it becomes a chargeback.",
+                "Marketplace reports are always late",
+                "Connect exports and work data so the team can spot problems early.",
             ),
         ],
         "sections": [
             (
                 "What this looks like",
-                "Map how product, order, and inventory data moves today, fix the breakpoints (item specifics, QC, handoffs, reporting), and put lightweight systems in place so the team is not living in emergency spreadsheets.",
+                "I map how product, order, and inventory data moves. Then I fix weak points in listings, checks, handoffs, and reports. The goal is less time spent in emergency spreadsheets.",
             ),
             (
                 "Common project types",
-                "Amazon and eBay workflow improvement • Serialized and multi-SKU inventory tracking • Listing and product data quality • Fulfillment and warehouse SOPs • Marketplace reporting and ops dashboards • AI-assisted research, drafting, or QA for listings and ops tasks",
+                "Amazon and eBay work steps • Tracked and multi-SKU inventory • Better listings and product data • Shipping and warehouse guides • Marketplace reports and dashboards • AI help for research, drafts, and checks",
             ),
             (
                 "Proof you can expect",
-                "Multi-brand ecommerce ops background, FBA and eBay experience, and builds that connected scattered activity into clearer daily workflows—not generic agency playbooks.",
+                "I have worked in multi-brand ecommerce, FBA, and eBay operations. I have built systems that turn scattered work into clear daily steps.",
             ),
         ],
         "faq_topic": "ecommerce operations systems",
@@ -320,19 +320,19 @@ PAGES = [
         "faqs": [
             (
                 "Do you only work with large brands?",
-                "No. Founders, small teams, and operators with messy multi-channel setups are a good fit when you want practical systems, not a reorg deck.",
+                "No. I also help founders and small teams that sell on more than one channel.",
             ),
             (
                 "Can you help with Amazon and eBay at the same time?",
-                "Yes. Much of my experience is multi-channel—shared inventory truth, channel-specific listing rules, and reporting that rolls up cleanly.",
+                "Yes. I can help with shared inventory, different listing rules, and reports that bring both channels together.",
             ),
             (
                 "Do you replace an agency or VA team?",
-                "I complement execution teams: SOPs, tooling, data quality, and systems so VAs and staff have a clearer playbook.",
+                "No. I help the team work better with clear steps, tools, and cleaner data.",
             ),
             (
                 "How do we start?",
-                "Describe channels, SKU scale, and the top two weekly fires. Contact via the homepage form or email.",
+                "Tell me where you sell, how many items you manage, and the top two weekly problems. Use the homepage form or email.",
             ),
         ],
     },
@@ -340,39 +340,39 @@ PAGES = [
         "slug": "tutoring-project-help",
         "filename": "tutoring-project-help.html",
         "title": "Technical Tutoring & Project Help | Yonatan Gemmi",
-        "meta_description": "One-on-one technical tutoring, AI tool coaching, workflow training, and project help for founders, students, and operators. Remote sessions.",
+        "meta_description": "One-on-one help with AI tools, workflows, and technical projects for founders, students, and teams. Remote sessions.",
         "service_name": "Technical tutoring, coaching, and project help",
         "eyebrow": "Hands-on help",
-        "h1": "Get unstuck with a practitioner—not another generic course",
-        "lead": "Not every request needs a full consulting engagement. I help founders, students, and operators learn AI tools responsibly, debug workflows, or finish a build—with clear scope and an hourly project rate.",
+        "h1": "Get hands-on help and move your project forward",
+        "lead": "Not every problem needs a large project. I help founders, students, and teams learn AI tools, fix workflows, and finish builds. We agree on a clear goal before the session starts.",
         "pfd_label": "When you need hands-on help",
-        "pfd_caption": "For people who want pairing and documentation—not dependency on every click.",
+        "pfd_caption": "For people who want help now and clear steps they can use later.",
         "pfd_pains": [
             (
                 "Stuck on a build with no one to pair with",
-                "Walk through the system, fix the blocker, and leave steps you can repeat.",
+                "Review the system, fix the problem, and write down steps you can repeat.",
             ),
             (
-                "AI tools feel powerful but unsafe",
-                "Learn prompt patterns, guardrails, and SOPs so adoption sticks on your stack.",
+                "AI tools feel useful but risky",
+                "Learn simple prompts, safety checks, and steps that fit your tools.",
             ),
             (
-                "Unsure whether to hire consulting or DIY",
-                "Scope what to build vs buy before you commit to a larger contract.",
+                "Not sure whether to build or buy",
+                "Compare the options before you agree to a larger project.",
             ),
         ],
         "sections": [
             (
                 "What this looks like",
-                "Focused sessions or short project bursts: explain the system, pair on the fix, document the steps, and leave you with something you can repeat—not dependency on me for every click.",
+                "We focus on one problem at a time. I explain the system, work through the fix with you, and write down the steps. You leave with something you can use again.",
             ),
             (
                 "Common request types",
-                "Learning ChatGPT, Custom GPTs, or agent tools responsibly • Spreadsheet and dashboard coaching • Ecommerce ops walkthroughs • Debugging automations • Career-adjacent technical interview prep for ops/systems roles • Helping founders scope what to build vs buy",
+                "Learning ChatGPT, Custom GPTs, or AI agents • Spreadsheet and dashboard help • Ecommerce work steps • Fixing automations • Technical interview practice • Helping founders decide what to build or buy",
             ),
             (
                 "Who it is for",
-                "Students, solo founders, operators, and teams who want a practitioner in the room—not a course catalog. If the topic is legal, medical, or financial advice, I stay in the technical and operational lane.",
+                "This is for students, solo founders, operators, and teams that want hands-on help. I do not give legal, medical, or financial advice.",
             ),
         ],
         "faq_topic": "technical tutoring, coaching, and project help",
@@ -386,19 +386,19 @@ PAGES = [
         "faqs": [
             (
                 "Is this the same as full consulting?",
-                "Tutoring and project help are usually narrower and session-based. Larger builds roll into consulting or contract work with a written scope.",
+                "Tutoring is for a small, clear goal. Larger builds become consulting or contract work with a written plan.",
             ),
             (
                 "Remote only?",
-                "Mostly remote video sessions. South Florida in-person can be arranged for longer workshops when useful.",
+                "Most sessions are remote by video. Longer South Florida workshops may be held in person.",
             ),
             (
                 "Can you help my team adopt a new AI tool?",
-                "Yes—live walkthroughs, guardrails, prompt patterns, and simple SOPs so adoption sticks.",
+                "Yes. I can teach the tool, set safety checks, share prompt patterns, and write simple steps for the team.",
             ),
             (
                 "How do we start?",
-                "Tell me what you are trying to learn or finish. Use the homepage contact form or email with your timezone and availability.",
+                "Tell me what you want to learn or finish. Use the homepage form or email, and include your time zone and schedule.",
             ),
         ],
     },
@@ -459,7 +459,7 @@ def scope_block(page: dict) -> str:
     layout = page.get("layout", "split")
     intro = (
         f"This page is the dedicated entry point for <strong>{page['faq_topic']}</strong>. "
-        "The homepage still covers the full range of offerings—consulting, contract work, and adjacent technical help."
+        "The homepage lists my other consulting, contract, and technical services."
     )
     cards = sections_cards_html(page)
 
@@ -485,7 +485,7 @@ def scope_block(page: dict) -> str:
       <section class="section split service-layout-steps">
         <div>
           <p class="section-kicker">Scope</p>
-          <h2>How we tighten ops, one layer at a time.</h2>
+          <h2>How we improve the work, one step at a time.</h2>
           <p class="section-intro">{intro}</p>
         </div>
         <div class="cards capability-list">
@@ -498,7 +498,7 @@ def scope_block(page: dict) -> str:
       <section class="section service-layout-simple">
         <div class="section-heading stacked">
           <p class="section-kicker">What sessions cover</p>
-          <h2>Practical help without a heavyweight engagement.</h2>
+          <h2>Practical help without a large project.</h2>
           <p class="section-intro">{intro}</p>
         </div>
         <div class="cards service-detail-stack">
@@ -541,8 +541,8 @@ def render(page: dict) -> str:
       <section class="section related-case-study" aria-labelledby="related-ai-case-study-title">
         <div>
           <p class="section-kicker">Related system case study</p>
-          <h2 id="related-ai-case-study-title">See how I designed and built a governed AI production system.</h2>
-          <p class="section-intro">An anonymized walkthrough of configurable approval gates, automated verification, fail-closed behavior, and an optional fully autonomous operating mode.</p>
+          <h2 id="related-ai-case-study-title">See how I built an AI content system with safety checks.</h2>
+          <p class="section-intro">This private-client example shows review steps, automatic checks, safe stops, and an optional hands-free mode.</p>
         </div>
         <a class="button ghost" href="../work/governed-ai-content-engine.html">View the case study</a>
       </section>
@@ -624,7 +624,7 @@ def render(page: dict) -> str:
         <div>
           <p class="section-kicker">Next step</p>
           <h2>Tell me what you are trying to fix or build.</h2>
-          <p class="section-intro">Use the contact form on the homepage or email directly. I will respond with practical next steps—not a generic pitch deck.</p>
+          <p class="section-intro">Use the homepage form or email me. I will reply with clear next steps.</p>
         </div>
         <div class="contact-panel">
           <a class="button primary full" href="../index.html#contact">Go to contact form</a>
