@@ -21,8 +21,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css" />
-  <link rel="stylesheet" href="../assets/portfolio-chatbot.css" />
+  <link rel="stylesheet" href="../styles.css?v=hero-pass" />
+  <link rel="stylesheet" href="../assets/portfolio-chatbot.css?v=hero-pass" />
   <link rel="icon" href="../assets/yonatan-gemmi-pixel-portrait-256.png" type="image/png" />
   <script type="application/ld+json">
 {
@@ -114,52 +114,61 @@
     </header>
 
     <main id="top">
-      <section class="service-landing-hero section">
-        <p class="section-kicker">AI workflows</p>
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="../index.html">Home</a>
-          <span aria-hidden="true">/</span>
-          <span>AI tools and workflow automation</span>
-        </nav>
-        <h1>Turn AI tests into tools your team uses each week</h1>
-        <p class="lead">I help teams move from random AI tests to useful tools. These tools can help with research, reports, drafts, checks, and intake. People can review the work where needed.</p>
-        <div class="actions">
-          <a class="button primary" href="../index.html#contact">Discuss this service</a>
-          <a class="button ghost" href="../index.html#work">See work examples</a>
+      <section class="hero service-landing-hero">
+        <div class="hero-copy">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a>
+            <span aria-hidden="true">/</span>
+            <span>AI tools and workflow automation</span>
+          </nav>
+          <h1>Turn AI tests into tools your team uses each week</h1>
+          <p class="lead">I help teams move from random AI tests to useful tools. These tools can help with research, reports, drafts, checks, and intake. People can review the work where needed.</p>
+          <div class="actions">
+            <a class="button primary" href="../index.html#contact">Discuss this service</a>
+            <a class="button ghost" href="../index.html#work">See work examples</a>
+          </div>
         </div>
 
-        <aside class="hero-card service-pfd-card" aria-label="Typical client pains">
-          <div class="profile-strip">
+        <aside class="hero-panel service-pfd-card" aria-label="Typical client pains">
+          <div class="hero-identity">
             <div>
               <p class="snapshot-label">When teams call for AI automation</p>
               <span class="portrait-caption">For teams that need a working tool, not another demo.</span>
             </div>
           </div>
-          <div class="snapshot-list">
-            <div><strong>AI tests never reach daily work</strong><span>Map the real steps, choose simple tools, and build something the team can run.</span></div>
-            <div><strong>Manual copy-paste between tools</strong><span>Connect files, CRMs, inboxes, and apps so the work moves in one clear flow.</span></div>
-            <div><strong>No checks on AI output</strong><span>Add reviews, clear steps, and training so people can trust the results.</span></div>
-          </div>
+          <ul class="problem-list">
+            <li>
+              <strong>AI tests never reach daily work</strong>
+              <span>Map the real steps, choose simple tools, and build something the team can run.</span>
+            </li>
+            <li>
+              <strong>Manual copy-paste between tools</strong>
+              <span>Connect files, CRMs, inboxes, and apps so the work moves in one clear flow.</span>
+            </li>
+            <li>
+              <strong>No checks on AI output</strong>
+              <span>Add reviews, clear steps, and training so people can trust the results.</span>
+            </li>
+          </ul>
         </aside>
 
       </section>
 
       <section class="section split">
         <div>
-          <p class="section-kicker">Scope</p>
           <h2>Focused help for one kind of problem.</h2>
           <p class="section-intro">This page is the dedicated entry point for <strong>AI tools and workflow automation</strong>. The homepage lists my other consulting, contract, and technical services.</p>
         </div>
-        <div class="cards capability-list">
-        <article class="card service-detail-card">
+        <div class="offering-list">
+        <article>
           <h3>What this looks like</h3>
           <p>I start with the work, not the AI model. We find where time is lost and which choices need a person. Then I build the smallest useful system and show the team how to run it.</p>
         </article>
-        <article class="card service-detail-card">
+        <article>
           <h3>Common project types</h3>
           <p>Research and summary tools • Report helpers • Ecommerce and work intake • Draft and quality checks • Custom GPTs with review steps • Connections between files, CRMs, and other tools</p>
         </article>
-        <article class="card service-detail-card">
+        <article>
           <h3>Proof you can expect</h3>
           <p>I have 9+ years in operations and systems, including multi-brand ecommerce. I test the work with real examples and users before I call it done.</p>
         </article>
@@ -167,7 +176,6 @@
       </section>
       <section class="section related-case-study" aria-labelledby="related-ai-case-study-title">
         <div>
-          <p class="section-kicker">Related system case study</p>
           <h2 id="related-ai-case-study-title">See how I built an AI content system with safety checks.</h2>
           <p class="section-intro">This private-client example shows review steps, automatic checks, safe stops, and an optional hands-free mode.</p>
         </div>
@@ -177,7 +185,6 @@
 
       <section class="section service-buyer-details">
         <div class="section-heading stacked">
-          <p class="section-kicker">Working together</p>
           <h2>Clear scope before the build starts.</h2>
           <p class="section-intro">The tools depend on the problem. Before work starts, we agree on what I will fix, what you will get, what access I need, and who owns the result.</p>
         </div>
@@ -203,7 +210,6 @@
 
       <section id="faq" class="section">
         <div class="section-heading stacked">
-          <p class="section-kicker">FAQ</p>
           <h2>Questions about AI tools and workflow automation.</h2>
         </div>
         <div class="faq-grid faq-accordion">
@@ -216,7 +222,6 @@
 
       <section class="section closing-card service-landing-cta">
         <div>
-          <p class="section-kicker">Next step</p>
           <h2>Tell me what you are trying to fix or build.</h2>
           <p class="section-intro">Use the homepage form or email me. I will reply with clear next steps.</p>
         </div>

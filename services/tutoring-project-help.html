@@ -21,8 +21,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css" />
-  <link rel="stylesheet" href="../assets/portfolio-chatbot.css" />
+  <link rel="stylesheet" href="../styles.css?v=hero-pass" />
+  <link rel="stylesheet" href="../assets/portfolio-chatbot.css?v=hero-pass" />
   <link rel="icon" href="../assets/yonatan-gemmi-pixel-portrait-256.png" type="image/png" />
   <script type="application/ld+json">
 {
@@ -114,52 +114,61 @@
     </header>
 
     <main id="top">
-      <section class="service-landing-hero section">
-        <p class="section-kicker">Hands-on help</p>
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="../index.html">Home</a>
-          <span aria-hidden="true">/</span>
-          <span>Technical tutoring, coaching, and project help</span>
-        </nav>
-        <h1>Get hands-on help and move your project forward</h1>
-        <p class="lead">Not every problem needs a large project. I help founders, students, and teams learn AI tools, fix workflows, and finish builds. We agree on a clear goal before the session starts.</p>
-        <div class="actions">
-          <a class="button primary" href="../index.html#contact">Discuss this service</a>
-          <a class="button ghost" href="../index.html#work">See work examples</a>
+      <section class="hero service-landing-hero">
+        <div class="hero-copy">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a>
+            <span aria-hidden="true">/</span>
+            <span>Technical tutoring, coaching, and project help</span>
+          </nav>
+          <h1>Get hands-on help and move your project forward</h1>
+          <p class="lead">Not every problem needs a large project. I help founders, students, and teams learn AI tools, fix workflows, and finish builds. We agree on a clear goal before the session starts.</p>
+          <div class="actions">
+            <a class="button primary" href="../index.html#contact">Discuss this service</a>
+            <a class="button ghost" href="../index.html#work">See work examples</a>
+          </div>
         </div>
 
-        <aside class="hero-card service-pfd-card" aria-label="Typical client pains">
-          <div class="profile-strip">
+        <aside class="hero-panel service-pfd-card" aria-label="Typical client pains">
+          <div class="hero-identity">
             <div>
               <p class="snapshot-label">When you need hands-on help</p>
               <span class="portrait-caption">For people who want help now and clear steps they can use later.</span>
             </div>
           </div>
-          <div class="snapshot-list">
-            <div><strong>Stuck on a build with no one to pair with</strong><span>Review the system, fix the problem, and write down steps you can repeat.</span></div>
-            <div><strong>AI tools feel useful but risky</strong><span>Learn simple prompts, safety checks, and steps that fit your tools.</span></div>
-            <div><strong>Not sure whether to build or buy</strong><span>Compare the options before you agree to a larger project.</span></div>
-          </div>
+          <ul class="problem-list">
+            <li>
+              <strong>Stuck on a build with no one to pair with</strong>
+              <span>Review the system, fix the problem, and write down steps you can repeat.</span>
+            </li>
+            <li>
+              <strong>AI tools feel useful but risky</strong>
+              <span>Learn simple prompts, safety checks, and steps that fit your tools.</span>
+            </li>
+            <li>
+              <strong>Not sure whether to build or buy</strong>
+              <span>Compare the options before you agree to a larger project.</span>
+            </li>
+          </ul>
         </aside>
 
       </section>
 
       <section class="section service-layout-simple">
         <div class="section-heading stacked">
-          <p class="section-kicker">What sessions cover</p>
           <h2>Practical help without a large project.</h2>
           <p class="section-intro">This page is the dedicated entry point for <strong>technical tutoring, coaching, and project help</strong>. The homepage lists my other consulting, contract, and technical services.</p>
         </div>
-        <div class="cards service-detail-stack">
-        <article class="card service-detail-card">
+        <div class="offering-list service-detail-stack">
+        <article>
           <h3>What this looks like</h3>
           <p>We focus on one problem at a time. I explain the system, work through the fix with you, and write down the steps. You leave with something you can use again.</p>
         </article>
-        <article class="card service-detail-card">
+        <article>
           <h3>Common request types</h3>
           <p>Learning ChatGPT, Custom GPTs, or AI agents • Spreadsheet and dashboard help • Ecommerce work steps • Fixing automations • Technical interview practice • Helping founders decide what to build or buy</p>
         </article>
-        <article class="card service-detail-card">
+        <article>
           <h3>Who it is for</h3>
           <p>This is for students, solo founders, operators, and teams that want hands-on help. I do not give legal, medical, or financial advice.</p>
         </article>
@@ -168,7 +177,6 @@
 
       <section class="section service-buyer-details">
         <div class="section-heading stacked">
-          <p class="section-kicker">Working together</p>
           <h2>Clear scope before the build starts.</h2>
           <p class="section-intro">The tools depend on the problem. Before work starts, we agree on what I will fix, what you will get, what access I need, and who owns the result.</p>
         </div>
@@ -194,7 +202,6 @@
 
       <section id="faq" class="section">
         <div class="section-heading stacked">
-          <p class="section-kicker">FAQ</p>
           <h2>Questions about technical tutoring, coaching, and project help.</h2>
         </div>
         <div class="faq-grid faq-accordion">
@@ -207,7 +214,6 @@
 
       <section class="section closing-card service-landing-cta">
         <div>
-          <p class="section-kicker">Next step</p>
           <h2>Tell me what you are trying to fix or build.</h2>
           <p class="section-intro">Use the homepage form or email me. I will reply with clear next steps.</p>
         </div>

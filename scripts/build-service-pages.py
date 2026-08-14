@@ -95,7 +95,6 @@ def buyer_details_html(page: dict) -> str:
     return f"""
       <section class="section service-buyer-details">
         <div class="section-heading stacked">
-          <p class="section-kicker">Working together</p>
           <h2>Clear scope before the build starts.</h2>
           <p class="section-intro">The tools depend on the problem. Before work starts, we agree on what I will fix, what you will get, what access I need, and who owns the result.</p>
         </div>
@@ -115,7 +114,10 @@ def pfd_card_html(page: dict) -> str:
     rows = []
     for title, body in pains[:3]:
         rows.append(
-            f'            <div><strong>{title}</strong><span>{body}</span></div>'
+            f"""            <li>
+              <strong>{title}</strong>
+              <span>{body}</span>
+            </li>"""
         )
     caption_html = (
         f'              <span class="portrait-caption">{caption}</span>\n'
@@ -123,15 +125,15 @@ def pfd_card_html(page: dict) -> str:
         else ""
     )
     return f"""
-        <aside class="hero-card service-pfd-card" aria-label="Typical client pains">
-          <div class="profile-strip">
+        <aside class="hero-panel service-pfd-card" aria-label="Typical client pains">
+          <div class="hero-identity">
             <div>
               <p class="snapshot-label">{label}</p>
 {caption_html}            </div>
           </div>
-          <div class="snapshot-list">
+          <ul class="problem-list">
 {chr(10).join(rows)}
-          </div>
+          </ul>
         </aside>
 """
 
@@ -447,7 +449,7 @@ def sections_cards_html(page: dict) -> str:
     parts: list[str] = []
     for title, body in page["sections"]:
         parts.append(
-            f"""        <article class="card service-detail-card">
+            f"""        <article>
           <h3>{title}</h3>
           <p>{body}</p>
         </article>"""
@@ -471,11 +473,10 @@ def scope_block(page: dict) -> str:
           <p class="proof-strip-label">{proof}</p>
         </div>
         <div class="section-heading stacked">
-          <p class="section-kicker">Scope</p>
           <h2>Focused help for one kind of problem.</h2>
           <p class="section-intro">{intro}</p>
         </div>
-        <div class="cards capability-list service-detail-stack">
+        <div class="offering-list service-detail-stack">
 {cards}
         </div>
       </section>"""
@@ -484,11 +485,10 @@ def scope_block(page: dict) -> str:
         return f"""
       <section class="section split service-layout-steps">
         <div>
-          <p class="section-kicker">Scope</p>
           <h2>How we improve the work, one step at a time.</h2>
           <p class="section-intro">{intro}</p>
         </div>
-        <div class="cards capability-list">
+        <div class="offering-list">
 {cards}
         </div>
       </section>"""
@@ -497,11 +497,10 @@ def scope_block(page: dict) -> str:
         return f"""
       <section class="section service-layout-simple">
         <div class="section-heading stacked">
-          <p class="section-kicker">What sessions cover</p>
           <h2>Practical help without a large project.</h2>
           <p class="section-intro">{intro}</p>
         </div>
-        <div class="cards service-detail-stack">
+        <div class="offering-list service-detail-stack">
 {cards}
         </div>
       </section>"""
@@ -509,11 +508,10 @@ def scope_block(page: dict) -> str:
     return f"""
       <section class="section split">
         <div>
-          <p class="section-kicker">Scope</p>
           <h2>Focused help for one kind of problem.</h2>
           <p class="section-intro">{intro}</p>
         </div>
-        <div class="cards capability-list">
+        <div class="offering-list">
 {cards}
         </div>
       </section>"""
@@ -540,7 +538,6 @@ def render(page: dict) -> str:
         related_case_study = """
       <section class="section related-case-study" aria-labelledby="related-ai-case-study-title">
         <div>
-          <p class="section-kicker">Related system case study</p>
           <h2 id="related-ai-case-study-title">See how I built an AI content system with safety checks.</h2>
           <p class="section-intro">This private-client example shows review steps, automatic checks, safe stops, and an optional hands-free mode.</p>
         </div>
@@ -570,8 +567,8 @@ def render(page: dict) -> str:
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css" />
-  <link rel="stylesheet" href="../assets/portfolio-chatbot.css" />
+  <link rel="stylesheet" href="../styles.css?v=hero-pass" />
+  <link rel="stylesheet" href="../assets/portfolio-chatbot.css?v=hero-pass" />
   <link rel="icon" href="../assets/yonatan-gemmi-pixel-portrait-256.png" type="image/png" />
   <script type="application/ld+json">
 {schema}
@@ -592,18 +589,19 @@ def render(page: dict) -> str:
     </header>
 
     <main id="top">
-      <section class="service-landing-hero section">
-        <p class="section-kicker">{page['eyebrow']}</p>
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="../index.html">Home</a>
-          <span aria-hidden="true">/</span>
-          <span>{service_name}</span>
-        </nav>
-        <h1>{page['h1']}</h1>
-        <p class="lead">{page['lead']}</p>
-        <div class="actions">
-          <a class="button primary" href="../index.html#contact">Discuss this service</a>
-          <a class="button ghost" href="../index.html#work">See work examples</a>
+      <section class="hero service-landing-hero">
+        <div class="hero-copy">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a>
+            <span aria-hidden="true">/</span>
+            <span>{service_name}</span>
+          </nav>
+          <h1>{page['h1']}</h1>
+          <p class="lead">{page['lead']}</p>
+          <div class="actions">
+            <a class="button primary" href="../index.html#contact">Discuss this service</a>
+            <a class="button ghost" href="../index.html#work">See work examples</a>
+          </div>
         </div>
 {pfd_card_html(page)}
       </section>
@@ -612,7 +610,6 @@ def render(page: dict) -> str:
 
       <section id="faq" class="section">
         <div class="section-heading stacked">
-          <p class="section-kicker">FAQ</p>
           <h2>Questions about {faq_topic}.</h2>
         </div>
         <div class="faq-grid faq-accordion">
@@ -622,7 +619,6 @@ def render(page: dict) -> str:
 
       <section class="section closing-card service-landing-cta">
         <div>
-          <p class="section-kicker">Next step</p>
           <h2>Tell me what you are trying to fix or build.</h2>
           <p class="section-intro">Use the homepage form or email me. I will reply with clear next steps.</p>
         </div>

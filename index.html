@@ -24,8 +24,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="assets/portfolio-chatbot.css" />
+  <link rel="stylesheet" href="styles.css?v=hero-pass" />
+  <link rel="stylesheet" href="assets/portfolio-chatbot.css?v=hero-pass" />
   <link rel="icon" href="assets/yonatan-gemmi-pixel-portrait-256.png" type="image/png" />
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   <script type="application/ld+json">
@@ -195,9 +195,15 @@
     <main id="top">
       <section class="hero">
         <div class="hero-copy">
-          <div class="eyebrow"><span class="status-dot"></span> AI, automation, dashboards, and operations</div>
+          <p class="eyebrow"><span class="status-dot"></span> AI, automation, dashboards, and operations</p>
           <h1>I help people and teams create useful systems from messy work.</h1>
-          <p class="lead">I’m Yonatan Gemmi, an AI and operations specialist in South Florida. I help teams fix messy work and build tools they can use every day. This can include automation, dashboards, data, ecommerce systems, and AI tools.</p>
+          <p class="lead">I’m Yonatan Gemmi, an AI and operations specialist in South Florida. I help teams fix messy work and build tools they can use every day — automation, dashboards, data, ecommerce systems, and AI.</p>
+          <ul class="proof-strip" aria-label="Experience">
+            <li><strong>9+</strong> years in ops</li>
+            <li><strong>Multi-brand</strong> ecommerce</li>
+            <li><strong>15+</strong> people trained</li>
+            <li><strong>95k+</strong> items tracked</li>
+          </ul>
           <div class="actions">
             <a class="button primary" href="#contact">Start a project</a>
             <a class="button ghost" href="#work">See work examples</a>
@@ -205,8 +211,8 @@
           </div>
         </div>
 
-        <aside class="hero-card" aria-label="Professional snapshot">
-          <div class="profile-strip">
+        <aside class="hero-panel" aria-label="Professional snapshot">
+          <div class="hero-identity">
             <div class="portrait-wrap">
               <img src="assets/yonatan-gemmi-pixel-portrait-256.png" alt="Pixel portrait of Yonatan Gemmi" width="256" height="256" />
             </div>
@@ -215,23 +221,25 @@
               <span class="portrait-caption">For teams that want less busywork, clearer data, and useful AI tools.</span>
             </div>
           </div>
-          <div class="snapshot-list">
-            <div><strong>Manual work is eating the week</strong><span>Find the repeated steps, cut extra handoffs, and build tools the team can use.</span></div>
-            <div><strong>Leaders can’t see what’s happening</strong><span>Connect scattered files and tools into clear, trusted reports.</span></div>
-            <div><strong>AI is stuck in test mode</strong><span>Turn AI tests into safe workflows for research, reports, checks, drafts, and routing.</span></div>
-          </div>
-          <div class="metric-grid compact">
-            <div class="metric"><strong>9+</strong><span>years in ops &amp; systems</span></div>
-            <div class="metric"><strong>Multi-brand</strong><span>ecommerce ops experience</span></div>
-            <div class="metric"><strong>15+</strong><span>people trained &amp; led</span></div>
-            <div class="metric"><strong>95k+</strong><span>serialized items tracked</span></div>
-          </div>
+          <ul class="problem-list">
+            <li>
+              <strong>Manual work is eating the week</strong>
+              <span>Find the repeated steps, cut extra handoffs, and build tools the team can use.</span>
+            </li>
+            <li>
+              <strong>Leaders can’t see what’s happening</strong>
+              <span>Connect scattered files and tools into clear, trusted reports.</span>
+            </li>
+            <li>
+              <strong>AI is stuck in test mode</strong>
+              <span>Turn AI tests into safe workflows for research, reports, checks, drafts, and routing.</span>
+            </li>
+          </ul>
         </aside>
       </section>
 
       <section id="work" class="section section-work">
         <div class="section-heading stacked">
-          <p class="section-kicker">Selected work</p>
           <h2>Real systems, not slideware.</h2>
           <p class="section-intro">These are examples of systems I’ve built and run. The visuals use sample data, and private client details are not shown.</p>
           <div class="proof-note">
@@ -318,21 +326,31 @@
 
       <section id="capabilities" class="section split">
         <div>
-          <p class="section-kicker">How I work</p>
           <h2>I understand the work, then build what fixes it.</h2>
           <p class="section-intro">I learn how the work gets done. Then I choose a simple tool, build it, test it, and make sure the team can use it.</p>
         </div>
-        <div class="cards capability-list">
-          <article class="card"><div class="icon">AI</div><h3>AI tools built around real work</h3><p>I build AI systems that create, check, pause for review, and learn from results. They can help with drafts, routing, research, reports, and quality checks.</p><a class="service-card-link" href="services/ai-automation.html">Learn more →</a></article>
-          <article class="card"><div class="icon">Ops</div><h3>Dashboards, data, and reports</h3><p>I bring ecommerce, inventory, shipping, CRM, and team data into clear views. This helps people make faster decisions.</p><a class="service-card-link" href="services/dashboards-reporting.html">Learn more →</a></article>
-          <article class="card"><div class="icon">Help</div><h3>Tutoring and hands-on project help</h3><p>I help people learn AI tools, fix broken workflows, choose software, improve work steps, train teams, and finish projects.</p><a class="service-card-link" href="services/tutoring-project-help.html">Learn more →</a></article>
+        <div class="offering-list">
+          <article>
+            <h3>AI tools built around real work</h3>
+            <p>I build AI systems that create, check, pause for review, and learn from results — drafts, routing, research, reports, and quality checks.</p>
+            <a class="service-card-link" href="services/ai-automation.html">Learn more →</a>
+          </article>
+          <article>
+            <h3>Dashboards, data, and reports</h3>
+            <p>I bring ecommerce, inventory, shipping, CRM, and team data into clear views so people can make faster decisions.</p>
+            <a class="service-card-link" href="services/dashboards-reporting.html">Learn more →</a>
+          </article>
+          <article>
+            <h3>Tutoring and hands-on project help</h3>
+            <p>I help people learn AI tools, fix broken workflows, choose software, improve work steps, train teams, and finish projects.</p>
+            <a class="service-card-link" href="services/tutoring-project-help.html">Learn more →</a>
+          </article>
         </div>
       </section>
 
 
       <section id="services" class="section">
         <div class="section-heading stacked">
-          <p class="section-kicker">Services</p>
           <h2>Practical help with AI, data, ecommerce, ads, and daily operations.</h2>
           <p class="section-intro">I build, fix, and explain systems in these areas. <strong>Choose a service below</strong> to see what is included and how to start.</p>
         </div>
@@ -375,7 +393,6 @@
 
       <section id="faq" class="section">
         <div class="section-heading stacked">
-          <p class="section-kicker">FAQ</p>
           <h2>Common questions about my work.</h2>
         </div>
         <div class="faq-grid faq-accordion">
@@ -390,7 +407,6 @@
 
       <section id="contact" class="section closing-card">
         <div>
-          <p class="section-kicker">Start here</p>
           <h2>Bring one clear problem. We can choose the right next step.</h2>
           <p class="section-intro">I take on paid work to understand, build, fix, explain, or improve a real system.</p>
           <ul class="engagement-options" aria-label="Engagement options">

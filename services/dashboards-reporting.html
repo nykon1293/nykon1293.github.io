@@ -21,8 +21,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css" />
-  <link rel="stylesheet" href="../assets/portfolio-chatbot.css" />
+  <link rel="stylesheet" href="../styles.css?v=hero-pass" />
+  <link rel="stylesheet" href="../assets/portfolio-chatbot.css?v=hero-pass" />
   <link rel="icon" href="../assets/yonatan-gemmi-pixel-portrait-256.png" type="image/png" />
   <script type="application/ld+json">
 {
@@ -114,32 +114,42 @@
     </header>
 
     <main id="top">
-      <section class="service-landing-hero section">
-        <p class="section-kicker">Data visibility</p>
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="../index.html">Home</a>
-          <span aria-hidden="true">/</span>
-          <span>Dashboards, reporting, and data cleanup</span>
-        </nav>
-        <h1>Clear reports your team can trust each day</h1>
-        <p class="lead">Work slows down when each team has different numbers. I clean the data, set clear rules, and build reports people can trust. The goal is a useful daily view, not another report to rebuild by hand.</p>
-        <div class="actions">
-          <a class="button primary" href="../index.html#contact">Discuss this service</a>
-          <a class="button ghost" href="../index.html#work">See work examples</a>
+      <section class="hero service-landing-hero">
+        <div class="hero-copy">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a>
+            <span aria-hidden="true">/</span>
+            <span>Dashboards, reporting, and data cleanup</span>
+          </nav>
+          <h1>Clear reports your team can trust each day</h1>
+          <p class="lead">Work slows down when each team has different numbers. I clean the data, set clear rules, and build reports people can trust. The goal is a useful daily view, not another report to rebuild by hand.</p>
+          <div class="actions">
+            <a class="button primary" href="../index.html#contact">Discuss this service</a>
+            <a class="button ghost" href="../index.html#work">See work examples</a>
+          </div>
         </div>
 
-        <aside class="hero-card service-pfd-card" aria-label="Typical client pains">
-          <div class="profile-strip">
+        <aside class="hero-panel service-pfd-card" aria-label="Typical client pains">
+          <div class="hero-identity">
             <div>
               <p class="snapshot-label">When the numbers are not clear</p>
               <span class="portrait-caption">For teams that are tired of guessing from exports and mixed-up files.</span>
             </div>
           </div>
-          <div class="snapshot-list">
-            <div><strong>Nobody agrees which numbers are real</strong><span>Check the sources, remove repeat entry, and agree on what each number means.</span></div>
-            <div><strong>Reports take days to assemble</strong><span>Turn raw exports into a daily view with simple checks and tools that fit the job.</span></div>
-            <div><strong>Leaders still can’t see what is happening</strong><span>Build clear views for orders, inventory, sales, or daily work.</span></div>
-          </div>
+          <ul class="problem-list">
+            <li>
+              <strong>Nobody agrees which numbers are real</strong>
+              <span>Check the sources, remove repeat entry, and agree on what each number means.</span>
+            </li>
+            <li>
+              <strong>Reports take days to assemble</strong>
+              <span>Turn raw exports into a daily view with simple checks and tools that fit the job.</span>
+            </li>
+            <li>
+              <strong>Leaders still can’t see what is happening</strong>
+              <span>Build clear views for orders, inventory, sales, or daily work.</span>
+            </li>
+          </ul>
         </aside>
 
       </section>
@@ -149,20 +159,19 @@
           <p class="proof-strip-label">From conflicting spreadsheets → one trusted morning dashboard.</p>
         </div>
         <div class="section-heading stacked">
-          <p class="section-kicker">Scope</p>
           <h2>Focused help for one kind of problem.</h2>
           <p class="section-intro">This page is the dedicated entry point for <strong>dashboards, reporting, and data cleanup</strong>. The homepage lists my other consulting, contract, and technical services.</p>
         </div>
-        <div class="cards capability-list service-detail-stack">
-        <article class="card service-detail-card">
+        <div class="offering-list service-detail-stack">
+        <article>
           <h3>What this looks like</h3>
           <p>I check which files drive decisions and remove repeat work. We agree on the numbers that matter. Then I turn the raw data into a clear daily view.</p>
         </article>
-        <article class="card service-detail-card">
+        <article>
           <h3>Common project types</h3>
           <p>Spreadsheet cleanup • Ecommerce and inventory reports • CRM and sales views • Shipping and operations measures • Moving data into BigQuery or another store • Training teams to maintain the reports</p>
         </article>
-        <article class="card service-detail-card">
+        <article>
           <h3>Proof you can expect</h3>
           <p>I built daily dashboards for multi-brand ecommerce. They brought orders, inventory, ads, shipping, and team work into one place. I have also worked with 95k+ tracked items.</p>
         </article>
@@ -171,7 +180,6 @@
 
       <section class="section service-buyer-details">
         <div class="section-heading stacked">
-          <p class="section-kicker">Working together</p>
           <h2>Clear scope before the build starts.</h2>
           <p class="section-intro">The tools depend on the problem. Before work starts, we agree on what I will fix, what you will get, what access I need, and who owns the result.</p>
         </div>
@@ -197,7 +205,6 @@
 
       <section id="faq" class="section">
         <div class="section-heading stacked">
-          <p class="section-kicker">FAQ</p>
           <h2>Questions about dashboards, reporting, and data cleanup.</h2>
         </div>
         <div class="faq-grid faq-accordion">
@@ -210,7 +217,6 @@
 
       <section class="section closing-card service-landing-cta">
         <div>
-          <p class="section-kicker">Next step</p>
           <h2>Tell me what you are trying to fix or build.</h2>
           <p class="section-intro">Use the homepage form or email me. I will reply with clear next steps.</p>
         </div>
