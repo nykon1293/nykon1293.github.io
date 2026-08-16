@@ -1,0 +1,40 @@
+---
+description: Never mix GitHub Pages, Project Scout, yyg770, and Brandgate deploys
+alwaysApply: true
+---
+
+# Deploy targets (do not mix)
+
+This workspace is the **personal site + Project Scout**. They are one product. Brandgate / Proper Ecom is a **client account**. Never mix them.
+
+## Git identity (read remotes; do not guess)
+
+- **Pages / this repo:** `nykon1293/nykon1293.github.io` on `main`. Live site: `https://nykon1293.github.io/`. GitHub user `nykon1293` (`gh auth switch --user nykon1293` before any site push).
+- **`yyg770` is NOT this site.** That account holds Brandgate/client repos (`brandgate-bq`, `brandgate-agent-pack`, `PPC_BGUS`). There is no `yyg770.github.io` or Scout repo. “Correct git is yyg770” does **not** mean push this site or Scout there.
+- Never `git push` to `github.com/brandgate/*` or `github.com/yyg770/brandgate-*`.
+
+## Site git — repo root only
+
+- Path: `/Users/yonatangemmi/personal-github-pages-site`
+- Remote must stay `nykon1293/nykon1293.github.io`
+- `git add` / commit / push **only** from this root, only site+Scout files that belong here
+- Do not commit `chatbot/.env`, `chatbot/.vercel/`, or `chatbot/node_modules/`
+
+## Scout — subdirectory, Vercel only
+
+- Path: `/Users/yonatangemmi/personal-github-pages-site/chatbot`
+- Live updates: `cd .../personal-github-pages-site/chatbot && vercel --prod --yes`
+- Before deploy, confirm `.vercel/project.json` is `personal-github-pages-chatbot` / `team_YzrGjo6TyNAMsf0HcdA0xuac` (`yonatan-7881s-projects`). Never `--scope brandgate-2093s-projects`.
+- Production URL: `https://personal-github-pages-chatbot-lime.vercel.app`
+- Do not run `vercel` from the site root (that folder is linked to a different project, `personal-github-pages-site`). Do not `git init` inside `chatbot/`.
+
+## Brandgate / Proper Ecom — NEVER from this work
+
+Never `cd` into `/Users/yonatangemmi/Brandgate`, never deploy Brandgate Vercel projects, never use `@properecom.com` / `@brandgateus.com` as a ship target. If `vercel whoami` shows Brandgate, stop.
+
+## Before any ship
+
+- Site git: `cd /Users/yonatangemmi/personal-github-pages-site`, verify `git remote -v` is `nykon1293/nykon1293.github.io`, then `gh auth switch --user nykon1293` before push.
+- Scout Vercel: `cd /Users/yonatangemmi/personal-github-pages-site/chatbot`, verify `.vercel/project.json` as above.
+
+If those checks fail, stop. Do not push or deploy.

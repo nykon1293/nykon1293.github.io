@@ -1,1 +1,13 @@
+# Site Vercel link (personal-github-pages-site). Do not commit.
 .vercel
+
+# Project Scout lives in chatbot/. Keep source in git; never publish secrets or junk to Pages.
+chatbot/.env
+chatbot/.env.*
+!chatbot/.env.example
+chatbot/node_modules/
+chatbot/dist/
+chatbot/build/
+chatbot/coverage/
+chatbot/.vercel/
+chatbot/*.log

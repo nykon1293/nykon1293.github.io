@@ -1,0 +1,6 @@
+{
+  "name": "GitHub Portfolio Chatbot",
+  "description": "An interactive chatbot assistant that evaluates client inquiries against your resume, skills, availability, and scope criteria.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

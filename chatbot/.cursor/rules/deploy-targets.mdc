@@ -1,0 +1,35 @@
+---
+description: Project Scout is the chatbot/ folder; Vercel only; never Brandgate
+alwaysApply: true
+---
+
+# Deploy targets (do not mix)
+
+This folder is **Project Scout**, a subdirectory of the personal site repo. Brandgate / Proper Ecom is a **client account**. Never mix them.
+
+## Chatbot — this folder
+
+- Path: `/Users/yonatangemmi/personal-github-pages-site/chatbot`
+- Live updates: `cd` here, then `vercel --prod --yes`
+- Vercel team: `yonatan-7881s-projects` (`team_YzrGjo6TyNAMsf0HcdA0xuac`)
+- Vercel project: `personal-github-pages-chatbot` (`prj_sRFBhU2MUSw4nTF2UyNHcLPIV5zn`)
+- Confirm `.vercel/project.json` is that project/org before deploying
+- Production URL: `https://personal-github-pages-chatbot-lime.vercel.app`
+- Do not `git init` here. Git is the parent site repo. Do not run `vercel` from the site root.
+
+## Site git — parent repo, nykon1293 only
+
+- Path: `/Users/yonatangemmi/personal-github-pages-site`
+- Remote: `nykon1293/nykon1293.github.io` as user `nykon1293`
+- **`yyg770` is not this product.** That login is for Brandgate/client repos. Do not add a `yyg770` remote here or push Scout to `yyg770/brandgate-*`.
+
+## Brandgate / Proper Ecom — NEVER from this work
+
+Never `cd` into `/Users/yonatangemmi/Brandgate`. Never `vercel --scope brandgate-2093s-projects`. Never push to `github.com/brandgate/*` or `github.com/yyg770/brandgate-*`. If `vercel whoami` shows Brandgate, stop.
+
+## Before any ship
+
+- Scout Vercel: from this folder, verify `.vercel/project.json` is `personal-github-pages-chatbot` / `team_YzrGjo6TyNAMsf0HcdA0xuac`.
+- Site git: from the parent repo root, verify remote `nykon1293/nykon1293.github.io`, then `gh auth switch --user nykon1293` before push.
+
+If those checks fail, stop. Do not push or deploy.

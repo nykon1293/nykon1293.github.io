@@ -21,7 +21,7 @@
     <header class="portfolio-chatbot-panel__header">
       <div>
         <p class="portfolio-chatbot-panel__kicker">AI Project Scout</p>
-        <h2>See if your project is a fit</h2>
+        <h2>Book a free 30-min intro call</h2>
       </div>
       <button class="portfolio-chatbot-panel__close" type="button" aria-label="Close chat">×</button>
     </header>

@@ -1,0 +1,12 @@
+{
+  "buildCommand": "npm run build:vercel",
+  "outputDirectory": "dist",
+  "installCommand": "npm install",
+  "framework": "vite",
+  "functions": {
+    "api/*.ts": {
+      "maxDuration": 10,
+      "includeFiles": "src/**"
+    }
+  }
+}
