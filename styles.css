@@ -193,6 +193,22 @@ body::after {
     gap: 32px;
   }
 }
+.offer-band {
+  margin: 0 0 clamp(28px, 5vw, 56px);
+  padding: 8px 0 clamp(28px, 4vw, 40px);
+  border-bottom: 1px solid var(--line);
+}
+.offer-band .section-kicker { margin-bottom: 12px; }
+.offer-band h2 {
+  max-width: 24ch;
+  font-size: clamp(1.45rem, 2.6vw, 2.15rem);
+}
+.offer-band .section-intro {
+  max-width: 62ch;
+  margin-top: 14px;
+  text-wrap: pretty;
+}
+.offer-band .actions { margin-top: 22px; }
 .eyebrow, .section-kicker {
   display: inline-flex;
   align-items: center;
@@ -939,6 +955,10 @@ footer p { font-size: .92rem; }
   transform: translateY(-2px);
   box-shadow: 0 12px 28px rgba(0,0,0,.22);
 }
+.service-hub-card--featured {
+  border-color: rgba(211, 170, 85, 0.42);
+  background: linear-gradient(180deg, rgba(211, 170, 85, 0.08), var(--surface));
+}
 .service-hub-card strong { font-size: 1.05rem; letter-spacing: -.02em; }
 .service-hub-cta {
   margin-top: auto;
@@ -1609,7 +1629,9 @@ footer p { font-size: .92rem; }
   .nav-toggle__bars::before,
   .nav-toggle__bars::after,
   .portfolio-chatbot-panel,
-  .portfolio-chatbot-launcher {
+  .portfolio-chatbot-launcher,
+  .service-hub-card {
     transition: none !important;
   }
+  .service-hub-card:hover { transform: none; }
 }

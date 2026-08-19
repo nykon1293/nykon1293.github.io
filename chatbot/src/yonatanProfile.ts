@@ -96,6 +96,7 @@ export const YONATAN_PROFILE = {
     "Advanced Google Sheets Systems Development"
   ],
   goodFit: [
+    "A founder or operator needs a Hermes Agent installed on their computer, set up for their files and tools, with clear limits and a working handoff.",
     "A business needs a production data platform, dashboard, ETL pipeline, or operations cockpit built from messy source systems.",
     "An ecommerce or operations team has manual work, inventory gaps, fulfillment issues, CRM friction, or poor leadership visibility.",
     "A team wants AI implementation that actually plugs into workflows: listing automation, research, reporting, QA, drafting, routing, social content operations, or agent-assisted execution.",

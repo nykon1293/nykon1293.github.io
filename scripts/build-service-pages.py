@@ -11,6 +11,7 @@ SERVICES_DIR = ROOT / "services"
 BASE = "https://nykon1293.github.io"
 
 SERVICE_PAGES = [
+    ("hermes-agents.html", "Hermes Agents", "hermes-agents"),
     ("ai-automation.html", "AI automation", "ai-automation"),
     ("dashboards-reporting.html", "Dashboards & reporting", "dashboards-reporting"),
     ("ecommerce-operations.html", "Ecommerce operations", "ecommerce-operations"),
@@ -32,7 +33,7 @@ def nav_for(slug: str) -> str:
     lines.append("        </details>")
     lines.append('        <a href="../index.html#work">Work Examples</a>')
     lines.append('        <a href="../index.html#faq">FAQ</a>')
-    lines.append('        <a href="../index.html#contact">Contact</a>')
+    lines.append('        <a href="../index.html#contact">Intro call</a>')
     lines.append("      </nav>")
     return "\n".join(lines)
 
@@ -140,6 +141,74 @@ def pfd_card_html(page: dict) -> str:
 
 PAGES = [
     {
+        "slug": "hermes-agents",
+        "filename": "hermes-agents.html",
+        "title": "Hermes Agents Setup | Yonatan Gemmi | South FL",
+        "meta_description": "I install Hermes on your computer for founders and operators — an AI agent on your machine, set up for your files and tools. Remote or South Florida.",
+        "service_name": "Hermes Agent setup",
+        "eyebrow": "On your machine",
+        "h1": "I install Hermes on your computer and hand it off ready to use.",
+        "lead": "Hermes is an AI agent that lives on your machine and stays with your files and tools. I do the install, the first setup, and a short walkthrough so you can run it yourself.",
+        "cta_primary": "Request a free 30-min intro call",
+        "closing_intro": "Share what you want the agent to do and which tools you use. The usual next step is a free 30-minute introductory call.",
+        "pfd_label": "When people ask for an agent",
+        "pfd_caption": "For operators who want a working install they can run themselves.",
+        "pfd_pains": [
+            (
+                "Chat tools forget the business overnight",
+                "Hermes stays on your machine with your files and tools, so it already knows the work.",
+            ),
+            (
+                "You don’t want an agent touching the wrong files",
+                "We agree on folders, accounts, and what it must not do before it starts working.",
+            ),
+            (
+                "You don’t have time to learn the stack",
+                "I do the install, configuration, and a short walkthrough so you can use it the same day.",
+            ),
+        ],
+        "sections": [
+            (
+                "What this looks like",
+                "I start with the jobs you want the agent to do. Then I install Hermes, set it up for your work, and write the rules for which projects it may touch. You leave with a working agent and a short way to run it.",
+            ),
+            (
+                "What gets set up",
+                "Hermes Agent install on your Mac • Setup for your files and tools • Clear project and account limits • A first real task so you see it work • Notes so you can keep using it",
+            ),
+            (
+                "Proof you can expect",
+                "I recently set one up for a client and handed it off as a working install. I also build agent workflows with review steps when the job needs them.",
+            ),
+        ],
+        "faq_topic": "Hermes Agent setup",
+        "buyer_details": [
+            ("Good fit when", ["You want an agent on your own computer, not another chat tab", "You need the install, limits, and first setup done correctly", "You would rather pay for a working install than spend a week figuring it out"]),
+            ("What you receive", ["Working Hermes install and configuration", "Skills, memory, and written limits for your projects", "Handoff session and short run notes"]),
+            ("What I need from you", ["A Mac you control and can install software on", "The first jobs you want the agent to do", "Which folders, repos, and accounts it may and may not touch"]),
+            ("Engagement options", ["Focused setup and handoff", "Setup plus a first real workflow", "Ongoing tuning after you start using it"]),
+        ],
+        "layout": "split",
+        "faqs": [
+            (
+                "What is Hermes?",
+                "Hermes is an AI agent you run on your own computer. It works with your files and tools, and it follows the limits we set.",
+            ),
+            (
+                "Is this the same as a Custom GPT?",
+                "No. A Custom GPT lives in a chat product. A Hermes Agent lives on your machine, with your projects and rules. I offer both when they fit.",
+            ),
+            (
+                "Will the agent have access to everything on my computer?",
+                "No. We agree on folders, repos, and accounts first. The point of the setup is useful help with clear limits.",
+            ),
+            (
+                "How do we start?",
+                "Share what you want the agent to do and which tools you use. Use the homepage form. The usual next step is a free 30-minute introductory call.",
+            ),
+        ],
+    },
+    {
         "slug": "ai-automation",
         "filename": "ai-automation.html",
         "title": "AI Workflow Automation | Yonatan Gemmi | South FL",
@@ -201,7 +270,7 @@ PAGES = [
             ),
             (
                 "How do we start?",
-                "Send a short note about the problem and tools. Use the homepage form or email. We can then agree on the scope.",
+                "Send a short note about the problem and tools. Use the homepage form. The next step is a free 30-minute introductory call.",
             ),
         ],
     },
@@ -268,7 +337,7 @@ PAGES = [
             ),
             (
                 "How do we start?",
-                "Tell me which reports you trust, which you do not, and who uses them. Use the homepage form or email to start.",
+                "Tell me which reports you trust, which you do not, and who uses them. Use the homepage form to request a free 30-minute introductory call.",
             ),
         ],
     },
@@ -334,7 +403,7 @@ PAGES = [
             ),
             (
                 "How do we start?",
-                "Tell me where you sell, how many items you manage, and the top two weekly problems. Use the homepage form or email.",
+                "Tell me where you sell, how many items you manage, and the top two weekly problems. Use the homepage form to request a free 30-minute introductory call.",
             ),
         ],
     },
@@ -400,7 +469,7 @@ PAGES = [
             ),
             (
                 "How do we start?",
-                "Tell me what you want to learn or finish. Use the homepage form or email, and include your time zone and schedule.",
+                "Tell me what you want to learn or finish, plus your time zone. Use the homepage form to request a free 30-minute introductory call.",
             ),
         ],
     },
@@ -525,6 +594,11 @@ def render(page: dict) -> str:
     meta_description = escape(page["meta_description"], quote=True)
     service_name = escape(page["service_name"])
     faq_topic = escape(page["faq_topic"])
+    cta_primary = escape(page.get("cta_primary", "Request a free 30-min intro call"))
+    closing_intro = page.get(
+        "closing_intro",
+        "Use the homepage form to request a free 30-minute introductory call. Share what you want to build or fix and a few times that work.",
+    )
     schema = faq_schema(
         faqs,
         service_name=page["service_name"],
@@ -534,7 +608,7 @@ def render(page: dict) -> str:
     scope_html = scope_block(page)
     buyer_html = buyer_details_html(page)
     related_case_study = ""
-    if slug == "ai-automation":
+    if slug in ("ai-automation", "hermes-agents"):
         related_case_study = """
       <section class="section related-case-study" aria-labelledby="related-ai-case-study-title">
         <div>
@@ -567,8 +641,8 @@ def render(page: dict) -> str:
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css?v=hero-pass" />
-  <link rel="stylesheet" href="../assets/portfolio-chatbot.css?v=hero-pass" />
+  <link rel="stylesheet" href="../styles.css?v=hermes-2" />
+  <link rel="stylesheet" href="../assets/portfolio-chatbot.css?v=hermes-2" />
   <link rel="icon" href="../assets/yonatan-gemmi-pixel-portrait-256.png" type="image/png" />
   <script type="application/ld+json">
 {schema}
@@ -599,7 +673,7 @@ def render(page: dict) -> str:
           <h1>{page['h1']}</h1>
           <p class="lead">{page['lead']}</p>
           <div class="actions">
-            <a class="button primary" href="../index.html#contact">Discuss this service</a>
+            <a class="button primary" href="../index.html#contact">{cta_primary}</a>
             <a class="button ghost" href="../index.html#work">See work examples</a>
           </div>
         </div>
@@ -619,11 +693,11 @@ def render(page: dict) -> str:
 
       <section class="section closing-card service-landing-cta">
         <div>
-          <h2>Tell me what you are trying to fix or build.</h2>
-          <p class="section-intro">Use the homepage form or email me. I will reply with clear next steps.</p>
+          <h2>Start with a free 30-minute introductory call.</h2>
+          <p class="section-intro">{closing_intro}</p>
         </div>
         <div class="contact-panel">
-          <a class="button primary full" href="../index.html#contact">Go to contact form</a>
+          <a class="button primary full" href="../index.html#contact">{cta_primary}</a>
           <a class="button full contact-secondary" href="mailto:josh.gemmi@gmail.com">Email Yonatan</a>
           <a class="button full contact-secondary" href="https://www.linkedin.com/in/joshuah-gemmi-16046233/" target="_blank" rel="noreferrer">LinkedIn</a>
         </div>

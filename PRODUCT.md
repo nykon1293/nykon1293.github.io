@@ -10,7 +10,7 @@ Founders and operations leaders with messy work — scattered spreadsheets, AI s
 
 ## Product Purpose
 
-This site exists to turn a first visit into a conversation. Success is trust in the first moments, then a clear path to start a project (form, email, or LinkedIn). The work examples and operational numbers have to feel like a working operator, not slideware.
+This site exists to turn a first visit into a conversation. Success is trust in the first moments, then a clear path to start a project (form, email, or LinkedIn). Named offers should stay concrete — Hermes Agent setup, dashboards, ecommerce ops — not generic “agentic” hype. The work examples and operational numbers have to feel like a working operator, not slideware.
 
 ## Brand Personality
 

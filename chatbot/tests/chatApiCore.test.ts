@@ -51,7 +51,8 @@ async function testCommonIntentAnswersAvoidGeminiKey() {
   await assertLocalCanned("Our business is drowning in spreadsheets and nobody trusts the numbers.", /dashboard|data|spreadsheet|reporting/i);
   await assertLocalCanned("Can he clean up HubSpot and our sales pipeline?", /crm|hubspot|sales|pipeline/i);
   await assertLocalCanned("Can Yonatan build an API integration or internal web app?", /backend|integration|api|internal-tool|tool/i);
-  await assertLocalCanned("What services does Yonatan offer?", /consulting|contract|tutoring|dashboards|ecommerce/i);
+  await assertLocalCanned("What services does Yonatan offer?", /Hermes|consulting|contract|tutoring|dashboards|ecommerce/i);
+  await assertLocalCanned("Can Yonatan set up a Hermes Agent for my work?", /Hermes[\s\S]*30-minute introductory call/i);
 }
 
 async function testSpreadsheetOptimizationGivesUsefulApproach() {

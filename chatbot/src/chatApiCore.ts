@@ -36,7 +36,7 @@ function hasSkillTerm(text: string, term: string) {
 export function assessFit(contents: ReturnType<typeof normalizeMessages>) {
   const latest = contents[contents.length - 1]?.parts[0]?.text?.toLowerCase() || "";
   const skillMatches = [
-    { skill: "Agentic AI automation", terms: ["ai", "agent", "agentic", "multi-agent", "multi agent", "automation", "chatbot", "custom gpt", "gpts", "gpt", "chatgpt", "openai", "gemini", "llm", "claude", "workflow"] },
+    { skill: "Agentic AI automation", terms: ["hermes", "hermes agent", "hermes agents", "ai", "agent", "agentic", "multi-agent", "multi agent", "automation", "chatbot", "custom gpt", "gpts", "gpt", "chatgpt", "openai", "gemini", "llm", "claude", "workflow"] },
     { skill: "Data platform / dashboards", terms: ["dashboard", "dashboards", "data", "bigquery", "etl", "reporting", "analytics", "data pipeline", "etl pipeline", "spreadsheet", "spreadsheets", "sheets", "source system", "source systems", "numbers"] },
     { skill: "Ecommerce operations", terms: ["ecommerce", "amazon", "ebay", "inventory", "warehouse", "fulfillment", "listing", "seller"] },
     { skill: "PPC / advertising operations", terms: ["ppc", "advertising", "ad spend", "campaign", "campaigns", "acos", "roas", "keyword bid", "budget pacing"] },
@@ -204,6 +204,11 @@ const cannedRules: CannedRule[] = [
     answer: () => `Yes — small-business technical operations and troubleshooting may be a fit. Yonatan has experience across workstation setup, network/process troubleshooting, MDM/mobile-device operations, diagnostics workflows, and practical implementation. ${introCallCta("the environment, the issue, and a few times that work")}`
   },
   {
+    name: "hermes-agents",
+    test: (text) => hasAny(text, [/\bhermes\b/, /\bagentic ai\b/, /\bagent setup\b/, /\bset up an agent\b/, /\bsetup an agent\b/]),
+    answer: () => `Yes — setting up Hermes Agents is a strong fit. Yonatan installs Hermes on your computer, sets it up for your files and tools, agrees what it may touch, and hands it off so you can run it. ${introCallCta("what you want the agent to do, which tools it should use, and a few times that work")}`
+  },
+  {
     name: "custom-gpt",
     test: (text) => hasAny(text, [/\bcustom gpts?\b/, /\bgpts?\b/, /\bcustom chatgpt\b/, /\bopenai assistant\b/, /\bchatgpt bot\b/]),
     answer: () => `Yes — custom GPTs and GPT-style assistants are a strong fit. Yonatan has built major Custom GPT workflows and can help design the knowledge structure, instructions, workflows, actions/integrations, testing loop, and handoff so the assistant is actually useful in a real process. ${introCallCta("what the GPT should do, who will use it, and a few times that work")}`
@@ -221,7 +226,7 @@ const cannedRules: CannedRule[] = [
   {
     name: "services",
     test: (text) => hasAny(text, [/\b(services|offer|offers|paid help|consulting|contract work|project help|what can|what kind|what kinds)\b/]),
-    answer: () => `Yonatan offers consulting, contract work, tutoring/coaching, AI implementation, data platforms, dashboards, ecommerce operations, CRM/workflow cleanup, technical troubleshooting, and hands-on project help. The best fit is messy real-world work where he can understand the process, build or fix the system, train people, and verify the result. ${introCallCta("the specific goal, current tools, and a few times that work")}`
+    answer: () => `Yonatan offers Hermes Agent setup, consulting, contract work, tutoring/coaching, AI implementation, data platforms, dashboards, ecommerce operations, CRM/workflow cleanup, technical troubleshooting, and hands-on project help. The best fit is messy real-world work where he can understand the process, build or fix the system, train people, and verify the result. ${introCallCta("the specific goal, current tools, and a few times that work")}`
   }
 ];
 
