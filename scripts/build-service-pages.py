@@ -33,6 +33,7 @@ def nav_for(slug: str) -> str:
     lines.append("        </details>")
     lines.append('        <a href="../index.html#work">Work Examples</a>')
     lines.append('        <a href="../index.html#faq">FAQ</a>')
+    lines.append('        <a href="../pricing.html">Pricing</a>')
     lines.append('        <a href="../index.html#contact">Intro call</a>')
     lines.append("      </nav>")
     return "\n".join(lines)
@@ -186,9 +187,15 @@ PAGES = [
             ("Good fit when", ["You want an agent on your own computer, not another chat tab", "You need the install, limits, and first setup done correctly", "You would rather pay for a working install than spend a week figuring it out"]),
             ("What you receive", ["Working Hermes install and configuration", "Skills, memory, and written limits for your projects", "Handoff session and short run notes"]),
             ("What I need from you", ["A Mac you control and can install software on", "The first jobs you want the agent to do", "Which folders, repos, and accounts it may and may not touch"]),
-            ("Engagement options", ["Focused setup and handoff", "Setup plus a first real workflow", "Ongoing tuning after you start using it"]),
+            ("Engagement options", ["Starter, Operator, or Connected Desk — see the pricing page", "Setup plus a first real workflow", "Ongoing care after handoff"]),
         ],
         "layout": "split",
+        "packages_note": (
+            "Three Desks, one pricing page.",
+            "Starter, Operator, and Connected Desk are the named Hermes setups. What’s in, what’s out, and the rest of the ladder live on the pricing page. The next step is still a free 30-minute introductory call.",
+            "../pricing.html#desks",
+            "See pricing",
+        ),
         "faqs": [
             (
                 "What is Hermes?",
@@ -203,8 +210,16 @@ PAGES = [
                 "No. We agree on folders, repos, and accounts first. The point of the setup is useful help with clear limits.",
             ),
             (
+                "What does Starter Desk include?",
+                "Hermes on a Mac you control, written limits, one channel, one standard connection, a proof task, and a walkthrough. CRM plus books is a Connected Desk. Full prices are on the pricing page.",
+            ),
+            (
+                "Which Desk if I need CRM and accounting?",
+                "Connected Desk. That is a different setup from Starter. See the pricing page, then start with the free introductory call.",
+            ),
+            (
                 "How do we start?",
-                "Share what you want the agent to do and which tools you use. Use the homepage form. The usual next step is a free 30-minute introductory call.",
+                "Share what you want the agent to do and which tools you use. Use the homepage form. The usual next step is a free 30-minute introductory call, then the matching Desk.",
             ),
         ],
     },
@@ -469,7 +484,7 @@ PAGES = [
             ),
             (
                 "How do we start?",
-                "Tell me what you want to learn or finish, plus your time zone. Use the homepage form to request a free 30-minute introductory call.",
+                "Tell me what you want to learn or finish, plus your time zone. Use the homepage form to request a free 30-minute introductory call. Tutoring rates are on the pricing page.",
             ),
         ],
     },
@@ -512,6 +527,21 @@ FOOTER_SCRIPTS = """
 </body>
 </html>
 """
+
+
+def packages_note_html(page: dict) -> str:
+    note = page.get("packages_note")
+    if not note:
+        return ""
+    title, body, href, link = note
+    return f"""
+      <section class="section pricing-pointer" aria-labelledby="pricing-pointer-title">
+        <div>
+          <h2 id="pricing-pointer-title">{title}</h2>
+          <p class="section-intro">{body}</p>
+        </div>
+        <a class="button ghost" href="{href}">{link}</a>
+      </section>"""
 
 
 def sections_cards_html(page: dict) -> str:
@@ -606,6 +636,7 @@ def render(page: dict) -> str:
         canonical=canonical,
     )
     scope_html = scope_block(page)
+    packages_html = packages_note_html(page)
     buyer_html = buyer_details_html(page)
     related_case_study = ""
     if slug in ("ai-automation", "hermes-agents"):
@@ -641,8 +672,8 @@ def render(page: dict) -> str:
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css?v=hermes-2" />
-  <link rel="stylesheet" href="../assets/portfolio-chatbot.css?v=hermes-2" />
+  <link rel="stylesheet" href="../styles.css?v=pricing-1" />
+  <link rel="stylesheet" href="../assets/portfolio-chatbot.css?v=pricing-1" />
   <link rel="icon" href="../assets/yonatan-gemmi-pixel-portrait-256.png" type="image/png" />
   <script type="application/ld+json">
 {schema}
@@ -679,7 +710,7 @@ def render(page: dict) -> str:
         </div>
 {pfd_card_html(page)}
       </section>
-{scope_html}{related_case_study}
+{scope_html}{packages_html}{related_case_study}
 {buyer_html}
 
       <section id="faq" class="section">

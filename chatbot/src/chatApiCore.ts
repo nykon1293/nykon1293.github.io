@@ -99,6 +99,11 @@ const cannedRules: CannedRule[] = [
     answer: (visitorText) => fallbackAnswer({ canHelp: "maybe", reason: "", matchedSkills: [] }, visitorText)
   },
   {
+    name: "pricing-hermes",
+    test: (text) => hasAny(text, [/\b(price|pricing|cost|costs|charge|charges|rate|rates|budget|quote|estimate|fee|fees)\b/, /how much/]) && hasAny(text, [/\bhermes\b/, /\bdesk\b/, /\bdesks\b/, /\bagent setup\b/, /\bset up an agent\b/, /\bsetup an agent\b/, /\bagent install\b/]),
+    answer: () => `Hermes setups are packaged Desks: Starter Desk $500, Operator Desk $1,500, and Connected Desk $3,500. CRM plus books is Connected, not Starter. The free 30-minute introductory call classifies which Desk fits. ${introCallCta("what you want the agent to do, which tools it should use, and a few times that work")}`
+  },
+  {
     name: "pricing-custom-gpt",
     test: (text, assessment) => hasAny(text, [/\b(price|pricing|cost|costs|charge|charges|rate|rates|budget|quote|estimate|fee|fees)\b/, /how much/]) && hasAny(text, [/\bcustom gpts?\b/, /\bgpts?\b/, /\bcustom chatgpt\b/, /\bopenai assistant\b/, /\bchatgpt bot\b/]),
     answer: () => `Yes — custom GPTs and GPT-style workflow tools are a strong fit. Pricing depends on what the GPT needs to do, how much source material or process knowledge it needs, whether it needs actions/integrations, how sensitive the data is, and whether you need a quick prototype or a production-ready assistant with testing, documentation, and handoff. Yonatan has built major Custom GPT workflows and can walk through the right version on a free 30-minute introductory call. ${introCallCta("the goal, users, inputs/outputs, and a few times that work")}`
@@ -126,22 +131,22 @@ const cannedRules: CannedRule[] = [
   {
     name: "pricing-tutoring",
     test: (text) => hasAny(text, [/\b(price|pricing|cost|costs|charge|charges|rate|rates|budget|quote|estimate|fee|fees)\b/, /how much/]) && hasAny(text, [/\b(tutor|tutoring|coach|coaching|teach|teacher|mentor|mentoring|lesson|lessons|learn|training|student)\b/, /help me understand/, /explain .* to me/]),
-    answer: () => `Great question! Pricing for tutoring, coaching, or hands-on project help depends on the topic, depth, session format, and whether you need a one-off explanation, guided troubleshooting, or ongoing build support. Yonatan can help with AI tools, dashboards, automations, ecommerce workflows, technical troubleshooting, and project guidance. ${introCallCta("what you want to learn or build, your current level, and a few times that work")}`
+    answer: () => `Tutoring is $125 per hour, with a 90-minute minimum of $175. That is the only metered service. Larger “help me decide” work is paid discovery, not tutoring. ${introCallCta("what you want to learn or build, your current level, and a few times that work")}`
   },
   {
     name: "pricing-ai",
     test: (text) => hasAny(text, [/\b(price|pricing|cost|costs|charge|charges|rate|rates|budget|quote|estimate|fee|fees)\b/, /how much/]) && hasAny(text, [/\b(ai|gpt|gpts|custom gpt|chatgpt|openai|gemini|claude|llm|agent|agents|agentic|chatbot)\b/, /implement ai/, /use ai/, /ai automation/, /automate with ai/, /custom gpt/, /custom chatgpt/]),
-    answer: () => `Great question! Pricing for implementing AI in a company depends on what the AI needs to do, how many workflows or teams are involved, what tools/data it must connect to, how much cleanup is needed, and whether the work is a small pilot, an internal chatbot, an automation layer, or a broader operating system. A free 30-minute introductory call is the place to walk through the use case rather than inventing a flat rate here. ${introCallCta("the business process you want improved, current tools, and a few times that work")}`
+    answer: () => `Great question! Pricing for implementing AI in a company depends on what the AI needs to do, how many workflows or teams are involved, what tools/data it must connect to, how much cleanup is needed, and whether the work is a small pilot, an internal chatbot, an automation layer, or a broader operating system. Company-wide AI work is not a Starter Desk install. It usually starts with a free 30-minute introductory call, then paid discovery, then a quoted build. ${introCallCta("the business process you want improved, current tools, and a few times that work")}`
   },
   {
     name: "pricing-dashboard",
     test: (text) => hasAny(text, [/\b(price|pricing|cost|costs|charge|charges|rate|rates|budget|quote|estimate|fee|fees)\b/, /how much/]) && hasAny(text, [/\b(dashboard|dashboards|data|etl|analytics|reporting|reports|kpi|bigquery|data pipeline|etl pipeline|spreadsheet|spreadsheets|sheets|numbers)\b/]),
-    answer: () => `Great question! Pricing for a dashboard depends on the complexity, scope, timeline, and time required to build the right solution. A dashboard can range from a simple reporting view to a more involved system with data cleanup, source-system integrations, automation, permissions, and ongoing updates. Because those factors vary, a free 30-minute introductory call is the best way for Yonatan to understand the full requirements. ${introCallCta("your data sources, current reporting pain, desired metrics, and a few times that work")}`
+    answer: () => `Dashboard and data jobs are quoted after paid discovery, not as a single number from this chat. Published builds sit in a $4,500–15,000 range once the work is scoped. The first step is a free 30-minute introductory call. ${introCallCta("your data sources, current reporting pain, desired metrics, and a few times that work")}`
   },
   {
     name: "general-pricing",
     test: (text) => hasAny(text, [/\b(price|pricing|cost|costs|charge|charges|rate|rates|budget|quote|estimate|fee|fees)\b/, /how much/]),
-    answer: () => `Great question! Pricing depends on the complexity, scope, timeline, and time required to build the right solution. The right next step is a free 30-minute introductory call so Yonatan can understand what you want built or fixed, what systems/data are involved, and how production-ready it needs to be. ${introCallCta("the goal, current tools, and a few times that work")}`
+    answer: () => `Yonatan publishes named setups: Hermes Starter Desk $500, Operator Desk $1,500, Connected Desk $3,500; Paid Discovery $2,000; Care $750 or $1,500 a month; Advisory Light $4,500 a month; Fractional CTO $7,500 a month; tutoring $125/hr. Custom builds are quoted after discovery. The free 30-minute introductory call classifies which one applies. Details are on https://nykon1293.github.io/pricing.html. ${introCallCta("the goal, current tools, and a few times that work")}`
   },
   {
     name: "contact",
@@ -206,7 +211,7 @@ const cannedRules: CannedRule[] = [
   {
     name: "hermes-agents",
     test: (text) => hasAny(text, [/\bhermes\b/, /\bagentic ai\b/, /\bagent setup\b/, /\bset up an agent\b/, /\bsetup an agent\b/]),
-    answer: () => `Yes — setting up Hermes Agents is a strong fit. Yonatan installs Hermes on your computer, sets it up for your files and tools, agrees what it may touch, and hands it off so you can run it. ${introCallCta("what you want the agent to do, which tools it should use, and a few times that work")}`
+    answer: () => `Yes — setting up Hermes Agents is a strong fit. Yonatan installs Hermes on your computer as a named Desk — Starter, Operator, or Connected — then hands it off so you can run it. The free 30-minute introductory call classifies which Desk fits. ${introCallCta("what you want the agent to do, which tools it should use, and a few times that work")}`
   },
   {
     name: "custom-gpt",

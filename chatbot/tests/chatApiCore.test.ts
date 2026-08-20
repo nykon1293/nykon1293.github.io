@@ -18,23 +18,49 @@ async function assertLocalCanned(prompt: string, expected: RegExp) {
   return String(result.body.response);
 }
 
-async function testDashboardPricingIsSpecificButNoInventedRate() {
+async function testDashboardPricingMentionsDiscoveryThenRange() {
   const response = await assertLocalCanned(
     "How much for a dashboard?",
-    /great question|pricing|dashboard|complexity|scope|requirements|introductory call/i
+    /dashboard[\s\S]*discovery[\s\S]*\$4,500–15,000|\$4,500-15,000/i
   );
-  assert.doesNotMatch(response, /\$\d|per hour|hourly rate/i);
+  assert.match(response, /30-minute introductory call/i);
   assert.doesNotMatch(response, /email josh\.gemmi@gmail\.com/i);
+  assert.doesNotMatch(response, /\$175|hourly rate/i);
+}
+
+async function testHermesPricingNamesDesks() {
+  const response = await assertLocalCanned(
+    "How much to set up a Hermes Agent?",
+    /Starter Desk \$500[\s\S]*Operator Desk \$1,500[\s\S]*Connected Desk \$3,500/i
+  );
+  assert.match(response, /30-minute introductory call/i);
+  assert.doesNotMatch(response, /hourly rate|\$175 floor/i);
+}
+
+async function testTutoringPricingIsMetered() {
+  const response = await assertLocalCanned(
+    "How much for AI tutoring sessions?",
+    /\$125[\s\S]*\$175/
+  );
+  assert.match(response, /30-minute introductory call/i);
+  assert.doesNotMatch(response, /email josh\.gemmi@gmail\.com/i);
+}
+
+async function testPublicLadderOnVaguePricing() {
+  const response = await assertLocalCanned(
+    "What do you charge?",
+    /Starter Desk \$500[\s\S]*Connected Desk \$3,500[\s\S]*pricing\.html/i
+  );
+  assert.match(response, /30-minute introductory call/i);
 }
 
 async function testCompoundPricingAnswersAreSpecificButNoInventedRate() {
   const examples: Array<[string, RegExp]> = [
-    ["How much to implement AI in my company?", /Pricing for implementing AI in a company[\s\S]*workflows[\s\S]*flat rate[\s\S]*Share/i],
+    ["How much to implement AI in my company?", /Pricing for implementing AI in a company[\s\S]*workflows[\s\S]*paid discovery[\s\S]*Share/i],
     ["How much for a custom GPT?", /custom GPTs[\s\S]*strong fit[\s\S]*Pricing depends[\s\S]*major Custom GPT workflows[\s\S]*Share/i],
     ["What would it cost to fix our Shopify inventory workflow?", /Pricing for ecommerce[\s\S]*Shopify\/Amazon inventory[\s\S]*Share[\s\S]*store\/channel/i],
     ["How much to clean up HubSpot and our sales pipeline?", /Pricing for CRM[\s\S]*HubSpot\/Salesforce[\s\S]*lead routing[\s\S]*Share/i],
-    ["What is the cost for an API integration or internal app?", /Pricing for APIs[\s\S]*internal tools[\s\S]*Share[\s\S]*systems involved/i],
-    ["How much for AI tutoring sessions?", /Pricing for tutoring[\s\S]*AI tools[\s\S]*Share[\s\S]*current level/i]
+    ["What is the cost for an API integration or internal app?", /Pricing for APIs[\s\S]*internal tools[\s\S]*Share[\s\S]*systems involved/i]
   ];
 
   for (const [prompt, expected] of examples) {
@@ -112,7 +138,10 @@ async function testLatestQuestionControlsIntentAfterDashboardContext() {
   assert.deepEqual(result.body.helpAssessment.matchedSkills, ["Agentic AI automation"]);
 }
 
-await testDashboardPricingIsSpecificButNoInventedRate();
+await testDashboardPricingMentionsDiscoveryThenRange();
+await testHermesPricingNamesDesks();
+await testTutoringPricingIsMetered();
+await testPublicLadderOnVaguePricing();
 await testCompoundPricingAnswersAreSpecificButNoInventedRate();
 await testCommonIntentAnswersAvoidGeminiKey();
 await testSpreadsheetOptimizationGivesUsefulApproach();
