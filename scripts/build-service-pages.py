@@ -264,8 +264,8 @@ PAGES = [
         ],
         "faq_topic": "AI tools and workflow automation",
         "buyer_details": [
-            ("Good fit when", ["A repeated workflow is still manual", "AI experiments need guardrails and ownership", "Your team needs one reviewed process—not another tool demo"]),
-            ("What you receive", ["Workflow map and scoped implementation plan", "Working automation, assistant, or integration", "Testing notes, SOPs, and team handoff"]),
+            ("Good fit when", ["A repeated workflow is still manual", "AI experiments need clear limits and an owner", "Your team needs one reviewed process—not another tool demo"]),
+            ("What you receive", ["Workflow map and scoped implementation plan", "Working automation, assistant, or integration", "Testing notes, written steps, and a team handoff"]),
             ("What I need from you", ["A workflow owner who knows the real process", "Representative examples or safe test data", "Access to approved tools, exports, or APIs"]),
             ("Engagement options", ["Audit and roadmap", "Short implementation project", "Ongoing improvement and support"]),
         ],
@@ -397,8 +397,8 @@ PAGES = [
         ],
         "faq_topic": "ecommerce operations systems",
         "buyer_details": [
-            ("Good fit when", ["Inventory, listings, or fulfillment repeatedly fall out of sync", "Peak periods expose undocumented handoffs", "Marketplace reporting arrives too late to act"]),
-            ("What you receive", ["Current-state process and failure-point map", "Improved workflow, SOPs, and lightweight tooling", "Owner checks, escalation rules, and handoff documentation"]),
+            ("Good fit when", ["Inventory, listings, or fulfillment repeatedly fall out of sync", "Peak periods expose handoffs nobody wrote down", "Marketplace reporting arrives too late to act"]),
+            ("What you receive", ["Current-state process and failure-point map", "Improved workflow, written steps, and lightweight tooling", "Owner checks, clear steps for problems, and handoff notes"]),
             ("What I need from you", ["Examples of the highest-cost weekly problems", "Safe exports or approved access to relevant tools", "An operations owner available for testing"]),
             ("Engagement options", ["Ops audit and roadmap", "Focused workflow implementation", "Ongoing operator-builder support"]),
         ],
