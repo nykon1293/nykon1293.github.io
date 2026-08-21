@@ -134,6 +134,21 @@ async function testCareRetainerCanned() {
   assert.match(priced, /\$1,500 a month/);
 }
 
+async function testDiscoveryIsNotAlwaysADesk() {
+  const required = await assertLocalCanned(
+    "Do I have to get a Hermes Desk?",
+    /dashboards[\s\S]*system integrations[\s\S]*not required[\s\S]*Paid discovery \(\$2,000\)[\s\S]*\$4,500–15,000/i
+  );
+  assert.match(required, /30-minute introductory call/i);
+  assert.doesNotMatch(required, /\$175|hourly rate/i);
+  const priced = await assertLocalCanned(
+    "How much is paid discovery?",
+    /Paid Discovery is \$2,000[\s\S]*dashboard[\s\S]*system integration[\s\S]*\$4,500–15,000[\s\S]*only one option/i
+  );
+  assert.match(priced, /30-minute introductory call/i);
+  assert.doesNotMatch(priced, /\$175|hourly rate/i);
+}
+
 async function testLatestQuestionControlsIntentAfterDashboardContext() {
   const previousKey = process.env.GEMINI_API_KEY;
   delete process.env.GEMINI_API_KEY;
@@ -156,6 +171,7 @@ await testHermesPricingNamesDesks();
 await testTutoringPricingIsMetered();
 await testPublicLadderOnVaguePricing();
 await testCareRetainerCanned();
+await testDiscoveryIsNotAlwaysADesk();
 await testCompoundPricingAnswersAreSpecificButNoInventedRate();
 await testCommonIntentAnswersAvoidGeminiKey();
 await testSpreadsheetOptimizationGivesUsefulApproach();

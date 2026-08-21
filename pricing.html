@@ -21,8 +21,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=pricing-care-1" />
-  <link rel="stylesheet" href="assets/portfolio-chatbot.css?v=pricing-care-1" />
+  <link rel="stylesheet" href="styles.css?v=pricing-custom-1" />
+  <link rel="stylesheet" href="assets/portfolio-chatbot.css?v=pricing-custom-1" />
   <link rel="icon" href="assets/yonatan-gemmi-pixel-portrait-256.png" type="image/png" />
   <script type="application/ld+json">
 {
@@ -65,15 +65,16 @@
     {
       "@type": "Offer",
       "name": "Paid Discovery",
+      "description": "One workflow mapped for custom work such as a dashboard, system integration, report, automation, or cleanup, with a written next-step quote. A Hermes Desk is only used when it actually fits.",
       "price": "2000",
       "priceCurrency": "USD",
       "itemOffered": { "@type": "Service", "name": "Paid workflow discovery" }
     },
     {
       "@type": "Offer",
-      "name": "Workflow or dashboard job",
-      "description": "Quoted after discovery, typically $4,500 to $15,000 depending on the work.",
-      "itemOffered": { "@type": "Service", "name": "Scoped workflow or dashboard build" }
+      "name": "Build after discovery",
+      "description": "Quoted after discovery for custom work such as dashboards, system integrations, reporting systems, workflow automation, or cleanup. Usually $4,500–$15,000. A Hermes Desk is only one option.",
+      "itemOffered": { "@type": "Service", "name": "Scoped build after discovery" }
     },
     {
       "@type": "Offer",
@@ -125,6 +126,14 @@
         },
         {
           "@type": "Question",
+          "name": "Do I have to get a Hermes Desk?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Discovery and builds are custom work: dashboards, system integrations, reporting systems, workflow automation, and cleanup of tools you already have. A Hermes Desk is a separate packaged install. We only recommend one when it actually fits."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "What if I need Hermes plus CRM and accounting?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -161,6 +170,14 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Yes. I accept digital payments such as USDC and Bitcoin (BTC). Inquire for more info."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do we start?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use the homepage form. Share what you want set up or fixed and a few times that work. I will confirm a free 30-minute introductory call."
           }
         }
       ]
@@ -213,6 +230,7 @@
           <p class="lead">Start with a free 30-minute introductory call. We pick the setup that matches the work. The call is not paid discovery, and it is not a quote for a custom build.</p>
           <div class="actions">
             <a class="button primary" href="index.html#contact">Request a free 30-min intro call</a>
+            <a class="button ghost" href="#consulting">Custom work</a>
             <a class="button ghost" href="#desks">Hermes Desks</a>
           </div>
         </div>
@@ -306,21 +324,30 @@
 
       <section id="consulting" class="section" aria-labelledby="consulting-title">
         <div class="section-heading stacked">
-          <h2 id="consulting-title">Discovery and builds</h2>
-          <p class="section-intro">If the request is a business problem, not a named Desk, we do not quote a custom build from the free intro call.</p>
+          <p class="eyebrow">Custom work</p>
+          <h2 id="consulting-title">Dashboards, integrations, and other custom builds</h2>
+          <p class="section-intro">This path is for custom work. Paid discovery figures out what to build. The usual build is a dashboard, a system integration, a reporting workflow, or a cleanup of tools you already have. A Hermes Desk is a separate packaged install above. We only use one when that is actually the right tool.</p>
         </div>
+        <ul class="build-examples" aria-label="Typical custom work">
+          <li>Dashboards and reports</li>
+          <li>System integrations</li>
+          <li>Workflow automation</li>
+          <li>Spreadsheet and data cleanup</li>
+          <li>Reporting systems</li>
+          <li>Connecting tools you already pay for</li>
+        </ul>
         <div class="pricing-ladder">
           <article class="pricing-rung">
             <div>
               <h3>Paid Discovery</h3>
-              <p>One workflow mapped: how it works now, what it costs, and the risks, with a written next-step quote. The free intro call is only a scan. This is the diagnosis.</p>
+              <p>We map one workflow — sources, handoffs, and what the custom system should do. You get a written next-step quote for that work: a dashboard, an integration, a report, or a cleanup. The free intro call is only a scan. This is the diagnosis.</p>
             </div>
             <p class="pricing-amt">$2,000</p>
           </article>
           <article class="pricing-rung">
             <div>
-              <h3>Workflow or dashboard job</h3>
-              <p>Quoted only after discovery, or when the request already maps cleanly onto a Desk. The number depends on the work. You hear a fixed package, not a guess from the intro call.</p>
+              <h3>Custom build after discovery</h3>
+              <p>Quoted only after discovery. Typical work is a dashboard, a system integration, a reporting system, workflow automation, or cleanup of existing tools. You hear a fixed package for that custom work, not a guess from the intro call.</p>
             </div>
             <p class="pricing-amt">$4,500–15,000</p>
           </article>
@@ -478,6 +505,7 @@
         </div>
         <div class="faq-grid faq-accordion">
           <details class="faq-item"><summary>Is the introductory call free?</summary><p>Yes. The first 30 minutes is free. That call is to see if the work is a fit and which named setup applies. It is not paid discovery.</p></details>
+          <details class="faq-item"><summary>Do I have to get a Hermes Desk?</summary><p>No. Discovery and builds are custom work: dashboards, system integrations, reporting systems, workflow automation, and cleanup of tools you already have. A Hermes Desk is a separate packaged install. We only recommend one when it actually fits.</p></details>
           <details class="faq-item"><summary>What if I need Hermes plus CRM and accounting?</summary><p>That is a Connected Desk at $3,500, not a Starter Desk. Starter is one channel and one standard connection on a Mac you control.</p></details>
           <details class="faq-item"><summary>Do I pay for the AI model and app subscriptions?</summary><p>Yes. You pay for your own model, Hermes, and app subscriptions. That can be ChatGPT, Claude, or another model you choose, including a local one. I install and configure the system on a machine you control.</p></details>
           <details class="faq-item"><summary>Can I run a local model with a Desk?</summary><p>Yes, as an add-on on an existing Desk. I install it and hook it up after I see the machine. That add-on is quoted. It is not a fixed price.</p></details>

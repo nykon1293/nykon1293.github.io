@@ -104,6 +104,18 @@ const cannedRules: CannedRule[] = [
     answer: () => `Hermes setups are packaged Desks: Starter Desk $500, Operator Desk $1,500, and Connected Desk $3,500. CRM plus books is Connected, not Starter. The free 30-minute introductory call classifies which Desk fits. ${introCallCta("what you want the agent to do, which tools it should use, and a few times that work")}`
   },
   {
+    name: "desk-not-required",
+    test: (text) => hasAny(text, [
+      /do i (need|have to) (get |buy |use )?(a |an )?(hermes )?(desk|agent)/,
+      /have to (get|buy|use) (a |an )?(hermes )?desk/,
+      /is (a )?(hermes )?desk (required|mandatory|necessary)/,
+      /every (project|build|job) .{0,24}(hermes )?desk/,
+      /always (need |get |buy |use )?(a |an )?(hermes )?desk/,
+      /not always (a |an )?(hermes )?desk/
+    ]),
+    answer: () => `No. Discovery and builds are custom work: dashboards, system integrations, reporting systems, workflow automation, and cleanup of tools you already have. A Hermes Desk is not required. Paid discovery ($2,000) maps the work first. The build after that is quoted, usually $4,500–15,000. A Desk is only used when it actually fits. ${introCallCta("the work you want fixed, the tools you already use, and a few times that work")}`
+  },
+  {
     name: "pricing-custom-gpt",
     test: (text, assessment) => hasAny(text, [/\b(price|pricing|cost|costs|charge|charges|rate|rates|budget|quote|estimate|fee|fees)\b/, /how much/]) && hasAny(text, [/\bcustom gpts?\b/, /\bgpts?\b/, /\bcustom chatgpt\b/, /\bopenai assistant\b/, /\bchatgpt bot\b/]),
     answer: () => `Yes — custom GPTs and GPT-style workflow tools are a strong fit. Pricing depends on what the GPT needs to do, how much source material or process knowledge it needs, whether it needs actions/integrations, how sensitive the data is, and whether you need a quick prototype or a production-ready assistant with testing, documentation, and handoff. Yonatan has built major Custom GPT workflows and can walk through the right version on a free 30-minute introductory call. ${introCallCta("the goal, users, inputs/outputs, and a few times that work")}`
@@ -149,9 +161,14 @@ const cannedRules: CannedRule[] = [
     answer: () => `Care starts after a Desk or a build is live. It is month to month, with 30 days' notice to cancel. Starter Care is $750 a month: fixes when something stops working, small edits, a monthly check, help changing the model on the same Desk, and short questions from the people who use it. It does not add new systems. Operator Care is $1,500 a month: everything in Starter Care, plus one small add each month on the system you already have. Care is not unlimited chat, not a new Desk, and not a rebuild. Named setups are on https://nykon1293.github.io/pricing.html#retainers. ${introCallCta("the live system you want kept useful, and a few times that work")}`
   },
   {
+    name: "pricing-discovery",
+    test: (text) => hasAny(text, [/\b(price|pricing|cost|costs|charge|charges|rate|rates|budget|quote|estimate|fee|fees)\b/, /how much/, /\bwhat is\b/, /\bwhat does\b/]) && hasAny(text, [/\bpaid discovery\b/, /\bdiscovery\b/, /\bbuild after discovery\b/, /\bcustom build\b/]),
+    answer: () => `Paid Discovery is $2,000. It maps one workflow so we can quote the custom work: a dashboard, system integration, report, automation, or cleanup. The build after that is quoted, usually $4,500–15,000. A Hermes Desk is only one option, and only when it fits. The free 30-minute introductory call is only a scan. ${introCallCta("the work you want diagnosed, current tools, and a few times that work")}`
+  },
+  {
     name: "general-pricing",
     test: (text) => hasAny(text, [/\b(price|pricing|cost|costs|charge|charges|rate|rates|budget|quote|estimate|fee|fees)\b/, /how much/]),
-    answer: () => `Yonatan publishes named setups: Hermes Starter Desk $500, Operator Desk $1,500, Connected Desk $3,500; Paid Discovery $2,000; Care $750 or $1,500 a month; Advisory Light $4,500 a month; Fractional CTO $7,500 a month; tutoring $125/hr. Custom builds are quoted after discovery. The free 30-minute introductory call classifies which one applies. Details are on https://nykon1293.github.io/pricing.html. ${introCallCta("the goal, current tools, and a few times that work")}`
+    answer: () => `Yonatan publishes named setups: Hermes Starter Desk $500, Operator Desk $1,500, Connected Desk $3,500; Paid Discovery $2,000; Care $750 or $1,500 a month; Advisory Light $4,500 a month; Fractional CTO $7,500 a month; tutoring $125/hr. Custom builds after discovery are for dashboards, system integrations, reporting, and similar custom work — not always a Desk. The free 30-minute introductory call classifies which one applies. Details are on https://nykon1293.github.io/pricing.html. ${introCallCta("the goal, current tools, and a few times that work")}`
   },
   {
     name: "contact",

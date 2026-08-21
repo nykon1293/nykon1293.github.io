@@ -275,6 +275,24 @@ body::after {
   color: var(--muted);
 }
 .pricing-ladder { display: grid; gap: 0; }
+.build-examples {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 4px 0 22px;
+  padding: 0;
+  list-style: none;
+}
+.build-examples li {
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
 .pricing-rung {
   display: grid;
   grid-template-columns: minmax(0, 1.5fr) auto;
@@ -341,6 +359,7 @@ body::after {
 }
 @media (max-width: 900px) {
   .sku-grid { grid-template-columns: 1fr; }
+  .build-examples { grid-template-columns: 1fr 1fr; }
   .pricing-rung,
   .pricing-pointer { grid-template-columns: 1fr; }
   .pricing-amt { text-align: left; }
