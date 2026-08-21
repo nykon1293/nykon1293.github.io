@@ -121,6 +121,19 @@ async function testUncoveredQuestionFallsBackCleanlyWithoutGeminiKey() {
   assert.deepEqual(result.body.helpAssessment.matchedSkills, []);
 }
 
+async function testCareRetainerCanned() {
+  const response = await assertLocalCanned(
+    "What is a care retainer?",
+    /Starter Care is \$750 a month[\s\S]*Operator Care is \$1,500 a month[\s\S]*not unlimited chat[\s\S]*pricing\.html#retainers/i
+  );
+  assert.match(response, /30-minute introductory call/i);
+  const priced = await assertLocalCanned(
+    "How much is Starter Care?",
+    /\$750 a month[\s\S]*does not add new systems/i
+  );
+  assert.match(priced, /\$1,500 a month/);
+}
+
 async function testLatestQuestionControlsIntentAfterDashboardContext() {
   const previousKey = process.env.GEMINI_API_KEY;
   delete process.env.GEMINI_API_KEY;
@@ -142,6 +155,7 @@ await testDashboardPricingMentionsDiscoveryThenRange();
 await testHermesPricingNamesDesks();
 await testTutoringPricingIsMetered();
 await testPublicLadderOnVaguePricing();
+await testCareRetainerCanned();
 await testCompoundPricingAnswersAreSpecificButNoInventedRate();
 await testCommonIntentAnswersAvoidGeminiKey();
 await testSpreadsheetOptimizationGivesUsefulApproach();

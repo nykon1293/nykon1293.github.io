@@ -144,6 +144,11 @@ const cannedRules: CannedRule[] = [
     answer: () => `Dashboard and data jobs are quoted after paid discovery, not as a single number from this chat. Published builds sit in a $4,500–15,000 range once the work is scoped. The first step is a free 30-minute introductory call. ${introCallCta("your data sources, current reporting pain, desired metrics, and a few times that work")}`
   },
   {
+    name: "pricing-care",
+    test: (text) => hasAny(text, [/\bcare retainers?\b/, /\bretainers?\b/, /\bstarter care\b/, /\boperator care\b/, /\bongoing care\b/, /\bmonthly care\b/]) || (/\bcare\b/.test(text) && hasAny(text, [/\b(750|1,?500|month|monthly|desk|fix|fixes|handoff|include|included|cover)\b/])),
+    answer: () => `Care starts after a Desk or a build is live. It is month to month, with 30 days' notice to cancel. Starter Care is $750 a month: fixes when something stops working, small edits, a monthly check, help changing the model on the same Desk, and short questions from the people who use it. It does not add new systems. Operator Care is $1,500 a month: everything in Starter Care, plus one small add each month on the system you already have. Care is not unlimited chat, not a new Desk, and not a rebuild. Named setups are on https://nykon1293.github.io/pricing.html#retainers. ${introCallCta("the live system you want kept useful, and a few times that work")}`
+  },
+  {
     name: "general-pricing",
     test: (text) => hasAny(text, [/\b(price|pricing|cost|costs|charge|charges|rate|rates|budget|quote|estimate|fee|fees)\b/, /how much/]),
     answer: () => `Yonatan publishes named setups: Hermes Starter Desk $500, Operator Desk $1,500, Connected Desk $3,500; Paid Discovery $2,000; Care $750 or $1,500 a month; Advisory Light $4,500 a month; Fractional CTO $7,500 a month; tutoring $125/hr. Custom builds are quoted after discovery. The free 30-minute introductory call classifies which one applies. Details are on https://nykon1293.github.io/pricing.html. ${introCallCta("the goal, current tools, and a few times that work")}`

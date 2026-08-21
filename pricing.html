@@ -21,8 +21,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=pricing-1" />
-  <link rel="stylesheet" href="assets/portfolio-chatbot.css?v=pricing-1" />
+  <link rel="stylesheet" href="styles.css?v=pricing-care-1" />
+  <link rel="stylesheet" href="assets/portfolio-chatbot.css?v=pricing-care-1" />
   <link rel="icon" href="assets/yonatan-gemmi-pixel-portrait-256.png" type="image/png" />
   <script type="application/ld+json">
 {
@@ -78,16 +78,18 @@
     {
       "@type": "Offer",
       "name": "Care retainer — Starter",
+      "description": "Month to month after a Desk or a build. Fixes, small edits, a monthly check, help changing the model on the same Desk, and short questions. Does not add new systems. Cancel with 30 days' notice.",
       "price": "750",
       "priceCurrency": "USD",
-      "itemOffered": { "@type": "Service", "name": "Monthly Care retainer" }
+      "itemOffered": { "@type": "Service", "name": "Monthly Care retainer — Starter" }
     },
     {
       "@type": "Offer",
       "name": "Care retainer — Operator",
+      "description": "Month to month. Everything in Starter Care plus one small add each month on the live system. Not a new Desk or a rebuild. Cancel with 30 days' notice.",
       "price": "1500",
       "priceCurrency": "USD",
-      "itemOffered": { "@type": "Service", "name": "Monthly Care retainer" }
+      "itemOffered": { "@type": "Service", "name": "Monthly Care retainer — Operator" }
     },
     {
       "@type": "Offer",
@@ -143,6 +145,14 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Yes, as an add-on on an existing Desk. I install it and hook it up after I see the machine. That add-on is quoted. It is not a fixed price."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a Care retainer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Care starts after a Desk or a build is live. Starter Care is $750 a month for fixes, small edits, a monthly check, help changing the model on the same Desk, and short questions from the people who use it. It does not add new systems. Operator Care is $1,500 a month and includes one small add each month on the system you already have. Both are month to month with 30 days' notice. Care is not unlimited chat, not a new Desk, and not a rebuild."
           }
         },
         {
@@ -320,16 +330,50 @@
       <section id="retainers" class="section" aria-labelledby="retainers-title">
         <div class="section-heading stacked">
           <h2 id="retainers-title">Ongoing work</h2>
-          <p class="section-intro">Installs are one-time. Retainers are how the system stays useful after handoff.</p>
+          <p class="section-intro">Installs are one-time. Care keeps a live Desk or build useful after handoff. Advisory is thinking-partner work. Fractional CTO is the heavier monthly retainer.</p>
         </div>
-        <div class="pricing-ladder">
-          <article class="pricing-rung">
-            <div>
-              <h3>Care retainers</h3>
-              <p>Fixes, small edits, and a monthly check after a Desk or a build. The Starter seat does not add new systems. After handoff, ongoing help is Care, not unlimited chat.</p>
-            </div>
-            <p class="pricing-amt">$750 / $1,500<span class="tiny"> / month</span></p>
+        <div class="sku-grid sku-grid--two">
+          <article class="sku-card">
+            <span class="tag">Care — Starter</span>
+            <h3>Keep the live system working</h3>
+            <p class="sku-price">$750 <small>/ month</small></p>
+            <p>After a Desk or a build. Month to month. Cancel with 30 days' notice. This is not unlimited chat.</p>
+            <h4>In</h4>
+            <ul>
+              <li>Fixes when something stops working</li>
+              <li>Small edits to the live setup</li>
+              <li>A monthly check</li>
+              <li>Help changing the model or provider on the same Desk</li>
+              <li>Short questions from the people who use it</li>
+            </ul>
+            <h4>Out</h4>
+            <ul class="sku-out">
+              <li>New systems or a new Desk</li>
+              <li>A new workflow from scratch</li>
+              <li>Major rebuilds or unrelated IT support</li>
+            </ul>
           </article>
+          <article class="sku-card">
+            <span class="tag">Care — Operator</span>
+            <h3>Keep it working, plus one small add</h3>
+            <p class="sku-price">$1,500 <small>/ month</small></p>
+            <p>Everything in Starter Care, plus room to grow the live system a little each month. Still month to month, with 30 days' notice.</p>
+            <h4>In</h4>
+            <ul>
+              <li>Everything in Starter Care</li>
+              <li>One small add each month on the system you already have</li>
+              <li>Extra time for check-ins and tune-ups</li>
+            </ul>
+            <h4>Out</h4>
+            <ul class="sku-out">
+              <li>A new Desk or a full rebuild</li>
+              <li>Large new integrations</li>
+              <li>Unlimited chat</li>
+            </ul>
+          </article>
+        </div>
+        <p class="pricing-notes">Care is offered at handoff so support does not attach to free chat. Advisory Light and Fractional CTO are separate from Care.</p>
+        <div class="pricing-ladder">
           <article class="pricing-rung">
             <div>
               <h3>Advisory Light</h3>
@@ -437,6 +481,7 @@
           <details class="faq-item"><summary>What if I need Hermes plus CRM and accounting?</summary><p>That is a Connected Desk at $3,500, not a Starter Desk. Starter is one channel and one standard connection on a Mac you control.</p></details>
           <details class="faq-item"><summary>Do I pay for the AI model and app subscriptions?</summary><p>Yes. You pay for your own model, Hermes, and app subscriptions. That can be ChatGPT, Claude, or another model you choose, including a local one. I install and configure the system on a machine you control.</p></details>
           <details class="faq-item"><summary>Can I run a local model with a Desk?</summary><p>Yes, as an add-on on an existing Desk. I install it and hook it up after I see the machine. That add-on is quoted. It is not a fixed price.</p></details>
+          <details class="faq-item"><summary>What is a Care retainer?</summary><p>Care starts after a Desk or a build is live. Starter Care is $750 a month for fixes, small edits, a monthly check, help changing the model on the same Desk, and short questions from the people who use it. It does not add new systems. Operator Care is $1,500 a month and includes one small add each month on the system you already have. Both are month to month with 30 days' notice. Care is not unlimited chat, not a new Desk, and not a rebuild.</p></details>
           <details class="faq-item"><summary>Do you accept USDC or Bitcoin?</summary><p>Yes. I accept digital payments such as USDC and Bitcoin (BTC). Inquire for more info.</p></details>
           <details class="faq-item"><summary>How do we start?</summary><p>Use the homepage form. Share what you want set up or fixed and a few times that work. I will confirm a free 30-minute introductory call.</p></details>
         </div>
