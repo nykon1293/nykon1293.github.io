@@ -199,7 +199,7 @@ PAGES = [
         "faqs": [
             (
                 "What is Hermes?",
-                "Hermes is an AI agent you run on your own computer. It works with your files and tools, and it follows the limits we set.",
+                "Hermes is an AI agent you run on your own computer. It works with your files and tools, and it follows the limits we set. We hook up ChatGPT, Claude, or another model you choose, including a local one.",
             ),
             (
                 "Is this the same as a Custom GPT?",
@@ -220,6 +220,10 @@ PAGES = [
             (
                 "How do we start?",
                 "Share what you want the agent to do and which tools you use. Use the homepage form. The usual next step is a free 30-minute introductory call, then the matching Desk.",
+            ),
+            (
+                "Which model does Hermes use?",
+                "Hermes is the harness, not the chat box. We hook up ChatGPT, Claude, or another model you choose, including a local one on your machine. You pay for the cloud model. Local install is a Desk add-on, quoted after I see the machine.",
             ),
         ],
     },
