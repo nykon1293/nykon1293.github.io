@@ -79,6 +79,7 @@ async function testCommonIntentAnswersAvoidGeminiKey() {
   await assertLocalCanned("Can Yonatan build an API integration or internal web app?", /backend|integration|api|internal-tool|tool/i);
   await assertLocalCanned("What services does Yonatan offer?", /Hermes|consulting|contract|tutoring|dashboards|ecommerce/i);
   await assertLocalCanned("Can Yonatan set up a Hermes Agent for my work?", /Hermes[\s\S]*30-minute introductory call/i);
+  await assertLocalCanned("What is Hermes?", /AI agent[\s\S]*chat boxes[\s\S]*software around them[\s\S]*30-minute introductory call/i);
 }
 
 async function testSpreadsheetOptimizationGivesUsefulApproach() {

@@ -231,9 +231,20 @@ const cannedRules: CannedRule[] = [
     answer: () => `Yes — small-business technical operations and troubleshooting may be a fit. Yonatan has experience across workstation setup, network/process troubleshooting, MDM/mobile-device operations, diagnostics workflows, and practical implementation. ${introCallCta("the environment, the issue, and a few times that work")}`
   },
   {
+    name: "what-is-hermes",
+    test: (text) => hasAny(text, [
+      /what(?:'s| is) hermes/,
+      /explain hermes/,
+      /what does hermes do/,
+      /what(?:'s| is) a hermes agent/,
+      /what(?:'s| is) a hermes desk/
+    ]),
+    answer: () => `Hermes is an AI agent you run on your own computer. ChatGPT and Claude are chat boxes. Hermes is the software around them: it uses the model you choose, works with your files and tools, follows written limits, and remembers your rules. Yonatan installs it as a named Desk — Starter, Operator, or Connected — then hands it off so you can run it. ${introCallCta("what you want the agent to do, which tools it should use, and a few times that work")}`
+  },
+  {
     name: "hermes-agents",
     test: (text) => hasAny(text, [/\bhermes\b/, /\bagentic ai\b/, /\bagent setup\b/, /\bset up an agent\b/, /\bsetup an agent\b/]),
-    answer: () => `Yes — setting up Hermes Agents is a strong fit. Yonatan installs Hermes on your computer as a named Desk — Starter, Operator, or Connected — then hands it off so you can run it. The free 30-minute introductory call classifies which Desk fits. ${introCallCta("what you want the agent to do, which tools it should use, and a few times that work")}`
+    answer: () => `Yes — setting up Hermes Agents is a strong fit. Hermes is an AI agent on your computer, not another chat tab. Yonatan installs it as a named Desk — Starter, Operator, or Connected — then hands it off so you can run it. The free 30-minute introductory call classifies which Desk fits. ${introCallCta("what you want the agent to do, which tools it should use, and a few times that work")}`
   },
   {
     name: "custom-gpt",

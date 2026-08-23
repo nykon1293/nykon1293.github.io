@@ -145,11 +145,11 @@ PAGES = [
         "slug": "hermes-agents",
         "filename": "hermes-agents.html",
         "title": "Hermes Agents Setup | Yonatan Gemmi | South FL",
-        "meta_description": "I install Hermes on your computer for founders and operators — an AI agent on your machine, set up for your files and tools. Remote or South Florida.",
+        "meta_description": "Hermes is an AI agent on your computer, not another chat tab. I install it on your Mac, set limits, and hand it off. Remote or South Florida.",
         "service_name": "Hermes Agent setup",
         "eyebrow": "On your machine",
-        "h1": "I install Hermes on your computer and hand it off ready to use.",
-        "lead": "Hermes is an AI agent that lives on your machine and stays with your files and tools. I do the install, the first setup, and a short walkthrough so you can run it yourself.",
+        "h1": "Hermes is an AI agent on your computer, not another chat tab.",
+        "lead": "ChatGPT and Claude are chat boxes. Hermes is the software around them. It lives on a Mac you control, uses the model you already pay for, and can work with your files and tools. I install it, write the limits, and hand it off so you can run it.",
         "cta_primary": "Request a free 30-min intro call",
         "closing_intro": "Share what you want the agent to do and which tools you use. The usual next step is a free 30-minute introductory call.",
         "pfd_label": "When people ask for an agent",
@@ -169,6 +169,10 @@ PAGES = [
             ),
         ],
         "sections": [
+            (
+                "What Hermes is",
+                "Hermes is not a website and not another ChatGPT tab. It is software we install on your machine. The model — ChatGPT, Claude, or another one you choose — is the brain. Hermes is the harness: it can open files, draft messages, run a checklist, and remember your rules, only in the folders and accounts we agree on first.",
+            ),
             (
                 "What this looks like",
                 "I start with the jobs you want the agent to do. Then I install Hermes, set it up for your work, and write the rules for which projects it may touch. You leave with a working agent and a short way to run it.",
@@ -199,7 +203,7 @@ PAGES = [
         "faqs": [
             (
                 "What is Hermes?",
-                "Hermes is an AI agent you run on your own computer. It works with your files and tools, and it follows the limits we set. We hook up ChatGPT, Claude, or another model you choose, including a local one.",
+                "Hermes is an AI agent you run on your own computer. ChatGPT and Claude are chat boxes. Hermes is the software around them: it can work with your files and tools, follow written limits, and remember your rules. I install it as a named Desk and hand it off so you can run it. We hook up ChatGPT, Claude, or another model you choose, including a local one.",
             ),
             (
                 "Is this the same as a Custom GPT?",
@@ -676,7 +680,7 @@ def render(page: dict) -> str:
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css?v=pricing-1" />
+  <link rel="stylesheet" href="../styles.css?v=hermes-explain-1" />
   <link rel="stylesheet" href="../assets/portfolio-chatbot.css?v=pricing-1" />
   <link rel="icon" href="../assets/yonatan-gemmi-pixel-portrait-256.png" type="image/png" />
   <script type="application/ld+json">
