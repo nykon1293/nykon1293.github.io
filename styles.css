@@ -298,6 +298,7 @@ body::after {
   max-width: 72ch;
   color: var(--muted);
 }
+.section .pay-accept { margin-top: 14px; }
 .pricing-ladder { display: grid; gap: 0; }
 .build-examples {
   display: grid;
@@ -886,6 +887,50 @@ p { color: var(--muted); font-size: var(--text-base); }
   font-size: .9rem;
   font-weight: 650;
 }
+.pay-accept {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 16px 0 0;
+  padding: 12px 14px;
+  max-width: 54ch;
+  border: 1px solid var(--line-soft);
+  border-radius: 14px;
+  background: rgba(245,244,236,.035);
+  color: var(--muted);
+  font-size: .92rem;
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+.pay-accept__coins {
+  display: inline-flex;
+  flex-shrink: 0;
+  gap: 6px;
+  margin-top: 1px;
+}
+.pay-accept__coins img {
+  display: block;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #0b0c09;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.08);
+}
+.pay-accept--inline {
+  display: inline-flex;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  max-width: none;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+.faq-accordion .faq-item p.pay-faq {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
 footer { padding: 26px 0 48px; border-top: 1px solid var(--line-soft); color: var(--muted-2); }
 footer p { font-size: .92rem; }
 
@@ -954,6 +999,7 @@ footer p { font-size: .92rem; }
   .actions .button { width: 100%; justify-content: center; }
   .actions .hero-tertiary { width: 100%; text-align: center; }
   .engagement-options { grid-template-columns: 1fr; }
+  .pay-accept { max-width: none; }
   .social-system-map__row { gap: 5px; }
   .social-system-map__row span { padding: 6px 7px; font-size: .65rem; }
   .faq-accordion summary { padding: 16px 46px 16px 16px; }

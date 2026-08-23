@@ -99,6 +99,17 @@ const cannedRules: CannedRule[] = [
     answer: (visitorText) => fallbackAnswer({ canHelp: "maybe", reason: "", matchedSkills: [] }, visitorText)
   },
   {
+    name: "payment-methods",
+    test: (text) => hasAny(text, [
+      /\b(usdc|bitcoin|\bbtc\b|crypto|cryptocurrency|stablecoin|digital payments?|zelle|bank wire|wire transfer|bank transfer)\b/,
+      /pay (in|with|via) (crypto|bitcoin|btc|usdc|zelle|wire)/,
+      /payment methods?/,
+      /how (can|do) i pay/,
+      /ways? to pay/
+    ]),
+    answer: () => `Yes. Yonatan accepts bank wire, Zelle, USDC, or Bitcoin (BTC). Other crypto only if he agrees first. Inquire for more info on the free 30-minute introductory call. Account, Zelle, and wallet details are not posted on the site.`
+  },
+  {
     name: "pricing-hermes",
     test: (text) => hasAny(text, [/\b(price|pricing|cost|costs|charge|charges|rate|rates|budget|quote|estimate|fee|fees)\b/, /how much/]) && hasAny(text, [/\bhermes\b/, /\bdesk\b/, /\bdesks\b/, /\bagent setup\b/, /\bset up an agent\b/, /\bsetup an agent\b/, /\bagent install\b/]),
     answer: () => `Hermes setups are packaged Desks: Starter Desk $500, Operator Desk $1,500, and Connected Desk $3,500. CRM plus books is Connected, not Starter. The free 30-minute introductory call classifies which Desk fits. ${introCallCta("what you want the agent to do, which tools it should use, and a few times that work")}`
