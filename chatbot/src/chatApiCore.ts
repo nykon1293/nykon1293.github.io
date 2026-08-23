@@ -107,7 +107,7 @@ const cannedRules: CannedRule[] = [
       /how (can|do) i pay/,
       /ways? to pay/
     ]),
-    answer: () => `Yes. Yonatan accepts bank wire, Zelle, USDC, or Bitcoin (BTC). Other crypto only if he agrees first. Inquire for more info on the free 30-minute introductory call. Account, Zelle, and wallet details are not posted on the site.`
+    answer: () => `Yonatan accepts bank wire, Zelle, USDC, or Bitcoin (BTC). Other crypto only if he agrees first. Inquire for more info on the free 30-minute introductory call. Account, Zelle, and wallet details are not posted on the site.`
   },
   {
     name: "pricing-hermes",
