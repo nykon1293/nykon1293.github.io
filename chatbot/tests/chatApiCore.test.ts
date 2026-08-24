@@ -80,8 +80,9 @@ async function testCommonIntentAnswersAvoidGeminiKey() {
   await assertLocalCanned("What services does Yonatan offer?", /Hermes|consulting|contract|tutoring|dashboards|ecommerce/i);
   await assertLocalCanned("Can Yonatan set up a Hermes Agent for my work?", /Hermes[\s\S]*30-minute introductory call/i);
   await assertLocalCanned("What is Hermes?", /AI agent[\s\S]*chat boxes[\s\S]*software around them[\s\S]*30-minute introductory call/i);
-  await assertLocalCanned("What payment methods do you accept?", /bank wire[\s\S]*Zelle[\s\S]*USDC[\s\S]*Bitcoin[\s\S]*Inquire for more info/i);
-  await assertLocalCanned("Can I pay with Zelle?", /bank wire[\s\S]*Zelle[\s\S]*USDC[\s\S]*Bitcoin/i);
+  await assertLocalCanned("What payment methods do you accept?", /bank wire[\s\S]*Zelle[\s\S]*X Money[\s\S]*USDC[\s\S]*Bitcoin[\s\S]*Inquire for more info/i);
+  await assertLocalCanned("Can I pay with Zelle?", /bank wire[\s\S]*Zelle[\s\S]*X Money[\s\S]*USDC[\s\S]*Bitcoin/i);
+  await assertLocalCanned("Can I pay with X Money?", /bank wire[\s\S]*Zelle[\s\S]*X Money[\s\S]*USDC[\s\S]*Bitcoin/i);
 }
 
 async function testSpreadsheetOptimizationGivesUsefulApproach() {

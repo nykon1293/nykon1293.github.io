@@ -101,13 +101,13 @@ const cannedRules: CannedRule[] = [
   {
     name: "payment-methods",
     test: (text) => hasAny(text, [
-      /\b(usdc|bitcoin|\bbtc\b|crypto|cryptocurrency|stablecoin|digital payments?|zelle|bank wire|wire transfer|bank transfer)\b/,
-      /pay (in|with|via) (crypto|bitcoin|btc|usdc|zelle|wire)/,
+      /\b(usdc|bitcoin|\bbtc\b|crypto|cryptocurrency|stablecoin|digital payments?|zelle|bank wire|wire transfer|bank transfer|x money|xmoney)\b/,
+      /pay (in|with|via) (crypto|bitcoin|btc|usdc|zelle|wire|x money|xmoney)/,
       /payment methods?/,
       /how (can|do) i pay/,
       /ways? to pay/
     ]),
-    answer: () => `Yonatan accepts bank wire, Zelle, USDC, or Bitcoin (BTC). Other crypto only if he agrees first. Inquire for more info on the free 30-minute introductory call. Account, Zelle, and wallet details are not posted on the site.`
+    answer: () => `Yonatan accepts bank wire, Zelle, X Money, USDC, or Bitcoin (BTC). Other crypto only if he agrees first. Inquire for more info on the free 30-minute introductory call. Account, Zelle, X Money, and wallet details are not posted on the site.`
   },
   {
     name: "pricing-hermes",
