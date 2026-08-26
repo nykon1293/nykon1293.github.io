@@ -10,9 +10,16 @@ const SUGGESTIONS = [
   "What kinds of help does he offer?"
 ];
 
-const WELCOME_MESSAGE = "Hi — I’m Yonatan’s AI Project Scout. Tell me what you’re trying to automate, build, analyze, learn, fix, or understand. When you’re ready, pick a free 30-minute intro call on Calendly.";
+const WELCOME_MESSAGE = "Hi — I’m Yonatan’s AI Project Scout. Tell me what you’re trying to automate, build, analyze, learn, fix, or understand. Share a few details and we can set up a free 30-minute introductory call.";
 
-const CALENDLY_INTRO_URL = "https://calendly.com/josh-gemmi/30min";
+type LeadDraft = {
+  name: string;
+  email: string;
+  need: string;
+  timeline: string;
+};
+
+const EMPTY_LEAD: LeadDraft = { name: "", email: "", need: "", timeline: "" };
 
 function nowStamp() {
   return new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
@@ -28,9 +35,13 @@ function botMessage(text: string, extras: Partial<Message> = {}): Message {
   };
 }
 
+function isValidEmail(value: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value.trim());
+}
+
 function isPositiveLeadReply(text: string) {
   const value = text.trim();
-  return /^(yes|yeah|yep|sure|ok|okay|please|send|send note|send a note|yes[,.! ]?\s*send (a )?note|request a call|book a call|let'?s talk|contact me|have him contact me|let'?s do it|start)$/i.test(value);
+  return /^(yes|yeah|yep|sure|ok|okay|please|send|send note|send a note|yes[,.!]?\s*send (a )?note|request a call|book a call|let'?s talk|contact me|have him contact me|let'?s do it|start)$/i.test(value);
 }
 
 function isNegativeLeadReply(text: string) {
@@ -63,6 +74,8 @@ export default function ChatSimulator() {
   const [isLoading, setIsLoading] = useState(false);
   const [lastAssessment, setLastAssessment] = useState<Message["helpAssessment"] | null>(null);
   const [showLeadForm, setShowLeadForm] = useState(false);
+  const [leadDraft, setLeadDraft] = useState<LeadDraft>(EMPTY_LEAD);
+  const [leadError, setLeadError] = useState("");
   const [leadCtaDismissed, setLeadCtaDismissed] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -86,8 +99,64 @@ export default function ChatSimulator() {
   };
 
   const beginLeadFlow = () => {
+    setLeadDraft(EMPTY_LEAD);
+    setLeadError("");
     setShowLeadForm(true);
-    appendBot(botMessage("Pick a time on Calendly for a free 30-minute introductory call."));
+    appendBot(botMessage("Sure — add the basics below so Yonatan can prepare a free 30-minute introductory call."));
+  };
+
+  const submitLead = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setLeadError("");
+
+    const draft = {
+      name: leadDraft.name.trim(),
+      email: leadDraft.email.trim(),
+      need: leadDraft.need.trim(),
+      timeline: leadDraft.timeline.trim()
+    };
+
+    if (draft.name.length < 2) {
+      setLeadError("Please add your name.");
+      return;
+    }
+    if (!isValidEmail(draft.email)) {
+      setLeadError("Please add a valid email.");
+      return;
+    }
+    if (draft.need.length < 8) {
+      setLeadError("Please add a short note about what we should cover on the call.");
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      const response = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...draft, source: "portfolio-chat", website: "" })
+      });
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok && !data.mailtoUrl) {
+        throw new Error(data.error || "Lead submission failed.");
+      }
+
+      if (data.mailtoUrl) {
+        window.location.href = data.mailtoUrl;
+      }
+
+      setShowLeadForm(false);
+      setLeadDraft(EMPTY_LEAD);
+      setLeadCtaDismissed(true);
+      appendBot(botMessage(data.message || "Thanks — Yonatan will use this to prepare a free 30-minute introductory call. If your email app opened, just hit send so he receives it.", {
+        quickReplies: [{ label: "Request another call", value: "send another note" }]
+      }));
+    } catch (error: any) {
+      setLeadError(error?.message || "I couldn’t submit that. Try again, or add a bit more detail about what we should cover.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleLeadInput = async (cleanText: string): Promise<boolean> => {
@@ -146,17 +215,19 @@ export default function ChatSimulator() {
 
       const shouldOffer = !leadCtaDismissed && !showLeadForm && shouldOfferLeadCapture(cleanText, botMsg.text, helpAssessment);
       if (shouldOffer) {
+        setLeadDraft(EMPTY_LEAD);
+        setLeadError("");
         setShowLeadForm(true);
       }
       setMessages((prev) => [
         ...prev,
         botMsg,
-        ...(shouldOffer ? [botMessage("Pick a time on Calendly for a free 30-minute introductory call.")] : [])
+        ...(shouldOffer ? [botMessage("Share a few details below and Yonatan will confirm a free 30-minute introductory call.")] : [])
       ]);
       setLastAssessment(helpAssessment);
       if (!isOpen) setHasUnread(true);
     } catch (error: any) {
-      const fallback = error?.message || "The assistant is temporarily unavailable. Try again in a moment, or book a time on Calendly.";
+      const fallback = error?.message || "The assistant is temporarily unavailable. Share a few details below if the form is open, or try again in a moment.";
       setMessages((prev) => [
         ...prev,
         {
@@ -184,6 +255,8 @@ export default function ChatSimulator() {
     ]);
     setLastAssessment(null);
     setShowLeadForm(false);
+    setLeadDraft(EMPTY_LEAD);
+    setLeadError("");
     setLeadCtaDismissed(false);
     setHasUnread(false);
   };
@@ -192,7 +265,7 @@ export default function ChatSimulator() {
     ? "border-[#9bbf7a]/45 bg-[#152012]/88 text-[#dceecb]"
     : "border-[#d3aa55]/45 bg-[#21180c]/90 text-[#f1dfb4]";
 
-  const statusLabel = lastAssessment?.canHelp === "yes" ? "Strong fit" : "Book an intro call";
+  const statusLabel = lastAssessment?.canHelp === "yes" ? "Strong fit" : "Share details for an intro call";
   const inputPlaceholder = "Describe the workflow or problem…";
 
   return (
@@ -306,35 +379,68 @@ export default function ChatSimulator() {
 
 
               {showLeadForm && (
-                <div className="rounded-2xl border border-[#d3aa55]/28 bg-[#0d0f0d]/95 p-3 shadow-lg">
+                <form onSubmit={submitLead} className="rounded-2xl border border-[#d3aa55]/28 bg-[#0d0f0d]/95 p-3 shadow-lg">
                   <div className="mb-3 flex items-start justify-between gap-3">
                     <div>
-                      <p className="text-sm font-semibold text-[#fff7e8]">Book a free intro call</p>
-                      <p className="mt-1 text-[11px] text-[#b8ab91]">Pick a 30-minute slot. Google Meet. No note to send first.</p>
+                      <p className="text-sm font-semibold text-[#fff7e8]">Request a free intro call</p>
+                      <p className="mt-1 text-[11px] text-[#b8ab91]">Share a few details so Yonatan can prepare for a 30-minute conversation.</p>
                     </div>
                     <button
                       type="button"
-                      onClick={() => { setShowLeadForm(false); setLeadCtaDismissed(true); }}
+                      onClick={() => { setShowLeadForm(false); setLeadError(""); setLeadCtaDismissed(true); }}
                       className="rounded-lg px-2 py-1 text-xs text-[#b8ab91] transition hover:bg-[#21180c] hover:text-[#fff7e8]"
                     >
-                      Hide
+                      Cancel
                     </button>
                   </div>
-                  <a
-                    href={CALENDLY_INTRO_URL}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-1 inline-flex w-full items-center justify-center rounded-xl bg-[#d3aa55] px-4 py-2.5 text-sm font-semibold text-[#121006] transition hover:bg-[#e1bd6f]"
+                  <div className="grid gap-2">
+                    <input
+                      value={leadDraft.name}
+                      onChange={(event) => setLeadDraft((draft) => ({ ...draft, name: event.target.value }))}
+                      maxLength={120}
+                      placeholder="Name"
+                      className="rounded-xl border border-[#d3aa55]/18 bg-[#17120b] px-3 py-2 text-sm text-[#fff7e8] outline-none transition placeholder:text-[#8f8168] focus:border-[#d3aa55]"
+                    />
+                    <input
+                      value={leadDraft.email}
+                      onChange={(event) => setLeadDraft((draft) => ({ ...draft, email: event.target.value }))}
+                      maxLength={160}
+                      placeholder="Email"
+                      type="email"
+                      className="rounded-xl border border-[#d3aa55]/18 bg-[#17120b] px-3 py-2 text-sm text-[#fff7e8] outline-none transition placeholder:text-[#8f8168] focus:border-[#d3aa55]"
+                    />
+                    <textarea
+                      value={leadDraft.need}
+                      onChange={(event) => setLeadDraft((draft) => ({ ...draft, need: event.target.value }))}
+                      maxLength={900}
+                      placeholder="What should we cover on the call?"
+                      rows={3}
+                      className="resize-none rounded-xl border border-[#d3aa55]/18 bg-[#17120b] px-3 py-2 text-sm text-[#fff7e8] outline-none transition placeholder:text-[#8f8168] focus:border-[#d3aa55]"
+                    />
+                    <input
+                      value={leadDraft.timeline}
+                      onChange={(event) => setLeadDraft((draft) => ({ ...draft, timeline: event.target.value }))}
+                      maxLength={240}
+                      placeholder="Times that work for a 30-min call (optional)"
+                      className="rounded-xl border border-[#d3aa55]/18 bg-[#17120b] px-3 py-2 text-sm text-[#fff7e8] outline-none transition placeholder:text-[#8f8168] focus:border-[#d3aa55]"
+                    />
+                  </div>
+                  {leadError && <p className="mt-2 text-[11px] text-rose-300">{leadError}</p>}
+                  <button
+                    disabled={isLoading}
+                    className="mt-3 inline-flex w-full items-center justify-center rounded-xl bg-[#d3aa55] px-4 py-2.5 text-sm font-semibold text-[#121006] transition hover:bg-[#e1bd6f] disabled:cursor-not-allowed disabled:opacity-50"
+                    type="submit"
                   >
-                    Pick a time
-                  </a>
-                </div>
+                    {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
+                    Request intro call
+                  </button>
+                </form>
               )}
 
               {isLoading && (
                 <div className="flex items-center gap-3 text-xs text-[#b8ab91]">
                   <Loader2 className="h-4 w-4 animate-spin text-[#d3aa55]" />
-                  Thinking through project fit…
+                  {showLeadForm ? "Sending your request…" : "Thinking through project fit…"}
                 </div>
               )}
               <div ref={messagesEndRef} />
@@ -354,7 +460,7 @@ export default function ChatSimulator() {
                   {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
                 </button>
               </div>
-              <p className="mt-2 text-[10px] text-[#fff7e8]0">Ready to talk? Book a free 30-minute intro call on Calendly.</p>
+              <p className="mt-2 text-[10px] text-[#fff7e8]0">Share a few details here for a free 30-minute intro call.</p>
             </form>
           </motion.section>
         )}
