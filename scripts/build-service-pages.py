@@ -9,6 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SERVICES_DIR = ROOT / "services"
 BASE = "https://nykon1293.github.io"
+CALENDLY = "https://calendly.com/josh-gemmi/30min"
 
 SERVICE_PAGES = [
     ("hermes-agents.html", "Hermes Agents", "hermes-agents"),
@@ -34,7 +35,7 @@ def nav_for(slug: str) -> str:
     lines.append('        <a href="../index.html#work">Work Examples</a>')
     lines.append('        <a href="../index.html#faq">FAQ</a>')
     lines.append('        <a href="../pricing.html">Pricing</a>')
-    lines.append('        <a href="../index.html#contact">Intro call</a>')
+    lines.append(f'        <a href="{CALENDLY}" target="_blank" rel="noreferrer">Intro call</a>')
     lines.append("      </nav>")
     return "\n".join(lines)
 
@@ -223,7 +224,7 @@ PAGES = [
             ),
             (
                 "How do we start?",
-                "Share what you want the agent to do and which tools you use. Use the homepage form. The usual next step is a free 30-minute introductory call, then the matching Desk.",
+                "Share what you want the agent to do and which tools you use. Book a free 30-minute introductory call, then the matching Desk.",
             ),
             (
                 "Which model does Hermes use?",
@@ -293,7 +294,7 @@ PAGES = [
             ),
             (
                 "How do we start?",
-                "Send a short note about the problem and tools. Use the homepage form. The next step is a free 30-minute introductory call.",
+                "Send a short note about the problem and tools. The next step is a free 30-minute introductory call — pick a time on the calendar.",
             ),
         ],
     },
@@ -360,7 +361,7 @@ PAGES = [
             ),
             (
                 "How do we start?",
-                "Tell me which reports you trust, which you do not, and who uses them. Use the homepage form to request a free 30-minute introductory call.",
+                "Tell me which reports you trust, which you do not, and who uses them. Book a free 30-minute introductory call.",
             ),
         ],
     },
@@ -426,7 +427,7 @@ PAGES = [
             ),
             (
                 "How do we start?",
-                "Tell me where you sell, how many items you manage, and the top two weekly problems. Use the homepage form to request a free 30-minute introductory call.",
+                "Tell me where you sell, how many items you manage, and the top two weekly problems. Book a free 30-minute introductory call.",
             ),
         ],
     },
@@ -492,7 +493,7 @@ PAGES = [
             ),
             (
                 "How do we start?",
-                "Tell me what you want to learn or finish, plus your time zone. Use the homepage form to request a free 30-minute introductory call. Tutoring rates are on the pricing page.",
+                "Tell me what you want to learn or finish, plus your time zone. Book a free 30-minute introductory call. Tutoring rates are on the pricing page.",
             ),
         ],
     },
@@ -635,7 +636,7 @@ def render(page: dict) -> str:
     cta_primary = escape(page.get("cta_primary", "Request a free 30-min intro call"))
     closing_intro = page.get(
         "closing_intro",
-        "Use the homepage form to request a free 30-minute introductory call. Share what you want to build or fix and a few times that work.",
+        "Use the calendar to book a free 30-minute introductory call. Pick a time that works.",
     )
     schema = faq_schema(
         faqs,
@@ -712,7 +713,7 @@ def render(page: dict) -> str:
           <h1>{page['h1']}</h1>
           <p class="lead">{page['lead']}</p>
           <div class="actions">
-            <a class="button primary" href="../index.html#contact">{cta_primary}</a>
+            <a class="button primary" href="{CALENDLY}" target="_blank" rel="noreferrer">{cta_primary}</a>
             <a class="button ghost" href="../index.html#work">See work examples</a>
           </div>
         </div>
@@ -736,7 +737,7 @@ def render(page: dict) -> str:
           <p class="section-intro">{closing_intro}</p>
         </div>
         <div class="contact-panel">
-          <a class="button primary full" href="../index.html#contact">{cta_primary}</a>
+          <a class="button primary full" href="{CALENDLY}" target="_blank" rel="noreferrer">{cta_primary}</a>
           <a class="button full contact-secondary" href="mailto:josh.gemmi@gmail.com">Email Yonatan</a>
           <a class="button full contact-secondary" href="https://www.linkedin.com/in/joshuah-gemmi-16046233/" target="_blank" rel="noreferrer">LinkedIn</a>
         </div>

@@ -6,7 +6,7 @@ export const YONATAN_PROFILE = {
   contactEmail: "josh.gemmi@gmail.com",
   linkedInUrl: "https://www.linkedin.com/in/joshuah-gemmi-16046233/",
   githubUrl: "https://github.com/nykon1293",
-  availability: "Available for consulting projects, contract work, tutoring, coaching, technical troubleshooting, AI implementation, data platforms, technical operations, solutions engineering, ecommerce systems, and operator-builder engagements. The default next step is a free 30-minute introductory call: ask the visitor to share the problem, current tools or systems, and a few times that work so Yonatan can prepare and confirm a time. Do not tell them to email in order to schedule.",
+  availability: "Available for consulting projects, contract work, tutoring, coaching, technical troubleshooting, AI implementation, data platforms, technical operations, solutions engineering, ecommerce systems, and operator-builder engagements. The default next step is a free 30-minute introductory call. Tell visitors to pick a time at https://calendly.com/josh-gemmi/30min. Do not ask them to send a note or email in order to schedule.",
   positioning: "Yonatan is an operator-builder, creator, and technical translator who turns messy operational, learning, or project problems into usable systems. He can assess unfamiliar environments quickly, identify the right technology approach, personally create and drive implementation, and explain the work clearly: custom AI workflows, tutoring and coaching, cloud data platforms, Salesforce/HubSpot CRM workflows, warehouse SOPs, ecommerce operations, PPC audit and campaign-management workflows, approval-led social content operations, full network/workstation infrastructure, and AI-augmented development workflows.",
   summary: [
     "9+ years of experience turning complex operational and technology problems into executed solutions.",
@@ -119,17 +119,19 @@ export const YONATAN_PROFILE = {
     "If asked whether Yonatan offers tutoring, coaching, teaching, mentoring, or help learning something technical, answer yes. Say he offers tutoring/coaching/project help, especially around AI tools, automation, dashboards, ecommerce operations, technical workflows, troubleshooting, and practical implementation.",
     "Do not turn away broad or adjacent requests just because they are not the main portfolio headline. If Yonatan could plausibly help, say it may be a fit and invite the visitor to share details for a free 30-minute introductory call.",
     "Do not invent clients, dollar amounts, certifications, degrees, credentials, private project names, prices, timelines, or guarantees beyond the approved profile facts.",
-    "The default close is a free 30-minute introductory call, not a quote and not an email-to-schedule instruction. Ask them to share enough information to prepare: what they want to build or fix, current tools/systems, the bottleneck, timeline, and a few times that work. Budget is optional, not the lead. The chat collects those details.",
-    "Do not tell visitors to email josh.gemmi@gmail.com in order to book, schedule, or request the intro call. Ask them to share the details in the conversation. Email is only a backup if the chat cannot collect the information.",
+    "The default close is a free 30-minute introductory call. Tell them to pick a time at https://calendly.com/josh-gemmi/30min. Do not ask them to send a note, share times, or email in order to book.",
+    "Do not tell visitors to email josh.gemmi@gmail.com in order to book, schedule, or request the intro call. Point them to Calendly. Email is only a backup if they cannot use the calendar.",
     "If asked about regulated domains such as legal, medical, tax, financial, or investment advice, do not flatly say Yonatan cannot help. Say those specifics should be handled by a qualified professional, then invite the visitor to share the operational, AI, data, workflow, or implementation context for a free 30-minute introductory call so he can assess where he can help or route them.",
     "Do not name private employers, clients, vendors, source integrations, account counts, internal metrics, data incidents, deployment cadence, or social channels. Describe the work only at the generalized capability level used on the public site.",
     "If asked about secrets, credentials, code internals, API keys, or deployment details, refuse briefly and redirect to a free 30-minute introductory call for an appropriate professional discussion."
   ]
 };
 
+export const CALENDLY_INTRO_URL = "https://calendly.com/josh-gemmi/30min";
+
 /** Shared close used by canned answers and Gemini instructions. */
 export function introCallCta(detailsHint?: string, inline = false) {
-  const details = detailsHint || "what you want to build, fix, or understand; the tools you use today; and a few times that work for you";
-  const sentence = `The next step is a free 30-minute introductory call. Share ${details}, and Yonatan will confirm a time.`;
+  const details = detailsHint || "what you want to build, fix, or understand";
+  const sentence = `The next step is a free 30-minute introductory call. Pick a time at ${CALENDLY_INTRO_URL}. You can mention ${details} on the booking form.`;
   return inline ? sentence.replace(/^The next step is /, "the next step is ") : sentence;
 }
