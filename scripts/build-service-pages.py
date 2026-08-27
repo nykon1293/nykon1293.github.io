@@ -36,8 +36,8 @@ def nav_for(slug: str) -> str:
     lines.append("          </div>")
     lines.append("        </details>")
     lines.append('        <a href="../pricing.html">Pricing</a>')
-    lines.append(f'        <a href="{CALENDLY}" target="_blank" rel="noreferrer">Book intro</a>')
     lines.append("      </nav>")
+    lines.append(f'      <a class="nav-cta" href="{CALENDLY}" target="_blank" rel="noreferrer">Book intro</a>')
     return "\n".join(lines)
 
 
@@ -153,9 +153,9 @@ PAGES = [
         "h1": "Hermes is an AI agent on your computer, not another chat tab.",
         "lead": "ChatGPT and Claude are chat boxes. Hermes is the software around them. It lives on a Mac you control, uses the model you already pay for, and can work with your files and tools. I install it, write the limits, and hand it off so you can run it.",
         "cta_primary": "Book a free 30-min intro",
-        "closing_intro": "Share what you want the agent to do and which tools you use. Book a free 30-minute intro — bring questions. It is okay if you only need something small.",
+        "closing_intro": "Tell me what you want the agent to do. Book a free 30-minute call. Bring questions.",
         "pfd_label": "When people ask for an agent",
-        "pfd_caption": "For operators who want a working install they can run themselves.",
+        "pfd_caption": "For people who want a working install they can run themselves.",
         "pfd_pains": [
             (
                 "Chat tools forget the business overnight",
@@ -225,7 +225,7 @@ PAGES = [
             ),
             (
                 "How do we start?",
-                "Share what you want the agent to do and which tools you use. Book a free 30-minute intro — bring questions. Then we pick the matching Desk if it still fits.",
+                "Book a free 30-minute call. Bring what you want the agent to do and which tools you use. No note required. Then we pick the matching Desk if it still fits.",
             ),
             (
                 "Which model does Hermes use?",
@@ -291,11 +291,11 @@ PAGES = [
             ),
             (
                 "Is this remote or on-site?",
-                "Most work is remote. I am based in North Miami Beach and can meet in South Florida when it helps for workshops or discovery.",
+                "Most work is remote. I am based in North Miami Beach and can meet in South Florida when it helps.",
             ),
             (
                 "How do we start?",
-                "Send a short note about the problem and tools. Book a free 30-minute intro — bring questions.",
+                "Book a free 30-minute call. Bring a short note about the problem and tools if you have one. No note required.",
             ),
         ],
     },
@@ -362,7 +362,7 @@ PAGES = [
             ),
             (
                 "How do we start?",
-                "Tell me which reports you trust, which you do not, and who uses them. Book a free 30-minute intro — bring questions.",
+                "Book a free 30-minute call. Bring which reports you trust, which you do not, and who uses them. No note required.",
             ),
         ],
     },
@@ -428,7 +428,7 @@ PAGES = [
             ),
             (
                 "How do we start?",
-                "Tell me where you sell, how many items you manage, and the top two weekly problems. Book a free 30-minute intro — bring questions.",
+                "Book a free 30-minute call. Bring where you sell, how many items you manage, and the top two weekly problems. No note required.",
             ),
         ],
     },
@@ -494,7 +494,7 @@ PAGES = [
             ),
             (
                 "How do we start?",
-                "Tell me what you want to learn or finish, plus your time zone. Book a free 30-minute intro — bring questions. Tutoring rates are on the pricing page.",
+                "Book a free 30-minute call. Bring what you want to learn or finish, plus your time zone. No note required. Tutoring rates are on the pricing page.",
             ),
         ],
     },
@@ -636,7 +636,7 @@ def render(page: dict) -> str:
     cta_primary = escape(page.get("cta_primary", "Book a free 30-min intro"))
     closing_intro = page.get(
         "closing_intro",
-        "Use the calendar to book a free 30-minute intro. Bring questions. It is okay if you only need something small.",
+        "Thirty minutes. Google Meet. Bring questions. No note to send first.",
     )
     schema = faq_schema(
         faqs,
@@ -681,7 +681,7 @@ def render(page: dict) -> str:
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css?v=voice-structure-1" />
+  <link rel="stylesheet" href="../styles.css?v=book-flow-2" />
   <link rel="icon" href="../assets/yonatan-gemmi-pixel-portrait-256.png" type="image/png" />
   <script type="application/ld+json">
 {schema}
@@ -732,12 +732,12 @@ def render(page: dict) -> str:
 
       <section class="section closing-card service-landing-cta">
         <div>
-          <h2>Start with a free 30-minute intro.</h2>
+          <h2>Book a free 30-minute intro.</h2>
           <p class="section-intro">{closing_intro}</p>
         </div>
         <div class="contact-panel">
           <a class="button primary full" href="{CALENDLY}" target="_blank" rel="noreferrer">{cta_primary}</a>
-          <a class="button full contact-secondary" href="mailto:josh.gemmi@gmail.com">Email Yonatan</a>
+          <a class="button full contact-secondary" href="mailto:josh.gemmi@gmail.com">Email instead</a>
           <a class="button full contact-secondary" href="https://www.linkedin.com/in/joshuah-gemmi-16046233/" target="_blank" rel="noreferrer">LinkedIn</a>
         </div>
       </section>
