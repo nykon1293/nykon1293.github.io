@@ -887,6 +887,51 @@ p { color: var(--muted); font-size: var(--text-base); }
   font-size: .9rem;
   font-weight: 650;
 }
+.path-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 22px;
+}
+.path-card {
+  padding: 20px 18px;
+  border: 1px solid var(--line-soft);
+  border-radius: 16px;
+  background: var(--surface);
+}
+.path-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+}
+.path-card p {
+  margin: 0 0 14px;
+  max-width: none;
+  color: var(--muted);
+}
+@media (max-width: 680px) {
+  .path-grid { grid-template-columns: 1fr; }
+}
+.limited-banner {
+  display: inline-block;
+  margin: 0 0 12px;
+  padding: 5px 11px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--accent);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.inquire-card {
+  margin-top: 28px;
+  padding: 22px 20px;
+  border: 1px dashed var(--line);
+  border-radius: 16px;
+  background: var(--surface);
+}
+.inquire-card h3 { margin: 0 0 8px; }
+.inquire-card p { margin: 0 0 14px; max-width: 62ch; }
 .pay-accept {
   display: flex;
   align-items: flex-start;

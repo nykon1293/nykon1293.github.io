@@ -23,19 +23,20 @@ SERVICE_PAGES = [
 def nav_for(slug: str) -> str:
     lines = ['<nav id="site-nav" class="nav-links" aria-label="Primary navigation">']
     lines.append('        <a href="../index.html">Home</a>')
+    work_cur = ' aria-current="page"' if slug == "work" else ""
+    lines.append(f'        <a href="../index.html#work"{work_cur}>Work</a>')
     lines.append('        <details class="nav-dropdown">')
     lines.append('          <summary class="nav-dropdown-trigger">Services</summary>')
     lines.append('          <div class="nav-dropdown-menu">')
     for href, label, key in SERVICE_PAGES:
         cur = ' aria-current="page"' if key == slug else ""
         lines.append(f'            <a href="{href}"{cur}>{escape(label)}</a>')
-    lines.append('            <a class="nav-dropdown-muted" href="../index.html#service-hub">All services on homepage</a>')
+    lines.append('            <a class="nav-dropdown-muted" href="../index.html#service-hub">All services</a>')
+    lines.append('            <a class="nav-dropdown-muted" href="../advisory.html">Advisory &amp; Fractional (ask first)</a>')
     lines.append("          </div>")
     lines.append("        </details>")
-    lines.append('        <a href="../index.html#work">Work Examples</a>')
-    lines.append('        <a href="../index.html#faq">FAQ</a>')
     lines.append('        <a href="../pricing.html">Pricing</a>')
-    lines.append(f'        <a href="{CALENDLY}" target="_blank" rel="noreferrer">Intro call</a>')
+    lines.append(f'        <a href="{CALENDLY}" target="_blank" rel="noreferrer">Book intro</a>')
     lines.append("      </nav>")
     return "\n".join(lines)
 
@@ -151,8 +152,8 @@ PAGES = [
         "eyebrow": "On your machine",
         "h1": "Hermes is an AI agent on your computer, not another chat tab.",
         "lead": "ChatGPT and Claude are chat boxes. Hermes is the software around them. It lives on a Mac you control, uses the model you already pay for, and can work with your files and tools. I install it, write the limits, and hand it off so you can run it.",
-        "cta_primary": "Request a free 30-min intro call",
-        "closing_intro": "Share what you want the agent to do and which tools you use. The usual next step is a free 30-minute introductory call.",
+        "cta_primary": "Book a free 30-min intro",
+        "closing_intro": "Share what you want the agent to do and which tools you use. Book a free 30-minute intro — bring questions. It is okay if you only need something small.",
         "pfd_label": "When people ask for an agent",
         "pfd_caption": "For operators who want a working install they can run themselves.",
         "pfd_pains": [
@@ -172,7 +173,7 @@ PAGES = [
         "sections": [
             (
                 "What Hermes is",
-                "Hermes is not a website and not another ChatGPT tab. It is software we install on your machine. The model — ChatGPT, Claude, or another one you choose — is the brain. Hermes is the harness: it can open files, draft messages, run a checklist, and remember your rules, only in the folders and accounts we agree on first.",
+                "Hermes is not a website and not another ChatGPT tab. It is software we install on your machine. The model — ChatGPT, Claude, or another one you choose — is the brain. Hermes is the software around it: it can open files, draft messages, run a checklist, and remember your rules, only in the folders and accounts we agree on first.",
             ),
             (
                 "What this looks like",
@@ -196,15 +197,15 @@ PAGES = [
         ],
         "layout": "split",
         "packages_note": (
-            "Three Desks, one pricing page.",
-            "Starter, Operator, and Connected Desk are the named Hermes setups. What’s in, what’s out, and the rest of the ladder live on the pricing page. The next step is still a free 30-minute introductory call.",
+            "Three Desk setups, with prices.",
+            "Starter, Operator, and Connected Desk are the Hermes installs. What’s included, what’s not, and the other prices are on the pricing page. The next step is still a free 30-minute intro.",
             "../pricing.html#desks",
             "See pricing",
         ),
         "faqs": [
             (
                 "What is Hermes?",
-                "Hermes is an AI agent you run on your own computer. ChatGPT and Claude are chat boxes. Hermes is the software around them: it can work with your files and tools, follow written limits, and remember your rules. I install it as a named Desk and hand it off so you can run it. We hook up ChatGPT, Claude, or another model you choose, including a local one.",
+                "Hermes is an AI agent you run on your own computer. ChatGPT and Claude are chat boxes. Hermes is the software around them: it can work with your files and tools, follow written limits, and remember your rules. I install a Desk and hand it off so you can run it. We hook up ChatGPT, Claude, or another model you choose, including a local one.",
             ),
             (
                 "Is this the same as a Custom GPT?",
@@ -220,15 +221,15 @@ PAGES = [
             ),
             (
                 "Which Desk if I need CRM and accounting?",
-                "Connected Desk. That is a different setup from Starter. See the pricing page, then start with the free introductory call.",
+                "Connected Desk. That is a different setup from Starter. See the pricing page, then start with the free intro.",
             ),
             (
                 "How do we start?",
-                "Share what you want the agent to do and which tools you use. Book a free 30-minute introductory call, then the matching Desk.",
+                "Share what you want the agent to do and which tools you use. Book a free 30-minute intro — bring questions. Then we pick the matching Desk if it still fits.",
             ),
             (
                 "Which model does Hermes use?",
-                "Hermes is the harness, not the chat box. We hook up ChatGPT, Claude, or another model you choose, including a local one on your machine. You pay for the cloud model. Local install is a Desk add-on, quoted after I see the machine.",
+                "Hermes is the software around the model, not the chat box. We hook up ChatGPT, Claude, or another model you choose, including a local one on your machine. You pay for the cloud model. Local install is a Desk add-on, quoted after I see the machine.",
             ),
         ],
     },
@@ -294,7 +295,7 @@ PAGES = [
             ),
             (
                 "How do we start?",
-                "Send a short note about the problem and tools. The next step is a free 30-minute introductory call — pick a time on the calendar.",
+                "Send a short note about the problem and tools. Book a free 30-minute intro — bring questions.",
             ),
         ],
     },
@@ -361,7 +362,7 @@ PAGES = [
             ),
             (
                 "How do we start?",
-                "Tell me which reports you trust, which you do not, and who uses them. Book a free 30-minute introductory call.",
+                "Tell me which reports you trust, which you do not, and who uses them. Book a free 30-minute intro — bring questions.",
             ),
         ],
     },
@@ -427,7 +428,7 @@ PAGES = [
             ),
             (
                 "How do we start?",
-                "Tell me where you sell, how many items you manage, and the top two weekly problems. Book a free 30-minute introductory call.",
+                "Tell me where you sell, how many items you manage, and the top two weekly problems. Book a free 30-minute intro — bring questions.",
             ),
         ],
     },
@@ -493,7 +494,7 @@ PAGES = [
             ),
             (
                 "How do we start?",
-                "Tell me what you want to learn or finish, plus your time zone. Book a free 30-minute introductory call. Tutoring rates are on the pricing page.",
+                "Tell me what you want to learn or finish, plus your time zone. Book a free 30-minute intro — bring questions. Tutoring rates are on the pricing page.",
             ),
         ],
     },
@@ -632,10 +633,10 @@ def render(page: dict) -> str:
     meta_description = escape(page["meta_description"], quote=True)
     service_name = escape(page["service_name"])
     faq_topic = escape(page["faq_topic"])
-    cta_primary = escape(page.get("cta_primary", "Request a free 30-min intro call"))
+    cta_primary = escape(page.get("cta_primary", "Book a free 30-min intro"))
     closing_intro = page.get(
         "closing_intro",
-        "Use the calendar to book a free 30-minute introductory call. Pick a time that works.",
+        "Use the calendar to book a free 30-minute intro. Bring questions. It is okay if you only need something small.",
     )
     schema = faq_schema(
         faqs,
@@ -680,7 +681,7 @@ def render(page: dict) -> str:
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css?v=hermes-explain-1" />
+  <link rel="stylesheet" href="../styles.css?v=voice-structure-1" />
   <link rel="icon" href="../assets/yonatan-gemmi-pixel-portrait-256.png" type="image/png" />
   <script type="application/ld+json">
 {schema}
@@ -731,7 +732,7 @@ def render(page: dict) -> str:
 
       <section class="section closing-card service-landing-cta">
         <div>
-          <h2>Start with a free 30-minute introductory call.</h2>
+          <h2>Start with a free 30-minute intro.</h2>
           <p class="section-intro">{closing_intro}</p>
         </div>
         <div class="contact-panel">
