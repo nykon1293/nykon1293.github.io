@@ -398,7 +398,7 @@ PAGES = [
             ),
             (
                 "Common project types",
-                "Amazon and eBay work steps • Tracked and multi-SKU inventory • Better listings and product data • Shipping and warehouse guides • Marketplace reports and dashboards • AI help for research, drafts, and checks",
+                "Amazon and eBay work steps • Tracked and multi-SKU inventory • Better listings and product data • Photo-to-listing copy you can paste into eBay • Shipping and warehouse guides • Marketplace reports and dashboards • AI help for research, drafts, and checks",
             ),
             (
                 "Proof you can expect",

@@ -650,7 +650,7 @@ p { color: var(--muted); font-size: var(--text-base); }
   border-radius: 50%;
   background: radial-gradient(circle, rgba(211,170,85,.14), transparent 65%);
 }
-.feature-card.large { grid-row: span 2; min-height: 516px; display: flex; flex-direction: column; justify-content: flex-end; }
+.feature-card.large { grid-row: span 3; min-height: 516px; display: flex; flex-direction: column; justify-content: flex-end; }
 .feature-card.large::before {
   content: "";
   position: absolute;
