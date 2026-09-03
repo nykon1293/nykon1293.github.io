@@ -31,6 +31,10 @@ def nav_for(slug: str) -> str:
     for href, label, key in SERVICE_PAGES:
         cur = ' aria-current="page"' if key == slug else ""
         lines.append(f'            <a href="{href}"{cur}>{escape(label)}</a>')
+    stocky_cur = ' aria-current="page"' if slug == "stocky-recovery" else ""
+    lines.append(
+        f'            <a class="nav-dropdown-muted" href="stocky-recovery.html"{stocky_cur}>Stocky dump recovery</a>'
+    )
     lines.append('            <a class="nav-dropdown-muted" href="../index.html#service-hub">All services</a>')
     lines.append('            <a class="nav-dropdown-muted" href="../advisory.html">Advisory &amp; Fractional (ask first)</a>')
     lines.append("          </div>")
@@ -398,7 +402,7 @@ PAGES = [
             ),
             (
                 "Common project types",
-                "Amazon and eBay work steps • Tracked and multi-SKU inventory • Better listings and product data • Photo-to-listing copy you can paste into eBay • Shipping and warehouse guides • Marketplace reports and dashboards • AI help for research, drafts, and checks",
+                "Amazon and eBay work steps • Tracked and multi-SKU inventory • Stocky dump → weekly system • Better listings and product data • Photo-to-listing copy you can paste into eBay • Shipping and warehouse guides • Marketplace reports and dashboards • AI help for research, drafts, and checks",
             ),
             (
                 "Proof you can expect",
@@ -413,6 +417,12 @@ PAGES = [
             ("Engagement options", ["Ops audit and roadmap", "Focused workflow implementation", "Ongoing operator-builder support"]),
         ],
         "layout": "steps",
+        "related_job": (
+            "Stocky shut down. Your dump still has to run the week.",
+            "If the operating system was Stocky and you now have CSVs in Sheets, I have a page for that job. It is not another inventory app.",
+            "stocky-recovery.html",
+            "Stocky dump recovery",
+        ),
         "faqs": [
             (
                 "Do you only work with large brands?",
@@ -656,6 +666,18 @@ def render(page: dict) -> str:
           <p class="section-intro">This private-client example shows review steps, automatic checks, safe stops, and an optional hands-free mode.</p>
         </div>
         <a class="button ghost" href="../work/governed-ai-content-engine.html">View the case study</a>
+      </section>
+"""
+    related_job = page.get("related_job")
+    if related_job:
+        job_title, job_body, job_href, job_link = related_job
+        related_case_study += f"""
+      <section class="section related-case-study" aria-labelledby="related-job-title">
+        <div>
+          <h2 id="related-job-title">{job_title}</h2>
+          <p class="section-intro">{job_body}</p>
+        </div>
+        <a class="button ghost" href="{job_href}">{job_link}</a>
       </section>
 """
     return f"""<!doctype html>

@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stocky dump recovery | Yonatan Gemmi | South FL</title>
+  <meta name="description" content="Stocky shut down Aug 31, 2026. I turn a Shopify CSV dump into a weekly system — without another inventory app. Notes and pars included where we can recover them. Free 30-minute intro." />
+  <link rel="canonical" href="https://nykon1293.github.io/services/stocky-recovery.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Yonatan Gemmi" />
+  <meta property="og:title" content="Stocky dump recovery | Yonatan Gemmi | South FL" />
+  <meta property="og:description" content="Stocky shut down Aug 31, 2026. I turn a Shopify CSV dump into a weekly system — without another inventory app. Free 30-minute intro." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nykon1293.github.io/services/stocky-recovery.html" />
+  <meta property="og:site_name" content="Yonatan Gemmi" />
+  <meta property="og:image" content="https://nykon1293.github.io/assets/social-preview.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Stocky dump recovery | Yonatan Gemmi | South FL" />
+  <meta name="twitter:description" content="Stocky shut down Aug 31, 2026. I turn a Shopify CSV dump into a weekly system — without another inventory app." />
+  <meta name="twitter:image" content="https://nykon1293.github.io/assets/social-preview.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css?v=book-flow-2" />
+  <link rel="icon" href="../assets/yonatan-gemmi-pixel-portrait-256.png" type="image/png" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "name": "Stocky dump recovery",
+      "description": "Turn a Shopify Stocky CSV dump into a weekly operating system using tools you already pay for. Not an inventory-app replacement.",
+      "url": "https://nykon1293.github.io/services/stocky-recovery.html",
+      "provider": {
+        "@type": "Person",
+        "name": "Yonatan Gemmi",
+        "url": "https://nykon1293.github.io/"
+      },
+      "areaServed": [
+        "South Florida",
+        "Remote"
+      ]
+    },
+    {
+      "@type": "Offer",
+      "name": "Free 30-minute introductory call",
+      "price": "0",
+      "priceCurrency": "USD",
+      "itemOffered": { "@type": "Service", "name": "Introductory consulting call" }
+    },
+    {
+      "@type": "Offer",
+      "name": "Starter Desk",
+      "price": "500",
+      "priceCurrency": "USD",
+      "itemOffered": { "@type": "Service", "name": "Stocky dump to first weekly view" }
+    },
+    {
+      "@type": "Offer",
+      "name": "Operator Desk",
+      "price": "1500",
+      "priceCurrency": "USD",
+      "itemOffered": { "@type": "Service", "name": "Stocky dump plus weekly reorder workflow" }
+    },
+    {
+      "@type": "Offer",
+      "name": "Paid Discovery",
+      "price": "2000",
+      "priceCurrency": "USD",
+      "itemOffered": { "@type": "Service", "name": "Paid workflow discovery for a larger rebuild" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is this a Stocky replacement app?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. I am not selling Prediko, Klerio, or another inventory product. If you want a full inventory app, buy one. This job is making the dump operable: a weekly view you can run with Sheets and the ChatGPT or Claude seat you already pay for."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Did supplier notes and par levels export from Stocky?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Often they did not. SKUs, vendors, and purchase orders usually survive in the CSV. Supplier notes and par levels often stayed in Stocky or in someone's head. We recover what still exists and give the missing pieces a place to live."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Starter Desk, Operator Desk, or Paid Discovery?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Starter Desk is $500 for a first working weekly view from the dump. Operator Desk is $1,500 when you also need one defined weekly reorder workflow. If this is a bigger rebuild — many locations, messy vendors, reconstructing pars across a large catalog — that is Paid Discovery at $2,000, then a quoted build. Full prices are on the pricing page."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need a new AI subscription?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The usual setup uses ChatGPT or Claude, the seats you already pay for, around your files. You keep paying those bills. I set up the weekly system. Named Desk details are on the pricing page if you want them."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do we start?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Book a free 30-minute call. Bring the export folder and the two weekly jobs Stocky used to do. No note required."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="nav">
+      <a class="brand" href="../index.html" aria-label="YG Yonatan Gemmi home">
+        <span class="brand-mark">YG</span>
+        <span>Yonatan Gemmi</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open site menu">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+        <span class="nav-toggle__label">Menu</span>
+      </button>
+      <nav id="site-nav" class="nav-links" aria-label="Primary navigation">
+        <a href="../index.html">Home</a>
+        <a href="../index.html#work">Work</a>
+        <details class="nav-dropdown">
+          <summary class="nav-dropdown-trigger">Services</summary>
+          <div class="nav-dropdown-menu">
+            <a href="hermes-agents.html">Hermes Agents</a>
+            <a href="ai-automation.html">AI automation</a>
+            <a href="dashboards-reporting.html">Dashboards &amp; reporting</a>
+            <a href="ecommerce-operations.html">Ecommerce operations</a>
+            <a href="tutoring-project-help.html">Tutoring &amp; project help</a>
+            <a class="nav-dropdown-muted" href="stocky-recovery.html" aria-current="page">Stocky dump recovery</a>
+            <a class="nav-dropdown-muted" href="../index.html#service-hub">All services</a>
+            <a class="nav-dropdown-muted" href="../advisory.html">Advisory &amp; Fractional (ask first)</a>
+          </div>
+        </details>
+        <a href="../pricing.html">Pricing</a>
+      </nav>
+      <a class="nav-cta" href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book intro</a>
+    </header>
+
+    <main id="top">
+      <section class="hero service-landing-hero">
+        <div class="hero-copy">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a>
+            <span aria-hidden="true">/</span>
+            <a href="ecommerce-operations.html">Ecommerce operations</a>
+            <span aria-hidden="true">/</span>
+            <span>Stocky dump recovery</span>
+          </nav>
+          <p class="eyebrow"><span class="status-dot"></span> Shopify · after Stocky (Aug 31, 2026)</p>
+          <h1>Stocky is gone. A CSV dump is not an operating system.</h1>
+          <p class="lead">I’m Yonatan Gemmi. If you ran Shopify inventory in Stocky and now have files in Sheets, I make that dump usable for the week. This is not another Prediko or Klerio. It is a working weekly system on seats you already pay for.</p>
+          <ul class="proof-strip" aria-label="Experience">
+            <li><strong>9+</strong> years in ops</li>
+            <li><strong>Multi-brand</strong> ecommerce</li>
+            <li><strong>95k+</strong> items tracked</li>
+          </ul>
+          <div class="actions">
+            <a class="button primary" href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book a free 30-min intro</a>
+            <a class="button ghost" href="#weekly-view">See a weekly view</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel service-pfd-card" aria-label="Typical Stocky dump problems">
+          <div class="hero-identity">
+            <div>
+              <p class="snapshot-label">When the inventory app disappears</p>
+              <span class="portrait-caption">For Shopify merchants who exported Stocky and still have to order next week.</span>
+            </div>
+          </div>
+          <ul class="problem-list">
+            <li>
+              <strong>The export is leftover files, not a weekly cadence</strong>
+              <span>CSVs sit in Drive. Nobody has a Monday list of what to buy, what is inbound, and what can wait.</span>
+            </li>
+            <li>
+              <strong>Supplier notes and par levels often never left Stocky</strong>
+              <span>SKUs and POs usually survive. The “why we order this way” often did not.</span>
+            </li>
+            <li>
+              <strong>Another inventory app does not reconstruct the dump</strong>
+              <span>Buying Prediko or Klerio still leaves you loading files and rewriting pars. This job is making the dump operable first.</span>
+            </li>
+          </ul>
+        </aside>
+      </section>
+
+      <section id="survives" class="section service-layout-proof" aria-labelledby="survives-title">
+        <div class="proof-strip" role="presentation">
+          <p class="proof-strip-label">Stocky shut down Aug 31, 2026. Shopify still has products and orders. You have CSVs. That is not how you ran the week.</p>
+        </div>
+        <div class="section-heading stacked">
+          <h2 id="survives-title">CSVs are a backup. They are not an OS.</h2>
+          <p class="section-intro">Stocky was the place that told the team what to order, what was short, and what the supplier last said. A folder of exports does not do that. I turn the dump into a weekly view you can actually run — using Sheets and the ChatGPT or Claude seat you already pay for. Bring whatever you exported. We separate facts you still have from the operating knowledge that lived only in Stocky.</p>
+        </div>
+        <div class="sku-grid sku-grid--two">
+          <article class="sku-card">
+            <span class="tag green">Usually still usable</span>
+            <h3>What the export tends to keep</h3>
+            <ul>
+              <li>Product and variant SKUs</li>
+              <li>Vendor names</li>
+              <li>Purchase order history, if you exported it</li>
+              <li>On-hand counts, if you exported them</li>
+              <li>Shopify still has products, orders, and locations</li>
+            </ul>
+          </article>
+          <article class="sku-card">
+            <span class="tag violet">Often missing</span>
+            <h3>What frequently never left Stocky</h3>
+            <ul class="sku-out">
+              <li>Supplier notes: lead times, “don’t call Friday,” pack rules</li>
+              <li>Par levels / min-max that lived in Stocky fields</li>
+              <li>The weekly cadence Stocky used to enforce</li>
+              <li>Tribal knowledge that never had a column</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="weekly-view" class="section split" aria-labelledby="weekly-view-title">
+        <div>
+          <h2 id="weekly-view-title">What a usable weekly view looks like.</h2>
+          <p class="section-intro">One place to run the week. Not a new inventory SaaS. A working sheet plus a short cadence: what is short, what is already inbound, what the supplier said, what to draft this week.</p>
+          <p class="section-intro">If pars never exported, we reconstruct what we can from history, side sheets, and the people who still remember — then give those numbers a home so they stop living in Slack.</p>
+        </div>
+        <div class="work-proof" role="img" aria-label="Sample weekly reorder view using representative data">
+          <div class="work-proof__head"><span>Signal</span><span>This week</span><span>Next step</span></div>
+          <div class="work-proof__row"><strong>SKU below par</strong><span>Short 12</span><em>Draft PO</em></div>
+          <div class="work-proof__row"><strong>Open PO</strong><span>24 inbound</span><em>Don’t double-buy</em></div>
+          <div class="work-proof__row"><strong>Supplier note</strong><span>Missing from CSV</span><em>Ask owner</em></div>
+          <div class="work-proof__row"><strong>Lead time</strong><span>Ships Mondays</span><em>Keep in sheet</em></div>
+          <p>Representative workflow • sample data</p>
+        </div>
+      </section>
+
+      <section id="not-an-app" class="section" aria-labelledby="not-an-app-title">
+        <div class="section-heading stacked">
+          <h2 id="not-an-app-title">This is not another inventory app.</h2>
+          <p class="section-intro">I am not replacing Stocky with Prediko, Klerio, or a clone. If you want a full inventory product, buy one. If you want the dump to run the week — with notes and pars restored where they still exist, and a place to keep them where they don’t — that is this job.</p>
+        </div>
+        <div class="path-grid">
+          <article class="path-card">
+            <h3>Use seats you already pay for</h3>
+            <p>ChatGPT or Claude is the model. Sheets is usually the working file. I set up the weekly system around those, not a new SKU you have to migrate into.</p>
+          </article>
+          <article class="path-card">
+            <h3>A cadence, not a dashboard trophy</h3>
+            <p>The output is a Monday (or Friday) view the operator can run. What to order. What to wait on. What to ask the supplier.</p>
+          </article>
+          <article class="path-card">
+            <h3>Named setups, not a mystery quote</h3>
+            <p>Starter and Operator Desk are the usual sizes for this job. A larger rebuild is Paid Discovery, then a written quote. <a class="text-link" href="../pricing.html">Full prices →</a></p>
+          </article>
+        </div>
+      </section>
+
+      <section id="offers" class="section" aria-labelledby="offers-title">
+        <div class="section-heading stacked">
+          <h2 id="offers-title">Two named setups for this dump. A paid map if it is bigger.</h2>
+          <p class="section-intro">These are the same Starter and Operator Desks on the pricing page, aimed at this job: your Stocky export, a weekly view, and the ChatGPT or Claude seat you already pay for. I keep the install explanation light here. The job is the dump, not a software tour.</p>
+        </div>
+        <div class="sku-grid sku-grid--two">
+          <article class="sku-card">
+            <span class="tag">Starter Desk</span>
+            <h3>Dump → first working weekly view</h3>
+            <p class="sku-price">$500 <small>fixed</small></p>
+            <p>We take the export you have, make a first weekly view you can open, and walk through it so you can run next week without living in raw CSVs.</p>
+            <h4>In</h4>
+            <ul>
+              <li>Your Stocky dump (and Shopify, if we need it)</li>
+              <li>A first working weekly view</li>
+              <li>A proof: you can see what to do this week</li>
+              <li>A short handoff</li>
+            </ul>
+            <h4>Out</h4>
+            <ul class="sku-out">
+              <li>Rebuilding pars across a large catalog</li>
+              <li>A standing weekly reorder workflow</li>
+              <li>Migrating you into Prediko, Klerio, or another app</li>
+            </ul>
+          </article>
+          <article class="sku-card sku-card--featured">
+            <span class="tag">Operator Desk</span>
+            <h3>That view, plus the weekly reorder job</h3>
+            <p class="sku-price">$1,500 <small>fixed</small></p>
+            <p>Everything in Starter, plus one defined weekly workflow — the actual Friday or Monday reorder — and a second check-in.</p>
+            <h4>In</h4>
+            <ul>
+              <li>Starter Desk</li>
+              <li>One weekly reorder workflow from the dump</li>
+              <li>A place for supplier notes and pars to live</li>
+              <li>A second 30-minute check-in</li>
+            </ul>
+            <h4>Out</h4>
+            <ul class="sku-out">
+              <li>A new inventory SaaS</li>
+              <li>Multi-location rebuilds and historical cleanup</li>
+              <li>Customer-facing send without approval</li>
+            </ul>
+          </article>
+        </div>
+        <aside class="inquire-card" aria-labelledby="discovery-title">
+          <h3 id="discovery-title">If this is a bigger rebuild: Paid Discovery, $2,000</h3>
+          <p>Many locations, messy vendors, or reconstructing pars across a large catalog is not a $500 job. Paid Discovery maps one workflow and quotes the build. The free intro does not set that price. <a class="text-link" href="../pricing.html#consulting">See discovery and custom work →</a></p>
+        </aside>
+        <p class="pricing-notes">Full Desk details, Care, tutoring, and payment methods are on the <a class="text-link" href="../pricing.html">pricing page</a>. You pay for your own ChatGPT, Claude, and app bills.</p>
+      </section>
+
+      <section class="section service-buyer-details">
+        <div class="section-heading stacked">
+          <h2>Clear scope before the build starts.</h2>
+          <p class="section-intro">The tools depend on the dump. Before work starts, we agree on what I will fix, what you will get, what access I need, and who owns the result.</p>
+        </div>
+        <div class="buyer-detail-grid">
+          <article class="buyer-detail-card">
+            <h3>Good fit when</h3>
+            <ul>
+              <li>Stocky was the weekly OS and you now have CSVs</li>
+              <li>Supplier notes or par levels did not export</li>
+              <li>You need to order next week, not shop for another inventory app</li>
+            </ul>
+          </article>
+          <article class="buyer-detail-card">
+            <h3>What you receive</h3>
+            <ul>
+              <li>A working weekly view from the dump</li>
+              <li>A place for notes and pars that the CSV dropped</li>
+              <li>Handoff notes so you can run it</li>
+            </ul>
+          </article>
+          <article class="buyer-detail-card">
+            <h3>What I need from you</h3>
+            <ul>
+              <li>The export folder, however messy</li>
+              <li>The two weekly jobs Stocky used to do</li>
+              <li>An operator who still remembers pars or supplier rules, if those lived in heads</li>
+            </ul>
+          </article>
+          <article class="buyer-detail-card">
+            <h3>Engagement options</h3>
+            <ul>
+              <li>Starter Desk — $500</li>
+              <li>Operator Desk — $1,500</li>
+              <li>Paid Discovery — $2,000 if it is a rebuild</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="faq" class="section">
+        <div class="section-heading stacked">
+          <h2>Questions about Stocky dump recovery.</h2>
+        </div>
+        <div class="faq-grid faq-accordion">
+          <details class="faq-item"><summary>Is this a Stocky replacement app?</summary><p>No. I am not selling Prediko, Klerio, or another inventory product. If you want a full inventory app, buy one. This job is making the dump operable: a weekly view you can run with Sheets and the ChatGPT or Claude seat you already pay for.</p></details>
+          <details class="faq-item"><summary>Did supplier notes and par levels export from Stocky?</summary><p>Often they did not. SKUs, vendors, and purchase orders usually survive in the CSV. Supplier notes and par levels often stayed in Stocky or in someone’s head. We recover what still exists and give the missing pieces a place to live.</p></details>
+          <details class="faq-item"><summary>Starter Desk, Operator Desk, or Paid Discovery?</summary><p>Starter Desk is $500 for a first working weekly view from the dump. Operator Desk is $1,500 when you also need one defined weekly reorder workflow. If this is a bigger rebuild — many locations, messy vendors, reconstructing pars across a large catalog — that is Paid Discovery at $2,000, then a quoted build. <a href="../pricing.html">Full prices</a>.</p></details>
+          <details class="faq-item"><summary>Do I need a new AI subscription?</summary><p>No. The usual setup uses ChatGPT or Claude, the seats you already pay for, around your files. You keep paying those bills. I set up the weekly system. Named Desk details are on the <a href="../pricing.html">pricing page</a> if you want them.</p></details>
+          <details class="faq-item"><summary>How do we start?</summary><p>Book a free 30-minute call. Bring the export folder and the two weekly jobs Stocky used to do. No note required. <a href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Pick a time</a>.</p></details>
+        </div>
+      </section>
+
+      <section class="section closing-card service-landing-cta">
+        <div>
+          <h2>Book a free 30-minute intro.</h2>
+          <p class="section-intro">Thirty minutes. Google Meet. Bring the dump if you have it. No note to send first.</p>
+        </div>
+        <div class="contact-panel">
+          <a class="button primary full" href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book a free 30-min intro</a>
+          <a class="button full contact-secondary" href="mailto:josh.gemmi@gmail.com">Email instead</a>
+          <a class="button full contact-secondary" href="../pricing.html">See full prices</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© <span id="year"></span> Yonatan Gemmi. Built with GitHub Pages • Based in North Miami Beach, Florida</p>
+    </footer>
+  </div>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    (() => {
+      const nav = document.querySelector('.nav');
+      const toggle = document.querySelector('.nav-toggle');
+      const links = document.getElementById('site-nav');
+      if (!nav || !toggle || !links) return;
+      const setOpen = (open) => {
+        nav.classList.toggle('is-menu-open', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Close site menu' : 'Open site menu');
+      };
+      toggle.addEventListener('click', () => setOpen(!nav.classList.contains('is-menu-open')));
+      links.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          setOpen(false);
+          links.querySelectorAll('details.nav-dropdown[open]').forEach((d) => d.removeAttribute('open'));
+        });
+      });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+      document.addEventListener('click', (e) => {
+        if (!nav.classList.contains('is-menu-open')) return;
+        if (nav.contains(e.target)) return;
+        setOpen(false);
+      });
+    })();
+  </script>
+</body>
+</html>
