@@ -41,7 +41,7 @@ def nav_for(slug: str) -> str:
     lines.append("        </details>")
     lines.append('        <a href="../pricing.html">Pricing</a>')
     lines.append("      </nav>")
-    lines.append(f'      <a class="nav-cta" href="{CALENDLY}" target="_blank" rel="noreferrer">Book intro</a>')
+    lines.append(f'      <a class="nav-cta" href="{CALENDLY}" target="_blank" rel="noreferrer">Book consultation</a>')
     return "\n".join(lines)
 
 
@@ -156,8 +156,9 @@ PAGES = [
         "eyebrow": "On your machine",
         "h1": "Hermes is an AI agent on your computer, not another chat tab.",
         "lead": "ChatGPT and Claude are chat boxes. Hermes is the software around them. It lives on a Mac you control, uses the model you already pay for, and can work with your files and tools. I install it, write the limits, and hand it off so you can run it.",
-        "cta_primary": "Book a free 30-min intro",
-        "closing_intro": "Tell me what you want the agent to do. Book a free 30-minute call. Bring questions.",
+        "cta_primary": "Book a free 30-minute consultation",
+        "closing_intro": "Tell me what you want the agent to do. Book a free 30-minute consultation. Bring questions.",
+        "scope_intro": "Hermes runs on a Mac you control, uses the model you already pay for, and works only inside limits we write down first. You leave with a running install you can use yourself.",
         "pfd_label": "When people ask for an agent",
         "pfd_caption": "For people who want a working install they can run themselves.",
         "pfd_pains": [
@@ -202,7 +203,7 @@ PAGES = [
         "layout": "split",
         "packages_note": (
             "Three Desk setups, with prices.",
-            "Starter, Operator, and Connected Desk are the Hermes installs. What’s included, what’s not, and the other prices are on the pricing page. The next step is still a free 30-minute intro.",
+            "Starter, Operator, and Connected Desk are the Hermes installs. What’s included, what’s not, and the other prices are on the pricing page. The next step is still a free 30-minute consultation.",
             "../pricing.html#desks",
             "See pricing",
         ),
@@ -225,11 +226,11 @@ PAGES = [
             ),
             (
                 "Which Desk if I need CRM and accounting?",
-                "Connected Desk. That is a different setup from Starter. See the pricing page, then start with the free intro.",
+                "Connected Desk. That is a different setup from Starter. See the pricing page, then start with the free 30-minute consultation.",
             ),
             (
                 "How do we start?",
-                "Book a free 30-minute call. Bring what you want the agent to do and which tools you use. No note required. Then we pick the matching Desk if it still fits.",
+                "Book a free 30-minute consultation. Bring what you want the agent to do and which tools you use. No note required. Then we pick the matching Desk if it still fits.",
             ),
             (
                 "Which model does Hermes use?",
@@ -246,6 +247,7 @@ PAGES = [
         "eyebrow": "AI workflows",
         "h1": "Turn AI tests into tools your team uses each week",
         "lead": "I help teams move from random AI tests to useful tools. These tools can help with research, reports, drafts, checks, and intake. People can review the work where needed.",
+        "scope_intro": "I find where your team loses time to manual steps, build the smallest useful automation, and show the team how to run it.",
         "pfd_label": "When teams call for AI automation",
         "pfd_caption": "For teams that need a working tool, not another demo.",
         "pfd_pains": [
@@ -299,7 +301,7 @@ PAGES = [
             ),
             (
                 "How do we start?",
-                "Book a free 30-minute call. Bring a short note about the problem and tools if you have one. No note required.",
+                "Book a free 30-minute consultation. Bring a short note about the problem and tools if you have one. No note required.",
             ),
         ],
     },
@@ -312,6 +314,7 @@ PAGES = [
         "eyebrow": "Data visibility",
         "h1": "Clear reports your team can trust each day",
         "lead": "Work slows down when each team has different numbers. I clean the data, set clear rules, and build reports people can trust. The goal is a useful daily view, not another report to rebuild by hand.",
+        "scope_intro": "I clean the data, agree on the numbers that matter, and build a daily view your team can trust — not another export to rebuild by hand.",
         "pfd_label": "When the numbers are not clear",
         "pfd_caption": "For teams that are tired of guessing from exports and mixed-up files.",
         "pfd_pains": [
@@ -366,7 +369,7 @@ PAGES = [
             ),
             (
                 "How do we start?",
-                "Book a free 30-minute call. Bring which reports you trust, which you do not, and who uses them. No note required.",
+                "Book a free 30-minute consultation. Bring which reports you trust, which you do not, and who uses them. No note required.",
             ),
         ],
     },
@@ -379,6 +382,7 @@ PAGES = [
         "eyebrow": "Ecommerce ops",
         "h1": "Fix the ecommerce problems that keep coming back",
         "lead": "I help online sellers fix problems with listings, inventory, shipping, and reports. I build clear work steps, simple automation, and useful daily views. My approach comes from real warehouse and marketplace work.",
+        "scope_intro": "I map how product, inventory, and order data moves, fix the weak points in listings and handoffs, and turn scattered work into clear daily steps.",
         "pfd_label": "When ecommerce work feels chaotic",
         "pfd_caption": "For Amazon, eBay, and product teams that spend each week putting out fires.",
         "pfd_pains": [
@@ -438,7 +442,7 @@ PAGES = [
             ),
             (
                 "How do we start?",
-                "Book a free 30-minute call. Bring where you sell, how many items you manage, and the top two weekly problems. No note required.",
+                "Book a free 30-minute consultation. Bring where you sell, how many items you manage, and the top two weekly problems. No note required.",
             ),
         ],
     },
@@ -451,6 +455,7 @@ PAGES = [
         "eyebrow": "Hands-on help",
         "h1": "Get hands-on help and move your project forward",
         "lead": "Not every problem needs a large project. I help founders, students, and teams learn AI tools, fix workflows, and finish builds. We agree on a clear goal before the session starts.",
+        "scope_intro": "We focus on one problem at a time. I work through the fix with you and write down the steps so you can use them again.",
         "pfd_label": "When you need hands-on help",
         "pfd_caption": "For people who want help now and clear steps they can use later.",
         "pfd_pains": [
@@ -504,7 +509,7 @@ PAGES = [
             ),
             (
                 "How do we start?",
-                "Book a free 30-minute call. Bring what you want to learn or finish, plus your time zone. No note required. Tutoring rates are on the pricing page.",
+                "Book a free 30-minute consultation. Bring what you want to learn or finish, plus your time zone. No note required. Tutoring rates are on the pricing page.",
             ),
         ],
     },
@@ -513,7 +518,7 @@ PAGES = [
 
 FOOTER_SCRIPTS = """
     <footer>
-      <p>© <span id="year"></span> Yonatan Gemmi. Built with GitHub Pages • Based in North Miami Beach, Florida</p>
+      <p>© <span id="year"></span> Yonatan Gemmi. Built with GitHub Pages • Based in North Miami Beach, Florida • <a class="text-link" href="https://www.linkedin.com/in/joshuah-gemmi-16046233/" target="_blank" rel="noreferrer">LinkedIn</a></p>
     </footer>
   </div>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
@@ -577,10 +582,7 @@ def sections_cards_html(page: dict) -> str:
 
 def scope_block(page: dict) -> str:
     layout = page.get("layout", "split")
-    intro = (
-        f"This page is the dedicated entry point for <strong>{page['faq_topic']}</strong>. "
-        "The homepage lists my other consulting, contract, and technical services."
-    )
+    intro = page.get("scope_intro", "This is one of the kinds of work I take on. The homepage lists my other services.")
     cards = sections_cards_html(page)
 
     if layout == "proof":
@@ -643,7 +645,7 @@ def render(page: dict) -> str:
     meta_description = escape(page["meta_description"], quote=True)
     service_name = escape(page["service_name"])
     faq_topic = escape(page["faq_topic"])
-    cta_primary = escape(page.get("cta_primary", "Book a free 30-min intro"))
+    cta_primary = escape(page.get("cta_primary", "Book a free 30-minute consultation"))
     closing_intro = page.get(
         "closing_intro",
         "Thirty minutes. Google Meet. Bring questions. No note to send first.",
@@ -754,13 +756,12 @@ def render(page: dict) -> str:
 
       <section class="section closing-card service-landing-cta">
         <div>
-          <h2>Book a free 30-minute intro.</h2>
+          <h2>Book a free 30-minute consultation.</h2>
           <p class="section-intro">{closing_intro}</p>
         </div>
         <div class="contact-panel">
           <a class="button primary full" href="{CALENDLY}" target="_blank" rel="noreferrer">{cta_primary}</a>
-          <a class="button full contact-secondary" href="mailto:josh.gemmi@gmail.com">Email instead</a>
-          <a class="button full contact-secondary" href="https://www.linkedin.com/in/joshuah-gemmi-16046233/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <p class="contact-quiet">Or <a class="text-link" href="mailto:josh.gemmi@gmail.com">email me</a> instead.</p>
         </div>
       </section>
     </main>

@@ -1910,6 +1910,188 @@ footer p { font-size: .92rem; }
   .sheet-morph__system { width: 104px; height: 78px; margin: -39px 0 0 -52px; }
 }
 
+/* ── Consultation redesign additions ── */
+
+/* Hero consultation note */
+.consultation-note {
+  margin: 14px 0 0;
+  padding: 14px 18px;
+  border: 1px solid var(--line-soft);
+  border-radius: 14px;
+  background: rgba(211,170,85,.06);
+  color: #d3d3c7;
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  max-width: 52ch;
+}
+
+/* Proof strip with span sub-labels */
+.proof-strip li { flex-direction: column; align-items: flex-start; gap: 1px; }
+.proof-strip strong { font-size: 1rem; }
+.proof-strip span { font-size: .8rem; color: var(--muted-2); }
+
+/* Selected work — compact grid */
+.selected-work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.selected-work-grid .feature-card.large,
+.selected-work-grid .featured-work {
+  grid-column: 1 / -1;
+  min-height: 340px;
+}
+.work-story {
+  display: grid;
+  gap: 0;
+  margin: 16px 0 14px;
+}
+.work-story > div {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 14px;
+  padding: 12px 0;
+  border-top: 1px solid var(--line-soft);
+}
+.work-story > div:last-child { border-bottom: 1px solid var(--line-soft); }
+.work-story dt {
+  color: var(--muted-2);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: .72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.work-story dd { margin: 0; color: var(--text); font-size: var(--text-sm); font-weight: 600; }
+
+/* Booking CTA after work evidence */
+.work-booking {
+  margin: 36px 0 0;
+  text-align: center;
+}
+.work-booking .button { min-width: 280px; }
+
+/* Needs grid — where I can help */
+.needs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+.needs-grid article {
+  padding: 22px 20px;
+  border: 1px solid var(--line-soft);
+  border-radius: 16px;
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+}
+.needs-grid article[id="hermes-agents"] {
+  border-color: rgba(211,170,85,.32);
+  background: linear-gradient(180deg, rgba(211,170,85,.06), var(--surface));
+}
+.needs-grid h3 { margin: 0 0 8px; font-size: 1.05rem; }
+.needs-grid p { margin: 0 0 14px; color: var(--muted); font-size: var(--text-sm); }
+.needs-grid .service-card-link { margin-top: auto; }
+
+/* Working steps — how we work together */
+.working-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: work-step;
+}
+.working-steps li {
+  position: relative;
+  padding: 22px 20px 22px 56px;
+  border: 1px solid var(--line-soft);
+  border-radius: 16px;
+  background: var(--surface);
+  counter-increment: work-step;
+}
+.working-steps li::before {
+  content: counter(work-step);
+  position: absolute;
+  left: 20px;
+  top: 22px;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #121006;
+  font-family: "JetBrains Mono", monospace;
+  font-size: var(--text-sm);
+  font-weight: 800;
+}
+.working-steps h3 { margin: 0 0 8px; font-size: 1rem; }
+.working-steps p { margin: 0; color: var(--muted); font-size: var(--text-sm); }
+
+/* Supporting links under steps */
+.supporting-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 28px;
+}
+
+/* About section */
+.about-section { padding: 64px 0; }
+.about-identity {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+.about-identity img {
+  width: 104px;
+  height: 104px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  object-fit: cover;
+}
+.about-copy { max-width: 62ch; }
+.about-copy p { margin-bottom: 12px; font-size: var(--text-md); color: #cdcec2; }
+.about-copy .text-link { display: inline-block; margin-top: 6px; }
+
+/* Contact section refinements */
+.booking-detail {
+  margin: 14px 0 0;
+  padding: 0;
+  color: var(--muted-2);
+  font-size: var(--text-sm);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  text-align: center;
+}
+.email-fallback {
+  display: inline-block;
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: var(--text-sm);
+}
+
+/* Footer link */
+footer a { color: var(--muted); text-decoration: none; }
+footer a:hover { color: var(--text); text-decoration: underline; }
+
+/* Responsive */
+@media (max-width: 950px) {
+  .needs-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 680px) {
+  .selected-work-grid { grid-template-columns: 1fr; }
+  .needs-grid { grid-template-columns: 1fr; }
+  .working-steps { grid-template-columns: 1fr; }
+  .about-identity { flex-direction: column; text-align: center; }
+  .about-identity img { width: 80px; height: 80px; }
+  .work-booking .button { width: 100%; }
+  .proof-strip { gap: 8px; }
+  .proof-strip li { flex-direction: row; align-items: baseline; gap: 6px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .sheet-morph__sheet,
   .sheet-morph__packet,
