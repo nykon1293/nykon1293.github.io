@@ -1992,6 +1992,20 @@ footer p { font-size: .92rem; }
 .needs-grid h3 { margin: 0 0 8px; font-size: 1.05rem; }
 .needs-grid p { margin: 0 0 14px; color: var(--muted); font-size: var(--text-sm); }
 .needs-grid .service-card-link { margin-top: auto; }
+.needs-grid .need-nested {
+  margin: 12px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--line-soft);
+  color: var(--muted-2);
+  font-size: .82rem;
+  line-height: 1.45;
+}
+.needs-grid .need-nested a {
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+}
+.needs-grid .need-nested a:hover { color: #f0d692; text-decoration: underline; }
 
 /* Working steps — how we work together */
 .working-steps {
