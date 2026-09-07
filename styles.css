@@ -276,7 +276,15 @@ body::after {
 .sku-card--featured {
   border-color: rgba(211, 170, 85, 0.42);
   background: linear-gradient(180deg, rgba(211, 170, 85, 0.08), var(--surface));
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
 }
+.sku-card-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.sku-card-head .tag { margin-bottom: 0; }
 .sku-card .tag { margin-bottom: 10px; }
 .sku-card h3 { margin: 0; }
 .sku-price {
