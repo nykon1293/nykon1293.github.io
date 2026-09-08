@@ -98,7 +98,7 @@ def professional_service_node(*, include_catalog: bool = True) -> dict:
         "email": "josh.gemmi@gmail.com",
         "description": (
             "AI implementation, workflow automation, dashboards, ecommerce operations, "
-            "Hermes Desk setups, and Stocky dump recovery. Based in North Miami Beach. "
+            "Hermes Desk setups, tutoring, and Stocky dump recovery. Based in North Miami Beach. "
             "Serves Miami-Dade, Broward, South Florida, and remote clients."
         ),
         "priceRange": "$$",
@@ -127,7 +127,7 @@ def professional_service_node(*, include_catalog: bool = True) -> dict:
     if include_catalog:
         node["hasOfferCatalog"] = {
             "@type": "OfferCatalog",
-            "name": "Desks, Discovery, and consultation",
+            "name": "Desks, Discovery, tutoring, and consultation",
             "itemListElement": [
                 _offer(
                     "Free 30-minute consultation",
@@ -163,6 +163,13 @@ def professional_service_node(*, include_catalog: bool = True) -> dict:
                         "One workflow mapped for custom work such as a dashboard, system "
                         "integration, report, automation, or cleanup, with a written next-step quote."
                     ),
+                ),
+                _offer(
+                    "Tutoring",
+                    f"{BASE}/pricing.html#tutoring",
+                    price="125",
+                    service="Tutoring and pairing",
+                    description="$125 per hour. Minimum booking 90 minutes at $175.",
                 ),
             ],
         }
