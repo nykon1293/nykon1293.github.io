@@ -10,43 +10,25 @@
     <loc>https://nykon1293.github.io/pricing.html</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.96</priority>
-  </url>
-  <url>
-    <loc>https://nykon1293.github.io/services/stocky-recovery.html</loc>
-    <lastmod>2026-09-08</lastmod>
-    <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://nykon1293.github.io/services/hermes-agents.html</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.95</priority>
-  </url>
-  <url>
-    <loc>https://nykon1293.github.io/advisory.html</loc>
-    <lastmod>2026-09-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://nykon1293.github.io/work/governed-ai-content-engine.html</loc>
-    <lastmod>2026-09-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://nykon1293.github.io/services/ai-automation.html</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://nykon1293.github.io/services/dashboards-reporting.html</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://nykon1293.github.io/services/ecommerce-operations.html</loc>
@@ -58,6 +40,24 @@
     <loc>https://nykon1293.github.io/services/tutoring-project-help.html</loc>
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://nykon1293.github.io/services/stocky-recovery.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://nykon1293.github.io/work/governed-ai-content-engine.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://nykon1293.github.io/advisory.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

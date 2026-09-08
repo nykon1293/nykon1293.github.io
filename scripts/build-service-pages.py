@@ -286,6 +286,12 @@ PAGES = [
             ("Engagement options", ["Audit and roadmap", "Short implementation project", "Ongoing improvement and support"]),
         ],
         "layout": "split",
+        "packages_note": (
+            "Quoted after Paid Discovery.",
+            "Custom GPTs and workflow automation are scoped as custom work. Paid Discovery maps one workflow, then a written quote. Named prices are on the pricing page.",
+            "../pricing.html#consulting",
+            "See pricing",
+        ),
         "faqs": [
             (
                 "Do you only build Custom GPTs?",
@@ -366,6 +372,12 @@ PAGES = [
         ],
         "layout": "proof",
         "proof_strip": "From conflicting spreadsheets → one trusted morning dashboard.",
+        "packages_note": (
+            "Quoted after Paid Discovery.",
+            "Dashboards and reporting are custom work: Paid Discovery maps the workflow, then a written build quote. Named prices are on the pricing page.",
+            "../pricing.html#consulting",
+            "See pricing",
+        ),
         "related_jobs": [
             (
                 "Inventory and listings still fighting each other?",
@@ -441,6 +453,12 @@ PAGES = [
             ("Engagement options", ["Ops audit and roadmap", "Focused workflow implementation", "Ongoing operator-builder support"]),
         ],
         "layout": "steps",
+        "packages_note": (
+            "Quoted after Paid Discovery.",
+            "Ecommerce ops is custom work unless it is a named Desk. Paid Discovery maps one workflow, then a written quote. Stocky dump recovery is a separate, named job.",
+            "../pricing.html#consulting",
+            "See pricing",
+        ),
         "related_job": (
             "Stocky shut down. Your dump still has to run the week.",
             "If the operating system was Stocky and you now have CSVs in Sheets, I have a page for that job. It is not another inventory app.",
@@ -526,10 +544,16 @@ PAGES = [
             ("Engagement options", ["One-on-one working session", "Short project help", "Team workshop and follow-up"]),
         ],
         "layout": "simple",
+        "packages_note": (
+            "Tutoring rates are listed.",
+            "$125 per hour. Minimum booking 90 minutes at $175. Start with a free 30-minute consultation.",
+            "../pricing.html#tutoring",
+            "See tutoring rates",
+        ),
         "related_jobs": [
             (
                 "Need a working tool built, not a lesson?",
-                "Tutoring is pairing on a clear goal. Larger automations and Custom GPTs live on the AI automation page. Rates are on pricing.",
+                "Tutoring is pairing on a clear goal. Larger automations and Custom GPTs live on the AI automation page. Rates are on the <a href=\"../pricing.html#tutoring\">pricing page</a>.",
                 "ai-automation.html",
                 "AI automation",
             ),
@@ -549,7 +573,7 @@ PAGES = [
             ),
             (
                 "How do we start?",
-                "Book a free 30-minute consultation. Bring what you want to learn or finish, plus your time zone. No note required. Tutoring rates are on the pricing page.",
+                "Book a free 30-minute consultation. Bring what you want to learn or finish, plus your time zone. No note required. Tutoring rates are on the <a href=\"../pricing.html#tutoring\">pricing page</a>.",
             ),
         ],
     },

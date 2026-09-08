@@ -221,8 +221,8 @@ def home_graph() -> str:
                 name="Yonatan Gemmi | AI, automation & operations | North Miami Beach",
                 url=f"{BASE}/",
                 description=(
-                    "Free 30-min consult for AI, automation, dashboards, and ecommerce ops. "
-                    "Hermes desks, Stocky dump recovery, and unused ChatGPT seats. Remote or North Miami Beach."
+                    "Free 30-minute consultation for AI automation, dashboards, ecommerce ops, "
+                    "Hermes desks, and tutoring. Remote or North Miami Beach / South Florida."
                 ),
             ),
             faq_node(HOME_FAQS),
@@ -244,11 +244,11 @@ def pricing_graph() -> str:
             person_node(),
             professional_service_node(),
             webpage_node(
-                name="Pricing | Yonatan Gemmi | South FL",
+                name="Hermes Desk, Discovery & Care Pricing | Yonatan Gemmi",
                 url=url,
                 description=(
-                    "Fixed prices for Hermes Desk setups, Paid Discovery, Care, and tutoring. "
-                    "Stocky dump recovery uses Starter or Operator Desk. Free 30-minute consultation."
+                    "Fixed prices: Starter, Operator, and Connected Hermes Desks, Paid Discovery, "
+                    "Care retainers, and tutoring. Free 30-minute consultation. North Miami Beach / remote."
                 ),
             ),
             breadcrumb_node([("Home", f"{BASE}/"), ("Pricing", url)]),
@@ -268,7 +268,10 @@ def advisory_graph() -> str:
             webpage_node(
                 name="Advisory & Fractional CTO | Yonatan Gemmi",
                 url=url,
-                description="Advisory Light and Fractional CTO with Yonatan Gemmi. Extremely limited availability. Inquire first.",
+                description=(
+                    "Monthly Advisory Light or Fractional CTO with Yonatan Gemmi. Limited seats. "
+                    "North Miami Beach / remote. Inquire first. Not Care and not a one-time Desk."
+                ),
             ),
             breadcrumb_node(
                 [
@@ -567,7 +570,25 @@ def patch_work() -> None:
     print("patched", path.relative_to(ROOT))
 
 
+def refresh_jsonld_only() -> None:
+    """Replace JSON-LD on hand-maintained pages without mutating visible HTML."""
+    patches = [
+        (ROOT / "index.html", home_graph()),
+        (ROOT / "pricing.html", pricing_graph()),
+        (ROOT / "advisory.html", advisory_graph()),
+        (ROOT / "services/stocky-recovery.html", stocky_graph()),
+        (ROOT / "work/governed-ai-content-engine.html", work_graph()),
+    ]
+    for path, payload in patches:
+        html = path.read_text(encoding="utf-8")
+        path.write_text(replace_jsonld(html, payload), encoding="utf-8")
+        print("jsonld", path.relative_to(ROOT))
+
+
 def main() -> None:
+    if "--jsonld-only" in sys.argv:
+        refresh_jsonld_only()
+        return
     patch_home()
     patch_pricing()
     patch_advisory()

@@ -127,7 +127,7 @@ def professional_service_node(*, include_catalog: bool = True) -> dict:
     if include_catalog:
         node["hasOfferCatalog"] = {
             "@type": "OfferCatalog",
-            "name": "Desks, Discovery, tutoring, and consultation",
+            "name": "Desks, Discovery, Care, tutoring, and consultation",
             "itemListElement": [
                 _offer(
                     "Free 30-minute consultation",
@@ -163,6 +163,24 @@ def professional_service_node(*, include_catalog: bool = True) -> dict:
                         "One workflow mapped for custom work such as a dashboard, system "
                         "integration, report, automation, or cleanup, with a written next-step quote."
                     ),
+                ),
+                _offer(
+                    "Care retainer — Owner",
+                    f"{BASE}/pricing.html#retainers",
+                    price="300",
+                    service="Monthly Care retainer — Owner",
+                ),
+                _offer(
+                    "Care retainer — Starter",
+                    f"{BASE}/pricing.html#retainers",
+                    price="750",
+                    service="Monthly Care retainer — Starter",
+                ),
+                _offer(
+                    "Care retainer — Operator",
+                    f"{BASE}/pricing.html#retainers",
+                    price="1500",
+                    service="Monthly Care retainer — Operator",
                 ),
                 _offer(
                     "Tutoring",
