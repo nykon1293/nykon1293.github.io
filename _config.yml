@@ -1,3 +1,10 @@
 # GitHub Pages uses Jekyll by default. Keep Scout in git without serving it at /chatbot/.
+# Keep generator scripts and internal docs off the public site.
 exclude:
   - chatbot
+  - scripts
+  - PRODUCT.md
+  - docs
+  - .cursor
+  - .impeccable
+

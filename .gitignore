@@ -11,3 +11,7 @@ chatbot/build/
 chatbot/coverage/
 chatbot/.vercel/
 chatbot/*.log
+
+# Local Python cache from SEO helper scripts
+scripts/__pycache__/
+
