@@ -1011,6 +1011,14 @@ p { color: var(--muted); font-size: var(--text-base); }
 }
 footer { padding: 26px 0 48px; border-top: 1px solid var(--line-soft); color: var(--muted-2); }
 footer p { font-size: .92rem; }
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-top: 10px;
+}
+.footer-nav a { color: var(--muted); }
+.footer-nav a:hover { color: var(--text); }
 
 @media (max-width: 950px) {
   .hero, .split, .closing-card { grid-template-columns: 1fr; }

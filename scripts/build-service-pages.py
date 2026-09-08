@@ -2,14 +2,16 @@
 """Generate static service landing pages (run from repo root)."""
 from __future__ import annotations
 
-import json
 from html import escape
 from pathlib import Path
+import re
+import sys
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from seo_schema import CALENDLY, BASE, common_head_tags, service_page_graph
+
 SERVICES_DIR = ROOT / "services"
-BASE = "https://nykon1293.github.io"
-CALENDLY = "https://calendly.com/josh-gemmi/30min"
 
 SERVICE_PAGES = [
     ("hermes-agents.html", "Hermes Agents", "hermes-agents"),
@@ -51,32 +53,18 @@ def faq_schema(
     service_name: str,
     meta_description: str,
     canonical: str,
+    page_name: str,
+    breadcrumb_label: str,
 ) -> str:
-    entities = []
-    for q, a in faqs:
-        entities.append(
-            {
-                "@type": "Question",
-                "name": q,
-                "acceptedAnswer": {"@type": "Answer", "text": a},
-            }
-        )
-    graph = [
-        {
-            "@type": "Service",
-            "name": service_name,
-            "description": meta_description,
-            "url": canonical,
-            "provider": {
-                "@type": "Person",
-                "name": "Yonatan Gemmi",
-                "url": f"{BASE}/",
-            },
-            "areaServed": ["South Florida", "Remote"],
-        },
-        {"@type": "FAQPage", "mainEntity": entities},
-    ]
-    return json.dumps({"@context": "https://schema.org", "@graph": graph}, indent=2)
+    plain = [(q, re.sub(r"<[^>]+>", "", a)) for q, a in faqs]
+    return service_page_graph(
+        service_name=service_name,
+        meta_description=meta_description,
+        canonical=canonical,
+        page_name=page_name,
+        faqs=plain,
+        breadcrumb_label=breadcrumb_label,
+    )
 
 
 def faq_html(faqs: list[tuple[str, str]]) -> str:
@@ -150,12 +138,12 @@ PAGES = [
     {
         "slug": "hermes-agents",
         "filename": "hermes-agents.html",
-        "title": "Hermes Agents Setup | Yonatan Gemmi | South FL",
-        "meta_description": "Hermes is an AI agent on your computer, not another chat tab. I install it on your Mac, set limits, and hand it off. Remote or South Florida.",
+        "title": "Hermes Desk Setup on Your Mac | Yonatan Gemmi",
+        "meta_description": "Hermes is an AI agent on your Mac, not another chat tab. I install a Desk using ChatGPT or Claude seats you already pay for, set limits, and hand it off. Remote or North Miami Beach.",
         "service_name": "Hermes Agent setup",
         "eyebrow": "On your machine",
         "h1": "Hermes is an AI agent on your computer, not another chat tab.",
-        "lead": "ChatGPT and Claude are chat boxes. Hermes is the software around them. It lives on a Mac you control, uses the model you already pay for, and can work with your files and tools. I install it, write the limits, and hand it off so you can run it.",
+        "lead": "ChatGPT and Claude are chat boxes. Hermes is the software around them. It lives on a Mac you control, uses the model you already pay for, and can work with your files and tools. If a ChatGPT seat is already on the bill and sitting idle, we put it on a real job. I install it, write the limits, and hand it off so you can run it.",
         "cta_primary": "Book a free 30-minute consultation",
         "closing_intro": "Tell me what you want the agent to do. Book a free 30-minute consultation. Bring questions.",
         "scope_intro": "Hermes runs on a Mac you control, uses the model you already pay for, and works only inside limits we write down first. You leave with a running install you can use yourself.",
@@ -236,17 +224,21 @@ PAGES = [
                 "Which model does Hermes use?",
                 "Hermes is the software around the model, not the chat box. We hook up ChatGPT, Claude, or another model you choose, including a local one on your machine. You pay for the cloud model. Local install is a Desk add-on, quoted after I see the machine.",
             ),
+            (
+                "Can I use a ChatGPT seat I already pay for?",
+                'Yes. A Desk uses the ChatGPT or Claude seat you already pay for around files you control. You keep those bills. I install Hermes and hand off a first real task. Named Desk prices are on the <a href="../pricing.html">pricing page</a>.',
+            ),
         ],
     },
     {
         "slug": "ai-automation",
         "filename": "ai-automation.html",
         "title": "AI Workflow Automation | Yonatan Gemmi | South FL",
-        "meta_description": "Useful AI tools, workflow automation, Custom GPTs, and hands-on support for teams and founders. Remote or South Florida.",
+        "meta_description": "Workflow automation, Custom GPTs, and help putting unused ChatGPT seats on real weekly jobs. Remote or North Miami Beach / South Florida.",
         "service_name": "AI tools and workflow automation",
         "eyebrow": "AI workflows",
         "h1": "Turn AI tests into tools your team uses each week",
-        "lead": "I help teams move from random AI tests to useful tools. These tools can help with research, reports, drafts, checks, and intake. People can review the work where needed.",
+        "lead": "I help teams move from random AI tests to useful tools. These tools can help with research, reports, drafts, checks, and intake. If you already pay for ChatGPT and it sits unused, we put that seat on a weekly job people can review.",
         "scope_intro": "I find where your team loses time to manual steps, build the smallest useful automation, and show the team how to run it.",
         "pfd_label": "When teams call for AI automation",
         "pfd_caption": "For teams that need a working tool, not another demo.",
@@ -302,6 +294,10 @@ PAGES = [
             (
                 "How do we start?",
                 "Book a free 30-minute consultation. Bring a short note about the problem and tools if you have one. No note required.",
+            ),
+            (
+                "Can you put unused ChatGPT seats to work?",
+                'Yes. Many jobs use the ChatGPT or Claude seat you already pay for around files and tools you already have. A <a href="hermes-agents.html">Hermes Desk</a> is one option when an agent on your Mac fits. We only recommend that when it actually fits.',
             ),
         ],
     },
@@ -377,7 +373,7 @@ PAGES = [
         "slug": "ecommerce-operations",
         "filename": "ecommerce-operations.html",
         "title": "Ecommerce Operations | Yonatan Gemmi | South FL",
-        "meta_description": "Ecommerce operations systems: Amazon, eBay, inventory, fulfillment, listings, and marketplace reporting. Consulting and contract support.",
+        "meta_description": "Amazon, eBay, inventory, and marketplace ops. Stocky shutdown help: turn a Shopify CSV dump into a weekly system — not another inventory app. Remote or South Florida.",
         "service_name": "Ecommerce operations systems",
         "eyebrow": "Ecommerce ops",
         "h1": "Fix the ecommerce problems that keep coming back",
@@ -444,13 +440,17 @@ PAGES = [
                 "How do we start?",
                 "Book a free 30-minute consultation. Bring where you sell, how many items you manage, and the top two weekly problems. No note required.",
             ),
+            (
+                "Can you help after Stocky shut down?",
+                'Yes. If you exported a Shopify Stocky CSV dump, I have a dedicated <a href="stocky-recovery.html">recovery page</a>. That job is making the dump operable for the week, not selling another inventory app.',
+            ),
         ],
     },
     {
         "slug": "tutoring-project-help",
         "filename": "tutoring-project-help.html",
         "title": "Technical Tutoring & Project Help | Yonatan Gemmi",
-        "meta_description": "One-on-one help with AI tools, workflows, and technical projects for founders, students, and teams. Remote sessions.",
+        "meta_description": "One-on-one help with AI tools, ChatGPT workflows, and technical projects for founders, students, and teams. Remote or South Florida.",
         "service_name": "Technical tutoring, coaching, and project help",
         "eyebrow": "Hands-on help",
         "h1": "Get hands-on help and move your project forward",
@@ -518,7 +518,15 @@ PAGES = [
 
 FOOTER_SCRIPTS = """
     <footer>
-      <p>© <span id="year"></span> Yonatan Gemmi. Built with GitHub Pages • Based in North Miami Beach, Florida • <a class="text-link" href="https://www.linkedin.com/in/joshuah-gemmi-16046233/" target="_blank" rel="noreferrer">LinkedIn</a></p>
+      <p>© <span id="year"></span> Yonatan Gemmi. Based in North Miami Beach, Florida · Miami-Dade, Broward, and remote</p>
+      <p class="footer-nav">
+        <a href="../index.html">Home</a>
+        <a href="../pricing.html">Pricing</a>
+        <a href="stocky-recovery.html">Stocky recovery</a>
+        <a href="hermes-agents.html">Hermes desks</a>
+        <a href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book consultation</a>
+        <a href="https://www.linkedin.com/in/joshuah-gemmi-16046233/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </p>
     </footer>
   </div>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
@@ -655,7 +663,10 @@ def render(page: dict) -> str:
         service_name=page["service_name"],
         meta_description=page["meta_description"],
         canonical=canonical,
+        page_name=page["title"],
+        breadcrumb_label=page["service_name"],
     )
+    og_block = common_head_tags(title=title, description=meta_description, canonical=canonical)
     scope_html = scope_block(page)
     packages_html = packages_note_html(page)
     buyer_html = buyer_details_html(page)
@@ -692,20 +703,11 @@ def render(page: dict) -> str:
   <link rel="canonical" href="{canonical}" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Yonatan Gemmi" />
-  <meta property="og:title" content="{title}" />
-  <meta property="og:description" content="{meta_description}" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="{canonical}" />
-  <meta property="og:site_name" content="Yonatan Gemmi" />
-  <meta property="og:image" content="{BASE}/assets/social-preview.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="{title}" />
-  <meta name="twitter:description" content="{meta_description}" />
-  <meta name="twitter:image" content="{BASE}/assets/social-preview.png" />
+{og_block}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css?v=book-flow-2" />
+  <link rel="stylesheet" href="../styles.css?v=seo-1" />
   <link rel="icon" href="../assets/yonatan-gemmi-pixel-portrait-256.png" type="image/png" />
   <script type="application/ld+json">
 {schema}

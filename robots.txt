@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+# Project Scout source is not published on GitHub Pages.
+Disallow: /chatbot/
+
 Sitemap: https://nykon1293.github.io/sitemap.xml

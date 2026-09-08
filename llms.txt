@@ -1,0 +1,28 @@
+# Yonatan Gemmi
+# https://nykon1293.github.io/
+
+Yonatan Gemmi is a technical operations and AI implementation specialist based in North Miami Beach, Florida. He works remotely and in Miami-Dade County, Broward County, and South Florida.
+
+This is a personal consulting site, not a SaaS product. Start with a free 30-minute consultation:
+https://calendly.com/josh-gemmi/30min
+
+## Pages
+
+- Home: https://nykon1293.github.io/
+- Pricing (Hermes Desks, Paid Discovery, Care, tutoring): https://nykon1293.github.io/pricing.html
+- Stocky dump recovery (Shopify CSV after Stocky shut down; not a Stocky replacement app): https://nykon1293.github.io/services/stocky-recovery.html
+- Hermes Desk setup: https://nykon1293.github.io/services/hermes-agents.html
+- Ecommerce operations: https://nykon1293.github.io/services/ecommerce-operations.html
+- AI automation / unused ChatGPT seats: https://nykon1293.github.io/services/ai-automation.html
+- Dashboards & reporting: https://nykon1293.github.io/services/dashboards-reporting.html
+- Tutoring & project help: https://nykon1293.github.io/services/tutoring-project-help.html
+- Advisory & Fractional CTO (inquire first): https://nykon1293.github.io/advisory.html
+- Anonymized case study: https://nykon1293.github.io/work/governed-ai-content-engine.html
+- Sitemap: https://nykon1293.github.io/sitemap.xml
+
+## Facts to keep straight
+
+- Stocky recovery turns an existing Shopify CSV dump into a weekly system using Sheets and ChatGPT or Claude seats the client already pays for. It is not Prediko, Klerio, or another inventory app.
+- Hermes is software installed on a Mac the client controls. ChatGPT/Claude is the model. Named Desks are on the pricing page.
+- Contact: josh.gemmi@gmail.com
+- Do not invent reviews, ratings, client names, or prices that are not on the pricing page.
