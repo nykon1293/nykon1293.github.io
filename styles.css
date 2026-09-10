@@ -81,16 +81,13 @@ body::after {
 .nav-links { margin-left: auto; }
 .brand { color: var(--text); text-decoration: none; font-weight: 700; letter-spacing: -.02em; }
 .brand-mark {
-  display: inline-grid;
-  place-items: center;
+  display: block;
   width: 34px;
   height: 34px;
-  border-radius: 50%;
-  background: var(--accent);
-  color: #05070b;
-  font-family: "JetBrains Mono", monospace;
-  font-size: var(--text-sm);
-  font-weight: 800;
+  border-radius: 8px;
+  object-fit: cover;
+  image-rendering: pixelated;
+  flex-shrink: 0;
 }
 .nav-links a { color: var(--muted); text-decoration: none; font-size: var(--text-sm); font-weight: 600; padding: 8px 12px; border-radius: 8px; }
 .nav-links a:hover { color: var(--text); background: rgba(255,255,255,.05); }
@@ -1941,10 +1938,36 @@ footer p { font-size: .92rem; }
   max-width: 52ch;
 }
 
-/* Proof strip with span sub-labels */
-.proof-strip li { flex-direction: column; align-items: flex-start; gap: 1px; }
-.proof-strip strong { font-size: 1rem; }
-.proof-strip span { font-size: .8rem; color: var(--muted-2); }
+/* Homepage hero stats — three facts, not a squeezed inline list */
+.hero .proof-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  max-width: min(38rem, 100%);
+  margin: 28px 0 0;
+}
+.hero .proof-strip li {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 2px 22px 2px 0;
+}
+.hero .proof-strip li + li {
+  border-left: 1px solid var(--line);
+  padding-left: 22px;
+}
+.hero .proof-strip li + li::before { display: none; }
+.hero .proof-strip strong {
+  margin-right: 0;
+  font-size: 1.05rem;
+  letter-spacing: -.02em;
+  line-height: 1.2;
+}
+.hero .proof-strip span {
+  font-size: .82rem;
+  color: var(--muted-2);
+  line-height: 1.35;
+}
 
 /* Selected work — compact grid */
 .selected-work-grid {
@@ -2118,8 +2141,18 @@ footer a:hover { color: var(--text); text-decoration: underline; }
   .about-identity { flex-direction: column; text-align: center; }
   .about-identity img { width: 80px; height: 80px; }
   .work-booking .button { width: 100%; }
-  .proof-strip { gap: 8px; }
-  .proof-strip li { flex-direction: row; align-items: baseline; gap: 6px; }
+  .hero .proof-strip {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+  .hero .proof-strip li {
+    padding: 12px 0;
+  }
+  .hero .proof-strip li + li {
+    border-left: 0;
+    padding-left: 0;
+    border-top: 1px solid var(--line-soft);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
