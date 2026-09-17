@@ -24,6 +24,6 @@ https://calendly.com/josh-gemmi/30min
 
 - Offers include Hermes Desks, Paid Discovery, Care, tutoring, AI automation, dashboards, ecommerce ops, and Stocky dump recovery. Advisory / Fractional CTO is inquire-first.
 - Stocky recovery turns an existing Shopify CSV dump into a weekly system using Sheets and ChatGPT or Claude seats the client already pays for. It is not Prediko, Klerio, or another inventory app.
-- Hermes is software installed on a Mac the client controls. ChatGPT/Claude is the model. Named Desks are on the pricing page.
+- Hermes is software installed on a Mac the client controls. Windows is available as an extra charge and is quoted separately. ChatGPT and Claude are examples; 300+ models are available. The client pays those bills. Named Desks are on the pricing page.
 - Contact: josh.gemmi@gmail.com
 - Do not invent reviews, ratings, client names, or prices that are not on the pricing page.
