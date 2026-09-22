@@ -1030,19 +1030,20 @@ footer p { font-size: .92rem; }
     top: 10px;
     border-radius: 12px;
     display: grid;
-    grid-template-columns: auto 1fr auto auto;
+    grid-template-columns: auto auto 1fr auto;
     align-items: center;
     gap: 8px;
     padding: 10px 12px 12px;
   }
-  .nav-toggle { display: inline-flex; grid-column: 4; margin-left: 0; padding: 8px 10px; }
+  .nav-toggle { display: inline-flex; grid-column: 2; grid-row: 1; margin-left: 0; padding: 8px 10px; }
   .nav-toggle__label { display: none; }
-  .nav-cta { grid-column: 3; margin-left: 0; white-space: nowrap; }
-  .brand { grid-column: 1; min-width: 0; }
+  .nav-cta { grid-column: 4; grid-row: 1; justify-self: end; margin-left: 0; white-space: nowrap; }
+  .brand { grid-column: 1; grid-row: 1; min-width: 0; }
   .brand > span:not(.brand-mark) { display: none; }
   .nav-links {
     display: none;
     grid-column: 1 / -1;
+    grid-row: 2;
     width: 100%;
     margin-left: 0;
     flex-direction: column;
