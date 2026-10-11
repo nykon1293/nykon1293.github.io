@@ -10,7 +10,7 @@ const SUGGESTIONS = [
   "What kinds of help does he offer?"
 ];
 
-const WELCOME_MESSAGE = "Hi — I’m Yonatan’s AI Project Scout. Tell me what you’re trying to automate, build, analyze, learn, fix, or understand. Share a few details and we can set up a free 30-minute introductory call.";
+const WELCOME_MESSAGE = "Hi — I’m Yonatan’s SI Project Scout. Tell me what you’re trying to automate, build, analyze, learn, fix, or understand. Share a few details and we can set up a free 30-minute introductory call.";
 
 type LeadDraft = {
   name: string;
@@ -289,7 +289,7 @@ export default function ChatSimulator() {
                   </div>
                   <div className="min-w-0">
                     <h1 className="flex items-center gap-2 truncate text-sm font-semibold tracking-tight text-[#fff7e8]">
-                      AI Project Scout
+                      SI Project Scout
                       <span className="inline-flex h-2 w-2 shrink-0 rounded-full bg-[#9bbf7a]" />
                     </h1>
                     <p className="truncate text-[11px] font-medium text-[#b8ab91]">Free 30-min intro call</p>
@@ -478,7 +478,7 @@ export default function ChatSimulator() {
             {isOpen ? <X className="h-5 w-5" /> : <MessageCircle className="h-5 w-5" />}
           </span>
           <span className="hidden sm:block">
-            <span className="block text-sm font-semibold text-[#fff7e8]">AI Project Scout</span>
+            <span className="block text-sm font-semibold text-[#fff7e8]">SI Project Scout</span>
             <span className="block text-[11px] text-[#b8ab91]">Free 30-min intro call</span>
           </span>
           {hasUnread && <span className="absolute right-2 top-2 h-3 w-3 rounded-full border-2 border-[#080b0a] bg-[#9bbf7a]" />}

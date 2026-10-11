@@ -1318,7 +1318,7 @@ footer p { font-size: .92rem; }
   .related-case-study .button { width: 100%; justify-content: center; }
 }
 
-/* Governed AI system case study */
+/* Governed SI system case study */
 .case-study-hero {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(300px, .8fr);

@@ -54,7 +54,7 @@ HOME_FAQS = [
 PRICING_FAQS = [
     (
         "What is Hermes?",
-        "Hermes is an AI agent you run on your own computer. ChatGPT and Claude are chat boxes. Hermes is the software around them: it can work with your files and tools, follow written limits, and remember your rules. I install a Desk and hand it off so you can run it.",
+        "Hermes is an SI agent you run on your own computer. ChatGPT and Claude are chat boxes. Hermes is the software around them: it can work with your files and tools, follow written limits, and remember your rules. I install a Desk and hand it off so you can run it.",
     ),
     (
         "Is the 30-minute consultation free?",
@@ -69,7 +69,7 @@ PRICING_FAQS = [
         "That is a Connected Desk at $3,500, not a Starter Desk. Starter is one channel and one standard connection on a Mac you control.",
     ),
     (
-        "Do I pay for the AI model and app subscriptions?",
+        "Do I pay for the SI model and app subscriptions?",
         "Yes. You pay for your own model, Hermes, and app subscriptions. That can be ChatGPT, Claude, or another model you choose, including a local one. I install and configure the system on a machine you control.",
     ),
     (
@@ -139,7 +139,7 @@ STOCKY_FAQS = [
         "Starter Desk is $500 for a first working weekly view from the dump. Operator Desk is $1,500 when you also need one defined weekly reorder workflow. If this is a bigger rebuild — many locations, messy vendors, reconstructing pars across a large catalog — that is Paid Discovery at $2,000, then a quoted build. Full prices are on the pricing page.",
     ),
     (
-        "Do I need a new AI subscription?",
+        "Do I need a new SI subscription?",
         "No. The usual setup uses ChatGPT or Claude, the seats you already pay for, around your files. You keep paying those bills. I set up the weekly system. Named Desk details are on the pricing page if you want them.",
     ),
     (
@@ -218,10 +218,10 @@ def home_graph() -> str:
             person_node(),
             professional_service_node(),
             webpage_node(
-                name="Yonatan Gemmi | AI, automation & operations | North Miami Beach",
+                name="Yonatan Gemmi | SI, automation & operations | North Miami Beach",
                 url=f"{BASE}/",
                 description=(
-                    "Free 30-minute consultation for AI automation, dashboards, ecommerce ops, "
+                    "Free 30-minute consultation for SI automation, dashboards, ecommerce ops, "
                     "Hermes desks, and tutoring. Remote or North Miami Beach / South Florida."
                 ),
             ),
@@ -358,22 +358,22 @@ def work_graph() -> str:
     url = f"{BASE}/work/governed-ai-content-engine.html"
     creative = {
         "@type": "CreativeWork",
-        "name": "Governed Multi-Agent AI Production System — Anonymized Case Study",
+        "name": "Governed Multi-Agent SI Production System — Anonymized Case Study",
         "headline": "A multi-agent production operation that separates coordination from video execution",
         "description": (
-            "An anonymized case study of a multi-agent AI production system designed by Yonatan Gemmi "
+            "An anonymized case study of a multi-agent SI production system designed by Yonatan Gemmi "
             "to turn operator-led creative briefs or research into reviewable concepts, coordinate video "
             "execution across machines, recover from failures, and preserve configurable operator control."
         ),
         "url": url,
         "author": {"@id": "https://nykon1293.github.io/#person"},
         "about": [
-            "Multi-agent AI systems",
+            "Multi-agent SI systems",
             "Agent orchestration",
             "Operator-led creative direction",
-            "AI social content workflows",
-            "AI video production",
-            "Distributed AI workflows",
+            "SI social content workflows",
+            "SI video production",
+            "Distributed SI workflows",
             "Human-in-the-loop systems",
             "Quality assurance",
         ],
@@ -384,10 +384,10 @@ def work_graph() -> str:
             person_node(),
             professional_service_node(),
             webpage_node(
-                name="Multi-Agent AI Production Case Study | Yonatan Gemmi",
+                name="Multi-Agent SI Production Case Study | Yonatan Gemmi",
                 url=url,
                 description=(
-                    "An anonymized multi-agent AI case study by Yonatan Gemmi: operator-led briefs, "
+                    "An anonymized multi-agent SI case study by Yonatan Gemmi: operator-led briefs, "
                     "coordinated video execution, recovery, and configurable control."
                 ),
             ),
@@ -395,7 +395,7 @@ def work_graph() -> str:
                 [
                     ("Home", f"{BASE}/"),
                     ("Work examples", f"{BASE}/#work"),
-                    ("Multi-agent AI production system", url),
+                    ("Multi-agent SI production system", url),
                 ]
             ),
             creative,
@@ -406,9 +406,9 @@ def work_graph() -> str:
 def patch_home() -> None:
     path = ROOT / "index.html"
     html = path.read_text(encoding="utf-8")
-    title = "Yonatan Gemmi | AI, automation &amp; operations | North Miami Beach"
+    title = "Yonatan Gemmi | SI, automation &amp; operations | North Miami Beach"
     description = (
-        "Free 30-min consult for AI, automation, dashboards, and ecommerce ops. "
+        "Free 30-min consult for SI, automation, dashboards, and ecommerce ops. "
         "Hermes desks, Stocky dump recovery, and unused ChatGPT seats. Remote or North Miami Beach."
     )
     html = patch_head(
@@ -421,8 +421,8 @@ def patch_home() -> None:
     )
     html = replace_jsonld(html, home_graph())
     html = html.replace(
-        '<article id="hermes-agents"><h3>AI that does more than chat</h3><p>Hermes is an AI agent on your computer, not another chat tab. I install it, set limits, and help you run a first real task.</p><a class="service-card-link" href="services/hermes-agents.html">Explore Hermes setup →</a></article>',
-        '<article id="hermes-agents"><h3>AI that does more than chat</h3><p>Hermes is an AI agent on your computer, not another chat tab. I install a Desk using ChatGPT or Claude seats you already pay for, set limits, and help you run a first real task.</p><a class="service-card-link" href="services/hermes-agents.html">Explore Hermes setup →</a></article>',
+        '<article id="hermes-agents"><h3>SI that does more than chat</h3><p>Hermes is an SI agent on your computer, not another chat tab. I install it, set limits, and help you run a first real task.</p><a class="service-card-link" href="services/hermes-agents.html">Explore Hermes setup →</a></article>',
+        '<article id="hermes-agents"><h3>SI that does more than chat</h3><p>Hermes is an SI agent on your computer, not another chat tab. I install a Desk using ChatGPT or Claude seats you already pay for, set limits, and help you run a first real task.</p><a class="service-card-link" href="services/hermes-agents.html">Explore Hermes setup →</a></article>',
     )
     old_faq = """          <details class="faq-item"><summary>Am I committing to a project by booking?</summary><p>No. The consultation gives you direction. If you want to continue, we agree on a paid next step. You can also take the advice and decide later.</p></details>
         </div>"""
@@ -547,9 +547,9 @@ def patch_stocky() -> None:
 def patch_work() -> None:
     path = ROOT / "work/governed-ai-content-engine.html"
     html = path.read_text(encoding="utf-8")
-    title = "Multi-Agent AI Production Case Study | Yonatan Gemmi"
+    title = "Multi-Agent SI Production Case Study | Yonatan Gemmi"
     description = (
-        "An anonymized multi-agent AI case study by Yonatan Gemmi: operator-led briefs, "
+        "An anonymized multi-agent SI case study by Yonatan Gemmi: operator-led briefs, "
         "coordinated video execution, recovery, and configurable control."
     )
     html = patch_head(

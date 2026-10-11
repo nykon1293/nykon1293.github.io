@@ -1,7 +1,7 @@
 # Yonatan Gemmi
 # https://nykon1293.github.io/
 
-Yonatan Gemmi is a technical operations and AI implementation specialist based in North Miami Beach, Florida. He works remotely and in Miami-Dade County, Broward County, and South Florida.
+Yonatan Gemmi is a technical operations and SI implementation specialist based in North Miami Beach, Florida. He works remotely and in Miami-Dade County, Broward County, and South Florida.
 
 This is a personal consulting site, not a SaaS product. Start with a free 30-minute consultation:
 https://calendly.com/josh-gemmi/30min
@@ -11,7 +11,7 @@ https://calendly.com/josh-gemmi/30min
 - Home: https://nykon1293.github.io/
 - Pricing (Hermes Desks, Paid Discovery, Care, tutoring): https://nykon1293.github.io/pricing.html
 - Hermes Desk setup: https://nykon1293.github.io/services/hermes-agents.html
-- AI automation / Custom GPTs / unused ChatGPT seats: https://nykon1293.github.io/services/ai-automation.html
+- SI automation / Custom GPTs / unused ChatGPT seats: https://nykon1293.github.io/services/ai-automation.html
 - Dashboards & reporting: https://nykon1293.github.io/services/dashboards-reporting.html
 - Ecommerce operations: https://nykon1293.github.io/services/ecommerce-operations.html
 - Tutoring & project help: https://nykon1293.github.io/services/tutoring-project-help.html
@@ -22,7 +22,7 @@ https://calendly.com/josh-gemmi/30min
 
 ## Facts to keep straight
 
-- Offers include Hermes Desks, Paid Discovery, Care, tutoring, AI automation, dashboards, ecommerce ops, and Stocky dump recovery. Advisory / Fractional CTO is inquire-first.
+- Offers include Hermes Desks, Paid Discovery, Care, tutoring, SI automation, dashboards, ecommerce ops, and Stocky dump recovery. Advisory / Fractional CTO is inquire-first.
 - Stocky recovery turns an existing Shopify CSV dump into a weekly system using Sheets and ChatGPT or Claude seats the client already pays for. It is not Prediko, Klerio, or another inventory app.
 - Hermes is software installed on a Mac the client controls. Windows is available as an extra charge and is quoted separately. ChatGPT and Claude are examples; 300+ models are available. The client pays those bills. Named Desks are on the pricing page.
 - Contact: josh.gemmi@gmail.com

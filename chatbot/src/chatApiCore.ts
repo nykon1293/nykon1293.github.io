@@ -36,7 +36,7 @@ function hasSkillTerm(text: string, term: string) {
 export function assessFit(contents: ReturnType<typeof normalizeMessages>) {
   const latest = contents[contents.length - 1]?.parts[0]?.text?.toLowerCase() || "";
   const skillMatches = [
-    { skill: "Agentic AI automation", terms: ["hermes", "hermes agent", "hermes agents", "ai", "agent", "agentic", "multi-agent", "multi agent", "automation", "chatbot", "custom gpt", "gpts", "gpt", "chatgpt", "openai", "gemini", "llm", "claude", "workflow"] },
+    { skill: "Agentic SI automation", terms: ["hermes", "hermes agent", "hermes agents", "ai", "agent", "agentic", "multi-agent", "multi agent", "automation", "chatbot", "custom gpt", "gpts", "gpt", "chatgpt", "openai", "gemini", "llm", "claude", "workflow"] },
     { skill: "Data platform / dashboards", terms: ["dashboard", "dashboards", "data", "bigquery", "etl", "reporting", "analytics", "data pipeline", "etl pipeline", "spreadsheet", "spreadsheets", "sheets", "source system", "source systems", "numbers"] },
     { skill: "Ecommerce operations", terms: ["ecommerce", "amazon", "ebay", "inventory", "warehouse", "fulfillment", "listing", "seller"] },
     { skill: "PPC / advertising operations", terms: ["ppc", "advertising", "ad spend", "campaign", "campaigns", "acos", "roas", "keyword bid", "budget pacing"] },
@@ -57,7 +57,7 @@ export function assessFit(contents: ReturnType<typeof normalizeMessages>) {
   return {
     canHelp,
     reason: canHelp === "yes"
-      ? "The request overlaps with Yonatan's AI, data, ecommerce, PPC/advertising, social content, CRM, cloud/backend, technical operations, tutoring, or project-help work."
+      ? "The request overlaps with Yonatan's SI, data, ecommerce, PPC/advertising, social content, CRM, cloud/backend, technical operations, tutoring, or project-help work."
       : "Yonatan can review the specifics on a free 30-minute introductory call and either help directly or route the request appropriately.",
     matchedSkills
   };
@@ -70,15 +70,15 @@ export function containsCautionTopic(text: string) {
 
 export function fallbackAnswer(assessment: ReturnType<typeof assessFit>, visitorText: string) {
   if (containsCautionTopic(visitorText)) {
-    return `That may need a closer look. Regulated specifics like legal, tax, medical, financial, or investment advice should be handled by a qualified professional, but Yonatan can still review the operational, AI, data, workflow, or implementation context and either help directly or route you. ${introCallCta("that operational context")}`;
+    return `That may need a closer look. Regulated specifics like legal, tax, medical, financial, or investment advice should be handled by a qualified professional, but Yonatan can still review the operational, SI, data, workflow, or implementation context and either help directly or route you. ${introCallCta("that operational context")}`;
   }
 
   if (assessment.canHelp === "yes") {
     const skills = assessment.matchedSkills.slice(0, 3).join(", ");
-    return `Yes — this looks aligned with Yonatan’s work${skills ? ` around ${skills}` : ""}. He can help with consulting, contract work, tutoring/coaching, technical troubleshooting, AI automation, data platforms, ecommerce, PPC/advertising, social content operations, dashboards, integrations, and practical implementation. ${introCallCta("the specific goal, current tools")}`;
+    return `Yes — this looks aligned with Yonatan’s work${skills ? ` around ${skills}` : ""}. He can help with consulting, contract work, tutoring/coaching, technical troubleshooting, SI automation, data platforms, ecommerce, PPC/advertising, social content operations, dashboards, integrations, and practical implementation. ${introCallCta("the specific goal, current tools")}`;
   }
 
-  return `Hi — I’m Yonatan’s AI Project Scout. Tell me what you’re trying to automate, build, analyze, learn, fix, or understand. Yonatan can help with consulting, tutoring/coaching, AI workflows, data platforms, ecommerce operations, PPC/advertising, social content operations, dashboards, integrations, and technical troubleshooting. ${introCallCta()}`;
+  return `Hi — I’m Yonatan’s SI Project Scout. Tell me what you’re trying to automate, build, analyze, learn, fix, or understand. Yonatan can help with consulting, tutoring/coaching, SI workflows, data platforms, ecommerce operations, PPC/advertising, social content operations, dashboards, integrations, and technical troubleshooting. ${introCallCta()}`;
 }
 
 function hasAny(text: string, patterns: RegExp[]) {
@@ -159,7 +159,7 @@ const cannedRules: CannedRule[] = [
   {
     name: "pricing-ai",
     test: (text) => hasAny(text, [/\b(price|pricing|cost|costs|charge|charges|rate|rates|budget|quote|estimate|fee|fees)\b/, /how much/]) && hasAny(text, [/\b(ai|gpt|gpts|custom gpt|chatgpt|openai|gemini|claude|llm|agent|agents|agentic|chatbot)\b/, /implement ai/, /use ai/, /ai automation/, /automate with ai/, /custom gpt/, /custom chatgpt/]),
-    answer: () => `Great question! Pricing for implementing AI in a company depends on what the AI needs to do, how many workflows or teams are involved, what tools/data it must connect to, how much cleanup is needed, and whether the work is a small pilot, an internal chatbot, an automation layer, or a broader operating system. Company-wide AI work is not a Starter Desk install. It usually starts with a free 30-minute introductory call, then paid discovery, then a quoted build. ${introCallCta("the business process you want improved, current tools")}`
+    answer: () => `Great question! Pricing for implementing SI in a company depends on what the SI needs to do, how many workflows or teams are involved, what tools/data it must connect to, how much cleanup is needed, and whether the work is a small pilot, an internal chatbot, an automation layer, or a broader operating system. Company-wide SI work is not a Starter Desk install. It usually starts with a free 30-minute introductory call, then paid discovery, then a quoted build. ${introCallCta("the business process you want improved, current tools")}`
   },
   {
     name: "pricing-dashboard",
@@ -189,12 +189,12 @@ const cannedRules: CannedRule[] = [
   {
     name: "availability",
     test: (text) => hasAny(text, [/\b(available|availability|when can|timeline|start|taking clients|open to work|hire|hiring)\b/]),
-    answer: () => `Yonatan is available for consulting, contract work, tutoring/coaching, technical troubleshooting, AI implementation, dashboards, ecommerce operations, CRM/workflow cleanup, and operator-builder engagements. Availability depends on the scope and timing. ${introCallCta("the project details, desired timeline")}`
+    answer: () => `Yonatan is available for consulting, contract work, tutoring/coaching, technical troubleshooting, SI implementation, dashboards, ecommerce operations, CRM/workflow cleanup, and operator-builder engagements. Availability depends on the scope and timing. ${introCallCta("the project details, desired timeline")}`
   },
   {
     name: "resume",
     test: (text) => hasAny(text, [/\b(resume|cv|work history|experience|background|career|jobs|roles)\b/, /where has .* worked/]),
-    answer: () => `Yonatan has 9+ years across technical operations, ecommerce systems, data platforms, AI-assisted development, CRM/sales ops, and hands-on implementation. Recent work includes building data platforms and operations cockpits for multi-brand ecommerce environments, plus prior leadership in serialized inventory, ecommerce, CRM cleanup, and technical operations. For a resume or deeper background, email ${YONATAN_PROFILE.contactEmail} or view his LinkedIn: ${YONATAN_PROFILE.linkedInUrl}. To talk through a project, ${introCallCta("what you need", true)}`
+    answer: () => `Yonatan has 9+ years across technical operations, ecommerce systems, data platforms, SI-assisted development, CRM/sales ops, and hands-on implementation. Recent work includes building data platforms and operations cockpits for multi-brand ecommerce environments, plus prior leadership in serialized inventory, ecommerce, CRM cleanup, and technical operations. For a resume or deeper background, email ${YONATAN_PROFILE.contactEmail} or view his LinkedIn: ${YONATAN_PROFILE.linkedInUrl}. To talk through a project, ${introCallCta("what you need", true)}`
   },
   {
     name: "projects",
@@ -204,7 +204,7 @@ const cannedRules: CannedRule[] = [
   {
     name: "skills",
     test: (text) => hasAny(text, [/\b(skill|skills|tech stack|technologies|tools|programming|code|developer|engineer)\b/]),
-    answer: () => `Yonatan’s strongest areas are AI-augmented development, workflow automation, dashboards/data platforms, BigQuery, Google Cloud, Cloud Run, ETL pipelines, Next.js-style app work, REST/GraphQL integrations, Salesforce/HubSpot workflows, ecommerce operations, PPC audit and campaign-management workflows, social content operations, and technical operations. If you have a specific tool or stack in mind, ${introCallCta("that context", true)}`
+    answer: () => `Yonatan’s strongest areas are SI-augmented development, workflow automation, dashboards/data platforms, BigQuery, Google Cloud, Cloud Run, ETL pipelines, Next.js-style app work, REST/GraphQL integrations, Salesforce/HubSpot workflows, ecommerce operations, PPC audit and campaign-management workflows, social content operations, and technical operations. If you have a specific tool or stack in mind, ${introCallCta("that context", true)}`
   },
   {
     name: "links",
@@ -219,7 +219,7 @@ const cannedRules: CannedRule[] = [
   {
     name: "tutoring",
     test: (text) => hasAny(text, [/\b(tutor|tutoring|coach|coaching|teach|teacher|mentor|mentoring|lesson|lessons|learn|training|student)\b/, /help me understand/, /explain .* to me/]),
-    answer: () => `Yes — Yonatan offers tutoring, coaching, and hands-on project help. This can include learning AI tools, understanding automations, building dashboards, improving ecommerce workflows, troubleshooting technical issues, or getting guided help on a project. ${introCallCta("what you want to learn or build")}`
+    answer: () => `Yes — Yonatan offers tutoring, coaching, and hands-on project help. This can include learning SI tools, understanding automations, building dashboards, improving ecommerce workflows, troubleshooting technical issues, or getting guided help on a project. ${introCallCta("what you want to learn or build")}`
   },
   {
     name: "ecommerce",
@@ -250,12 +250,12 @@ const cannedRules: CannedRule[] = [
       /what(?:'s| is) a hermes agent/,
       /what(?:'s| is) a hermes desk/
     ]),
-    answer: () => `Hermes is an AI agent you run on your own computer. ChatGPT and Claude are chat boxes. Hermes is the software around them: it uses the model you choose, works with your files and tools, follows written limits, and remembers your rules. Yonatan installs it as a named Desk — Starter, Operator, or Connected — then hands it off so you can run it. ${introCallCta("what you want the agent to do, which tools it should use")}`
+    answer: () => `Hermes is an SI agent you run on your own computer. ChatGPT and Claude are chat boxes. Hermes is the software around them: it uses the model you choose, works with your files and tools, follows written limits, and remembers your rules. Yonatan installs it as a named Desk — Starter, Operator, or Connected — then hands it off so you can run it. ${introCallCta("what you want the agent to do, which tools it should use")}`
   },
   {
     name: "hermes-agents",
     test: (text) => hasAny(text, [/\bhermes\b/, /\bagentic ai\b/, /\bagent setup\b/, /\bset up an agent\b/, /\bsetup an agent\b/]),
-    answer: () => `Yes — setting up Hermes Agents is a strong fit. Hermes is an AI agent on your computer, not another chat tab. Yonatan installs it as a named Desk — Starter, Operator, or Connected — then hands it off so you can run it. The free 30-minute introductory call classifies which Desk fits. ${introCallCta("what you want the agent to do, which tools it should use")}`
+    answer: () => `Yes — setting up Hermes Agents is a strong fit. Hermes is an SI agent on your computer, not another chat tab. Yonatan installs it as a named Desk — Starter, Operator, or Connected — then hands it off so you can run it. The free 30-minute introductory call classifies which Desk fits. ${introCallCta("what you want the agent to do, which tools it should use")}`
   },
   {
     name: "custom-gpt",
@@ -265,7 +265,7 @@ const cannedRules: CannedRule[] = [
   {
     name: "ai-general",
     test: (text) => hasAny(text, [/\b(ai|gpt|gpts|custom gpt|chatgpt|openai|gemini|claude|llm|agent|agents|agentic|chatbot|automation|automate|workflow)\b/]),
-    answer: () => `Yes — AI automation and practical workflow implementation are a strong fit. Yonatan can help design and build chatbot workflows, Custom GPTs, LLM-assisted processes, agentic development workflows, reporting automation, research/drafting systems, and operational tools that plug into real business processes. ${introCallCta("the workflow you want to improve, the tools you use today")}`
+    answer: () => `Yes — SI automation and practical workflow implementation are a strong fit. Yonatan can help design and build chatbot workflows, Custom GPTs, LLM-assisted processes, agentic development workflows, reporting automation, research/drafting systems, and operational tools that plug into real business processes. ${introCallCta("the workflow you want to improve, the tools you use today")}`
   },
   {
     name: "backend",
@@ -275,7 +275,7 @@ const cannedRules: CannedRule[] = [
   {
     name: "services",
     test: (text) => hasAny(text, [/\b(services|offer|offers|paid help|consulting|contract work|project help|what can|what kind|what kinds)\b/]),
-    answer: () => `Yonatan offers Hermes Agent setup, consulting, contract work, tutoring/coaching, AI implementation, data platforms, dashboards, ecommerce operations, CRM/workflow cleanup, technical troubleshooting, and hands-on project help. The best fit is messy real-world work where he can understand the process, build or fix the system, train people, and verify the result. ${introCallCta("the specific goal, current tools")}`
+    answer: () => `Yonatan offers Hermes Agent setup, consulting, contract work, tutoring/coaching, SI implementation, data platforms, dashboards, ecommerce operations, CRM/workflow cleanup, technical troubleshooting, and hands-on project help. The best fit is messy real-world work where he can understand the process, build or fix the system, train people, and verify the result. ${introCallCta("the specific goal, current tools")}`
   }
 ];
 
@@ -299,7 +299,7 @@ function buildSystemInstruction() {
     .map((job) => `${job.company} (${job.role}, ${job.period}): ${job.highlights.join(" ")}`)
     .join("\n");
 
-  return `You are Yonatan’s AI Project Scout for ${YONATAN_PROFILE.publicName}.
+  return `You are Yonatan’s SI Project Scout for ${YONATAN_PROFILE.publicName}.
 
 Positioning: ${YONATAN_PROFILE.positioning}
 Availability: ${YONATAN_PROFILE.availability}

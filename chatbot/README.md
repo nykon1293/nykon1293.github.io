@@ -1,6 +1,6 @@
 # Yonatan Portfolio Chatbot
 
-Production-safe AI assistant backend and embeddable frontend for Yonatan Gemmi's GitHub Pages portfolio.
+Production-safe SI assistant backend and embeddable frontend for Yonatan Gemmi's GitHub Pages portfolio.
 
 ## What this is
 
@@ -74,4 +74,4 @@ Then update the GitHub Pages script tag in `/Users/yonatangemmi/personal-github-
 - Gemini output capped with `maxOutputTokens: 500`.
 - Simple per-IP rate limit: default 12 requests/minute.
 - Public responses grounded in resume/profile facts; bot is instructed not to invent claims.
-- Visitor fallback routes to `josh.gemmi@gmail.com` if the AI service is unavailable.
+- Visitor fallback routes to `josh.gemmi@gmail.com` if the SI service is unavailable.

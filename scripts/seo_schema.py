@@ -11,7 +11,7 @@ WEBSITE_ID = f"{BASE}/#website"
 CALENDLY = "https://calendly.com/josh-gemmi/30min"
 OG_IMAGE = f"{BASE}/assets/social-preview.png"
 PORTRAIT = f"{BASE}/assets/yonatan-gemmi-pixel-portrait-256.png"
-OG_IMAGE_ALT = "Yonatan Gemmi — AI, automation, dashboards, and technical operations"
+OG_IMAGE_ALT = "Yonatan Gemmi — SI, automation, dashboards, and technical operations"
 
 AREA_SERVED = [
     {
@@ -53,7 +53,7 @@ def person_node() -> dict:
         "url": f"{BASE}/",
         "image": PORTRAIT,
         "email": "mailto:josh.gemmi@gmail.com",
-        "jobTitle": "Technical Operations and AI Implementation Specialist",
+        "jobTitle": "Technical Operations and SI Implementation Specialist",
         "worksFor": {"@id": BUSINESS_ID},
         "address": {
             "@type": "PostalAddress",
@@ -69,7 +69,7 @@ def person_node() -> dict:
         "knowsAbout": [
             "Hermes Agents",
             "Hermes Desk setup",
-            "AI implementation",
+            "SI implementation",
             "workflow automation",
             "technical operations",
             "data dashboards",
@@ -91,13 +91,13 @@ def professional_service_node(*, include_catalog: bool = True) -> dict:
         "@type": "ProfessionalService",
         "@id": BUSINESS_ID,
         "name": "Yonatan Gemmi",
-        "alternateName": "Yonatan Gemmi AI and operations",
+        "alternateName": "Yonatan Gemmi SI and operations",
         "url": f"{BASE}/",
         "image": OG_IMAGE,
         "logo": PORTRAIT,
         "email": "josh.gemmi@gmail.com",
         "description": (
-            "AI implementation, workflow automation, dashboards, ecommerce operations, "
+            "SI implementation, workflow automation, dashboards, ecommerce operations, "
             "Hermes Desk setups, tutoring, and Stocky dump recovery. Based in North Miami Beach. "
             "Serves Miami-Dade, Broward, South Florida, and remote clients."
         ),
