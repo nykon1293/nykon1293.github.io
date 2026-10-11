@@ -841,7 +841,7 @@ def render(page: dict) -> str:
         </div>
         <div class="contact-panel">
           <a class="button primary full" href="{CALENDLY}" target="_blank" rel="noreferrer">{cta_primary}</a>
-          <p class="contact-quiet">Or <a class="text-link" href="mailto:josh.gemmi@gmail.com">email me</a> instead.</p>
+          <p class="contact-quiet">Or <a class="text-link" href="mailto:y@gemmisi.com">email me</a> instead.</p>
         </div>
       </section>
     </main>

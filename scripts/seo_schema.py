@@ -53,7 +53,7 @@ def person_node() -> dict:
         "name": "Yonatan Gemmi",
         "url": f"{BASE}/",
         "image": PORTRAIT,
-        "email": "mailto:josh.gemmi@gmail.com",
+        "email": "mailto:y@gemmisi.com",
         "jobTitle": "Technical Operations and SI Implementation Specialist",
         "worksFor": {"@id": BUSINESS_ID},
         "address": {
@@ -96,7 +96,7 @@ def professional_service_node(*, include_catalog: bool = True) -> dict:
         "url": f"{BASE}/",
         "image": OG_IMAGE,
         "logo": LOGO,
-        "email": "josh.gemmi@gmail.com",
+        "email": "y@gemmisi.com",
         "description": (
             "SI implementation, workflow automation, dashboards, ecommerce operations, "
             "Hermes Desk setups, tutoring, and Stocky dump recovery. Based in North Miami Beach. "
@@ -120,7 +120,7 @@ def professional_service_node(*, include_catalog: bool = True) -> dict:
         "contactPoint": {
             "@type": "ContactPoint",
             "contactType": "sales",
-            "email": "josh.gemmi@gmail.com",
+            "email": "y@gemmisi.com",
             "url": CALENDLY,
             "availableLanguage": "English",
         },

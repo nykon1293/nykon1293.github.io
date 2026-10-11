@@ -31,7 +31,7 @@
         : `<div class="portfolio-chatbot-panel__placeholder">
             <strong>SI assistant backend is ready but not connected yet.</strong>
             <p>The site has the launcher installed. After the backend is deployed, set <code>data-chatbot-url</code> on this script to enable the live assistant.</p>
-            <a href="mailto:josh.gemmi@gmail.com">Email Yonatan instead</a>
+            <a href="mailto:y@gemmisi.com">Email Yonatan instead</a>
           </div>`}
     </div>
   `;

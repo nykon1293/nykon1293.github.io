@@ -74,4 +74,4 @@ Then update the GitHub Pages script tag in `/Users/yonatangemmi/personal-github-
 - Gemini output capped with `maxOutputTokens: 500`.
 - Simple per-IP rate limit: default 12 requests/minute.
 - Public responses grounded in resume/profile facts; bot is instructed not to invent claims.
-- Visitor fallback routes to `josh.gemmi@gmail.com` if the SI service is unavailable.
+- Visitor fallback routes to `y@gemmisi.com` if the SI service is unavailable.
