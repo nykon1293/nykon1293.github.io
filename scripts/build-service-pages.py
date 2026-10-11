@@ -138,8 +138,8 @@ PAGES = [
     {
         "slug": "hermes-agents",
         "filename": "hermes-agents.html",
-        "title": "Hermes Agent Desk Setup on Mac | Yonatan Gemmi",
-        "meta_description": "Install a Hermes Desk on your Mac: limits, a first real task, and handoff. Uses ChatGPT or Claude seats you already pay for. Remote or North Miami Beach.",
+        "title": "Hermes Desk on Mac, Windows extra charge | Yonatan Gemmi",
+        "meta_description": "Install a Hermes Desk on a Mac you control. Windows is an extra charge, quoted separately. ChatGPT and Claude are examples; 300+ models. You pay those bills.",
         "service_name": "Hermes Agent setup",
         "eyebrow": "On your machine",
         "h1": "Hermes is an SI agent on your computer, not another chat tab.",
@@ -778,6 +778,7 @@ def render(page: dict) -> str:
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../styles.css?v=nav-icon-1" />
   <link rel="icon" href="../assets/yonatan-gemmi-pixel-portrait-256.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/assets/yonatan-gemmi-pixel-portrait-256.png" />
   <script type="application/ld+json">
 {schema}
   </script>
