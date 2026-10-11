@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Turning incoming work and maintenance requests into scheduled jobs | SI use case | Yonatan Gemmi</title>
+  <meta name="description" content="SI turns work requests from email, forms and messages into job tickets, sorts them by urgency, and drafts a schedule and customer updates." />
+  <link rel="canonical" href="https://gemmisi.com/use-cases/requests-to-scheduled-jobs/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Yonatan Gemmi" />
+  <meta property="og:title" content="Turning incoming work and maintenance requests into scheduled jobs | SI use case | Yonatan Gemmi" />
+  <meta property="og:description" content="SI turns work requests from email, forms and messages into job tickets, sorts them by urgency, and drafts a schedule and customer updates." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://gemmisi.com/use-cases/requests-to-scheduled-jobs/" />
+  <meta property="og:site_name" content="Yonatan Gemmi" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content="https://gemmisi.com/assets/use-cases-social-preview.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Yonatan Gemmi — 72 practical SI use cases for small teams" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Turning incoming work and maintenance requests into scheduled jobs | SI use case | Yonatan Gemmi" />
+  <meta name="twitter:description" content="SI turns work requests from email, forms and messages into job tickets, sorts them by urgency, and drafts a schedule and customer updates." />
+  <meta name="twitter:image" content="https://gemmisi.com/assets/use-cases-social-preview.png" />
+  <meta name="twitter:image:alt" content="Yonatan Gemmi — 72 practical SI use cases for small teams" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://gemmisi.com/sitemap.xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../styles.css?v=nav-row-1" />
+  <link rel="stylesheet" href="../../assets/use-cases.css" />
+  <link rel="icon" href="../../assets/yonatan-gemmi-pixel-portrait-256.png" type="image/png" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://gemmisi.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Use cases",
+          "item": "https://gemmisi.com/use-cases/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Turning incoming work and maintenance requests into scheduled jobs",
+          "item": "https://gemmisi.com/use-cases/requests-to-scheduled-jobs/"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "name": "Turning incoming work and maintenance requests into scheduled jobs",
+      "url": "https://gemmisi.com/use-cases/requests-to-scheduled-jobs/",
+      "description": "SI turns work requests from email, forms and messages into job tickets, sorts them by urgency, and drafts a schedule and customer updates.",
+      "isPartOf": {
+        "@type": "CollectionPage",
+        "name": "SI use cases",
+        "url": "https://gemmisi.com/use-cases/"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Yonatan Gemmi",
+        "url": "https://gemmisi.com/"
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="nav">
+      <a class="brand" href="../../index.html" aria-label="Yonatan Gemmi home">
+        <img class="brand-mark" src="../../assets/yonatan-gemmi-pixel-portrait-256.png" alt="" width="34" height="34" />
+        <span>Yonatan Gemmi</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open site menu">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+        <span class="nav-toggle__label">Menu</span>
+      </button>
+      <nav id="site-nav" class="nav-links" aria-label="Primary navigation">
+        <a href="../../index.html">Home</a>
+        <a href="../../index.html#work">Work</a>
+        <details class="nav-dropdown">
+          <summary class="nav-dropdown-trigger">Services</summary>
+          <div class="nav-dropdown-menu">
+            <a href="../../services/hermes-agents.html">Hermes Agents</a>
+            <a href="../../services/ai-automation.html">SI automation</a>
+            <a href="../../services/dashboards-reporting.html">Dashboards &amp; reporting</a>
+            <a href="../../services/ecommerce-operations.html">Ecommerce operations</a>
+            <a href="../../services/tutoring-project-help.html">Tutoring &amp; project help</a>
+            <a class="nav-dropdown-muted" href="../../services/stocky-recovery.html">Stocky dump recovery</a>
+            <a class="nav-dropdown-muted" href="../../index.html#service-hub">All services</a>
+            <a class="nav-dropdown-muted" href="../../advisory.html">Advisory &amp; Fractional (ask first)</a>
+          </div>
+        </details>
+        <a href="../index.html" aria-current="page">Use cases</a>
+        <a href="../../pricing.html">Pricing</a>
+      </nav>
+      <a class="nav-cta" href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book consultation</a>
+    </header>
+
+    <main id="top">
+      <article class="uc-detail">
+        <header class="uc-detail-head">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span aria-hidden="true">/</span>
+            <a href="../index.html">Use cases</a>
+            <span aria-hidden="true">/</span>
+            <span>Turning incoming work and maintenance requests into scheduled jobs</span>
+          </nav>
+          <p class="uc-card-cat"><a href="../index.html#g-scheduling-operations">Scheduling &amp; operations</a></p>
+          <h1>Turning incoming work and maintenance requests into scheduled jobs</h1>
+          <p class="lead">SI turns work requests from email, forms and messages into job tickets, sorts them by urgency, and drafts a schedule and customer updates.</p>
+          
+        </header>
+
+        <div class="uc-detail-body">
+          <div class="uc-detail-main">
+            <section class="uc-block" aria-labelledby="problem">
+              <h2 id="problem">The problem</h2>
+              <p>Requests arrive by phone, text, email and portal. They get written on paper, entered late, or lost, and customers do not know when someone is coming.</p>
+            </section>
+            <section class="uc-block" aria-labelledby="what">
+              <h2 id="what">What SI does</h2>
+              <p>SI reads each request, creates a job ticket with the location, problem, urgency and any photos, and checks capacity or vendor availability. It proposes a time slot or the right vendor by your rules, drafts the message to the customer or tenant with the plan, and drafts the dispatch note to the technician or vendor.</p>
+            </section>
+            <section class="uc-block" aria-labelledby="examples">
+              <h2 id="examples">Examples</h2>
+              <p class="uc-ex-intro">The same job looks different in different businesses. These are illustrations, not client results.</p>
+              <ul class="uc-examples">
+            <li class="uc-ex"><span class="uc-ex-type">Property management company</span><p>A tenant&#x27;s email about a leaking kitchen faucet becomes a ticket marked routine, assigned to the plumbing vendor, with a draft reply giving the expected visit window.</p></li>
+            <li class="uc-ex"><span class="uc-ex-type">Commercial cleaning company</span><p>A client&#x27;s request for an extra floor-waxing visit is scheduled into the next open night crew slot.</p></li>
+            <li class="uc-ex"><span class="uc-ex-type">School facilities office</span><p>Teacher requests for repairs are logged by building and room and grouped into the custodian&#x27;s weekly plan.</p></li>
+              </ul>
+            </section>
+            <section class="uc-block" aria-labelledby="setup">
+              <h2 id="setup">What it takes to set up</h2>
+              <p>Access to the request channels, the job or maintenance system, and your urgency and assignment rules. Setup is often one to two weeks.</p>
+            </section>
+            <section class="uc-block uc-checks" aria-labelledby="checks">
+              <h2 id="checks">What a human still checks</h2>
+              <ul class="uc-checklist">
+            <li>A dispatcher or manager approves assignments and customer messages.</li>
+            <li>Emergencies follow your escalation rules and are confirmed by a person.</li>
+            <li>Vendor work orders above a set amount need approval.</li>
+              </ul>
+            </section>
+            <section class="uc-block" aria-labelledby="prompt">
+              <h2 id="prompt">Try it yourself</h2>
+              <p>Paste this into your SI tool of choice and swap the [bracketed] parts for your own details. It asks SI to stop and show you before it does anything.</p>
+              <div class="uc-prompt">
+                <div class="uc-prompt-bar">
+                  <span class="uc-prompt-label">Copy-ready prompt</span>
+                  <button type="button" class="uc-copy" id="uc-copy" aria-live="polite">Copy</button>
+                </div>
+                <pre id="uc-prompt-text">For each request in [channels], create a ticket with location, problem, urgency per [rules], and attachments. Propose a time or vendor using [capacity calendar or vendor list]. Draft a message to the requester with the plan, and a dispatch note to the assignee. Pause and show me before sending, submitting, posting or changing anything.</pre>
+              </div>
+            </section>
+          </div>
+
+          <aside class="uc-detail-side" aria-label="At a glance">
+            <div class="uc-side-stick">
+            <div class="uc-side-card">
+              <h3>Typical effect</h3>
+              <p>Requests are captured and acknowledged consistently, and customers know what to expect.</p>
+              <h3>Tools it usually touches</h3>
+              <div class="uc-tags"><span class="tag green">AppFolio</span><span class="tag green">Buildium</span><span class="tag green">Jobber</span><span class="tag green">ServiceTitan</span><span class="tag green">Google Sheets</span></div>
+            </div>
+            <div class="uc-side-card uc-side-cta">
+              <p class="section-kicker">Want this built?</p>
+              <p>I will look at your setup on a free call and tell you honestly whether this is worth doing.</p>
+              <a class="button primary full" href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book a free 30-minute consult</a>
+            </div>
+            </div>
+          </aside>
+        </div>
+
+        <section class="uc-related" aria-labelledby="related">
+          <h2 id="related">Related use cases</h2>
+          <ul class="uc-grid">
+          <li class="uc-card" data-cat="scheduling-operations" data-hay="drafting next week&#x27;s staff schedule from availability si collects availability and time-off requests and drafts next week&#x27;s schedule against your coverage rules, for a manager to adjust. scheduling &amp; operations scheduling and operations google sheets when i work 7shifts homebase google forms restaurant servers&#x27; availability and two time-off requests produce a draft with a trained bartender on every shift, and a saturday double flagged as overtime. home health agency caregiver availability is matched against client visit times and travel areas, with one uncovered visit flagged. retail store weekend shifts rotate fairly across part-timers, and holiday coverage is drafted a month ahead.">
+            <a href="../staff-schedule-drafts/">
+              <span class="uc-card-cat">Scheduling &amp; operations</span>
+              <h3>Drafting next week&#x27;s staff schedule from availability</h3>
+              <p>SI collects availability and time-off requests and drafts next week&#x27;s schedule against your coverage rules, for a manager to adjust.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-cat="scheduling-operations" data-hay="turning how-we-do-it into written procedures si turns a recorded walkthrough, voice memo or screen recording into a clear, step-by-step procedure your team can follow. scheduling &amp; operations scheduling and operations loom google docs notion scribe trainual commercial bakery the head baker narrates the opening routine, and si writes a procedure covering oven checks, proofing times and allergen cleaning. medical billing office a screen recording of submitting a claim correction becomes a step-by-step guide with screenshots referenced. property management company the move-out inspection process becomes a checklist with photo requirements per room.">
+            <a href="../sops-from-walkthroughs/">
+              <span class="uc-card-cat">Scheduling &amp; operations</span>
+              <h3>Turning how-we-do-it into written procedures</h3>
+              <p>SI turns a recorded walkthrough, voice memo or screen recording into a clear, step-by-step procedure your team can follow.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-cat="scheduling-operations" data-hay="appointment confirmations, reminders and reschedules si sends approved confirmation and reminder messages, handles reschedule requests against your real calendar, and keeps the schedule current. scheduling &amp; operations scheduling and operations google calendar calendly acuity square appointments twilio dental practice patients get a reminder two days before; a patient who replies that she has a conflict is offered three openings with the same hygienist. auto repair shop drop-off confirmations go out the day before, with a note about the shuttle schedule. tutoring center families get reminders, and a reschedule request is matched to the same tutor&#x27;s open slots.">
+            <a href="../appointment-confirmations/">
+              <span class="uc-card-cat">Scheduling &amp; operations</span>
+              <h3>Appointment confirmations, reminders and reschedules</h3>
+              <p>SI sends approved confirmation and reminder messages, handles reschedule requests against your real calendar, and keeps the schedule current.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          </ul>
+          <p class="uc-all"><a class="text-link" href="../index.html">See all 72 use cases →</a></p>
+        </section>
+
+        <section class="uc-cta-band" aria-labelledby="cta-h">
+          <div>
+            <p class="section-kicker">Next step</p>
+            <h2 id="cta-h">Want this built? Book a free 30-minute consult</h2>
+            <p>Bring one real example, such as an export, an inbox, or a spreadsheet. We will map the steps and decide what SI drafts and what you approve.</p>
+          </div>
+          <div class="actions"><a class="button primary" href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book a free 30-minute consult</a></div>
+        </section>
+      </article>
+    </main>
+    <footer>
+      <p>© <span id="year"></span> Yonatan Gemmi. Based in North Miami Beach, Florida · Miami-Dade, Broward, and remote</p>
+      <p class="footer-nav">
+        <a href="../../index.html">Home</a>
+        <a href="../index.html">Use cases</a>
+        <a href="../../pricing.html">Pricing</a>
+        <a href="../../services/hermes-agents.html">Hermes desks</a>
+        <a href="../../services/ai-automation.html">SI automation</a>
+        <a href="../../services/dashboards-reporting.html">Dashboards</a>
+        <a href="../../services/ecommerce-operations.html">Ecommerce</a>
+        <a href="../../services/tutoring-project-help.html">Tutoring</a>
+        <a href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book consultation</a>
+      </p>
+    </footer>  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    (() => {
+      const nav = document.querySelector('.nav');
+      const toggle = document.querySelector('.nav-toggle');
+      const links = document.getElementById('site-nav');
+      if (!nav || !toggle || !links) return;
+      const setOpen = (open) => {
+        nav.classList.toggle('is-menu-open', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Close site menu' : 'Open site menu');
+      };
+      toggle.addEventListener('click', () => setOpen(!nav.classList.contains('is-menu-open')));
+      links.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          setOpen(false);
+          links.querySelectorAll('details.nav-dropdown[open]').forEach((d) => d.removeAttribute('open'));
+        });
+      });
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') setOpen(false);
+      });
+      document.addEventListener('click', (event) => {
+        if (!nav.classList.contains('is-menu-open')) return;
+        if (nav.contains(event.target)) return;
+        setOpen(false);
+      });
+    })();
+  </script>
+  <script>
+    (() => {
+      const button = document.getElementById('uc-copy');
+      const text = document.getElementById('uc-prompt-text');
+      if (!button || !text) return;
+      button.addEventListener('click', async () => {
+        const value = text.textContent || '';
+        try {
+          await navigator.clipboard.writeText(value);
+        } catch (err) {
+          const range = document.createRange();
+          range.selectNodeContents(text);
+          const selection = getSelection();
+          selection.removeAllRanges();
+          selection.addRange(range);
+          document.execCommand('copy');
+          selection.removeAllRanges();
+        }
+        button.textContent = 'Copied';
+        button.classList.add('is-done');
+        window.setTimeout(() => {
+          button.textContent = 'Copy';
+          button.classList.remove('is-done');
+        }, 1800);
+      });
+    })();
+  </script>
+</body>
+</html>

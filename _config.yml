@@ -3,6 +3,7 @@
 exclude:
   - chatbot
   - scripts
+  - data
   - PRODUCT.md
   - docs
   - .cursor

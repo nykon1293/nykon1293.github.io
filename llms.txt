@@ -18,6 +18,7 @@ https://calendly.com/josh-gemmi/30min
 - Stocky dump recovery (Shopify CSV after Stocky shut down; not a Stocky replacement app): https://gemmisi.com/services/stocky-recovery.html
 - Advisory & Fractional CTO (inquire first): https://gemmisi.com/advisory.html
 - Anonymized case study: https://gemmisi.com/work/governed-ai-content-engine.html
+- Use cases (72 practical SI examples; illustrations, not client results): https://gemmisi.com/use-cases/
 - Sitemap: https://gemmisi.com/sitemap.xml
 
 ## Facts to keep straight

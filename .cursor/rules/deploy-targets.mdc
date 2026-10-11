@@ -9,7 +9,7 @@ This workspace is the **personal site + Project Scout**. They are one product. B
 
 ## Git identity (read remotes; do not guess)
 
-- **Pages / this repo:** `nykon1293/nykon1293.github.io` on `main`. Live site: `https://nykon1293.github.io/`. GitHub user `nykon1293` (`gh auth switch --user nykon1293` before any site push).
+- **Pages / this repo:** `nykon1293/nykon1293.github.io` on `main`. Live site: `https://gemmisi.com/`. GitHub user `nykon1293` (`gh auth switch --user nykon1293` before any site push).
 - **`yyg770` is NOT this site.** That account holds Brandgate/client repos (`brandgate-bq`, `brandgate-agent-pack`, `PPC_BGUS`). There is no `yyg770.github.io` or Scout repo. “Correct git is yyg770” does **not** mean push this site or Scout there.
 - Never `git push` to `github.com/brandgate/*` or `github.com/yyg770/brandgate-*`.
 
