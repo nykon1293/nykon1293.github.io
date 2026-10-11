@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Moving off a retired inventory app without losing your reorder history | SI use case | Yonatan Gemmi</title>
+  <meta name="description" content="When the inventory or purchase-order tool shuts down, SI reads the export and rebuilds suppliers, past orders, and reorder rules into a sheet you can use next week." />
+  <link rel="canonical" href="https://gemmisi.com/use-cases/retired-inventory-app-reorder-history/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Yonatan Gemmi" />
+  <meta property="og:title" content="Moving off a retired inventory app without losing your reorder history | SI use case | Yonatan Gemmi" />
+  <meta property="og:description" content="When the inventory or purchase-order tool shuts down, SI reads the export and rebuilds suppliers, past orders, and reorder rules into a sheet you can use next week." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://gemmisi.com/use-cases/retired-inventory-app-reorder-history/" />
+  <meta property="og:site_name" content="Yonatan Gemmi" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content="https://gemmisi.com/assets/brand/gemmisi-og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="GemmiSI — SI, automation, dashboards, and technical operations" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Moving off a retired inventory app without losing your reorder history | SI use case | Yonatan Gemmi" />
+  <meta name="twitter:description" content="When the inventory or purchase-order tool shuts down, SI reads the export and rebuilds suppliers, past orders, and reorder rules into a sheet you can use next week." />
+  <meta name="twitter:image" content="https://gemmisi.com/assets/brand/gemmisi-og.png" />
+  <meta name="twitter:image:alt" content="GemmiSI — SI, automation, dashboards, and technical operations" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://gemmisi.com/sitemap.xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../styles.css?v=g4-logo-1" />
+  <link rel="stylesheet" href="../../assets/use-cases.css" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon-32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon-16.png" type="image/png" sizes="16x16" />
+  <link rel="apple-touch-icon" href="/assets/brand/gemmisi-icon-180.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://gemmisi.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Use cases",
+          "item": "https://gemmisi.com/use-cases/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Moving off a retired inventory app without losing your reorder history",
+          "item": "https://gemmisi.com/use-cases/retired-inventory-app-reorder-history/"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "name": "Moving off a retired inventory app without losing your reorder history",
+      "url": "https://gemmisi.com/use-cases/retired-inventory-app-reorder-history/",
+      "description": "When the inventory or purchase-order tool shuts down, SI reads the export and rebuilds suppliers, past orders, and reorder rules into a sheet you can use next week.",
+      "isPartOf": {
+        "@type": "CollectionPage",
+        "name": "SI use cases",
+        "url": "https://gemmisi.com/use-cases/"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Yonatan Gemmi",
+        "url": "https://gemmisi.com/"
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="nav">
+      <a class="brand" href="../../index.html" aria-label="GemmiSI home">
+        <img class="brand-lockup" src="../../assets/brand/gemmisi-lockup-dark.svg" alt="" width="159" height="36" />
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open site menu">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+        <span class="nav-toggle__label">Menu</span>
+      </button>
+      <nav id="site-nav" class="nav-links" aria-label="Primary navigation">
+        <a href="../../index.html">Home</a>
+        <a href="../../index.html#work">Work</a>
+        <details class="nav-dropdown">
+          <summary class="nav-dropdown-trigger">Services</summary>
+          <div class="nav-dropdown-menu">
+            <a href="../../services/hermes-agents.html">Hermes Agents</a>
+            <a href="../../services/ai-automation.html">SI automation</a>
+            <a href="../../services/dashboards-reporting.html">Dashboards &amp; reporting</a>
+            <a href="../../services/ecommerce-operations.html">Ecommerce operations</a>
+            <a href="../../services/tutoring-project-help.html">Tutoring &amp; project help</a>
+            <a class="nav-dropdown-muted" href="../../services/stocky-recovery.html">Stocky dump recovery</a>
+            <a class="nav-dropdown-muted" href="../../index.html#service-hub">All services</a>
+            <a class="nav-dropdown-muted" href="../../advisory.html">Advisory &amp; Fractional (ask first)</a>
+          </div>
+        </details>
+        <a href="../index.html" aria-current="page">Use cases</a>
+        <a href="../../pricing.html">Pricing</a>
+      </nav>
+      <a class="nav-cta" href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book consultation</a>
+    </header>
+
+    <main id="top">
+      <article class="uc-detail">
+        <header class="uc-detail-head">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span aria-hidden="true">/</span>
+            <a href="../index.html">Use cases</a>
+            <span aria-hidden="true">/</span>
+            <span>Moving off a retired inventory app without losing your reorder history</span>
+          </nav>
+          <p class="uc-card-cat"><a href="../index.html#g-ecommerce-operations">Ecommerce operations</a></p>
+          <h1>Moving off a retired inventory app without losing your reorder history</h1>
+          <p class="lead">When the inventory or purchase-order tool shuts down, SI reads the export and rebuilds suppliers, past orders, and reorder rules into a sheet you can use next week.</p>
+          <p class="uc-caution" role="note"><strong>Worth knowing:</strong> This is an illustration of a migration, not a report of a client result. SI does not replace the retired app and does not place orders.</p>
+        </header>
+
+        <div class="uc-detail-body">
+          <div class="uc-detail-main">
+            <section class="uc-block" aria-labelledby="problem">
+              <h2 id="problem">The problem</h2>
+              <p>The app you used for stock and purchase orders is gone, and what you have left is an export. Supplier names, past orders, and the rules for when to reorder are in those files, but they are not a Monday list of what to buy. A working reorder list and a low-stock watch assume the system is still running. This job is the move itself.</p>
+            </section>
+            <section class="uc-block" aria-labelledby="what">
+              <h2 id="what">What SI does</h2>
+              <p>SI reads the export (CSV or spreadsheet) and lists suppliers, items, past purchase orders, quantities, and any reorder points or par levels that are actually in the file. It maps those into a simple sheet: who you buy from, what you last ordered, and a suggested reorder line you can edit. It flags fields the export does not contain, duplicate item names, and suppliers with no contact. It does not place orders. A common version of this is a Shopify store that exported Stocky before that app shut down and now has CSVs instead of a weekly system. The same steps apply to any retired inventory or purchase-order tool that left you a file.</p>
+            </section>
+            <section class="uc-block" aria-labelledby="examples">
+              <h2 id="examples">Examples</h2>
+              <p class="uc-ex-intro">The same job looks different in different businesses. These are illustrations, not client results.</p>
+              <ul class="uc-examples">
+            <li class="uc-ex"><span class="uc-ex-type">Shopify store after an inventory app shutdown</span><p>The CSV dump still has suppliers and past purchase orders. SI turns that into a sheet grouped by supplier, and lists items whose reorder point never made it into the export.</p></li>
+            <li class="uc-ex"><span class="uc-ex-type">Specialty retailer</span><p>A discontinued purchase-order tool left a spreadsheet of vendors and last order dates. SI groups items by vendor and marks vendors with no email or phone on the export.</p></li>
+            <li class="uc-ex"><span class="uc-ex-type">Wholesale distributor</span><p>Several years of purchase-order lines are in one export. SI builds a per-item history of who was ordered from and when, so the buyer is not starting from a blank list.</p></li>
+              </ul>
+            </section>
+            <section class="uc-block" aria-labelledby="setup">
+              <h2 id="setup">What it takes to set up</h2>
+              <p>The export folder, a note on which columns matter (supplier, SKU, on hand, last cost, reorder point), and one recent order you still trust as a sample. Setup is often a few days, mostly spent deciding what the new sheet must show each week. This is a weekly system from the files you already have, not a new inventory app.</p>
+            </section>
+            <section class="uc-block uc-checks" aria-labelledby="checks">
+              <h2 id="checks">What a human still checks</h2>
+              <ul class="uc-checklist">
+            <li>A person confirms the mapping before anyone orders from it.</li>
+            <li>Missing reorder rules stay blank for the buyer to fill in; SI does not invent par levels.</li>
+            <li>Nothing is sent to a supplier until a person approves the order.</li>
+              </ul>
+            </section>
+            <section class="uc-block" aria-labelledby="prompt">
+              <h2 id="prompt">Try it yourself</h2>
+              <p>Paste this into your SI tool of choice and swap the [bracketed] parts for your own details. It asks SI to stop and show you before it does anything.</p>
+              <div class="uc-prompt">
+                <div class="uc-prompt-bar">
+                  <span class="uc-prompt-label">Copy-ready prompt</span>
+                  <button type="button" class="uc-copy" id="uc-copy" aria-live="polite">Copy</button>
+                </div>
+                <pre id="uc-prompt-text">Read this inventory export [file]. List suppliers, items, past purchase orders, quantities, last costs, and any reorder points that are actually in the file. Build a sheet grouped by supplier with item, last order date, quantity last ordered, quantity on hand if present, and reorder point if present. Flag duplicate item names, suppliers with no contact, and fields the export does not contain. Do not invent reorder quantities. Pause and show me before sending, submitting, posting, ordering, or changing anything.</pre>
+              </div>
+            </section>
+          </div>
+
+          <aside class="uc-detail-side" aria-label="At a glance">
+            <div class="uc-side-stick">
+            <div class="uc-side-card">
+              <h3>Typical effect</h3>
+              <p>The buyer has a usable reorder sheet from the export, and can see what the old tool did not hand over.</p>
+              <h3>Tools it usually touches</h3>
+              <div class="uc-tags"><span class="tag green">Google Sheets</span><span class="tag green">Excel</span><span class="tag green">Shopify</span><span class="tag green">CSV export</span><span class="tag green">Google Drive</span></div>
+            </div>
+            <div class="uc-side-card uc-side-cta">
+              <p class="section-kicker">Want this built?</p>
+              <p>I will look at your setup on a free call and tell you honestly whether this is worth doing.</p>
+              <a class="button primary full" href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book a free 30-minute consult</a>
+            </div>
+            </div>
+          </aside>
+        </div>
+
+        <section class="uc-related" aria-labelledby="related">
+          <h2 id="related">Related use cases</h2>
+          <ul class="uc-grid">
+          <li class="uc-card" data-cat="ecommerce-operations" data-hay="keeping store stock counts and your spreadsheet in agreement si compares the store&#x27;s available count, the warehouse or location count, and the spreadsheet, and lists where they disagree before you oversell or reorder the wrong amount. ecommerce operations ecommerce operations shopify google sheets excel square woocommerce online retailer with a back room the store shows a size in stock, the shelf count does not, and the sheet is a third number. si lists that sku with all three figures for the owner to reconcile before the next ad. shop that also sells on a marketplace the marketplace quantity and the master spreadsheet disagree on a handful of skus. si lists only those rows, with the last time each file was exported. retailer that counts the floor on fridays friday&#x27;s count sheet is compared with the store&#x27;s available quantity, and items that were received but not added to either list are called out.">
+            <a href="../store-stock-and-spreadsheet-agreement/">
+              <span class="uc-card-cat">Ecommerce operations</span>
+              <h3>Keeping store stock counts and your spreadsheet in agreement</h3>
+              <p>SI compares the store&#x27;s available count, the warehouse or location count, and the spreadsheet, and lists where they disagree before you oversell or reorder the wrong amount.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-cat="support-inbox" data-hay="morning inbox triage into labeled queues each morning si sorts the shared inbox into clear queues, flags what is urgent, and leaves draft replies for a person to review. support &amp; inbox customer support and inbox gmail outlook help scout front slack plumbing and heating contractor overnight emails are split into emergency calls (no heat, active leak), new estimate requests with the address and problem pulled out, and supplier mail, so the dispatcher starts with the emergencies. accounting practice during busy season, client emails are labeled by client and topic (missing document, question about a return, payment), and anything mentioning a notice or deadline is flagged for a partner. property management office tenant emails are sorted into maintenance, rent and lease questions, and prospective-tenant inquiries, with maintenance messages marked by urgency.">
+            <a href="../inbox-triage/">
+              <span class="uc-card-cat">Support &amp; inbox</span>
+              <h3>Morning inbox triage into labeled queues</h3>
+              <p>Each morning SI sorts the shared inbox into clear queues, flags what is urgent, and leaves draft replies for a person to review.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-cat="support-inbox" data-hay="a weekly list of emails still waiting on you once a week si finds threads where a customer, client or vendor is still waiting for your reply, and lists them with a suggested next step. support &amp; inbox customer support and inbox gmail outlook google sheets architecture firm friday afternoon, the principal gets a list of six client and consultant emails with open questions, including a structural engineer waiting on a drawing revision for nine days. independent insurance agency the list shows two clients who asked about adding a driver to their policy and never heard back, plus a carrier underwriter waiting on a signed form. catering company three inquiry emails about spring events are surfaced, each with the requested date and headcount, before those dates get booked by someone else.">
+            <a href="../unanswered-threads/">
+              <span class="uc-card-cat">Support &amp; inbox</span>
+              <h3>A weekly list of emails still waiting on you</h3>
+              <p>Once a week SI finds threads where a customer, client or vendor is still waiting for your reply, and lists them with a suggested next step.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          </ul>
+          <p class="uc-all"><a class="text-link" href="../index.html">See all 82 use cases →</a></p>
+        </section>
+
+        <section class="uc-cta-band" aria-labelledby="cta-h">
+          <div>
+            <p class="section-kicker">Next step</p>
+            <h2 id="cta-h">Want this built? Book a free 30-minute consult</h2>
+            <p>Bring one real example, such as an export, an inbox, or a spreadsheet. We will map the steps and decide what SI drafts and what you approve.</p>
+          </div>
+          <div class="actions"><a class="button primary" href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book a free 30-minute consult</a></div>
+        </section>
+      </article>
+    </main>
+    <footer>
+      <a class="footer-brand" href="../../index.html" aria-label="GemmiSI home">
+        <img class="footer-lockup" src="../../assets/brand/gemmisi-lockup-dark.svg" alt="" width="123" height="28" />
+      </a>
+      <p>© <span id="year"></span> Yonatan Gemmi. Based in North Miami Beach, Florida · Miami-Dade, Broward, and remote</p>
+      <p class="footer-nav">
+        <a href="../../index.html">Home</a>
+        <a href="../index.html">Use cases</a>
+        <a href="../../pricing.html">Pricing</a>
+        <a href="../../services/hermes-agents.html">Hermes desks</a>
+        <a href="../../services/ai-automation.html">SI automation</a>
+        <a href="../../services/dashboards-reporting.html">Dashboards</a>
+        <a href="../../services/ecommerce-operations.html">Ecommerce</a>
+        <a href="../../services/tutoring-project-help.html">Tutoring</a>
+        <a href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book consultation</a>
+      </p>
+    </footer>  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    (() => {
+      const nav = document.querySelector('.nav');
+      const toggle = document.querySelector('.nav-toggle');
+      const links = document.getElementById('site-nav');
+      if (!nav || !toggle || !links) return;
+      const setOpen = (open) => {
+        nav.classList.toggle('is-menu-open', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Close site menu' : 'Open site menu');
+      };
+      toggle.addEventListener('click', () => setOpen(!nav.classList.contains('is-menu-open')));
+      links.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          setOpen(false);
+          links.querySelectorAll('details.nav-dropdown[open]').forEach((d) => d.removeAttribute('open'));
+        });
+      });
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') setOpen(false);
+      });
+      document.addEventListener('click', (event) => {
+        if (!nav.classList.contains('is-menu-open')) return;
+        if (nav.contains(event.target)) return;
+        setOpen(false);
+      });
+    })();
+  </script>
+  <script>
+    (() => {
+      const button = document.getElementById('uc-copy');
+      const text = document.getElementById('uc-prompt-text');
+      if (!button || !text) return;
+      button.addEventListener('click', async () => {
+        const value = text.textContent || '';
+        try {
+          await navigator.clipboard.writeText(value);
+        } catch (err) {
+          const range = document.createRange();
+          range.selectNodeContents(text);
+          const selection = getSelection();
+          selection.removeAllRanges();
+          selection.addRange(range);
+          document.execCommand('copy');
+          selection.removeAllRanges();
+        }
+        button.textContent = 'Copied';
+        button.classList.add('is-done');
+        window.setTimeout(() => {
+          button.textContent = 'Copy';
+          button.classList.remove('is-done');
+        }, 1800);
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -2692,5 +2692,383 @@
     ],
     "effect": "Board members arrive prepared, and minutes are ready while the meeting is still fresh.",
     "caution": "Minutes can be legal records for some organizations; the secretary and board should approve the final version, and recording requires participants' consent."
+  },
+{
+    "slug": "retired-inventory-app-reorder-history",
+    "title": "Moving off a retired inventory app without losing your reorder history",
+    "category": "Ecommerce operations",
+    "summary": "When the inventory or purchase-order tool shuts down, SI reads the export and rebuilds suppliers, past orders, and reorder rules into a sheet you can use next week.",
+    "problem": "The app you used for stock and purchase orders is gone, and what you have left is an export. Supplier names, past orders, and the rules for when to reorder are in those files, but they are not a Monday list of what to buy. A working reorder list and a low-stock watch assume the system is still running. This job is the move itself.",
+    "what_si_does": "SI reads the export (CSV or spreadsheet) and lists suppliers, items, past purchase orders, quantities, and any reorder points or par levels that are actually in the file. It maps those into a simple sheet: who you buy from, what you last ordered, and a suggested reorder line you can edit. It flags fields the export does not contain, duplicate item names, and suppliers with no contact. It does not place orders. A common version of this is a Shopify store that exported Stocky before that app shut down and now has CSVs instead of a weekly system. The same steps apply to any retired inventory or purchase-order tool that left you a file.",
+    "setup": "The export folder, a note on which columns matter (supplier, SKU, on hand, last cost, reorder point), and one recent order you still trust as a sample. Setup is often a few days, mostly spent deciding what the new sheet must show each week. This is a weekly system from the files you already have, not a new inventory app.",
+    "human_checks": [
+      "A person confirms the mapping before anyone orders from it.",
+      "Missing reorder rules stay blank for the buyer to fill in; SI does not invent par levels.",
+      "Nothing is sent to a supplier until a person approves the order."
+    ],
+    "examples": [
+      {
+        "business_type": "Shopify store after an inventory app shutdown",
+        "scenario": "The CSV dump still has suppliers and past purchase orders. SI turns that into a sheet grouped by supplier, and lists items whose reorder point never made it into the export."
+      },
+      {
+        "business_type": "Specialty retailer",
+        "scenario": "A discontinued purchase-order tool left a spreadsheet of vendors and last order dates. SI groups items by vendor and marks vendors with no email or phone on the export."
+      },
+      {
+        "business_type": "Wholesale distributor",
+        "scenario": "Several years of purchase-order lines are in one export. SI builds a per-item history of who was ordered from and when, so the buyer is not starting from a blank list."
+      }
+    ],
+    "copy_prompt": "Read this inventory export [file]. List suppliers, items, past purchase orders, quantities, last costs, and any reorder points that are actually in the file. Build a sheet grouped by supplier with item, last order date, quantity last ordered, quantity on hand if present, and reorder point if present. Flag duplicate item names, suppliers with no contact, and fields the export does not contain. Do not invent reorder quantities. Pause and show me before sending, submitting, posting, ordering, or changing anything.",
+    "tools_examples": [
+      "Google Sheets",
+      "Excel",
+      "Shopify",
+      "CSV export",
+      "Google Drive"
+    ],
+    "effect": "The buyer has a usable reorder sheet from the export, and can see what the old tool did not hand over.",
+    "caution": "This is an illustration of a migration, not a report of a client result. SI does not replace the retired app and does not place orders."
+  },
+  {
+    "slug": "store-stock-and-spreadsheet-agreement",
+    "title": "Keeping store stock counts and your spreadsheet in agreement",
+    "category": "Ecommerce operations",
+    "summary": "SI compares the store's available count, the warehouse or location count, and the spreadsheet, and lists where they disagree before you oversell or reorder the wrong amount.",
+    "problem": "The online store, the back room or warehouse, and the spreadsheet each hold a number for the same item. They drift. A low-stock watch only looks at one threshold. It does not tell you that the store, the shelf count, and the sheet each show a different number for the same item.",
+    "what_si_does": "On a schedule you choose, SI lines up items by SKU or name across the sources you give it and lists mismatches: store versus spreadsheet, store versus a location count, or sheet versus a physical count. It notes which source is newer when dates are in the file, and separates small differences from ones large enough to cause an oversell or a bad reorder. It does not change counts in the store or the sheet.",
+    "setup": "Exports or read access for the store catalog and the spreadsheet, plus any location or warehouse count you keep. A rule for which differences to surface (for example, any mismatch, or only gaps above a number you set). Setup is often a few days.",
+    "human_checks": [
+      "A person decides which source is right before any count is edited.",
+      "SI does not push stock changes to the store or the sheet on its own.",
+      "Items with bundles, kits, or open orders are flagged rather than forced to match."
+    ],
+    "examples": [
+      {
+        "business_type": "Online retailer with a back room",
+        "scenario": "The store shows a size in stock, the shelf count does not, and the sheet is a third number. SI lists that SKU with all three figures for the owner to reconcile before the next ad."
+      },
+      {
+        "business_type": "Shop that also sells on a marketplace",
+        "scenario": "The marketplace quantity and the master spreadsheet disagree on a handful of SKUs. SI lists only those rows, with the last time each file was exported."
+      },
+      {
+        "business_type": "Retailer that counts the floor on Fridays",
+        "scenario": "Friday's count sheet is compared with the store's available quantity, and items that were received but not added to either list are called out."
+      }
+    ],
+    "copy_prompt": "Compare stock counts in [store export] and [spreadsheet], matching on [SKU or name]. Also compare [location or warehouse count] if I attach it. List items where the numbers disagree, with each source's quantity and the date of each file. Separate mismatches larger than [number you set] from smaller ones. Do not change any count. Pause and show me before sending, submitting, posting, or changing anything.",
+    "tools_examples": [
+      "Shopify",
+      "Google Sheets",
+      "Excel",
+      "Square",
+      "WooCommerce"
+    ],
+    "effect": "Mismatches show up as a list a person can fix, instead of as an oversell or a reorder based on the wrong number.",
+    "caution": null
+  },
+  {
+    "slug": "catalog-pricing-and-margin-check",
+    "title": "Pricing and margin check across your catalog",
+    "category": "Reporting and dashboards",
+    "summary": "SI compares the price you charge with the cost you have on file, and lists products or services where the price no longer covers that cost.",
+    "problem": "Costs moved and selling prices did not, or they moved unevenly. A competitor price watch looks outward. It does not tell you which of your own items or services are priced below the cost sitting in your sheet, invoice history, or price list.",
+    "what_si_does": "SI reads your catalog or rate sheet and the cost you point it at (last invoice cost, a cost column, or a landed-cost column you already maintain). It lines up each item or service and shows price, recorded cost, and the gap. It flags rows where price is at or below the recorded cost, where price has not changed since the cost did, and where cost or price is missing. The threshold is yours. SI does not change prices.",
+    "setup": "A catalog or price list and a cost source you trust, plus the rule for what to flag (for example, price at or below recorded cost). Setup is often a day or two if the columns are clean, longer if names do not match.",
+    "human_checks": [
+      "A person checks the cost source before treating a row as a real margin problem.",
+      "Missing costs are listed, not guessed.",
+      "Price changes are made by a person; SI only prepares the list."
+    ],
+    "examples": [
+      {
+        "business_type": "Retailer",
+        "scenario": "A cost column from recent supplier bills is compared with current shelf and online prices. Items priced at or below that cost are listed with both numbers."
+      },
+      {
+        "business_type": "Service shop",
+        "scenario": "Standard job prices are compared with the parts and labor cost on the rate sheet. Jobs where the recorded cost is higher than the posted price are flagged."
+      },
+      {
+        "business_type": "Consultant with a rate card",
+        "scenario": "Package prices are set next to the hours and contractor costs written on the worksheet, and packages with no cost filled in are listed separately."
+      }
+    ],
+    "copy_prompt": "Using the price list [file] and the cost source [file], match items on [SKU, name, or service]. For each match, show the current price, the recorded cost, and the difference. Flag rows where price is at or below the recorded cost, where price has not changed since the cost changed, and where cost or price is blank. Do not invent costs. Do not change prices. Pause and show me before sending, submitting, posting, or changing anything.",
+    "tools_examples": [
+      "Google Sheets",
+      "Excel",
+      "Shopify",
+      "QuickBooks Online",
+      "Square"
+    ],
+    "effect": "The owner gets a list of prices to review against costs already on file, instead of discovering a losing item months later.",
+    "caution": "The check uses the cost you provide. It is not a full landed-cost study, and it is not a client result."
+  },
+  {
+    "slug": "supplier-price-increases-on-invoices",
+    "title": "Spotting supplier price increases on invoices",
+    "category": "Bookkeeping, invoices and admin",
+    "summary": "SI compares the unit price on a new supplier invoice with the last price you paid for the same item, and flags the increases.",
+    "problem": "A supplier raises a unit price on the invoice and the bill still gets entered. The amount is captured, but nobody compares it with last time, so the increase sits in the books for months.",
+    "what_si_does": "SI reads new supplier invoices and your recent bill or item history. It matches lines by supplier and item (SKU, description, or the code you use) and compares the unit price with the previous price for that pair. It lists increases and decreases, the old price, the new price, and the invoice date. Lines it cannot match, or unit prices that look like a pack-size change, are set aside instead of called an increase. It does not edit the bill or the catalog price.",
+    "setup": "New invoices (PDF or the bill already in the accounting tool) and a history of recent unit prices, from the books or a sheet. A note on how you identify the same item. Setup is often a few days.",
+    "human_checks": [
+      "A person confirms a flagged line is the same item and the same pack size.",
+      "SI does not change bill amounts, catalog prices, or what you pay.",
+      "Unmatched lines stay on a review list rather than being forced to a previous item."
+    ],
+    "examples": [
+      {
+        "business_type": "Restaurant",
+        "scenario": "This week's produce invoice is compared with the last one from the same vendor. Items with a higher unit price are listed before the bill is coded."
+      },
+      {
+        "business_type": "Contractor",
+        "scenario": "A supplier's invoice for fittings is checked against the last three bills. One SKU is higher; another line is flagged because the pack size changed and may not be a real increase."
+      },
+      {
+        "business_type": "Retailer",
+        "scenario": "Wholesale invoices for a repeating brand are compared with last month's unit costs, and increases are listed next to the current selling price so someone can decide whether to revisit it."
+      }
+    ],
+    "copy_prompt": "Read these supplier invoices [files] and the recent price history [file or bills]. Match lines by supplier and [SKU or description]. Compare each unit price with the previous unit price for that item. List increases and decreases with old price, new price, invoice date, and supplier. Set aside lines you cannot match and lines where the pack size or unit changed. Do not edit bills or prices. Pause and show me before sending, submitting, posting, paying, or changing anything.",
+    "tools_examples": [
+      "QuickBooks Online",
+      "Xero",
+      "Google Sheets",
+      "Gmail",
+      "Dext"
+    ],
+    "effect": "Price changes on invoices are visible when the bill arrives, while the previous price is still easy to check.",
+    "caution": null
+  },
+  {
+    "slug": "bilingual-english-spanish-replies",
+    "title": "Replying to customers in English and Spanish",
+    "category": "Local business & seasonal",
+    "summary": "SI drafts a reply in the language the customer wrote in, English or Spanish, and leaves it for someone who can read that language to approve.",
+    "problem": "Customers write in Spanish and the reply waits, or it goes out in awkward English. The rest of the inbox work does not cover language. In a place where customers use both languages, the slower language becomes the one that feels ignored.",
+    "what_si_does": "SI detects whether the incoming message is in English or Spanish, drafts the reply in that language, and can include the other language underneath if you want a copy for the file. It uses your past replies and your policy as the source, and it does not add offers that are not in those materials. Messages about complaints, refunds, or anything SI is unsure how to say go to a person with both drafts, or with a note that it could not draft safely.",
+    "setup": "A handful of good replies in each language you actually send, your policy for the topics that come up, and the inbox or helpdesk. Name the person who will approve Spanish before it goes out. Setup is often a few days.",
+    "human_checks": [
+      "A person who can read the customer's language approves every reply before it is sent.",
+      "SI does not send on its own.",
+      "Complaints, money, and legal wording stay with a person."
+    ],
+    "examples": [
+      {
+        "business_type": "Home-services company",
+        "scenario": "A customer asks in Spanish for a visit window. SI drafts the reply in Spanish from the scheduling rules, and the dispatcher who reads Spanish approves it."
+      },
+      {
+        "business_type": "Retail shop",
+        "scenario": "A product question arrives in Spanish. SI drafts an answer from the product notes and flags that the notes do not mention the warranty, so that part is left for the owner."
+      },
+      {
+        "business_type": "Clinic front desk",
+        "scenario": "Appointment questions come in both languages. SI drafts each reply in the language of the message and leaves insurance or billing questions for the front desk to handle."
+      }
+    ],
+    "copy_prompt": "Read this customer message [paste]. If it is in Spanish, draft the reply in Spanish. If it is in English, draft the reply in English. Use only these past replies and this policy [paste]. Do not add prices, promises, or policies that are not in that material. If you are unsure, say so and draft nothing firm. Pause and show me before sending, submitting, posting, or changing anything.",
+    "tools_examples": [
+      "Gmail",
+      "Outlook",
+      "WhatsApp",
+      "Google Docs",
+      "Front"
+    ],
+    "effect": "Customers can get a reply in the language they wrote in, after a person who reads that language has checked it.",
+    "caution": "SI is not a certified translator. A person who reads the customer's language should approve anything the customer will see."
+  },
+  {
+    "slug": "hurricane-season-readiness",
+    "title": "Hurricane-season readiness and continuity plan",
+    "category": "Local business & seasonal",
+    "summary": "Before a storm, SI turns your own records into a checklist: what to protect, who to notify, and which files to copy, for you to act on.",
+    "problem": "Hurricane season arrives and the plan is still in someone's head. Inventory location, customer appointments, supplier contacts, and the files the business would need after a closure are scattered. Nothing else in the library is an emergency or continuity checklist.",
+    "what_si_does": "From the lists and notes you provide, SI drafts a readiness packet: where stock or equipment sits, which appointments or orders fall in a date range you name, a customer note you can send if you close, supplier and staff contacts, and a list of records to copy (orders, invoices, contacts, insurance documents you already have). It marks gaps, such as a missing backup location or no after-hours contact. It does not send the customer note, move inventory, or file an insurance claim.",
+    "setup": "Your current contacts, a calendar or order export, a short note on where inventory and key files live, and any written closure policy you already use. Setup is often a day or two, then a refresh when a storm is in the forecast.",
+    "human_checks": [
+      "The owner decides what is actually done and what is sent.",
+      "Customer and staff messages wait for approval.",
+      "Insurance and legal steps stay with the owner and their agent or attorney; SI only lists documents you already have."
+    ],
+    "examples": [
+      {
+        "business_type": "Retail shop",
+        "scenario": "SI lists high-value inventory locations from the stock sheet, drafts a closure note for customers with upcoming pickups, and lists the order export to copy off site."
+      },
+      {
+        "business_type": "Home-services company",
+        "scenario": "The week's appointments are listed, a reschedule note is drafted, and the crew contact list is checked for missing phone numbers."
+      },
+      {
+        "business_type": "Restaurant",
+        "scenario": "Perishable inventory from the last vendor orders is listed for a decision, and a short closure post and email are drafted for the owner to approve."
+      }
+    ],
+    "copy_prompt": "Using these files [contacts, calendar or orders, inventory notes, closure policy], draft a hurricane readiness checklist for [dates]. Include where stock or equipment is, appointments or orders in that window, a customer message if we close, staff and supplier contacts, and which records to copy. List anything missing. Do not send messages or change records. Pause and show me before sending, submitting, posting, or changing anything.",
+    "tools_examples": [
+      "Google Sheets",
+      "Google Calendar",
+      "Google Drive",
+      "Gmail",
+      "Shopify"
+    ],
+    "effect": "The owner has one checklist from the business's own records before deciding what to move, cancel, or tell customers.",
+    "caution": "This is a business checklist from your files, not an emergency-management plan and not a client result. Safety decisions stay with you."
+  },
+  {
+    "slug": "standing-si-desk-approval-queue",
+    "title": "A standing SI desk with an approval queue",
+    "category": "Scheduling and operations",
+    "summary": "A Hermes Desk stays on for routine drafts, puts them in a queue, and waits. A person approves anything that would send, pay, order, or post.",
+    "problem": "Single tasks still start from a blank chat. You want a standing helper that already knows the folders, the tone, and the rules, and that does not get the keys to send, pay, order, or post.",
+    "what_si_does": "The desk is a Hermes install on a computer you control. ChatGPT and Claude are examples; 300+ models are available. It drafts the routine jobs you named (a reply, a summary, a checklist) into a queue instead of finishing them itself. Each item shows the draft, the source it used, and which written rule applied. Handoff rules say what a person must approve and what should stop for a human with no draft. A short log lists what was drafted and what was approved, rejected, or edited. The desk does not send, pay, order, or post.",
+    "setup": "A Mac you control. Windows is available as an extra charge and is quoted separately. You name the first jobs, the folders and accounts it may read, and the actions it must not take. Named desks are Starter, Operator, and Connected. Prices and what each one includes are on the pricing page. You pay your own model and app bills. Setup follows the desk you pick.",
+    "human_checks": [
+      "A person approves every item in the queue before it goes out or changes a record.",
+      "The desk cannot send, pay, order, or post on its own.",
+      "Rules and the log are reviewed so a bad draft is caught and the rule is tightened."
+    ],
+    "examples": [
+      {
+        "business_type": "Owner-operated service business",
+        "scenario": "Overnight inquiries are drafted into a morning queue. The owner approves, edits, or rejects each one, and the log shows which were sent."
+      },
+      {
+        "business_type": "Small online store",
+        "scenario": "Routine order-status drafts wait in the queue. Anything about a refund is handed to the owner with the order attached and no draft that promises money."
+      },
+      {
+        "business_type": "Professional office",
+        "scenario": "A weekly packet of drafted follow-ups sits in the queue. The person who owns the client relationship sends them, and rejected drafts stay in the log."
+      }
+    ],
+    "copy_prompt": "You are a standing desk for [business]. You may read [folders and accounts]. You may draft [named jobs] into a queue. For each draft, show the source you used and the rule that applied. Do not send, pay, order, post, or change records. If a request is about [money, complaints, or anything outside the rules], stop and hand it to me with no finished action. Keep a log of drafts and what I approved, edited, or rejected. Pause and show me before sending, submitting, posting, or changing anything.",
+    "tools_examples": [
+      "Hermes",
+      "Gmail",
+      "Google Drive",
+      "Slack",
+      "Google Sheets"
+    ],
+    "effect": "Routine drafts wait in one queue with a log, and a person still decides what goes out.",
+    "caution": "This describes the Hermes Desk model. It is not a report of a client result. Named Desk prices are on the pricing page. Windows is an extra charge and is quoted separately."
+  },
+  {
+    "slug": "speed-to-lead-replies",
+    "title": "Speed-to-lead replies for new inquiries",
+    "category": "Sales and follow-up",
+    "summary": "When a new inquiry arrives, SI drafts a specific first reply right away and leaves it for a person to send.",
+    "problem": "New inquiries sit for hours while the day gets busy, and the person calls the next business. Turning an inquiry into a CRM record keeps the lead. It does not answer them.",
+    "what_si_does": "SI watches the form, inbox, or voicemail notes you point it at. For a new inquiry it pulls out what they asked, the contact, and any date or address, then drafts a short first reply in your voice: that you got it, the next step, and one question you still need. It does not invent availability, prices, or promises. After-hours inquiries are queued for the morning with the draft ready. A person sends it.",
+    "setup": "The place inquiries arrive, a few replies you liked, and the facts the draft is allowed to use (hours, service area, what you need from them). A rule for what must go to a person with no draft, such as an emergency or a complaint. Setup is often a few days.",
+    "human_checks": [
+      "A person sends every first reply.",
+      "SI does not quote a price or a time that is not in the material you gave it.",
+      "Emergencies and complaints are flagged for a person instead of getting a routine draft."
+    ],
+    "examples": [
+      {
+        "business_type": "Contractor",
+        "scenario": "A form asks for a fence estimate with the city and a photo. SI drafts a reply that confirms the city is in the service area and asks for the missing gate width, for the owner to send."
+      },
+      {
+        "business_type": "Tutor",
+        "scenario": "An evening email asks about algebra help. A draft is waiting in the morning with the subjects you listed and a request for the student's grade, and no claim that a specific hour is open."
+      },
+      {
+        "business_type": "Clinic",
+        "scenario": "A new-patient form arrives at lunch. SI drafts a reply with what to bring to a first visit from your intake notes, and leaves insurance questions for the front desk."
+      }
+    ],
+    "copy_prompt": "Watch new inquiries in [inbox or form]. For each one, pull out the ask, contact, and any date, address, or other detail. Draft a short first reply using only these facts and this tone [paste examples and allowed facts]. Do not invent prices, open times, or promises. Flag emergencies and complaints for me with no routine draft. Pause and show me before sending, submitting, posting, or changing anything.",
+    "tools_examples": [
+      "Gmail",
+      "Google Forms",
+      "HubSpot",
+      "Jobber",
+      "WhatsApp"
+    ],
+    "effect": "New inquiries get a specific draft while the request is still fresh, and a person still sends it.",
+    "caution": null
+  },
+  {
+    "slug": "google-business-profile-upkeep",
+    "title": "Google Business Profile upkeep",
+    "category": "Local business & seasonal",
+    "summary": "SI checks your Google Business Profile against the hours, services, and details you actually use, and drafts updates and replies for you to post.",
+    "problem": "The map listing shows last season's hours, a closed holiday as open, or services you no longer offer. Questions on the listing sit unanswered. Refreshing your website does not update the listing customers see in maps and search.",
+    "what_si_does": "SI compares the listing details you export or paste (hours, holiday hours, services, description, phone, website) with the source you treat as current. It lists what is stale and drafts the corrected text. It drafts answers to new questions from your FAQ or policy, and a short post from a real update you provide (a holiday closure, a new service). It does not publish anything.",
+    "setup": "A copy of the current listing details, the hours and services you want shown, and a few posts or answers you liked. Access stays with the person who manages the profile. Setup is often a day, then a repeating check.",
+    "human_checks": [
+      "A person posts every change, answer, and update on the listing.",
+      "Hours and holiday closures are confirmed against the real calendar.",
+      "SI does not invent reviews, ratings, or claims about rankings."
+    ],
+    "examples": [
+      {
+        "business_type": "Restaurant",
+        "scenario": "Holiday hours on the listing still match a normal week. SI drafts the corrected hours and a short closure post for the owner to publish."
+      },
+      {
+        "business_type": "Dental office",
+        "scenario": "A question about Saturday hours is drafted from the posted schedule, and a service you stopped offering is flagged because it is still on the listing."
+      },
+      {
+        "business_type": "Home-services company",
+        "scenario": "The service list on the profile is compared with the current menu of jobs, and missing services are drafted as edits for the owner to apply."
+      }
+    ],
+    "copy_prompt": "Compare this Google Business Profile copy [paste] with the current hours, services, phone, and website [paste]. List what is stale and draft the corrected text. Draft answers to these questions [paste] using only [FAQ or policy]. Draft one post from this update [paste]. Do not invent reviews, ratings, or ranking claims. Pause and show me before sending, submitting, posting, or changing anything.",
+    "tools_examples": [
+      "Google Business Profile",
+      "Google Docs",
+      "Google Calendar",
+      "Gmail"
+    ],
+    "effect": "Hours, services, questions, and posts on the listing are drafted from your current facts, and a person publishes them.",
+    "caution": null
+  },
+  {
+    "slug": "cash-flow-look-ahead",
+    "title": "Cash-flow look-ahead from open invoices and bills",
+    "category": "Reporting and dashboards",
+    "summary": "SI lines up open customer invoices and open bills by week so you can see where money is expected in and where it is due out.",
+    "problem": "Weekly reports look backward. Overdue reminders chase one invoice at a time. Neither shows whether next month's bills come due before the open invoices are scheduled to be paid.",
+    "what_si_does": "SI reads open customer invoices (amount, due date, customer) and open bills (amount, due date, supplier) from the export or books you provide. It groups them by week, shows expected in and due out, and flags weeks where bills due are larger than invoices due, plus invoices or bills with no due date. It uses only the dates and amounts in the file. It does not predict new sales, collect money, or pay bills.",
+    "setup": "An export of open invoices and open bills, or read access to the accounting tool. A note on which statuses count as open. Setup is often a day or two.",
+    "human_checks": [
+      "A person checks that due dates and amounts match the books before relying on the week.",
+      "SI does not collect, pay, or move money.",
+      "Rows with no due date stay listed as unknown instead of being assigned a date."
+    ],
+    "examples": [
+      {
+        "business_type": "Agency with uneven retainers",
+        "scenario": "Open client invoices and contractor bills are grouped by week. One week shows contractor bills due before the related client invoices are due."
+      },
+      {
+        "business_type": "Contractor",
+        "scenario": "Supplier bills due next week are listed next to customer draws that are invoiced but not yet due, so the owner can see the gap from the file."
+      },
+      {
+        "business_type": "Retailer",
+        "scenario": "Open vendor bills for a seasonal buy are set beside open wholesale invoices, by week, with any bill missing a due date called out."
+      }
+    ],
+    "copy_prompt": "Using open customer invoices [file] and open bills [file], group amounts by week using the due dates in the file. For each week, show expected money in, bills due out, and the difference. Flag weeks where bills due are larger than invoices due, and list any row with no due date. Do not invent dates, collect, or pay. Pause and show me before sending, submitting, posting, paying, or changing anything.",
+    "tools_examples": [
+      "QuickBooks Online",
+      "Xero",
+      "Google Sheets",
+      "FreshBooks"
+    ],
+    "effect": "Open invoices and bills are visible by week from the file, so a tight week is easier to see before it arrives.",
+    "caution": "This is a look-ahead from open invoices and bills already on file. It is not a forecast of new sales, not tax or financial advice, and not a client result."
   }
 ]

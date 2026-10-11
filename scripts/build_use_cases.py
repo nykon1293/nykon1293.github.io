@@ -81,6 +81,16 @@ SHORT = {
         "community-orgs",
         "Announcements, donations, volunteers, events and member lists.",
     ),
+    "Ecommerce operations": (
+        "Ecommerce operations",
+        "ecommerce-operations",
+        "Store counts, catalog moves, and reorder history after a tool goes away.",
+    ),
+    "Local business & seasonal": (
+        "Local & seasonal",
+        "local-seasonal",
+        "Storm prep, bilingual replies, and the listing customers see on the map.",
+    ),
 }
 
 REQUIRED = (
@@ -316,8 +326,8 @@ def library_page(entries: list) -> str:
     title = "SI use cases for small businesses and community organizations | Yonatan Gemmi"
     desc = (
         f"{n} practical ways SI can take routine work off a small team: inbox and support, "
-        "sales follow-up, bookkeeping, reporting, scheduling, inventory, content, hiring, "
-        "documents, and community organizations. Each one shows what a human still checks."
+        "sales follow-up, bookkeeping, reporting, scheduling, inventory, ecommerce, content, "
+        "hiring, documents, community organizations, and local business. Each one shows what a human still checks."
     )
     ld = {
         "@context": "https://schema.org",
