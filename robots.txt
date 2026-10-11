@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Allow: /use-cases/
 
 # Project Scout source is not published on GitHub Pages.
 Disallow: /chatbot/

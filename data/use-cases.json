@@ -1,0 +1,2696 @@
+[
+  {
+    "slug": "inbox-triage",
+    "title": "Morning inbox triage into labeled queues",
+    "category": "Customer support and inbox",
+    "summary": "Each morning SI sorts the shared inbox into clear queues, flags what is urgent, and leaves draft replies for a person to review.",
+    "problem": "A shared inbox mixes customer questions, vendor mail, invoices, newsletters and spam. Urgent messages get buried, and the first hour of the day goes to figuring out what needs attention instead of answering it.",
+    "what_si_does": "SI reads new messages, applies labels you define (for example: new request, existing customer, billing, vendor, needs owner, ignore), and pulls out the key detail for each, such as a job address, an account name or a requested date. It marks anything time-sensitive, writes a short summary at the top of each queue and leaves draft replies for routine questions. Nothing goes out without a person pressing send.",
+    "setup": "Connect the inbox with permission to read, label and draft, but not send. Write down your queue names, what counts as urgent, and a handful of good past replies to match your tone. Setup is often a few days, followed by a week or two of adjusting the rules.",
+    "human_checks": [
+      "A person reviews and sends every draft; SI never sends on its own.",
+      "Messages SI is unsure about go to a 'needs a human' queue rather than being guessed.",
+      "Labels and urgency rules are reviewed after the first couple of weeks and adjusted."
+    ],
+    "examples": [
+      {
+        "business_type": "Plumbing and heating contractor",
+        "scenario": "Overnight emails are split into emergency calls (no heat, active leak), new estimate requests with the address and problem pulled out, and supplier mail, so the dispatcher starts with the emergencies."
+      },
+      {
+        "business_type": "Accounting practice",
+        "scenario": "During busy season, client emails are labeled by client and topic (missing document, question about a return, payment), and anything mentioning a notice or deadline is flagged for a partner."
+      },
+      {
+        "business_type": "Property management office",
+        "scenario": "Tenant emails are sorted into maintenance, rent and lease questions, and prospective-tenant inquiries, with maintenance messages marked by urgency."
+      }
+    ],
+    "copy_prompt": "Go through the unread messages in [inbox] from the last [24 hours]. Label each one as [list of queues]. Mark anything that mentions [urgent terms, e.g. leak, deadline, cancel] as urgent. For each message, write a one-line summary and pull out [key details, e.g. address, account, date]. Draft replies only for messages that match these examples: [paste 3-5 good past replies]. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Gmail",
+      "Outlook",
+      "Help Scout",
+      "Front",
+      "Slack"
+    ],
+    "effect": "The day starts with a sorted list instead of a raw inbox, and urgent messages are less likely to sit unseen.",
+    "caution": null
+  },
+  {
+    "slug": "unanswered-threads",
+    "title": "A weekly list of emails still waiting on you",
+    "category": "Customer support and inbox",
+    "summary": "Once a week SI finds threads where a customer, client or vendor is still waiting for your reply, and lists them with a suggested next step.",
+    "problem": "Some emails get read, mentally filed as 'later', and never answered. Nobody notices until the other person follows up, annoyed, or quietly takes their business elsewhere.",
+    "what_si_does": "SI scans received and sent mail for the past few weeks and finds threads where the last message came from someone else and asked a question or requested something. It skips newsletters, notifications and threads that were clearly closed. The result is a short list grouped by who is waiting, how long they have waited, and what they asked, with a draft reply for the simple ones.",
+    "setup": "Read access to the mailbox (and draft access if you want replies drafted). A list of senders or domains to ignore. Setup is often a day or two.",
+    "human_checks": [
+      "A person decides which threads actually need a reply and sends any drafts.",
+      "Threads involving complaints or money are flagged for the owner rather than drafted.",
+      "The ignore list is updated as false alarms show up."
+    ],
+    "examples": [
+      {
+        "business_type": "Architecture firm",
+        "scenario": "Friday afternoon, the principal gets a list of six client and consultant emails with open questions, including a structural engineer waiting on a drawing revision for nine days."
+      },
+      {
+        "business_type": "Independent insurance agency",
+        "scenario": "The list shows two clients who asked about adding a driver to their policy and never heard back, plus a carrier underwriter waiting on a signed form."
+      },
+      {
+        "business_type": "Catering company",
+        "scenario": "Three inquiry emails about spring events are surfaced, each with the requested date and headcount, before those dates get booked by someone else."
+      }
+    ],
+    "copy_prompt": "Look through my inbox [mailbox] for the last [21] days. Find threads where the most recent message is from someone else and they asked a question or requested something. Ignore [newsletters, notifications, these senders]. List each one with who is waiting, how many days, and what they asked. Draft short replies for the simple ones only. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Gmail",
+      "Outlook",
+      "Google Sheets"
+    ],
+    "effect": "Fewer people fall through the cracks, and the weekly list makes it easier to close loops before they turn into complaints.",
+    "caution": null
+  },
+  {
+    "slug": "status-question-replies",
+    "title": "Answering 'where is it?' questions from your own records",
+    "category": "Customer support and inbox",
+    "summary": "When a customer asks about the status of an order, job, repair or application, SI looks it up in your system and drafts an accurate reply.",
+    "problem": "A large share of incoming messages are some version of 'where is my thing?'. Answering each one means opening another system, finding the record and writing the same kind of message again.",
+    "what_si_does": "SI recognizes status questions, finds the matching record by name, number, address or email, and reads the current state: shipped and tracking number, technician scheduled, part on order, waiting on the customer. It drafts a reply in your tone with the real details, and flags cases where the record looks stuck or contradicts what the customer was told.",
+    "setup": "Read access to the system that holds status (order system, job management tool, repair log or a shared sheet) and to the inbox or helpdesk. A few example replies and the rules for when a delay should go to a person. Setup is often several days.",
+    "human_checks": [
+      "A person approves each reply until the drafts are consistently right, and can keep approving after that.",
+      "Anything that looks stuck or overdue goes to a person with the record attached.",
+      "SI does not promise dates that are not in the record."
+    ],
+    "examples": [
+      {
+        "business_type": "Appliance repair shop",
+        "scenario": "A customer emails asking about their dishwasher; SI finds the ticket, sees the part is on backorder with an expected date, and drafts a reply with that date and an offer to call."
+      },
+      {
+        "business_type": "Custom cabinet maker",
+        "scenario": "A homeowner asks when installation will happen; SI checks the production board, sees the doors are in finishing, and drafts a reply with the current stage and the scheduled install week."
+      },
+      {
+        "business_type": "Online store",
+        "scenario": "A 'where is my order' email is matched to the order, tracking shows it stalled for five days, and the draft apologizes and offers a replacement option for the owner to approve."
+      }
+    ],
+    "copy_prompt": "For each message in [inbox/queue] asking about the status of [an order/job/repair], find the matching record in [system or file] using [order number, name, email or address]. Draft a reply that states the current status and next step using only what is in the record. Flag any record with no update in [5] days. Use this tone: [example reply]. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Gmail",
+      "Gorgias",
+      "Zendesk",
+      "Jobber",
+      "ServiceTitan",
+      "Google Sheets"
+    ],
+    "effect": "Routine status questions get faster, more accurate answers, and stuck jobs or orders come to light sooner.",
+    "caution": null
+  },
+  {
+    "slug": "policy-request-checks",
+    "title": "Refunds, returns and cancellations checked against your policy",
+    "category": "Customer support and inbox",
+    "summary": "SI checks each refund, return, cancellation or reschedule request against your written policy and drafts the answer for approval.",
+    "problem": "Requests to cancel, return or get money back are handled differently depending on who answers. Some get approved that should not, others get refused that should have been honored, and both lead to friction.",
+    "what_si_does": "SI reads the request, finds the relevant record (purchase date, booking date, deposit paid, contract terms), and compares it with your written policy. It labels the request as clearly within policy, clearly outside, or a judgment call, and drafts the reply with the reason in plain language. Judgment calls go to the owner with the facts laid out.",
+    "setup": "Your written policy, read access to the records, and the inbox or form where requests arrive. Setup is often a few days, mostly spent turning an informal policy into clear rules.",
+    "human_checks": [
+      "A person approves every refund, credit or fee waiver; SI never issues money.",
+      "Judgment calls and upset customers go to the owner.",
+      "The policy document is the source of truth; SI does not invent exceptions."
+    ],
+    "examples": [
+      {
+        "business_type": "Fitness studio",
+        "scenario": "A member asks to cancel mid-contract after moving; SI checks the membership terms, finds the relocation clause, and drafts a reply listing the proof needed."
+      },
+      {
+        "business_type": "Event venue",
+        "scenario": "A couple asks to move their date; SI checks the contract's change terms and deposit rules and drafts options for the manager to choose between."
+      },
+      {
+        "business_type": "Furniture retailer",
+        "scenario": "A return request arrives 40 days after delivery; SI notes it is outside the 30-day window but the item was delivered damaged, and marks it as a judgment call."
+      }
+    ],
+    "copy_prompt": "Here is my policy for [refunds/returns/cancellations]: [paste]. For each request in [inbox/form], find the record in [system/file], and decide whether it is within policy, outside policy, or a judgment call. Draft a reply that explains the decision in plain language. List judgment calls separately with the facts. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Gmail",
+      "Zendesk",
+      "Mindbody",
+      "Square",
+      "Google Docs"
+    ],
+    "effect": "Requests get consistent answers, and the owner only sees the cases that need a real decision.",
+    "caution": null
+  },
+  {
+    "slug": "faq-from-past-replies",
+    "title": "Building an FAQ from answers you have already written",
+    "category": "Customer support and inbox",
+    "summary": "SI reads past replies to customers, groups the questions that keep coming up, and drafts a plain FAQ or help page for you to edit.",
+    "problem": "The same questions arrive every week, and the best answers are scattered across old emails written by different people. New staff reinvent answers, and customers cannot find them on their own.",
+    "what_si_does": "SI goes through a few months of sent replies, groups similar questions, picks the clearest past answer for each, and rewrites it into a short FAQ entry. It notes where past answers disagreed so you can decide which is right, and lists questions that may deserve a policy rather than an answer.",
+    "setup": "An export of a few months of replies or read access to the helpdesk. Setup is often a few days, then editing time on your side.",
+    "human_checks": [
+      "The owner approves every answer before it is published.",
+      "Conflicting past answers are resolved by a person.",
+      "Anything involving prices, guarantees or legal terms is double-checked."
+    ],
+    "examples": [
+      {
+        "business_type": "Veterinary clinic",
+        "scenario": "Past emails produce entries on vaccine schedules, what to bring to a first visit, and after-hours emergency options, ready for the front desk to review."
+      },
+      {
+        "business_type": "Self-storage facility",
+        "scenario": "Questions about access hours, unit sizes, insurance and move-out notice become a single page staff can link to."
+      },
+      {
+        "business_type": "Software consultancy",
+        "scenario": "Repeated client questions about support hours, change requests and billing become an onboarding FAQ sent with every new contract."
+      }
+    ],
+    "copy_prompt": "Read these past replies [export or folder]. Group the questions that come up more than [3] times. For each group, write a short FAQ entry using the clearest past answer, in plain language. List any groups where past answers disagree. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Help Scout",
+      "Zendesk",
+      "Gmail",
+      "Google Docs",
+      "Notion"
+    ],
+    "effect": "Fewer repeat questions, faster onboarding of new staff, and answers that match from person to person.",
+    "caution": null
+  },
+  {
+    "slug": "review-and-comment-replies",
+    "title": "Replies to online reviews and public comments",
+    "category": "Customer support and inbox",
+    "summary": "SI watches reviews, comments and messages on your public pages, flags the ones worth answering, and drafts replies in your voice.",
+    "problem": "Reviews and comments arrive on several platforms, and answering them slips. Negative reviews sit unanswered for weeks, and genuine questions in comments get lost among the noise.",
+    "what_si_does": "SI collects new reviews and comments, sorts them into praise, question, complaint and spam, and drafts short replies for the ones that need one. Complaints get a careful, non-defensive draft with an offer to take the conversation offline, and are flagged for the owner. It never argues or reveals private details.",
+    "setup": "Access or exports from the review and social platforms you use, plus a few examples of replies you like. Setup is often a few days.",
+    "human_checks": [
+      "Every public reply is approved by a person before posting.",
+      "Complaints and anything mentioning safety, injury or legal threats go straight to the owner.",
+      "Replies never include private customer details."
+    ],
+    "examples": [
+      {
+        "business_type": "Family restaurant",
+        "scenario": "A two-star review about a long wait gets a calm draft that acknowledges the night, without excuses, and invites the guest to contact the manager."
+      },
+      {
+        "business_type": "Auto body shop",
+        "scenario": "Questions in social comments about insurance claims are flagged with a draft pointing people to call for an estimate."
+      },
+      {
+        "business_type": "Dental practice",
+        "scenario": "Positive reviews get short thank-you drafts that avoid confirming the reviewer is a patient."
+      }
+    ],
+    "copy_prompt": "Here are new reviews and comments from [platforms] since [date]: [paste or export]. Sort them into praise, question, complaint and spam. Draft a reply for each praise, question and complaint in this tone: [examples]. Keep complaints calm, short and offer to continue privately. Do not mention any personal details. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Business Profile",
+      "Yelp",
+      "Facebook",
+      "Instagram",
+      "Trustpilot"
+    ],
+    "effect": "Reviews and comments get answered more consistently, and the owner sees complaints early.",
+    "caution": "Medical, dental and other health practices should never confirm someone is a patient or discuss care in a public reply. Keep replies generic and check privacy rules that apply to you."
+  },
+  {
+    "slug": "website-chat-assistant",
+    "title": "A website or messaging chat assistant that hands hard cases to a person",
+    "category": "Customer support and inbox",
+    "summary": "SI answers common questions in chat from your own website and documents, and passes anything unusual to a person with the conversation attached.",
+    "problem": "People ask the same questions in chat or messaging apps at all hours. Either someone answers late, or the chat widget is a form that just says 'we will get back to you'.",
+    "what_si_does": "SI answers from an approved set of sources: your website, FAQ, price list and policies. It can collect details for a quote or booking request. When a question falls outside its sources, involves a complaint, or the person asks for a human, it stops, says someone will follow up, and sends the conversation summary to staff.",
+    "setup": "An approved knowledge source, the chat or messaging tool, and clear rules for handoff. Setup is often one to two weeks including testing with real questions.",
+    "human_checks": [
+      "SI answers only from approved sources and says so when it does not know.",
+      "Anything involving money, complaints or exceptions is handed to a person.",
+      "Staff review a sample of conversations each week and correct answers."
+    ],
+    "examples": [
+      {
+        "business_type": "Landscaping company",
+        "scenario": "A visitor asks whether spring cleanups are still available in their town; SI confirms the service area, collects the address and yard size, and sends the request to the office."
+      },
+      {
+        "business_type": "Immigration law office",
+        "scenario": "SI answers questions about office hours, consultation fees and what documents to bring, and hands any question about a specific case to staff."
+      },
+      {
+        "business_type": "Adult language classes",
+        "scenario": "SI explains class levels and start dates and collects placement-test requests."
+      }
+    ],
+    "copy_prompt": "Using only these sources [website pages, FAQ, price list], answer customer questions in [chat/WhatsApp]. If a question is not covered, involves a complaint or money, or the person asks for a human, say that someone will follow up within [time] and send a summary to [staff contact]. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Intercom",
+      "Tidio",
+      "WhatsApp Business",
+      "Crisp",
+      "Zendesk"
+    ],
+    "effect": "Common questions get answered when the office is closed, and staff pick up the conversations that need them with context in hand.",
+    "caution": "Law, medical and financial offices: the assistant should share general office information only and never anything that reads as advice on a specific situation."
+  },
+  {
+    "slug": "after-hours-call-coverage",
+    "title": "After-hours and busy-time phone coverage",
+    "category": "Customer support and inbox",
+    "summary": "A voice assistant answers calls you would miss, handles common questions, takes detailed messages or requests, and sends staff a summary.",
+    "problem": "Calls that go to voicemail often never call back. Small offices cannot staff the phone through lunch, evenings and weekends, and busy moments mean the person on the phone cannot also serve the person in front of them.",
+    "what_si_does": "When nobody picks up, a voice assistant answers with your greeting, handles a short list of approved questions (hours, location, services, how to book), and takes a structured message: name, number, reason, urgency. For true emergencies it follows your escalation rule, such as forwarding to the on-call phone. Staff get a text or email summary of each call.",
+    "setup": "A phone number or forwarding rule, the approved question list, your escalation rules, and a message format. Setup is often one to two weeks including test calls.",
+    "human_checks": [
+      "Callers are told they are speaking with an automated assistant.",
+      "Emergency rules are tested before going live and reviewed regularly.",
+      "Staff return every message; the assistant does not make commitments on price or timing beyond what you approved."
+    ],
+    "examples": [
+      {
+        "business_type": "Heating and cooling contractor",
+        "scenario": "A 9 p.m. no-heat call is identified as urgent and forwarded to the on-call technician, while a request for a maintenance quote becomes a message for the morning."
+      },
+      {
+        "business_type": "Small medical practice",
+        "scenario": "Over lunch the assistant gives office hours and directions and takes callback messages, routing anything that sounds urgent to the instructions you approved."
+      },
+      {
+        "business_type": "Towing and roadside service",
+        "scenario": "After hours, callers' location and vehicle details are collected and texted to the driver on duty."
+      }
+    ],
+    "copy_prompt": "Draft a phone script for after-hours calls to [business]. It should greet callers, say it is an automated assistant, answer only these questions [list], take a message with name, number, reason and urgency, and treat these situations as emergencies [list] by [forwarding to number]. Write the summary text staff will receive. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Twilio",
+      "RingCentral",
+      "Dialpad",
+      "Google Voice",
+      "Slack"
+    ],
+    "effect": "Fewer missed calls turn into lost customers, and staff start the day with clear messages instead of voicemails.",
+    "caution": "Call recording and automated calls are regulated, and consent rules differ by state and country. Disclose the assistant and any recording, and check the rules that apply before going live. Medical practices should keep the assistant away from clinical questions."
+  },
+  {
+    "slug": "quote-follow-ups",
+    "title": "Follow-ups for quotes and estimates that went quiet",
+    "category": "Sales and follow-up",
+    "summary": "SI finds quotes and estimates with no reply after a set number of days and drafts a short, specific follow-up for each one.",
+    "problem": "Quotes go out and then nothing happens. Following up feels awkward and gets skipped, so work is lost to whoever simply called back.",
+    "what_si_does": "SI checks your quotes or estimates for ones still open after a set period, reads what was quoted and any notes, and drafts a short follow-up that refers to the actual job. It suggests a different angle on the second follow-up (a question, a scheduling option) and marks quotes to close out after the last attempt.",
+    "setup": "Read access to where quotes live (estimating tool, CRM, accounting system or a folder of PDFs) and draft access to email. Your follow-up timing. Setup is often a few days.",
+    "human_checks": [
+      "A person approves each follow-up before it is sent.",
+      "Quotes the owner wants to handle personally are excluded.",
+      "Nothing is discounted or changed without the owner's decision."
+    ],
+    "examples": [
+      {
+        "business_type": "Roofing contractor",
+        "scenario": "Twelve estimates from the last month are open; each gets a draft that mentions the roof type and the crew's next opening in that neighborhood."
+      },
+      {
+        "business_type": "Commercial printer",
+        "scenario": "A quote for event banners has had no reply for a week; the draft asks whether the event date is still on and notes the latest order date for delivery in time."
+      },
+      {
+        "business_type": "Bookkeeping firm",
+        "scenario": "Prospects who received a monthly-service proposal get a follow-up offering a short call to walk through the scope."
+      }
+    ],
+    "copy_prompt": "Here are open quotes [file/export] with date sent, customer, job and amount. For each quote older than [7] days with no reply, draft a short follow-up that mentions the specific job and offers [a next step]. For quotes already followed up [2] times, suggest closing them. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "HubSpot",
+      "Jobber",
+      "QuickBooks Online",
+      "Pipedrive",
+      "Gmail"
+    ],
+    "effect": "More quotes get a timely follow-up, and the pipeline reflects what is really still open.",
+    "caution": null
+  },
+  {
+    "slug": "lead-intake-to-crm",
+    "title": "Turning form and email inquiries into clean CRM records",
+    "category": "Sales and follow-up",
+    "summary": "SI reads each new inquiry from forms and email, creates or updates the CRM contact, and logs what they want and the next step.",
+    "problem": "Leads arrive through web forms, email, phone messages and referrals. Some get entered twice, some never get entered, and the notes are too thin to follow up well.",
+    "what_si_does": "SI reads each inquiry, checks for an existing contact to avoid duplicates, and fills in the record: name, company, contact details, what they asked for, budget or timing if mentioned, and how they found you. It assigns the lead by your rules and drafts the first reply or creates the follow-up task.",
+    "setup": "Write access to the CRM limited to contacts, deals and tasks, plus the form tool and inbox. Your assignment rules. Setup is often a few days.",
+    "human_checks": [
+      "Someone reviews new records daily at first, then spot-checks.",
+      "First replies are approved before sending.",
+      "Merging suspected duplicates is confirmed by a person."
+    ],
+    "examples": [
+      {
+        "business_type": "Wedding photographer",
+        "scenario": "A contact-form inquiry with date, venue and guest count becomes a lead with the date checked against the calendar and a draft reply with packages."
+      },
+      {
+        "business_type": "Commercial cleaning company",
+        "scenario": "An email asking for nightly cleaning of a 6,000 square foot office is logged with size, frequency and location, and assigned to the estimator for a walkthrough."
+      },
+      {
+        "business_type": "Estate planning attorney",
+        "scenario": "Web inquiries are logged with the type of matter and referral source, and a conflict-check task is created before anyone replies."
+      }
+    ],
+    "copy_prompt": "For each new inquiry in [form/inbox], check [CRM] for an existing contact by email and phone. Create or update the contact with name, company, what they need, timing, budget if stated and source. Assign using [rules]. Draft a first reply using [template]. List any possible duplicates for me to confirm. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "HubSpot",
+      "Pipedrive",
+      "Salesforce",
+      "Typeform",
+      "Gmail"
+    ],
+    "effect": "Leads are logged consistently and the first response goes out sooner, with better notes for whoever follows up.",
+    "caution": null
+  },
+  {
+    "slug": "call-notes-to-next-steps",
+    "title": "Call notes into a follow-up email and tasks",
+    "category": "Sales and follow-up",
+    "summary": "After a sales or client call, SI turns your notes or the transcript into a recap email, CRM updates and dated tasks.",
+    "problem": "After a call, the follow-up email and the CRM update are the first things to slip. Details are forgotten, and promised next steps happen late or not at all.",
+    "what_si_does": "From typed notes, a voice memo or a call transcript, SI writes a short recap: what the client needs, what was agreed, open questions and who does what by when. It drafts the follow-up email, updates the CRM fields and creates tasks with due dates.",
+    "setup": "A way to get notes or transcripts to SI, and access to the CRM and email drafts. Setup is often a day or two.",
+    "human_checks": [
+      "The person who was on the call reviews the recap and email before sending.",
+      "Pricing or commitments in the recap are checked against what was actually said.",
+      "Recording only happens with the consent required where you operate."
+    ],
+    "examples": [
+      {
+        "business_type": "Marketing agency",
+        "scenario": "A discovery call transcript becomes a recap listing the client's goals, the two campaigns discussed and a promise to send a proposal by Thursday, with a task created for it."
+      },
+      {
+        "business_type": "Solar installer",
+        "scenario": "A rep's voice memo from a site visit becomes notes on roof orientation and the homeowner's financing question, plus a follow-up email with the requested information."
+      },
+      {
+        "business_type": "IT managed-services provider",
+        "scenario": "Notes from a call with a medical office about backups become a task list and an email confirming the next meeting."
+      }
+    ],
+    "copy_prompt": "Here are my notes or transcript from a call with [client]: [paste]. Write a recap with needs, decisions, open questions and next steps with owners and dates. Draft a follow-up email in my voice. List the CRM fields to update and tasks to create. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Zoom",
+      "Google Meet",
+      "Otter",
+      "HubSpot",
+      "Gmail"
+    ],
+    "effect": "Follow-ups go out while the call is fresh, and the CRM reflects what was actually agreed.",
+    "caution": "Call recording: consent rules differ by state and country, and some require every party to agree. Tell participants and follow the stricter rule if unsure."
+  },
+  {
+    "slug": "proposal-first-drafts",
+    "title": "First-draft proposals from discovery notes",
+    "category": "Sales and follow-up",
+    "summary": "SI turns discovery notes and your past proposals into a structured first draft with scope, timeline and pricing options for you to edit.",
+    "problem": "Proposals take hours to write and often start from a copy of an old one, with leftover details from another client. The delay means the prospect waits while interest cools.",
+    "what_si_does": "SI reads the discovery notes and a few of your past proposals, then drafts a proposal in your usual structure: the client's situation in their words, scope, what is not included, timeline, pricing options from your rate sheet, and next steps. It highlights any section where it lacked information instead of guessing.",
+    "setup": "Your proposal template, a rate sheet, and two or three good past proposals. Setup is often a day or two.",
+    "human_checks": [
+      "The owner reviews scope and pricing line by line.",
+      "SI does not invent pricing; it uses the rate sheet and flags gaps.",
+      "Nothing is sent to the prospect without approval."
+    ],
+    "examples": [
+      {
+        "business_type": "Kitchen and bath remodeler",
+        "scenario": "Notes from a walkthrough become a proposal with demolition, plumbing and tile scope, an allowance line for fixtures, and a flag that cabinet sizes are still unknown."
+      },
+      {
+        "business_type": "Web design studio",
+        "scenario": "A discovery call becomes a proposal with three package options and a timeline built from the studio's standard phases."
+      },
+      {
+        "business_type": "Employee benefits consultant",
+        "scenario": "Notes from a meeting with a 40-person company become a proposal outline with the review steps and a section marked for the consultant to fill in."
+      }
+    ],
+    "copy_prompt": "Using these discovery notes [paste], my template [file], rate sheet [file] and these past proposals [files], draft a proposal for [client]. Include situation, scope, exclusions, timeline, [2-3] pricing options and next steps. Mark any section where information is missing. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Docs",
+      "PandaDoc",
+      "Proposify",
+      "Microsoft Word"
+    ],
+    "effect": "Proposals go out sooner and start from a clean, client-specific draft instead of a recycled one.",
+    "caution": null
+  },
+  {
+    "slug": "prospect-briefs",
+    "title": "A one-page brief on a prospect before you meet",
+    "category": "Sales and follow-up",
+    "summary": "Before a meeting or pitch, SI gathers public information about the organization and your past contact into a short brief.",
+    "problem": "Walking into a meeting unprepared costs credibility, but researching every prospect takes time nobody has. Past emails and notes about the account are scattered.",
+    "what_si_does": "SI reads the prospect's website, recent public news and any public profiles you point it to, plus your own CRM notes and past emails. It produces a one-page brief: what they do, size and locations if public, recent changes, who you are meeting, past interactions, and three questions worth asking. Sources are listed so you can check them.",
+    "setup": "Read access to your CRM and email, plus a list of sources you consider acceptable. Setup is often a day.",
+    "human_checks": [
+      "The person meeting the prospect checks facts against the listed sources.",
+      "SI uses public and your own information only.",
+      "Anything uncertain is marked as such, not stated as fact."
+    ],
+    "examples": [
+      {
+        "business_type": "Commercial insurance broker",
+        "scenario": "Before meeting a growing restaurant group, the brief notes the two new locations opening, the current carrier mentioned in an old email, and questions about liquor liability."
+      },
+      {
+        "business_type": "Staffing agency",
+        "scenario": "A brief on a regional manufacturer covers its open job postings, recent plant expansion news, and the last conversation with its HR manager."
+      },
+      {
+        "business_type": "Architecture firm",
+        "scenario": "Before a school district interview, the brief summarizes the district's published facilities plan and past projects of similar size."
+      }
+    ],
+    "copy_prompt": "Prepare a one-page brief on [organization] for a meeting on [date] with [names]. Use their website [URL], these public sources [list], and my CRM notes and emails about them. Include what they do, recent changes, who I am meeting, past contact with us, and [3] good questions. List sources for every fact. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "HubSpot",
+      "Salesforce",
+      "Google Docs",
+      "Gmail"
+    ],
+    "effect": "Meetings start better prepared, with less last-minute scrambling.",
+    "caution": null
+  },
+  {
+    "slug": "outreach-drafts-and-replies",
+    "title": "Personal outreach drafts and reply handling you approve",
+    "category": "Sales and follow-up",
+    "summary": "SI drafts first-touch and follow-up messages from real research, sorts the replies, and offers meeting times, with every message approved by you.",
+    "problem": "Generic outreach gets ignored, and personal outreach takes too long to write. Replies, when they come, sit unsorted while interested people go cold.",
+    "what_si_does": "From a list of prospects and a short brief on each, SI drafts a short first message that refers to something specific and relevant, plus one or two follow-ups. When replies come in, it sorts them into interested, not now, wrong person and no, drafts an answer for each, and proposes open times from your calendar for the interested ones. Unsubscribe and no-contact requests are recorded and respected.",
+    "setup": "Your prospect list, calendar access, and a clear description of what you offer. Setup is often several days.",
+    "human_checks": [
+      "Every message is approved before sending, and volume stays modest.",
+      "Opt-outs are honored immediately and recorded.",
+      "Outreach follows the anti-spam and privacy rules that apply to you."
+    ],
+    "examples": [
+      {
+        "business_type": "Corporate catering company",
+        "scenario": "Drafts to office managers at nearby firms mention their recent move into a new building and offer a tasting; replies asking for menus get a draft with the menu and two tasting times."
+      },
+      {
+        "business_type": "Commercial HVAC service company",
+        "scenario": "Property managers of older buildings get a note about seasonal maintenance; a 'not now, try in spring' reply becomes a dated reminder."
+      },
+      {
+        "business_type": "Freelance grant writer",
+        "scenario": "Small nonprofits with an upcoming grant cycle get a short note offering a review of last year's application."
+      }
+    ],
+    "copy_prompt": "For each prospect in [list] with these notes [research], draft a first message of under [100] words that mentions one specific, relevant detail and offers [offer]. Draft [2] short follow-ups. Then sort these replies [paste] into interested, not now, wrong person and no, and draft an answer for each, offering times from [calendar]. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Gmail",
+      "HubSpot",
+      "Apollo",
+      "Google Calendar",
+      "Calendly"
+    ],
+    "effect": "Outreach becomes more personal without taking all afternoon, and interested replies get answered quickly.",
+    "caution": "Outbound email and messaging are regulated (for example CAN-SPAM in the US and stricter rules in the EU and Canada). Include opt-out handling and follow the rules that apply to you."
+  },
+  {
+    "slug": "repeat-customer-checkins",
+    "title": "Check-ins for repeat customers who are due",
+    "category": "Sales and follow-up",
+    "summary": "SI spots regular customers who are past their usual reorder or rebooking interval and drafts a friendly, specific check-in.",
+    "problem": "Repeat customers are the easiest business to keep, but nobody tracks when each one is due. They drift away quietly, or simply buy from whoever reached out first.",
+    "what_si_does": "SI reads your order, invoice or appointment history, works out each regular customer's usual interval, and lists those who are overdue. For each, it drafts a short check-in that mentions what they usually order or book and offers an easy next step.",
+    "setup": "An export of order, invoice or booking history and draft access to email or text. Setup is often a few days.",
+    "human_checks": [
+      "A person reviews the list and approves each message.",
+      "Customers who asked not to be contacted are excluded.",
+      "Customers with open complaints or unpaid balances are flagged instead of nudged."
+    ],
+    "examples": [
+      {
+        "business_type": "Coffee roaster selling to cafes",
+        "scenario": "A cafe that orders every two weeks has not ordered in four; the draft mentions their usual blend and asks whether anything changed."
+      },
+      {
+        "business_type": "Pool service company",
+        "scenario": "Customers who booked an opening last spring but not this spring get a reminder with open dates."
+      },
+      {
+        "business_type": "Hair salon",
+        "scenario": "Clients who usually book every six weeks and are now at nine get a text draft offering their stylist's next openings."
+      }
+    ],
+    "copy_prompt": "Using this order or booking history [file], find each customer's usual interval between [orders/visits]. List customers who are more than [50%] past their usual interval, with their last date and usual purchase. Draft a short check-in for each in this tone: [example]. Exclude [do-not-contact list]. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "QuickBooks Online",
+      "Square",
+      "Google Sheets",
+      "Gmail",
+      "Klaviyo"
+    ],
+    "effect": "Regular customers hear from you before they drift, and the outreach feels personal rather than mass-mailed.",
+    "caution": null
+  },
+  {
+    "slug": "invoice-intake-to-draft-bills",
+    "title": "Supplier invoices from email into draft bills",
+    "category": "Bookkeeping, invoices and admin",
+    "summary": "SI reads supplier invoices that arrive by email, creates draft bills in your accounting tool, and flags duplicates or missing details.",
+    "problem": "Invoices arrive as PDFs in several inboxes. Someone retypes them into the accounting system, and duplicates, typos and missed due dates follow.",
+    "what_si_does": "SI watches an invoices inbox, reads each attachment, and extracts supplier, invoice number, date, due date, line totals and tax. It creates a draft bill with a suggested account based on past coding, and checks for problems: an invoice number already entered, an amount that does not match the purchase order, missing tax registration details, or a changed bank account on the invoice.",
+    "setup": "A dedicated invoices inbox or forwarding rule, accounting access limited to creating drafts, and your past coding as a reference. Setup is often a few days.",
+    "human_checks": [
+      "The bookkeeper reviews and approves each draft bill.",
+      "SI never pays bills or changes supplier bank details.",
+      "A change in a supplier's payment details is always flagged and confirmed by phone with a known contact."
+    ],
+    "examples": [
+      {
+        "business_type": "General contractor",
+        "scenario": "Lumber and electrical supply invoices are turned into draft bills tagged to the right job, and a second copy of the same invoice sent by a supplier's rep is caught."
+      },
+      {
+        "business_type": "Restaurant",
+        "scenario": "Weekly produce, meat and linen invoices become draft bills with food and non-food costs coded separately."
+      },
+      {
+        "business_type": "Property management company",
+        "scenario": "Vendor invoices for repairs are matched to the property and unit, and one arriving with new bank details is flagged before anyone pays it."
+      }
+    ],
+    "copy_prompt": "Read the invoices in [inbox/folder] from [date]. For each, extract supplier, invoice number, dates, totals and tax. Suggest an account using this past coding [file]. Flag duplicates (same supplier and number or amount), missing details, mismatches with [PO file], and any change in payment details. Prepare draft bills only. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "QuickBooks Online",
+      "Xero",
+      "Bill.com",
+      "Dext",
+      "Gmail"
+    ],
+    "effect": "Less retyping, fewer duplicate payments, and payment-detail changes get a second look.",
+    "caution": null
+  },
+  {
+    "slug": "receipt-matching",
+    "title": "Matching receipts to card transactions",
+    "category": "Bookkeeping, invoices and admin",
+    "summary": "SI matches receipts from email and photos to card transactions, suggests categories, and lists what is still missing before month end.",
+    "problem": "Card transactions pile up without receipts. At month end someone hunts through email and phone photos to match them, and expense reports are late.",
+    "what_si_does": "SI reads receipts from a forwarding inbox or shared folder, matches them to transactions by amount, date and merchant, suggests a category from past coding, and builds a missing-receipts list per cardholder. It can also assemble a simple expense report for staff who pay out of pocket.",
+    "setup": "Card transaction feed or export, a receipts inbox or folder, and the chart of accounts. Setup is often a few days.",
+    "human_checks": [
+      "The bookkeeper confirms categories before anything is posted.",
+      "Reminders to cardholders about missing receipts are reviewed before sending.",
+      "Unusual or personal-looking charges are flagged for the owner."
+    ],
+    "examples": [
+      {
+        "business_type": "Electrical contractor",
+        "scenario": "Fuel and hardware-store receipts snapped by field crews are matched to the company cards, and each crew lead gets a short list of what is missing."
+      },
+      {
+        "business_type": "Consulting firm",
+        "scenario": "Travel receipts from a client trip are matched and grouped into an expense report ready to be billed back to the client."
+      },
+      {
+        "business_type": "Nonprofit",
+        "scenario": "Program staff purchases are matched and coded to the right grant so grant reports are easier at quarter end."
+      }
+    ],
+    "copy_prompt": "Match these card transactions [export] to the receipts in [folder/inbox]. Match on amount, date (within [3] days) and merchant. Suggest a category using this past coding [file]. List unmatched transactions by cardholder, and flag anything unusual. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "QuickBooks Online",
+      "Xero",
+      "Ramp",
+      "Expensify",
+      "Google Drive"
+    ],
+    "effect": "Month end has fewer surprises, and chasing receipts becomes a short list instead of a search.",
+    "caution": null
+  },
+  {
+    "slug": "overdue-invoice-reminders",
+    "title": "Reminders for overdue invoices, firmer as they age",
+    "category": "Bookkeeping, invoices and admin",
+    "summary": "SI checks open invoices each week and drafts reminders whose tone matches how late each one is, for you to approve.",
+    "problem": "Chasing money is uncomfortable, so it gets put off. Invoices drift from 30 to 90 days late, and by then the conversation is harder.",
+    "what_si_does": "SI reads open invoices and payment history, groups them by how overdue they are, and drafts a reminder for each: a friendly note just after the due date, a clearer one later, and a firm one with next steps after that, using your terms. It skips customers with a payment plan or a dispute and flags long-overdue accounts for a phone call.",
+    "setup": "Read access to invoices in your accounting tool and draft access to email. Your reminder schedule and terms. Setup is often a day or two.",
+    "human_checks": [
+      "A person approves every reminder.",
+      "Disputed invoices, payment plans and key accounts are excluded or handled personally.",
+      "SI never threatens action; any collections step is the owner's decision."
+    ],
+    "examples": [
+      {
+        "business_type": "Landscape design firm",
+        "scenario": "Three clients are a week past due and get friendly reminders with the invoice attached; one 60 days late is flagged for the owner to call."
+      },
+      {
+        "business_type": "Physical therapy clinic",
+        "scenario": "Patient balances after insurance get courteous statement reminders, with any account showing a pending insurance appeal excluded."
+      },
+      {
+        "business_type": "Translation agency",
+        "scenario": "Corporate clients get reminders addressed to their accounts-payable contact with the purchase order number included."
+      }
+    ],
+    "copy_prompt": "Here are open invoices [export] with customer, amount, due date and notes. Group them by days overdue: [1-14], [15-45], [46+]. Draft a reminder for each group in increasing firmness, using my terms [paste]. Exclude anything marked disputed or on a plan. List accounts over [60] days for a phone call. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "QuickBooks Online",
+      "Xero",
+      "FreshBooks",
+      "Gmail"
+    ],
+    "effect": "Reminders go out on time without the owner having to write them, and the hardest cases get personal attention.",
+    "caution": "Medical and dental practices: patient billing messages must follow health-privacy rules. Debt collection is also regulated; keep reminders factual and leave collections decisions to the owner."
+  },
+  {
+    "slug": "unbilled-work-check",
+    "title": "Finding work that was done but never invoiced",
+    "category": "Bookkeeping, invoices and admin",
+    "summary": "SI compares completed jobs, time entries or deliveries against invoices sent and lists anything that was never billed.",
+    "problem": "Small jobs, extra hours and change orders get done and then forgotten at billing time. Nobody notices the gap because nothing looks wrong.",
+    "what_si_does": "SI lines up the record of work done (closed job tickets, timesheets, delivery notes, change orders) against invoices issued. It lists items with no matching invoice, partial billing, or hours logged above what was billed, and prepares draft invoices or a list for the billing person.",
+    "setup": "Read access to the job, time or delivery system and to invoicing. Setup is often a few days, mostly agreeing on how to match records.",
+    "human_checks": [
+      "The owner or billing person confirms each item before any invoice is drafted or sent.",
+      "Work done as a courtesy or under warranty is marked so it is not flagged again.",
+      "Customer-facing invoices are approved before sending."
+    ],
+    "examples": [
+      {
+        "business_type": "Plumbing company",
+        "scenario": "A closed ticket for a water heater flush and two change orders on a bathroom job have no invoice; drafts are prepared for the office manager."
+      },
+      {
+        "business_type": "Law firm",
+        "scenario": "Logged hours on a matter exceed what was billed last month, and the gap is listed for the billing partner to review."
+      },
+      {
+        "business_type": "Equipment rental company",
+        "scenario": "Rental extensions recorded at return were never added to the customer's invoice."
+      }
+    ],
+    "copy_prompt": "Compare these completed jobs or time entries [export] with these invoices [export] for [period]. Match on [job number, client, date]. List work with no invoice, partial invoices, and hours logged above hours billed. Draft invoices only for items I confirm. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "QuickBooks Online",
+      "Jobber",
+      "Clio",
+      "Harvest",
+      "Google Sheets"
+    ],
+    "effect": "Less revenue slips away unnoticed, and billing reviews have something concrete to check.",
+    "caution": null
+  },
+  {
+    "slug": "month-end-close-prep",
+    "title": "Month-end close prep and the accountant's package",
+    "category": "Bookkeeping, invoices and admin",
+    "summary": "SI prepares the month-end checklist, reconciliation exceptions and an indexed bundle of documents for the bookkeeper or accountant.",
+    "problem": "Month end means chasing missing documents, explaining odd transactions and emailing files back and forth. It drags on, and the accountant's questions arrive weeks later.",
+    "what_si_does": "SI runs through your close checklist: unreconciled bank lines with suggested matches, uncategorized transactions with suggested categories, missing receipts and bills, and balances that moved oddly from last month. It writes a short note on each exception and gathers the month's statements, invoices and receipts into one indexed folder for the accountant.",
+    "setup": "Read access to the accounting tool, bank exports and document folders. Your checklist. Setup is often about a week.",
+    "human_checks": [
+      "The bookkeeper or accountant reviews every proposed match and category.",
+      "SI does not post journal entries.",
+      "The package is reviewed before it is shared."
+    ],
+    "examples": [
+      {
+        "business_type": "Dental practice",
+        "scenario": "The package includes bank and card statements, supplier invoices, and a note that lab fees are unusually high this month because of a batch of crowns."
+      },
+      {
+        "business_type": "Small manufacturer",
+        "scenario": "Unreconciled lines include two customer deposits with suggested invoice matches, and a raw-materials bill with no receiving record."
+      },
+      {
+        "business_type": "Online store",
+        "scenario": "Payment-processor payouts are broken into sales, fees and refunds so they reconcile against the bank deposits."
+      }
+    ],
+    "copy_prompt": "For [month], go through my close checklist [paste]. List unreconciled bank lines with suggested matches, uncategorized transactions with suggested categories, missing receipts or bills, and balances that changed by more than [20%] from last month, with a short note on each. Gather statements and documents from [folders] into one indexed folder for the accountant. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "QuickBooks Online",
+      "Xero",
+      "Google Drive",
+      "Dropbox"
+    ],
+    "effect": "Close tends to finish sooner, with fewer rounds of questions from the accountant.",
+    "caution": null
+  },
+  {
+    "slug": "subscriptions-and-renewals",
+    "title": "Tracking subscriptions, contracts and renewal dates",
+    "category": "Bookkeeping, invoices and admin",
+    "summary": "SI finds recurring charges and contract renewal dates in statements and documents, and warns you before anything auto-renews.",
+    "problem": "Software subscriptions, service contracts, leases and insurance policies renew automatically. Nobody remembers what each one costs, whether it is still used, or when the notice period starts.",
+    "what_si_does": "SI scans card and bank statements for recurring charges and reads contracts for term, renewal and notice dates. It builds one list with cost, owner, renewal date and notice deadline, highlights duplicates and tools nobody seems to use, and sends a reminder well before each notice deadline.",
+    "setup": "Statement exports and a folder of contracts. Setup is often a few days.",
+    "human_checks": [
+      "A person decides what to cancel or renegotiate; SI never cancels anything.",
+      "Contract dates SI extracts are checked against the document.",
+      "Reminders go to the named owner of each contract."
+    ],
+    "examples": [
+      {
+        "business_type": "Accounting practice",
+        "scenario": "The list shows two overlapping document-sharing tools and a tax software license that renews just before busy season."
+      },
+      {
+        "business_type": "Property manager",
+        "scenario": "Elevator maintenance, landscaping and insurance contracts across buildings are listed with notice deadlines, so renegotiation starts in time."
+      },
+      {
+        "business_type": "Marketing agency",
+        "scenario": "Seats for former staff on several design and project tools are flagged."
+      }
+    ],
+    "copy_prompt": "Review these statements [files] for recurring charges, and these contracts [folder] for term, renewal and notice dates. Build one list with vendor, cost, frequency, owner, renewal date and notice deadline. Flag duplicates and anything with no clear owner. Set reminders [30] days before each notice deadline. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Sheets",
+      "QuickBooks Online",
+      "Google Calendar",
+      "Google Drive"
+    ],
+    "effect": "Fewer surprise renewals, and unused tools get noticed.",
+    "caution": "Contract dates and terms pulled by SI are a starting point, not a legal reading. Check the actual document, and ask a lawyer about anything unclear."
+  },
+  {
+    "slug": "year-end-tax-document-packet",
+    "title": "A year-end document packet for your tax preparer",
+    "category": "Bookkeeping, invoices and admin",
+    "summary": "SI sorts the year's documents, totals them by category and flags gaps, so your tax preparer gets one organized packet.",
+    "problem": "At tax time, documents are spread across email, folders and paper. The preparer sends a list of questions, and gathering the answers takes weeks.",
+    "what_si_does": "SI goes through the year's folders and inbox for tax-related documents: income forms, statements, receipts, vehicle and home-office records, donation receipts and prior-year notices. It sorts and renames them, builds an index and category totals, and lists what seems to be missing compared with last year's packet. It does not decide what is deductible.",
+    "setup": "Access to the relevant folders and inbox, last year's packet or the preparer's checklist. Setup is often a few days.",
+    "human_checks": [
+      "The owner and tax preparer review the packet; SI makes no tax judgments.",
+      "Sensitive documents are shared only through the preparer's secure channel.",
+      "Category totals are checked against source documents."
+    ],
+    "examples": [
+      {
+        "business_type": "Self-employed contractor",
+        "scenario": "Supply receipts, vehicle mileage logs and 1099s from three general contractors are organized, with a note that one 1099 from last year's client has not arrived."
+      },
+      {
+        "business_type": "Family-owned restaurant",
+        "scenario": "Payroll summaries, sales tax filings and equipment purchase invoices are gathered for the accountant's checklist."
+      },
+      {
+        "business_type": "Rental property owner",
+        "scenario": "Repair invoices, insurance and property tax bills are sorted by property."
+      }
+    ],
+    "copy_prompt": "Using [folders/inbox], find tax-related documents for [year]. Sort and rename them by [category], build an index and category totals, and compare against this checklist [preparer's list or last year's packet] to list what is missing. Do not decide what is deductible. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Drive",
+      "Dropbox",
+      "Gmail",
+      "Google Sheets"
+    ],
+    "effect": "Tax prep starts organized, and the back-and-forth with the preparer tends to be shorter.",
+    "caution": "Tax: SI organizes documents and drafts summaries; it does not give tax advice or decide what is deductible. A qualified accountant or tax preparer makes those calls."
+  },
+  {
+    "slug": "weekly-owner-snapshot",
+    "title": "A one-page weekly snapshot for the owner",
+    "category": "Reporting and dashboards",
+    "summary": "Every Monday, SI pulls the numbers you care about from your tools into a single page with short notes on what changed.",
+    "problem": "The numbers that matter live in five different systems. Checking them takes a morning, so it does not happen regularly, and problems show up late.",
+    "what_si_does": "SI collects a short, fixed set of measures each week (for example sales, new inquiries, jobs completed, cash in the bank, overdue invoices, open complaints) and lays them out against last week and the same week last year. It adds a few plain sentences on what moved and why, where the data shows it.",
+    "setup": "Read access to the tools involved and an agreed list of no more than about ten measures. Setup is often about a week.",
+    "human_checks": [
+      "The owner chooses the measures and checks the first few reports against the source systems.",
+      "Explanations are marked as likely causes, not certainties.",
+      "Access is read-only."
+    ],
+    "examples": [
+      {
+        "business_type": "Multi-location auto repair shop",
+        "scenario": "The page shows car count, average repair order and comebacks by location, with a note that one shop's car count dropped during a week a technician was out."
+      },
+      {
+        "business_type": "Accounting firm",
+        "scenario": "Partners see returns in progress, returns waiting on clients, billed hours and unpaid invoices each Monday in tax season."
+      },
+      {
+        "business_type": "Food truck business",
+        "scenario": "Sales by location and day, food cost from supplier bills, and weather notes on slow days."
+      }
+    ],
+    "copy_prompt": "Every [Monday], pull these measures [list] from [tools] for last week. Show each against the prior week and the same week last year. Write [3-5] plain sentences on what changed and the likely reasons visible in the data, marked as likely. Keep it to one page. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Sheets",
+      "Looker Studio",
+      "QuickBooks Online",
+      "Slack",
+      "Gmail"
+    ],
+    "effect": "The owner sees the business at a glance every week, and changes get noticed while they are still small.",
+    "caution": null
+  },
+  {
+    "slug": "revenue-in-one-view",
+    "title": "One view of revenue across every place you take money",
+    "category": "Reporting and dashboards",
+    "summary": "SI combines sales from each channel, location or payment system into one sheet or dashboard that updates on a schedule.",
+    "problem": "Money comes in through a point-of-sale system, online payments, invoices and maybe a marketplace or two. Each has its own report, and none of them agree on the total.",
+    "what_si_does": "SI pulls sales from each source, maps them to common categories (location, product or service line, channel), removes double-counting such as an invoice also recorded as a card payment, and keeps one table and a simple dashboard current. It notes where sources disagree.",
+    "setup": "Read access or regular exports from each source and an agreed set of categories. Setup is often one to two weeks.",
+    "human_checks": [
+      "Totals are checked against the accounting system each month.",
+      "Category mapping is reviewed by the owner.",
+      "Discrepancies are reported, not quietly adjusted."
+    ],
+    "examples": [
+      {
+        "business_type": "Brewery with a taproom",
+        "scenario": "Taproom sales, distributor invoices and online merchandise sales appear together by week and by product."
+      },
+      {
+        "business_type": "Music lessons studio",
+        "scenario": "Lesson payments, recital ticket sales and instrument rentals are combined, with family accounts paid by both card and check de-duplicated."
+      },
+      {
+        "business_type": "Retailer with an online store",
+        "scenario": "In-store sales, online orders and a marketplace channel are combined by product category so slow lines are visible across all three."
+      }
+    ],
+    "copy_prompt": "Combine sales from these sources [exports or connections] for [period]. Map each to these categories [location, line, channel]. Remove double-counted payments by matching [invoice number, amount and date]. Build one table and a simple chart by [week]. List any discrepancies between sources. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Sheets",
+      "Looker Studio",
+      "Square",
+      "Stripe",
+      "QuickBooks Online"
+    ],
+    "effect": "One trusted number for revenue, and a clear picture of which channels or lines are growing.",
+    "caution": null
+  },
+  {
+    "slug": "change-explanations",
+    "title": "Plain-language notes when a number moves",
+    "category": "Reporting and dashboards",
+    "summary": "When a key number jumps or drops, SI looks for likely reasons in the data and writes a short, plain note for the owner.",
+    "problem": "Dashboards show that something changed but not why. Someone has to dig through reports to find out, and often nobody does.",
+    "what_si_does": "SI watches a few chosen measures. When one moves past a threshold you set, it checks the obvious breakdowns (by location, product, customer, staff member, channel, day) and writes a short note: what changed, where the change is concentrated, and what to look at next. It presents causes as possibilities.",
+    "setup": "Read access to the underlying data and thresholds for each measure. Setup is often several days.",
+    "human_checks": [
+      "Notes are labeled as possible explanations for a person to confirm.",
+      "Thresholds are adjusted to avoid noise.",
+      "No action is taken automatically."
+    ],
+    "examples": [
+      {
+        "business_type": "Veterinary practice",
+        "scenario": "New-client visits dropped noticeably this month; the note shows the drop is almost entirely from one referral source that stopped sending patients."
+      },
+      {
+        "business_type": "Restaurant group",
+        "scenario": "Food cost rose at one location; the note points to a price increase on one supplier's invoices and a menu item selling more than usual."
+      },
+      {
+        "business_type": "Nonprofit",
+        "scenario": "Monthly online donations fell; the note shows recurring donors whose cards expired."
+      }
+    ],
+    "copy_prompt": "Watch these measures [list] in [data source]. When one changes by more than [threshold] versus [comparison period], break it down by [dimensions] and write a short note on where the change is concentrated and what to check next. Present causes as possibilities. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Sheets",
+      "Looker Studio",
+      "Slack",
+      "Gmail"
+    ],
+    "effect": "Changes get explained sooner, and the owner spends less time digging through reports.",
+    "caution": null
+  },
+  {
+    "slug": "ad-spend-vs-results",
+    "title": "Ad spend next to real results, in one sheet",
+    "category": "Reporting and dashboards",
+    "summary": "SI lines up spend from each ad platform with the inquiries, bookings or sales it produced, and lists campaigns that look weak.",
+    "problem": "Each ad platform reports its own success, often generously. Comparing spend with actual customers means stitching exports together by hand.",
+    "what_si_does": "SI pulls spend by campaign from each platform and matches it to results in your own systems (form leads, booked calls, sales by source or promo code). It shows cost per lead or sale by campaign and week, and lists campaigns with spend but little real result, with suggestions to review.",
+    "setup": "Read access or exports from the ad platforms and your lead or sales system, plus consistent tracking such as source fields or codes. Setup is often about a week.",
+    "human_checks": [
+      "Budget changes are made by a person; SI only recommends.",
+      "Attribution gaps are stated plainly.",
+      "Recommendations are reviewed with whoever runs the ads."
+    ],
+    "examples": [
+      {
+        "business_type": "Personal injury law firm",
+        "scenario": "Search ad spend by campaign is matched to signed intake forms rather than clicks, showing which campaigns bring qualified calls."
+      },
+      {
+        "business_type": "Home cleaning service",
+        "scenario": "Social ads in two towns produce plenty of leads but few booked cleanings; the sheet lists them for review."
+      },
+      {
+        "business_type": "Online store",
+        "scenario": "Spend by campaign is compared with orders using the store's source tracking, alongside the platforms' own numbers."
+      }
+    ],
+    "copy_prompt": "Combine ad spend by campaign and week from [platforms/exports] with results from [lead or sales system] matched by [source, campaign tag or code]. Show cost per [lead/booking/sale] by campaign. List campaigns with spend above [amount] and few results, with suggestions. Note any gaps in tracking. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Ads",
+      "Meta Ads Manager",
+      "Google Sheets",
+      "HubSpot"
+    ],
+    "effect": "Ad decisions rest on real customers, and weak campaigns are easier to spot.",
+    "caution": "Law firms and health practices: advertising is subject to professional and privacy rules, and tracking tools must not send protected client or patient information to ad platforms."
+  },
+  {
+    "slug": "competitor-watch",
+    "title": "A weekly watch on competitors' prices and offers",
+    "category": "Reporting and dashboards",
+    "summary": "Once a week SI checks the competitor pages you choose and sends a short summary of changed prices, services, offers or openings.",
+    "problem": "Owners know competitors matter but rarely have time to check their sites. Price changes and new offers are noticed months later, usually from a customer.",
+    "what_si_does": "SI visits a fixed list of public competitor pages (pricing, menus, service lists, promotions, job postings) and compares them with last week's snapshot. It records changes in a sheet and sends a short summary of what is new, with links.",
+    "setup": "A list of competitors and pages to watch. Setup is often a day or two.",
+    "human_checks": [
+      "SI only reads public pages and respects site terms.",
+      "Pricing decisions remain with the owner.",
+      "The watch list is reviewed every few months."
+    ],
+    "examples": [
+      {
+        "business_type": "Dental practice",
+        "scenario": "Two nearby practices started advertising new-patient whitening offers, and one now lists evening hours."
+      },
+      {
+        "business_type": "Moving company",
+        "scenario": "A competitor's posted rates for local moves went up, and another added a storage service."
+      },
+      {
+        "business_type": "Independent bookstore",
+        "scenario": "Event calendars of nearby shops and libraries are tracked so author events do not clash."
+      }
+    ],
+    "copy_prompt": "Every [week], check these public pages [list of URLs] and compare them with last week's version. Record changes in prices, services, offers, hours and job postings in [sheet]. Send me a short summary with links. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Sheets",
+      "Slack",
+      "Gmail"
+    ],
+    "effect": "Competitor changes are noticed in weeks rather than months.",
+    "caution": null
+  },
+  {
+    "slug": "weekly-team-report",
+    "title": "A weekly team report assembled from the tools you already use",
+    "category": "Reporting and dashboards",
+    "summary": "SI pulls updates from project, support and sales tools into a draft weekly report that a manager edits and sends.",
+    "problem": "Writing the weekly update means asking everyone for status and copying from several tools. It takes a manager's afternoon, and the result is often late or thin.",
+    "what_si_does": "SI reads what changed during the week: tasks completed and overdue in the project tool, tickets opened and closed, deals moved, and notes from team channels. It drafts a report with highlights, risks, overdue items and decisions needed, in the format your team already uses.",
+    "setup": "Read access to the tools involved and an example of a good past report. Setup is often several days.",
+    "human_checks": [
+      "The manager edits and sends the report.",
+      "Risks and personnel matters are worded by a person.",
+      "SI does not post to shared channels without approval."
+    ],
+    "examples": [
+      {
+        "business_type": "Construction company",
+        "scenario": "The Friday report lists each job's progress, inspections passed or pending, change orders, and material delays from supplier emails."
+      },
+      {
+        "business_type": "Digital agency",
+        "scenario": "Client projects are summarized with deliverables shipped, items waiting on clients, and hours used against budget."
+      },
+      {
+        "business_type": "Nonprofit program team",
+        "scenario": "Volunteer hours, events held and grant deliverables due next month are rolled into the director's update."
+      }
+    ],
+    "copy_prompt": "Read this week's activity in [project tool, helpdesk, CRM, channels]. Draft a weekly report in this format [example] with highlights, risks, overdue items and decisions needed. Keep it under [one page]. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Asana",
+      "Trello",
+      "Monday.com",
+      "Slack",
+      "Google Docs"
+    ],
+    "effect": "Reports go out on time with less effort, and overdue items are visible to everyone.",
+    "caution": null
+  },
+  {
+    "slug": "feedback-themes",
+    "title": "Monthly themes from customer questions, complaints and surveys",
+    "category": "Reporting and dashboards",
+    "summary": "SI groups a month of support messages, reviews and survey answers by theme, counts them, and suggests what to fix upstream.",
+    "problem": "The same problems generate complaints month after month, but nobody steps back to count them. Fixes target whatever was loudest, not what was most common.",
+    "what_si_does": "SI reads the month's tickets, emails, reviews and survey comments, groups them by underlying cause (billing confusion, late arrivals, unclear instructions, a product defect), counts each, and quotes a few representative examples. It suggests one or two upstream fixes for the biggest themes.",
+    "setup": "Exports from the helpdesk, review sites or survey tool. Setup is often a few days.",
+    "human_checks": [
+      "The owner decides which themes to act on.",
+      "Personal details are removed from quoted examples.",
+      "Theme groupings are checked against a sample of raw messages."
+    ],
+    "examples": [
+      {
+        "business_type": "Pediatric clinic",
+        "scenario": "Many calls this month were about how to read the new online lab results, suggesting a short guide for parents."
+      },
+      {
+        "business_type": "Moving company",
+        "scenario": "Complaints group into arrival-window misses and surprise charges for stairs, pointing to clearer quotes."
+      },
+      {
+        "business_type": "Adult education program",
+        "scenario": "End-of-course evaluations show repeated requests for evening sections and earlier access to materials."
+      }
+    ],
+    "copy_prompt": "Here are this month's support messages, reviews and survey comments [exports]. Group them by underlying cause, count each group, and quote [2] representative examples with personal details removed. Suggest [1-2] upstream fixes for the largest groups. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Zendesk",
+      "Help Scout",
+      "Google Forms",
+      "SurveyMonkey",
+      "Google Sheets"
+    ],
+    "effect": "Recurring problems become visible and countable, which makes it easier to fix them at the source.",
+    "caution": null
+  },
+  {
+    "slug": "staff-schedule-drafts",
+    "title": "Drafting next week's staff schedule from availability",
+    "category": "Scheduling and operations",
+    "summary": "SI collects availability and time-off requests and drafts next week's schedule against your coverage rules, for a manager to adjust.",
+    "problem": "Building the schedule means reconciling texts, time-off requests, availability changes and coverage needs. It eats a manager's evening and still leaves gaps.",
+    "what_si_does": "SI gathers availability and requests from a form or shared sheet, applies your rules (minimum coverage per shift, required skills or certifications, maximum hours, fair rotation of weekends), and drafts a schedule. It lists any shift it could not fill and any rule it had to bend, so the manager decides.",
+    "setup": "A form or sheet for availability, your coverage rules, and the scheduling tool or sheet. Setup is often several days.",
+    "human_checks": [
+      "The manager reviews and publishes the schedule.",
+      "Overtime and rule exceptions are decided by a person.",
+      "Labor rules such as required breaks and minors' hours are confirmed by the manager."
+    ],
+    "examples": [
+      {
+        "business_type": "Restaurant",
+        "scenario": "Servers' availability and two time-off requests produce a draft with a trained bartender on every shift, and a Saturday double flagged as overtime."
+      },
+      {
+        "business_type": "Home health agency",
+        "scenario": "Caregiver availability is matched against client visit times and travel areas, with one uncovered visit flagged."
+      },
+      {
+        "business_type": "Retail store",
+        "scenario": "Weekend shifts rotate fairly across part-timers, and holiday coverage is drafted a month ahead."
+      }
+    ],
+    "copy_prompt": "Using this availability [sheet/form responses] and these time-off requests [list], draft a schedule for [week] that meets these rules [coverage, skills, max hours, rotation]. List unfilled shifts and any rule you could not meet. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Sheets",
+      "When I Work",
+      "7shifts",
+      "Homebase",
+      "Google Forms"
+    ],
+    "effect": "Schedules come together faster, and gaps are visible before the week starts.",
+    "caution": null
+  },
+  {
+    "slug": "sops-from-walkthroughs",
+    "title": "Turning how-we-do-it into written procedures",
+    "category": "Scheduling and operations",
+    "summary": "SI turns a recorded walkthrough, voice memo or screen recording into a clear, step-by-step procedure your team can follow.",
+    "problem": "Know-how lives in a few people's heads. Training is slow, mistakes repeat, and the business depends on whoever remembers how things are done.",
+    "what_si_does": "A team member records themselves doing the task, or just talks it through. SI turns the recording or transcript into a numbered procedure with purpose, tools needed, steps, checks, common mistakes and who to ask. It lists steps that seemed unclear so the expert can fill them in.",
+    "setup": "A way to record (phone, screen recorder, video call) and a shared place for procedures. Setup is often a day.",
+    "human_checks": [
+      "The expert reviews each procedure before it is shared.",
+      "Safety-related steps are checked by whoever is responsible for safety.",
+      "Procedures are dated and reviewed when processes change."
+    ],
+    "examples": [
+      {
+        "business_type": "Commercial bakery",
+        "scenario": "The head baker narrates the opening routine, and SI writes a procedure covering oven checks, proofing times and allergen cleaning."
+      },
+      {
+        "business_type": "Medical billing office",
+        "scenario": "A screen recording of submitting a claim correction becomes a step-by-step guide with screenshots referenced."
+      },
+      {
+        "business_type": "Property management company",
+        "scenario": "The move-out inspection process becomes a checklist with photo requirements per room."
+      }
+    ],
+    "copy_prompt": "Here is a transcript or recording of [person] doing [task]: [file]. Write a procedure with purpose, tools needed, numbered steps, checks, common mistakes and who to ask. List any steps that are unclear. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Loom",
+      "Google Docs",
+      "Notion",
+      "Scribe",
+      "Trainual"
+    ],
+    "effect": "Training gets easier, and the business depends less on one person remembering everything.",
+    "caution": null
+  },
+  {
+    "slug": "appointment-confirmations",
+    "title": "Appointment confirmations, reminders and reschedules",
+    "category": "Scheduling and operations",
+    "summary": "SI sends approved confirmation and reminder messages, handles reschedule requests against your real calendar, and keeps the schedule current.",
+    "problem": "No-shows and last-minute changes waste slots. Staff spend time calling to confirm and juggling reschedules over text, email and phone.",
+    "what_si_does": "SI sends confirmations and reminders from approved templates at set times before each appointment, reads replies, and handles simple reschedules by offering open slots that fit your rules (provider, room, length). Anything unusual, such as a request to change the type of appointment or a complaint, goes to staff.",
+    "setup": "Calendar or booking-system access, approved templates, and reschedule rules. Setup is often a few days to a week.",
+    "human_checks": [
+      "Templates are approved once by a person, and anything outside them goes to staff.",
+      "Cancellations within the fee window are handled by staff.",
+      "Messages contain only what the client needs to know."
+    ],
+    "examples": [
+      {
+        "business_type": "Dental practice",
+        "scenario": "Patients get a reminder two days before; a patient who replies that she has a conflict is offered three openings with the same hygienist."
+      },
+      {
+        "business_type": "Auto repair shop",
+        "scenario": "Drop-off confirmations go out the day before, with a note about the shuttle schedule."
+      },
+      {
+        "business_type": "Tutoring center",
+        "scenario": "Families get reminders, and a reschedule request is matched to the same tutor's open slots."
+      }
+    ],
+    "copy_prompt": "Using [calendar/booking system], draft confirmation and reminder messages for appointments [timing, e.g. 48 hours before]. For reschedule replies, offer [3] open slots that match [provider, length, location]. Send anything else to [staff]. Show me the templates and the first day's messages. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Calendar",
+      "Calendly",
+      "Acuity",
+      "Square Appointments",
+      "Twilio"
+    ],
+    "effect": "Fewer no-shows and less phone tag, with staff handling only the unusual changes.",
+    "caution": "Medical and dental offices: reminder messages should follow health-privacy rules (for example HIPAA in the US). Keep details minimal and use approved channels."
+  },
+  {
+    "slug": "meeting-notes-action-items",
+    "title": "Meeting notes into owners and due dates",
+    "category": "Scheduling and operations",
+    "summary": "SI turns a meeting transcript or rough notes into a short summary, decisions and a task list with owners and due dates.",
+    "problem": "Meetings end with agreement, then nothing happens because nobody wrote down who would do what. The next meeting starts by rediscussing the last one.",
+    "what_si_does": "From a transcript or notes, SI writes a short summary, decisions made, open questions and action items with an owner and due date for each. It can post the summary to the team channel and add tasks to the project tool once approved, and starts the next agenda with any items still open.",
+    "setup": "Access to transcripts or notes, the team channel and the task tool. Setup is often a day.",
+    "human_checks": [
+      "The meeting organizer reviews the summary before it is shared.",
+      "Task owners confirm their tasks.",
+      "Recording is used only with participants' consent."
+    ],
+    "examples": [
+      {
+        "business_type": "Nonprofit board",
+        "scenario": "Board meeting notes become draft minutes, a list of motions and votes, and action items for committee chairs."
+      },
+      {
+        "business_type": "General contractor",
+        "scenario": "The weekly site meeting with subcontractors produces a list of who is fixing which punch-list item by when."
+      },
+      {
+        "business_type": "Accounting firm",
+        "scenario": "The partner meeting's decisions about client assignments are logged and tasks created."
+      }
+    ],
+    "copy_prompt": "Here is the transcript or notes from [meeting]: [paste]. Write a short summary, decisions, open questions and action items with owner and due date. Draft a post for [channel] and the tasks for [tool]. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Zoom",
+      "Google Meet",
+      "Otter",
+      "Asana",
+      "Slack"
+    ],
+    "effect": "Decisions stick, and follow-through is easier to track.",
+    "caution": "Recording meetings: consent rules vary by place; tell participants and follow the stricter rule if unsure. Formal board minutes should be reviewed by the secretary."
+  },
+  {
+    "slug": "requests-to-calendar-holds",
+    "title": "Turning meeting requests and forwarded emails into calendar holds",
+    "category": "Scheduling and operations",
+    "summary": "When an email asks to meet or includes a date, SI drafts the reply with real open times and creates a tentative calendar hold for you to confirm.",
+    "problem": "Scheduling takes several back-and-forth emails, and dates buried in emails, flyers and attachments never make it onto the calendar.",
+    "what_si_does": "SI reads incoming messages and forwarded items for meeting requests, deadlines and event dates. For meeting requests it checks your calendar and drafts a reply with a few times that fit your rules. For dates in forwarded emails or attachments, it creates tentative events with the details and a link back to the source.",
+    "setup": "Calendar and email access with draft permissions, plus your scheduling preferences. Setup is often a day.",
+    "human_checks": [
+      "Holds stay tentative until you confirm.",
+      "Replies are approved before sending.",
+      "SI does not accept invitations on your behalf."
+    ],
+    "examples": [
+      {
+        "business_type": "Real estate agent",
+        "scenario": "A buyer's email asking to see two houses on Saturday becomes a draft reply with three time windows and tentative holds."
+      },
+      {
+        "business_type": "Lawyer in solo practice",
+        "scenario": "A forwarded court notice becomes a calendar entry with the hearing date and a reminder a week before."
+      },
+      {
+        "business_type": "School parent association",
+        "scenario": "Dates from a forwarded school newsletter become tentative events on the association's calendar."
+      }
+    ],
+    "copy_prompt": "Read [inbox/forwarded messages]. For each meeting request, draft a reply offering [3] times that fit [rules] in my calendar. For each date or deadline mentioned, create a tentative event with the details and a link to the source. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Calendar",
+      "Outlook",
+      "Gmail",
+      "Calendly"
+    ],
+    "effect": "Less back-and-forth to set meetings, and fewer dates fall off the calendar.",
+    "caution": "Legal deadlines: SI-created entries are a convenience, not a docketing system. Court and filing deadlines must be confirmed by the attorney."
+  },
+  {
+    "slug": "daily-briefing",
+    "title": "A morning briefing across inbox, calendar and tasks",
+    "category": "Scheduling and operations",
+    "summary": "Each morning SI prepares a short briefing on today's meetings, urgent messages, overdue tasks and stalled deals.",
+    "problem": "Owners start the day reacting to whatever is on top of the inbox. Preparation for meetings happens in the car, and overdue items surface late.",
+    "what_si_does": "SI reads today's calendar, recent email, the task list and the CRM, and writes a short briefing: meetings with context on each attendee, messages that need a reply today, tasks overdue or due today, and deals or projects with no activity for a while. It is delivered at a set time by email or chat.",
+    "setup": "Read access to calendar, email, tasks and CRM. Setup is often a day or two.",
+    "human_checks": [
+      "The briefing is read-only; any follow-up action is approved.",
+      "Confidential threads can be excluded.",
+      "Content is reviewed after the first week and trimmed to what is useful."
+    ],
+    "examples": [
+      {
+        "business_type": "Owner of an HVAC company",
+        "scenario": "The briefing lists two commercial bids due this week, a call with a supplier rep, and three customer complaints from yesterday."
+      },
+      {
+        "business_type": "Executive director of a nonprofit",
+        "scenario": "Today's donor meeting comes with the donor's giving history and last conversation notes."
+      },
+      {
+        "business_type": "Financial advisor",
+        "scenario": "Client meetings come with notes from the last review, and the list shows clients who emailed with questions."
+      }
+    ],
+    "copy_prompt": "Every morning at [time], read my calendar, email from the last [24 hours], tasks and [CRM]. Write a short briefing: today's meetings with context, messages needing a reply today, overdue tasks, and deals or projects with no activity in [14] days. Send it to [email/chat]. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Calendar",
+      "Gmail",
+      "HubSpot",
+      "Asana",
+      "Slack"
+    ],
+    "effect": "The day starts with a plan, and meetings start better prepared.",
+    "caution": null
+  },
+  {
+    "slug": "requests-to-scheduled-jobs",
+    "title": "Turning incoming work and maintenance requests into scheduled jobs",
+    "category": "Scheduling and operations",
+    "summary": "SI turns work requests from email, forms and messages into job tickets, sorts them by urgency, and drafts a schedule and customer updates.",
+    "problem": "Requests arrive by phone, text, email and portal. They get written on paper, entered late, or lost, and customers do not know when someone is coming.",
+    "what_si_does": "SI reads each request, creates a job ticket with the location, problem, urgency and any photos, and checks capacity or vendor availability. It proposes a time slot or the right vendor by your rules, drafts the message to the customer or tenant with the plan, and drafts the dispatch note to the technician or vendor.",
+    "setup": "Access to the request channels, the job or maintenance system, and your urgency and assignment rules. Setup is often one to two weeks.",
+    "human_checks": [
+      "A dispatcher or manager approves assignments and customer messages.",
+      "Emergencies follow your escalation rules and are confirmed by a person.",
+      "Vendor work orders above a set amount need approval."
+    ],
+    "examples": [
+      {
+        "business_type": "Property management company",
+        "scenario": "A tenant's email about a leaking kitchen faucet becomes a ticket marked routine, assigned to the plumbing vendor, with a draft reply giving the expected visit window."
+      },
+      {
+        "business_type": "Commercial cleaning company",
+        "scenario": "A client's request for an extra floor-waxing visit is scheduled into the next open night crew slot."
+      },
+      {
+        "business_type": "School facilities office",
+        "scenario": "Teacher requests for repairs are logged by building and room and grouped into the custodian's weekly plan."
+      }
+    ],
+    "copy_prompt": "For each request in [channels], create a ticket with location, problem, urgency per [rules], and attachments. Propose a time or vendor using [capacity calendar or vendor list]. Draft a message to the requester with the plan, and a dispatch note to the assignee. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "AppFolio",
+      "Buildium",
+      "Jobber",
+      "ServiceTitan",
+      "Google Sheets"
+    ],
+    "effect": "Requests are captured and acknowledged consistently, and customers know what to expect.",
+    "caution": null
+  },
+  {
+    "slug": "reorder-from-sales-pace",
+    "title": "Reorder lists from sales pace",
+    "category": "Inventory and orders",
+    "summary": "On a set schedule, SI turns recent usage or sales and stock on hand into a suggested reorder list grouped by supplier, for you to approve.",
+    "problem": "Reordering happens from memory or a quick look at the shelf. Fast movers run out, slow movers get reordered anyway, and nobody has time to do the math across hundreds of items.",
+    "what_si_does": "SI reads recent sales or usage per item, stock on hand and on order, and each supplier's lead time and minimum order. It works out how many days of stock remain, flags anything that will run out before the next delivery could arrive, and drafts a reorder list per supplier with a short reason next to each line (for example, 'using faster than last month, about nine days left, three-week lead time').",
+    "setup": "Read access to sales or usage data (point of sale, order system, job records or a stock sheet) plus one sheet of suppliers, lead times, pack sizes and minimums. Agree on how much stock to keep per item group. Setup is often about a week including tuning.",
+    "human_checks": [
+      "The buyer or owner reviews every line and edits quantities before anything goes to a supplier.",
+      "SI only drafts; it does not place orders.",
+      "Seasonal and discontinued items are marked so they are not suggested blindly."
+    ],
+    "examples": [
+      {
+        "business_type": "Restaurant",
+        "scenario": "Weekly usage from the point-of-sale system and the last inventory count produce a list for the produce, dry goods and paper suppliers, with a note that the brunch menu is using eggs faster."
+      },
+      {
+        "business_type": "Dental office",
+        "scenario": "Gloves, impression material and sterilization pouches are tracked from monthly counts, and the order is drafted before the distributor's cutoff."
+      },
+      {
+        "business_type": "Online store",
+        "scenario": "Units sold per variant over the last 30 and 90 days and current stock produce a reorder list per supplier, flagging three variants that will run out before restock."
+      }
+    ],
+    "copy_prompt": "Using this sales or usage data [file] for the last [90] days and my stock on hand [file], estimate days of stock left for each item. Use these lead times and minimums [supplier sheet]. Draft a reorder list grouped by supplier with a one-line reason for each item, and flag anything with less than [14] days left. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Sheets",
+      "Square",
+      "Toast",
+      "Shopify",
+      "QuickBooks Online"
+    ],
+    "effect": "Reordering becomes a short review instead of a long spreadsheet session, and shortages on fast movers tend to be caught earlier. Results depend on how clean the lead-time data is.",
+    "caution": null
+  },
+  {
+    "slug": "purchase-order-drafts",
+    "title": "Drafting purchase orders without a dedicated purchasing system",
+    "category": "Inventory and orders",
+    "summary": "SI turns an approved reorder list into supplier-ready purchase orders in your format, tracks what is open, and drafts the emails.",
+    "problem": "Many businesses order by phone, text or a quick email with no purchase order. Nobody can say what is on order, what price was agreed or what arrived, especially when a purchasing tool is retired or was never set up.",
+    "what_si_does": "From an approved list, SI builds a purchase order per supplier with item codes, quantities, agreed prices and delivery address, numbered and saved to a shared folder. It drafts the email to each supplier, keeps an open-orders sheet, and updates it when confirmations or shipping notices arrive.",
+    "setup": "A purchase order template, supplier list with contacts and item codes, and a shared folder or sheet. Setup is often a few days.",
+    "human_checks": [
+      "A person approves each purchase order before it is sent.",
+      "Price changes on supplier confirmations are flagged.",
+      "SI never accepts new terms or changes quantities on its own."
+    ],
+    "examples": [
+      {
+        "business_type": "Electrical contractor",
+        "scenario": "Materials for two upcoming jobs are combined into one purchase order per supply house, each line tagged to the job."
+      },
+      {
+        "business_type": "Specialty food shop",
+        "scenario": "Orders to five small producers go out as consistent purchase orders, and the open-orders sheet shows which ones have confirmed."
+      },
+      {
+        "business_type": "Print shop",
+        "scenario": "Paper and ink orders are drafted from the reorder list with the distributor's item codes."
+      }
+    ],
+    "copy_prompt": "From this approved reorder list [file], create one purchase order per supplier using [template], with PO number, item codes, quantities, agreed prices from [price sheet] and delivery address [address]. Draft the email to each supplier and add each PO to [open-orders sheet]. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Sheets",
+      "Google Docs",
+      "QuickBooks Online",
+      "Gmail"
+    ],
+    "effect": "Ordering becomes traceable: everyone can see what is on order, at what price, and when it is due.",
+    "caution": null
+  },
+  {
+    "slug": "receiving-check",
+    "title": "Checking deliveries against what was ordered",
+    "category": "Inventory and orders",
+    "summary": "When a delivery arrives, SI compares the packing slip or invoice with the purchase order and lists shortages, substitutions and price differences.",
+    "problem": "Deliveries get signed for without a careful count. Shortages, wrong items and price increases are discovered weeks later, after the invoice is paid.",
+    "what_si_does": "Staff snap a photo of the packing slip or forward the supplier invoice. SI reads it, matches it line by line to the purchase order, and lists anything short, extra, substituted, backordered or priced differently. It drafts a note to the supplier for credits or missing items and updates the open-orders sheet.",
+    "setup": "Open purchase orders in a sheet or system, and a phone or email path for packing slips. Setup is often a few days.",
+    "human_checks": [
+      "Staff confirm physical counts; SI only compares paperwork.",
+      "Credit requests are approved before sending.",
+      "Invoices with differences are held for review before payment."
+    ],
+    "examples": [
+      {
+        "business_type": "Restaurant",
+        "scenario": "The fish delivery is two kilos short and the produce invoice shows a higher price on lemons; both are flagged before the invoice is entered."
+      },
+      {
+        "business_type": "Hardware store",
+        "scenario": "A pallet arrives with a substituted brand of fasteners; the note to the distributor asks for confirmation of price."
+      },
+      {
+        "business_type": "Medical clinic",
+        "scenario": "A supply order arrives with one item backordered, and the clinic manager is alerted so the item can be sourced elsewhere."
+      }
+    ],
+    "copy_prompt": "Compare this packing slip or invoice [photo/PDF] with purchase order [number or file]. List lines that are short, extra, substituted, backordered or priced differently. Draft a note to [supplier] asking for credit or the missing items. Update [open-orders sheet]. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Sheets",
+      "QuickBooks Online",
+      "Xero",
+      "Gmail"
+    ],
+    "effect": "Supplier mistakes are caught while they can still be corrected, and invoices are paid for what actually arrived.",
+    "caution": null
+  },
+  {
+    "slug": "stock-and-stuck-order-watch",
+    "title": "A daily watch for low stock and stuck orders",
+    "category": "Inventory and orders",
+    "summary": "Each day SI checks for items running low and orders or jobs that have stalled, and sends a short list with suggested fixes before customers notice.",
+    "problem": "Problems are found when a customer complains: an item sold that was not in stock, a shipment stuck for a week, a job waiting on a part nobody ordered.",
+    "what_si_does": "SI checks stock levels against minimums, compares open customer orders or jobs with the stock and parts they need, and looks for orders with no movement (no shipping scan, no status change) beyond a set time. It sends a short daily list with what is wrong and a suggested next step, such as contacting the customer, transferring stock or chasing a carrier.",
+    "setup": "Read access to stock and order or job data and carrier tracking if relevant. Setup is often several days.",
+    "human_checks": [
+      "A person decides on each fix and approves any customer message.",
+      "Stock changes in the system are made by staff.",
+      "Thresholds are tuned to avoid false alarms."
+    ],
+    "examples": [
+      {
+        "business_type": "Auto parts distributor",
+        "scenario": "Two customer orders depend on a part with zero stock and no open purchase order; the list suggests ordering and warning the customers."
+      },
+      {
+        "business_type": "Furniture retailer",
+        "scenario": "A delivery has shown no carrier update for six days; a draft message to the customer and a carrier inquiry are prepared."
+      },
+      {
+        "business_type": "Appliance repair company",
+        "scenario": "Three scheduled repairs need a part not yet received, so the dispatcher can reschedule before the technician drives out."
+      }
+    ],
+    "copy_prompt": "Each [morning], check stock in [system] against minimums [file], open orders or jobs against the stock or parts they need, and order tracking for anything with no update in [5] days. List problems with a suggested next step for each. Draft customer messages where needed. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Sheets",
+      "ShipStation",
+      "ServiceTitan",
+      "Slack",
+      "Gmail"
+    ],
+    "effect": "Problems surface while there is still time to fix them quietly.",
+    "caution": null
+  },
+  {
+    "slug": "supplier-lead-times",
+    "title": "Tracking supplier lead times and late deliveries",
+    "category": "Inventory and orders",
+    "summary": "SI records when orders are placed and received, works out each supplier's real lead time, and flags late deliveries early.",
+    "problem": "Lead times are guesses based on what the supplier once said. Late deliveries are noticed only when something is missing, and planning uses numbers nobody has checked.",
+    "what_si_does": "SI logs order dates, promised dates and received dates from purchase orders, confirmations and receiving records. It calculates each supplier's typical lead time and on-time rate over recent orders, flags open orders past their promised date, and drafts a polite chase email.",
+    "setup": "Purchase order and receiving records, plus supplier emails. Setup is often a few days.",
+    "human_checks": [
+      "Chase emails are approved before sending.",
+      "Supplier changes are a business decision for the owner.",
+      "Lead-time figures are reviewed before they feed into reorder planning."
+    ],
+    "examples": [
+      {
+        "business_type": "Cabinet shop",
+        "scenario": "Hardware from one supplier now takes about twice as long as the quoted lead time; the reorder plan is updated."
+      },
+      {
+        "business_type": "Landscaping company",
+        "scenario": "Nursery orders for a spring planting job are past their promised date; a chase email is drafted to the nursery."
+      },
+      {
+        "business_type": "Brewery",
+        "scenario": "Can and label deliveries are tracked so production dates are set around real lead times."
+      }
+    ],
+    "copy_prompt": "From these purchase orders and receiving records [files], calculate each supplier's typical lead time and share of on-time deliveries over the last [6] months. List open orders past their promised date and draft a polite chase email for each. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Sheets",
+      "Gmail",
+      "QuickBooks Online"
+    ],
+    "effect": "Planning uses real lead times, and late deliveries get chased before they cause problems.",
+    "caution": null
+  },
+  {
+    "slug": "inventory-value-aging",
+    "title": "Inventory value and aging report",
+    "category": "Inventory and orders",
+    "summary": "SI shows how much money is tied up in stock, what has not moved in months, and suggests what to discount, return or stop buying.",
+    "problem": "Cash gets tied up in items that sit on shelves. Without an aging view, slow items keep getting reordered and dead stock is discovered at year-end counts.",
+    "what_si_does": "SI combines stock on hand, unit cost and last sale or use date to show inventory value by category and age band (for example, sold in the last 30 days, 31 to 90, over 90, never). It lists the largest pockets of slow stock with options: return to supplier, discount, bundle, or stop reordering.",
+    "setup": "Stock, cost and sales or usage data. Setup is often a few days.",
+    "human_checks": [
+      "The owner decides what to discount or return.",
+      "Cost data is checked against supplier invoices.",
+      "Seasonal items are marked so they are not flagged out of season."
+    ],
+    "examples": [
+      {
+        "business_type": "Bike shop",
+        "scenario": "Older-model accessories and a few last-season bikes hold a large share of stock value; the report suggests a fall clearance and returning one unopened case."
+      },
+      {
+        "business_type": "Plumbing supply counter",
+        "scenario": "Fittings for a discontinued fixture line have not moved in a year and are listed for return or write-off review."
+      },
+      {
+        "business_type": "Online store",
+        "scenario": "Variants in uncommon sizes have not sold in over 90 days; the report suggests stopping reorders on them."
+      }
+    ],
+    "copy_prompt": "Using stock on hand [file], unit costs [file] and last sale or use dates [file], show inventory value by [category] and age band: [0-30, 31-90, 91-180, 180+ days, never]. List the [20] largest slow items with options: return, discount, bundle or stop reordering. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Sheets",
+      "QuickBooks Online",
+      "Lightspeed",
+      "Square"
+    ],
+    "effect": "Clearer view of where cash is sitting, and better decisions on what not to reorder.",
+    "caution": null
+  },
+  {
+    "slug": "order-paperwork-check",
+    "title": "Checking customer orders against their PO and payment",
+    "category": "Inventory and orders",
+    "summary": "Before an order ships or work starts, SI compares the customer's purchase order, your invoice and their payment, and flags any mismatch.",
+    "problem": "Business customers send purchase orders, then pay by transfer with a reference that may or may not match. Mismatched quantities, prices and amounts cause billing disputes and delays.",
+    "what_si_does": "SI reads the customer's purchase order, your sales order or invoice, and the payment record or remittance. It checks customer, quantities, prices, totals, tax and payment amount, and lists mismatches. When everything matches it drafts the order confirmation; when it does not, it drafts a clarifying question.",
+    "setup": "Access to the inbox where purchase orders and remittances arrive, plus invoices and bank or payment records. Setup is often a few days.",
+    "human_checks": [
+      "A person releases the order or work after reviewing any mismatch.",
+      "Confirmation and clarification emails are approved before sending.",
+      "Payment records are read-only for SI."
+    ],
+    "examples": [
+      {
+        "business_type": "Industrial supply distributor",
+        "scenario": "A school district's purchase order lists a lower unit price than the invoice; the order is held and a clarification drafted."
+      },
+      {
+        "business_type": "Uniform supplier",
+        "scenario": "A restaurant group's payment covers two of three invoices; the remittance is matched and the gap noted."
+      },
+      {
+        "business_type": "Event rental company",
+        "scenario": "A corporate client's purchase order is matched to the quote and deposit before the delivery is scheduled."
+      }
+    ],
+    "copy_prompt": "For each order in [inbox/folder], compare the customer's purchase order with our invoice [file] and payment record [file]. Check customer, quantities, prices, totals, tax and amount paid. List mismatches. Draft a confirmation for matches and a clarifying question for mismatches. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "QuickBooks Online",
+      "Xero",
+      "Gmail",
+      "Google Sheets"
+    ],
+    "effect": "Billing disputes are caught before the order ships, not after the invoice is overdue.",
+    "caution": null
+  },
+  {
+    "slug": "descriptions-and-catalog-cleanup",
+    "title": "Product and service descriptions from specs, plus catalog cleanup",
+    "category": "Content and marketing",
+    "summary": "SI writes consistent descriptions from spec sheets and notes, and cleans up names, categories and details across your catalog, menu or service list.",
+    "problem": "Descriptions are missing, copied from suppliers, or written in five different styles. Names and categories are inconsistent, which makes things hard to find and harder to sell.",
+    "what_si_does": "SI reads spec sheets, supplier data or your own notes and writes descriptions in a consistent format and voice: what it is, who it is for, key details, and care or usage notes. It also proposes fixes across the list: consistent naming, missing sizes or details, duplicate entries and wrong categories, as a change sheet for review.",
+    "setup": "An export of the catalog, menu or service list, spec sheets, and a style example. Setup is often a few days.",
+    "human_checks": [
+      "A person approves changes before they are applied.",
+      "Specs that SI could not confirm are flagged rather than guessed.",
+      "Health, safety and performance claims are checked against the source."
+    ],
+    "examples": [
+      {
+        "business_type": "Landscape supply yard",
+        "scenario": "Stone, mulch and soil products get descriptions with coverage per cubic yard and delivery notes, and duplicate listings for the same gravel are merged."
+      },
+      {
+        "business_type": "Medical spa",
+        "scenario": "Service descriptions are rewritten consistently with duration, preparation and aftercare, without medical claims."
+      },
+      {
+        "business_type": "Online store",
+        "scenario": "Product titles are standardized to brand, product, size and color, and missing material details are listed for the owner to fill in."
+      }
+    ],
+    "copy_prompt": "Using these spec sheets [files] and this style example [paste], write descriptions for these items [list] with what it is, who it is for, key details and care or usage notes. Then review this catalog export [file] and propose fixes for naming, missing details, duplicates and categories as a change sheet. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Sheets",
+      "Square",
+      "WooCommerce",
+      "Shopify",
+      "Squarespace"
+    ],
+    "effect": "A cleaner, more consistent catalog that is easier for customers to search and staff to maintain.",
+    "caution": null
+  },
+  {
+    "slug": "newsletter-from-real-updates",
+    "title": "A newsletter drafted from what actually happened",
+    "category": "Content and marketing",
+    "summary": "Each week or month SI collects real updates from your calendar, projects, photos and notes, and drafts a newsletter for you to edit.",
+    "problem": "Newsletters stall because nobody knows what to write. When one does go out, it is generic and late.",
+    "what_si_does": "SI gathers what actually happened: completed projects, new staff, upcoming events, new services, a seasonal tip, customer questions worth answering. It drafts a short issue in your voice with suggested subject lines and photo spots, and leaves out anything not confirmed.",
+    "setup": "Access to sources such as the calendar, project tool, shared photo folder or a running notes doc, plus a couple of past issues. Setup is often a day or two.",
+    "human_checks": [
+      "The owner edits and approves the issue before it is scheduled.",
+      "Customer names or photos are used only with permission.",
+      "Mailing lists follow opt-in and unsubscribe rules."
+    ],
+    "examples": [
+      {
+        "business_type": "Home builder",
+        "scenario": "The monthly issue covers two finished homes with photos, a framing update on a new street, and a reminder about the warranty-check schedule."
+      },
+      {
+        "business_type": "Veterinary clinic",
+        "scenario": "A seasonal note on ticks, a new vet's introduction, and holiday hours."
+      },
+      {
+        "business_type": "Community theater",
+        "scenario": "Audition dates, a rehearsal photo and volunteer needs for the next show."
+      }
+    ],
+    "copy_prompt": "Collect updates for [period] from [calendar, project tool, photo folder, notes doc]. Draft a newsletter in this voice [past issue] with [3-5] short sections, [3] subject-line options and spots for photos. Leave out anything not confirmed in the sources. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Mailchimp",
+      "Constant Contact",
+      "Google Docs",
+      "Google Drive"
+    ],
+    "effect": "Newsletters go out more regularly and reflect the real business.",
+    "caution": null
+  },
+  {
+    "slug": "social-post-calendar",
+    "title": "A month of social posts from one source",
+    "category": "Content and marketing",
+    "summary": "SI turns one set of updates, photos or a single article into a month of platform-specific posts for you to approve and schedule.",
+    "problem": "Posting regularly is hard to keep up with. Accounts go quiet for weeks, then get a burst of rushed posts.",
+    "what_si_does": "From a source you provide (a photo folder, a blog post, notes on upcoming events, past customer questions), SI drafts a calendar of posts suited to each platform, with captions, hashtags where useful, suggested images and posting dates. It varies the mix: work examples, tips, behind-the-scenes, events and offers.",
+    "setup": "Access to the source material and the scheduling tool. Setup is often a day.",
+    "human_checks": [
+      "Every post is approved before scheduling.",
+      "Photos of people are used only with permission.",
+      "Offers and prices are checked by the owner."
+    ],
+    "examples": [
+      {
+        "business_type": "Tile installer",
+        "scenario": "Before-and-after photos of five bathrooms become a month of posts with short notes on materials and layout choices."
+      },
+      {
+        "business_type": "Bakery",
+        "scenario": "The weekly specials list and holiday pre-order dates become posts timed to order cutoffs."
+      },
+      {
+        "business_type": "Financial planner",
+        "scenario": "A quarterly market letter becomes several short educational posts reviewed for compliance."
+      }
+    ],
+    "copy_prompt": "Using [source: photos, article, notes], draft [12] posts for [platforms] over [month], with captions, suggested image and date for each. Mix work examples, tips, behind-the-scenes and events. Keep my voice [examples]. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Buffer",
+      "Later",
+      "Meta Business Suite",
+      "Canva",
+      "Google Drive"
+    ],
+    "effect": "A steady posting rhythm without the weekly scramble.",
+    "caution": "Regulated professions (financial, legal, medical) usually have rules for public communications; route posts through whoever handles compliance."
+  },
+  {
+    "slug": "repurpose-long-content",
+    "title": "One talk, class or article into several pieces",
+    "category": "Content and marketing",
+    "summary": "SI turns one long piece, such as a talk, webinar, interview or article, into shorter posts, an email, a handout and short video scripts.",
+    "problem": "Good long content gets used once. Making shorter versions for other channels takes as long as writing the original.",
+    "what_si_does": "From a recording or transcript, SI pulls out the strongest points and drafts several pieces: a summary article, an email, a few short social posts, a one-page handout and short video scripts with suggested clip timestamps. Each piece keeps your wording where possible and notes its source.",
+    "setup": "The source recording or document and a style example. Setup is often a day.",
+    "human_checks": [
+      "The speaker or author approves each piece.",
+      "Quotes are checked against the transcript.",
+      "Nothing is published without approval."
+    ],
+    "examples": [
+      {
+        "business_type": "Employment law firm",
+        "scenario": "A webinar on new leave rules becomes a client alert, an email, three short posts and a one-page summary for HR managers, all reviewed by an attorney."
+      },
+      {
+        "business_type": "Fitness coach",
+        "scenario": "A long podcast episode becomes short exercise tips and a handout for clients."
+      },
+      {
+        "business_type": "Nonprofit",
+        "scenario": "The director's annual meeting speech becomes a donor letter and a series of impact posts."
+      }
+    ],
+    "copy_prompt": "Here is a transcript of [talk/article]: [file]. Draft a summary article, an email, [5] social posts, a one-page handout and [3] short video scripts with timestamps for clips. Keep my wording where possible. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Descript",
+      "Riverside",
+      "Google Docs",
+      "Canva"
+    ],
+    "effect": "More value from each piece of content, with less time spent rewriting it.",
+    "caution": null
+  },
+  {
+    "slug": "web-pages-and-search-snippets",
+    "title": "Refreshing tired web pages and search snippets",
+    "category": "Content and marketing",
+    "summary": "SI reviews your key web pages for outdated details, weak titles and missing information, and proposes specific rewrites you approve.",
+    "problem": "Service and category pages were written years ago. Hours, prices and services are out of date, titles and descriptions in search results are vague, and important questions are not answered.",
+    "what_si_does": "SI reads your main pages and checks for outdated details, missing basics (service area, hours, how to book), unclear headings, and weak page titles and meta descriptions. It proposes rewrites for each page in a change sheet, and drafts a few short articles that answer common customer questions.",
+    "setup": "A list of pages, the site editor or a person to apply changes, and the current facts. Setup is often a few days.",
+    "human_checks": [
+      "The owner approves every change.",
+      "SI does not change live pages without approval.",
+      "Facts like prices and services are confirmed by the owner."
+    ],
+    "examples": [
+      {
+        "business_type": "Chimney sweep",
+        "scenario": "Service pages get clear titles naming the services and towns covered, and a new page answers how often chimneys should be inspected."
+      },
+      {
+        "business_type": "Family law practice",
+        "scenario": "Practice-area pages are rewritten in plainer language with a clear consultation process, reviewed by an attorney."
+      },
+      {
+        "business_type": "Garden center",
+        "scenario": "Seasonal category pages are refreshed with current plant availability and planting tips."
+      }
+    ],
+    "copy_prompt": "Review these pages [URLs]. For each, list outdated details, missing basics [service area, hours, booking], and weak headings. Propose a new page title, meta description and rewritten sections in a change sheet. Suggest [3] short articles answering common questions [list]. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "WordPress",
+      "Squarespace",
+      "Wix",
+      "Google Search Console",
+      "Google Sheets"
+    ],
+    "effect": "A website that is current and clearer, which helps both visitors and search results.",
+    "caution": null
+  },
+  {
+    "slug": "marketing-claims-check",
+    "title": "Checking marketing copy for claims you cannot back up",
+    "category": "Content and marketing",
+    "summary": "Before something is published, SI checks the copy against your evidence and flags claims that are unsupported, outdated or risky.",
+    "problem": "Marketing copy picks up phrases like 'best in town', 'guaranteed' or 'clinically proven' that nobody can support. Old claims stay on the site long after they stopped being true.",
+    "what_si_does": "SI reads the draft or existing pages and lists each factual claim: superlatives, guarantees, numbers, certifications, results and comparisons. For each it looks for support in the evidence you provide (licenses, certifications, warranty terms, documented results) and labels it supported, unsupported or needs review, with a softer alternative.",
+    "setup": "The copy to check and a folder of supporting documents. Setup is often a day.",
+    "human_checks": [
+      "The owner or compliance reviewer decides final wording.",
+      "SI does not give legal opinions on advertising rules.",
+      "Industry-specific rules are checked by the responsible person."
+    ],
+    "examples": [
+      {
+        "business_type": "Roofing company",
+        "scenario": "'Lifetime warranty' is flagged because the manufacturer warranty has conditions; a clearer phrasing is suggested."
+      },
+      {
+        "business_type": "Supplement retailer",
+        "scenario": "Health benefit claims on product pages are listed for review against what is allowed."
+      },
+      {
+        "business_type": "Accounting firm",
+        "scenario": "A brochure line about 'guaranteed savings' is flagged and rewritten."
+      }
+    ],
+    "copy_prompt": "Review this copy [draft or URLs]. List every factual claim, guarantee, comparison, number or certification. Check each against this evidence [folder] and label it supported, unsupported or needs review. Suggest a supported alternative for each problem claim. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Docs",
+      "Google Drive"
+    ],
+    "effect": "Fewer claims you cannot stand behind, and a cleaner review process before publishing.",
+    "caution": "Advertising rules vary by industry and place (health, finance and legal services are stricter). SI flags wording; it does not replace review by a lawyer or compliance person."
+  },
+  {
+    "slug": "automated-email-review",
+    "title": "Reviewing and rewriting your automated emails",
+    "category": "Content and marketing",
+    "summary": "SI reviews the emails your systems send automatically, such as welcomes, booking confirmations and follow-ups, and drafts clearer replacements.",
+    "problem": "Automated emails were set up once and forgotten. Some have old details, some are missing entirely, and the tone does not match the business.",
+    "what_si_does": "SI collects your automated messages (welcome, confirmation, reminder, post-visit or post-purchase, review request, inactive-customer follow-up), checks them for outdated details, gaps and unclear calls to action, and maps which moments have no message at all. It drafts replacements and new messages for approval.",
+    "setup": "Copies or screenshots of current automated emails and the list of customer journey steps. Setup is often a few days.",
+    "human_checks": [
+      "The owner approves every message before it is switched on.",
+      "Opt-in and unsubscribe rules are followed.",
+      "Changes are tested with a test address first."
+    ],
+    "examples": [
+      {
+        "business_type": "Physical therapy clinic",
+        "scenario": "The new-patient welcome email still lists an old address; a replacement is drafted with parking and what to wear."
+      },
+      {
+        "business_type": "Wedding venue",
+        "scenario": "There is no follow-up after a tour; a short sequence is drafted with a link to book a second visit."
+      },
+      {
+        "business_type": "Online store",
+        "scenario": "The abandoned-cart email offers a discount the owner no longer gives; a version without it is drafted."
+      }
+    ],
+    "copy_prompt": "Here are my automated emails [files or screenshots] and the customer steps [list]. Check each email for outdated details, gaps and unclear calls to action. List steps with no email. Draft replacements and new emails in my voice [example]. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Mailchimp",
+      "Klaviyo",
+      "HubSpot",
+      "ActiveCampaign"
+    ],
+    "effect": "Automated messages are accurate and consistent, and gaps in the customer journey are filled.",
+    "caution": null
+  },
+  {
+    "slug": "job-posting-drafts",
+    "title": "Job postings drafted from a quick description of the role",
+    "category": "Hiring and team admin",
+    "summary": "SI turns a manager's rough notes about a role into a clear job posting, screening questions and a short interview plan.",
+    "problem": "Job postings get copied from old ones or the internet, with vague duties and requirements that do not match the actual job. The wrong people apply and the right ones skip it.",
+    "what_si_does": "From the manager's notes or a voice memo, SI drafts a posting with a plain summary, real day-to-day duties, must-have and nice-to-have requirements, schedule, pay range if you share it, and how to apply. It suggests a few job-related screening questions and flags wording that could unintentionally discourage qualified applicants.",
+    "setup": "Manager notes, past postings and your standard benefits text. Setup is often a day.",
+    "human_checks": [
+      "The hiring manager approves the posting before it is published.",
+      "Requirements are checked to be job-related.",
+      "Pay transparency and posting rules where you hire are confirmed by a person."
+    ],
+    "examples": [
+      {
+        "business_type": "Plumbing company",
+        "scenario": "Notes on a second-year apprentice role become a posting with the license stage, truck and tool details, and on-call expectations stated clearly."
+      },
+      {
+        "business_type": "Accounting practice",
+        "scenario": "A seasonal tax preparer posting lists software used, busy-season hours and remote options."
+      },
+      {
+        "business_type": "Restaurant",
+        "scenario": "A line cook posting lists the stations, shift pattern and what a trial shift involves."
+      }
+    ],
+    "copy_prompt": "Here are my notes on a [role]: [paste]. Draft a job posting with a short summary, day-to-day duties, must-have and nice-to-have requirements, schedule, pay range [if provided], and how to apply. Suggest [5] job-related screening questions. Flag any wording that could discourage qualified applicants. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Indeed",
+      "LinkedIn",
+      "Google Docs",
+      "Workable"
+    ],
+    "effect": "Clearer postings that attract better-matched applicants.",
+    "caution": "Hiring: employment and anti-discrimination laws apply. Screening criteria must be job-related and applied consistently, SI should never score on protected characteristics, and some places regulate automated hiring tools. A person makes every hiring decision."
+  },
+  {
+    "slug": "application-summaries",
+    "title": "Summarizing job applications against the role's criteria",
+    "category": "Hiring and team admin",
+    "summary": "SI summarizes each application against the criteria you set for the role, so the hiring manager reads a consistent digest and decides.",
+    "problem": "A posting brings in dozens or hundreds of applications. Busy managers skim, miss good candidates, and apply different standards on different days.",
+    "what_si_does": "SI reads each application and summarizes it against the written, job-related criteria: required license or certification, relevant experience, availability, and answers to screening questions. It notes where information is missing and groups applications into meets criteria, partly meets, and does not show the requirement, with the reason. It does not reject anyone; the manager reviews.",
+    "setup": "The role's written criteria, access to applications from the job board or applicant tracker. Setup is often a day or two per role type.",
+    "human_checks": [
+      "A person reviews every application group and makes all decisions.",
+      "SI ignores names, photos, ages and other protected characteristics in its summaries.",
+      "Criteria and outcomes are reviewed periodically for consistency and fairness."
+    ],
+    "examples": [
+      {
+        "business_type": "Home care agency",
+        "scenario": "Caregiver applications are summarized by certification, driving availability and weekend availability, with missing certification dates noted."
+      },
+      {
+        "business_type": "Electrical contractor",
+        "scenario": "Journeyman applicants are summarized by license status and type of work, and the owner calls the ones who meet the requirements."
+      },
+      {
+        "business_type": "Private school",
+        "scenario": "Teaching applications are summarized by subject certification and grade-level experience for the principal."
+      }
+    ],
+    "copy_prompt": "Here are the written criteria for [role]: [paste]. Summarize each application in [folder/applicant tracker] against those criteria only, ignoring names, photos, age and other personal characteristics. Group them into meets, partly meets and does not show the requirement, with a one-line reason and any missing information. Do not reject anyone. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Workable",
+      "BambooHR",
+      "Indeed",
+      "Google Sheets"
+    ],
+    "effect": "Managers spend their time on the most relevant applicants, with a consistent first read.",
+    "caution": "Hiring: employment and anti-discrimination laws apply. Screening criteria must be job-related and applied consistently, SI should never score on protected characteristics, and some places regulate automated hiring tools. A person makes every hiring decision."
+  },
+  {
+    "slug": "interview-scheduling-and-kits",
+    "title": "Interview scheduling and a consistent question kit",
+    "category": "Hiring and team admin",
+    "summary": "SI coordinates interview times with candidates and interviewers, and prepares a consistent question set and scoring sheet for each role.",
+    "problem": "Interviews take a string of emails to schedule. Each interviewer asks different questions, which makes candidates hard to compare.",
+    "what_si_does": "SI drafts messages to shortlisted candidates offering times that work for the interviewers, books confirmed slots, and sends reminders. For each role it prepares a short kit: the same job-related questions for every candidate, what a good answer covers, and a simple scoring sheet for interviewers to fill in.",
+    "setup": "Calendar access for interviewers, candidate contacts and the role's criteria. Setup is often a day.",
+    "human_checks": [
+      "Candidate messages are approved before sending.",
+      "The hiring manager approves the questions.",
+      "Interview notes and scores are kept with access limited to the hiring team."
+    ],
+    "examples": [
+      {
+        "business_type": "Dental practice",
+        "scenario": "Three hygienist candidates are offered times around the dentist's patient schedule, and the kit covers patient communication and sterilization procedures."
+      },
+      {
+        "business_type": "Marketing agency",
+        "scenario": "A designer candidate gets times with two interviewers and a short portfolio review structure."
+      },
+      {
+        "business_type": "Nonprofit",
+        "scenario": "Program coordinator interviews use the same questions for all candidates, including board members on the panel."
+      }
+    ],
+    "copy_prompt": "For [role], draft messages to these candidates [list] offering [3] times that fit [interviewers' calendars]. Prepare an interview kit with [6] job-related questions, what a strong answer covers, and a scoring sheet. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Calendar",
+      "Calendly",
+      "Gmail",
+      "Google Docs"
+    ],
+    "effect": "Less scheduling back-and-forth and fairer, easier comparisons between candidates.",
+    "caution": "Hiring: employment and anti-discrimination laws apply. Screening criteria must be job-related and applied consistently, SI should never score on protected characteristics, and some places regulate automated hiring tools. A person makes every hiring decision."
+  },
+  {
+    "slug": "new-hire-onboarding",
+    "title": "A new-hire onboarding checklist that actually gets followed",
+    "category": "Hiring and team admin",
+    "summary": "SI builds a role-specific onboarding plan, sends reminders to whoever owns each step, and tracks what is done.",
+    "problem": "First weeks are improvised. Accounts are not ready, paperwork is chased late, and training depends on who has time that day.",
+    "what_si_does": "From your standard onboarding steps and the role, SI builds a dated checklist: paperwork, accounts and keys, equipment, introductions, training sessions and first-month check-ins, each with an owner. It sends reminders to owners before due dates, drafts a welcome email with first-day details, and reports what is still open.",
+    "setup": "Your onboarding steps, role templates, and the tools for tasks and email. Setup is often a few days.",
+    "human_checks": [
+      "HR or the manager approves the plan and any messages to the new hire.",
+      "Personal documents are handled in your HR system, not in chat or email.",
+      "Required legal paperwork is confirmed by the responsible person."
+    ],
+    "examples": [
+      {
+        "business_type": "Property management company",
+        "scenario": "A new leasing agent's plan includes software logins, a ride-along with a senior agent and a fair-housing training session in week one."
+      },
+      {
+        "business_type": "Commercial kitchen",
+        "scenario": "A new prep cook gets food-safety training, a station walkthrough and uniform sizing before the first shift."
+      },
+      {
+        "business_type": "Law firm",
+        "scenario": "A new paralegal's accounts, conflict-system training and a meeting with each practice group are scheduled."
+      }
+    ],
+    "copy_prompt": "Using our onboarding steps [paste] and this role [description], build a dated checklist for [name] starting [date], with an owner for each step. Draft a welcome email with first-day details. Set reminders for owners [2] days before each step. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "BambooHR",
+      "Gusto",
+      "Asana",
+      "Google Workspace",
+      "Slack"
+    ],
+    "effect": "New hires get a steadier start, and fewer steps are missed.",
+    "caution": null
+  },
+  {
+    "slug": "internal-answers-helper",
+    "title": "An internal helper that answers staff questions from your own documents",
+    "category": "Hiring and team admin",
+    "summary": "SI answers staff questions about procedures, policies, products and prices from your own documents, and says where it found the answer.",
+    "problem": "Staff interrupt the owner or senior people with the same questions all day. The answers exist in a handbook, price sheet or old email, but nobody can find them quickly.",
+    "what_si_does": "SI is connected to an approved set of internal documents: the handbook, procedures, price lists, spec sheets and FAQs. Staff ask in chat, and SI answers with a short reply and a link to the source. When the documents do not cover a question, it says so and routes the question to the right person, and the gap is logged so the documents can be updated.",
+    "setup": "A tidy set of approved documents and a chat tool. Setup is often one to two weeks, mostly organizing the documents.",
+    "human_checks": [
+      "Only approved documents are used, and sources are always shown.",
+      "Questions about pay, discipline or personal matters go to a person.",
+      "Document owners review the gap log monthly."
+    ],
+    "examples": [
+      {
+        "business_type": "HVAC distributor",
+        "scenario": "Counter staff ask which filters fit a given unit and get the answer with a link to the cross-reference sheet."
+      },
+      {
+        "business_type": "Medical practice",
+        "scenario": "Front-desk staff check the procedure for a new patient's insurance verification and get the steps from the office manual."
+      },
+      {
+        "business_type": "Multi-location retailer",
+        "scenario": "Store staff check the holiday return policy and price-match rules."
+      }
+    ],
+    "copy_prompt": "Answer staff questions using only these documents [folder]. Give a short answer and link the source. If the documents do not cover it, say so and suggest who to ask [contacts]. Keep a log of unanswered questions. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Slack",
+      "Microsoft Teams",
+      "Notion",
+      "Google Drive",
+      "Confluence"
+    ],
+    "effect": "Fewer interruptions for senior staff, and documents that improve as gaps are found.",
+    "caution": null
+  },
+  {
+    "slug": "license-and-certification-tracker",
+    "title": "Tracking staff licenses, certifications and training renewals",
+    "category": "Hiring and team admin",
+    "summary": "SI keeps one list of staff licenses, certifications and required training with expiry dates, and reminds people well before anything lapses.",
+    "problem": "Licenses, certifications and required trainings expire on different dates. A lapse can mean someone cannot work, or a problem at an inspection or audit.",
+    "what_si_does": "SI reads certificates and records from a shared folder or HR system, builds a list of each person's credentials with issue and expiry dates, and sends reminders to the person and their manager ahead of each expiry. It flags anyone scheduled for work that requires a credential they do not currently hold.",
+    "setup": "Copies of certificates or HR records, and the list of required credentials per role. Setup is often a few days.",
+    "human_checks": [
+      "A manager confirms dates against the original documents.",
+      "Scheduling decisions about uncertified staff are made by a person.",
+      "Credential records are kept with access limited to managers."
+    ],
+    "examples": [
+      {
+        "business_type": "Electrical contractor",
+        "scenario": "Electrician licenses, lift certifications and safety training are tracked, with a reminder to renew a lift card before a job that needs it."
+      },
+      {
+        "business_type": "Childcare center",
+        "scenario": "CPR and first-aid certifications and background-check renewals are tracked for every staff member."
+      },
+      {
+        "business_type": "Home health agency",
+        "scenario": "Nursing licenses and required annual trainings are tracked for each caregiver."
+      }
+    ],
+    "copy_prompt": "From these certificates and records [folder], build a list of each person's licenses, certifications and trainings with issue and expiry dates. Compare with required credentials per role [file]. Draft reminders [60] and [14] days before expiry, and flag anyone scheduled for work needing a credential they lack. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Sheets",
+      "BambooHR",
+      "Google Calendar",
+      "Gmail"
+    ],
+    "effect": "Fewer surprise lapses and fewer scrambles before inspections.",
+    "caution": null
+  },
+  {
+    "slug": "timesheet-review-before-payroll",
+    "title": "Reviewing timesheets and time off before payroll",
+    "category": "Hiring and team admin",
+    "summary": "Before each payroll run, SI checks timesheets against schedules and time-off records and lists anything that looks wrong for a person to fix.",
+    "problem": "Payroll errors come from missed punches, unapproved overtime and time off that was never recorded. They are found after the paychecks, which is awkward for everyone.",
+    "what_si_does": "SI compares timesheets with the schedule, approved time-off requests and job or project codes. It lists missing punches, unusually long shifts, overtime without approval, time off taken but not recorded, and hours coded to the wrong job. It prepares a summary for the payroll person. It does not run payroll or approve hours.",
+    "setup": "Exports from time tracking, scheduling and time-off records. Setup is often a few days.",
+    "human_checks": [
+      "A manager resolves each flagged item with the employee.",
+      "Payroll is run and approved by a person.",
+      "Wage-and-hour rules are the owner's or payroll provider's responsibility."
+    ],
+    "examples": [
+      {
+        "business_type": "Landscaping company",
+        "scenario": "Two crew members are missing clock-outs on the same day, and overtime on a Saturday job was not approved."
+      },
+      {
+        "business_type": "Restaurant",
+        "scenario": "A server's paid sick day was taken but not recorded, and a cook's hours exceed the schedule by a full shift."
+      },
+      {
+        "business_type": "Engineering consultancy",
+        "scenario": "Hours coded to a closed project are flagged before they are billed or paid."
+      }
+    ],
+    "copy_prompt": "Compare these timesheets [export] with the schedule [export], approved time off [export] and job codes [list] for [pay period]. List missing punches, shifts over [12] hours, unapproved overtime, unrecorded time off and miscoded hours. Prepare a summary for payroll. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Gusto",
+      "ADP",
+      "QuickBooks Time",
+      "Homebase",
+      "Google Sheets"
+    ],
+    "effect": "Fewer payroll corrections after the fact.",
+    "caution": "Payroll and wage rules are regulated. SI only flags issues; payroll decisions and tax filings stay with the owner, payroll provider or accountant."
+  },
+  {
+    "slug": "contract-first-read",
+    "title": "A first read of contracts for the terms that matter",
+    "category": "Research and documents",
+    "summary": "SI highlights dates, renewal terms, payment terms and unusual clauses in contracts so you know what to ask your lawyer or the other side.",
+    "problem": "Contracts, leases and vendor agreements get signed after a skim. Auto-renewals, notice periods, liability terms and penalties come as surprises later.",
+    "what_si_does": "SI reads the contract and produces a plain summary: parties, term, renewal and notice, payment terms, termination, liability and insurance requirements, exclusivity, and anything that differs from your usual terms or a checklist you provide. It lists questions to raise. It does not say whether a clause is acceptable or enforceable.",
+    "setup": "The contract and, ideally, a checklist of terms you care about or a standard version to compare against. Setup is often a day.",
+    "human_checks": [
+      "A lawyer reviews anything significant before signing.",
+      "SI's summary is checked against the actual text.",
+      "SI never signs, accepts or sends contracts."
+    ],
+    "examples": [
+      {
+        "business_type": "Restaurant owner",
+        "scenario": "A new commercial lease summary highlights a personal guarantee, a percentage-rent clause and the required notice to renew."
+      },
+      {
+        "business_type": "Marketing agency",
+        "scenario": "A client's master services agreement is compared with the agency's standard terms, flagging an unlimited revision clause and payment at 90 days."
+      },
+      {
+        "business_type": "Nonprofit",
+        "scenario": "A grant agreement's reporting deadlines and restrictions on spending are pulled into a calendar and summary."
+      }
+    ],
+    "copy_prompt": "Read this contract [file]. Summarize parties, term, renewal and notice, payment, termination, liability, insurance, exclusivity and any unusual clauses. Compare it with [my checklist or standard terms] and list differences and questions for my lawyer. Do not give a legal opinion. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Docs",
+      "Microsoft Word",
+      "Adobe Acrobat",
+      "Google Drive"
+    ],
+    "effect": "You go into contract discussions knowing which terms matter, and legal review time goes to the important questions.",
+    "caution": "Legal: this is an organizing aid, not legal advice. SI may miss or misread terms. Have a qualified lawyer review contracts that matter."
+  },
+  {
+    "slug": "routine-form-filling",
+    "title": "Filling routine forms from saved company details",
+    "category": "Research and documents",
+    "summary": "SI fills vendor setup forms, applications, permits and questionnaires from a saved set of company details, and stops before anything is submitted.",
+    "problem": "The same information (legal name, tax ID, insurance details, addresses, contacts) is typed into form after form. Errors creep in, and forms sit unfinished.",
+    "what_si_does": "SI keeps a profile of verified company details and documents (certificate of insurance, licenses, standard answers). For each new form, it fills what it can, lists fields it could not answer, and attaches the right documents. It stops before signing or submitting, and leaves the finished draft for review.",
+    "setup": "A verified company profile and document folder. Setup is often a day.",
+    "human_checks": [
+      "A person checks and submits every form.",
+      "Sensitive identifiers are stored securely and shared only where required.",
+      "SI never signs on anyone's behalf."
+    ],
+    "examples": [
+      {
+        "business_type": "Electrical contractor",
+        "scenario": "A general contractor's subcontractor packet is filled with license numbers, insurance limits and safety program answers, with two questions left for the owner."
+      },
+      {
+        "business_type": "Food producer",
+        "scenario": "A grocery distributor's vendor setup form is completed and the food-safety certificate attached."
+      },
+      {
+        "business_type": "Event planner",
+        "scenario": "Venue permit applications for an outdoor event are pre-filled from the event details."
+      }
+    ],
+    "copy_prompt": "Using my company profile [file] and documents [folder], fill out this form [file or link]. List any fields you could not complete and attach the matching documents. Do not sign or submit. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Adobe Acrobat",
+      "Google Drive",
+      "DocuSign",
+      "Google Sheets"
+    ],
+    "effect": "Forms are completed faster and more consistently, with fewer errors.",
+    "caution": "Tax and government forms: SI fills in information you have already verified; it does not decide tax classifications or legal answers. Confirm anything you are unsure of with your accountant or lawyer."
+  },
+  {
+    "slug": "long-document-briefs",
+    "title": "Short briefs from long documents",
+    "category": "Research and documents",
+    "summary": "SI reads long documents such as regulations, bid packages, reports or board packets and writes a short brief with what matters to you and what to do next.",
+    "problem": "Important documents are long and dense, and reading them carefully takes time nobody has. Key requirements and deadlines get missed.",
+    "what_si_does": "SI reads the document and writes a brief: what it is, the key points, requirements or decisions that affect you, deadlines, and open questions, with page references for each point so you can check the source.",
+    "setup": "The document and a short description of what you care about. Setup is minimal.",
+    "human_checks": [
+      "Important points are checked against the page references.",
+      "Interpretations of rules are confirmed by a qualified person.",
+      "SI flags uncertainty rather than guessing."
+    ],
+    "examples": [
+      {
+        "business_type": "General contractor",
+        "scenario": "A large bid package becomes a brief with scope, submission deadline, bonding and insurance requirements and pre-bid meeting date, with page numbers."
+      },
+      {
+        "business_type": "Restaurant group",
+        "scenario": "A city's new food-service regulations are summarized with what changes for kitchens and when it takes effect."
+      },
+      {
+        "business_type": "School board member",
+        "scenario": "A long board packet becomes a two-page brief with the votes coming up and the questions worth asking."
+      }
+    ],
+    "copy_prompt": "Read this document [file]. I am [role] at [organization] and care about [topics]. Write a brief with key points, requirements affecting us, deadlines and open questions, with page references for each. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Drive",
+      "Adobe Acrobat",
+      "Google Docs"
+    ],
+    "effect": "Long documents get a careful first read quickly, and the important parts are easier to find.",
+    "caution": "When the document is a regulation, contract or legal notice, the brief is not legal advice; confirm interpretations with a qualified professional."
+  },
+  {
+    "slug": "rfp-and-grant-drafts",
+    "title": "Drafting bids, RFP responses and grant applications from past answers",
+    "category": "Research and documents",
+    "summary": "SI drafts responses to bids, RFPs and grant applications from your past submissions and documents, and lists what still needs a human answer.",
+    "problem": "Each application asks similar questions in different words. Teams rewrite the same answers from scratch, under deadline, and miss requirements.",
+    "what_si_does": "SI reads the request, builds a checklist of every required section, attachment and format rule, and drafts answers by drawing on past submissions, capability statements and project summaries. It marks each answer as reused, adapted or new, and lists questions with no good source answer. It also prepares a submission checklist with the deadline.",
+    "setup": "A folder of past submissions, capability statements, bios and project summaries. Setup is often a few days to organize the library.",
+    "human_checks": [
+      "A person reviews every answer and all budget figures.",
+      "Claims about past work are checked against records.",
+      "Submission is done by a person."
+    ],
+    "examples": [
+      {
+        "business_type": "Environmental nonprofit",
+        "scenario": "A foundation grant application is drafted from last year's proposal and program reports, with the new evaluation section flagged as needing input."
+      },
+      {
+        "business_type": "IT consulting firm",
+        "scenario": "A city's request for proposals gets a compliance checklist and draft answers from previous public-sector bids."
+      },
+      {
+        "business_type": "Architecture firm",
+        "scenario": "A qualifications package is assembled with relevant project sheets and team resumes."
+      }
+    ],
+    "copy_prompt": "Read this request [file]. Build a checklist of required sections, attachments, formats and the deadline. Draft answers using these past submissions and documents [folder], marking each as reused, adapted or new. List questions with no good source. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Docs",
+      "Google Drive",
+      "Microsoft Word",
+      "Submittable"
+    ],
+    "effect": "Applications start from a solid draft, and requirements are less likely to be missed.",
+    "caution": null
+  },
+  {
+    "slug": "pdf-data-extraction-and-filing",
+    "title": "Pulling data out of PDFs and scans, and filing them",
+    "category": "Research and documents",
+    "summary": "SI reads PDFs, scans and photos, extracts the fields you need into a spreadsheet, and renames and files the documents consistently.",
+    "problem": "Information is trapped in PDFs, scans and phone photos: statements, forms, delivery notes, certificates. Someone retypes it, and the files end up in a messy downloads folder.",
+    "what_si_does": "SI reads each document, extracts the fields you specify (dates, names, amounts, reference numbers, line items), and writes them to a spreadsheet with a link to the source file. It renames files with a consistent pattern and moves them into the right folders, and lists documents it could not read clearly.",
+    "setup": "A source folder, the list of fields, and a naming pattern. Setup is often a day.",
+    "human_checks": [
+      "Extracted values are spot-checked against the documents.",
+      "Unreadable or uncertain fields are flagged, not guessed.",
+      "Original files are kept unchanged."
+    ],
+    "examples": [
+      {
+        "business_type": "Property manager",
+        "scenario": "A year of scanned utility bills across buildings becomes a sheet of usage and cost by building and month."
+      },
+      {
+        "business_type": "Freight broker",
+        "scenario": "Proof-of-delivery scans are renamed by load number and the delivery dates extracted for billing."
+      },
+      {
+        "business_type": "Medical office",
+        "scenario": "Faxed referral forms are filed by referring practice and the key referral details logged for the scheduling team."
+      }
+    ],
+    "copy_prompt": "For each document in [folder], extract [fields] into [sheet] with a link to the file. Rename each file as [pattern] and move it to [folder rules]. List any document or field you could not read clearly. Do not change the original contents. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Drive",
+      "Dropbox",
+      "Google Sheets",
+      "Adobe Acrobat"
+    ],
+    "effect": "Less retyping, and documents that can actually be found later.",
+    "caution": "Medical records and other personal data must be handled under the privacy rules that apply to you (for example HIPAA). Use approved, secure tools only."
+  },
+  {
+    "slug": "options-comparison",
+    "title": "Comparing vendors, tools or options in one decision sheet",
+    "category": "Research and documents",
+    "summary": "SI researches the options for a purchase or decision and lays them out side by side against your requirements, with sources.",
+    "problem": "Choosing a new supplier, software tool or service provider means reading websites, quotes and reviews that never compare the same things. Decisions end up based on whoever had the best sales call.",
+    "what_si_does": "From your requirements and the options you are considering, SI collects published information and the quotes you have received, and builds a comparison sheet: price and terms, features against requirements, contract length, support, and open questions for each vendor. It flags where information is missing or based only on the vendor's own claims.",
+    "setup": "Your requirements and the quotes or vendor names. Setup is minimal.",
+    "human_checks": [
+      "The owner makes the decision.",
+      "Facts are linked to sources and checked before relying on them.",
+      "Questions for vendors are sent by a person."
+    ],
+    "examples": [
+      {
+        "business_type": "Dental practice",
+        "scenario": "Three practice-management systems are compared on scheduling, imaging integration, monthly cost, data migration and contract length."
+      },
+      {
+        "business_type": "Moving company",
+        "scenario": "Quotes for two truck lease offers are compared on mileage limits, maintenance and early termination."
+      },
+      {
+        "business_type": "Community center",
+        "scenario": "Three insurance quotes are compared on coverage limits and exclusions, with questions for the broker."
+      }
+    ],
+    "copy_prompt": "I need to choose [type of vendor or tool]. My requirements are [list]. Compare these options [names, quotes, links] side by side on price, terms, requirements met, contract length and support. Link sources and flag anything missing or based only on vendor claims. List questions to ask each vendor. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Sheets",
+      "Google Docs"
+    ],
+    "effect": "Decisions rest on a clear comparison rather than a sales pitch.",
+    "caution": null
+  },
+  {
+    "slug": "portal-chores",
+    "title": "Handing recurring web-portal chores to SI",
+    "category": "Research and documents",
+    "summary": "SI works through recurring tasks in web portals, such as downloading statements, checking statuses and entering routine data, and stops before any final step.",
+    "problem": "Admin work is full of small portal tasks: download this month's statements from six sites, check claim or permit status, update the same info in three places. Each is quick, together they eat hours.",
+    "what_si_does": "With access you grant, SI logs into the portals you list, follows the written steps for each chore, downloads files into the right folders, records statuses in a sheet, and fills routine data entries. Before any step that submits, pays, accepts terms or changes account settings, it stops and asks.",
+    "setup": "A written list of chores and steps, and access set up the way you choose (preferably with limited-permission user accounts). Setup is often a few days.",
+    "human_checks": [
+      "SI stops before any submit, payment, signature or setting change.",
+      "Access uses limited-permission accounts where possible, and passwords are not shared in chat.",
+      "A person spot-checks downloads and entries."
+    ],
+    "examples": [
+      {
+        "business_type": "Property management company",
+        "scenario": "On the first business day, SI downloads utility and bank statements from each portal and files them by property."
+      },
+      {
+        "business_type": "Medical billing office",
+        "scenario": "SI checks the status of a list of insurance claims in payer portals and records which need follow-up."
+      },
+      {
+        "business_type": "General contractor",
+        "scenario": "Permit status is checked weekly on the town portals for each active job and logged in the job sheet."
+      }
+    ],
+    "copy_prompt": "Do these portal chores [list with steps] for [period]. Download files into [folders] with names [pattern], record statuses in [sheet], and enter this routine data [file]. Stop before any step that submits, pays, signs, accepts terms or changes settings. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Drive",
+      "Google Sheets",
+      "1Password"
+    ],
+    "effect": "Routine portal work gets done on schedule without someone setting aside hours for it.",
+    "caution": null
+  },
+  {
+    "slug": "weekly-member-announcements",
+    "title": "A weekly announcements email for members",
+    "category": "Community and membership organizations",
+    "summary": "SI gathers the week's events, schedule changes and notices from your calendar and contributors, and drafts the members' email for approval.",
+    "problem": "The weekly email depends on one volunteer or staff member collecting items from everyone by text and email. Items arrive late, details are wrong, and the email goes out late or not at all.",
+    "what_si_does": "SI collects items from a submission form, the shared calendar and forwarded emails, checks dates and times against the calendar, and drafts the email in your usual layout: this week's schedule, upcoming events, notices, volunteer needs and celebrations. It lists items with missing details for the editor.",
+    "setup": "A submission form, calendar access and a past issue as a template. Setup is often a day or two.",
+    "human_checks": [
+      "The editor or administrator approves the email before it goes out.",
+      "Personal news (illness, bereavement) is included only with permission.",
+      "Mailing lists follow subscribe and unsubscribe rules."
+    ],
+    "examples": [
+      {
+        "business_type": "Synagogue",
+        "scenario": "Service times for the week, a guest speaker, the kiddush sponsor and a volunteer call for the holiday are pulled into the Thursday email."
+      },
+      {
+        "business_type": "Homeowners association",
+        "scenario": "Pool hours, a landscaping schedule and the next board meeting go into the weekly bulletin."
+      },
+      {
+        "business_type": "Youth sports league",
+        "scenario": "Game schedule changes, field closures and picture-day details are gathered from coaches."
+      }
+    ],
+    "copy_prompt": "Collect items for [week] from [submission form, calendar, forwarded emails]. Check dates and times against [calendar]. Draft the members' email in this layout [past issue] with schedule, events, notices, volunteer needs and celebrations. List items with missing details. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Forms",
+      "Google Calendar",
+      "Mailchimp",
+      "Constant Contact",
+      "Flocknote"
+    ],
+    "effect": "The weekly email goes out on time with fewer errors and less chasing.",
+    "caution": null
+  },
+  {
+    "slug": "donation-acknowledgments",
+    "title": "Donation thank-yous and acknowledgment letters",
+    "category": "Community and membership organizations",
+    "summary": "SI drafts personal thank-you letters and acknowledgment receipts from donation records, using wording your accountant has approved.",
+    "problem": "Thank-yous go out weeks late or not at all. Acknowledgment letters need specific details, and preparing them one by one is slow.",
+    "what_si_does": "SI reads new donations from your donor system or payment exports, drafts a thank-you that mentions the gift and any designation, and prepares an acknowledgment with the details your approved template requires. It flags gifts that need special handling, such as large gifts, in-kind gifts or gifts in memory of someone, and compiles year-end summaries per donor.",
+    "setup": "Donation records and an acknowledgment template approved by your accountant. Setup is often a few days.",
+    "human_checks": [
+      "A person reviews and sends every letter.",
+      "Acknowledgment wording is approved by the organization's accountant.",
+      "Large, in-kind and memorial gifts are handled personally."
+    ],
+    "examples": [
+      {
+        "business_type": "Food pantry",
+        "scenario": "Gifts from a holiday drive get thank-yous within the week, with in-kind food donations listed by description rather than value."
+      },
+      {
+        "business_type": "Animal rescue",
+        "scenario": "Monthly donors get a short note about the animals adopted that month, and year-end summaries are prepared in January."
+      },
+      {
+        "business_type": "Community theater",
+        "scenario": "Sponsors of a show get a thank-you naming the production and their program listing."
+      }
+    ],
+    "copy_prompt": "For donations in [export] since [date], draft a thank-you for each that mentions the gift and designation, using this tone [example]. Prepare acknowledgments using this approved template [file]. Flag gifts over [amount], in-kind gifts and memorial gifts. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Bloomerang",
+      "Little Green Light",
+      "Givebutter",
+      "Google Docs",
+      "Gmail"
+    ],
+    "effect": "Donors are thanked promptly and accurately.",
+    "caution": "Tax: acknowledgment requirements depend on where you are and the type of gift. Use wording approved by your accountant; SI does not value in-kind gifts or advise donors on deductions."
+  },
+  {
+    "slug": "volunteer-scheduling",
+    "title": "Volunteer sign-ups, reminders and gap filling",
+    "category": "Community and membership organizations",
+    "summary": "SI organizes volunteer sign-ups, sends reminders, spots unfilled shifts, and drafts targeted asks to people likely to help.",
+    "problem": "Volunteer coordination runs on group texts and memory. Shifts go unfilled until the last minute, and the same few people get asked every time.",
+    "what_si_does": "SI keeps the sign-up sheet current from form responses and replies, sends reminders before each shift, and lists unfilled slots. For gaps, it drafts a short ask to volunteers who have helped with that kind of task before but have not been asked recently.",
+    "setup": "A sign-up form or sheet, volunteer contacts and past participation. Setup is often a day or two.",
+    "human_checks": [
+      "The coordinator approves messages to volunteers.",
+      "Volunteers who opted out are not contacted.",
+      "Roles that need background checks are filled only by cleared volunteers."
+    ],
+    "examples": [
+      {
+        "business_type": "Soup kitchen",
+        "scenario": "Weekday lunch shifts are tracked, and a Wednesday gap gets an ask to three people who have done that shift before."
+      },
+      {
+        "business_type": "Habitat-style home building nonprofit",
+        "scenario": "Build-day volunteers get reminders with the site address and what to wear."
+      },
+      {
+        "business_type": "Elementary school PTA",
+        "scenario": "Book-fair shifts are filled and parents get reminders the evening before."
+      }
+    ],
+    "copy_prompt": "Using sign-ups [sheet/form] and volunteer history [file], list unfilled shifts for [period]. Draft reminders for confirmed volunteers [1] day before. For each gap, draft a short ask to [3] volunteers who have done similar shifts and have not been asked in [30] days. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Sheets",
+      "SignUpGenius",
+      "Google Forms",
+      "Gmail",
+      "WhatsApp"
+    ],
+    "effect": "Fewer last-minute gaps, and the volunteer load is spread more evenly.",
+    "caution": null
+  },
+  {
+    "slug": "event-registration-logistics",
+    "title": "Event registration, seating and reminders",
+    "category": "Community and membership organizations",
+    "summary": "SI combines registrations and payments, flags unpaid or duplicate entries, drafts seating and name tags, and sends approved reminders.",
+    "problem": "Event logistics live in several places: a form, a payment tool, a spreadsheet and someone's notes. The last week before the event is frantic, and details slip.",
+    "what_si_does": "SI merges registrations and payments, lists unpaid and duplicate entries, and produces headcounts, dietary lists and name tags. It drafts seating by your rules (households together, sponsors near the front), drafts reminder and logistics emails, and produces the final count for the caterer or venue.",
+    "setup": "Registration and payment exports, seating rules and message templates. Setup is often a few days before the event.",
+    "human_checks": [
+      "The organizer approves seating and every message.",
+      "Payment follow-ups are sent by a person.",
+      "Final counts to the caterer or venue are confirmed by a person."
+    ],
+    "examples": [
+      {
+        "business_type": "Professional association",
+        "scenario": "The annual dinner's registrations are reconciled with payments, and members registered twice through two links are merged."
+      },
+      {
+        "business_type": "Rotary-style service club",
+        "scenario": "A charity golf outing's foursomes are drafted and sponsor signage is listed."
+      },
+      {
+        "business_type": "Alumni association",
+        "scenario": "A reunion's dietary list and name tags are produced, with reminders sent three days before."
+      }
+    ],
+    "copy_prompt": "Combine these registrations [file] and payments [file] for [event]. List unpaid and duplicate entries, draft seating for [tables] tables of [10] using these rules [paste], and produce dietary and name-tag lists. Draft a reminder email for [3] days before. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Forms",
+      "Eventbrite",
+      "Givebutter",
+      "Google Sheets",
+      "Gmail"
+    ],
+    "effect": "Event logistics are calmer in the final week, and fewer details slip.",
+    "caution": null
+  },
+  {
+    "slug": "membership-renewals",
+    "title": "Membership renewals and a clean member list",
+    "category": "Community and membership organizations",
+    "summary": "SI tracks renewal dates, drafts reminders, and cleans up the member list by merging duplicates and flagging outdated contact details.",
+    "problem": "Renewals depend on someone remembering to send reminders. The member list has duplicates, old emails and households listed three ways.",
+    "what_si_does": "SI reads the member list and payment records, lists members due to renew or lapsed, drafts reminders in a friendly sequence, and proposes cleanup: merging duplicates, flagging bounced emails, and standardizing names and households. Lapsed members who were active get a personal-style note for a board member to send.",
+    "setup": "Member list and payment exports, and your renewal schedule. Setup is often a few days.",
+    "human_checks": [
+      "Merges and deletions are confirmed by a person.",
+      "Reminders are approved before sending.",
+      "Members with hardship arrangements are handled personally."
+    ],
+    "examples": [
+      {
+        "business_type": "Neighborhood swim club",
+        "scenario": "Families due to renew in March get reminders, and households listed under two parents' names are merged."
+      },
+      {
+        "business_type": "Trade association",
+        "scenario": "Lapsed member companies are listed with their last event attended, for a board member to call."
+      },
+      {
+        "business_type": "Garden club",
+        "scenario": "Bounced email addresses are flagged ahead of the spring renewal mailing."
+      }
+    ],
+    "copy_prompt": "Using the member list [file] and payments [file], list members due to renew in [period] and those lapsed. Draft a reminder sequence [timing]. Propose merges for likely duplicates, flag bounced or missing emails, and standardize household names. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Wild Apricot",
+      "MemberPlanet",
+      "Google Sheets",
+      "Mailchimp"
+    ],
+    "effect": "More renewals happen on time, and the member list is one you can trust.",
+    "caution": null
+  },
+  {
+    "slug": "session-notes-to-progress-updates",
+    "title": "Session notes into progress updates for families or clients",
+    "category": "Community and membership organizations",
+    "summary": "After each session or class, SI turns the instructor's quick notes into a short, consistent progress update for the parent or client to receive.",
+    "problem": "Instructors and coaches jot notes but rarely have time to write updates. Families or clients hear little until there is a problem, and the updates that do go out vary wildly.",
+    "what_si_does": "SI takes the instructor's notes or voice memo and writes a short update in a consistent format: what was covered, what went well, what to practice, and what is next. It keeps a running record per learner so trends are visible, and flags notes that suggest a concern for the instructor to handle personally.",
+    "setup": "A simple notes form or voice memo path, a template, and contacts. Setup is often a day or two.",
+    "human_checks": [
+      "The instructor approves each update before it is sent.",
+      "Concerns are communicated personally, not by template.",
+      "Notes about minors are stored with limited access."
+    ],
+    "examples": [
+      {
+        "business_type": "Tutoring program",
+        "scenario": "A math tutor's two-line note becomes a parent update on fractions practice and next week's focus."
+      },
+      {
+        "business_type": "Music teacher",
+        "scenario": "Lesson notes become a weekly message with the pieces to practice and a tip for the tricky passage."
+      },
+      {
+        "business_type": "Driving instructor",
+        "scenario": "Each lesson produces a short summary of skills covered and what to practice before the road test."
+      }
+    ],
+    "copy_prompt": "Turn these session notes [paste] for [learner] into a short update for [parent/client] with what was covered, what went well, what to practice and what is next, using this template [example]. Flag any note that suggests a concern. Add it to the running record [file]. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Forms",
+      "Google Docs",
+      "Gmail",
+      "WhatsApp"
+    ],
+    "effect": "Families and clients stay informed, and instructors spend less time writing.",
+    "caution": "If sessions are therapy, counseling or medical in nature, notes are protected health information and need privacy-compliant tools and a clinician's review."
+  },
+  {
+    "slug": "lesson-and-training-materials",
+    "title": "Lesson plans, quizzes and training materials for instructors",
+    "category": "Community and membership organizations",
+    "summary": "SI drafts lesson plans, quizzes, handouts and first-pass feedback from your curriculum or materials, for the instructor to review and adapt.",
+    "problem": "Instructors, trainers and teachers spend evenings building plans and quizzes from scratch. Feedback on written work is slow because there is so much of it.",
+    "what_si_does": "From your curriculum, textbook pages or training manual, SI drafts a lesson or session plan with goals, activities, timing and a short check for understanding. It creates quizzes at different levels with answer keys, and drafts first-pass feedback on written work against a rubric, which the instructor edits.",
+    "setup": "The source materials, a rubric if relevant, and examples of the format you use. Setup is minimal.",
+    "human_checks": [
+      "The instructor reviews every plan, quiz and piece of feedback.",
+      "Grades are assigned by the instructor, not SI.",
+      "Student work is handled under the program's privacy policy."
+    ],
+    "examples": [
+      {
+        "business_type": "Adult literacy nonprofit",
+        "scenario": "A volunteer tutor gets a session plan and a short reading check built around a job-application form."
+      },
+      {
+        "business_type": "Safety training company",
+        "scenario": "A forklift-safety manual becomes a session outline and a quiz for new warehouse workers."
+      },
+      {
+        "business_type": "Middle school teacher",
+        "scenario": "A science unit gets a lab plan, two quiz versions and draft feedback on lab reports against the rubric."
+      }
+    ],
+    "copy_prompt": "Using these materials [files] and this format [example], draft a [length] session plan for [audience] with goals, activities, timing and a check for understanding. Create a [10]-question quiz with an answer key at [level]. Draft feedback on these submissions [files] against this rubric [file]. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Docs",
+      "Google Forms",
+      "Google Classroom",
+      "Canva"
+    ],
+    "effect": "Preparation takes less of the instructor's own time, and feedback gets back to learners sooner.",
+    "caution": null
+  },
+  {
+    "slug": "board-packet-and-minutes",
+    "title": "Board packets and minutes for volunteer boards",
+    "category": "Community and membership organizations",
+    "summary": "SI assembles the board packet from committee reports and financials, drafts the agenda, and turns meeting notes into draft minutes for the secretary.",
+    "problem": "Volunteer boards run on late reports and a packet assembled the night before. Minutes are written weeks later from memory.",
+    "what_si_does": "SI collects committee reports, the treasurer's summary and any proposals from a shared folder, flags what is missing, and assembles a packet with an agenda and a one-page summary of decisions needed. After the meeting, it drafts minutes from notes or a transcript, listing motions, votes and action items.",
+    "setup": "A shared folder, a past packet and minutes as templates. Setup is often a day.",
+    "human_checks": [
+      "The chair approves the agenda and packet.",
+      "The secretary reviews and finalizes the minutes before approval by the board.",
+      "Confidential matters are handled outside the shared packet."
+    ],
+    "examples": [
+      {
+        "business_type": "Condominium board",
+        "scenario": "Packet includes the manager's report, a roof bid comparison and the reserve fund summary, with a note that the landscaping committee report is missing."
+      },
+      {
+        "business_type": "Food co-op",
+        "scenario": "Minutes from the monthly meeting list the vote on new member-owner discounts and the follow-up tasks."
+      },
+      {
+        "business_type": "Parent-teacher organization",
+        "scenario": "The fall packet includes the fundraiser results and the budget for the spring events."
+      }
+    ],
+    "copy_prompt": "Gather reports from [folder] for the [date] board meeting. List what is missing, draft an agenda using [past agenda], and write a one-page summary of decisions needed. After the meeting, draft minutes from these notes [paste] with motions, votes and action items. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Drive",
+      "Google Docs",
+      "Zoom",
+      "Otter",
+      "BoardEffect"
+    ],
+    "effect": "Board members arrive prepared, and minutes are ready while the meeting is still fresh.",
+    "caution": "Minutes can be legal records for some organizations; the secretary and board should approve the final version, and recording requires participants' consent."
+  }
+]
