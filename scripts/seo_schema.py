@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 
-BASE = "https://nykon1293.github.io"
+BASE = "https://gemmisi.com"
 PERSON_ID = f"{BASE}/#person"
 BUSINESS_ID = f"{BASE}/#business"
 WEBSITE_ID = f"{BASE}/#website"

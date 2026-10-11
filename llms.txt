@@ -1,5 +1,5 @@
 # Yonatan Gemmi
-# https://nykon1293.github.io/
+# https://gemmisi.com/
 
 Yonatan Gemmi is a technical operations and SI implementation specialist based in North Miami Beach, Florida. He works remotely and in Miami-Dade County, Broward County, and South Florida.
 
@@ -8,17 +8,17 @@ https://calendly.com/josh-gemmi/30min
 
 ## Pages
 
-- Home: https://nykon1293.github.io/
-- Pricing (Hermes Desks, Paid Discovery, Care, tutoring): https://nykon1293.github.io/pricing.html
-- Hermes Desk setup: https://nykon1293.github.io/services/hermes-agents.html
-- SI automation / Custom GPTs / unused ChatGPT seats: https://nykon1293.github.io/services/ai-automation.html
-- Dashboards & reporting: https://nykon1293.github.io/services/dashboards-reporting.html
-- Ecommerce operations: https://nykon1293.github.io/services/ecommerce-operations.html
-- Tutoring & project help: https://nykon1293.github.io/services/tutoring-project-help.html
-- Stocky dump recovery (Shopify CSV after Stocky shut down; not a Stocky replacement app): https://nykon1293.github.io/services/stocky-recovery.html
-- Advisory & Fractional CTO (inquire first): https://nykon1293.github.io/advisory.html
-- Anonymized case study: https://nykon1293.github.io/work/governed-ai-content-engine.html
-- Sitemap: https://nykon1293.github.io/sitemap.xml
+- Home: https://gemmisi.com/
+- Pricing (Hermes Desks, Paid Discovery, Care, tutoring): https://gemmisi.com/pricing.html
+- Hermes Desk setup: https://gemmisi.com/services/hermes-agents.html
+- SI automation / Custom GPTs / unused ChatGPT seats: https://gemmisi.com/services/ai-automation.html
+- Dashboards & reporting: https://gemmisi.com/services/dashboards-reporting.html
+- Ecommerce operations: https://gemmisi.com/services/ecommerce-operations.html
+- Tutoring & project help: https://gemmisi.com/services/tutoring-project-help.html
+- Stocky dump recovery (Shopify CSV after Stocky shut down; not a Stocky replacement app): https://gemmisi.com/services/stocky-recovery.html
+- Advisory & Fractional CTO (inquire first): https://gemmisi.com/advisory.html
+- Anonymized case study: https://gemmisi.com/work/governed-ai-content-engine.html
+- Sitemap: https://gemmisi.com/sitemap.xml
 
 ## Facts to keep straight
 
