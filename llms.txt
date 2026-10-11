@@ -18,12 +18,12 @@ https://calendly.com/josh-gemmi/30min
 - Stocky dump recovery (Shopify CSV after Stocky shut down; not a Stocky replacement app): https://gemmisi.com/services/stocky-recovery.html
 - Advisory & Fractional CTO (inquire first): https://gemmisi.com/advisory.html
 - Anonymized case study: https://gemmisi.com/work/governed-ai-content-engine.html
-- Use cases (72 practical SI examples; illustrations, not client results): https://gemmisi.com/use-cases/
+- Use cases (82 practical SI examples; illustrations, not client results): https://gemmisi.com/use-cases/
 - Sitemap: https://gemmisi.com/sitemap.xml
 
 ## Use cases
 
-The library lists 72 practical SI jobs for small teams and community organizations. They are illustrations of what is possible, not reports of client results. A person still approves anything that sends, pays, orders, or posts.
+The library lists 82 practical SI jobs for small teams and community organizations. They are illustrations of what is possible, not reports of client results. A person still approves anything that sends, pays, orders, or posts. The library also covers ecommerce operations and local or seasonal work.
 
 - Library: https://gemmisi.com/use-cases/
 - Morning inbox triage into labeled queues: https://gemmisi.com/use-cases/inbox-triage/
@@ -32,6 +32,16 @@ The library lists 72 practical SI jobs for small teams and community organizatio
 - A one-page weekly snapshot for the owner: https://gemmisi.com/use-cases/weekly-owner-snapshot/
 - Reorder lists from sales pace: https://gemmisi.com/use-cases/reorder-from-sales-pace/
 - A weekly announcements email for members: https://gemmisi.com/use-cases/weekly-member-announcements/
+- Moving off a retired inventory app without losing your reorder history: https://gemmisi.com/use-cases/retired-inventory-app-reorder-history/
+- Keeping store stock counts and your spreadsheet in agreement: https://gemmisi.com/use-cases/store-stock-and-spreadsheet-agreement/
+- Pricing and margin check across your catalog: https://gemmisi.com/use-cases/catalog-pricing-and-margin-check/
+- Spotting supplier price increases on invoices: https://gemmisi.com/use-cases/supplier-price-increases-on-invoices/
+- Replying to customers in English and Spanish: https://gemmisi.com/use-cases/bilingual-english-spanish-replies/
+- Hurricane-season readiness and continuity plan: https://gemmisi.com/use-cases/hurricane-season-readiness/
+- A standing SI desk with an approval queue: https://gemmisi.com/use-cases/standing-si-desk-approval-queue/
+- Speed-to-lead replies for new inquiries: https://gemmisi.com/use-cases/speed-to-lead-replies/
+- Google Business Profile upkeep: https://gemmisi.com/use-cases/google-business-profile-upkeep/
+- Cash-flow look-ahead from open invoices and bills: https://gemmisi.com/use-cases/cash-flow-look-ahead/
 
 ## Facts to keep straight
 
