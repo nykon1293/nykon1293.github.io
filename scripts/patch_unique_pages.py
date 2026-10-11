@@ -366,7 +366,7 @@ def work_graph() -> str:
             "execution across machines, recover from failures, and preserve configurable operator control."
         ),
         "url": url,
-        "author": {"@id": "https://nykon1293.github.io/#person"},
+        "author": {"@id": "https://gemmisi.com/#person"},
         "about": [
             "Multi-agent SI systems",
             "Agent orchestration",
