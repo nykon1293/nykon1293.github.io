@@ -6,7 +6,7 @@ brand
 
 ## Users
 
-Founders and operations leaders with messy work — scattered spreadsheets, AI stuck in test mode, no trusted view of the business — who might hire Yonatan for consulting or contract work. They arrive comparing operators, not browsing a product. South Florida or remote. Tutoring and project-help visitors exist, but they are not who the first screen is for.
+Founders and operations leaders with messy work — scattered spreadsheets, SI stuck in test mode, no trusted view of the business — who might hire Yonatan for consulting or contract work. They arrive comparing operators, not browsing a product. South Florida or remote. Tutoring and project-help visitors exist, but they are not who the first screen is for.
 
 ## Product Purpose
 
@@ -18,7 +18,7 @@ Grounded, precise, unhurried. Calm competence with a sharp operator edge. Not hy
 
 ## Anti-references
 
-Generic AI agency sites: purple gradients, glowing orbs, “agentic” hype, and novelty-first copy. Also the default SaaS landing template (pill nav + metric cards + identical icon cards) when it starts to look like costume rather than craft.
+Generic SI agency sites: purple gradients, glowing orbs, “agentic” hype, and novelty-first copy. Also the default SaaS landing template (pill nav + metric cards + identical icon cards) when it starts to look like costume rather than craft.
 
 ## Design Principles
 

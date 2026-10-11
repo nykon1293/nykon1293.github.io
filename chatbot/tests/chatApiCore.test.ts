@@ -56,7 +56,7 @@ async function testPublicLadderOnVaguePricing() {
 
 async function testCompoundPricingAnswersAreSpecificButNoInventedRate() {
   const examples: Array<[string, RegExp]> = [
-    ["How much to implement AI in my company?", /Pricing for implementing AI in a company[\s\S]*workflows[\s\S]*paid discovery[\s\S]*Share/i],
+    ["How much to implement AI in my company?", /Pricing for implementing SI in a company[\s\S]*workflows[\s\S]*paid discovery[\s\S]*Share/i],
     ["How much for a custom GPT?", /custom GPTs[\s\S]*strong fit[\s\S]*Pricing depends[\s\S]*major Custom GPT workflows[\s\S]*Share/i],
     ["What would it cost to fix our Shopify inventory workflow?", /Pricing for ecommerce[\s\S]*Shopify\/Amazon inventory[\s\S]*Share[\s\S]*store\/channel/i],
     ["How much to clean up HubSpot and our sales pipeline?", /Pricing for CRM[\s\S]*HubSpot\/Salesforce[\s\S]*lead routing[\s\S]*Share/i],
@@ -79,7 +79,7 @@ async function testCommonIntentAnswersAvoidGeminiKey() {
   await assertLocalCanned("Can Yonatan build an API integration or internal web app?", /backend|integration|api|internal-tool|tool/i);
   await assertLocalCanned("What services does Yonatan offer?", /Hermes|consulting|contract|tutoring|dashboards|ecommerce/i);
   await assertLocalCanned("Can Yonatan set up a Hermes Agent for my work?", /Hermes[\s\S]*30-minute introductory call/i);
-  await assertLocalCanned("What is Hermes?", /AI agent[\s\S]*chat boxes[\s\S]*software around them[\s\S]*30-minute introductory call/i);
+  await assertLocalCanned("What is Hermes?", /SI agent[\s\S]*chat boxes[\s\S]*software around them[\s\S]*30-minute introductory call/i);
   await assertLocalCanned("What payment methods do you accept?", /bank wire[\s\S]*Zelle[\s\S]*X Money[\s\S]*USDC[\s\S]*Bitcoin[\s\S]*Inquire for more info/i);
   await assertLocalCanned("Can I pay with Zelle?", /bank wire[\s\S]*Zelle[\s\S]*X Money[\s\S]*USDC[\s\S]*Bitcoin/i);
   await assertLocalCanned("Can I pay with X Money?", /bank wire[\s\S]*Zelle[\s\S]*X Money[\s\S]*USDC[\s\S]*Bitcoin/i);
@@ -113,7 +113,7 @@ async function testCustomGPTIsStrongFit() {
   assert.equal(result.status, 200);
   assert.equal(result.body.source, "local-canned");
   assert.equal(result.body.helpAssessment.canHelp, "yes");
-  assert.deepEqual(result.body.helpAssessment.matchedSkills, ["Agentic AI automation"]);
+  assert.deepEqual(result.body.helpAssessment.matchedSkills, ["Agentic SI automation"]);
   assert.match(String(result.body.response), /custom GPTs|major Custom GPT workflows|strong fit/i);
 }
 
@@ -165,9 +165,9 @@ async function testLatestQuestionControlsIntentAfterDashboardContext() {
 
   assert.equal(result.status, 200);
   assert.equal(result.body.source, "local-canned");
-  assert.match(String(result.body.response), /AI automation|workflow implementation/i);
+  assert.match(String(result.body.response), /SI automation|workflow implementation/i);
   assert.doesNotMatch(String(result.body.response), /^Yes — dashboards/i);
-  assert.deepEqual(result.body.helpAssessment.matchedSkills, ["Agentic AI automation"]);
+  assert.deepEqual(result.body.helpAssessment.matchedSkills, ["Agentic SI automation"]);
 }
 
 await testDashboardPricingMentionsDiscoveryThenRange();

@@ -15,7 +15,7 @@ SERVICES_DIR = ROOT / "services"
 
 SERVICE_PAGES = [
     ("hermes-agents.html", "Hermes Agents", "hermes-agents"),
-    ("ai-automation.html", "AI automation", "ai-automation"),
+    ("ai-automation.html", "SI automation", "ai-automation"),
     ("dashboards-reporting.html", "Dashboards & reporting", "dashboards-reporting"),
     ("ecommerce-operations.html", "Ecommerce operations", "ecommerce-operations"),
     ("tutoring-project-help.html", "Tutoring & project help", "tutoring-project-help"),
@@ -142,7 +142,7 @@ PAGES = [
         "meta_description": "Install a Hermes Desk on your Mac: limits, a first real task, and handoff. Uses ChatGPT or Claude seats you already pay for. Remote or North Miami Beach.",
         "service_name": "Hermes Agent setup",
         "eyebrow": "On your machine",
-        "h1": "Hermes is an AI agent on your computer, not another chat tab.",
+        "h1": "Hermes is an SI agent on your computer, not another chat tab.",
         "lead": "ChatGPT and Claude are chat boxes. Hermes is the software around them. It lives on a Mac you control, uses the model you already pay for, and can work with your files and tools. If a ChatGPT seat is already on the bill and sitting idle, we put it on a real job. I install it, write the limits, and hand it off so you can run it.",
         "cta_primary": "Book a free 30-minute consultation",
         "closing_intro": "Tell me what you want the agent to do. Book a free 30-minute consultation. Bring questions.",
@@ -200,13 +200,13 @@ PAGES = [
                 "Need a Custom GPT or a script instead of a Desk?",
                 "A Hermes Desk is one packaged install. Workflow automation and Custom GPTs are a different job when a chat tool or script fits better.",
                 "ai-automation.html",
-                "AI automation",
+                "SI automation",
             ),
         ],
         "faqs": [
             (
                 "What is Hermes?",
-                "Hermes is an AI agent you run on your own computer. ChatGPT and Claude are chat boxes. Hermes is the software around them: it can work with your files and tools, follow written limits, and remember your rules. I install a Desk and hand it off so you can run it. We hook up ChatGPT, Claude, or another model you choose, including a local one.",
+                "Hermes is an SI agent you run on your own computer. ChatGPT and Claude are chat boxes. Hermes is the software around them: it can work with your files and tools, follow written limits, and remember your rules. I install a Desk and hand it off so you can run it. We hook up ChatGPT, Claude, or another model you choose, including a local one.",
             ),
             (
                 "Is this the same as a Custom GPT?",
@@ -241,18 +241,18 @@ PAGES = [
     {
         "slug": "ai-automation",
         "filename": "ai-automation.html",
-        "title": "AI Workflow Automation & Custom GPTs | Yonatan Gemmi",
+        "title": "SI Workflow Automation & Custom GPTs | Yonatan Gemmi",
         "meta_description": "Custom GPTs, workflow automation, and help putting unused ChatGPT seats on real weekly jobs. Remote or North Miami Beach / South Florida.",
-        "service_name": "AI tools and workflow automation",
-        "eyebrow": "AI workflows",
-        "h1": "Turn AI tests into tools your team uses each week",
-        "lead": "I help teams move from random AI tests to useful tools. These tools can help with research, reports, drafts, checks, and intake. If you already pay for ChatGPT and it sits unused, we put that seat on a weekly job people can review.",
+        "service_name": "SI tools and workflow automation",
+        "eyebrow": "SI workflows",
+        "h1": "Turn SI tests into tools your team uses each week",
+        "lead": "I help teams move from random SI tests to useful tools. These tools can help with research, reports, drafts, checks, and intake. If you already pay for ChatGPT and it sits unused, we put that seat on a weekly job people can review.",
         "scope_intro": "I find where your team loses time to manual steps, build the smallest useful automation, and show the team how to run it.",
-        "pfd_label": "When teams call for AI automation",
+        "pfd_label": "When teams call for SI automation",
         "pfd_caption": "For teams that need a working tool, not another demo.",
         "pfd_pains": [
             (
-                "AI tests never reach daily work",
+                "SI tests never reach daily work",
                 "Map the real steps, choose simple tools, and build something the team can run.",
             ),
             (
@@ -260,14 +260,14 @@ PAGES = [
                 "Connect files, CRMs, inboxes, and apps so the work moves in one clear flow.",
             ),
             (
-                "No checks on AI output",
+                "No checks on SI output",
                 "Add reviews, clear steps, and training so people can trust the results.",
             ),
         ],
         "sections": [
             (
                 "What this looks like",
-                "I start with the work, not the AI model. We find where time is lost and which choices need a person. Then I build the smallest useful system and show the team how to run it.",
+                "I start with the work, not the SI model. We find where time is lost and which choices need a person. Then I build the smallest useful system and show the team how to run it.",
             ),
             (
                 "Common project types",
@@ -278,9 +278,9 @@ PAGES = [
                 "I have 9+ years in operations and systems, including multi-brand ecommerce. I test the work with real examples and users before I call it done.",
             ),
         ],
-        "faq_topic": "AI tools and workflow automation",
+        "faq_topic": "SI tools and workflow automation",
         "buyer_details": [
-            ("Good fit when", ["A repeated workflow is still manual", "AI experiments need clear limits and an owner", "Your team needs one reviewed process—not another tool demo"]),
+            ("Good fit when", ["A repeated workflow is still manual", "SI experiments need clear limits and an owner", "Your team needs one reviewed process—not another tool demo"]),
             ("What you receive", ["Workflow map and scoped implementation plan", "Working automation, assistant, or integration", "Testing notes, written steps, and a team handoff"]),
             ("What I need from you", ["A workflow owner who knows the real process", "Representative examples or safe test data", "Access to approved tools, exports, or APIs"]),
             ("Engagement options", ["Audit and roadmap", "Short implementation project", "Ongoing improvement and support"]),
@@ -438,7 +438,7 @@ PAGES = [
             ),
             (
                 "Common project types",
-                "Amazon and eBay work steps • Tracked and multi-SKU inventory • Stocky dump → weekly system • Better listings and product data • Photo-to-listing copy you can paste into eBay • Shipping and warehouse guides • Marketplace reports and dashboards • AI help for research, drafts, and checks",
+                "Amazon and eBay work steps • Tracked and multi-SKU inventory • Stocky dump → weekly system • Better listings and product data • Photo-to-listing copy you can paste into eBay • Shipping and warehouse guides • Marketplace reports and dashboards • SI help for research, drafts, and checks",
             ),
             (
                 "Proof you can expect",
@@ -499,12 +499,12 @@ PAGES = [
     {
         "slug": "tutoring-project-help",
         "filename": "tutoring-project-help.html",
-        "title": "AI Tutoring & Technical Project Help | Yonatan Gemmi",
-        "meta_description": "One-on-one AI tutoring, ChatGPT help, and technical project pairing for founders, students, and teams. Remote or South Florida. $125/hr after a free consult.",
+        "title": "SI Tutoring & Technical Project Help | Yonatan Gemmi",
+        "meta_description": "One-on-one SI tutoring, ChatGPT help, and technical project pairing for founders, students, and teams. Remote or South Florida. $125/hr after a free consult.",
         "service_name": "Technical tutoring, coaching, and project help",
         "eyebrow": "Hands-on help",
-        "h1": "Hands-on help with AI tools, workflows, and technical projects",
-        "lead": "Not every problem needs a large project. I help founders, students, and teams learn AI tools, fix workflows, and finish builds. We agree on a clear goal before the session starts.",
+        "h1": "Hands-on help with SI tools, workflows, and technical projects",
+        "lead": "Not every problem needs a large project. I help founders, students, and teams learn SI tools, fix workflows, and finish builds. We agree on a clear goal before the session starts.",
         "scope_intro": "We focus on one problem at a time. I work through the fix with you and write down the steps so you can use them again.",
         "pfd_label": "When you need hands-on help",
         "pfd_caption": "For people who want help now and clear steps they can use later.",
@@ -514,7 +514,7 @@ PAGES = [
                 "Review the system, fix the problem, and write down steps you can repeat.",
             ),
             (
-                "AI tools feel useful but risky",
+                "SI tools feel useful but risky",
                 "Learn simple prompts, safety checks, and steps that fit your tools.",
             ),
             (
@@ -529,7 +529,7 @@ PAGES = [
             ),
             (
                 "Common request types",
-                "Learning ChatGPT, Custom GPTs, or AI agents • Spreadsheet and dashboard help • Ecommerce work steps • Fixing automations • Technical interview practice • Helping founders decide what to build or buy",
+                "Learning ChatGPT, Custom GPTs, or SI agents • Spreadsheet and dashboard help • Ecommerce work steps • Fixing automations • Technical interview practice • Helping founders decide what to build or buy",
             ),
             (
                 "Who it is for",
@@ -538,7 +538,7 @@ PAGES = [
         ],
         "faq_topic": "technical tutoring, coaching, and project help",
         "buyer_details": [
-            ("Good fit when", ["You are blocked on a specific build or workflow", "A team needs practical AI-tool training", "You want to validate an approach before a larger project"]),
+            ("Good fit when", ["You are blocked on a specific build or workflow", "A team needs practical SI-tool training", "You want to validate an approach before a larger project"]),
             ("What you receive", ["Focused working session or short project burst", "A resolved blocker, documented approach, or working draft", "Repeatable next steps you can own"]),
             ("What I need from you", ["The goal and current blocker", "Relevant files, screenshots, or a safe example", "Your timezone, availability, and desired pace"]),
             ("Engagement options", ["One-on-one working session", "Short project help", "Team workshop and follow-up"]),
@@ -553,9 +553,9 @@ PAGES = [
         "related_jobs": [
             (
                 "Need a working tool built, not a lesson?",
-                "Tutoring is pairing on a clear goal. Larger automations and Custom GPTs live on the AI automation page. Rates are on the <a href=\"../pricing.html#tutoring\">pricing page</a>.",
+                "Tutoring is pairing on a clear goal. Larger automations and Custom GPTs live on the SI automation page. Rates are on the <a href=\"../pricing.html#tutoring\">pricing page</a>.",
                 "ai-automation.html",
-                "AI automation",
+                "SI automation",
             ),
         ],
         "faqs": [
@@ -568,7 +568,7 @@ PAGES = [
                 "Most sessions are remote by video. Longer South Florida workshops may be held in person.",
             ),
             (
-                "Can you help my team adopt a new AI tool?",
+                "Can you help my team adopt a new SI tool?",
                 "Yes. I can teach the tool, set safety checks, share prompt patterns, and write simple steps for the team.",
             ),
             (
@@ -587,7 +587,7 @@ FOOTER_SCRIPTS = """
         <a href="../index.html">Home</a>
         <a href="../pricing.html">Pricing</a>
         <a href="hermes-agents.html">Hermes desks</a>
-        <a href="ai-automation.html">AI automation</a>
+        <a href="ai-automation.html">SI automation</a>
         <a href="dashboards-reporting.html">Dashboards</a>
         <a href="ecommerce-operations.html">Ecommerce</a>
         <a href="tutoring-project-help.html">Tutoring</a>
@@ -741,7 +741,7 @@ def render(page: dict) -> str:
         related_case_study = """
       <section class="section related-case-study" aria-labelledby="related-ai-case-study-title">
         <div>
-          <h2 id="related-ai-case-study-title">See how I built an AI content system with safety checks.</h2>
+          <h2 id="related-ai-case-study-title">See how I built an SI content system with safety checks.</h2>
           <p class="section-intro">This private-client example shows review steps, automatic checks, safe stops, and an optional hands-free mode.</p>
         </div>
         <a class="button ghost" href="../work/governed-ai-content-engine.html">View the case study</a>
