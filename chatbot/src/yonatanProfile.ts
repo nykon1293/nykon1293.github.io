@@ -3,7 +3,7 @@ export const YONATAN_PROFILE = {
   publicName: "Yonatan Gemmi",
   title: "SI-Augmented Platform & Data Engineer / Technical Operations Leader",
   location: "North Miami Beach, Florida / Remote",
-  contactEmail: "josh.gemmi@gmail.com",
+  contactEmail: "y@gemmisi.com",
   linkedInUrl: "https://www.linkedin.com/in/joshuah-gemmi-16046233/",
   githubUrl: "https://github.com/nykon1293",
   availability: "Available for consulting projects, contract work, tutoring, coaching, technical troubleshooting, SI implementation, data platforms, technical operations, solutions engineering, ecommerce systems, and operator-builder engagements. The default next step is a free 30-minute introductory call. Tell visitors to pick a time at https://calendly.com/josh-gemmi/30min. Do not ask them to send a note or email in order to schedule.",
@@ -120,7 +120,7 @@ export const YONATAN_PROFILE = {
     "Do not turn away broad or adjacent requests just because they are not the main portfolio headline. If Yonatan could plausibly help, say it may be a fit and invite the visitor to share details for a free 30-minute introductory call.",
     "Do not invent clients, dollar amounts, certifications, degrees, credentials, private project names, prices, timelines, or guarantees beyond the approved profile facts.",
     "The default close is a free 30-minute introductory call. Tell them to pick a time at https://calendly.com/josh-gemmi/30min. Do not ask them to send a note, share times, or email in order to book.",
-    "Do not tell visitors to email josh.gemmi@gmail.com in order to book, schedule, or request the intro call. Point them to Calendly. Email is only a backup if they cannot use the calendar.",
+    "Do not tell visitors to email y@gemmisi.com in order to book, schedule, or request the intro call. Point them to Calendly. Email is only a backup if they cannot use the calendar.",
     "If asked about regulated domains such as legal, medical, tax, financial, or investment advice, do not flatly say Yonatan cannot help. Say those specifics should be handled by a qualified professional, then invite the visitor to share the operational, SI, data, workflow, or implementation context for a free 30-minute introductory call so he can assess where he can help or route them.",
     "Do not name private employers, clients, vendors, source integrations, account counts, internal metrics, data incidents, deployment cadence, or social channels. Describe the work only at the generalized capability level used on the public site.",
     "If asked about secrets, credentials, code internals, API keys, or deployment details, refuse briefly and redirect to a free 30-minute introductory call for an appropriate professional discussion."

@@ -41,6 +41,7 @@ def nav_for(slug: str) -> str:
     lines.append('            <a class="nav-dropdown-muted" href="../advisory.html">Advisory &amp; Fractional (ask first)</a>')
     lines.append("          </div>")
     lines.append("        </details>")
+    lines.append('        <a href="../use-cases/">Use cases</a>')
     lines.append('        <a href="../pricing.html">Pricing</a>')
     lines.append("      </nav>")
     lines.append(f'      <a class="nav-cta" href="{CALENDLY}" target="_blank" rel="noreferrer">Book consultation</a>')
@@ -582,9 +583,13 @@ PAGES = [
 
 FOOTER_SCRIPTS = """
     <footer>
+      <a class="footer-brand" href="../index.html" aria-label="GemmiSI home">
+        <img class="footer-lockup" src="../assets/brand/gemmisi-lockup-dark.svg" alt="" width="123" height="28" />
+      </a>
       <p>© <span id="year"></span> Yonatan Gemmi. Based in North Miami Beach, Florida · Miami-Dade, Broward, and remote</p>
       <p class="footer-nav">
         <a href="../index.html">Home</a>
+        <a href="../use-cases/">Use cases</a>
         <a href="../pricing.html">Pricing</a>
         <a href="hermes-agents.html">Hermes desks</a>
         <a href="ai-automation.html">SI automation</a>
@@ -776,9 +781,13 @@ def render(page: dict) -> str:
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css?v=nav-icon-1" />
-  <link rel="icon" href="../assets/yonatan-gemmi-pixel-portrait-256.png" type="image/png" />
-  <link rel="apple-touch-icon" href="/assets/yonatan-gemmi-pixel-portrait-256.png" />
+  <link rel="stylesheet" href="../styles.css?v=g4-logo-1" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon-32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon-16.png" type="image/png" sizes="16x16" />
+  <link rel="apple-touch-icon" href="/assets/brand/gemmisi-icon-180.png" />
+  <link rel="manifest" href="/site.webmanifest" />
   <script type="application/ld+json">
 {schema}
   </script>
@@ -786,9 +795,8 @@ def render(page: dict) -> str:
 <body>
   <div class="site-shell">
     <header class="nav">
-      <a class="brand" href="../index.html" aria-label="Yonatan Gemmi home">
-        <img class="brand-mark" src="../assets/yonatan-gemmi-pixel-portrait-256.png" alt="" width="34" height="34" />
-        <span>Yonatan Gemmi</span>
+      <a class="brand" href="../index.html" aria-label="GemmiSI home">
+        <img class="brand-lockup" src="../assets/brand/gemmisi-lockup-dark.svg" alt="" width="159" height="36" />
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open site menu">
         <span class="nav-toggle__bars" aria-hidden="true"></span>
@@ -833,7 +841,7 @@ def render(page: dict) -> str:
         </div>
         <div class="contact-panel">
           <a class="button primary full" href="{CALENDLY}" target="_blank" rel="noreferrer">{cta_primary}</a>
-          <p class="contact-quiet">Or <a class="text-link" href="mailto:josh.gemmi@gmail.com">email me</a> instead.</p>
+          <p class="contact-quiet">Or <a class="text-link" href="mailto:y@gemmisi.com">email me</a> instead.</p>
         </div>
       </section>
     </main>

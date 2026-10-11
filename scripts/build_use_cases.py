@@ -25,8 +25,8 @@ SITEMAP = ROOT / "sitemap.xml"
 
 BASE = "https://gemmisi.com"
 CAL = "https://calendly.com/josh-gemmi/30min"
-OG_IMAGE = f"{BASE}/assets/use-cases-social-preview.png"
-OG_ALT = "Yonatan Gemmi — 72 practical SI use cases for small teams"
+OG_IMAGE = f"{BASE}/assets/brand/gemmisi-og.png"
+OG_ALT = "GemmiSI — SI, automation, dashboards, and technical operations"
 
 # Short labels match the approved library design. Add a row here if a new
 # category name shows up in the data file.
@@ -153,9 +153,8 @@ def nav(depth: int) -> str:
     up = "../" * depth
     library = "index.html" if depth == 1 else "../index.html"
     return f"""    <header class="nav">
-      <a class="brand" href="{up}index.html" aria-label="Yonatan Gemmi home">
-        <img class="brand-mark" src="{up}assets/yonatan-gemmi-pixel-portrait-256.png" alt="" width="34" height="34" />
-        <span>Yonatan Gemmi</span>
+      <a class="brand" href="{up}index.html" aria-label="GemmiSI home">
+        <img class="brand-lockup" src="{up}assets/brand/gemmisi-lockup-dark.svg" alt="" width="159" height="36" />
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open site menu">
         <span class="nav-toggle__bars" aria-hidden="true"></span>
@@ -188,6 +187,9 @@ def foot(depth: int) -> str:
     up = "../" * depth
     library = "index.html" if depth == 1 else "../index.html"
     return f"""    <footer>
+      <a class="footer-brand" href="{up}index.html" aria-label="GemmiSI home">
+        <img class="footer-lockup" src="{up}assets/brand/gemmisi-lockup-dark.svg" alt="" width="123" height="28" />
+      </a>
       <p>© <span id="year"></span> Yonatan Gemmi. Based in North Miami Beach, Florida · Miami-Dade, Broward, and remote</p>
       <p class="footer-nav">
         <a href="{up}index.html">Home</a>
@@ -266,10 +268,14 @@ def head(title: str, desc: str, canon: str, depth: int, ld: dict) -> str:
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="{up}styles.css?v=nav-row-1" />
+  <link rel="stylesheet" href="{up}styles.css?v=g4-logo-1" />
   <link rel="stylesheet" href="{up}assets/use-cases.css" />
-  <link rel="icon" href="{up}assets/yonatan-gemmi-pixel-portrait-256.png" type="image/png" />
-  <link rel="apple-touch-icon" href="/assets/yonatan-gemmi-pixel-portrait-256.png" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon-32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon-16.png" type="image/png" sizes="16x16" />
+  <link rel="apple-touch-icon" href="/assets/brand/gemmisi-icon-180.png" />
+  <link rel="manifest" href="/site.webmanifest" />
   <script type="application/ld+json">
 {json_ld(ld)}
   </script>
