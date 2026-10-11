@@ -16,7 +16,7 @@ Production-safe SI assistant backend and embeddable frontend for Yonatan Gemmi's
 GEMINI_API_KEY=your_fresh_key_here
 GEMINI_MODEL=gemini-3.7-flash
 PORT=3000
-ALLOWED_ORIGINS=https://nykon1293.github.io
+ALLOWED_ORIGINS=https://gemmisi.com
 RATE_LIMIT_MAX=12
 ```
 
@@ -54,7 +54,7 @@ gcloud run deploy yonatan-portfolio-chatbot \
   --source . \
   --region us-central1 \
   --allow-unauthenticated \
-  --set-env-vars GEMINI_MODEL=gemini-3.7-flash,ALLOWED_ORIGINS=https://nykon1293.github.io,RATE_LIMIT_MAX=12 \
+  --set-env-vars GEMINI_MODEL=gemini-3.7-flash,ALLOWED_ORIGINS=https://gemmisi.com,RATE_LIMIT_MAX=12 \
   --set-secrets GEMINI_API_KEY=GEMINI_API_KEY:latest
 ```
 

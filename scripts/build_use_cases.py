@@ -22,7 +22,7 @@ DATA = ROOT / "data" / "use-cases.json"
 OUT = ROOT / "use-cases"
 SITEMAP = ROOT / "sitemap.xml"
 
-BASE = "https://nykon1293.github.io"
+BASE = "https://gemmisi.com"
 CAL = "https://calendly.com/josh-gemmi/30min"
 LASTMOD = "2026-10-11"
 OG_IMAGE = f"{BASE}/assets/use-cases-social-preview.png"
@@ -654,7 +654,7 @@ def url_block(loc: str, priority: str) -> str:
 def update_sitemap(entries: list) -> None:
     text = SITEMAP.read_text(encoding="utf-8")
     text = re.sub(
-        r"\n  <url>\s*<loc>https://nykon1293\.github\.io/use-cases/.*?</url>",
+        r"\n  <url>\s*<loc>https://[^<]*/use-cases/.*?</url>",
         "",
         text,
         flags=re.S,
