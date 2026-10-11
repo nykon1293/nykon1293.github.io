@@ -221,8 +221,8 @@ def home_graph() -> str:
                 name="Yonatan Gemmi | SI, automation & operations | North Miami Beach",
                 url=f"{BASE}/",
                 description=(
-                    "Free 30-minute consultation for SI automation, dashboards, ecommerce ops, "
-                    "Hermes desks, and tutoring. Remote or North Miami Beach / South Florida."
+                    "Free 30-minute consult for Super Intelligence (SI), formerly called AI. "
+                    "Dashboards, ecommerce, Hermes desks, and tutoring. Remote or North Miami Beach."
                 ),
             ),
             faq_node(HOME_FAQS),
@@ -310,9 +310,8 @@ def stocky_graph() -> str:
                 name="Stocky Shut Down? Shopify CSV Dump Recovery | Yonatan Gemmi",
                 url=url,
                 description=(
-                    "Stocky shut down Aug 31, 2026. I turn a Shopify CSV export into a weekly inventory system "
-                    "using Sheets and ChatGPT or Claude seats you already pay for — not a Stocky replacement app. "
-                    "Free 30-minute consultation."
+                    "Stocky shut down Aug 31, 2026. I turn a Shopify CSV export into a weekly Sheets system "
+                    "on ChatGPT or Claude seats you already pay for — not a replacement app."
                 ),
             ),
             breadcrumb_node(
@@ -408,8 +407,8 @@ def patch_home() -> None:
     html = path.read_text(encoding="utf-8")
     title = "Yonatan Gemmi | SI, automation &amp; operations | North Miami Beach"
     description = (
-        "Free 30-min consult for SI, automation, dashboards, and ecommerce ops. "
-        "Hermes desks, Stocky dump recovery, and unused ChatGPT seats. Remote or North Miami Beach."
+        "Free 30-minute consult for Super Intelligence (SI), formerly called AI. "
+        "Dashboards, ecommerce, Hermes desks, and tutoring. Remote or North Miami Beach."
     )
     html = patch_head(
         html,
@@ -500,8 +499,8 @@ def patch_stocky() -> None:
     html = path.read_text(encoding="utf-8")
     title = "Stocky Shut Down? Shopify CSV Dump Recovery | Yonatan Gemmi"
     description = (
-        "Stocky shut down Aug 31, 2026. I turn a Shopify CSV export into a weekly inventory system using Sheets "
-        "and ChatGPT or Claude seats you already pay for — not a Stocky replacement app. Free 30-minute consultation."
+        "Stocky shut down Aug 31, 2026. I turn a Shopify CSV export into a weekly Sheets system "
+        "on ChatGPT or Claude seats you already pay for — not a replacement app."
     )
     html = patch_head(
         html,

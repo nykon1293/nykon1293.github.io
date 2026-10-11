@@ -21,6 +21,18 @@ https://calendly.com/josh-gemmi/30min
 - Use cases (72 practical SI examples; illustrations, not client results): https://gemmisi.com/use-cases/
 - Sitemap: https://gemmisi.com/sitemap.xml
 
+## Use cases
+
+The library lists 72 practical SI jobs for small teams and community organizations. They are illustrations of what is possible, not reports of client results. A person still approves anything that sends, pays, orders, or posts.
+
+- Library: https://gemmisi.com/use-cases/
+- Morning inbox triage into labeled queues: https://gemmisi.com/use-cases/inbox-triage/
+- Follow-ups for quotes and estimates that went quiet: https://gemmisi.com/use-cases/quote-follow-ups/
+- Supplier invoices from email into draft bills: https://gemmisi.com/use-cases/invoice-intake-to-draft-bills/
+- A one-page weekly snapshot for the owner: https://gemmisi.com/use-cases/weekly-owner-snapshot/
+- Reorder lists from sales pace: https://gemmisi.com/use-cases/reorder-from-sales-pace/
+- A weekly announcements email for members: https://gemmisi.com/use-cases/weekly-member-announcements/
+
 ## Facts to keep straight
 
 - Offers include Hermes Desks, Paid Discovery, Care, tutoring, SI automation, dashboards, ecommerce ops, and Stocky dump recovery. Advisory / Fractional CTO is inquire-first.

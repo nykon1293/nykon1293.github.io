@@ -15,6 +15,7 @@ from __future__ import annotations
 import html
 import json
 import re
+from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -24,7 +25,6 @@ SITEMAP = ROOT / "sitemap.xml"
 
 BASE = "https://gemmisi.com"
 CAL = "https://calendly.com/josh-gemmi/30min"
-LASTMOD = "2026-10-11"
 OG_IMAGE = f"{BASE}/assets/use-cases-social-preview.png"
 OG_ALT = "Yonatan Gemmi — 72 practical SI use cases for small teams"
 
@@ -269,6 +269,7 @@ def head(title: str, desc: str, canon: str, depth: int, ld: dict) -> str:
   <link rel="stylesheet" href="{up}styles.css?v=nav-row-1" />
   <link rel="stylesheet" href="{up}assets/use-cases.css" />
   <link rel="icon" href="{up}assets/yonatan-gemmi-pixel-portrait-256.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/assets/yonatan-gemmi-pixel-portrait-256.png" />
   <script type="application/ld+json">
 {json_ld(ld)}
   </script>
@@ -641,10 +642,12 @@ def detail_page(item: dict, entries: list) -> str:
 
 
 def url_block(loc: str, priority: str) -> str:
+    # Stamp the day the library is regenerated so lastmod does not stay frozen.
+    lastmod = date.today().isoformat()
     return (
         "  <url>\n"
         f"    <loc>{loc}</loc>\n"
-        f"    <lastmod>{LASTMOD}</lastmod>\n"
+        f"    <lastmod>{lastmod}</lastmod>\n"
         "    <changefreq>monthly</changefreq>\n"
         f"    <priority>{priority}</priority>\n"
         "  </url>\n"
