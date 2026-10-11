@@ -9,9 +9,10 @@ PERSON_ID = f"{BASE}/#person"
 BUSINESS_ID = f"{BASE}/#business"
 WEBSITE_ID = f"{BASE}/#website"
 CALENDLY = "https://calendly.com/josh-gemmi/30min"
-OG_IMAGE = f"{BASE}/assets/social-preview.png"
+OG_IMAGE = f"{BASE}/assets/brand/gemmisi-og.png"
 PORTRAIT = f"{BASE}/assets/yonatan-gemmi-pixel-portrait-256.png"
-OG_IMAGE_ALT = "Yonatan Gemmi — SI, automation, dashboards, and technical operations"
+LOGO = f"{BASE}/assets/brand/gemmisi-icon-512.png"
+OG_IMAGE_ALT = "GemmiSI — SI, automation, dashboards, and technical operations"
 
 AREA_SERVED = [
     {
@@ -88,13 +89,13 @@ def person_node() -> dict:
 
 def professional_service_node(*, include_catalog: bool = True) -> dict:
     node: dict = {
-        "@type": "ProfessionalService",
+        "@type": ["ProfessionalService", "Organization"],
         "@id": BUSINESS_ID,
         "name": "Yonatan Gemmi",
         "alternateName": "Yonatan Gemmi SI and operations",
         "url": f"{BASE}/",
         "image": OG_IMAGE,
-        "logo": PORTRAIT,
+        "logo": LOGO,
         "email": "josh.gemmi@gmail.com",
         "description": (
             "SI implementation, workflow automation, dashboards, ecommerce operations, "
