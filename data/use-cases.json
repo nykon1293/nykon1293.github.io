@@ -2693,7 +2693,7 @@
     "effect": "Board members arrive prepared, and minutes are ready while the meeting is still fresh.",
     "caution": "Minutes can be legal records for some organizations; the secretary and board should approve the final version, and recording requires participants' consent."
   },
-{
+  {
     "slug": "retired-inventory-app-reorder-history",
     "title": "Moving off a retired inventory app without losing your reorder history",
     "category": "Ecommerce operations",
@@ -3070,5 +3070,461 @@
     ],
     "effect": "Open invoices and bills are visible by week from the file, so a tight week is easier to see before it arrives.",
     "caution": "This is a look-ahead from open invoices and bills already on file. It is not a forecast of new sales, not tax or financial advice, and not a client result."
+  },
+  {
+    "slug": "after-hours-inquiry-triage",
+    "title": "After-hours inquiry triage with clear \"not legal advice\" handling",
+    "category": "Legal practices",
+    "summary": "Overnight calls and web forms are sorted into queues, with deadlines flagged and a short acknowledgment drafted from the firm's approved wording.",
+    "problem": "Calls and web forms arrive at night and on weekends. Urgent matters get buried, prospective clients wait until morning, and staff worry about saying too much.",
+    "what_si_does": "SI sorts overnight messages into queues (new inquiry, existing client, vendor, opposing counsel or court, spam), pulls out the name, contact, matter type, and any dates the sender mentions, flags anything that mentions a deadline or emergency, and drafts a short, plain acknowledgment that the firm will follow up and that the message is not legal advice and does not create an attorney-client relationship.",
+    "setup": "Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. Connect the inbox or web form with permission to read and draft, not to send. Save the acknowledgment the firm has already approved, the queue names, and what counts as a deadline or emergency. Setup is often a few days.",
+    "human_checks": [
+      "A person reads the queue first thing, decides who gets a callback, and sends every reply.",
+      "An attorney decides whether to take the matter and whether anyone should be called right away.",
+      "SI never sends, files, or posts on its own.",
+      "Unsure items, including anything that looks like an emergency or a legal question, go to a \"needs attorney review\" queue."
+    ],
+    "examples": [
+      {
+        "business_type": "Solo family-law practice",
+        "scenario": "Overnight web-form messages are split into new inquiries and notes from people who say they are existing clients, and any message that mentions a hearing date is flagged for the morning queue."
+      },
+      {
+        "business_type": "Two-attorney estate-planning firm",
+        "scenario": "A weekend email is summarized with the sender's contact details and the kind of planning they asked about, plus a draft acknowledgment that the message is not legal advice."
+      },
+      {
+        "business_type": "Small commercial-litigation firm",
+        "scenario": "Messages that look like they came from opposing counsel or a court are placed in their own queue, separate from new inquiries."
+      }
+    ],
+    "copy_prompt": "Sort these overnight messages [paste or export] into these queues: new inquiry, existing client, vendor, opposing counsel or court, spam. For each, pull out the name, contact, matter type, and any date the sender mentions. Flag anything that mentions a deadline or an emergency. Draft only this acknowledgment, which the firm has already approved: [paste]. Do not answer legal questions or say whether the firm will take the matter. Pause and show me before sending, filing, posting or changing anything. Use only the sample or de-identified information I provide; do not include client-confidential details.",
+    "tools_examples": [
+      "Outlook",
+      "Clio",
+      "Google Workspace",
+      "Calendly"
+    ],
+    "effect": "Overnight messages are sorted before the office opens, and the first reply stays inside wording the firm already approved.",
+    "caution": "Administrative support only: this is not legal advice and does not replace attorney judgment. An attorney reviews and approves anything client-facing or substantive, and client-confidential information is used only with the firm's agreements, access controls and consent. SI never answers legal questions, assesses a person's case, or tells anyone what to do. Auto-replies are limited to the pre-approved acknowledgment text."
+  },
+  {
+    "slug": "intake-summaries-conflict-prep",
+    "title": "Intake summaries and conflict-check prep",
+    "category": "Legal practices",
+    "summary": "SI turns an intake form or email into a one-page summary and a name list formatted for the firm's existing conflict-check process.",
+    "problem": "New-matter intake forms are inconsistent, and building the list of parties and names to run through the conflict system is slow and easy to get wrong.",
+    "what_si_does": "SI turns an intake form or email into a clean one-page summary, lists every person and organization named (client, adverse parties, related entities, spelling variants), and formats that list for the firm's existing conflict-check process.",
+    "setup": "Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. Provide the intake form or a de-identified sample, and the column layout the conflict system expects. Setup is often a few days.",
+    "human_checks": [
+      "A person runs the actual conflict search in the firm's system.",
+      "An attorney reviews the results, makes the conflict determination, and decides whether to accept the matter.",
+      "SI never sends, files, or posts on its own.",
+      "The firm decides what client data SI may see, and starts with non-confidential or de-identified samples when testing."
+    ],
+    "examples": [
+      {
+        "business_type": "Solo family-law practice",
+        "scenario": "An intake email becomes a one-page summary and a list of every person named, including a last name that appears in two spellings, ready for the conflict search."
+      },
+      {
+        "business_type": "Small commercial-litigation firm",
+        "scenario": "The name list includes the prospective client, the other company, and a related entity mentioned in the email, in the format the firm's process already uses."
+      },
+      {
+        "business_type": "Two-attorney estate-planning firm",
+        "scenario": "A questionnaire becomes a summary plus a list of family members and fiduciaries named, for a person to run through the conflict system."
+      }
+    ],
+    "copy_prompt": "Turn this intake [paste a sample or de-identified form] into a one-page summary. List every person and organization named, including spelling variants, and format the list for this conflict-check process: [describe the columns]. Do not decide whether a conflict exists. Pause and show me before sending, filing, posting or changing anything. Use only the sample or de-identified information I provide; do not include client-confidential details.",
+    "tools_examples": [
+      "Clio",
+      "MyCase",
+      "PracticePanther",
+      "Microsoft 365"
+    ],
+    "effect": "The conflict search starts from a written name list instead of a second read of the intake.",
+    "caution": "Administrative support only: this is not legal advice and does not replace attorney judgment. An attorney reviews and approves anything client-facing or substantive, and client-confidential information is used only with the firm's agreements, access controls and consent. SI prepares the name list only. It does not decide whether a conflict exists, and prospective-client information gets the same confidentiality care as client information."
+  },
+  {
+    "slug": "new-client-onboarding-checklists",
+    "title": "New-client onboarding checklists",
+    "category": "Legal practices",
+    "summary": "Each new matter gets a checklist from the firm's own template, with open steps nudged and the welcome email drafted from approved wording.",
+    "problem": "Onboarding steps such as a signed engagement letter, ID and contact details, billing setup, folder creation, and a welcome message get missed or done in different orders.",
+    "what_si_does": "SI generates a checklist for each new matter from the firm's own template, tracks which steps are done, nudges the assigned staff member on what is outstanding, and drafts the welcome email from the firm's approved wording.",
+    "setup": "Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. Use the firm's own onboarding template and the welcome wording an attorney has already approved. Setup is often a day or two.",
+    "human_checks": [
+      "Staff completes the steps.",
+      "An attorney confirms the engagement is properly signed before work starts and approves the welcome message.",
+      "SI never sends, files, or posts on its own.",
+      "Unsure items go to a \"needs attorney review\" queue."
+    ],
+    "examples": [
+      {
+        "business_type": "Solo family-law practice",
+        "scenario": "A new-matter checklist shows the engagement letter marked signed and the billing setup still open, and the welcome email is drafted from the firm's wording."
+      },
+      {
+        "business_type": "Two-attorney estate-planning firm",
+        "scenario": "The checklist tracks identification, contact details, and folder creation, and reminds the assigned staff member which step is still open."
+      },
+      {
+        "business_type": "Small commercial-litigation firm",
+        "scenario": "The welcome draft uses only the firm's approved wording and stays in a queue until an attorney approves it."
+      }
+    ],
+    "copy_prompt": "From this onboarding template [paste], make a checklist for this new matter using only these facts [paste sample or de-identified intake]. Mark which steps look done and which are still open. Draft the welcome email from this approved wording only: [paste]. Do not add steps that are not in the template. Pause and show me before sending, filing, posting or changing anything. Use only the sample or de-identified information I provide; do not include client-confidential details.",
+    "tools_examples": [
+      "Clio",
+      "Outlook",
+      "Google Workspace",
+      "Calendly"
+    ],
+    "effect": "Open onboarding steps are visible in the firm's own order, and the welcome draft waits for approval.",
+    "caution": "Administrative support only: this is not legal advice and does not replace attorney judgment. An attorney reviews and approves anything client-facing or substantive, and client-confidential information is used only with the firm's agreements, access controls and consent. The checklist reflects the firm's own process. SI does not decide what the rules require for engagement or onboarding."
+  },
+  {
+    "slug": "engagement-letter-template-assembly",
+    "title": "Engagement-letter template assembly for attorney review",
+    "category": "Legal practices",
+    "summary": "SI fills the firm's approved engagement-letter template from intake data, highlights every field it filled, and lists blanks or mismatches.",
+    "problem": "Engagement letters are assembled by copying an old one and editing, which leaves stale names, wrong fee terms, or missing clauses.",
+    "what_si_does": "SI fills the firm's attorney-approved template from the intake data (names, matter description, and the fee arrangement the attorney already selected), highlights every field it filled, and lists any blanks or mismatches, such as a name spelled two ways.",
+    "setup": "Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. Start from the firm's attorney-approved template and a de-identified intake that includes the fields the template expects. Setup is often a few days, mostly spent marking which fields SI may fill.",
+    "human_checks": [
+      "The attorney reviews and edits the full letter, chooses the terms, and sends it.",
+      "The client signs the letter the attorney sent.",
+      "SI never sends, files, or posts on its own.",
+      "The firm decides what client data SI may see, and starts with non-confidential or de-identified samples when testing."
+    ],
+    "examples": [
+      {
+        "business_type": "Solo family-law practice",
+        "scenario": "The template is filled with the names and the fee arrangement the attorney already selected, and a list shows every field SI filled."
+      },
+      {
+        "business_type": "Two-attorney estate-planning firm",
+        "scenario": "The draft flags a blank where a second name was missing from the intake, and a name that appears in two spellings."
+      },
+      {
+        "business_type": "Small commercial-litigation firm",
+        "scenario": "The matter description from intake is placed only in the template's description field, and the letter stays a draft until the attorney edits it."
+      }
+    ],
+    "copy_prompt": "Fill this attorney-approved engagement-letter template [paste] using only these intake fields [paste sample or de-identified data], including the fee arrangement the attorney already selected: [paste]. Highlight every field you filled. List blanks and any name spelled more than one way. Do not write new terms, fee language, or scope language. Pause and show me before sending, filing, posting or changing anything. Use only the sample or de-identified information I provide; do not include client-confidential details.",
+    "tools_examples": [
+      "Microsoft 365",
+      "Google Workspace",
+      "Clio",
+      "PracticePanther"
+    ],
+    "effect": "The draft starts from the firm's approved language, with filled fields and blanks marked for the attorney.",
+    "caution": "Administrative support only: this is not legal advice and does not replace attorney judgment. An attorney reviews and approves anything client-facing or substantive, and client-confidential information is used only with the firm's agreements, access controls and consent. SI assembles from the firm's approved language and never writes new legal terms, fee terms, or scope-of-representation language. The output is a draft, not a final document."
+  },
+  {
+    "slug": "deadline-calendar-reminders",
+    "title": "Deadline and calendar reminders, human-verified",
+    "category": "Legal practices",
+    "summary": "Dates a person has already verified are collected into one tracker, with reminders, conflicts, and a weekly list per attorney.",
+    "problem": "Dates are scattered across emails, notices, and calendars, and a missed date is among the most serious errors a firm can make.",
+    "what_si_does": "SI collects dates that attorneys or staff have already identified into one calendar or tracker, sends reminders ahead of each, flags dates that conflict with other commitments, and produces a weekly coming-up list per attorney.",
+    "setup": "Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. Use the calendar or tracker the firm already keeps, and a written rule that only dates a person has verified may be entered. Setup is often a few days.",
+    "human_checks": [
+      "An attorney or designated staff member determines and confirms each date and how it was calculated, using the firm's docketing process and the applicable rules.",
+      "A second person spot-checks the list.",
+      "SI never sends, files, or posts on its own.",
+      "Unsure items go to a \"needs attorney review\" queue."
+    ],
+    "examples": [
+      {
+        "business_type": "Small commercial-litigation firm",
+        "scenario": "Dates a paralegal has already confirmed are collected into one tracker, and the weekly list shows two that fall on the same morning."
+      },
+      {
+        "business_type": "Solo family-law practice",
+        "scenario": "A hearing date the attorney wrote down is added to the calendar with a reminder, and the source note stays attached so a second person can spot-check it."
+      },
+      {
+        "business_type": "Two-attorney estate-planning firm",
+        "scenario": "Each attorney gets a weekly coming-up list drawn only from dates someone at the firm has already verified."
+      }
+    ],
+    "copy_prompt": "Collect only these dates that a person has already verified [paste the list, with who verified each one] into one tracker. Note conflicts with these other commitments [paste]. Draft a weekly coming-up list per attorney. Do not calculate or add any date that is not on the verified list. Pause and show me before sending, filing, posting or changing anything. Use only the sample or de-identified information I provide; do not include client-confidential details.",
+    "tools_examples": [
+      "Outlook",
+      "Google Workspace",
+      "Clio",
+      "MyCase"
+    ],
+    "effect": "Verified dates sit in one list with reminders, and dates that collide are easier to see before the week starts.",
+    "caution": "Administrative support only: this is not legal advice and does not replace attorney judgment. An attorney reviews and approves anything client-facing or substantive, and client-confidential information is used only with the firm's agreements, access controls and consent. SI does not calculate or determine legal deadlines or limitation periods. It only tracks and reminds on dates a person has verified, and it is not a replacement for the firm's docketing system or malpractice-prevention procedures."
+  },
+  {
+    "slug": "client-status-updates",
+    "title": "Client status updates, attorney-approved",
+    "category": "Legal practices",
+    "summary": "SI drafts a plain update from the attorney's own notes and the matter task list, and queues it for the attorney to edit and send.",
+    "problem": "Clients call asking what is happening with a matter, and attorneys spend time writing the same kind of routine update.",
+    "what_si_does": "From the attorney's own notes and the matter's task list, SI drafts a short, plain-language update covering what has been done and what is next, as the attorney has recorded it, and queues it for review.",
+    "setup": "Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. Use the attorney's notes and the matter task list, plus one or two past updates with client details removed, as a tone sample. Setup is often a few days.",
+    "human_checks": [
+      "The attorney reads, edits, and approves each update before it is sent.",
+      "The attorney handles any question that needs judgment.",
+      "SI never sends, files, or posts on its own.",
+      "Unsure items go to a \"needs attorney review\" queue."
+    ],
+    "examples": [
+      {
+        "business_type": "Solo family-law practice",
+        "scenario": "A draft update restates the next step the attorney already wrote in the notes, and waits in the review queue."
+      },
+      {
+        "business_type": "Two-attorney estate-planning firm",
+        "scenario": "The draft covers the tasks the attorney marked done and the meeting already on the task list, and nothing beyond that."
+      },
+      {
+        "business_type": "Small commercial-litigation firm",
+        "scenario": "A question in the notes that the attorney has not answered is left out of the draft and flagged for the attorney."
+      }
+    ],
+    "copy_prompt": "From these attorney notes [paste] and this task list [paste], draft a short plain-language update that restates only what the notes already say has been done and what is next. Leave out anything the notes do not answer, and list those gaps separately. Do not predict, assess likelihood, or promise timing. Pause and show me before sending, filing, posting or changing anything. Use only the sample or de-identified information I provide; do not include client-confidential details.",
+    "tools_examples": [
+      "Clio",
+      "PracticePanther",
+      "Outlook",
+      "Microsoft 365"
+    ],
+    "effect": "Routine updates start from the attorney's own notes, and each one waits for the attorney before it goes out.",
+    "caution": "Administrative support only: this is not legal advice and does not replace attorney judgment. An attorney reviews and approves anything client-facing or substantive, and client-confidential information is used only with the firm's agreements, access controls and consent. Updates only restate what the attorney has recorded. There are no predictions, no assessments of likelihood, and no promises of outcomes or timing."
+  },
+  {
+    "slug": "matter-file-naming",
+    "title": "Document organization and consistent file naming",
+    "category": "Legal practices",
+    "summary": "SI proposes a folder pattern and a rename list for matter files, and waits for a person to approve it before anything moves.",
+    "problem": "Matter folders fill with names like scan0043.pdf and final_v2_REAL.docx, so files are hard to find and hard to hand off.",
+    "what_si_does": "SI proposes a standard folder structure and naming convention, then suggests renames and filing locations for each document using date, type, and party. It produces a change list before moving anything, and an index of the folder.",
+    "setup": "Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. Use a sample matter folder the firm is comfortable testing, and the naming pattern the firm wants. Work only inside systems the firm has already approved. Setup is often a few days.",
+    "human_checks": [
+      "A staff member or attorney approves the naming scheme and the change list before anything is renamed or moved.",
+      "The attorney sets privilege and confidentiality designations.",
+      "SI never sends, files, or posts on its own.",
+      "The firm decides what client data SI may see, and starts with non-confidential or de-identified samples when testing."
+    ],
+    "examples": [
+      {
+        "business_type": "Small commercial-litigation firm",
+        "scenario": "A change list proposes names with date, document type, and party, and nothing is renamed until a person approves the list."
+      },
+      {
+        "business_type": "Solo family-law practice",
+        "scenario": "A folder index groups scans by type so a handoff does not depend on remembering which file is which."
+      },
+      {
+        "business_type": "Two-attorney estate-planning firm",
+        "scenario": "The proposed folders follow the firm's own matter template, and the attorney sets any confidentiality labels."
+      }
+    ],
+    "copy_prompt": "Look at this sample file list [paste names only, or a de-identified folder]. Propose a folder structure and a naming pattern using date, document type, and party. Produce a change list and an index. Do not rename, move, delete, or alter any file. Pause and show me before sending, filing, posting or changing anything. Use only the sample or de-identified information I provide; do not include client-confidential details.",
+    "tools_examples": [
+      "Google Workspace",
+      "Microsoft 365",
+      "Clio",
+      "MyCase"
+    ],
+    "effect": "A change list and folder index are ready for a person to approve before any file is renamed or moved.",
+    "caution": "Administrative support only: this is not legal advice and does not replace attorney judgment. An attorney reviews and approves anything client-facing or substantive, and client-confidential information is used only with the firm's agreements, access controls and consent. This is organization only. SI does not decide what is privileged, relevant, or responsive, does not delete or alter documents, and works only inside systems the firm has approved and secured."
+  },
+  {
+    "slug": "time-entry-cleanup",
+    "title": "Time-entry cleanup and billing-narrative drafts",
+    "category": "Legal practices",
+    "summary": "SI suggests clearer wording for draft time entries from the attorney's own notes, and flags entries that look incomplete, duplicated, or oddly long.",
+    "problem": "Time entries are entered late, vague, or inconsistent, so bills are harder to review and harder to explain.",
+    "what_si_does": "SI reviews draft time entries against the day's calendar and the attorney's own notes, suggests clearer narrative wording in the firm's style, and flags entries that look incomplete, duplicated, or oddly long.",
+    "setup": "Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. Give SI read access to draft time entries, the calendar, and the attorney's notes, or a de-identified export of the same. Include a few past narratives the firm considers clear, with client details removed. Setup is often a few days.",
+    "human_checks": [
+      "The timekeeper confirms the work was actually done and the time is accurate, edits the narratives, and approves the bill.",
+      "An attorney reviews and approves before the bill leaves the firm.",
+      "SI never sends, files, or posts on its own.",
+      "The firm decides what client data SI may see, and starts with non-confidential or de-identified samples when testing."
+    ],
+    "examples": [
+      {
+        "business_type": "Small commercial-litigation firm",
+        "scenario": "A vague \"work on file\" entry is rewritten as a draft narrative based on the attorney's own note from that day, and the hours are left unchanged."
+      },
+      {
+        "business_type": "Solo family-law practice",
+        "scenario": "Two entries that sit on the same calendar block are flagged as possible duplicates for the timekeeper to resolve."
+      },
+      {
+        "business_type": "Two-attorney estate-planning firm",
+        "scenario": "An entry much longer than the calendar block is flagged, and the draft does not change the recorded time."
+      }
+    ],
+    "copy_prompt": "Compare these draft time entries [paste] with this calendar [paste] and these notes [paste]. Suggest clearer narrative wording in this style [paste examples]. Flag entries that look incomplete, duplicated, or much longer than the calendar block. Do not add time, change hours, or decide what to charge. Pause and show me before sending, filing, posting or changing anything. Use only the sample or de-identified information I provide; do not include client-confidential details.",
+    "tools_examples": [
+      "Clio",
+      "PracticePanther",
+      "QuickBooks",
+      "Outlook"
+    ],
+    "effect": "Narratives are easier to review, and odd or incomplete entries are flagged before the timekeeper approves the bill.",
+    "caution": "Administrative support only: this is not legal advice and does not replace attorney judgment. An attorney reviews and approves anything client-facing or substantive, and client-confidential information is used only with the firm's agreements, access controls and consent. SI never adds, invents, or inflates time, and never decides what to charge. Fees must be reasonable, and billing for time spent using SI is the attorney's call under the ethics rules. ABA Formal Opinion 512 discusses this."
+  },
+  {
+    "slug": "invoice-follow-up-reminders",
+    "title": "Invoice follow-up and receivables reminders",
+    "category": "Legal practices",
+    "summary": "SI builds an aging list from the billing system and drafts polite reminders at the firm's intervals, highlighting accounts that need a personal call.",
+    "problem": "Overdue invoices sit because nobody wants to chase them, or reminders go out on no set schedule.",
+    "what_si_does": "SI builds an aging list from the billing system, drafts polite reminders at the intervals the firm sets, and highlights accounts that need a personal call.",
+    "setup": "Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. Use a read-only aging export from the billing system, plus the reminder wording and intervals the firm has already chosen. Setup is often a few days.",
+    "human_checks": [
+      "A person or attorney approves each reminder before it is sent.",
+      "The attorney decides how to handle sensitive accounts, payment plans, and write-offs, and makes any collection decision.",
+      "SI never sends, files, or posts on its own.",
+      "Unsure items go to a \"needs attorney review\" queue."
+    ],
+    "examples": [
+      {
+        "business_type": "Solo family-law practice",
+        "scenario": "An aging list shows which invoices have passed the firm's first reminder interval, and each draft waits for a person to approve it."
+      },
+      {
+        "business_type": "Two-attorney estate-planning firm",
+        "scenario": "Accounts the firm has marked as sensitive are highlighted for a personal call instead of a standard reminder."
+      },
+      {
+        "business_type": "Small commercial-litigation firm",
+        "scenario": "Reminder drafts follow the firm's intervals, and the list does not apply any payment or change a balance."
+      }
+    ],
+    "copy_prompt": "From this aging export [paste], list invoices past these intervals [paste]. Draft a polite reminder from this approved wording [paste] for the ordinary ones. Highlight accounts marked sensitive, or any you are unsure about, for a personal call. Do not move money, change a balance, or contact anyone. Pause and show me before sending, filing, posting or changing anything. Use only the sample or de-identified information I provide; do not include client-confidential details.",
+    "tools_examples": [
+      "QuickBooks",
+      "Clio",
+      "MyCase",
+      "Outlook"
+    ],
+    "effect": "Reminders are drafted on the firm's schedule, and sensitive accounts are set aside for a person.",
+    "caution": "Administrative support only: this is not legal advice and does not replace attorney judgment. An attorney reviews and approves anything client-facing or substantive, and client-confidential information is used only with the firm's agreements, access controls and consent. SI drafts reminders only. It never moves, applies, or disburses funds, never touches trust (IOLTA) accounts, and never contacts clients about money without a person approving the message."
+  },
+  {
+    "slug": "records-request-tracking",
+    "title": "Records-request tracking",
+    "category": "Legal practices",
+    "summary": "SI keeps a tracker of records requests and drafts routine follow-up notes from approved wording, so overdue items are visible.",
+    "problem": "Requests for records, and the responses to the firm's own requests, are tracked in email and memory, so follow-ups slip.",
+    "what_si_does": "SI keeps a tracker of each request (what was asked, from whom, the date sent, and when a follow-up is due), drafts routine follow-up notes from approved wording, and shows what is overdue.",
+    "setup": "Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. Use the tracker the firm already keeps, or a simple sheet, plus the follow-up wording the firm has approved. Records stay in the firm's secured systems. Setup is often a few days.",
+    "human_checks": [
+      "Staff sends the requests and the follow-ups.",
+      "An attorney approves anything that characterizes the matter, and a person reviews the records received.",
+      "SI never sends, files, or posts on its own.",
+      "The firm decides what client data SI may see, and starts with non-confidential or de-identified samples when testing."
+    ],
+    "examples": [
+      {
+        "business_type": "Solo family-law practice",
+        "scenario": "The tracker lists each request with the date sent and the follow-up date, and a routine follow-up is drafted from the firm's wording."
+      },
+      {
+        "business_type": "Small commercial-litigation firm",
+        "scenario": "Overdue requests are listed for staff, and a person reviews anything that comes back before it is placed in the matter folder."
+      },
+      {
+        "business_type": "Two-attorney estate-planning firm",
+        "scenario": "A request is logged with who it was sent to, and the follow-up draft stays inside the approved wording."
+      }
+    ],
+    "copy_prompt": "Update this records-request tracker [paste] with these new items [paste: what, from whom, date sent, follow-up due]. List what is overdue. Draft follow-up notes from this approved wording only: [paste]. Do not interpret the records or describe what they mean. Pause and show me before sending, filing, posting or changing anything. Use only the sample or de-identified information I provide; do not include client-confidential details.",
+    "tools_examples": [
+      "Clio",
+      "Microsoft 365",
+      "Google Workspace",
+      "Outlook"
+    ],
+    "effect": "Open requests and overdue follow-ups are on one list, and the notes stay inside approved wording.",
+    "caution": "Administrative support only: this is not legal advice and does not replace attorney judgment. An attorney reviews and approves anything client-facing or substantive, and client-confidential information is used only with the firm's agreements, access controls and consent. SI tracks and drafts logistics only. It does not interpret records or decide what they mean, and any records containing client or third-party information stay in the firm's secured systems."
+  },
+  {
+    "slug": "meeting-call-summaries",
+    "title": "Meeting and call summaries for attorney review",
+    "category": "Legal practices",
+    "summary": "From notes or a transcript the attorney provides, SI drafts a summary with action items and owners, labeled as a draft for attorney review.",
+    "problem": "Notes from client calls and internal meetings are thin or never written, and action items get lost.",
+    "what_si_does": "From a transcript or notes the attorney provides, SI drafts a summary with action items, open questions, and who owns each, labeled \"DRAFT, for attorney review.\"",
+    "setup": "Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. The attorney chooses the transcript or notes to provide. Recording or transcribing a call may require consent, which varies by state, so the firm gets that first. Setup is often a day or two once the tool has been vetted.",
+    "human_checks": [
+      "The attorney checks the summary against what actually happened, corrects it, and decides what goes in the file or to the client.",
+      "An attorney reviews and approves before anything leaves the firm.",
+      "SI never sends, files, or posts on its own.",
+      "The firm decides what client data SI may see, and starts with non-confidential or de-identified samples when testing."
+    ],
+    "examples": [
+      {
+        "business_type": "Two-attorney estate-planning firm",
+        "scenario": "Notes from an internal meeting become a draft summary with action items and owners, labeled for attorney review."
+      },
+      {
+        "business_type": "Solo family-law practice",
+        "scenario": "Notes the attorney provided are turned into open questions and next steps, and the attorney decides whether anything goes to the client."
+      },
+      {
+        "business_type": "Small commercial-litigation firm",
+        "scenario": "The draft is marked \"DRAFT, for attorney review\" and is not added to the file until the attorney corrects it."
+      }
+    ],
+    "copy_prompt": "From these notes or this transcript that I am providing [paste], draft a summary with action items, open questions, and an owner for each. Label the top \"DRAFT, for attorney review.\" Do not add facts that are not in the notes. Pause and show me before sending, filing, posting or changing anything. Use only the sample or de-identified information I provide; do not include client-confidential details.",
+    "tools_examples": [
+      "Microsoft 365",
+      "Google Workspace",
+      "Outlook",
+      "Clio"
+    ],
+    "effect": "Action items are written down while the conversation is still fresh, as a draft the attorney can correct.",
+    "caution": "Administrative support only: this is not legal advice and does not replace attorney judgment. An attorney reviews and approves anything client-facing or substantive, and client-confidential information is used only with the firm's agreements, access controls and consent. Recording or transcribing a call may require consent, which varies by state, so get it first. Attorney-client conversations are confidential and privileged, so use a tool only after the firm has vetted its terms, retention, and training practices, and has the client's consent where the rules require it. ABA Formal Opinion 512 says boilerplate in an engagement letter is not enough for self-learning tools. Summaries are drafts, not a record of legal advice."
+  },
+  {
+    "slug": "firm-marketing-drafts",
+    "title": "Marketing drafts, newsletters, and review requests",
+    "category": "Legal practices",
+    "summary": "SI drafts newsletters, site updates, and review requests from topics the firm chooses, and a person approves every piece before it is published.",
+    "problem": "Firms know they should send newsletters, update the website, and ask clients for reviews, and the drafting rarely gets done.",
+    "what_si_does": "SI drafts newsletter issues, website updates, and social posts from topics the firm chooses and from public information such as firm news, builds a simple calendar for them, and drafts polite review-request messages for the firm to send to clients the attorney chooses.",
+    "setup": "Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. Start with topics the firm chooses, a few past newsletters as a tone sample, and review-request wording an attorney has approved. Setup is often a few days.",
+    "human_checks": [
+      "An attorney reviews and approves every piece before it is published, and picks who is asked for a review.",
+      "A person checks that nothing reveals client information.",
+      "SI never sends, files, or posts on its own.",
+      "Unsure items go to a \"needs attorney review\" queue."
+    ],
+    "examples": [
+      {
+        "business_type": "Two-attorney estate-planning firm",
+        "scenario": "A newsletter draft covers a firm announcement the attorneys chose, with no client stories, and waits for approval."
+      },
+      {
+        "business_type": "Solo family-law practice",
+        "scenario": "A review-request draft is prepared only for people the attorney has already listed, and a person checks that it names no matter."
+      },
+      {
+        "business_type": "Small commercial-litigation firm",
+        "scenario": "Website drafts use public firm news only, and the calendar shows when each piece is ready for attorney review."
+      }
+    ],
+    "copy_prompt": "Draft a newsletter, a short website update, and one social post from these topics and this public firm news only [paste]. Build a simple calendar for them. Draft a polite review request from this approved wording [paste]. Do not include any client's identity, matter details, testimonials, comparisons, or promises. Pause and show me before sending, filing, posting or changing anything. Use only the sample or de-identified information I provide; do not include client-confidential details.",
+    "tools_examples": [
+      "Google Workspace",
+      "Microsoft 365",
+      "Outlook",
+      "Calendly"
+    ],
+    "effect": "Drafts and a simple calendar are ready for an attorney to edit, and nothing is published until it is approved.",
+    "caution": "Administrative support only: this is not legal advice and does not replace attorney judgment. An attorney reviews and approves anything client-facing or substantive, and client-confidential information is used only with the firm's agreements, access controls and consent. Advertising rules vary by state and require communications to be truthful and not misleading. SI never writes client results, testimonials, or comparisons, never promises outcomes, and never includes any client's identity or matter details. Asking satisfied clients for reviews is generally permitted, and paying for them is generally not, so check your state's rules."
   }
 ]

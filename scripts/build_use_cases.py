@@ -91,7 +91,42 @@ SHORT = {
         "local-seasonal",
         "Storm prep, bilingual replies, and the listing customers see on the map.",
     ),
+    "Legal practices": (
+        "Legal practices",
+        "legal-practices",
+        "Business-side admin for solo attorneys and small firms. Attorneys review and decide.",
+    ),
 }
+
+# Shown on the Legal practices section. The opinion title is quoted as published.
+LEGAL_READ_FIRST = (
+    "<strong>Read this first.</strong> The use cases in this category are about running the "
+    "<em>business side</em> of a law practice: scheduling, intake logistics, billing admin, "
+    "document organization, and communications drafts. SI does not give legal advice, does not "
+    "practice law, and does not replace an attorney's judgment. An attorney reviews and approves "
+    "anything client-facing or substantive before it goes out, and nothing here promises any legal "
+    "outcome or result. Client confidentiality comes first: confidential or privileged client "
+    "information should only be put into a tool after the firm has checked the vendor's terms and "
+    "data practices, has proper agreements and access controls in place, and has any consent the "
+    "rules require. ABA Formal Opinion 512 (2024) addresses lawyers' use of generative artificial "
+    "intelligence tools and is a good starting point; state bar rules differ, so check yours. "
+    "Trust-account (IOLTA) and billing records are handled with extra care, and a person approves "
+    "every entry. These pages are general information, not legal or ethics advice, and not a "
+    "guarantee of compliance with any rule."
+)
+LEGAL_SHORT = (
+    "Admin and operations help for solo attorneys and small firms. SI drafts and organizes; "
+    "attorneys review and decide. No legal advice, no filing-ready work product, and client "
+    "confidentiality comes first."
+)
+LEGAL_FOOT = (
+    "Not legal or ethics advice. Talk with your state bar or ethics counsel about your obligations."
+)
+LEGAL_CAUTION_PREFIX = (
+    "Administrative support only: this is not legal advice and does not replace attorney judgment. "
+    "An attorney reviews and approves anything client-facing or substantive, and client-confidential "
+    "information is used only with the firm's agreements, access controls and consent."
+)
 
 REQUIRED = (
     "slug",
@@ -144,6 +179,23 @@ def load() -> list:
         blob = json.dumps(item)
         if re.search(r"\bAI\b", blob) or "Nous" in blob or "Brandgate" in blob:
             raise SystemExit(f"{item['slug']} contains wording that must stay off the public site")
+        if item["category"] == "Legal practices":
+            caution = (item.get("caution") or "").strip()
+            if not caution.startswith(LEGAL_CAUTION_PREFIX):
+                raise SystemExit(f"{item['slug']} caution must start with the legal guardrail")
+            prompt = item["copy_prompt"]
+            if "Pause and show me before sending, filing, posting or changing anything" not in prompt:
+                raise SystemExit(f"{item['slug']} prompt must pause before sending, filing, posting, or changing")
+            if (
+                "Use only the sample or de-identified information I provide; do not include client-confidential details"
+                not in prompt
+            ):
+                raise SystemExit(f"{item['slug']} prompt must limit itself to sample or de-identified information")
+            if len(item["human_checks"]) < 3:
+                raise SystemExit(f"{item['slug']} needs at least three human checks")
+            for banned in ("Ohr", "Kayla", "josh.gemmi@gmail.com"):
+                if banned in blob:
+                    raise SystemExit(f"{item['slug']} contains wording that must stay off the public site")
         slugs.append(item["slug"])
     dupes = {slug for slug in slugs if slugs.count(slug) > 1}
     if dupes:
@@ -310,11 +362,14 @@ def card(item: dict, href: str, show_cat: bool = True, extra: bool = False) -> s
     short = SHORT[item["category"]]
     cat = f'<span class="uc-card-cat">{e(short[0])}</span>' if show_cat else ""
     extra_cls = " uc-extra" if extra else ""
+    note = ""
+    if item["category"] == "Legal practices":
+        note = f'\n              <p class="uc-card-note">{e(LEGAL_SHORT)}</p>'
     return f"""<li class="uc-card{extra_cls}" data-cat="{short[1]}" data-hay="{e(haystack(item))}">
             <a href="{href}">
               {cat}
               <h3>{e(item['title'])}</h3>
-              <p>{e(item['summary'])}</p>
+              <p>{e(item['summary'])}</p>{note}
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
             </a>
           </li>"""
@@ -327,7 +382,8 @@ def library_page(entries: list) -> str:
     desc = (
         f"{n} practical ways SI can take routine work off a small team: inbox and support, "
         "sales follow-up, bookkeeping, reporting, scheduling, inventory, ecommerce, content, "
-        "hiring, documents, community organizations, and local business. Each one shows what a human still checks."
+        "hiring, documents, community organizations, local business, and legal-practice admin. "
+        "Each one shows what a human still checks."
     )
     ld = {
         "@context": "https://schema.org",
@@ -383,6 +439,15 @@ def library_page(entries: list) -> str:
                 f'<button type="button" class="uc-more" data-n="{len(items)}" '
                 f'aria-expanded="false">Show all {len(items)}</button>'
             )
+        banner = ""
+        closing_note = ""
+        if cat == "Legal practices":
+            banner = (
+                '        <div class="uc-read-first" role="note">\n'
+                f"          <p>{LEGAL_READ_FIRST}</p>\n"
+                "        </div>\n"
+            )
+            closing_note = f'        <p class="uc-legal-foot">{e(LEGAL_FOOT)}</p>\n'
         sections.append(
             f"""      <section class="uc-group" data-group="{slug}" aria-labelledby="g-{slug}">
         <div class="uc-group-head">
@@ -390,11 +455,11 @@ def library_page(entries: list) -> str:
           <h2 id="g-{slug}">{e(label)}</h2>
           <p>{e(blurb)}</p>
         </div>
-        <ul class="uc-grid">
+{banner}        <ul class="uc-grid">
           {cards}
         </ul>
         {more}
-      </section>"""
+{closing_note}      </section>"""
         )
     # The single allowed "AI" bridge lives in this intro and nowhere else.
     return head(title, desc, "/use-cases/", 1, ld) + f"""
@@ -532,6 +597,9 @@ def detail_page(item: dict, entries: list) -> str:
     caution = ""
     if (item.get("caution") or "").strip():
         caution = f'<p class="uc-caution" role="note"><strong>Worth knowing:</strong> {e(item["caution"])}</p>'
+    legal_note = ""
+    if item["category"] == "Legal practices":
+        legal_note = f'<p class="uc-read-first" role="note">{e(LEGAL_SHORT)}</p>\n          '
     tools = "".join(f'<span class="tag green">{e(tool)}</span>' for tool in item["tools_examples"])
     return head(title, desc, url, 2, ld) + f"""
     <main id="top">
@@ -547,7 +615,7 @@ def detail_page(item: dict, entries: list) -> str:
           <p class="uc-card-cat"><a href="../index.html#g-{slug}">{e(label)}</a></p>
           <h1>{e(item['title'])}</h1>
           <p class="lead">{e(item['summary'])}</p>
-          {caution}
+          {legal_note}{caution}
         </header>
 
         <div class="uc-detail-body">
@@ -693,10 +761,16 @@ def assert_wording(entries: list) -> None:
         raise SystemExit(f"Library intro must mention formerly called AI exactly once, found {ai_hits}")
     if "noindex" in library:
         raise SystemExit("Library page must be indexable")
+    if "Read this first." not in library or "generative artificial intelligence" not in library:
+        raise SystemExit("Legal practices section is missing the full disclaimer")
+    if library.count(LEGAL_SHORT) < 1:
+        raise SystemExit("Legal cards are missing the short disclaimer")
     for item in entries:
         page = (OUT / item["slug"] / "index.html").read_text(encoding="utf-8")
         if re.search(r"\bAI\b", page) or "noindex" in page or "Nous" in page or "Brandgate" in page:
             raise SystemExit(f"Wording check failed for {item['slug']}")
+        if item["category"] == "Legal practices" and LEGAL_SHORT not in page:
+            raise SystemExit(f"{item['slug']} is missing the short legal disclaimer")
 
 
 def main() -> None:

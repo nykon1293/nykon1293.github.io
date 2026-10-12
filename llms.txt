@@ -18,12 +18,12 @@ https://calendly.com/josh-gemmi/30min
 - Stocky dump recovery (Shopify CSV after Stocky shut down; not a Stocky replacement app): https://gemmisi.com/services/stocky-recovery.html
 - Advisory & Fractional CTO (inquire first): https://gemmisi.com/advisory.html
 - Anonymized case study: https://gemmisi.com/work/governed-ai-content-engine.html
-- Use cases (82 practical SI examples; illustrations, not client results): https://gemmisi.com/use-cases/
+- Use cases (94 practical SI examples; illustrations, not client results): https://gemmisi.com/use-cases/
 - Sitemap: https://gemmisi.com/sitemap.xml
 
 ## Use cases
 
-The library lists 82 practical SI jobs for small teams and community organizations. They are illustrations of what is possible, not reports of client results. A person still approves anything that sends, pays, orders, or posts. The library also covers ecommerce operations and local or seasonal work.
+The library lists 94 practical SI jobs for small teams, community organizations, and the business side of solo and small law practices. They are illustrations of what is possible, not reports of client results. A person still approves anything that sends, pays, orders, or posts. The library also covers ecommerce operations, local or seasonal work, and legal-practice administration. Legal-practice pages are operations help only. SI does not give legal advice, and an attorney reviews anything client-facing.
 
 - Library: https://gemmisi.com/use-cases/
 - Morning inbox triage into labeled queues: https://gemmisi.com/use-cases/inbox-triage/
@@ -42,6 +42,18 @@ The library lists 82 practical SI jobs for small teams and community organizatio
 - Speed-to-lead replies for new inquiries: https://gemmisi.com/use-cases/speed-to-lead-replies/
 - Google Business Profile upkeep: https://gemmisi.com/use-cases/google-business-profile-upkeep/
 - Cash-flow look-ahead from open invoices and bills: https://gemmisi.com/use-cases/cash-flow-look-ahead/
+- After-hours inquiry triage with clear "not legal advice" handling: https://gemmisi.com/use-cases/after-hours-inquiry-triage/
+- Intake summaries and conflict-check prep: https://gemmisi.com/use-cases/intake-summaries-conflict-prep/
+- New-client onboarding checklists: https://gemmisi.com/use-cases/new-client-onboarding-checklists/
+- Engagement-letter template assembly for attorney review: https://gemmisi.com/use-cases/engagement-letter-template-assembly/
+- Deadline and calendar reminders, human-verified: https://gemmisi.com/use-cases/deadline-calendar-reminders/
+- Client status updates, attorney-approved: https://gemmisi.com/use-cases/client-status-updates/
+- Document organization and consistent file naming: https://gemmisi.com/use-cases/matter-file-naming/
+- Time-entry cleanup and billing-narrative drafts: https://gemmisi.com/use-cases/time-entry-cleanup/
+- Invoice follow-up and receivables reminders: https://gemmisi.com/use-cases/invoice-follow-up-reminders/
+- Records-request tracking: https://gemmisi.com/use-cases/records-request-tracking/
+- Meeting and call summaries for attorney review: https://gemmisi.com/use-cases/meeting-call-summaries/
+- Marketing drafts, newsletters, and review requests: https://gemmisi.com/use-cases/firm-marketing-drafts/
 
 ## Facts to keep straight
 
