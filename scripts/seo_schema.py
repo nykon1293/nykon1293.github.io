@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import json
+import re
+from pathlib import Path
 
 BASE = "https://gemmisi.com"
 PERSON_ID = f"{BASE}/#person"
@@ -270,11 +272,17 @@ def graph_payload(nodes: list[dict]) -> str:
     return json.dumps(payload, indent=2, ensure_ascii=False)
 
 
+def _font_face_css() -> str:
+    raw = (Path(__file__).resolve().parent.parent / "assets" / "fonts.css").read_text(encoding="utf-8")
+    raw = re.sub(r"/\*.*?\*/", "", raw, flags=re.S)
+    return re.sub(r"\s+", " ", raw).strip()
+
+
 def font_and_css_links(*, stylesheet: str, extra_css: str | None = None) -> str:
-    """Self-hosted latin fonts plus site CSS. Replaces the Google Fonts <link>s."""
+    """Preload Plex, inline @font-face, then site CSS. Replaces the Google Fonts <link>s."""
     lines = [
         '  <link rel="preload" href="/assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin />',
-        '  <link rel="stylesheet" href="/assets/fonts.css" />',
+        f"  <style>{_font_face_css()}</style>",
         f'  <link rel="stylesheet" href="{stylesheet}" />',
     ]
     if extra_css:
