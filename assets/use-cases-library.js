@@ -150,13 +150,17 @@
     if (moreFilters && functions.length) moreFilters.open = true;
     const featuredHead = document.getElementById("featured-h");
     if (featuredHead) {
-      const intro = featuredHead.parentElement && featuredHead.parentElement.querySelector("p");
+      const head = featuredHead.parentElement;
+      const intro = head && head.querySelector("p");
+      const kicker = head && head.querySelector(".section-kicker");
       if (filtering()) {
         featuredHead.textContent = "Matching use cases";
         if (intro) intro.hidden = true;
+        if (kicker) kicker.hidden = true;
       } else {
         featuredHead.textContent = "A dozen places to start";
         if (intro) intro.hidden = false;
+        if (kicker) kicker.hidden = false;
       }
     }
   };
