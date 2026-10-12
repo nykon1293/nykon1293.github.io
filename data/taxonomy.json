@@ -19,33 +19,33 @@
     "any-business": {
       "label": "Any business",
       "blurb": "Jobs that show up in almost any small team: inbox, follow-up, books, schedules, stock, and documents.",
-      "seo_title": "SI use cases for any small business | Yonatan Gemmi",
+      "seo_title": "SI (AI) use cases for any small business | GemmiSI",
       "seo_h1": "Use cases for any business",
-      "meta": "Practical SI jobs that fit almost any small team: inbox, sales follow-up, bookkeeping, reporting, scheduling, inventory, content, hiring, and documents. Each one shows what a human still checks.",
+      "meta": "SI (AI) jobs for almost any small team: inbox, follow-up, books, reporting, scheduling, inventory, content, hiring, and documents. A person still checks.",
       "regulated": false
     },
     "ecommerce": {
       "label": "Ecommerce",
       "blurb": "Store stock, checkouts, shipping, catalogs, disputes, and marketplace listings.",
-      "seo_title": "SI use cases for ecommerce operations | Yonatan Gemmi",
+      "seo_title": "SI (AI) use cases for ecommerce | GemmiSI",
       "seo_h1": "Use cases for ecommerce",
-      "meta": "SI jobs for online stores: stock, checkouts, shipping exceptions, catalogs, disputes, and marketplace listings. A person still approves anything that sends, refunds, or posts.",
+      "meta": "SI (AI) jobs for online stores: stock, checkouts, shipping, catalogs, disputes, and listings. You still approve anything that sends, refunds, or posts.",
       "regulated": false
     },
     "local-seasonal": {
       "label": "Local & seasonal",
       "blurb": "Hours, staffing, bookings, weather notices, bilingual replies, and the listing customers see on the map.",
-      "seo_title": "SI use cases for local and seasonal businesses | Yonatan Gemmi",
+      "seo_title": "SI (AI) use cases for local & seasonal | GemmiSI",
       "seo_h1": "Use cases for local and seasonal businesses",
-      "meta": "SI jobs for local shops and seasonal work: holiday hours, staffing, waitlists, weather notices, bilingual replies, and listing upkeep. Illustrations, not client results.",
+      "meta": "SI (AI) jobs for local and seasonal shops: hours, staffing, waitlists, weather notices, bilingual replies, and listing upkeep. Illustrations, not results.",
       "regulated": false
     },
     "legal": {
       "label": "Legal",
       "blurb": "Business-side admin for solo attorneys and small firms. Attorneys review and decide.",
-      "seo_title": "SI use cases for legal practices | Yonatan Gemmi",
+      "seo_title": "SI (AI) use cases for legal practices | GemmiSI",
       "seo_h1": "Use cases for legal practices",
-      "meta": "Business-side SI jobs for solo attorneys and small firms: intake logistics, billing admin, calendaring, and drafts. Not legal advice. Attorneys review and decide.",
+      "meta": "Business-side SI (AI) jobs for solo attorneys and small firms: intake, billing admin, calendaring, and drafts. Not legal advice. Attorneys decide.",
       "regulated": true,
       "read_first": "<strong>Read this first.</strong> The use cases in this category are about running the <em>business side</em> of a law practice: scheduling, intake logistics, billing admin, document organization, and communications drafts. SI does not give legal advice, does not practice law, and does not replace an attorney's judgment. An attorney reviews and approves anything client-facing or substantive before it goes out, and nothing here promises any legal outcome or result. Client confidentiality comes first: confidential or privileged client information should only be put into a tool after the firm has checked the vendor's terms and data practices, has proper agreements and access controls in place, and has any consent the rules require. ABA Formal Opinion 512 (2024) addresses lawyers' use of generative artificial intelligence tools and is a good starting point; state bar rules differ, so check yours. Trust-account (IOLTA) and billing records are handled with extra care, and a person approves every entry. These pages are general information, not legal or ethics advice, and not a guarantee of compliance with any rule.",
       "short": "Admin and operations help for solo attorneys and small firms. SI drafts and organizes; attorneys review and decide. No legal advice, no filing-ready work product, and client confidentiality comes first.",
@@ -58,9 +58,9 @@
     "medical": {
       "label": "Medical",
       "blurb": "Scheduling, reminders, intake, and billing admin for small practices. Clinicians and staff review and decide.",
-      "seo_title": "SI use cases for medical and healthcare practices | Yonatan Gemmi",
+      "seo_title": "SI (AI) use cases for medical practices | GemmiSI",
       "seo_h1": "Use cases for medical and healthcare practices",
-      "meta": "Business-side SI jobs for small healthcare practices: scheduling, reminders, intake, and billing admin. Not medical advice. Clinicians and staff review and decide.",
+      "meta": "Business-side SI (AI) jobs for small healthcare practices: scheduling, reminders, intake, and billing admin. Not medical advice. Staff review and decide.",
       "regulated": true,
       "read_first": "<strong>Read this first.</strong> The use cases in this category are about running the <em>business side</em> of a healthcare practice: scheduling, reminders, intake logistics, insurance and billing admin, referral tracking, and communications drafts. SI does not name a condition, give medical advice, or make clinical decisions, and it does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical or patient-facing before it goes out, and nothing here promises any health outcome or result. Patient privacy comes first: protected health information (PHI) should only go into tools covered by a signed business associate agreement (BAA) with the practice, with proper access controls, and only the minimum necessary; it never belongs in consumer tools or free chat apps. Billing and coding are always approved by a person; SI never invents documentation or assigns codes on its own. Recording or transcribing calls and visits may require consent, texting patients is regulated, and state laws differ, so check yours. SI never handles emergencies: anything urgent goes to a person or to 911. These pages are general information, not medical, legal or compliance advice, and not a guarantee of compliance with HIPAA or any other rule. <a href=\"https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/business-associates/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">HHS guidance on business associates</a> is a good starting point.",
       "short": "Admin and operations help for small practices. SI drafts, tracks and organizes; clinicians and staff review and decide. No medical advice or clinical decisions, and patient information stays in tools covered by a BAA.",
@@ -73,9 +73,9 @@
     "real-estate": {
       "label": "Real estate",
       "blurb": "Business-side admin for agents, landlords and small property managers. Licensed professionals and owners review and decide.",
-      "seo_title": "SI use cases for real estate and property management | Yonatan Gemmi",
+      "seo_title": "SI (AI) use cases for real estate | GemmiSI",
       "seo_h1": "Use cases for real estate and property management",
-      "meta": "Business-side SI jobs for agents, landlords, and small property managers. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants.",
+      "meta": "Business-side SI (AI) jobs for agents, landlords, and property managers. SI drafts only; it does not lease, collect rent, screen or rank applicants.",
       "regulated": true,
       "read_first": "<strong>Read this first.</strong> The use cases in this category are about running the <em>business side</em> of real estate and property management: lead follow-up, scheduling, maintenance coordination, reminders, tracking and communications drafts. SI does not give legal, lease or financial advice, does not negotiate or sign anything, and does not replace the judgment of a licensed agent, broker or property manager. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything client-facing, tenant-facing or contractual before it goes out, and nothing here promises any sale, lease, price or result. Fair housing laws apply however a task is done: SI never screens, ranks, steers, targets or describes people or neighborhoods by protected characteristics, and every listing, ad and message is reviewed by a person before it is used. Applicant and tenant information is private, so it should only go into tools the business has checked, with access controls and the minimum necessary. Texting is regulated, so get consent and honor opt-outs. Licensing, landlord-tenant and advertising rules differ by state, so check yours. These pages are general information, not legal or compliance advice, and not a guarantee of compliance with any law.",
       "short": "Admin and operations help for agents, landlords and small property managers. SI prepares drafts for the licensed agent or owner; they review and decide. SI does not lease, collect rent, screen or rank applicants.",
@@ -88,9 +88,9 @@
     "home-services": {
       "label": "Home services",
       "blurb": "Office help for HVAC, plumbing, roofing, electrical, landscaping, pool and cleaning businesses. The owner approves every quote and message.",
-      "seo_title": "SI use cases for home services and contractors | Yonatan Gemmi",
+      "seo_title": "SI (AI) use cases for home services | GemmiSI",
       "seo_h1": "Use cases for home services and contractors",
-      "meta": "Office-side SI jobs for HVAC, plumbing, roofing, electrical, landscaping, pool, and cleaning businesses. The owner approves every quote and message.",
+      "meta": "Office-side SI (AI) jobs for HVAC, plumbing, roofing, electrical, landscaping, pool, and cleaning businesses. The owner approves every quote and message.",
       "regulated": true,
       "read_first": "<strong>Read this first.</strong> The use cases in this category are about running the <em>office side</em> of a home-service business: missed calls, quotes, scheduling, invoices, reminders, paperwork and records. SI does not set prices, make promises, or give safety, repair, code or insurance advice, and it does not replace a licensed professional's judgment on the job. The owner or an authorized person reviews and approves every quote, price, schedule commitment and customer message before it goes out, and nothing here promises any job, timeline, savings or result. Licensing, advertising, deposit, permit and contract rules differ by state and city, so check yours. The business's license number and required notices come from the owner, not from SI. Texting customers is regulated, so get consent and honor opt-outs. Customer information is private and should only go into tools the business has checked. If something sounds like an emergency, such as gas, fire, smoke or flooding near electricity, it goes to a person and to 911 or the utility, never to SI. These pages are general information, not legal, safety or compliance advice, and not a guarantee of compliance with any rule.",
       "short": "Office help for HVAC, plumbing, roofing, electrical, landscaping, pool and cleaning businesses. SI drafts, tracks and reminds; the owner approves every quote and message. No pricing promises, no safety or code advice, and customers' information stays private.",
@@ -103,9 +103,9 @@
     "accounting": {
       "label": "Accounting",
       "blurb": "Admin for small CPA, tax and bookkeeping firms. Professionals review, sign and decide.",
-      "seo_title": "SI use cases for accounting and tax firms | Yonatan Gemmi",
+      "seo_title": "SI (AI) use cases for accounting firms | GemmiSI",
       "seo_h1": "Use cases for accounting and tax firms",
-      "meta": "Practice-side SI jobs for small CPA, tax, and bookkeeping firms: chasing documents, tracking dates, and drafts for review. Not tax advice. Professionals review, sign, and decide.",
+      "meta": "Practice-side SI (AI) jobs for CPA, tax, and bookkeeping firms: chasing documents, dates, and drafts. Not tax advice. Professionals review, sign, and decide.",
       "regulated": true,
       "read_first": "<strong>Read this first.</strong> The use cases in this category are about running the <em>practice side</em> of an accounting, tax or bookkeeping firm: chasing documents, organizing intake, tracking dates, preparing checklists, drafting routine communications and getting information ready for a professional's review. SI does not give tax, accounting or legal advice, does not prepare, sign or file any return or report, and does not replace a CPA's, enrolled agent's or preparer's judgment. A qualified professional reviews, signs and takes responsibility for all work product, and every deadline SI tracks is verified by a person against official sources. Nothing here promises any refund, tax result or savings. Client financial and tax information is among the most sensitive a firm holds: firms that prepare returns have legal duties around data security (the FTC Safeguards Rule, covered in IRS Publication 4557) and around using or disclosing tax return information (Internal Revenue Code section 7216), and professional rules apply on top. Put client information only into tools the firm has vetted, with the agreements, access controls and any client consent the rules require, and start with sample data. State rules differ, so check yours. These pages are general information, not tax, legal or compliance advice, and not a guarantee of compliance with any rule.",
       "short": "Admin and operations help for small CPA, tax and bookkeeping firms. SI chases, organizes and drafts; professionals review, sign and decide. No tax advice, no filings, and client data stays protected under your firm's security plan.",
@@ -120,72 +120,72 @@
     "customer-support": {
       "label": "Customer support",
       "blurb": "Fewer repeat questions, faster first replies, and a calmer inbox.",
-      "seo_title": "Customer support SI use cases | Yonatan Gemmi",
+      "seo_title": "SI (AI) customer support use cases | GemmiSI",
       "seo_h1": "Customer support use cases",
-      "meta": "SI jobs for inbox triage, replies, reviews, after-hours coverage, and chat handoff. A person still sends every message."
+      "meta": "SI (AI) jobs for inbox triage, replies, reviews, after-hours coverage, and chat handoff. A person still sends every message."
     },
     "sales-follow-up": {
       "label": "Sales & follow-up",
       "blurb": "Quotes, leads and call notes that actually get followed up.",
-      "seo_title": "Sales and follow-up SI use cases | Yonatan Gemmi",
+      "seo_title": "SI (AI) sales & follow-up use cases | GemmiSI",
       "seo_h1": "Sales and follow-up use cases",
-      "meta": "SI jobs for quotes, leads, call notes, and outreach drafts that wait for your approval before they go out."
+      "meta": "SI (AI) jobs for quotes, leads, call notes, and outreach drafts that wait for your approval before they go out."
     },
     "billing-admin": {
       "label": "Billing & admin",
       "blurb": "Invoices, receipts, reminders and month-end prep.",
-      "seo_title": "Billing and admin SI use cases | Yonatan Gemmi",
+      "seo_title": "SI (AI) billing & admin use cases | GemmiSI",
       "seo_h1": "Billing and admin use cases",
-      "meta": "SI jobs for invoices, receipts, reminders, renewals, and month-end prep. A person still approves anything that bills or pays."
+      "meta": "SI (AI) jobs for invoices, receipts, reminders, renewals, and month-end prep. A person still approves anything that bills or pays."
     },
     "scheduling": {
       "label": "Scheduling",
       "blurb": "Schedules, confirmations, reminders and calendar chores.",
-      "seo_title": "Scheduling SI use cases | Yonatan Gemmi",
+      "seo_title": "SI (AI) scheduling use cases | GemmiSI",
       "seo_h1": "Scheduling use cases",
-      "meta": "SI jobs for staff schedules, appointment confirmations, calendar holds, and reminder drafts. A person still books and confirms."
+      "meta": "SI (AI) jobs for staff schedules, appointment confirmations, calendar holds, and reminder drafts. A person still books and confirms."
     },
     "reporting-dashboards": {
       "label": "Reporting & dashboards",
       "blurb": "One trusted view of the business, written in plain language.",
-      "seo_title": "Reporting and dashboard SI use cases | Yonatan Gemmi",
+      "seo_title": "SI (AI) reporting use cases | GemmiSI",
       "seo_h1": "Reporting and dashboard use cases",
-      "meta": "SI jobs for weekly snapshots, revenue views, change notes, and simple dashboards assembled from tools you already use."
+      "meta": "SI (AI) jobs for weekly snapshots, revenue views, change notes, and simple dashboards assembled from tools you already use."
     },
     "inventory-orders": {
       "label": "Inventory & orders",
       "blurb": "Reorders, receiving, stock watch and order checks.",
-      "seo_title": "Inventory and orders SI use cases | Yonatan Gemmi",
+      "seo_title": "SI (AI) inventory & orders use cases | GemmiSI",
       "seo_h1": "Inventory and orders use cases",
-      "meta": "SI jobs for reorders, receiving, stock watch, purchase orders, and order paperwork checks."
+      "meta": "SI (AI) jobs for reorders, receiving, stock watch, purchase orders, and order paperwork checks."
     },
     "content-marketing": {
       "label": "Content & marketing",
       "blurb": "Drafts from your real material, in your voice, for you to edit.",
-      "seo_title": "Content and marketing SI use cases | Yonatan Gemmi",
+      "seo_title": "SI (AI) content & marketing use cases | GemmiSI",
       "seo_h1": "Content and marketing use cases",
-      "meta": "SI jobs for newsletters, social calendars, web snippets, and review replies drafted from your real material."
+      "meta": "SI (AI) jobs for newsletters, social calendars, web snippets, and review replies drafted from your real material."
     },
     "hiring": {
       "label": "Hiring",
       "blurb": "Postings, applications, onboarding and renewals for your team.",
-      "seo_title": "Hiring SI use cases | Yonatan Gemmi",
+      "seo_title": "SI (AI) hiring use cases | GemmiSI",
       "seo_h1": "Hiring use cases",
-      "meta": "SI jobs for job postings, application summaries, interview kits, onboarding checklists, and license tracking."
+      "meta": "SI (AI) jobs for job postings, application summaries, interview kits, onboarding checklists, and license tracking."
     },
     "research-documents": {
       "label": "Research & documents",
       "blurb": "Contracts, forms, long documents and vendor comparisons.",
-      "seo_title": "Research and documents SI use cases | Yonatan Gemmi",
+      "seo_title": "SI (AI) research & documents use cases | GemmiSI",
       "seo_h1": "Research and documents use cases",
-      "meta": "SI jobs for a first read of contracts, form filling, long-document briefs, RFPs, and PDF filing."
+      "meta": "SI (AI) jobs for a first read of contracts, form filling, long-document briefs, RFPs, and PDF filing."
     },
     "community": {
       "label": "Community",
       "blurb": "Announcements, donations, volunteers, events and member lists.",
-      "seo_title": "Community and membership SI use cases | Yonatan Gemmi",
+      "seo_title": "SI (AI) community use cases | GemmiSI",
       "seo_h1": "Community and membership use cases",
-      "meta": "SI jobs for member announcements, donations, volunteer schedules, events, and board packets."
+      "meta": "SI (AI) jobs for member announcements, donations, volunteer schedules, events, and board packets."
     }
   },
   "legacy_anchors": {

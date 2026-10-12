@@ -22,7 +22,25 @@ from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from seo_schema import CLOUDFLARE_WEB_ANALYTICS, CSS_VERSION, NAV_SCRIPT, font_and_css_links
+from seo_schema import (
+    APPROVAL_LINE,
+    BUSINESS_ID,
+    CLOUDFLARE_WEB_ANALYTICS,
+    CSS_VERSION,
+    NAV_SCRIPT,
+    OWN_EQUIPMENT,
+    PERSON_ID,
+    WEBSITE_ID,
+    clip_meta,
+    faq_node,
+    font_and_css_links,
+    person_node,
+    professional_service_node,
+    use_case_seo_desc,
+    use_case_seo_titles,
+    website_node,
+    with_si_gloss,
+)
 from use_case_motifs import motif_bytes, motif_html, pick_industry, pick_motif
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -34,7 +52,7 @@ SITEMAP = ROOT / "sitemap.xml"
 BASE = "https://gemmisi.com"
 CAL = "https://calendly.com/josh-gemmi/30min"
 OG_IMAGE = f"{BASE}/assets/brand/gemmisi-og.png"
-OG_ALT = "GemmiSI — SI, automation, dashboards, and technical operations"
+OG_ALT = "GemmiSI — SI & AI, automation, dashboards, and technical operations"
 
 REQUIRED = (
     "slug",
@@ -76,6 +94,15 @@ OWN_ACCOUNTS = ""
 ALSO_USED_NOTE = ""
 FEATURED_SLUGS: list[str] = []
 LEGACY: dict = {}
+SEO_TITLES: dict[str, str] = {}
+
+STOCKY_SLUGS = {
+    "retired-inventory-app-reorder-history",
+    "store-stock-and-spreadsheet-agreement",
+}
+HERMES_SLUGS = {
+    "standing-si-desk-approval-queue",
+}
 
 
 def e(value) -> str:
@@ -127,6 +154,127 @@ def dedicated_note(item: dict) -> str:
     ind = primary_industry(item)
     info = industry_info(ind)
     return info["short"] if info.get("regulated") else ""
+
+
+def relevant_service(item: dict) -> tuple[str, str]:
+    slug = item["slug"]
+    blob = f"{slug} {item['title']}".lower()
+    if slug in STOCKY_SLUGS or "stocky" in blob or "retired-inventory" in slug:
+        return ("/services/stocky-recovery.html", "Stocky dump recovery")
+    if slug in HERMES_SLUGS or "hermes" in blob:
+        return ("/services/hermes-agents.html", "Hermes Agents")
+    if primary_industry(item) == "ecommerce" or "inventory-orders" in item["functions"]:
+        return ("/services/ecommerce-operations.html", "Ecommerce operations")
+    if "reporting-dashboards" in item["functions"]:
+        return ("/services/dashboards-reporting.html", "Dashboards & reporting")
+    return ("/services/ai-automation.html", "SI automation")
+
+
+def industry_faqs(slug: str) -> list[tuple[str, str]]:
+    info = industry_info(slug)
+    label = info["label"]
+    shared = [
+        (
+            f"Does {label.lower()} SI run on my own computer?",
+            f"Yes. {OWN_ACCOUNTS}",
+        ),
+        (
+            "Will SI send messages or change records on its own?",
+            f"No. {APPROVAL_LINE}",
+        ),
+        (
+            "Are these client results?",
+            "No. They are illustrations of what is possible, not reports of client work. Setup times are rough and depend on how clean your data and tools are.",
+        ),
+        (
+            "How do we start?",
+            "Book a free 30-minute consultation. Bring one real example, such as an inbox, export, or spreadsheet. No note required.",
+        ),
+    ]
+    extra: list[tuple[str, str]] = []
+    if slug == "legal":
+        extra = [
+            (
+                "Does SI give legal advice?",
+                "No. These pages are business-side admin only. SI does not give legal advice, practice law, or replace an attorney's judgment. An attorney reviews anything client-facing or substantive.",
+            ),
+            (
+                "Can we put client files in consumer chat tools?",
+                "Not by default. Confidential or privileged information should only go into a tool after the firm has checked terms, agreements, access controls, and any required consent. Start with sample or de-identified information.",
+            ),
+        ]
+    elif slug == "medical":
+        extra = [
+            (
+                "Does SI give medical advice?",
+                "No. SI does not name a condition, give medical advice, or make clinical decisions. A clinician or trained staff member reviews anything clinical or patient-facing. This is not a guarantee of HIPAA compliance.",
+            ),
+            (
+                "What about patient information?",
+                "Protected health information belongs only in tools covered by a signed business associate agreement, with access controls and the minimum necessary. It never belongs in consumer chat apps.",
+            ),
+        ]
+    elif slug == "accounting":
+        extra = [
+            (
+                "Does SI give tax or accounting advice?",
+                "No. SI does not give tax, accounting, or legal advice, and it does not prepare, sign, or file any return or report. A qualified professional reviews, signs, and decides.",
+            ),
+            (
+                "Where does client financial data live?",
+                f"{OWN_ACCOUNTS} Put client information only into tools the firm has vetted under its security plan.",
+            ),
+        ]
+    elif slug == "real-estate":
+        extra = [
+            (
+                "Does SI lease units or screen applicants?",
+                "No. SI prepares drafts for the licensed agent or owner. It does not lease, collect rent, screen or rank applicants, and it does not give legal or lease advice.",
+            ),
+            (
+                "Who approves listings and tenant messages?",
+                "A licensed professional or the property owner. Fair housing laws still apply. SI never screens, ranks, or describes people or neighborhoods by protected characteristics.",
+            ),
+        ]
+    elif slug == "home-services":
+        extra = [
+            (
+                "Does SI set prices or book jobs?",
+                "No. SI drafts, tracks, and reminds. The owner or an authorized person approves every quote, price, schedule commitment, and customer message. SI does not give safety or code advice.",
+            ),
+        ]
+    elif slug == "ecommerce":
+        extra = [
+            (
+                "Will SI refund orders or post listings?",
+                f"No. {APPROVAL_LINE} That includes refunds, marketplace posts, and customer messages.",
+            ),
+        ]
+    elif slug == "local-seasonal":
+        extra = [
+            (
+                "Will SI post holiday hours or send weather notices?",
+                f"No. {APPROVAL_LINE} SI can draft the update; you post or send it.",
+            ),
+        ]
+    else:
+        extra = [
+            (
+                "What kinds of jobs are these?",
+                "Inbox, follow-up, books, schedules, stock, and documents: the repetitive work that shows up in almost any small team. SI drafts and sorts; a person still checks.",
+            ),
+        ]
+    faqs = extra[:2] + shared
+    return faqs[:6]
+
+
+def faq_html(faqs: list[tuple[str, str]]) -> str:
+    parts = []
+    for q, a in faqs:
+        parts.append(
+            f'          <details class="faq-item"><summary>{e(q)}</summary><p>{e(a)}</p></details>'
+        )
+    return "\n".join(parts)
 
 
 def load_taxonomy() -> None:
@@ -375,6 +523,8 @@ def load() -> list:
             "featured: true flags must match taxonomy.featured "
             f"(flags={sorted(featured_flags)} taxonomy={FEATURED_SLUGS})"
         )
+    global SEO_TITLES
+    SEO_TITLES = use_case_seo_titles(entries)
     return entries
 
 
@@ -502,7 +652,7 @@ def head(
   <meta property="og:description" content="{e(desc)}" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="{BASE}{canon}" />
-  <meta property="og:site_name" content="Yonatan Gemmi" />
+  <meta property="og:site_name" content="GemmiSI" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:image" content="{OG_IMAGE}" />
   <meta property="og:image:width" content="1200" />
@@ -602,20 +752,35 @@ def crumbs(*parts: tuple[str, str]) -> dict:
     }
 
 
-def collection_ld(name: str, url: str, desc: str, entries: list, trail: list[tuple[str, str]]) -> dict:
+def collection_ld(
+    name: str,
+    url: str,
+    desc: str,
+    entries: list,
+    trail: list[tuple[str, str]],
+    faqs: list[tuple[str, str]] | None = None,
+) -> dict:
+    graph: list[dict] = [
+        website_node(),
+        person_node(),
+        professional_service_node(include_catalog=False),
+        crumbs(*trail),
+        {
+            "@type": "CollectionPage",
+            "@id": f"{url}#webpage",
+            "name": name,
+            "url": url,
+            "description": desc,
+            "isPartOf": {"@id": WEBSITE_ID},
+            "about": {"@id": BUSINESS_ID},
+            "mainEntity": item_list(entries),
+        },
+    ]
+    if faqs:
+        graph.append(faq_node(faqs))
     return {
         "@context": "https://schema.org",
-        "@graph": [
-            crumbs(*trail),
-            {
-                "@type": "CollectionPage",
-                "name": name,
-                "url": url,
-                "description": desc,
-                "isPartOf": {"@type": "WebSite", "name": "Yonatan Gemmi", "url": BASE + "/"},
-                "mainEntity": item_list(entries),
-            },
-        ],
+        "@graph": graph,
     }
 
 
@@ -757,10 +922,10 @@ def closing_section() -> str:
 def library_page(entries: list) -> str:
     n = len(entries)
     featured = featured_entries(entries)
-    title = "SI use cases for small businesses and community organizations | Yonatan Gemmi"
-    desc = (
-        f"{n} practical ways SI can take routine work off a small team. Browse by industry "
-        "or search. Each entry shows what a human still checks."
+    title = "SI (AI) use cases for small teams | GemmiSI"
+    desc = clip_meta(
+        f"{n} practical SI (AI) jobs that take routine work off a small team. "
+        "Browse by industry or search. Each entry shows what a human still checks."
     )
     ld = collection_ld(
         "SI use cases",
@@ -769,14 +934,13 @@ def library_page(entries: list) -> str:
         featured,
         [("Home", BASE + "/"), ("Use cases", BASE + "/use-cases/")],
     )
-    ld["@graph"][1]["mainEntity"]["numberOfItems"] = n
+    next(node for node in ld["@graph"] if node.get("@type") == "CollectionPage")["mainEntity"]["numberOfItems"] = n
     cards = "\n          ".join(card(item, featured=True, note="") for item in featured)
     config = json.dumps(
         {"legacy": LEGACY, "n": n, "page": SHOW_MORE, "mode": "hub"},
         ensure_ascii=False,
         separators=(",", ":"),
     )
-    # The single allowed "AI" bridge lives in this intro and nowhere else.
     return head(
         title,
         desc,
@@ -791,7 +955,7 @@ def library_page(entries: list) -> str:
 {breadcrumb_html(1, [("Home", "../index.html"), ("Use cases", None)])}
         <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>{n} practical examples</p>
         <h1>What SI can take off your plate</h1>
-        <p class="lead">SI (Super Intelligence, formerly called AI) can take on a lot of the repetitive work in almost any business or organization: reading, sorting, matching, drafting, checking and summarizing. Each entry describes one practical job, what it needs to get started, and where a person stays in charge. Anything that sends, pays, orders or posts always waits for your approval.</p>
+        <p class="lead">SI (Super Intelligence, the new name for AI) can take on a lot of the repetitive work in almost any business or organization: reading, sorting, matching, drafting, checking and summarizing. Each entry describes one practical job, what it needs to get started, and where a person stays in charge. Anything that sends, pays, orders or posts always waits for your approval.</p>
         <p class="uc-note-intro">The examples show how the same job looks in different kinds of businesses. They are illustrations of what is possible, not reports of client results. Setup times are rough and depend on how clean your data and tools are.</p>
         <div class="actions">
           <a class="button primary" href="{CAL}" target="_blank" rel="noreferrer">{CTA}</a>
@@ -835,11 +999,15 @@ def dimension_index_page(kind: str, entries: list) -> str:
     is_industry = kind == "industry"
     catalog = INDUSTRIES if is_industry else FUNCTIONS
     counts = industry_counts(entries) if is_industry else function_counts(entries)
-    title = f"SI use cases by {'industry' if is_industry else 'function'} | Yonatan Gemmi"
-    desc = (
-        "Browse the GemmiSI use-case library by industry."
+    title = (
+        "SI (AI) use cases by industry | GemmiSI"
         if is_industry
-        else "Browse the GemmiSI use-case library by the kind of job: support, sales, billing, scheduling, and more."
+        else "SI (AI) use cases by function | GemmiSI"
+    )
+    desc = (
+        "Browse the GemmiSI SI (AI) use-case library by industry."
+        if is_industry
+        else "Browse the GemmiSI SI (AI) use-case library by the kind of job: support, sales, billing, scheduling, and more."
     )
     h1 = "Browse by industry" if is_industry else "Browse by function"
     canon = f"/use-cases/{kind}/"
@@ -861,12 +1029,17 @@ def dimension_index_page(kind: str, entries: list) -> str:
                 ("Use cases", BASE + "/use-cases/"),
                 ("Industries" if is_industry else "Functions", BASE + canon),
             ),
+            website_node(),
+            person_node(),
+            professional_service_node(include_catalog=False),
             {
                 "@type": "CollectionPage",
+                "@id": BASE + canon + "#webpage",
                 "name": h1,
                 "url": BASE + canon,
                 "description": desc,
-                "isPartOf": {"@type": "WebSite", "name": "Yonatan Gemmi", "url": BASE + "/"},
+                "isPartOf": {"@id": WEBSITE_ID},
+                "about": {"@id": BUSINESS_ID},
                 "mainEntity": {"@type": "ItemList", "numberOfItems": len(ld_items), "itemListElement": ld_items},
             },
         ],
@@ -890,7 +1063,7 @@ def dimension_index_page(kind: str, entries: list) -> str:
       <section class="uc-hero">
 {breadcrumb_html(2, [("Home", "../../index.html"), ("Use cases", "../index.html"), (crumb_label, None)])}
         <h1>{e(h1)}</h1>
-        <p class="lead">{e(desc)}</p>
+        <p class="lead">{e(with_si_gloss(desc))}</p>
       </section>
       <ul class="uc-grid">
           {chr(10) + "          ".join(cards)}
@@ -911,7 +1084,8 @@ def industry_landing(slug: str, entries: list) -> str:
     visible = dedicated_items[:ANY_VISIBLE] if lazy else dedicated_items
     rest = dedicated_items[ANY_VISIBLE:] if lazy else []
     title = info["seo_title"]
-    desc = info["meta"]
+    desc = clip_meta(info["meta"])
+    faqs = industry_faqs(slug)
     canon = f"/use-cases/industry/{slug}/"
     ld = collection_ld(
         info["seo_h1"],
@@ -923,6 +1097,7 @@ def industry_landing(slug: str, entries: list) -> str:
             ("Use cases", BASE + "/use-cases/"),
             (info["label"], BASE + canon),
         ],
+        faqs=faqs,
     )
     banner = read_first_banner(slug)
     cards = "\n          ".join(card(item) for item in visible)
@@ -970,7 +1145,7 @@ def industry_landing(slug: str, entries: list) -> str:
 {breadcrumb_html(3, [("Home", "../../../index.html"), ("Use cases", "../../index.html"), (info["label"], None)])}
         <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>{len(all_items)} use cases</p>
         <h1>{e(info["seo_h1"])}</h1>
-        <p class="lead">{e(info["blurb"])}</p>
+        <p class="lead">{e(with_si_gloss(info["blurb"]))}</p>
       </section>
 {banner}      <section class="uc-tools" aria-label="Filter this industry">
         <form class="uc-search" action="/use-cases/" method="get">
@@ -988,7 +1163,15 @@ def industry_landing(slug: str, entries: list) -> str:
         </ul>
 {compact}        {more}
       </section>
-{also_html}{foot_note}      {closing_section()}
+{also_html}{foot_note}      <section id="faq" class="section uc-faq">
+        <div class="section-heading stacked">
+          <h2>Questions about {e(info["label"])} SI (AI) use cases</h2>
+        </div>
+        <div class="faq-grid faq-accordion">
+{faq_html(faqs)}
+        </div>
+      </section>
+      {closing_section()}
     </main>
 {config_html}""" + foot(3) + SCRIPTS + (LIBRARY_JS if lazy else "") + PAGE_END
 
@@ -999,7 +1182,7 @@ def function_landing(slug: str, entries: list) -> str:
     if not items:
         raise SystemExit(f"Refusing empty function landing {slug}")
     title = info["seo_title"]
-    desc = info["meta"]
+    desc = clip_meta(info["meta"])
     canon = f"/use-cases/function/{slug}/"
     ld = collection_ld(
         info["seo_h1"],
@@ -1034,7 +1217,7 @@ def function_landing(slug: str, entries: list) -> str:
 {breadcrumb_html(3, [("Home", "../../../index.html"), ("Use cases", "../../index.html"), (info["label"], None)])}
         <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>{len(items)} use cases</p>
         <h1>{e(info["seo_h1"])}</h1>
-        <p class="lead">{e(info["blurb"])}</p>
+        <p class="lead">{e(with_si_gloss(info["blurb"]))}</p>
       </section>
       <section class="uc-tools" aria-label="Combine with an industry">
         <p class="uc-tile-legend">Narrow by industry</p>
@@ -1078,8 +1261,9 @@ def detail_page(item: dict, entries: list) -> str:
     ind = primary_industry(item)
     info = industry_info(ind)
     url = f"/use-cases/{item['slug']}/"
-    title = f"{item['title']} | SI use case | Yonatan Gemmi"
-    desc = item["summary"]
+    title = SEO_TITLES[item["slug"]]
+    desc = use_case_seo_desc(item["summary"])
+    service_href, service_label = relevant_service(item)
     trail = [("Home", BASE + "/"), ("Use cases", BASE + "/use-cases/")]
     if ind != "any-business":
         trail.append((info["label"], BASE + f"/use-cases/industry/{ind}/"))
@@ -1087,14 +1271,19 @@ def detail_page(item: dict, entries: list) -> str:
     ld = {
         "@context": "https://schema.org",
         "@graph": [
+            website_node(),
+            person_node(),
+            professional_service_node(include_catalog=False),
             crumbs(*trail),
             {
                 "@type": "WebPage",
-                "name": item["title"],
+                "@id": BASE + url + "#webpage",
+                "name": title,
                 "url": BASE + url,
                 "description": desc,
-                "isPartOf": {"@type": "CollectionPage", "name": "SI use cases", "url": BASE + "/use-cases/"},
-                "author": {"@type": "Person", "name": "Yonatan Gemmi", "url": BASE + "/"},
+                "isPartOf": {"@id": WEBSITE_ID},
+                "about": {"@id": BUSINESS_ID},
+                "author": {"@id": PERSON_ID},
             },
         ],
     }
@@ -1132,7 +1321,7 @@ def detail_page(item: dict, entries: list) -> str:
             <div class="uc-detail-copy">
               <p class="uc-card-cat">{tag_html}</p>
               <h1>{e(item['title'])}</h1>
-              <p class="lead">{e(item['summary'])}</p>
+              <p class="lead">{e(with_si_gloss(item['summary']))}</p>
               {legal_note}{caution}
             </div>
             {graphic}
@@ -1186,6 +1375,10 @@ def detail_page(item: dict, entries: list) -> str:
               <p>{e(item.get('effect', ''))}</p>
               <h3>Tools it usually touches</h3>
               <div class="uc-tags">{tools}</div>
+            </div>
+            <div class="uc-side-card uc-service-link">
+              <h3>Related service</h3>
+              <p>This job usually fits <a class="text-link" href="{e(service_href)}">{e(service_label)}</a>.</p>
             </div>
             <div class="uc-side-card uc-side-cta">
               <p class="section-kicker">Want this built?</p>
@@ -1282,9 +1475,12 @@ def update_sitemap(entries: list) -> None:
 
 def assert_wording(entries: list) -> None:
     library = (OUT / "index.html").read_text(encoding="utf-8")
-    ai_hits = re.findall(r"\bAI\b", library)
-    if ai_hits != ["AI"] or "formerly called AI" not in library:
-        raise SystemExit(f"Library intro must mention formerly called AI exactly once, found {ai_hits}")
+    if "Super Intelligence" not in library or not re.search(r"\bAI\b", library):
+        raise SystemExit("Library intro must explain SI and mention AI")
+    if "SI (AI) use cases" not in library:
+        raise SystemExit("Hub title must lead with SI and include AI")
+    if "https://gemmisi.com/#business" not in library or "GemmiSI" not in library:
+        raise SystemExit("Hub JSON-LD must include the GemmiSI organization")
     if "noindex" in library:
         raise SystemExit("Library page must be indexable")
     if "Read this first." in library:
@@ -1326,8 +1522,24 @@ def assert_wording(entries: list) -> None:
         if f"{BASE}/use-cases/{item['slug']}/" not in sitemap:
             raise SystemExit(f"sitemap is missing {item['slug']}")
         page = (OUT / item["slug"] / "index.html").read_text(encoding="utf-8")
-        if re.search(r"\bAI\b", page) or "noindex" in page or "Nous" in page or "Brandgate" in page:
+        title_m = re.search(r"<title>(.*?)</title>", page, flags=re.S)
+        desc_m = re.search(r'<meta name="description" content="(.*?)" />', page)
+        if not title_m or not desc_m:
+            raise SystemExit(f"{item['slug']} is missing title or description")
+        page_title = html.unescape(title_m.group(1))
+        page_desc = html.unescape(desc_m.group(1))
+        if "SI" not in page_title or "AI" not in page_title or "GemmiSI" not in page_title:
+            raise SystemExit(f"{item['slug']} title must include SI, AI, and GemmiSI")
+        if "SI" not in page_desc or "AI" not in page_desc:
+            raise SystemExit(f"{item['slug']} meta must include SI and AI")
+        if "noindex" in page or "Nous" in page or "Brandgate" in page:
             raise SystemExit(f"Wording check failed for {item['slug']}")
+        if "Super Intelligence" not in page:
+            raise SystemExit(f"{item['slug']} needs a first-mention SI gloss")
+        if "Related service" not in page or "/services/" not in page:
+            raise SystemExit(f"{item['slug']} must link to a service page")
+        if "https://gemmisi.com/#business" not in page:
+            raise SystemExit(f"{item['slug']} JSON-LD must reference GemmiSI")
         if page.count("cloudflareinsights.com/beacon.min.js") != 1:
             raise SystemExit(f"{item['slug']} must include exactly one Cloudflare beacon")
         if 'class="uc-motif' not in page or "aria-hidden" not in page:
@@ -1355,6 +1567,14 @@ def assert_wording(entries: list) -> None:
         html_page = path.read_text(encoding="utf-8")
         if html_page.count("cloudflareinsights.com/beacon.min.js") != 1:
             raise SystemExit(f"{slug} landing must include exactly one Cloudflare beacon")
+        if 'id="faq"' not in html_page or html_page.count('class="faq-item"') < 4 or html_page.count('class="faq-item"') > 6:
+            raise SystemExit(f"{slug} landing needs a visible FAQ with 4–6 questions")
+        if "FAQPage" not in html_page:
+            raise SystemExit(f"{slug} landing is missing FAQPage JSON-LD")
+        if OWN_ACCOUNTS not in html_page or APPROVAL_LINE not in html_page:
+            raise SystemExit(f"{slug} landing FAQ must include own-equipment and approval-before-send")
+        if "SI" not in html_page.split("<title>", 1)[1].split("</title>", 1)[0] or "AI" not in html_page.split("<title>", 1)[1].split("</title>", 1)[0]:
+            raise SystemExit(f"{slug} landing title must include SI and AI")
         if info.get("regulated"):
             if "Read this first." not in html_page:
                 raise SystemExit(f"{slug} landing is missing the full disclaimer")
@@ -1375,8 +1595,85 @@ def assert_wording(entries: list) -> None:
             html_page = path.read_text(encoding="utf-8")
             if html_page.count("cloudflareinsights.com/beacon.min.js") != 1:
                 raise SystemExit(f"function/{slug} landing must include exactly one Cloudflare beacon")
+            title = html.unescape(html_page.split("<title>", 1)[1].split("</title>", 1)[0])
+            if "SI" not in title or "AI" not in title:
+                raise SystemExit(f"function/{slug} title must include SI and AI")
         elif path.exists():
             raise SystemExit(f"Empty function landing should not exist: {slug}")
+    titles = []
+    for path in OUT.rglob("index.html"):
+        titles.append(html.unescape(path.read_text(encoding="utf-8").split("<title>", 1)[1].split("</title>", 1)[0]))
+    dupes = [t for t in titles if titles.count(t) > 1]
+    if dupes:
+        raise SystemExit(f"Duplicate generated titles: {sorted(set(dupes))[:5]}")
+
+
+def write_llms_txt(entries: list) -> None:
+    n = len(entries)
+    lines = [
+        "# GemmiSI",
+        "# https://gemmisi.com/",
+        "",
+        "SI means Super Intelligence, also known as AI. GemmiSI uses SI as the official term; AI is the searchable synonym.",
+        "",
+        "Yonatan (Josh) Gemmi is a technical operations and SI implementation specialist based in North Miami Beach, Florida. He works remotely and in Miami-Dade County, Broward County, and South Florida.",
+        "",
+        "This is a personal consulting site, not a SaaS product. Start with a free 30-minute consultation:",
+        "https://calendly.com/josh-gemmi/30min",
+        "",
+        "## Services",
+        "",
+        "- Home: https://gemmisi.com/",
+        "- Pricing (Hermes Desks, Paid Discovery, Care, tutoring): https://gemmisi.com/pricing.html",
+        "- Hermes Desk setup: https://gemmisi.com/services/hermes-agents.html",
+        "- SI & AI automation / Custom GPTs / unused ChatGPT seats: https://gemmisi.com/services/ai-automation.html",
+        "- Dashboards & reporting: https://gemmisi.com/services/dashboards-reporting.html",
+        "- Ecommerce operations: https://gemmisi.com/services/ecommerce-operations.html",
+        "- Tutoring & project help: https://gemmisi.com/services/tutoring-project-help.html",
+        "- Stocky dump recovery (Shopify CSV after Stocky shut down; not a Stocky replacement app): https://gemmisi.com/services/stocky-recovery.html",
+        "- Advisory & Fractional CTO (inquire first): https://gemmisi.com/advisory.html",
+        "- Anonymized case study: https://gemmisi.com/work/governed-ai-content-engine.html",
+        "- Sitemap: https://gemmisi.com/sitemap.xml",
+        "",
+        "## Use-case hub and landings",
+        "",
+        f"- Hub ({n} practical SI / AI examples; illustrations, not client results): https://gemmisi.com/use-cases/",
+        "- Browse by industry: https://gemmisi.com/use-cases/industry/",
+    ]
+    for slug, info in INDUSTRIES.items():
+        if matching_industry(entries, slug):
+            lines.append(f"- {info['label']}: https://gemmisi.com/use-cases/industry/{slug}/")
+    lines.append("- Browse by function: https://gemmisi.com/use-cases/function/")
+    for slug, info in FUNCTIONS.items():
+        if matching_function(entries, slug):
+            lines.append(f"- {info['label']}: https://gemmisi.com/use-cases/function/{slug}/")
+    lines.extend(
+        [
+            "",
+            "## Use cases",
+            "",
+            f"The library lists {n} practical SI (AI) jobs for small teams, community organizations, the business side of solo and small law practices, the business side of small healthcare practices, real estate and property management, home-service contractors, and small accounting, tax and bookkeeping firms. They are illustrations of what is possible, not reports of client results. A person still approves anything that sends, pays, orders, or posts. Legal-practice pages are operations help only. SI does not give legal advice. Medical-practice pages are operations help only. SI does not give medical advice or make clinical decisions. Real-estate pages are operations help only. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. Home-services pages are office help only; the owner approves every quote and message. Accounting-firm pages are operations help only. SI does not give tax advice or file returns. {OWN_ACCOUNTS}",
+            "",
+        ]
+    )
+    for item in entries:
+        lines.append(f"- {item['title']}: https://gemmisi.com/use-cases/{item['slug']}/")
+    lines.extend(
+        [
+            "",
+            "## Facts to keep straight",
+            "",
+            "- Offers include Hermes Desks, Paid Discovery, Care, tutoring, SI / AI automation, dashboards, ecommerce ops, and Stocky dump recovery. Advisory / Fractional CTO is inquire-first.",
+            "- Stocky recovery turns an existing Shopify CSV dump into a weekly system using Sheets and ChatGPT or Claude seats the client already pays for. It is not Prediko, Klerio, or another inventory app.",
+            "- Hermes is software installed on a Mac the client controls. Windows is available as an extra charge and is quoted separately. ChatGPT and Claude are examples; 300+ models are available. The client pays those bills. Named Desks are on the pricing page.",
+            f"- {OWN_ACCOUNTS}",
+            f"- {APPROVAL_LINE}",
+            "- Contact: y@gemmisi.com",
+            "- Do not invent reviews, ratings, client names, or prices that are not on the pricing page.",
+            "",
+        ]
+    )
+    (ROOT / "llms.txt").write_text("\n".join(lines), encoding="utf-8")
 
 
 def write_tree(entries: list) -> None:
@@ -1414,6 +1711,7 @@ def main() -> None:
     entries = load()
     write_tree(entries)
     update_sitemap(entries)
+    write_llms_txt(entries)
     assert_wording(entries)
     sizes = [motif_bytes(item) for item in entries]
     motifs = Counter(pick_motif(item) for item in entries)
