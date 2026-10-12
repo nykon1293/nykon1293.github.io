@@ -1,6 +1,6 @@
 # nykon1293.github.io
 
-Personal website hosted with GitHub Pages.
+Personal website hosted with GitHub Pages. Public pages load Cloudflare Web Analytics just before `</body>` (hand-written HTML, and `CLOUDFLARE_WEB_ANALYTICS` in `scripts/seo_schema.py` for generated pages).
 
 ## Use cases library
 

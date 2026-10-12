@@ -291,6 +291,11 @@ def font_and_css_links(*, stylesheet: str, extra_css: str | None = None) -> str:
 
 
 NAV_SCRIPT = '  <script src="/assets/nav.js" defer></script>\n'
+# Module beacon: async, non-blocking. Place immediately before </body> on public pages only.
+CLOUDFLARE_WEB_ANALYTICS = (
+    "<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' "
+    "data-cf-beacon='{\"token\": \"c9c911628ffd4644bce7bea8d47eb16c\"}'></script><!-- End Cloudflare Web Analytics -->\n"
+)
 
 
 def common_head_tags(*, title: str, description: str, canonical: str, og_type: str = "website") -> str:

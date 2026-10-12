@@ -22,7 +22,7 @@ from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from seo_schema import CSS_VERSION, NAV_SCRIPT, font_and_css_links
+from seo_schema import CLOUDFLARE_WEB_ANALYTICS, CSS_VERSION, NAV_SCRIPT, font_and_css_links
 from use_case_motifs import motif_bytes, motif_html, pick_industry, pick_motif
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -939,7 +939,7 @@ def library_page(entries: list) -> str:
       </section>
     </main>
 """ + foot(1) + SCRIPTS + """  <script src="/assets/use-cases-library.js" defer></script>
-</body>
+""" + CLOUDFLARE_WEB_ANALYTICS + """</body>
 </html>
 """
 
@@ -1113,7 +1113,7 @@ def detail_page(item: dict, entries: list) -> str:
       });
     })();
   </script>
-</body>
+""" + CLOUDFLARE_WEB_ANALYTICS + """</body>
 </html>
 """
 
