@@ -18,12 +18,12 @@ https://calendly.com/josh-gemmi/30min
 - Stocky dump recovery (Shopify CSV after Stocky shut down; not a Stocky replacement app): https://gemmisi.com/services/stocky-recovery.html
 - Advisory & Fractional CTO (inquire first): https://gemmisi.com/advisory.html
 - Anonymized case study: https://gemmisi.com/work/governed-ai-content-engine.html
-- Use cases (152 practical SI examples; illustrations, not client results): https://gemmisi.com/use-cases/
+- Use cases (158 practical SI examples; illustrations, not client results): https://gemmisi.com/use-cases/
 - Sitemap: https://gemmisi.com/sitemap.xml
 
 ## Use cases
 
-The library lists 152 practical SI jobs for small teams, community organizations, the business side of solo and small law practices, the business side of small healthcare practices, real estate and property management, home-service contractors, and small accounting, tax and bookkeeping firms. They are illustrations of what is possible, not reports of client results. A person still approves anything that sends, pays, orders, or posts. The library also covers ecommerce operations, local or seasonal work, legal-practice administration, medical-practice administration, real-estate operations, home-services office work, and accounting-firm administration. Legal-practice pages are operations help only. SI does not give legal advice, and an attorney reviews anything client-facing. Medical-practice pages are operations help only. SI does not give medical advice or make clinical decisions, and a clinician or trained staff member reviews anything patient-facing. Real-estate pages are operations help only. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. Home-services pages are office help only; the owner approves every quote and message. Accounting-firm pages are operations help only. SI does not give tax advice or file returns, and a professional reviews, signs and decides. GemmiSI sets this up on your own equipment and accounts; your data stays with you.
+The library lists 158 practical SI jobs for small teams, community organizations, the business side of solo and small law practices, the business side of small healthcare practices, real estate and property management, home-service contractors, and small accounting, tax and bookkeeping firms. They are illustrations of what is possible, not reports of client results. A person still approves anything that sends, pays, orders, or posts. The library also covers ecommerce operations, local or seasonal work, legal-practice administration, medical-practice administration, real-estate operations, home-services office work, and accounting-firm administration. Legal-practice pages are operations help only. SI does not give legal advice, and an attorney reviews anything client-facing. Medical-practice pages are operations help only. SI does not give medical advice or make clinical decisions, and a clinician or trained staff member reviews anything patient-facing. Real-estate pages are operations help only. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. Home-services pages are office help only; the owner approves every quote and message. Accounting-firm pages are operations help only. SI does not give tax advice or file returns, and a professional reviews, signs and decides. GemmiSI sets this up on your own equipment and accounts; your data stays with you.
 
 - Library: https://gemmisi.com/use-cases/
 - Browse by industry: https://gemmisi.com/use-cases/industry/
@@ -53,6 +53,12 @@ The library lists 152 practical SI jobs for small teams, community organizations
 - A standing SI desk with an approval queue: https://gemmisi.com/use-cases/standing-si-desk-approval-queue/
 - Speed-to-lead replies for new inquiries: https://gemmisi.com/use-cases/speed-to-lead-replies/
 - Google Business Profile upkeep: https://gemmisi.com/use-cases/google-business-profile-upkeep/
+- Seasonal staffing schedule drafts: https://gemmisi.com/use-cases/seasonal-staffing-schedules/
+- Holiday-hours updates across listings: https://gemmisi.com/use-cases/holiday-hours-across-listings/
+- Event and booking waitlists: https://gemmisi.com/use-cases/event-booking-waitlists/
+- Weather-driven rescheduling notices: https://gemmisi.com/use-cases/weather-rescheduling-notices/
+- Season-opening customer re-engagement drafts: https://gemmisi.com/use-cases/season-opening-re-engagement/
+- Gift-card and holiday promo tracking: https://gemmisi.com/use-cases/gift-card-holiday-promo-tracking/
 - Cash-flow look-ahead from open invoices and bills: https://gemmisi.com/use-cases/cash-flow-look-ahead/
 - After-hours inquiry triage with clear "not legal advice" handling: https://gemmisi.com/use-cases/after-hours-inquiry-triage/
 - Intake summaries and conflict-check prep: https://gemmisi.com/use-cases/intake-summaries-conflict-prep/

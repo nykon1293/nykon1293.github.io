@@ -10,7 +10,6 @@
   const grid = document.getElementById("uc-grid");
   const showMore = document.getElementById("uc-show-more");
   const clearBtn = document.getElementById("uc-clear");
-  const moreFilters = document.getElementById("uc-more-filters");
   const configEl = document.getElementById("uc-config");
   const config = configEl ? JSON.parse(configEl.textContent || "{}") : {};
   const PAGE = config.page || 18;
@@ -21,15 +20,6 @@
   if (hash && legacy[hash]) {
     location.replace(legacy[hash]);
     return;
-  }
-
-  if (moreFilters) {
-    const summary = moreFilters.querySelector("summary");
-    const sync = () => {
-      if (summary) summary.setAttribute("aria-expanded", moreFilters.open ? "true" : "false");
-    };
-    sync();
-    moreFilters.addEventListener("toggle", sync);
   }
 
   root.classList.add("uc-js");
@@ -68,7 +58,8 @@
   };
 
   const cardHTML = (item) => {
-    const note = item.n ? `\n              <p class="uc-card-note">${escapeHtml(item.n)}</p>` : "";
+    const note =
+      mode !== "hub" && item.n ? `\n              <p class="uc-card-note">${escapeHtml(item.n)}</p>` : "";
     const label = item.l ? `<span class="uc-card-cat">${escapeHtml(item.l)}</span>` : "";
     const i = (item.i || []).join(",");
     const f = (item.f || []).join(",");
@@ -147,7 +138,6 @@
       }
     });
     if (clearBtn) clearBtn.hidden = !filtering();
-    if (moreFilters && functions.length) moreFilters.open = true;
     const featuredHead = document.getElementById("featured-h");
     if (featuredHead) {
       const head = featuredHead.parentElement;
@@ -283,16 +273,16 @@
     });
 
     document.querySelectorAll("[data-function]").forEach((pill) => {
-      pill.addEventListener("click", (event) => {
+      const toggle = (event) => {
         event.preventDefault();
         const slug = pill.dataset.function;
         if (functions.includes(slug)) functions = functions.filter((item) => item !== slug);
         else functions.push(slug);
         pageSize = PAGE;
         writeUrl("pushState");
-        if (moreFilters && !moreFilters.open) moreFilters.open = true;
         activateFilter();
-      });
+      };
+      pill.addEventListener("click", toggle);
     });
 
     if (q) {

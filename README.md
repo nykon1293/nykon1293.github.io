@@ -13,4 +13,4 @@ To add one entry:
 3. From the repo root, run `python3 scripts/build_use_cases.py`.
 4. Commit `data/use-cases.json`, `data/taxonomy.json` if you changed it, the generated HTML, `use-cases/search.json`, and the sitemap update.
 
-The hub at `/use-cases/` is a light page: search, industry tiles, twelve featured cards, and a show-more control that loads the rest from `use-cases/search.json`. Static landings live at `/use-cases/industry/<slug>/` and `/use-cases/function/<slug>/`. GitHub Pages serves those files as they are. Say SI in new copy. The library intro is the one place that says “formerly called AI.” Examples are illustrations, not client results.
+The hub at `/use-cases/` is a light page: search, function chips, industry tiles, twelve featured cards, and a show-more control that loads the rest from `use-cases/search.json`. Static landings live at `/use-cases/industry/<slug>/` and `/use-cases/function/<slug>/`. GitHub Pages serves those files as they are. Say SI in new copy. The library intro is the one place that says “formerly called AI.” Examples are illustrations, not client results.
