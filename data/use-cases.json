@@ -2,7 +2,15 @@
   {
     "slug": "inbox-triage",
     "title": "Morning inbox triage into labeled queues",
-    "category": "Customer support and inbox",
+    "industries": [
+      "any-business",
+      "home-services",
+      "real-estate"
+    ],
+    "functions": [
+      "customer-support"
+    ],
+    "featured": true,
     "summary": "Each morning SI sorts the shared inbox into clear queues, flags what is urgent, and leaves draft replies for a person to review.",
     "problem": "A shared inbox mixes customer questions, vendor mail, invoices, newsletters and spam. Urgent messages get buried, and the first hour of the day goes to figuring out what needs attention instead of answering it.",
     "what_si_does": "SI reads new messages, applies labels you define (for example: new request, existing customer, billing, vendor, needs owner, ignore), and pulls out the key detail for each, such as a job address, an account name or a requested date. It marks anything time-sensitive, writes a short summary at the top of each queue and leaves draft replies for routine questions. Nothing goes out without a person pressing send.",
@@ -40,7 +48,12 @@
   {
     "slug": "unanswered-threads",
     "title": "A weekly list of emails still waiting on you",
-    "category": "Customer support and inbox",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "customer-support"
+    ],
     "summary": "Once a week SI finds threads where a customer, client or vendor is still waiting for your reply, and lists them with a suggested next step.",
     "problem": "Some emails get read, mentally filed as 'later', and never answered. Nobody notices until the other person follows up, annoyed, or quietly takes their business elsewhere.",
     "what_si_does": "SI scans received and sent mail for the past few weeks and finds threads where the last message came from someone else and asked a question or requested something. It skips newsletters, notifications and threads that were clearly closed. The result is a short list grouped by who is waiting, how long they have waited, and what they asked, with a draft reply for the simple ones.",
@@ -76,7 +89,13 @@
   {
     "slug": "status-question-replies",
     "title": "Answering 'where is it?' questions from your own records",
-    "category": "Customer support and inbox",
+    "industries": [
+      "any-business",
+      "ecommerce"
+    ],
+    "functions": [
+      "customer-support"
+    ],
     "summary": "When a customer asks about the status of an order, job, repair or application, SI looks it up in your system and drafts an accurate reply.",
     "problem": "A large share of incoming messages are some version of 'where is my thing?'. Answering each one means opening another system, finding the record and writing the same kind of message again.",
     "what_si_does": "SI recognizes status questions, finds the matching record by name, number, address or email, and reads the current state: shipped and tracking number, technician scheduled, part on order, waiting on the customer. It drafts a reply in your tone with the real details, and flags cases where the record looks stuck or contradicts what the customer was told.",
@@ -115,7 +134,13 @@
   {
     "slug": "policy-request-checks",
     "title": "Refunds, returns and cancellations checked against your policy",
-    "category": "Customer support and inbox",
+    "industries": [
+      "any-business",
+      "ecommerce"
+    ],
+    "functions": [
+      "customer-support"
+    ],
     "summary": "SI checks each refund, return, cancellation or reschedule request against your written policy and drafts the answer for approval.",
     "problem": "Requests to cancel, return or get money back are handled differently depending on who answers. Some get approved that should not, others get refused that should have been honored, and both lead to friction.",
     "what_si_does": "SI reads the request, finds the relevant record (purchase date, booking date, deposit paid, contract terms), and compares it with your written policy. It labels the request as clearly within policy, clearly outside, or a judgment call, and drafts the reply with the reason in plain language. Judgment calls go to the owner with the facts laid out.",
@@ -153,7 +178,13 @@
   {
     "slug": "faq-from-past-replies",
     "title": "Building an FAQ from answers you have already written",
-    "category": "Customer support and inbox",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "customer-support",
+      "content-marketing"
+    ],
     "summary": "SI reads past replies to customers, groups the questions that keep coming up, and drafts a plain FAQ or help page for you to edit.",
     "problem": "The same questions arrive every week, and the best answers are scattered across old emails written by different people. New staff reinvent answers, and customers cannot find them on their own.",
     "what_si_does": "SI goes through a few months of sent replies, groups similar questions, picks the clearest past answer for each, and rewrites it into a short FAQ entry. It notes where past answers disagreed so you can decide which is right, and lists questions that may deserve a policy rather than an answer.",
@@ -191,7 +222,15 @@
   {
     "slug": "review-and-comment-replies",
     "title": "Replies to online reviews and public comments",
-    "category": "Customer support and inbox",
+    "industries": [
+      "any-business",
+      "local-seasonal",
+      "medical"
+    ],
+    "functions": [
+      "customer-support",
+      "content-marketing"
+    ],
     "summary": "SI watches reviews, comments and messages on your public pages, flags the ones worth answering, and drafts replies in your voice.",
     "problem": "Reviews and comments arrive on several platforms, and answering them slips. Negative reviews sit unanswered for weeks, and genuine questions in comments get lost among the noise.",
     "what_si_does": "SI collects new reviews and comments, sorts them into praise, question, complaint and spam, and drafts short replies for the ones that need one. Complaints get a careful, non-defensive draft with an offer to take the conversation offline, and are flagged for the owner. It never argues or reveals private details.",
@@ -229,7 +268,12 @@
   {
     "slug": "website-chat-assistant",
     "title": "A website or messaging chat assistant that hands hard cases to a person",
-    "category": "Customer support and inbox",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "customer-support"
+    ],
     "summary": "SI answers common questions in chat from your own website and documents, and passes anything unusual to a person with the conversation attached.",
     "problem": "People ask the same questions in chat or messaging apps at all hours. Either someone answers late, or the chat widget is a form that just says 'we will get back to you'.",
     "what_si_does": "SI answers from an approved set of sources: your website, FAQ, price list and policies. It can collect details for a quote or booking request. When a question falls outside its sources, involves a complaint, or the person asks for a human, it stops, says someone will follow up, and sends the conversation summary to staff.",
@@ -267,7 +311,15 @@
   {
     "slug": "after-hours-call-coverage",
     "title": "After-hours and busy-time phone coverage",
-    "category": "Customer support and inbox",
+    "industries": [
+      "any-business",
+      "home-services",
+      "medical",
+      "local-seasonal"
+    ],
+    "functions": [
+      "customer-support"
+    ],
     "summary": "A voice assistant answers calls you would miss, handles common questions, takes detailed messages or requests, and sends staff a summary.",
     "problem": "Calls that go to voicemail often never call back. Small offices cannot staff the phone through lunch, evenings and weekends, and busy moments mean the person on the phone cannot also serve the person in front of them.",
     "what_si_does": "When nobody picks up, a voice assistant answers with your greeting, handles a short list of approved questions (hours, location, services, how to book), and takes a structured message: name, number, reason, urgency. For true emergencies it follows your escalation rule, such as forwarding to the on-call phone. Staff get a text or email summary of each call.",
@@ -305,7 +357,14 @@
   {
     "slug": "quote-follow-ups",
     "title": "Follow-ups for quotes and estimates that went quiet",
-    "category": "Sales and follow-up",
+    "industries": [
+      "any-business",
+      "home-services"
+    ],
+    "functions": [
+      "sales-follow-up"
+    ],
+    "featured": true,
     "summary": "SI finds quotes and estimates with no reply after a set number of days and drafts a short, specific follow-up for each one.",
     "problem": "Quotes go out and then nothing happens. Following up feels awkward and gets skipped, so work is lost to whoever simply called back.",
     "what_si_does": "SI checks your quotes or estimates for ones still open after a set period, reads what was quoted and any notes, and drafts a short follow-up that refers to the actual job. It suggests a different angle on the second follow-up (a question, a scheduling option) and marks quotes to close out after the last attempt.",
@@ -343,7 +402,13 @@
   {
     "slug": "lead-intake-to-crm",
     "title": "Turning form and email inquiries into clean CRM records",
-    "category": "Sales and follow-up",
+    "industries": [
+      "any-business",
+      "legal"
+    ],
+    "functions": [
+      "sales-follow-up"
+    ],
     "summary": "SI reads each new inquiry from forms and email, creates or updates the CRM contact, and logs what they want and the next step.",
     "problem": "Leads arrive through web forms, email, phone messages and referrals. Some get entered twice, some never get entered, and the notes are too thin to follow up well.",
     "what_si_does": "SI reads each inquiry, checks for an existing contact to avoid duplicates, and fills in the record: name, company, contact details, what they asked for, budget or timing if mentioned, and how they found you. It assigns the lead by your rules and drafts the first reply or creates the follow-up task.",
@@ -381,7 +446,12 @@
   {
     "slug": "call-notes-to-next-steps",
     "title": "Call notes into a follow-up email and tasks",
-    "category": "Sales and follow-up",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "sales-follow-up"
+    ],
     "summary": "After a sales or client call, SI turns your notes or the transcript into a recap email, CRM updates and dated tasks.",
     "problem": "After a call, the follow-up email and the CRM update are the first things to slip. Details are forgotten, and promised next steps happen late or not at all.",
     "what_si_does": "From typed notes, a voice memo or a call transcript, SI writes a short recap: what the client needs, what was agreed, open questions and who does what by when. It drafts the follow-up email, updates the CRM fields and creates tasks with due dates.",
@@ -419,7 +489,12 @@
   {
     "slug": "proposal-first-drafts",
     "title": "First-draft proposals from discovery notes",
-    "category": "Sales and follow-up",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "sales-follow-up"
+    ],
     "summary": "SI turns discovery notes and your past proposals into a structured first draft with scope, timeline and pricing options for you to edit.",
     "problem": "Proposals take hours to write and often start from a copy of an old one, with leftover details from another client. The delay means the prospect waits while interest cools.",
     "what_si_does": "SI reads the discovery notes and a few of your past proposals, then drafts a proposal in your usual structure: the client's situation in their words, scope, what is not included, timeline, pricing options from your rate sheet, and next steps. It highlights any section where it lacked information instead of guessing.",
@@ -456,7 +531,12 @@
   {
     "slug": "prospect-briefs",
     "title": "A one-page brief on a prospect before you meet",
-    "category": "Sales and follow-up",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "sales-follow-up"
+    ],
     "summary": "Before a meeting or pitch, SI gathers public information about the organization and your past contact into a short brief.",
     "problem": "Walking into a meeting unprepared costs credibility, but researching every prospect takes time nobody has. Past emails and notes about the account are scattered.",
     "what_si_does": "SI reads the prospect's website, recent public news and any public profiles you point it to, plus your own CRM notes and past emails. It produces a one-page brief: what they do, size and locations if public, recent changes, who you are meeting, past interactions, and three questions worth asking. Sources are listed so you can check them.",
@@ -493,7 +573,12 @@
   {
     "slug": "outreach-drafts-and-replies",
     "title": "Personal outreach drafts and reply handling you approve",
-    "category": "Sales and follow-up",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "sales-follow-up"
+    ],
     "summary": "SI drafts first-touch and follow-up messages from real research, sorts the replies, and offers meeting times, with every message approved by you.",
     "problem": "Generic outreach gets ignored, and personal outreach takes too long to write. Replies, when they come, sit unsorted while interested people go cold.",
     "what_si_does": "From a list of prospects and a short brief on each, SI drafts a short first message that refers to something specific and relevant, plus one or two follow-ups. When replies come in, it sorts them into interested, not now, wrong person and no, drafts an answer for each, and proposes open times from your calendar for the interested ones. Unsubscribe and no-contact requests are recorded and respected.",
@@ -531,7 +616,12 @@
   {
     "slug": "repeat-customer-checkins",
     "title": "Check-ins for repeat customers who are due",
-    "category": "Sales and follow-up",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "sales-follow-up"
+    ],
     "summary": "SI spots regular customers who are past their usual reorder or rebooking interval and drafts a friendly, specific check-in.",
     "problem": "Repeat customers are the easiest business to keep, but nobody tracks when each one is due. They drift away quietly, or simply buy from whoever reached out first.",
     "what_si_does": "SI reads your order, invoice or appointment history, works out each regular customer's usual interval, and lists those who are overdue. For each, it drafts a short check-in that mentions what they usually order or book and offers an easy next step.",
@@ -569,7 +659,14 @@
   {
     "slug": "invoice-intake-to-draft-bills",
     "title": "Supplier invoices from email into draft bills",
-    "category": "Bookkeeping, invoices and admin",
+    "industries": [
+      "any-business",
+      "accounting"
+    ],
+    "functions": [
+      "billing-admin"
+    ],
+    "featured": true,
     "summary": "SI reads supplier invoices that arrive by email, creates draft bills in your accounting tool, and flags duplicates or missing details.",
     "problem": "Invoices arrive as PDFs in several inboxes. Someone retypes them into the accounting system, and duplicates, typos and missed due dates follow.",
     "what_si_does": "SI watches an invoices inbox, reads each attachment, and extracts supplier, invoice number, date, due date, line totals and tax. It creates a draft bill with a suggested account based on past coding, and checks for problems: an invoice number already entered, an amount that does not match the purchase order, missing tax registration details, or a changed bank account on the invoice.",
@@ -607,7 +704,13 @@
   {
     "slug": "receipt-matching",
     "title": "Matching receipts to card transactions",
-    "category": "Bookkeeping, invoices and admin",
+    "industries": [
+      "any-business",
+      "accounting"
+    ],
+    "functions": [
+      "billing-admin"
+    ],
     "summary": "SI matches receipts from email and photos to card transactions, suggests categories, and lists what is still missing before month end.",
     "problem": "Card transactions pile up without receipts. At month end someone hunts through email and phone photos to match them, and expense reports are late.",
     "what_si_does": "SI reads receipts from a forwarding inbox or shared folder, matches them to transactions by amount, date and merchant, suggests a category from past coding, and builds a missing-receipts list per cardholder. It can also assemble a simple expense report for staff who pay out of pocket.",
@@ -645,7 +748,12 @@
   {
     "slug": "overdue-invoice-reminders",
     "title": "Reminders for overdue invoices, firmer as they age",
-    "category": "Bookkeeping, invoices and admin",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "billing-admin"
+    ],
     "summary": "SI checks open invoices each week and drafts reminders whose tone matches how late each one is, for you to approve.",
     "problem": "Chasing money is uncomfortable, so it gets put off. Invoices drift from 30 to 90 days late, and by then the conversation is harder.",
     "what_si_does": "SI reads open invoices and payment history, groups them by how overdue they are, and drafts a reminder for each: a friendly note just after the due date, a clearer one later, and a firm one with next steps after that, using your terms. It skips customers with a payment plan or a dispute and flags long-overdue accounts for a phone call.",
@@ -682,7 +790,13 @@
   {
     "slug": "unbilled-work-check",
     "title": "Finding work that was done but never invoiced",
-    "category": "Bookkeeping, invoices and admin",
+    "industries": [
+      "any-business",
+      "legal"
+    ],
+    "functions": [
+      "billing-admin"
+    ],
     "summary": "SI compares completed jobs, time entries or deliveries against invoices sent and lists anything that was never billed.",
     "problem": "Small jobs, extra hours and change orders get done and then forgotten at billing time. Nobody notices the gap because nothing looks wrong.",
     "what_si_does": "SI lines up the record of work done (closed job tickets, timesheets, delivery notes, change orders) against invoices issued. It lists items with no matching invoice, partial billing, or hours logged above what was billed, and prepares draft invoices or a list for the billing person.",
@@ -720,7 +834,14 @@
   {
     "slug": "month-end-close-prep",
     "title": "Month-end close prep and the accountant's package",
-    "category": "Bookkeeping, invoices and admin",
+    "industries": [
+      "any-business",
+      "accounting"
+    ],
+    "functions": [
+      "billing-admin",
+      "reporting-dashboards"
+    ],
     "summary": "SI prepares the month-end checklist, reconciliation exceptions and an indexed bundle of documents for the bookkeeper or accountant.",
     "problem": "Month end means chasing missing documents, explaining odd transactions and emailing files back and forth. It drags on, and the accountant's questions arrive weeks later.",
     "what_si_does": "SI runs through your close checklist: unreconciled bank lines with suggested matches, uncategorized transactions with suggested categories, missing receipts and bills, and balances that moved oddly from last month. It writes a short note on each exception and gathers the month's statements, invoices and receipts into one indexed folder for the accountant.",
@@ -757,7 +878,13 @@
   {
     "slug": "subscriptions-and-renewals",
     "title": "Tracking subscriptions, contracts and renewal dates",
-    "category": "Bookkeeping, invoices and admin",
+    "industries": [
+      "any-business",
+      "accounting"
+    ],
+    "functions": [
+      "billing-admin"
+    ],
     "summary": "SI finds recurring charges and contract renewal dates in statements and documents, and warns you before anything auto-renews.",
     "problem": "Software subscriptions, service contracts, leases and insurance policies renew automatically. Nobody remembers what each one costs, whether it is still used, or when the notice period starts.",
     "what_si_does": "SI scans card and bank statements for recurring charges and reads contracts for term, renewal and notice dates. It builds one list with cost, owner, renewal date and notice deadline, highlights duplicates and tools nobody seems to use, and sends a reminder well before each notice deadline.",
@@ -794,7 +921,15 @@
   {
     "slug": "year-end-tax-document-packet",
     "title": "A year-end document packet for your tax preparer",
-    "category": "Bookkeeping, invoices and admin",
+    "industries": [
+      "any-business",
+      "accounting",
+      "real-estate"
+    ],
+    "functions": [
+      "billing-admin",
+      "research-documents"
+    ],
     "summary": "SI sorts the year's documents, totals them by category and flags gaps, so your tax preparer gets one organized packet.",
     "problem": "At tax time, documents are spread across email, folders and paper. The preparer sends a list of questions, and gathering the answers takes weeks.",
     "what_si_does": "SI goes through the year's folders and inbox for tax-related documents: income forms, statements, receipts, vehicle and home-office records, donation receipts and prior-year notices. It sorts and renames them, builds an index and category totals, and lists what seems to be missing compared with last year's packet. It does not decide what is deductible.",
@@ -831,7 +966,14 @@
   {
     "slug": "weekly-owner-snapshot",
     "title": "A one-page weekly snapshot for the owner",
-    "category": "Reporting and dashboards",
+    "industries": [
+      "any-business",
+      "accounting"
+    ],
+    "functions": [
+      "reporting-dashboards"
+    ],
+    "featured": true,
     "summary": "Every Monday, SI pulls the numbers you care about from your tools into a single page with short notes on what changed.",
     "problem": "The numbers that matter live in five different systems. Checking them takes a morning, so it does not happen regularly, and problems show up late.",
     "what_si_does": "SI collects a short, fixed set of measures each week (for example sales, new inquiries, jobs completed, cash in the bank, overdue invoices, open complaints) and lays them out against last week and the same week last year. It adds a few plain sentences on what moved and why, where the data shows it.",
@@ -869,7 +1011,13 @@
   {
     "slug": "revenue-in-one-view",
     "title": "One view of revenue across every place you take money",
-    "category": "Reporting and dashboards",
+    "industries": [
+      "any-business",
+      "ecommerce"
+    ],
+    "functions": [
+      "reporting-dashboards"
+    ],
     "summary": "SI combines sales from each channel, location or payment system into one sheet or dashboard that updates on a schedule.",
     "problem": "Money comes in through a point-of-sale system, online payments, invoices and maybe a marketplace or two. Each has its own report, and none of them agree on the total.",
     "what_si_does": "SI pulls sales from each source, maps them to common categories (location, product or service line, channel), removes double-counting such as an invoice also recorded as a card payment, and keeps one table and a simple dashboard current. It notes where sources disagree.",
@@ -907,7 +1055,12 @@
   {
     "slug": "change-explanations",
     "title": "Plain-language notes when a number moves",
-    "category": "Reporting and dashboards",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "reporting-dashboards"
+    ],
     "summary": "When a key number jumps or drops, SI looks for likely reasons in the data and writes a short, plain note for the owner.",
     "problem": "Dashboards show that something changed but not why. Someone has to dig through reports to find out, and often nobody does.",
     "what_si_does": "SI watches a few chosen measures. When one moves past a threshold you set, it checks the obvious breakdowns (by location, product, customer, staff member, channel, day) and writes a short note: what changed, where the change is concentrated, and what to look at next. It presents causes as possibilities.",
@@ -944,7 +1097,13 @@
   {
     "slug": "ad-spend-vs-results",
     "title": "Ad spend next to real results, in one sheet",
-    "category": "Reporting and dashboards",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "reporting-dashboards",
+      "content-marketing"
+    ],
     "summary": "SI lines up spend from each ad platform with the inquiries, bookings or sales it produced, and lists campaigns that look weak.",
     "problem": "Each ad platform reports its own success, often generously. Comparing spend with actual customers means stitching exports together by hand.",
     "what_si_does": "SI pulls spend by campaign from each platform and matches it to results in your own systems (form leads, booked calls, sales by source or promo code). It shows cost per lead or sale by campaign and week, and lists campaigns with spend but little real result, with suggestions to review.",
@@ -981,7 +1140,12 @@
   {
     "slug": "competitor-watch",
     "title": "A weekly watch on competitors' prices and offers",
-    "category": "Reporting and dashboards",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "reporting-dashboards"
+    ],
     "summary": "Once a week SI checks the competitor pages you choose and sends a short summary of changed prices, services, offers or openings.",
     "problem": "Owners know competitors matter but rarely have time to check their sites. Price changes and new offers are noticed months later, usually from a customer.",
     "what_si_does": "SI visits a fixed list of public competitor pages (pricing, menus, service lists, promotions, job postings) and compares them with last week's snapshot. It records changes in a sheet and sends a short summary of what is new, with links.",
@@ -1017,7 +1181,12 @@
   {
     "slug": "weekly-team-report",
     "title": "A weekly team report assembled from the tools you already use",
-    "category": "Reporting and dashboards",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "reporting-dashboards"
+    ],
     "summary": "SI pulls updates from project, support and sales tools into a draft weekly report that a manager edits and sends.",
     "problem": "Writing the weekly update means asking everyone for status and copying from several tools. It takes a manager's afternoon, and the result is often late or thin.",
     "what_si_does": "SI reads what changed during the week: tasks completed and overdue in the project tool, tickets opened and closed, deals moved, and notes from team channels. It drafts a report with highlights, risks, overdue items and decisions needed, in the format your team already uses.",
@@ -1055,7 +1224,13 @@
   {
     "slug": "feedback-themes",
     "title": "Monthly themes from customer questions, complaints and surveys",
-    "category": "Reporting and dashboards",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "reporting-dashboards",
+      "customer-support"
+    ],
     "summary": "SI groups a month of support messages, reviews and survey answers by theme, counts them, and suggests what to fix upstream.",
     "problem": "The same problems generate complaints month after month, but nobody steps back to count them. Fixes target whatever was loudest, not what was most common.",
     "what_si_does": "SI reads the month's tickets, emails, reviews and survey comments, groups them by underlying cause (billing confusion, late arrivals, unclear instructions, a product defect), counts each, and quotes a few representative examples. It suggests one or two upstream fixes for the biggest themes.",
@@ -1093,7 +1268,13 @@
   {
     "slug": "staff-schedule-drafts",
     "title": "Drafting next week's staff schedule from availability",
-    "category": "Scheduling and operations",
+    "industries": [
+      "any-business",
+      "medical"
+    ],
+    "functions": [
+      "scheduling"
+    ],
     "summary": "SI collects availability and time-off requests and drafts next week's schedule against your coverage rules, for a manager to adjust.",
     "problem": "Building the schedule means reconciling texts, time-off requests, availability changes and coverage needs. It eats a manager's evening and still leaves gaps.",
     "what_si_does": "SI gathers availability and requests from a form or shared sheet, applies your rules (minimum coverage per shift, required skills or certifications, maximum hours, fair rotation of weekends), and drafts a schedule. It lists any shift it could not fill and any rule it had to bend, so the manager decides.",
@@ -1131,7 +1312,13 @@
   {
     "slug": "sops-from-walkthroughs",
     "title": "Turning how-we-do-it into written procedures",
-    "category": "Scheduling and operations",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "scheduling",
+      "research-documents"
+    ],
     "summary": "SI turns a recorded walkthrough, voice memo or screen recording into a clear, step-by-step procedure your team can follow.",
     "problem": "Know-how lives in a few people's heads. Training is slow, mistakes repeat, and the business depends on whoever remembers how things are done.",
     "what_si_does": "A team member records themselves doing the task, or just talks it through. SI turns the recording or transcript into a numbered procedure with purpose, tools needed, steps, checks, common mistakes and who to ask. It lists steps that seemed unclear so the expert can fill them in.",
@@ -1169,7 +1356,14 @@
   {
     "slug": "appointment-confirmations",
     "title": "Appointment confirmations, reminders and reschedules",
-    "category": "Scheduling and operations",
+    "industries": [
+      "any-business",
+      "medical"
+    ],
+    "functions": [
+      "scheduling",
+      "customer-support"
+    ],
     "summary": "SI sends approved confirmation and reminder messages, handles reschedule requests against your real calendar, and keeps the schedule current.",
     "problem": "No-shows and last-minute changes waste slots. Staff spend time calling to confirm and juggling reschedules over text, email and phone.",
     "what_si_does": "SI sends confirmations and reminders from approved templates at set times before each appointment, reads replies, and handles simple reschedules by offering open slots that fit your rules (provider, room, length). Anything unusual, such as a request to change the type of appointment or a complaint, goes to staff.",
@@ -1207,7 +1401,12 @@
   {
     "slug": "meeting-notes-action-items",
     "title": "Meeting notes into owners and due dates",
-    "category": "Scheduling and operations",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "scheduling"
+    ],
     "summary": "SI turns a meeting transcript or rough notes into a short summary, decisions and a task list with owners and due dates.",
     "problem": "Meetings end with agreement, then nothing happens because nobody wrote down who would do what. The next meeting starts by rediscussing the last one.",
     "what_si_does": "From a transcript or notes, SI writes a short summary, decisions made, open questions and action items with an owner and due date for each. It can post the summary to the team channel and add tasks to the project tool once approved, and starts the next agenda with any items still open.",
@@ -1245,7 +1444,14 @@
   {
     "slug": "requests-to-calendar-holds",
     "title": "Turning meeting requests and forwarded emails into calendar holds",
-    "category": "Scheduling and operations",
+    "industries": [
+      "any-business",
+      "legal",
+      "real-estate"
+    ],
+    "functions": [
+      "scheduling"
+    ],
     "summary": "When an email asks to meet or includes a date, SI drafts the reply with real open times and creates a tentative calendar hold for you to confirm.",
     "problem": "Scheduling takes several back-and-forth emails, and dates buried in emails, flyers and attachments never make it onto the calendar.",
     "what_si_does": "SI reads incoming messages and forwarded items for meeting requests, deadlines and event dates. For meeting requests it checks your calendar and drafts a reply with a few times that fit your rules. For dates in forwarded emails or attachments, it creates tentative events with the details and a link back to the source.",
@@ -1282,7 +1488,14 @@
   {
     "slug": "daily-briefing",
     "title": "A morning briefing across inbox, calendar and tasks",
-    "category": "Scheduling and operations",
+    "industries": [
+      "any-business",
+      "home-services"
+    ],
+    "functions": [
+      "scheduling",
+      "reporting-dashboards"
+    ],
     "summary": "Each morning SI prepares a short briefing on today's meetings, urgent messages, overdue tasks and stalled deals.",
     "problem": "Owners start the day reacting to whatever is on top of the inbox. Preparation for meetings happens in the car, and overdue items surface late.",
     "what_si_does": "SI reads today's calendar, recent email, the task list and the CRM, and writes a short briefing: meetings with context on each attendee, messages that need a reply today, tasks overdue or due today, and deals or projects with no activity for a while. It is delivered at a set time by email or chat.",
@@ -1320,7 +1533,14 @@
   {
     "slug": "requests-to-scheduled-jobs",
     "title": "Turning incoming work and maintenance requests into scheduled jobs",
-    "category": "Scheduling and operations",
+    "industries": [
+      "any-business",
+      "real-estate"
+    ],
+    "functions": [
+      "scheduling",
+      "customer-support"
+    ],
     "summary": "SI turns work requests from email, forms and messages into job tickets, sorts them by urgency, and drafts a schedule and customer updates.",
     "problem": "Requests arrive by phone, text, email and portal. They get written on paper, entered late, or lost, and customers do not know when someone is coming.",
     "what_si_does": "SI reads each request, creates a job ticket with the location, problem, urgency and any photos, and checks capacity or vendor availability. It proposes a time slot or the right vendor by your rules, drafts the message to the customer or tenant with the plan, and drafts the dispatch note to the technician or vendor.",
@@ -1358,7 +1578,14 @@
   {
     "slug": "reorder-from-sales-pace",
     "title": "Reorder lists from sales pace",
-    "category": "Inventory and orders",
+    "industries": [
+      "any-business",
+      "ecommerce"
+    ],
+    "functions": [
+      "inventory-orders"
+    ],
+    "featured": true,
     "summary": "On a set schedule, SI turns recent usage or sales and stock on hand into a suggested reorder list grouped by supplier, for you to approve.",
     "problem": "Reordering happens from memory or a quick look at the shelf. Fast movers run out, slow movers get reordered anyway, and nobody has time to do the math across hundreds of items.",
     "what_si_does": "SI reads recent sales or usage per item, stock on hand and on order, and each supplier's lead time and minimum order. It works out how many days of stock remain, flags anything that will run out before the next delivery could arrive, and drafts a reorder list per supplier with a short reason next to each line (for example, 'using faster than last month, about nine days left, three-week lead time').",
@@ -1396,7 +1623,13 @@
   {
     "slug": "purchase-order-drafts",
     "title": "Drafting purchase orders without a dedicated purchasing system",
-    "category": "Inventory and orders",
+    "industries": [
+      "any-business",
+      "home-services"
+    ],
+    "functions": [
+      "inventory-orders"
+    ],
     "summary": "SI turns an approved reorder list into supplier-ready purchase orders in your format, tracks what is open, and drafts the emails.",
     "problem": "Many businesses order by phone, text or a quick email with no purchase order. Nobody can say what is on order, what price was agreed or what arrived, especially when a purchasing tool is retired or was never set up.",
     "what_si_does": "From an approved list, SI builds a purchase order per supplier with item codes, quantities, agreed prices and delivery address, numbered and saved to a shared folder. It drafts the email to each supplier, keeps an open-orders sheet, and updates it when confirmations or shipping notices arrive.",
@@ -1433,7 +1666,14 @@
   {
     "slug": "receiving-check",
     "title": "Checking deliveries against what was ordered",
-    "category": "Inventory and orders",
+    "industries": [
+      "any-business",
+      "ecommerce",
+      "medical"
+    ],
+    "functions": [
+      "inventory-orders"
+    ],
     "summary": "When a delivery arrives, SI compares the packing slip or invoice with the purchase order and lists shortages, substitutions and price differences.",
     "problem": "Deliveries get signed for without a careful count. Shortages, wrong items and price increases are discovered weeks later, after the invoice is paid.",
     "what_si_does": "Staff snap a photo of the packing slip or forward the supplier invoice. SI reads it, matches it line by line to the purchase order, and lists anything short, extra, substituted, backordered or priced differently. It drafts a note to the supplier for credits or missing items and updates the open-orders sheet.",
@@ -1470,7 +1710,13 @@
   {
     "slug": "stock-and-stuck-order-watch",
     "title": "A daily watch for low stock and stuck orders",
-    "category": "Inventory and orders",
+    "industries": [
+      "any-business",
+      "ecommerce"
+    ],
+    "functions": [
+      "inventory-orders"
+    ],
     "summary": "Each day SI checks for items running low and orders or jobs that have stalled, and sends a short list with suggested fixes before customers notice.",
     "problem": "Problems are found when a customer complains: an item sold that was not in stock, a shipment stuck for a week, a job waiting on a part nobody ordered.",
     "what_si_does": "SI checks stock levels against minimums, compares open customer orders or jobs with the stock and parts they need, and looks for orders with no movement (no shipping scan, no status change) beyond a set time. It sends a short daily list with what is wrong and a suggested next step, such as contacting the customer, transferring stock or chasing a carrier.",
@@ -1508,7 +1754,12 @@
   {
     "slug": "supplier-lead-times",
     "title": "Tracking supplier lead times and late deliveries",
-    "category": "Inventory and orders",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "inventory-orders"
+    ],
     "summary": "SI records when orders are placed and received, works out each supplier's real lead time, and flags late deliveries early.",
     "problem": "Lead times are guesses based on what the supplier once said. Late deliveries are noticed only when something is missing, and planning uses numbers nobody has checked.",
     "what_si_does": "SI logs order dates, promised dates and received dates from purchase orders, confirmations and receiving records. It calculates each supplier's typical lead time and on-time rate over recent orders, flags open orders past their promised date, and drafts a polite chase email.",
@@ -1544,7 +1795,14 @@
   {
     "slug": "inventory-value-aging",
     "title": "Inventory value and aging report",
-    "category": "Inventory and orders",
+    "industries": [
+      "any-business",
+      "ecommerce"
+    ],
+    "functions": [
+      "inventory-orders",
+      "reporting-dashboards"
+    ],
     "summary": "SI shows how much money is tied up in stock, what has not moved in months, and suggests what to discount, return or stop buying.",
     "problem": "Cash gets tied up in items that sit on shelves. Without an aging view, slow items keep getting reordered and dead stock is discovered at year-end counts.",
     "what_si_does": "SI combines stock on hand, unit cost and last sale or use date to show inventory value by category and age band (for example, sold in the last 30 days, 31 to 90, over 90, never). It lists the largest pockets of slow stock with options: return to supplier, discount, bundle, or stop reordering.",
@@ -1581,7 +1839,13 @@
   {
     "slug": "order-paperwork-check",
     "title": "Checking customer orders against their PO and payment",
-    "category": "Inventory and orders",
+    "industries": [
+      "any-business",
+      "ecommerce"
+    ],
+    "functions": [
+      "inventory-orders"
+    ],
     "summary": "Before an order ships or work starts, SI compares the customer's purchase order, your invoice and their payment, and flags any mismatch.",
     "problem": "Business customers send purchase orders, then pay by transfer with a reference that may or may not match. Mismatched quantities, prices and amounts cause billing disputes and delays.",
     "what_si_does": "SI reads the customer's purchase order, your sales order or invoice, and the payment record or remittance. It checks customer, quantities, prices, totals, tax and payment amount, and lists mismatches. When everything matches it drafts the order confirmation; when it does not, it drafts a clarifying question.",
@@ -1618,7 +1882,14 @@
   {
     "slug": "descriptions-and-catalog-cleanup",
     "title": "Product and service descriptions from specs, plus catalog cleanup",
-    "category": "Content and marketing",
+    "industries": [
+      "any-business",
+      "ecommerce"
+    ],
+    "functions": [
+      "content-marketing",
+      "inventory-orders"
+    ],
     "summary": "SI writes consistent descriptions from spec sheets and notes, and cleans up names, categories and details across your catalog, menu or service list.",
     "problem": "Descriptions are missing, copied from suppliers, or written in five different styles. Names and categories are inconsistent, which makes things hard to find and harder to sell.",
     "what_si_does": "SI reads spec sheets, supplier data or your own notes and writes descriptions in a consistent format and voice: what it is, who it is for, key details, and care or usage notes. It also proposes fixes across the list: consistent naming, missing sizes or details, duplicate entries and wrong categories, as a change sheet for review.",
@@ -1656,7 +1927,12 @@
   {
     "slug": "newsletter-from-real-updates",
     "title": "A newsletter drafted from what actually happened",
-    "category": "Content and marketing",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "content-marketing"
+    ],
     "summary": "Each week or month SI collects real updates from your calendar, projects, photos and notes, and drafts a newsletter for you to edit.",
     "problem": "Newsletters stall because nobody knows what to write. When one does go out, it is generic and late.",
     "what_si_does": "SI gathers what actually happened: completed projects, new staff, upcoming events, new services, a seasonal tip, customer questions worth answering. It drafts a short issue in your voice with suggested subject lines and photo spots, and leaves out anything not confirmed.",
@@ -1693,7 +1969,12 @@
   {
     "slug": "social-post-calendar",
     "title": "A month of social posts from one source",
-    "category": "Content and marketing",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "content-marketing"
+    ],
     "summary": "SI turns one set of updates, photos or a single article into a month of platform-specific posts for you to approve and schedule.",
     "problem": "Posting regularly is hard to keep up with. Accounts go quiet for weeks, then get a burst of rushed posts.",
     "what_si_does": "From a source you provide (a photo folder, a blog post, notes on upcoming events, past customer questions), SI drafts a calendar of posts suited to each platform, with captions, hashtags where useful, suggested images and posting dates. It varies the mix: work examples, tips, behind-the-scenes, events and offers.",
@@ -1731,7 +2012,12 @@
   {
     "slug": "repurpose-long-content",
     "title": "One talk, class or article into several pieces",
-    "category": "Content and marketing",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "content-marketing"
+    ],
     "summary": "SI turns one long piece, such as a talk, webinar, interview or article, into shorter posts, an email, a handout and short video scripts.",
     "problem": "Good long content gets used once. Making shorter versions for other channels takes as long as writing the original.",
     "what_si_does": "From a recording or transcript, SI pulls out the strongest points and drafts several pieces: a summary article, an email, a few short social posts, a one-page handout and short video scripts with suggested clip timestamps. Each piece keeps your wording where possible and notes its source.",
@@ -1768,7 +2054,12 @@
   {
     "slug": "web-pages-and-search-snippets",
     "title": "Refreshing tired web pages and search snippets",
-    "category": "Content and marketing",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "content-marketing"
+    ],
     "summary": "SI reviews your key web pages for outdated details, weak titles and missing information, and proposes specific rewrites you approve.",
     "problem": "Service and category pages were written years ago. Hours, prices and services are out of date, titles and descriptions in search results are vague, and important questions are not answered.",
     "what_si_does": "SI reads your main pages and checks for outdated details, missing basics (service area, hours, how to book), unclear headings, and weak page titles and meta descriptions. It proposes rewrites for each page in a change sheet, and drafts a few short articles that answer common customer questions.",
@@ -1806,7 +2097,12 @@
   {
     "slug": "marketing-claims-check",
     "title": "Checking marketing copy for claims you cannot back up",
-    "category": "Content and marketing",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "content-marketing"
+    ],
     "summary": "Before something is published, SI checks the copy against your evidence and flags claims that are unsupported, outdated or risky.",
     "problem": "Marketing copy picks up phrases like 'best in town', 'guaranteed' or 'clinically proven' that nobody can support. Old claims stay on the site long after they stopped being true.",
     "what_si_does": "SI reads the draft or existing pages and lists each factual claim: superlatives, guarantees, numbers, certifications, results and comparisons. For each it looks for support in the evidence you provide (licenses, certifications, warranty terms, documented results) and labels it supported, unsupported or needs review, with a softer alternative.",
@@ -1841,7 +2137,14 @@
   {
     "slug": "automated-email-review",
     "title": "Reviewing and rewriting your automated emails",
-    "category": "Content and marketing",
+    "industries": [
+      "any-business",
+      "ecommerce"
+    ],
+    "functions": [
+      "content-marketing",
+      "customer-support"
+    ],
     "summary": "SI reviews the emails your systems send automatically, such as welcomes, booking confirmations and follow-ups, and drafts clearer replacements.",
     "problem": "Automated emails were set up once and forgotten. Some have old details, some are missing entirely, and the tone does not match the business.",
     "what_si_does": "SI collects your automated messages (welcome, confirmation, reminder, post-visit or post-purchase, review request, inactive-customer follow-up), checks them for outdated details, gaps and unclear calls to action, and maps which moments have no message at all. It drafts replacements and new messages for approval.",
@@ -1878,7 +2181,13 @@
   {
     "slug": "job-posting-drafts",
     "title": "Job postings drafted from a quick description of the role",
-    "category": "Hiring and team admin",
+    "industries": [
+      "any-business",
+      "home-services"
+    ],
+    "functions": [
+      "hiring"
+    ],
     "summary": "SI turns a manager's rough notes about a role into a clear job posting, screening questions and a short interview plan.",
     "problem": "Job postings get copied from old ones or the internet, with vague duties and requirements that do not match the actual job. The wrong people apply and the right ones skip it.",
     "what_si_does": "From the manager's notes or a voice memo, SI drafts a posting with a plain summary, real day-to-day duties, must-have and nice-to-have requirements, schedule, pay range if you share it, and how to apply. It suggests a few job-related screening questions and flags wording that could unintentionally discourage qualified applicants.",
@@ -1915,7 +2224,12 @@
   {
     "slug": "application-summaries",
     "title": "Summarizing job applications against the role's criteria",
-    "category": "Hiring and team admin",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "hiring"
+    ],
     "summary": "SI summarizes each application against the criteria you set for the role, so the hiring manager reads a consistent digest and decides.",
     "problem": "A posting brings in dozens or hundreds of applications. Busy managers skim, miss good candidates, and apply different standards on different days.",
     "what_si_does": "SI reads each application and summarizes it against the written, job-related criteria: required license or certification, relevant experience, availability, and answers to screening questions. It notes where information is missing and groups applications into meets criteria, partly meets, and does not show the requirement, with the reason. It does not reject anyone; the manager reviews.",
@@ -1952,7 +2266,13 @@
   {
     "slug": "interview-scheduling-and-kits",
     "title": "Interview scheduling and a consistent question kit",
-    "category": "Hiring and team admin",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "hiring",
+      "scheduling"
+    ],
     "summary": "SI coordinates interview times with candidates and interviewers, and prepares a consistent question set and scoring sheet for each role.",
     "problem": "Interviews take a string of emails to schedule. Each interviewer asks different questions, which makes candidates hard to compare.",
     "what_si_does": "SI drafts messages to shortlisted candidates offering times that work for the interviewers, books confirmed slots, and sends reminders. For each role it prepares a short kit: the same job-related questions for every candidate, what a good answer covers, and a simple scoring sheet for interviewers to fill in.",
@@ -1989,7 +2309,12 @@
   {
     "slug": "new-hire-onboarding",
     "title": "A new-hire onboarding checklist that actually gets followed",
-    "category": "Hiring and team admin",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "hiring"
+    ],
     "summary": "SI builds a role-specific onboarding plan, sends reminders to whoever owns each step, and tracks what is done.",
     "problem": "First weeks are improvised. Accounts are not ready, paperwork is chased late, and training depends on who has time that day.",
     "what_si_does": "From your standard onboarding steps and the role, SI builds a dated checklist: paperwork, accounts and keys, equipment, introductions, training sessions and first-month check-ins, each with an owner. It sends reminders to owners before due dates, drafts a welcome email with first-day details, and reports what is still open.",
@@ -2027,7 +2352,13 @@
   {
     "slug": "internal-answers-helper",
     "title": "An internal helper that answers staff questions from your own documents",
-    "category": "Hiring and team admin",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "hiring",
+      "research-documents"
+    ],
     "summary": "SI answers staff questions about procedures, policies, products and prices from your own documents, and says where it found the answer.",
     "problem": "Staff interrupt the owner or senior people with the same questions all day. The answers exist in a handbook, price sheet or old email, but nobody can find them quickly.",
     "what_si_does": "SI is connected to an approved set of internal documents: the handbook, procedures, price lists, spec sheets and FAQs. Staff ask in chat, and SI answers with a short reply and a link to the source. When the documents do not cover a question, it says so and routes the question to the right person, and the gap is logged so the documents can be updated.",
@@ -2065,7 +2396,14 @@
   {
     "slug": "license-and-certification-tracker",
     "title": "Tracking staff licenses, certifications and training renewals",
-    "category": "Hiring and team admin",
+    "industries": [
+      "any-business",
+      "home-services",
+      "medical"
+    ],
+    "functions": [
+      "hiring"
+    ],
     "summary": "SI keeps one list of staff licenses, certifications and required training with expiry dates, and reminds people well before anything lapses.",
     "problem": "Licenses, certifications and required trainings expire on different dates. A lapse can mean someone cannot work, or a problem at an inspection or audit.",
     "what_si_does": "SI reads certificates and records from a shared folder or HR system, builds a list of each person's credentials with issue and expiry dates, and sends reminders to the person and their manager ahead of each expiry. It flags anyone scheduled for work that requires a credential they do not currently hold.",
@@ -2102,7 +2440,13 @@
   {
     "slug": "timesheet-review-before-payroll",
     "title": "Reviewing timesheets and time off before payroll",
-    "category": "Hiring and team admin",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "hiring",
+      "billing-admin"
+    ],
     "summary": "Before each payroll run, SI checks timesheets against schedules and time-off records and lists anything that looks wrong for a person to fix.",
     "problem": "Payroll errors come from missed punches, unapproved overtime and time off that was never recorded. They are found after the paychecks, which is awkward for everyone.",
     "what_si_does": "SI compares timesheets with the schedule, approved time-off requests and job or project codes. It lists missing punches, unusually long shifts, overtime without approval, time off taken but not recorded, and hours coded to the wrong job. It prepares a summary for the payroll person. It does not run payroll or approve hours.",
@@ -2140,7 +2484,13 @@
   {
     "slug": "contract-first-read",
     "title": "A first read of contracts for the terms that matter",
-    "category": "Research and documents",
+    "industries": [
+      "any-business",
+      "legal"
+    ],
+    "functions": [
+      "research-documents"
+    ],
     "summary": "SI highlights dates, renewal terms, payment terms and unusual clauses in contracts so you know what to ask your lawyer or the other side.",
     "problem": "Contracts, leases and vendor agreements get signed after a skim. Auto-renewals, notice periods, liability terms and penalties come as surprises later.",
     "what_si_does": "SI reads the contract and produces a plain summary: parties, term, renewal and notice, payment terms, termination, liability and insurance requirements, exclusivity, and anything that differs from your usual terms or a checklist you provide. It lists questions to raise. It does not say whether a clause is acceptable or enforceable.",
@@ -2177,7 +2527,12 @@
   {
     "slug": "routine-form-filling",
     "title": "Filling routine forms from saved company details",
-    "category": "Research and documents",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "research-documents"
+    ],
     "summary": "SI fills vendor setup forms, applications, permits and questionnaires from a saved set of company details, and stops before anything is submitted.",
     "problem": "The same information (legal name, tax ID, insurance details, addresses, contacts) is typed into form after form. Errors creep in, and forms sit unfinished.",
     "what_si_does": "SI keeps a profile of verified company details and documents (certificate of insurance, licenses, standard answers). For each new form, it fills what it can, lists fields it could not answer, and attaches the right documents. It stops before signing or submitting, and leaves the finished draft for review.",
@@ -2214,7 +2569,13 @@
   {
     "slug": "long-document-briefs",
     "title": "Short briefs from long documents",
-    "category": "Research and documents",
+    "industries": [
+      "any-business",
+      "legal"
+    ],
+    "functions": [
+      "research-documents"
+    ],
     "summary": "SI reads long documents such as regulations, bid packages, reports or board packets and writes a short brief with what matters to you and what to do next.",
     "problem": "Important documents are long and dense, and reading them carefully takes time nobody has. Key requirements and deadlines get missed.",
     "what_si_does": "SI reads the document and writes a brief: what it is, the key points, requirements or decisions that affect you, deadlines, and open questions, with page references for each point so you can check the source.",
@@ -2250,7 +2611,12 @@
   {
     "slug": "rfp-and-grant-drafts",
     "title": "Drafting bids, RFP responses and grant applications from past answers",
-    "category": "Research and documents",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "research-documents"
+    ],
     "summary": "SI drafts responses to bids, RFPs and grant applications from your past submissions and documents, and lists what still needs a human answer.",
     "problem": "Each application asks similar questions in different words. Teams rewrite the same answers from scratch, under deadline, and miss requirements.",
     "what_si_does": "SI reads the request, builds a checklist of every required section, attachment and format rule, and drafts answers by drawing on past submissions, capability statements and project summaries. It marks each answer as reused, adapted or new, and lists questions with no good source answer. It also prepares a submission checklist with the deadline.",
@@ -2287,7 +2653,13 @@
   {
     "slug": "pdf-data-extraction-and-filing",
     "title": "Pulling data out of PDFs and scans, and filing them",
-    "category": "Research and documents",
+    "industries": [
+      "any-business",
+      "legal"
+    ],
+    "functions": [
+      "research-documents"
+    ],
     "summary": "SI reads PDFs, scans and photos, extracts the fields you need into a spreadsheet, and renames and files the documents consistently.",
     "problem": "Information is trapped in PDFs, scans and phone photos: statements, forms, delivery notes, certificates. Someone retypes it, and the files end up in a messy downloads folder.",
     "what_si_does": "SI reads each document, extracts the fields you specify (dates, names, amounts, reference numbers, line items), and writes them to a spreadsheet with a link to the source file. It renames files with a consistent pattern and moves them into the right folders, and lists documents it could not read clearly.",
@@ -2324,7 +2696,12 @@
   {
     "slug": "options-comparison",
     "title": "Comparing vendors, tools or options in one decision sheet",
-    "category": "Research and documents",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "research-documents"
+    ],
     "summary": "SI researches the options for a purchase or decision and lays them out side by side against your requirements, with sources.",
     "problem": "Choosing a new supplier, software tool or service provider means reading websites, quotes and reviews that never compare the same things. Decisions end up based on whoever had the best sales call.",
     "what_si_does": "From your requirements and the options you are considering, SI collects published information and the quotes you have received, and builds a comparison sheet: price and terms, features against requirements, contract length, support, and open questions for each vendor. It flags where information is missing or based only on the vendor's own claims.",
@@ -2359,7 +2736,12 @@
   {
     "slug": "portal-chores",
     "title": "Handing recurring web-portal chores to SI",
-    "category": "Research and documents",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "research-documents"
+    ],
     "summary": "SI works through recurring tasks in web portals, such as downloading statements, checking statuses and entering routine data, and stops before any final step.",
     "problem": "Admin work is full of small portal tasks: download this month's statements from six sites, check claim or permit status, update the same info in three places. Each is quick, together they eat hours.",
     "what_si_does": "With access you grant, SI logs into the portals you list, follows the written steps for each chore, downloads files into the right folders, records statuses in a sheet, and fills routine data entries. Before any step that submits, pays, accepts terms or changes account settings, it stops and asks.",
@@ -2395,7 +2777,13 @@
   {
     "slug": "weekly-member-announcements",
     "title": "A weekly announcements email for members",
-    "category": "Community and membership organizations",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "community",
+      "content-marketing"
+    ],
     "summary": "SI gathers the week's events, schedule changes and notices from your calendar and contributors, and drafts the members' email for approval.",
     "problem": "The weekly email depends on one volunteer or staff member collecting items from everyone by text and email. Items arrive late, details are wrong, and the email goes out late or not at all.",
     "what_si_does": "SI collects items from a submission form, the shared calendar and forwarded emails, checks dates and times against the calendar, and drafts the email in your usual layout: this week's schedule, upcoming events, notices, volunteer needs and celebrations. It lists items with missing details for the editor.",
@@ -2433,7 +2821,13 @@
   {
     "slug": "donation-acknowledgments",
     "title": "Donation thank-yous and acknowledgment letters",
-    "category": "Community and membership organizations",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "community",
+      "billing-admin"
+    ],
     "summary": "SI drafts personal thank-you letters and acknowledgment receipts from donation records, using wording your accountant has approved.",
     "problem": "Thank-yous go out weeks late or not at all. Acknowledgment letters need specific details, and preparing them one by one is slow.",
     "what_si_does": "SI reads new donations from your donor system or payment exports, drafts a thank-you that mentions the gift and any designation, and prepares an acknowledgment with the details your approved template requires. It flags gifts that need special handling, such as large gifts, in-kind gifts or gifts in memory of someone, and compiles year-end summaries per donor.",
@@ -2471,7 +2865,13 @@
   {
     "slug": "volunteer-scheduling",
     "title": "Volunteer sign-ups, reminders and gap filling",
-    "category": "Community and membership organizations",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "community",
+      "scheduling"
+    ],
     "summary": "SI organizes volunteer sign-ups, sends reminders, spots unfilled shifts, and drafts targeted asks to people likely to help.",
     "problem": "Volunteer coordination runs on group texts and memory. Shifts go unfilled until the last minute, and the same few people get asked every time.",
     "what_si_does": "SI keeps the sign-up sheet current from form responses and replies, sends reminders before each shift, and lists unfilled slots. For gaps, it drafts a short ask to volunteers who have helped with that kind of task before but have not been asked recently.",
@@ -2509,7 +2909,13 @@
   {
     "slug": "event-registration-logistics",
     "title": "Event registration, seating and reminders",
-    "category": "Community and membership organizations",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "community",
+      "scheduling"
+    ],
     "summary": "SI combines registrations and payments, flags unpaid or duplicate entries, drafts seating and name tags, and sends approved reminders.",
     "problem": "Event logistics live in several places: a form, a payment tool, a spreadsheet and someone's notes. The last week before the event is frantic, and details slip.",
     "what_si_does": "SI merges registrations and payments, lists unpaid and duplicate entries, and produces headcounts, dietary lists and name tags. It drafts seating by your rules (households together, sponsors near the front), drafts reminder and logistics emails, and produces the final count for the caterer or venue.",
@@ -2547,7 +2953,13 @@
   {
     "slug": "membership-renewals",
     "title": "Membership renewals and a clean member list",
-    "category": "Community and membership organizations",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "community",
+      "billing-admin"
+    ],
     "summary": "SI tracks renewal dates, drafts reminders, and cleans up the member list by merging duplicates and flagging outdated contact details.",
     "problem": "Renewals depend on someone remembering to send reminders. The member list has duplicates, old emails and households listed three ways.",
     "what_si_does": "SI reads the member list and payment records, lists members due to renew or lapsed, drafts reminders in a friendly sequence, and proposes cleanup: merging duplicates, flagging bounced emails, and standardizing names and households. Lapsed members who were active get a personal-style note for a board member to send.",
@@ -2584,7 +2996,12 @@
   {
     "slug": "session-notes-to-progress-updates",
     "title": "Session notes into progress updates for families or clients",
-    "category": "Community and membership organizations",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "community"
+    ],
     "summary": "After each session or class, SI turns the instructor's quick notes into a short, consistent progress update for the parent or client to receive.",
     "problem": "Instructors and coaches jot notes but rarely have time to write updates. Families or clients hear little until there is a problem, and the updates that do go out vary wildly.",
     "what_si_does": "SI takes the instructor's notes or voice memo and writes a short update in a consistent format: what was covered, what went well, what to practice, and what is next. It keeps a running record per learner so trends are visible, and flags notes that suggest a concern for the instructor to handle personally.",
@@ -2621,7 +3038,12 @@
   {
     "slug": "lesson-and-training-materials",
     "title": "Lesson plans, quizzes and training materials for instructors",
-    "category": "Community and membership organizations",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "community"
+    ],
     "summary": "SI drafts lesson plans, quizzes, handouts and first-pass feedback from your curriculum or materials, for the instructor to review and adapt.",
     "problem": "Instructors, trainers and teachers spend evenings building plans and quizzes from scratch. Feedback on written work is slow because there is so much of it.",
     "what_si_does": "From your curriculum, textbook pages or training manual, SI drafts a lesson or session plan with goals, activities, timing and a short check for understanding. It creates quizzes at different levels with answer keys, and drafts first-pass feedback on written work against a rubric, which the instructor edits.",
@@ -2658,7 +3080,13 @@
   {
     "slug": "board-packet-and-minutes",
     "title": "Board packets and minutes for volunteer boards",
-    "category": "Community and membership organizations",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "community",
+      "research-documents"
+    ],
     "summary": "SI assembles the board packet from committee reports and financials, drafts the agenda, and turns meeting notes into draft minutes for the secretary.",
     "problem": "Volunteer boards run on late reports and a packet assembled the night before. Minutes are written weeks later from memory.",
     "what_si_does": "SI collects committee reports, the treasurer's summary and any proposals from a shared folder, flags what is missing, and assembles a packet with an agenda and a one-page summary of decisions needed. After the meeting, it drafts minutes from notes or a transcript, listing motions, votes and action items.",
@@ -2696,7 +3124,12 @@
   {
     "slug": "retired-inventory-app-reorder-history",
     "title": "Moving off a retired inventory app without losing your reorder history",
-    "category": "Ecommerce operations",
+    "industries": [
+      "ecommerce"
+    ],
+    "functions": [
+      "inventory-orders"
+    ],
     "summary": "When the inventory or purchase-order tool shuts down, SI reads the export and rebuilds suppliers, past orders, and reorder rules into a sheet you can use next week.",
     "problem": "The app you used for stock and purchase orders is gone, and what you have left is an export. Supplier names, past orders, and the rules for when to reorder are in those files, but they are not a Monday list of what to buy. A working reorder list and a low-stock watch assume the system is still running. This job is the move itself.",
     "what_si_does": "SI reads the export (CSV or spreadsheet) and lists suppliers, items, past purchase orders, quantities, and any reorder points or par levels that are actually in the file. It maps those into a simple sheet: who you buy from, what you last ordered, and a suggested reorder line you can edit. It flags fields the export does not contain, duplicate item names, and suppliers with no contact. It does not place orders. A common version of this is a Shopify store that exported Stocky before that app shut down and now has CSVs instead of a weekly system. The same steps apply to any retired inventory or purchase-order tool that left you a file.",
@@ -2734,7 +3167,13 @@
   {
     "slug": "store-stock-and-spreadsheet-agreement",
     "title": "Keeping store stock counts and your spreadsheet in agreement",
-    "category": "Ecommerce operations",
+    "industries": [
+      "ecommerce"
+    ],
+    "functions": [
+      "inventory-orders",
+      "reporting-dashboards"
+    ],
     "summary": "SI compares the store's available count, the warehouse or location count, and the spreadsheet, and lists where they disagree before you oversell or reorder the wrong amount.",
     "problem": "The online store, the back room or warehouse, and the spreadsheet each hold a number for the same item. They drift. A low-stock watch only looks at one threshold. It does not tell you that the store, the shelf count, and the sheet each show a different number for the same item.",
     "what_si_does": "On a schedule you choose, SI lines up items by SKU or name across the sources you give it and lists mismatches: store versus spreadsheet, store versus a location count, or sheet versus a physical count. It notes which source is newer when dates are in the file, and separates small differences from ones large enough to cause an oversell or a bad reorder. It does not change counts in the store or the sheet.",
@@ -2772,7 +3211,13 @@
   {
     "slug": "catalog-pricing-and-margin-check",
     "title": "Pricing and margin check across your catalog",
-    "category": "Reporting and dashboards",
+    "industries": [
+      "any-business",
+      "ecommerce"
+    ],
+    "functions": [
+      "reporting-dashboards"
+    ],
     "summary": "SI compares the price you charge with the cost you have on file, and lists products or services where the price no longer covers that cost.",
     "problem": "Costs moved and selling prices did not, or they moved unevenly. A competitor price watch looks outward. It does not tell you which of your own items or services are priced below the cost sitting in your sheet, invoice history, or price list.",
     "what_si_does": "SI reads your catalog or rate sheet and the cost you point it at (last invoice cost, a cost column, or a landed-cost column you already maintain). It lines up each item or service and shows price, recorded cost, and the gap. It flags rows where price is at or below the recorded cost, where price has not changed since the cost did, and where cost or price is missing. The threshold is yours. SI does not change prices.",
@@ -2810,7 +3255,12 @@
   {
     "slug": "supplier-price-increases-on-invoices",
     "title": "Spotting supplier price increases on invoices",
-    "category": "Bookkeeping, invoices and admin",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "billing-admin"
+    ],
     "summary": "SI compares the unit price on a new supplier invoice with the last price you paid for the same item, and flags the increases.",
     "problem": "A supplier raises a unit price on the invoice and the bill still gets entered. The amount is captured, but nobody compares it with last time, so the increase sits in the books for months.",
     "what_si_does": "SI reads new supplier invoices and your recent bill or item history. It matches lines by supplier and item (SKU, description, or the code you use) and compares the unit price with the previous price for that pair. It lists increases and decreases, the old price, the new price, and the invoice date. Lines it cannot match, or unit prices that look like a pack-size change, are set aside instead of called an increase. It does not edit the bill or the catalog price.",
@@ -2848,7 +3298,14 @@
   {
     "slug": "bilingual-english-spanish-replies",
     "title": "Replying to customers in English and Spanish",
-    "category": "Local business & seasonal",
+    "industries": [
+      "local-seasonal",
+      "home-services"
+    ],
+    "functions": [
+      "customer-support"
+    ],
+    "featured": true,
     "summary": "SI drafts a reply in the language the customer wrote in, English or Spanish, and leaves it for someone who can read that language to approve.",
     "problem": "Customers write in Spanish and the reply waits, or it goes out in awkward English. The rest of the inbox work does not cover language. In a place where customers use both languages, the slower language becomes the one that feels ignored.",
     "what_si_does": "SI detects whether the incoming message is in English or Spanish, drafts the reply in that language, and can include the other language underneath if you want a copy for the file. It uses your past replies and your policy as the source, and it does not add offers that are not in those materials. Messages about complaints, refunds, or anything SI is unsure how to say go to a person with both drafts, or with a note that it could not draft safely.",
@@ -2886,7 +3343,13 @@
   {
     "slug": "hurricane-season-readiness",
     "title": "Hurricane-season readiness and continuity plan",
-    "category": "Local business & seasonal",
+    "industries": [
+      "local-seasonal",
+      "home-services"
+    ],
+    "functions": [
+      "scheduling"
+    ],
     "summary": "Before a storm, SI turns your own records into a checklist: what to protect, who to notify, and which files to copy, for you to act on.",
     "problem": "Hurricane season arrives and the plan is still in someone's head. Inventory location, customer appointments, supplier contacts, and the files the business would need after a closure are scattered. Nothing else in the library is an emergency or continuity checklist.",
     "what_si_does": "From the lists and notes you provide, SI drafts a readiness packet: where stock or equipment sits, which appointments or orders fall in a date range you name, a customer note you can send if you close, supplier and staff contacts, and a list of records to copy (orders, invoices, contacts, insurance documents you already have). It marks gaps, such as a missing backup location or no after-hours contact. It does not send the customer note, move inventory, or file an insurance claim.",
@@ -2924,7 +3387,12 @@
   {
     "slug": "standing-si-desk-approval-queue",
     "title": "A standing SI desk with an approval queue",
-    "category": "Scheduling and operations",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "scheduling"
+    ],
     "summary": "A Hermes Desk stays on for routine drafts, puts them in a queue, and waits. A person approves anything that would send, pay, order, or post.",
     "problem": "Single tasks still start from a blank chat. You want a standing helper that already knows the folders, the tone, and the rules, and that does not get the keys to send, pay, order, or post.",
     "what_si_does": "The desk is a Hermes install on a computer you control. ChatGPT and Claude are examples; 300+ models are available. It drafts the routine jobs you named (a reply, a summary, a checklist) into a queue instead of finishing them itself. Each item shows the draft, the source it used, and which written rule applied. Handoff rules say what a person must approve and what should stop for a human with no draft. A short log lists what was drafted and what was approved, rejected, or edited. The desk does not send, pay, order, or post.",
@@ -2962,7 +3430,14 @@
   {
     "slug": "speed-to-lead-replies",
     "title": "Speed-to-lead replies for new inquiries",
-    "category": "Sales and follow-up",
+    "industries": [
+      "any-business",
+      "home-services",
+      "local-seasonal"
+    ],
+    "functions": [
+      "sales-follow-up"
+    ],
     "summary": "When a new inquiry arrives, SI drafts a specific first reply right away and leaves it for a person to send.",
     "problem": "New inquiries sit for hours while the day gets busy, and the person calls the next business. Turning an inquiry into a CRM record keeps the lead. It does not answer them.",
     "what_si_does": "SI watches the form, inbox, or voicemail notes you point it at. For a new inquiry it pulls out what they asked, the contact, and any date or address, then drafts a short first reply in your voice: that you got it, the next step, and one question you still need. It does not invent availability, prices, or promises. After-hours inquiries are queued for the morning with the draft ready. A person sends it.",
@@ -3000,7 +3475,13 @@
   {
     "slug": "google-business-profile-upkeep",
     "title": "Google Business Profile upkeep",
-    "category": "Local business & seasonal",
+    "industries": [
+      "local-seasonal",
+      "home-services"
+    ],
+    "functions": [
+      "content-marketing"
+    ],
     "summary": "SI checks your Google Business Profile against the hours, services, and details you actually use, and drafts updates and replies for you to post.",
     "problem": "The map listing shows last season's hours, a closed holiday as open, or services you no longer offer. Questions on the listing sit unanswered. Refreshing your website does not update the listing customers see in maps and search.",
     "what_si_does": "SI compares the listing details you export or paste (hours, holiday hours, services, description, phone, website) with the source you treat as current. It lists what is stale and drafts the corrected text. It drafts answers to new questions from your FAQ or policy, and a short post from a real update you provide (a holiday closure, a new service). It does not publish anything.",
@@ -3037,7 +3518,14 @@
   {
     "slug": "cash-flow-look-ahead",
     "title": "Cash-flow look-ahead from open invoices and bills",
-    "category": "Reporting and dashboards",
+    "industries": [
+      "any-business",
+      "accounting"
+    ],
+    "functions": [
+      "reporting-dashboards",
+      "billing-admin"
+    ],
     "summary": "SI lines up open customer invoices and open bills by week so you can see where money is expected in and where it is due out.",
     "problem": "Weekly reports look backward. Overdue reminders chase one invoice at a time. Neither shows whether next month's bills come due before the open invoices are scheduled to be paid.",
     "what_si_does": "SI reads open customer invoices (amount, due date, customer) and open bills (amount, due date, supplier) from the export or books you provide. It groups them by week, shows expected in and due out, and flags weeks where bills due are larger than invoices due, plus invoices or bills with no due date. It uses only the dates and amounts in the file. It does not predict new sales, collect money, or pay bills.",
@@ -3074,7 +3562,13 @@
   {
     "slug": "after-hours-inquiry-triage",
     "title": "After-hours inquiry triage with clear \"not legal advice\" handling",
-    "category": "Legal practices",
+    "industries": [
+      "legal"
+    ],
+    "functions": [
+      "customer-support"
+    ],
+    "featured": true,
     "summary": "Overnight calls and web forms are sorted into queues, with deadlines flagged and a short acknowledgment drafted from the firm's approved wording.",
     "problem": "Calls and web forms arrive at night and on weekends. Urgent matters get buried, prospective clients wait until morning, and staff worry about saying too much.",
     "what_si_does": "SI sorts overnight messages into queues (new inquiry, existing client, vendor, opposing counsel or court, spam), pulls out the name, contact, matter type, and any dates the sender mentions, flags anything that mentions a deadline or emergency, and drafts a short, plain acknowledgment that the firm will follow up and that the message is not legal advice and does not create an attorney-client relationship.",
@@ -3112,7 +3606,13 @@
   {
     "slug": "intake-summaries-conflict-prep",
     "title": "Intake summaries and conflict-check prep",
-    "category": "Legal practices",
+    "industries": [
+      "legal"
+    ],
+    "functions": [
+      "customer-support",
+      "research-documents"
+    ],
     "summary": "SI turns an intake form or email into a one-page summary and a name list formatted for the firm's existing conflict-check process.",
     "problem": "New-matter intake forms are inconsistent, and building the list of parties and names to run through the conflict system is slow and easy to get wrong.",
     "what_si_does": "SI turns an intake form or email into a clean one-page summary, lists every person and organization named (client, adverse parties, related entities, spelling variants), and formats that list for the firm's existing conflict-check process.",
@@ -3150,7 +3650,12 @@
   {
     "slug": "new-client-onboarding-checklists",
     "title": "New-client onboarding checklists",
-    "category": "Legal practices",
+    "industries": [
+      "legal"
+    ],
+    "functions": [
+      "customer-support"
+    ],
     "summary": "Each new matter gets a checklist from the firm's own template, with open steps nudged and the welcome email drafted from approved wording.",
     "problem": "Onboarding steps such as a signed engagement letter, ID and contact details, billing setup, folder creation, and a welcome message get missed or done in different orders.",
     "what_si_does": "SI generates a checklist for each new matter from the firm's own template, tracks which steps are done, nudges the assigned staff member on what is outstanding, and drafts the welcome email from the firm's approved wording.",
@@ -3188,7 +3693,13 @@
   {
     "slug": "engagement-letter-template-assembly",
     "title": "Engagement-letter template assembly for attorney review",
-    "category": "Legal practices",
+    "industries": [
+      "legal"
+    ],
+    "functions": [
+      "billing-admin",
+      "research-documents"
+    ],
     "summary": "SI fills the firm's approved engagement-letter template from intake data, highlights every field it filled, and lists blanks or mismatches.",
     "problem": "Engagement letters are assembled by copying an old one and editing, which leaves stale names, wrong fee terms, or missing clauses.",
     "what_si_does": "SI fills the firm's attorney-approved template from the intake data (names, matter description, and the fee arrangement the attorney already selected), highlights every field it filled, and lists any blanks or mismatches, such as a name spelled two ways.",
@@ -3226,7 +3737,12 @@
   {
     "slug": "deadline-calendar-reminders",
     "title": "Deadline and calendar reminders, human-verified",
-    "category": "Legal practices",
+    "industries": [
+      "legal"
+    ],
+    "functions": [
+      "scheduling"
+    ],
     "summary": "Dates a person has already verified are collected into one tracker, with reminders, conflicts, and a weekly list per attorney.",
     "problem": "Dates are scattered across emails, notices, and calendars, and a missed date is among the most serious errors a firm can make.",
     "what_si_does": "SI collects dates that attorneys or staff have already identified into one calendar or tracker, sends reminders ahead of each, flags dates that conflict with other commitments, and produces a weekly coming-up list per attorney.",
@@ -3264,7 +3780,12 @@
   {
     "slug": "client-status-updates",
     "title": "Client status updates, attorney-approved",
-    "category": "Legal practices",
+    "industries": [
+      "legal"
+    ],
+    "functions": [
+      "customer-support"
+    ],
     "summary": "SI drafts a plain update from the attorney's own notes and the matter task list, and queues it for the attorney to edit and send.",
     "problem": "Clients call asking what is happening with a matter, and attorneys spend time writing the same kind of routine update.",
     "what_si_does": "From the attorney's own notes and the matter's task list, SI drafts a short, plain-language update covering what has been done and what is next, as the attorney has recorded it, and queues it for review.",
@@ -3302,7 +3823,12 @@
   {
     "slug": "matter-file-naming",
     "title": "Document organization and consistent file naming",
-    "category": "Legal practices",
+    "industries": [
+      "legal"
+    ],
+    "functions": [
+      "research-documents"
+    ],
     "summary": "SI proposes a folder pattern and a rename list for matter files, and waits for a person to approve it before anything moves.",
     "problem": "Matter folders fill with names like scan0043.pdf and final_v2_REAL.docx, so files are hard to find and hard to hand off.",
     "what_si_does": "SI proposes a standard folder structure and naming convention, then suggests renames and filing locations for each document using date, type, and party. It produces a change list before moving anything, and an index of the folder.",
@@ -3340,7 +3866,12 @@
   {
     "slug": "time-entry-cleanup",
     "title": "Time-entry cleanup and billing-narrative drafts",
-    "category": "Legal practices",
+    "industries": [
+      "legal"
+    ],
+    "functions": [
+      "billing-admin"
+    ],
     "summary": "SI suggests clearer wording for draft time entries from the attorney's own notes, and flags entries that look incomplete, duplicated, or oddly long.",
     "problem": "Time entries are entered late, vague, or inconsistent, so bills are harder to review and harder to explain.",
     "what_si_does": "SI reviews draft time entries against the day's calendar and the attorney's own notes, suggests clearer narrative wording in the firm's style, and flags entries that look incomplete, duplicated, or oddly long.",
@@ -3378,7 +3909,12 @@
   {
     "slug": "invoice-follow-up-reminders",
     "title": "Invoice follow-up and receivables reminders",
-    "category": "Legal practices",
+    "industries": [
+      "legal"
+    ],
+    "functions": [
+      "billing-admin"
+    ],
     "summary": "SI builds an aging list from the billing system and drafts polite reminders at the firm's intervals, highlighting accounts that need a personal call.",
     "problem": "Overdue invoices sit because nobody wants to chase them, or reminders go out on no set schedule.",
     "what_si_does": "SI builds an aging list from the billing system, drafts polite reminders at the intervals the firm sets, and highlights accounts that need a personal call.",
@@ -3416,7 +3952,12 @@
   {
     "slug": "records-request-tracking",
     "title": "Records-request tracking",
-    "category": "Legal practices",
+    "industries": [
+      "legal"
+    ],
+    "functions": [
+      "research-documents"
+    ],
     "summary": "SI keeps a tracker of records requests and drafts routine follow-up notes from approved wording, so overdue items are visible.",
     "problem": "Requests for records, and the responses to the firm's own requests, are tracked in email and memory, so follow-ups slip.",
     "what_si_does": "SI keeps a tracker of each request (what was asked, from whom, the date sent, and when a follow-up is due), drafts routine follow-up notes from approved wording, and shows what is overdue.",
@@ -3454,7 +3995,13 @@
   {
     "slug": "meeting-call-summaries",
     "title": "Meeting and call summaries for attorney review",
-    "category": "Legal practices",
+    "industries": [
+      "legal"
+    ],
+    "functions": [
+      "scheduling",
+      "research-documents"
+    ],
     "summary": "From notes or a transcript the attorney provides, SI drafts a summary with action items and owners, labeled as a draft for attorney review.",
     "problem": "Notes from client calls and internal meetings are thin or never written, and action items get lost.",
     "what_si_does": "From a transcript or notes the attorney provides, SI drafts a summary with action items, open questions, and who owns each, labeled \"DRAFT, for attorney review.\"",
@@ -3492,7 +4039,12 @@
   {
     "slug": "firm-marketing-drafts",
     "title": "Marketing drafts, newsletters, and review requests",
-    "category": "Legal practices",
+    "industries": [
+      "legal"
+    ],
+    "functions": [
+      "content-marketing"
+    ],
     "summary": "SI drafts newsletters, site updates, and review requests from topics the firm chooses, and a person approves every piece before it is published.",
     "problem": "Firms know they should send newsletters, update the website, and ask clients for reviews, and the drafting rarely gets done.",
     "what_si_does": "SI drafts newsletter issues, website updates, and social posts from topics the firm chooses and from public information such as firm news, builds a simple calendar for them, and drafts polite review-request messages for the firm to send to clients the attorney chooses.",
@@ -3530,6 +4082,14 @@
   {
     "slug": "appointment-reminders",
     "title": "Appointment reminders and no-show reduction",
+    "industries": [
+      "medical"
+    ],
+    "functions": [
+      "scheduling",
+      "customer-support"
+    ],
+    "featured": true,
     "summary": "SI drafts short confirm and reschedule reminders from the practice's own schedule and lists unconfirmed visits for staff each morning.",
     "problem": "Patients forget or cannot easily confirm, so slots go empty and the front desk spends the day on reminder calls.",
     "what_si_does": "SI builds a reminder sequence from the practice's own schedule (for example, a few days before, then a day before), drafts short confirm or reschedule messages in the practice's wording with the practice name, callback number, and a clear opt-out, and lists unconfirmed appointments for staff each morning. Reminder text stays minimal: date, time, practice name, and callback number only, with no condition, procedure, or reason for the visit.",
@@ -3563,12 +4123,17 @@
       "Texting tool the practice already uses"
     ],
     "effect": "Unconfirmed visits are listed each morning, and reminder wording stays limited to date, time, and how to reach the practice.",
-    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. Reminders carry date, time, and practice contact only. SI never discusses symptoms or visit reasons by text or voicemail, never sends outside approved templates, and texting patients is regulated so opt-outs are honored immediately. Texting and recording rules vary; get consent and honor opt-outs. Mental-health and substance-use records have additional protections; check your state and federal rules before using any tool.",
-    "category": "Medical and healthcare practices"
+    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. Reminders carry date, time, and practice contact only. SI never discusses symptoms or visit reasons by text or voicemail, never sends outside approved templates, and texting patients is regulated so opt-outs are honored immediately. Texting and recording rules vary; get consent and honor opt-outs. Mental-health and substance-use records have additional protections; check your state and federal rules before using any tool."
   },
   {
     "slug": "cancellation-waitlist",
     "title": "Waitlist filling for cancellations",
+    "industries": [
+      "medical"
+    ],
+    "functions": [
+      "scheduling"
+    ],
     "summary": "When a slot opens, SI drafts an offer to the next people on the waitlist using only the order and rules the practice already set.",
     "problem": "A cancellation leaves a gap while patients who wanted an earlier slot sit on a list nobody has time to work.",
     "what_si_does": "SI keeps the waitlist organized (who, what appointment type, preferred times, and how they asked to be contacted). When a slot opens, it drafts an offer to the next eligible people per the practice's own rules and prepares the order to contact.",
@@ -3602,12 +4167,18 @@
       "Calendar"
     ],
     "effect": "An open slot comes with a draft offer in the practice's own order, ready for staff to send.",
-    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. SI never decides who is clinically urgent or gives anyone priority based on a medical judgment. It follows only the order and rules the practice has set, and offers contain no clinical detail.",
-    "category": "Medical and healthcare practices"
+    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. SI never decides who is clinically urgent or gives anyone priority based on a medical judgment. It follows only the order and rules the practice has set, and offers contain no clinical detail."
   },
   {
     "slug": "new-patient-intake-checklist",
     "title": "New-patient intake packet and checklist",
+    "industries": [
+      "medical"
+    ],
+    "functions": [
+      "customer-support",
+      "research-documents"
+    ],
     "summary": "SI assembles the practice's own forms into one packet and a checklist of what is still missing before the visit.",
     "problem": "Intake paperwork arrives incomplete or in different forms, and front-desk staff chase missing items right up to the visit.",
     "what_si_does": "SI assembles the practice's own forms into one packet, builds a per-patient checklist (forms signed, ID and insurance card received, consents on file, records requested), reminds staff and the patient about what is outstanding, and drafts the welcome message with directions and what to bring.",
@@ -3641,12 +4212,17 @@
       "Practice scheduling system"
     ],
     "effect": "Outstanding intake items are listed before the visit, and staff still collect, check, and file the forms.",
-    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. SI uses only the practice's approved forms, writes no new consent or privacy language, and does not interpret answers to clinical or history questions. Patient forms are collected only through tools covered by a BAA. Mental-health and substance-use records have additional protections; check your state and federal rules before using any tool.",
-    "category": "Medical and healthcare practices"
+    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. SI uses only the practice's approved forms, writes no new consent or privacy language, and does not interpret answers to clinical or history questions. Patient forms are collected only through tools covered by a BAA. Mental-health and substance-use records have additional protections; check your state and federal rules before using any tool."
   },
   {
     "slug": "insurance-verification-prep",
     "title": "Insurance verification prep and benefits summary for staff review",
+    "industries": [
+      "medical"
+    ],
+    "functions": [
+      "billing-admin"
+    ],
     "summary": "SI turns what staff already gathered from the payer into a one-page summary and a list of gaps to follow up, for a person to confirm.",
     "problem": "Verifying eligibility and benefits takes calls and portal time, and the details get scattered or missed before the visit.",
     "what_si_does": "SI prepares a pre-visit verification worklist from the schedule, organizes what staff gathered from the payer portal or call (plan, copay, deductible, whether an authorization is required) into a one-page summary, and flags items to follow up, such as a missing member ID or a coverage date that has passed.",
@@ -3680,12 +4256,17 @@
       "Microsoft 365 (plans that offer a BAA)"
     ],
     "effect": "Details staff already collected sit on one page for a person to check before anyone discusses cost with a patient.",
-    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. SI summarizes what staff recorded and never guesses coverage, never states that a service is covered, and never gives the patient a cost promise. Only the minimum necessary data goes into the summary.",
-    "category": "Medical and healthcare practices"
+    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. SI summarizes what staff recorded and never guesses coverage, never states that a service is covered, and never gives the patient a cost promise. Only the minimum necessary data goes into the summary."
   },
   {
     "slug": "prior-authorization-tracking",
     "title": "Prior-authorization tracking",
+    "industries": [
+      "medical"
+    ],
+    "functions": [
+      "billing-admin"
+    ],
     "summary": "SI keeps each prior-authorization request, its status, and its expiration in one tracker and drafts routine status-check notes for staff.",
     "problem": "Prior authorizations live in emails, portals, and sticky notes, and a lapsed or missing authorization can delay a visit or leave the practice with an unpaid claim.",
     "what_si_does": "SI keeps a tracker of each request (patient reference, service, payer, date submitted, status, expiration, and follow-up due), drafts routine status-check notes from approved wording, and shows what is pending, expiring, or overdue.",
@@ -3719,12 +4300,17 @@
       "Microsoft 365 (plans that offer a BAA)"
     ],
     "effect": "Pending, expiring, and overdue requests are visible in one list, and a person still submits, follows up, and handles denials.",
-    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. SI tracks and drafts logistics only. It never writes or alters clinical justification, never invents documentation, and never decides whether a service is medically necessary.",
-    "category": "Medical and healthcare practices"
+    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. SI tracks and drafts logistics only. It never writes or alters clinical justification, never invents documentation, and never decides whether a service is medically necessary."
   },
   {
     "slug": "claim-denial-follow-up",
     "title": "Claim denial follow-up tracking",
+    "industries": [
+      "medical"
+    ],
+    "functions": [
+      "billing-admin"
+    ],
     "summary": "SI sorts denied and unpaid claims by payer, reason, and deadline, and drafts follow-up notes for a biller to review.",
     "problem": "Denied and unpaid claims pile up because nobody has time to work them in order, and appeal deadlines slip.",
     "what_si_does": "SI sorts the denial list by payer, reason code, and date, tracks each item's status and deadline, groups routine fixes (missing information, demographic errors) for staff to correct, and drafts follow-up notes for the biller to review.",
@@ -3758,12 +4344,17 @@
       "Microsoft 365 (plans that offer a BAA)"
     ],
     "effect": "Denials are grouped by payer, reason, and deadline so a trained biller can work them in order.",
-    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. SI never changes codes, adds conditions, or writes documentation to fit a payer's denial. Billing and coding must reflect what was actually documented and performed, and a person approves every submission.",
-    "category": "Medical and healthcare practices"
+    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. SI never changes codes, adds conditions, or writes documentation to fit a payer's denial. Billing and coding must reflect what was actually documented and performed, and a person approves every submission."
   },
   {
     "slug": "patient-balance-reminders",
     "title": "Billing statements and balance reminders",
+    "industries": [
+      "medical"
+    ],
+    "functions": [
+      "billing-admin"
+    ],
     "summary": "SI drafts polite balance reminders from the practice's aging list and holds accounts that need a person, a payment plan, or an insurance check.",
     "problem": "Patient balances sit unpaid because reminders are inconsistent or uncomfortable to send.",
     "what_si_does": "SI builds an aging list from the billing system, drafts polite statement reminders at intervals the practice sets, flags accounts that need a personal call (payment plan, hardship, or insurance still pending), and holds accounts with open insurance questions.",
@@ -3797,12 +4388,18 @@
       "Practice scheduling system"
     ],
     "effect": "Reminder drafts follow the practice's wording and timing, and a person decides which ones go out.",
-    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. SI drafts reminders only. It never sends, adjusts balances, or discounts on its own, never includes a condition or procedure in messages, and billing and collection messages follow the practice's approved wording and the rules for patient contact.",
-    "category": "Medical and healthcare practices"
+    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. SI drafts reminders only. It never sends, adjusts balances, or discounts on its own, never includes a condition or procedure in messages, and billing and collection messages follow the practice's approved wording and the rules for patient contact."
   },
   {
     "slug": "referral-loop-tracking",
     "title": "Referral tracking and closing the loop",
+    "industries": [
+      "medical"
+    ],
+    "functions": [
+      "scheduling",
+      "customer-support"
+    ],
     "summary": "SI tracks referrals in and out, drafts routine status notes from approved wording, and lists open loops for staff each week.",
     "problem": "Referrals out and in get lost, and no one knows whether the patient was seen or the report came back.",
     "what_si_does": "SI keeps a referral tracker (referring and receiving practice, date, status, records sent, and follow-up due), drafts routine status requests and thank-you notes from approved wording, and lists open loops each week.",
@@ -3836,12 +4433,17 @@
       "Calendar"
     ],
     "effect": "Open referral loops are listed each week, and staff still send records through the practice's own channels.",
-    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. SI tracks and drafts logistics only, never summarizes or interprets clinical results for action, and records move only through channels the practice has secured and covered by the right agreements.",
-    "category": "Medical and healthcare practices"
+    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. SI tracks and drafts logistics only, never summarizes or interprets clinical results for action, and records move only through channels the practice has secured and covered by the right agreements."
   },
   {
     "slug": "after-hours-patient-message-triage",
     "title": "After-hours inquiry triage with clear \"not medical advice, call 911\" handling",
+    "industries": [
+      "medical"
+    ],
+    "functions": [
+      "customer-support"
+    ],
     "summary": "SI sorts overnight messages into queues, flags anything urgent for a person, and uses only one pre-approved acknowledgment.",
     "problem": "Calls and web forms arrive at night and on weekends. Urgent messages get buried, and staff worry about saying too much.",
     "what_si_does": "SI sorts overnight messages into queues (new patient, existing patient, billing, refill or records, vendor, spam), pulls out name, contact, and request type, flags any message that mentions symptoms or an emergency to the top for a person, and uses one pre-approved acknowledgment: the practice will follow up, the message is not medical advice, and for an emergency call 911.",
@@ -3875,12 +4477,18 @@
       "Practice scheduling system"
     ],
     "effect": "Overnight messages are sorted for a person to read first, with one approved note that emergencies go to 911.",
-    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. SI never answers medical questions, assesses symptoms, advises on medication, or tells anyone what to do. Auto-replies are limited to the approved acknowledgment with the 911 line, and SI is not a replacement for the practice's emergency or on-call process.",
-    "category": "Medical and healthcare practices"
+    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. SI never answers medical questions, assesses symptoms, advises on medication, or tells anyone what to do. Auto-replies are limited to the approved acknowledgment with the 911 line, and SI is not a replacement for the practice's emergency or on-call process."
   },
   {
     "slug": "front-desk-call-summaries",
     "title": "Front-desk call summaries",
+    "industries": [
+      "medical"
+    ],
+    "functions": [
+      "customer-support",
+      "research-documents"
+    ],
     "summary": "From staff notes or an approved transcript, SI drafts a short call summary labeled for staff review and routes it to the right person.",
     "problem": "Messages taken at the front desk are thin, get passed along late, and action items disappear.",
     "what_si_does": "From notes or an approved call transcript, SI drafts a short summary (caller, request, who owns the follow-up, and due date) in the practice's message format, labeled \"DRAFT, for staff review,\" and routes it to the right person.",
@@ -3914,12 +4522,18 @@
       "Call tool the practice already uses"
     ],
     "effect": "Each call becomes a labeled draft a staff member can correct before it is filed.",
-    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. Recording or transcribing a call may require everyone's consent, and state rules differ, so get consent and give notice first. Call content is PHI, so use only a tool covered by a BAA with access controls, and the summary is a draft, not a clinical record. Texting and recording rules vary; get consent and honor opt-outs. Mental-health and substance-use records have additional protections; check your state and federal rules before using any tool.",
-    "category": "Medical and healthcare practices"
+    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. Recording or transcribing a call may require everyone's consent, and state rules differ, so get consent and give notice first. Call content is PHI, so use only a tool covered by a BAA with access controls, and the summary is a draft, not a clinical record. Texting and recording rules vary; get consent and honor opt-outs. Mental-health and substance-use records have additional protections; check your state and federal rules before using any tool."
   },
   {
     "slug": "recall-visit-outreach",
     "title": "Recall and preventive-visit outreach",
+    "industries": [
+      "medical"
+    ],
+    "functions": [
+      "scheduling",
+      "customer-support"
+    ],
     "summary": "SI builds a recall list from the practice's own rules and drafts generic book-a-visit reminders for staff to send.",
     "problem": "Patients due for cleanings, check-ups, follow-ups, or re-evaluations slip through because recall lists are manual.",
     "what_si_does": "SI builds the recall list from the practice's own recall rules, drafts friendly, generic reminders to book, tracks who has responded, and gives staff a short list for personal calls.",
@@ -3953,12 +4567,18 @@
       "Calendly (scheduling without health details)"
     ],
     "effect": "Staff get a recall list and generic draft reminders based on the practice's own intervals, and a person still sends them.",
-    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. SI never decides who needs care or says what a patient should do medically. Messages are generic reminders only, with no health details, no promotions or offers tied to PHI without the authorization the rules require, and no outcome promises. Texting and recording rules vary; get consent and honor opt-outs.",
-    "category": "Medical and healthcare practices"
+    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. SI never decides who needs care or says what a patient should do medically. Messages are generic reminders only, with no health details, no promotions or offers tied to PHI without the authorization the rules require, and no outcome promises. Texting and recording rules vary; get consent and honor opt-outs."
   },
   {
     "slug": "review-request-drafts",
     "title": "Review requests and public reply drafts",
+    "industries": [
+      "medical"
+    ],
+    "functions": [
+      "content-marketing",
+      "customer-support"
+    ],
     "summary": "SI drafts a neutral review request for patients the practice chooses, and public replies that thank the reviewer and invite a call, without confirming anyone is a patient.",
     "problem": "Happy patients rarely post reviews, and replying to negative reviews is a privacy minefield.",
     "what_si_does": "SI drafts a polite, neutral review-request message for the practice to send to all patients, or to a group staff choose, with no filtering by satisfaction, and drafts reply options to public reviews that thank the reviewer and invite them to call, without confirming that the reviewer is a patient or mentioning any care.",
@@ -3992,13 +4612,18 @@
       "Practice scheduling system"
     ],
     "effect": "Request and reply drafts stay neutral, and a person approves each one before it is posted.",
-    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. A reply must not disclose PHI or even confirm someone is a patient. SI never writes fake or filtered reviews, outcome claims, testimonials, or before-and-after content, and identifiable photos or testimonials need the patient's written authorization. Texting and recording rules vary; get consent and honor opt-outs.",
-    "category": "Medical and healthcare practices"
+    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. A reply must not disclose PHI or even confirm someone is a patient. SI never writes fake or filtered reviews, outcome claims, testimonials, or before-and-after content, and identifiable photos or testimonials need the patient's written authorization. Texting and recording rules vary; get consent and honor opt-outs."
   },
   {
     "slug": "rental-lead-inquiry-follow-up",
     "title": "Lead and inquiry follow-up for agent or manager review",
-    "category": "Real estate and property management",
+    "industries": [
+      "real-estate"
+    ],
+    "functions": [
+      "sales-follow-up"
+    ],
+    "featured": true,
     "summary": "Inquiries from the website, portals and calls are collected into one list, with a first-reply draft from the business's own wording.",
     "problem": "Inquiries from the website, portals and calls sit for hours, and the first agent or manager to reply usually wins the conversation.",
     "what_si_does": "SI collects inquiries from the inboxes and forms the business chooses into one list (name, contact, what they asked about, source, time received), drafts a short, friendly first reply from the business's own wording, and builds a follow-up reminder list so no inquiry is dropped. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants.",
@@ -4037,7 +4662,13 @@
   {
     "slug": "showing-scheduling-confirmations",
     "title": "Showing scheduling and confirmation drafts",
-    "category": "Real estate and property management",
+    "industries": [
+      "real-estate"
+    ],
+    "functions": [
+      "scheduling",
+      "sales-follow-up"
+    ],
     "summary": "From the calendar the business provides, SI proposes showing windows and drafts confirmations and reminders for the person showing.",
     "problem": "Back-and-forth over times, and no-shows, eat the day.",
     "what_si_does": "From the calendar and availability the business provides, SI proposes showing windows, drafts confirmation and reminder messages with address, time and who to contact, keeps a daily showing sheet, and prepares a short who-is-coming-and-when summary for the person showing. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants.",
@@ -4077,7 +4708,12 @@
   {
     "slug": "showing-open-house-follow-up",
     "title": "Showing and open-house follow-up drafts",
-    "category": "Real estate and property management",
+    "industries": [
+      "real-estate"
+    ],
+    "functions": [
+      "sales-follow-up"
+    ],
     "summary": "A sign-in sheet becomes a contact list, with the same thank-you and questions follow-up drafted from the agent's approved wording.",
     "problem": "Visitors sign in and then hear nothing, so interest cools.",
     "what_si_does": "SI turns a sign-in sheet or visit list into a tidy contact list, drafts a thank-you note and a questions follow-up for every visitor from the agent's approved wording, and logs who responded. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants.",
@@ -4116,7 +4752,12 @@
   {
     "slug": "listing-rental-ad-drafts",
     "title": "Listing and rental-ad description drafts for agent review",
-    "category": "Real estate and property management",
+    "industries": [
+      "real-estate"
+    ],
+    "functions": [
+      "content-marketing"
+    ],
     "summary": "From the agent's facts, SI drafts a property description and a flagged-phrases list so the agent can review wording before anything is published.",
     "problem": "Writing a fresh, accurate description for every property is slow, and careless wording can create fair-housing problems.",
     "what_si_does": "From the agent's facts (beds, baths, features, condition, terms, photo list), SI drafts a description and a short social caption, plus a flagged-phrases list that marks wording that could suggest a preference or limitation, so the agent can review and revise. SI describes the property, not people or neighborhoods. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants.",
@@ -4156,7 +4797,13 @@
   {
     "slug": "maintenance-request-intake",
     "title": "Maintenance request intake and sorting",
-    "category": "Real estate and property management",
+    "industries": [
+      "real-estate"
+    ],
+    "functions": [
+      "customer-support",
+      "scheduling"
+    ],
     "summary": "Requests become standard tickets with an urgent queue for the manager, and the acknowledgment tells tenants to call 911 in an emergency.",
     "problem": "Requests arrive by text, email and call in no standard form, and urgent problems get buried.",
     "what_si_does": "SI turns each request into a standard ticket (unit, issue, when it started, access notes, photos) and sorts tickets into queues for the manager (urgent-flag, routine, vendor needed, awaiting tenant). Anything mentioning gas, fire, flooding, no power or safety is flagged to the top for a person, and the acknowledgment tells the tenant the request was received and that in an emergency they should call 911 or the number the manager provides. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants.",
@@ -4196,7 +4843,12 @@
   {
     "slug": "tenant-notice-drafts",
     "title": "Tenant communication drafts for manager review",
-    "category": "Real estate and property management",
+    "industries": [
+      "real-estate"
+    ],
+    "functions": [
+      "customer-support"
+    ],
     "summary": "Routine notices are filled from the manager's approved templates and labeled as drafts, with a log of what was prepared.",
     "problem": "Routine notices (office closures, pest treatment, water shutoff, parking, move-out reminders) are written from scratch each time.",
     "what_si_does": "SI keeps a library of the manager's approved notice templates, fills in dates and addresses from details the manager gives, and drafts the notice labeled DRAFT, for manager review. It also keeps a log of what was sent to which building or unit. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants.",
@@ -4235,7 +4887,12 @@
   {
     "slug": "rent-reminder-drafts",
     "title": "Rent reminder and follow-up drafts for manager review",
-    "category": "Real estate and property management",
+    "industries": [
+      "real-estate"
+    ],
+    "functions": [
+      "billing-admin"
+    ],
     "summary": "From the rent roll the manager provides, SI drafts polite reminders in approved wording and flags accounts for a personal call.",
     "problem": "Chasing rent is awkward and inconsistent, and late payments are noticed days after they happen.",
     "what_si_does": "From the rent roll or ledger export the manager provides, SI builds a list of upcoming and overdue amounts, drafts a polite reminder and a friendly follow-up in the manager's approved wording at the intervals the manager chooses, and flags accounts for a personal call. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants.",
@@ -4274,7 +4931,13 @@
   {
     "slug": "lease-renewal-expiration-tracking",
     "title": "Lease renewal and expiration tracking",
-    "category": "Real estate and property management",
+    "industries": [
+      "real-estate"
+    ],
+    "functions": [
+      "scheduling",
+      "billing-admin"
+    ],
     "summary": "Lease dates the manager has verified sit in one tracker, with reminders and a neutral draft for the manager to review.",
     "problem": "Lease end dates sneak up, and renewals, rent reviews and turnover planning start too late.",
     "what_si_does": "SI builds a tracker from the lease dates the manager enters (end date, notice windows the manager has verified, renewal status), reminds the manager at intervals they set, and drafts a neutral your-lease-ends-on-[date], let's-talk message for review. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants.",
@@ -4313,7 +4976,12 @@
   {
     "slug": "vendor-work-order-tracking",
     "title": "Vendor and work-order tracking",
-    "category": "Real estate and property management",
+    "industries": [
+      "real-estate"
+    ],
+    "functions": [
+      "scheduling"
+    ],
     "summary": "Vendors and work orders sit in one tracker, with scheduling drafts and a weekly list of open and stale jobs.",
     "problem": "Which vendor was called, what was quoted, and whether the job got done lives in texts and memory.",
     "what_si_does": "SI keeps a vendor list (trade, contact, rates the manager entered, notes) and a work-order tracker (ticket, vendor, quote, status, invoice received), drafts scheduling and status messages, and lists open and stale jobs each week. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants.",
@@ -4352,7 +5020,12 @@
   {
     "slug": "move-in-move-out-checklists",
     "title": "Move-in and move-out checklists and inspection photo organization",
-    "category": "Real estate and property management",
+    "industries": [
+      "real-estate"
+    ],
+    "functions": [
+      "research-documents"
+    ],
     "summary": "Each unit gets a checklist from the manager's template, with photos organized by room and date for the manager to review.",
     "problem": "Condition records are scattered, so deposit and damage questions turn into arguments.",
     "what_si_does": "SI generates a checklist for each unit from the manager's template, organizes the photos and notes the manager or tenant uploads by unit, room and date with consistent file names, and drafts a here-is-what-we-recorded summary for review. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants.",
@@ -4391,7 +5064,12 @@
   {
     "slug": "property-hurricane-season-prep",
     "title": "Hurricane-season readiness and tenant communication prep",
-    "category": "Real estate and property management",
+    "industries": [
+      "real-estate"
+    ],
+    "functions": [
+      "scheduling"
+    ],
     "summary": "Before the season, SI builds a property readiness sheet from the manager's information and drafts message templates for review in advance.",
     "problem": "When a storm is forecast, managers scramble to find contacts, shutter and drain checklists, and what to tell residents.",
     "what_si_does": "Before the season, SI builds a property-by-property readiness sheet from the manager's information (vendor and insurance contacts, utility shutoffs, photo-documentation checklist, resident contact list), and drafts message templates (what we are doing, where to find official updates) for the manager to review in advance. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants.",
@@ -4430,7 +5108,13 @@
   {
     "slug": "rental-application-completeness",
     "title": "Rental application completeness checklist",
-    "category": "Real estate and property management",
+    "industries": [
+      "real-estate"
+    ],
+    "functions": [
+      "customer-support",
+      "research-documents"
+    ],
     "summary": "Each application is checked against the manager's own form for missing items, with a neutral request draft and a log in the order received.",
     "problem": "Applications come in with missing pages, and managers spend time chasing documents.",
     "what_si_does": "SI generates a checklist from the manager's own application form (fields completed, documents requested, fee receipt noted), drafts a neutral we-are-still-missing-[item] request using the manager's wording, and logs the status of each application in the order received. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants.",
@@ -4469,7 +5153,14 @@
   {
     "slug": "missed-call-text-back",
     "title": "Missed-call text-back and inquiry capture",
-    "category": "Home services and contractors",
+    "industries": [
+      "home-services"
+    ],
+    "functions": [
+      "customer-support",
+      "sales-follow-up"
+    ],
+    "featured": true,
     "summary": "A missed call gets the owner's pre-approved informational reply, and every number is logged on a callback list.",
     "problem": "The owner is on a roof or under a sink, the call goes to voicemail, and the customer calls the next company.",
     "what_si_does": "Within the tool the business sets up, SI sends the owner's pre-approved reply to a missed call (sorry we missed you, we will call back as soon as we can; for an emergency such as gas, fire or smoke, call 911), logs the caller's number and what they said, and puts every missed call on a callback list for the office or owner.",
@@ -4509,7 +5200,12 @@
   {
     "slug": "contractor-quote-follow-up",
     "title": "Quote and estimate follow-up for owner review",
-    "category": "Home services and contractors",
+    "industries": [
+      "home-services"
+    ],
+    "functions": [
+      "sales-follow-up"
+    ],
     "summary": "Open quotes sit on one list, with friendly follow-up drafts at the intervals the owner sets.",
     "problem": "Quotes go out and nobody follows up, so jobs quietly die.",
     "what_si_does": "SI keeps a list of open quotes (customer, job, date sent, amount as entered by the owner, status), drafts a friendly follow-up at intervals the owner sets, and reminds the owner which quotes to call personally.",
@@ -4548,7 +5244,12 @@
   {
     "slug": "quote-estimate-drafts",
     "title": "Quote and estimate drafting for owner approval",
-    "category": "Home services and contractors",
+    "industries": [
+      "home-services"
+    ],
+    "functions": [
+      "sales-follow-up"
+    ],
     "summary": "Field notes are formatted onto the business's quote template and labeled as a draft the owner must approve.",
     "problem": "Writing up a quote from field notes takes evenings.",
     "what_si_does": "From the owner's price list, rates and the job notes or measurements the owner provides, SI formats a clear quote draft on the business's template (scope, materials, exclusions, terms as written by the owner) labeled DRAFT, owner must approve, and flags missing information.",
@@ -4587,7 +5288,12 @@
   {
     "slug": "crew-dispatch-schedule-prep",
     "title": "Scheduling and dispatch prep for owner approval",
-    "category": "Home services and contractors",
+    "industries": [
+      "home-services"
+    ],
+    "functions": [
+      "scheduling"
+    ],
     "summary": "From jobs, crews and service areas the owner provides, SI drafts a proposed daily schedule, job sheets and appointment-window confirmations.",
     "problem": "Building tomorrow's route and job list from texts and a calendar is a nightly puzzle.",
     "what_si_does": "From the jobs, crew availability and service areas the owner provides, SI drafts a proposed daily schedule and route order, a job sheet for each crew (address, job notes, customer contact, parts needed), and customer appointment-window confirmations for approval.",
@@ -4626,7 +5332,12 @@
   {
     "slug": "job-photo-organization",
     "title": "Job-photo organization",
-    "category": "Home services and contractors",
+    "industries": [
+      "home-services"
+    ],
+    "functions": [
+      "research-documents"
+    ],
     "summary": "Before, during and after photos are sorted by customer, address, job and date, with consistent names for the job file.",
     "problem": "Before, during and after photos are scattered across phones and never filed with the job.",
     "what_si_does": "From the photos and notes the crew uploads to the business's shared folder, SI sorts them by customer, address, job and date, applies consistent names, and builds a simple photo log for the job file and for the owner to use in a customer report.",
@@ -4666,7 +5377,12 @@
   {
     "slug": "contractor-invoice-reminders",
     "title": "Invoice reminders and payment follow-up for owner review",
-    "category": "Home services and contractors",
+    "industries": [
+      "home-services"
+    ],
+    "functions": [
+      "billing-admin"
+    ],
     "summary": "From the invoicing export, SI builds an aging list and drafts polite reminders, flagging accounts for the owner to call.",
     "problem": "Invoices go out and unpaid ones are discovered weeks later.",
     "what_si_does": "From the invoicing export the owner provides, SI builds an aging list, drafts polite reminders at set intervals, and flags accounts for the owner to call.",
@@ -4705,7 +5421,13 @@
   {
     "slug": "contractor-review-reply-drafts",
     "title": "Review requests and review-reply drafts for owner approval",
-    "category": "Home services and contractors",
+    "industries": [
+      "home-services"
+    ],
+    "functions": [
+      "content-marketing",
+      "customer-support"
+    ],
     "summary": "SI drafts a short review request for completed jobs the owner chooses, and calm reply options to public reviews for the owner to edit.",
     "problem": "Satisfied customers rarely post reviews, and negative reviews are answered late or angrily.",
     "what_si_does": "SI drafts a short, neutral review request for the owner to send to completed-job customers the owner chooses, and drafts calm reply options to public reviews for the owner to edit.",
@@ -4744,7 +5466,13 @@
   {
     "slug": "warranty-maintenance-reminders",
     "title": "Warranty and maintenance reminder drafts",
-    "category": "Home services and contractors",
+    "industries": [
+      "home-services"
+    ],
+    "functions": [
+      "scheduling",
+      "customer-support"
+    ],
     "summary": "From install, service or warranty dates the owner provides, SI drafts seasonal maintenance messages for approval.",
     "problem": "Customers forget annual tune-ups, filter changes and warranty dates, and the business loses repeat work.",
     "what_si_does": "SI builds a reminder list from the install, service or warranty dates the owner provides, drafts a seasonal time-for-your-[service] message for approval, and tracks who responded.",
@@ -4783,7 +5511,12 @@
   {
     "slug": "parts-materials-reordering",
     "title": "Parts and materials reorder lists for owner approval",
-    "category": "Home services and contractors",
+    "industries": [
+      "home-services"
+    ],
+    "functions": [
+      "inventory-orders"
+    ],
     "summary": "From counts and job usage the owner provides, SI keeps a par-level list and drafts reorder lists by supplier.",
     "problem": "Trucks run short on common parts, or the shop is overstocked with the wrong ones.",
     "what_si_does": "From the counts and job usage the owner provides, SI keeps a par-level list, drafts reorder lists by supplier, and flags items that were used on jobs but not yet restocked.",
@@ -4822,7 +5555,13 @@
   {
     "slug": "permit-inspection-tracking",
     "title": "Permit and inspection tracking",
-    "category": "Home services and contractors",
+    "industries": [
+      "home-services"
+    ],
+    "functions": [
+      "scheduling",
+      "research-documents"
+    ],
     "summary": "Each job's permit and inspection dates the owner entered sit in a tracker, with reminders and routine status-email drafts.",
     "problem": "Permits and inspections are missed or forgotten, which stalls jobs and can cause problems later.",
     "what_si_does": "SI keeps a tracker per job (permit needed per the owner, applied date, permit number, inspection dates, status), reminds the office of next steps and stale items, and drafts routine status emails to the permitting office for the owner to send.",
@@ -4861,7 +5600,12 @@
   {
     "slug": "contractor-after-hours-sorting",
     "title": "After-hours call and message sorting",
-    "category": "Home services and contractors",
+    "industries": [
+      "home-services"
+    ],
+    "functions": [
+      "customer-support"
+    ],
     "summary": "Overnight messages are sorted into queues, with gas, fire, smoke or flooding flagged for the owner and one approved acknowledgment.",
     "problem": "Calls and web forms arrive at night, and a true emergency can sit next to a routine request.",
     "what_si_does": "SI sorts overnight messages into queues (new job request, existing customer, billing, supplier, spam), pulls out name, address, contact and the problem as described, flags messages mentioning gas, fire, smoke, flooding or electrical hazards to the top for the owner, and sends one approved acknowledgment: the business will follow up, and for an emergency call 911 or the utility.",
@@ -4900,7 +5644,12 @@
   {
     "slug": "contractor-license-insurance-tracker",
     "title": "License, insurance and subcontractor document tracking",
-    "category": "Home services and contractors",
+    "industries": [
+      "home-services"
+    ],
+    "functions": [
+      "research-documents"
+    ],
     "summary": "The business's own and its subs' license, insurance and tax-form dates the owner verified sit in a tracker, with reminder and request drafts.",
     "problem": "Certificates of insurance, licenses and W-9s for subs and vendors expire or go missing until a customer or GC asks.",
     "what_si_does": "SI keeps a tracker of the business's own and its subs' license, insurance and tax-form documents and dates the owner has verified, reminds the office ahead of expiry, and drafts please-send-an-updated-certificate requests.",
@@ -4939,7 +5688,14 @@
   {
     "slug": "client-document-chasing",
     "title": "Client document chasing",
-    "category": "Accounting, tax and bookkeeping firms",
+    "industries": [
+      "accounting"
+    ],
+    "functions": [
+      "research-documents",
+      "customer-support"
+    ],
+    "featured": true,
     "summary": "From the firm's checklist, SI keeps a per-client list of outstanding items and drafts reminders in the firm's voice.",
     "problem": "Every busy season, staff spend hours asking clients for the same missing W-2s, statements and receipts.",
     "what_si_does": "From the firm's own checklist and what has been received, SI keeps a per-client list of what is outstanding, drafts polite, firm-voice reminders at intervals the firm sets, and gives staff a morning list of who to call.",
@@ -4978,7 +5734,13 @@
   {
     "slug": "tax-new-client-intake",
     "title": "New-client intake organization",
-    "category": "Accounting, tax and bookkeeping firms",
+    "industries": [
+      "accounting"
+    ],
+    "functions": [
+      "research-documents",
+      "customer-support"
+    ],
     "summary": "New-client files are organized from the firm's templates, with a one-page summary of what has and has not been received.",
     "problem": "New-client information arrives in emails, photos and PDFs, and setting up the file takes a long time.",
     "what_si_does": "SI builds an intake checklist and a clean file structure from the firm's templates, files received documents under consistent names, and produces a one-page summary of what has and has not been received.",
@@ -5017,7 +5779,12 @@
   {
     "slug": "tax-deadline-tracking",
     "title": "Deadline tracking, human-verified",
-    "category": "Accounting, tax and bookkeeping firms",
+    "industries": [
+      "accounting"
+    ],
+    "functions": [
+      "scheduling"
+    ],
     "summary": "Due dates a professional has verified against official sources sit in one tracker, with reminders and a weekly list for the partner.",
     "problem": "Client due dates, extensions and recurring filings live in scattered calendars, and one missed date is costly.",
     "what_si_does": "SI keeps a client calendar and tracker from due dates a professional has verified against official sources, reminds the assigned staff member at intervals the firm sets, and shows a weekly coming-up and overdue list for the partner.",
@@ -5056,7 +5823,13 @@
   {
     "slug": "accounting-engagement-letter-assembly",
     "title": "Engagement letters assembled for review",
-    "category": "Accounting, tax and bookkeeping firms",
+    "industries": [
+      "accounting"
+    ],
+    "functions": [
+      "billing-admin",
+      "research-documents"
+    ],
     "summary": "SI fills the firm's own engagement-letter template from details the professional specifies, flags blanks, and tracks what is signed.",
     "problem": "Engagement letters are re-typed with small changes, and some clients never sign before work begins.",
     "what_si_does": "SI fills the firm's own engagement-letter template with client details and scope items the professional specifies, flags empty fields and unusual changes from the standard language, and tracks which letters are sent and signed.",
@@ -5097,7 +5870,12 @@
   {
     "slug": "tax-client-status-updates",
     "title": "Client status updates for preparer approval",
-    "category": "Accounting, tax and bookkeeping firms",
+    "industries": [
+      "accounting"
+    ],
+    "functions": [
+      "customer-support"
+    ],
     "summary": "From the firm's workflow status, SI drafts a short, plain update for the preparer to approve, with a weekly list of clients awaiting responses.",
     "problem": "Clients keep asking where is my return or is my bookkeeping done.",
     "what_si_does": "From the firm's internal workflow status (received, in prep, in review, awaiting client, ready for signature), SI drafts a short, plain-language update for the preparer to approve and builds a weekly list of clients awaiting responses.",
@@ -5136,7 +5914,12 @@
   {
     "slug": "accounting-invoice-follow-up",
     "title": "Invoice follow-up and receivables reminders for partner review",
-    "category": "Accounting, tax and bookkeeping firms",
+    "industries": [
+      "accounting"
+    ],
+    "functions": [
+      "billing-admin"
+    ],
     "summary": "From the billing export, SI builds an aging list and drafts polite reminders, holding disputed accounts for the partner.",
     "problem": "Firm invoices age while staff are busy, and cash flow suffers.",
     "what_si_does": "From the billing system export, SI builds an aging list, drafts polite reminders at set intervals in the firm's voice, flags accounts for the partner to call, and holds accounts with open disputes.",
@@ -5175,7 +5958,13 @@
   {
     "slug": "bookkeeping-month-end-checklist",
     "title": "Month-end close checklist preparation",
-    "category": "Accounting, tax and bookkeeping firms",
+    "industries": [
+      "accounting"
+    ],
+    "functions": [
+      "billing-admin",
+      "reporting-dashboards"
+    ],
     "summary": "Each client's month-end checklist is generated from the firm's template, with open items listed for staff and the client.",
     "problem": "Month-end tasks vary by client and steps get skipped.",
     "what_si_does": "SI generates each client's month-end checklist from the firm's template (bank feeds reviewed, statements received, payroll entries, loans, accruals the firm uses), tracks completion by staff member, and lists open items and requests for the client.",
@@ -5214,7 +6003,12 @@
   {
     "slug": "reconciliation-prep-for-review",
     "title": "Reconciliation prep for accountant review",
-    "category": "Accounting, tax and bookkeeping firms",
+    "industries": [
+      "accounting"
+    ],
+    "functions": [
+      "billing-admin"
+    ],
     "summary": "From statements and exports, SI lists unmatched, duplicate and unusual items and assembles a workpaper for the bookkeeper.",
     "problem": "Matching bank and card transactions takes time that could go to review.",
     "what_si_does": "From statements and exports the firm provides, SI lists unmatched, duplicate and unusual items, drafts questions to the client (what was this charge on [date]?), and assembles a reconciliation workpaper for the bookkeeper to review.",
@@ -5253,7 +6047,12 @@
   {
     "slug": "transaction-categorization-suggestions",
     "title": "Transaction categorization suggestions for bookkeeper review",
-    "category": "Accounting, tax and bookkeeping firms",
+    "industries": [
+      "accounting"
+    ],
+    "functions": [
+      "billing-admin"
+    ],
     "summary": "Using the firm's chart of accounts and past approved coding, SI drafts suggested categories with a needs-a-question flag.",
     "problem": "Uncategorized transactions pile up and the same vendors get coded differently.",
     "what_si_does": "Using the firm's chart of accounts and past approved coding, SI drafts suggested categories with a needs-a-question flag for unclear items, and groups recurring vendors so the bookkeeper can approve in bulk.",
@@ -5292,7 +6091,13 @@
   {
     "slug": "vendor-1099-information-collection",
     "title": "Vendor information collection and reminder prep for 1099 review",
-    "category": "Accounting, tax and bookkeeping firms",
+    "industries": [
+      "accounting"
+    ],
+    "functions": [
+      "billing-admin",
+      "research-documents"
+    ],
     "summary": "A vendor list from payment records shows who has a W-9 on file, with request drafts and a review list for the professional.",
     "problem": "Collecting W-9s and sorting who needs a reporting form is a last-minute scramble each year.",
     "what_si_does": "SI builds a vendor list from the client's payment records, marks who has a W-9 on file, drafts polite requests for missing forms from the firm's template, and prepares a vendors-to-review-for-reporting list for the professional.",
@@ -5331,7 +6136,13 @@
   {
     "slug": "sales-tax-filing-reminders",
     "title": "Sales-tax and recurring-filing reminder prep",
-    "category": "Accounting, tax and bookkeeping firms",
+    "industries": [
+      "accounting"
+    ],
+    "functions": [
+      "scheduling",
+      "billing-admin"
+    ],
     "summary": "For filings a professional has confirmed apply, SI reminds staff and the client and drafts requests for the period's information.",
     "problem": "Clients with sales-tax, payroll or other recurring filings forget dates or send information late.",
     "what_si_does": "For each client, SI keeps a list of the recurring filings the professional has confirmed apply (agency, frequency, due date as verified, who prepares), reminds the client and staff ahead of the date, and drafts please-send-your-[month]-sales-report requests.",
@@ -5370,7 +6181,12 @@
   {
     "slug": "security-plan-upkeep-checklists",
     "title": "Security-plan upkeep checklists and access reviews",
-    "category": "Accounting, tax and bookkeeping firms",
+    "industries": [
+      "accounting"
+    ],
+    "functions": [
+      "research-documents"
+    ],
     "summary": "From the firm's own written security plan, SI builds a calendar of recurring tasks and a log of what was done.",
     "problem": "Firms write a security plan once and then rarely revisit it, and it is hard to show that training, access reviews and vendor checks actually happened.",
     "what_si_does": "From the firm's own plan (for example one built from the IRS's Publication 5708 template), SI builds a calendar and checklist of recurring tasks (staff training, access and multi-factor authentication reviews, device inventory, vendor reviews, backups, data disposal), reminds the responsible person, and keeps a log of what was done and when.",
@@ -5410,7 +6226,14 @@
   {
     "slug": "abandoned-checkout-follow-up-drafts",
     "title": "Abandoned-checkout follow-up drafts from your store records",
-    "category": "Ecommerce operations",
+    "industries": [
+      "ecommerce"
+    ],
+    "functions": [
+      "sales-follow-up",
+      "customer-support"
+    ],
+    "featured": true,
     "summary": "SI lists checkouts that were started and not finished, and drafts a short follow-up from the actual cart, for you to send only if the customer is allowed to hear from you.",
     "problem": "People start checkout and leave. Follow-up either never happens, or a generic automated email goes out with a discount you no longer offer. The store already has the cart, the email, and the time it was left. A review of your automated emails rewrites templates. It does not turn this week's abandoned checkouts into specific drafts.",
     "what_si_does": "On a schedule you choose, SI reads abandoned checkouts from the store or an export. It lists ones still incomplete after a wait you set, with the items, total, and when the checkout was left. It drops checkouts that later became orders, checkouts with no email, and anyone on your do-not-contact list. It drafts a short follow-up from your past replies and policy: no invented discounts, no fake scarcity, no stock claims that are not in the catalog. It does not send.",
@@ -5448,7 +6271,13 @@
   {
     "slug": "shipping-exceptions-package-watch",
     "title": "Shipping exceptions and a 'where is my package' watch",
-    "category": "Ecommerce operations",
+    "industries": [
+      "ecommerce"
+    ],
+    "functions": [
+      "customer-support",
+      "inventory-orders"
+    ],
     "summary": "SI watches carrier scans for exceptions, failed deliveries, and stalled tracking, and prepares a short list plus a draft note before the customer has to ask.",
     "problem": "The first time many stores learn a package failed delivery or sat at a depot is when the customer writes 'where is my package?'. Drafting a status reply from your own records helps once they write in. It does not watch carrier exceptions before that. A daily low-stock and stuck-order list is a different job.",
     "what_si_does": "SI reads tracking for open shipments from the store, a shipping tool, or an export. It lists exception scans, failed delivery, address issues, and tracking with no scan past a wait you set. For each, it notes the last scan, the order, and a suggested next step such as asking the customer to confirm the address, contacting the carrier, or waiting. It can draft a customer note from the real tracking. It does not change addresses or file claims.",
@@ -5486,7 +6315,13 @@
   {
     "slug": "chargeback-and-dispute-evidence",
     "title": "Chargeback and dispute evidence packets for you to file",
-    "category": "Ecommerce operations",
+    "industries": [
+      "ecommerce"
+    ],
+    "functions": [
+      "billing-admin",
+      "research-documents"
+    ],
     "summary": "When a payment is disputed, SI gathers the order, shipment, tracking, and messages you already have into one packet, and leaves the filing to you.",
     "problem": "Chargebacks and marketplace disputes arrive with a short deadline. The evidence is spread across the store, the shipping tool, and the inbox. Someone spends an afternoon hunting screenshots, and the packet is incomplete or late.",
     "what_si_does": "SI collects, from the sources you point at, the order, payment, shipping label, tracking, delivery scan if any, the product page or description as you saved it, and the customer messages. It builds a packet with a short timeline and a checklist of what the processor asked for. It flags missing pieces, such as no delivery scan or no copy of the policy shown at checkout. It does not file the dispute or write a legal argument.",
@@ -5525,7 +6360,13 @@
   {
     "slug": "product-feed-catalog-error-checks",
     "title": "Product-feed and catalog error checks before ads go live",
-    "category": "Ecommerce operations",
+    "industries": [
+      "ecommerce"
+    ],
+    "functions": [
+      "inventory-orders",
+      "content-marketing"
+    ],
     "summary": "SI compares your store catalog with the shopping or marketplace feed and lists errors that would block or mis-price an item, without changing the feed.",
     "problem": "Shopping ads and marketplace catalogs reject items for missing identifiers, broken images, or a price that does not match the store. Those errors sit in a dashboard until someone has time to read them, and the listing or ad never runs. Writing new product descriptions is a different job. This one is the error list.",
     "what_si_does": "SI reads the feed or error export and the store catalog. It lists items with missing or invalid identifiers (GTIN, MPN, brand), image URLs that fail, price or availability that does not match the store, and titles or descriptions that exceed the channel's limits. It does not guess identifiers or rewrite copy to paper over a claim.",
@@ -5563,7 +6404,12 @@
   {
     "slug": "bundle-and-kit-stock-rules",
     "title": "Bundle and kit stock rules so components do not go negative",
-    "category": "Ecommerce operations",
+    "industries": [
+      "ecommerce"
+    ],
+    "functions": [
+      "inventory-orders"
+    ],
     "summary": "SI applies your kit recipe to available component stock and lists which bundles can still sell, which should be held, and which components a sale would oversell.",
     "problem": "A bundle or kit is one SKU on the store, made of parts that also sell alone. The store can sell the kit after a component is gone, or sell the last component and leave kits that cannot be built. Comparing store counts with a spreadsheet flags kits as a special case. It does not apply the recipe.",
     "what_si_does": "From a bill of materials you maintain (kit SKU, component SKUs, quantity each), SI calculates how many complete kits you can still build from component on-hand, compares that with the kit's available quantity on the store, and lists kits that should be held or reduced, and components that a recent kit sale would take below zero. It does not change inventory.",
@@ -5600,7 +6446,13 @@
   {
     "slug": "returns-and-exchange-handling-prep",
     "title": "Returns and exchange handling prep for the warehouse",
-    "category": "Ecommerce operations",
+    "industries": [
+      "ecommerce"
+    ],
+    "functions": [
+      "customer-support",
+      "inventory-orders"
+    ],
     "summary": "SI turns an approved return or exchange into a warehouse checklist: what should come back, whether it can be restocked, and whether the swap SKU is actually on hand.",
     "problem": "A return is approved in the helpdesk, then the warehouse is surprised: wrong item, not restockable, or the exchange size is already sold out. Checking a request against your refund policy decides whether the customer is allowed to return. It does not prep the dock.",
     "what_si_does": "For each approved return or exchange, SI pulls the original order, the reason, photos if you keep them, and the requested swap. It drafts a receiving note (order, SKU, expected condition, restock vs quarantine vs discard per your rules) and checks whether the exchange SKU and size are available. If not, it lists alternatives you have already said are allowed, or marks it as a refund conversation. It does not issue refunds or change stock.",
@@ -5638,7 +6490,13 @@
   {
     "slug": "marketplace-listing-sync-checks",
     "title": "Marketplace listing sync checks across your channels",
-    "category": "Ecommerce operations",
+    "industries": [
+      "ecommerce"
+    ],
+    "functions": [
+      "inventory-orders",
+      "content-marketing"
+    ],
     "summary": "SI compares title, price, quantity, and identifiers on the store with each marketplace listing and lists the rows that drifted.",
     "problem": "The store product is the source, but Amazon, eBay, or another channel still shows an old price, a sold-out quantity, or a different identifier. Matching store counts with your spreadsheet catches drift in your own files. It does not compare live listings across channels.",
     "what_si_does": "SI matches SKUs or identifiers across the store export and each channel export. It lists mismatches in price, quantity, title, GTIN, and status (active vs draft vs ended). It does not push updates to any channel.",
@@ -5676,7 +6534,13 @@
   {
     "slug": "fulfillment-sla-watch",
     "title": "Fulfillment SLA watch for orders still waiting to ship",
-    "category": "Ecommerce operations",
+    "industries": [
+      "ecommerce"
+    ],
+    "functions": [
+      "inventory-orders",
+      "reporting-dashboards"
+    ],
     "summary": "SI lists paid orders that are close to your ship-by time, or the marketplace's, and are not yet fulfilled, so someone can pick, pack, or message the customer.",
     "problem": "Orders sit in unfulfilled until a marketplace late-shipment warning or a customer complaint. Watching stalled tracking helps after a label exists. It does not watch the clock before the first scan.",
     "what_si_does": "SI reads paid, unfulfilled orders and the ship-by or promised date you use (store SLA, marketplace ship-by, or a number of hours after payment). It lists orders in buckets: on track, due today, overdue, and missing a shipping method or address. It can draft a packing note or a delay note from your templates. It does not buy labels or mark orders fulfilled.",
@@ -5714,7 +6578,12 @@
   {
     "slug": "customer-service-macros-from-past-tickets",
     "title": "Customer-service macros drafted from past tickets",
-    "category": "Ecommerce operations",
+    "industries": [
+      "ecommerce"
+    ],
+    "functions": [
+      "customer-support"
+    ],
     "summary": "SI groups past helpdesk tickets, turns the clearest replies into draft macros with the merge fields you use, and leaves publishing the macros to you.",
     "problem": "Agents rewrite the same shipping, sizing, and order-status answers every day. Building an FAQ from past replies helps customers who read a help page. It does not put a checked reply one click away in the helpdesk.",
     "what_si_does": "SI reads an export of tickets or macros you already have. It groups similar questions (shipping times, how to start a return, sizing, missing item), picks the clearest past reply, and drafts a macro in your voice with placeholders for order number, tracking, and name. It notes where past agents disagreed so you can pick a policy. It does not publish macros or send them.",
@@ -5752,7 +6621,13 @@
   {
     "slug": "sales-tax-and-1099-prep-notes",
     "title": "Sales-tax and 1099 prep notes for the accountant",
-    "category": "Ecommerce operations",
+    "industries": [
+      "ecommerce"
+    ],
+    "functions": [
+      "billing-admin",
+      "research-documents"
+    ],
     "summary": "SI gathers store tax reports, marketplace tax lines, and contractor payments into a notes packet for your accountant, and does not file anything.",
     "problem": "The store, the marketplace, and the payment processor each show tax a different way. Sales-tax returns and 1099 forms are the accountant's job, but the store owner still has to find the reports. A general year-end packet gathers folders. It does not line up ecommerce tax reports with what a marketplace already remitted.",
     "what_si_does": "SI collects the reports you point it at: store tax summary, marketplace tax or facilitator statements, payout reports, and contractor payment totals. It builds a notes sheet: tax collected vs remitted by channel, jurisdictions named in the reports, 1099-K figures as they appear, and contractor totals that may need a 1099-NEC. It lists gaps, such as a channel with no report or a missing month. It does not decide nexus, what is taxable, or what to file.",

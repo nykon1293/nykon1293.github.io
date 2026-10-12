@@ -5,10 +5,10 @@ Run from the repo root:
 
     python3 scripts/build_use_cases.py
 
-Writes use-cases/index.html, use-cases/search.json, one folder per slug,
-and refreshes the use-case URLs in sitemap.xml. Pages are plain HTML.
-GitHub Pages serves them with no build step. The search index is fetched
-only when someone searches or filters the library.
+Writes use-cases/index.html, industry and function landings, use-cases/search.json,
+one folder per slug, and refreshes the use-case URLs in sitemap.xml. Pages are
+plain HTML. GitHub Pages serves them with no build step. The search index is
+fetched only when someone searches, filters, or asks to show more.
 """
 
 from __future__ import annotations
@@ -27,6 +27,7 @@ from use_case_motifs import motif_bytes, motif_html, pick_industry, pick_motif
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "use-cases.json"
+TAXONOMY_PATH = ROOT / "data" / "taxonomy.json"
 OUT = ROOT / "use-cases"
 SITEMAP = ROOT / "sitemap.xml"
 
@@ -35,319 +36,11 @@ CAL = "https://calendly.com/josh-gemmi/30min"
 OG_IMAGE = f"{BASE}/assets/brand/gemmisi-og.png"
 OG_ALT = "GemmiSI — SI, automation, dashboards, and technical operations"
 
-# Short labels match the approved library design. Add a row here if a new
-# category name shows up in the data file.
-SHORT = {
-    "Customer support and inbox": (
-        "Support & inbox",
-        "support-inbox",
-        "Fewer repeat questions, faster first replies, and a calmer inbox.",
-    ),
-    "Sales and follow-up": (
-        "Sales & follow-up",
-        "sales-follow-up",
-        "Quotes, leads and call notes that actually get followed up.",
-    ),
-    "Bookkeeping, invoices and admin": (
-        "Bookkeeping & admin",
-        "bookkeeping-admin",
-        "Invoices, receipts, reminders and month-end prep.",
-    ),
-    "Reporting and dashboards": (
-        "Reporting & dashboards",
-        "reporting-dashboards",
-        "One trusted view of the business, written in plain language.",
-    ),
-    "Scheduling and operations": (
-        "Scheduling & operations",
-        "scheduling-operations",
-        "Schedules, procedures, confirmations and calendar chores.",
-    ),
-    "Inventory and orders": (
-        "Inventory & orders",
-        "inventory-orders",
-        "Reorders, receiving, stock watch and order checks.",
-    ),
-    "Content and marketing": (
-        "Content & marketing",
-        "content-marketing",
-        "Drafts from your real material, in your voice, for you to edit.",
-    ),
-    "Hiring and team admin": (
-        "Hiring & team admin",
-        "hiring-team",
-        "Postings, applications, onboarding and renewals for your team.",
-    ),
-    "Research and documents": (
-        "Research & documents",
-        "research-documents",
-        "Contracts, forms, long documents and vendor comparisons.",
-    ),
-    "Community and membership organizations": (
-        "Community & membership",
-        "community-orgs",
-        "Announcements, donations, volunteers, events and member lists.",
-    ),
-    "Ecommerce operations": (
-        "Ecommerce operations",
-        "ecommerce-operations",
-        "Store stock, checkouts, shipping, catalogs, disputes, and marketplace listings.",
-    ),
-    "Local business & seasonal": (
-        "Local & seasonal",
-        "local-seasonal",
-        "Storm prep, bilingual replies, and the listing customers see on the map.",
-    ),
-    "Legal practices": (
-        "Legal practices",
-        "legal-practices",
-        "Business-side admin for solo attorneys and small firms. Attorneys review and decide.",
-    ),
-    "Medical and healthcare practices": (
-        "Medical & healthcare",
-        "medical-healthcare",
-        "Scheduling, reminders, intake, and billing admin for small practices. Clinicians and staff review and decide.",
-    ),
-    "Real estate and property management": (
-        "Real estate",
-        "real-estate",
-        "Business-side admin for agents, landlords and small property managers. Licensed professionals and owners review and decide.",
-    ),
-    "Home services and contractors": (
-        "Home services",
-        "home-services",
-        "Office help for HVAC, plumbing, roofing, electrical, landscaping, pool and cleaning businesses. The owner approves every quote and message.",
-    ),
-    "Accounting, tax and bookkeeping firms": (
-        "Accounting & tax",
-        "accounting-tax",
-        "Admin for small CPA, tax and bookkeeping firms. Professionals review, sign and decide.",
-    ),
-}
-
-# Shown on the Legal practices section. The opinion title is quoted as published.
-LEGAL_READ_FIRST = (
-    "<strong>Read this first.</strong> The use cases in this category are about running the "
-    "<em>business side</em> of a law practice: scheduling, intake logistics, billing admin, "
-    "document organization, and communications drafts. SI does not give legal advice, does not "
-    "practice law, and does not replace an attorney's judgment. An attorney reviews and approves "
-    "anything client-facing or substantive before it goes out, and nothing here promises any legal "
-    "outcome or result. Client confidentiality comes first: confidential or privileged client "
-    "information should only be put into a tool after the firm has checked the vendor's terms and "
-    "data practices, has proper agreements and access controls in place, and has any consent the "
-    "rules require. ABA Formal Opinion 512 (2024) addresses lawyers' use of generative artificial "
-    "intelligence tools and is a good starting point; state bar rules differ, so check yours. "
-    "Trust-account (IOLTA) and billing records are handled with extra care, and a person approves "
-    "every entry. These pages are general information, not legal or ethics advice, and not a "
-    "guarantee of compliance with any rule."
-)
-LEGAL_SHORT = (
-    "Admin and operations help for solo attorneys and small firms. SI drafts and organizes; "
-    "attorneys review and decide. No legal advice, no filing-ready work product, and client "
-    "confidentiality comes first."
-)
-LEGAL_FOOT = (
-    "Not legal or ethics advice. Talk with your state bar or ethics counsel about your obligations."
-)
-LEGAL_OWN_ACCOUNTS = (
-    "GemmiSI sets this up on your own equipment and accounts; your data stays with you."
-)
-LEGAL_CAUTION_PREFIX = (
-    "Administrative support only: this is not legal advice and does not replace attorney judgment. "
-    "An attorney reviews and approves anything client-facing or substantive, and client-confidential "
-    "information is used only with the firm's agreements, access controls and consent."
-)
-
-# Shown on the Medical and healthcare practices section.
-MEDICAL_READ_FIRST = (
-    "<strong>Read this first.</strong> The use cases in this category are about running the "
-    "<em>business side</em> of a healthcare practice: scheduling, reminders, intake logistics, "
-    "insurance and billing admin, referral tracking, and communications drafts. SI does not name a "
-    "condition, give medical advice, or make clinical decisions, and it does not replace a "
-    "clinician's judgment. A clinician or trained staff member reviews and approves anything "
-    "clinical or patient-facing before it goes out, and nothing here promises any health outcome "
-    "or result. Patient privacy comes first: protected health information (PHI) should only go into "
-    "tools covered by a signed business associate agreement (BAA) with the practice, with proper "
-    "access controls, and only the minimum necessary; it never belongs in consumer tools or free "
-    "chat apps. Billing and coding are always approved by a person; SI never invents documentation "
-    "or assigns codes on its own. Recording or transcribing calls and visits may require consent, "
-    "texting patients is regulated, and state laws differ, so check yours. SI never handles "
-    "emergencies: anything urgent goes to a person or to 911. These pages are general information, "
-    "not medical, legal or compliance advice, and not a guarantee of compliance with HIPAA or any "
-    "other rule. <a href=\"https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/business-associates/index.html\" "
-    "target=\"_blank\" rel=\"noopener noreferrer\">HHS guidance on business associates</a> is a good starting point."
-)
-MEDICAL_SHORT = (
-    "Admin and operations help for small practices. SI drafts, tracks and organizes; "
-    "clinicians and staff review and decide. No medical advice or clinical decisions, and patient "
-    "information stays in tools covered by a BAA."
-)
-MEDICAL_FOOT = (
-    "Not medical, legal or compliance advice. Talk with your compliance officer or healthcare counsel about HIPAA and your state's rules."
-)
-MEDICAL_OWN_ACCOUNTS = LEGAL_OWN_ACCOUNTS
-MEDICAL_CAUTION_PREFIX = (
-    "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, "
-    "and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves "
-    "anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools "
-    "covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools."
-)
-
-# Shown on the Real estate and property management section.
-REAL_ESTATE_READ_FIRST = (
-    "<strong>Read this first.</strong> The use cases in this category are about running the "
-    "<em>business side</em> of real estate and property management: lead follow-up, scheduling, "
-    "maintenance coordination, reminders, tracking and communications drafts. SI does not give "
-    "legal, lease or financial advice, does not negotiate or sign anything, and does not replace "
-    "the judgment of a licensed agent, broker or property manager. SI prepares drafts for the "
-    "licensed agent or owner and does not lease, collect rent, screen or rank applicants. A "
-    "licensed professional or the property owner reviews and approves anything client-facing, "
-    "tenant-facing or contractual before it goes out, and nothing here promises any sale, lease, "
-    "price or result. Fair housing laws apply however a task is done: SI never screens, ranks, "
-    "steers, targets or describes people or neighborhoods by protected characteristics, and every "
-    "listing, ad and message is reviewed by a person before it is used. Applicant and tenant "
-    "information is private, so it should only go into tools the business has checked, with access "
-    "controls and the minimum necessary. Texting is regulated, so get consent and honor opt-outs. "
-    "Licensing, landlord-tenant and advertising rules differ by state, so check yours. These pages "
-    "are general information, not legal or compliance advice, and not a guarantee of compliance "
-    "with any law."
-)
-REAL_ESTATE_SHORT = (
-    "Admin and operations help for agents, landlords and small property managers. SI prepares "
-    "drafts for the licensed agent or owner; they review and decide. SI does not lease, collect "
-    "rent, screen or rank applicants."
-)
-REAL_ESTATE_FOOT = (
-    "Not legal advice. Talk with your broker, attorney or local fair housing resources about your obligations."
-)
-REAL_ESTATE_OWN_ACCOUNTS = LEGAL_OWN_ACCOUNTS
-REAL_ESTATE_CAUTION_PREFIX = (
-    "Administrative support only: SI does not give legal or lease advice, make leasing, screening "
-    "or pricing decisions, or act as an agent or broker. SI prepares drafts for the licensed agent "
-    "or owner and does not lease, collect rent, screen or rank applicants. A licensed professional "
-    "or the property owner reviews and approves anything client-facing, tenant-facing or "
-    "contractual. Fair housing laws apply: SI never screens, ranks, steers or targets by protected "
-    "characteristics, and applicant and tenant information is used only in checked tools with "
-    "access controls and the minimum necessary."
-)
-
-# Shown on the Home services and contractors section.
-HOME_SERVICES_READ_FIRST = (
-    "<strong>Read this first.</strong> The use cases in this category are about running the "
-    "<em>office side</em> of a home-service business: missed calls, quotes, scheduling, invoices, "
-    "reminders, paperwork and records. SI does not set prices, make promises, or give safety, "
-    "repair, code or insurance advice, and it does not replace a licensed professional's judgment "
-    "on the job. The owner or an authorized person reviews and approves every quote, price, "
-    "schedule commitment and customer message before it goes out, and nothing here promises any "
-    "job, timeline, savings or result. Licensing, advertising, deposit, permit and contract rules "
-    "differ by state and city, so check yours. The business's license number and required notices "
-    "come from the owner, not from SI. Texting customers is regulated, so get consent and honor "
-    "opt-outs. Customer information is private and should only go into tools the business has "
-    "checked. If something sounds like an emergency, such as gas, fire, smoke or flooding near "
-    "electricity, it goes to a person and to 911 or the utility, never to SI. These pages are "
-    "general information, not legal, safety or compliance advice, and not a guarantee of "
-    "compliance with any rule."
-)
-HOME_SERVICES_SHORT = (
-    "Office help for HVAC, plumbing, roofing, electrical, landscaping, pool and cleaning "
-    "businesses. SI drafts, tracks and reminds; the owner approves every quote and message. No "
-    "pricing promises, no safety or code advice, and customers' information stays private."
-)
-HOME_SERVICES_FOOT = (
-    "Not legal, safety or compliance advice. Check your state's contractor licensing board and your local permitting office."
-)
-HOME_SERVICES_OWN_ACCOUNTS = LEGAL_OWN_ACCOUNTS
-HOME_SERVICES_CAUTION_PREFIX = (
-    "Office support only: SI does not set or promise prices, give safety, repair, code or "
-    "insurance advice, or make any commitment for the business. The owner or an authorized person "
-    "reviews and approves every quote, schedule commitment and customer message. Licensing, "
-    "advertising, deposit and permit rules vary by state, and customer information is used only in "
-    "checked tools with access controls."
-)
-
-# Shown on the Accounting, tax and bookkeeping firms section.
-ACCOUNTING_READ_FIRST = (
-    "<strong>Read this first.</strong> The use cases in this category are about running the "
-    "<em>practice side</em> of an accounting, tax or bookkeeping firm: chasing documents, "
-    "organizing intake, tracking dates, preparing checklists, drafting routine communications and "
-    "getting information ready for a professional's review. SI does not give tax, accounting or "
-    "legal advice, does not prepare, sign or file any return or report, and does not replace a "
-    "CPA's, enrolled agent's or preparer's judgment. A qualified professional reviews, signs and "
-    "takes responsibility for all work product, and every deadline SI tracks is verified by a "
-    "person against official sources. Nothing here promises any refund, tax result or savings. "
-    "Client financial and tax information is among the most sensitive a firm holds: firms that "
-    "prepare returns have legal duties around data security (the FTC Safeguards Rule, covered in "
-    "IRS Publication 4557) and around using or disclosing tax return information (Internal Revenue "
-    "Code section 7216), and professional rules apply on top. Put client information only into "
-    "tools the firm has vetted, with the agreements, access controls and any client consent the "
-    "rules require, and start with sample data. State rules differ, so check yours. These pages "
-    "are general information, not tax, legal or compliance advice, and not a guarantee of "
-    "compliance with any rule."
-)
-ACCOUNTING_SHORT = (
-    "Admin and operations help for small CPA, tax and bookkeeping firms. SI chases, organizes and "
-    "drafts; professionals review, sign and decide. No tax advice, no filings, and client data "
-    "stays protected under your firm's security plan."
-)
-ACCOUNTING_FOOT = (
-    "Not tax, accounting or legal advice. Talk with your professional-liability advisor, state board and counsel about your obligations."
-)
-ACCOUNTING_OWN_ACCOUNTS = LEGAL_OWN_ACCOUNTS
-ACCOUNTING_CAUTION_PREFIX = (
-    "Administrative support only: SI does not give tax or accounting advice, prepare or sign "
-    "returns or reports, file anything, or calculate legal deadlines. A qualified professional "
-    "reviews, signs and approves all work product and every date SI tracks. Client information is "
-    "used only in tools the firm has vetted, under its written security plan and with any client "
-    "consent or agreements the rules require."
-)
-
-CATEGORY_NOTES = {
-    "Legal practices": {
-        "read_first": LEGAL_READ_FIRST,
-        "short": LEGAL_SHORT,
-        "foot": LEGAL_FOOT,
-        "own": LEGAL_OWN_ACCOUNTS,
-        "foot_class": "uc-legal-foot",
-        "library_needles": ("generative artificial intelligence",),
-    },
-    "Medical and healthcare practices": {
-        "read_first": MEDICAL_READ_FIRST,
-        "short": MEDICAL_SHORT,
-        "foot": MEDICAL_FOOT,
-        "own": MEDICAL_OWN_ACCOUNTS,
-        "foot_class": "uc-cat-foot",
-        "library_needles": ("healthcare practice",),
-    },
-    "Real estate and property management": {
-        "read_first": REAL_ESTATE_READ_FIRST,
-        "short": REAL_ESTATE_SHORT,
-        "foot": REAL_ESTATE_FOOT,
-        "own": REAL_ESTATE_OWN_ACCOUNTS,
-        "foot_class": "uc-cat-foot",
-        "library_needles": ("does not lease, collect rent, screen or rank applicants",),
-    },
-    "Home services and contractors": {
-        "read_first": HOME_SERVICES_READ_FIRST,
-        "short": HOME_SERVICES_SHORT,
-        "foot": HOME_SERVICES_FOOT,
-        "own": HOME_SERVICES_OWN_ACCOUNTS,
-        "foot_class": "uc-cat-foot",
-        "library_needles": ("office side",),
-    },
-    "Accounting, tax and bookkeeping firms": {
-        "read_first": ACCOUNTING_READ_FIRST,
-        "short": ACCOUNTING_SHORT,
-        "foot": ACCOUNTING_FOOT,
-        "own": ACCOUNTING_OWN_ACCOUNTS,
-        "foot_class": "uc-cat-foot",
-        "library_needles": ("FTC Safeguards Rule",),
-    },
-}
-
 REQUIRED = (
     "slug",
     "title",
-    "category",
+    "industries",
+    "functions",
     "summary",
     "problem",
     "what_si_does",
@@ -358,15 +51,35 @@ REQUIRED = (
     "tools_examples",
     "effect",
 )
-
+RESERVED_SLUGS = {"industry", "function"}
+SHOW_MORE = 18
+ANY_VISIBLE = 12
+HUB_MIN_BYTES = 20_000
+HUB_MAX_BYTES = 90_000
 CTA = "Book a free 30-minute consult"
+
+BANNED_SUBSTRINGS = ("Nous", "Brandgate", "Ohr", "Kayla", "josh.gemmi@gmail.com")
+HIPAA_CLAIM = re.compile(
+    r"hipaa[ -]?(compliant|certified|safe)|guaranteed compliance",
+    re.I,
+)
+HOSTING_CLAIM = re.compile(
+    r"gemmisi (hosts|stores|host|store)|we host your|we store your data|"
+    r"hosted by gemmisi|gemmisi hosts your|stores client data",
+    re.I,
+)
+
+TAX: dict = {}
+INDUSTRIES: dict = {}
+FUNCTIONS: dict = {}
+OWN_ACCOUNTS = ""
+ALSO_USED_NOTE = ""
+FEATURED_SLUGS: list[str] = []
+LEGACY: dict = {}
 
 
 def e(value) -> str:
     return html.escape("" if value is None else str(value), quote=True)
-
-
-PAGE_SIZE = 24
 
 
 def json_ld(obj, *, compact: bool = False) -> str:
@@ -377,112 +90,86 @@ def json_ld(obj, *, compact: bool = False) -> str:
     return raw.replace("<", "\\u003c")
 
 
-def load() -> list:
-    entries = json.loads(DATA.read_text(encoding="utf-8"))
-    if not isinstance(entries, list) or not entries:
-        raise SystemExit("data/use-cases.json must be a non-empty list")
-    slugs = []
-    for item in entries:
-        missing = [key for key in REQUIRED if key not in item]
-        if missing:
-            raise SystemExit(f"{item.get('slug', '?')} is missing {', '.join(missing)}")
-        if item["category"] not in SHORT:
-            raise SystemExit(
-                f"Unknown category {item['category']!r} on {item['slug']}. "
-                "Add it to SHORT in scripts/build_use_cases.py."
-            )
-        if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", item["slug"]):
-            raise SystemExit(f"Slug must be lowercase hyphenated words: {item['slug']}")
-        if not item["examples"] or not all(
-            isinstance(ex, dict) and ex.get("business_type") and ex.get("scenario")
-            for ex in item["examples"]
-        ):
-            raise SystemExit(f"{item['slug']} examples must include business_type and scenario")
-        blob = json.dumps(item)
-        if re.search(r"\bAI\b", blob) or "Nous" in blob or "Brandgate" in blob:
-            raise SystemExit(f"{item['slug']} contains wording that must stay off the public site")
-        if item["category"] == "Legal practices":
-            caution = (item.get("caution") or "").strip()
-            if not caution.startswith(LEGAL_CAUTION_PREFIX):
-                raise SystemExit(f"{item['slug']} caution must start with the legal guardrail")
-            prompt = item["copy_prompt"]
-            if "Pause and show me before sending, filing, posting or changing anything" not in prompt:
-                raise SystemExit(f"{item['slug']} prompt must pause before sending, filing, posting, or changing")
-            if (
-                "Use only the sample or de-identified information I provide; do not include client-confidential details"
-                not in prompt
-            ):
-                raise SystemExit(f"{item['slug']} prompt must limit itself to sample or de-identified information")
-            if len(item["human_checks"]) < 3:
-                raise SystemExit(f"{item['slug']} needs at least three human checks")
-            if LEGAL_OWN_ACCOUNTS not in item["setup"]:
-                raise SystemExit(f"{item['slug']} setup must say the work stays on the firm's own equipment and accounts")
-            for banned in ("Ohr", "Kayla", "josh.gemmi@gmail.com"):
-                if banned in blob:
-                    raise SystemExit(f"{item['slug']} contains wording that must stay off the public site")
-        if item["category"] == "Medical and healthcare practices":
-            caution = (item.get("caution") or "").strip()
-            if not caution.startswith(MEDICAL_CAUTION_PREFIX):
-                raise SystemExit(f"{item['slug']} caution must start with the medical guardrail")
-            prompt = item["copy_prompt"]
-            if "Pause and show me before sending, submitting, billing, posting or changing anything" not in prompt:
-                raise SystemExit(f"{item['slug']} prompt must pause before sending, submitting, billing, posting, or changing")
-            if (
-                "Use only the sample or de-identified information I provide; do not include any patient names or health information"
-                not in prompt
-            ):
-                raise SystemExit(f"{item['slug']} prompt must limit itself to sample or de-identified information")
-            if len(item["human_checks"]) < 3:
-                raise SystemExit(f"{item['slug']} needs at least three human checks")
-            if not item["setup"].startswith(MEDICAL_OWN_ACCOUNTS):
-                raise SystemExit(f"{item['slug']} setup must start with the own-equipment sentence")
-            if re.search(r"diagnose", blob, re.I):
-                raise SystemExit(f"{item['slug']} must not use the word diagnose")
-            lowered = blob.lower()
-            for banned in (
-                "hipaa compliant",
-                "hipaa-compliant",
-                "hipaa certified",
-                "hipaa-certified",
-                "hipaa safe",
-                "hipaa-safe",
-                "ohr",
-                "kayla",
-                "josh.gemmi@gmail.com",
-            ):
-                if banned in lowered:
-                    raise SystemExit(f"{item['slug']} contains wording that must stay off the public site")
-        if item["category"] in (
-            "Real estate and property management",
-            "Home services and contractors",
-            "Accounting, tax and bookkeeping firms",
-        ):
-            _check_industry_entry(item)
-        slugs.append(item["slug"])
-    dupes = {slug for slug in slugs if slugs.count(slug) > 1}
-    if dupes:
-        raise SystemExit(f"Duplicate slugs: {', '.join(sorted(dupes))}")
-    return entries
+def primary_industry(item: dict) -> str:
+    return item["industries"][0]
+
+
+def primary_function(item: dict) -> str:
+    return item["functions"][0]
+
+
+def is_regulated(slug: str) -> bool:
+    return bool(INDUSTRIES.get(slug, {}).get("regulated"))
+
+
+def industry_info(slug: str) -> dict:
+    info = INDUSTRIES.get(slug)
+    if not info:
+        raise SystemExit(f"Unknown industry {slug!r}")
+    return info
+
+
+def function_info(slug: str) -> dict:
+    info = FUNCTIONS.get(slug)
+    if not info:
+        raise SystemExit(f"Unknown function {slug!r}")
+    return info
+
+
+def card_label(item: dict) -> str:
+    ind = primary_industry(item)
+    if ind != "any-business":
+        return industry_info(ind)["label"]
+    return function_info(primary_function(item))["label"]
+
+
+def dedicated_note(item: dict) -> str:
+    ind = primary_industry(item)
+    info = industry_info(ind)
+    return info["short"] if info.get("regulated") else ""
+
+
+def load_taxonomy() -> None:
+    global TAX, INDUSTRIES, FUNCTIONS, OWN_ACCOUNTS, ALSO_USED_NOTE, FEATURED_SLUGS, LEGACY
+    TAX = json.loads(TAXONOMY_PATH.read_text(encoding="utf-8"))
+    INDUSTRIES = TAX["industries"]
+    FUNCTIONS = TAX["functions"]
+    OWN_ACCOUNTS = TAX["own_accounts"]
+    ALSO_USED_NOTE = TAX["also_used_note"]
+    FEATURED_SLUGS = list(TAX["featured"])
+    LEGACY = dict(TAX["legacy_anchors"])
+    if len(FEATURED_SLUGS) != 12:
+        raise SystemExit(f"taxonomy.featured must list 12 slugs, found {len(FEATURED_SLUGS)}")
+    if OWN_ACCOUNTS != "GemmiSI sets this up on your own equipment and accounts; your data stays with you.":
+        raise SystemExit("taxonomy.own_accounts must keep the approved own-accounts line")
+
+
+def _check_banned_blob(item: dict, blob: str) -> None:
+    slug = item["slug"]
+    if re.search(r"\bAI\b", blob) or HIPAA_CLAIM.search(blob) or HOSTING_CLAIM.search(blob):
+        raise SystemExit(f"{slug} contains wording that must stay off the public site")
+    for banned in BANNED_SUBSTRINGS:
+        if banned in blob:
+            raise SystemExit(f"{slug} contains wording that must stay off the public site")
 
 
 def _check_industry_entry(item: dict) -> None:
-    cat = item["category"]
+    ind = primary_industry(item)
     caution = (item.get("caution") or "").strip()
     prompt = item["copy_prompt"]
     blob = json.dumps(item)
     lowered = blob.lower()
+    info = industry_info(ind)
     if len(item["human_checks"]) < 3:
         raise SystemExit(f"{item['slug']} needs at least three human checks")
-    if not item["setup"].startswith(LEGAL_OWN_ACCOUNTS):
-        raise SystemExit(f"{item['slug']} setup must start with the own-equipment sentence")
-    for banned in ("Ohr", "Kayla", "josh.gemmi@gmail.com", "Brandgate"):
-        if banned in blob:
-            raise SystemExit(f"{item['slug']} contains wording that must stay off the public site")
+    prefix = info.get("caution_prefix") or ""
+    if prefix and not caution.startswith(prefix):
+        raise SystemExit(f"{item['slug']} caution must start with the {ind} guardrail")
     extra = ""
     texting = False
-    if cat == "Real estate and property management":
-        if not caution.startswith(REAL_ESTATE_CAUTION_PREFIX):
-            raise SystemExit(f"{item['slug']} caution must start with the real-estate guardrail")
+    if ind == "real-estate":
+        if not item["setup"].startswith(OWN_ACCOUNTS):
+            raise SystemExit(f"{item['slug']} setup must start with the own-equipment sentence")
         if "Pause and show me before sending, posting, signing or changing anything" not in prompt:
             raise SystemExit(f"{item['slug']} prompt must pause before sending, posting, signing, or changing")
         if (
@@ -520,9 +207,9 @@ def _check_industry_entry(item: dict) -> None:
         ):
             if phrase in lowered:
                 raise SystemExit(f"{item['slug']} contains wording that must stay off the public site")
-    elif cat == "Home services and contractors":
-        if not caution.startswith(HOME_SERVICES_CAUTION_PREFIX):
-            raise SystemExit(f"{item['slug']} caution must start with the home-services guardrail")
+    elif ind == "home-services":
+        if not item["setup"].startswith(OWN_ACCOUNTS):
+            raise SystemExit(f"{item['slug']} setup must start with the own-equipment sentence")
         if "Pause and show me before sending, quoting, booking, ordering or changing anything" not in prompt:
             raise SystemExit(f"{item['slug']} prompt must pause before sending, quoting, booking, ordering, or changing")
         if (
@@ -554,8 +241,8 @@ def _check_industry_entry(item: dict) -> None:
             if phrase in lowered:
                 raise SystemExit(f"{item['slug']} contains wording that must stay off the public site")
     else:
-        if not caution.startswith(ACCOUNTING_CAUTION_PREFIX):
-            raise SystemExit(f"{item['slug']} caution must start with the accounting guardrail")
+        if not item["setup"].startswith(OWN_ACCOUNTS):
+            raise SystemExit(f"{item['slug']} setup must start with the own-equipment sentence")
         if "Pause and show me before sending, filing, posting or changing anything" not in prompt:
             raise SystemExit(f"{item['slug']} prompt must pause before sending, filing, posting, or changing")
         if (
@@ -600,17 +287,133 @@ def _check_industry_entry(item: dict) -> None:
         raise SystemExit(f"{item['slug']} must note texting consent and opt-outs")
 
 
-def categories(entries: list) -> list:
-    seen = []
+def load() -> list:
+    load_taxonomy()
+    entries = json.loads(DATA.read_text(encoding="utf-8"))
+    if not isinstance(entries, list) or not entries:
+        raise SystemExit("data/use-cases.json must be a non-empty list")
+    slugs = []
+    featured_flags = []
     for item in entries:
-        if item["category"] not in seen:
-            seen.append(item["category"])
-    return seen
+        missing = [key for key in REQUIRED if key not in item]
+        if missing:
+            raise SystemExit(f"{item.get('slug', '?')} is missing {', '.join(missing)}")
+        slug = item["slug"]
+        if slug in RESERVED_SLUGS:
+            raise SystemExit(f"{slug} is reserved for landing routes")
+        if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", slug):
+            raise SystemExit(f"Slug must be lowercase hyphenated words: {slug}")
+        inds = item["industries"]
+        fns = item["functions"]
+        if not isinstance(inds, list) or not inds or not isinstance(fns, list) or not fns:
+            raise SystemExit(f"{slug} needs non-empty industries and functions lists")
+        if len(inds) > 4:
+            raise SystemExit(f"{slug} industries cap is 4")
+        if len(set(inds)) != len(inds) or len(set(fns)) != len(fns):
+            raise SystemExit(f"{slug} has duplicate industry or function tags")
+        for ind in inds:
+            if ind not in INDUSTRIES:
+                raise SystemExit(f"Unknown industry {ind!r} on {slug}")
+        for fn in fns:
+            if fn not in FUNCTIONS:
+                raise SystemExit(f"Unknown function {fn!r} on {slug}")
+        if primary_industry(item) != "any-business" and "any-business" in inds:
+            raise SystemExit(f"{slug} dedicated vertical entries must not also be any-business")
+        if not item["examples"] or not all(
+            isinstance(ex, dict) and ex.get("business_type") and ex.get("scenario")
+            for ex in item["examples"]
+        ):
+            raise SystemExit(f"{slug} examples must include business_type and scenario")
+        blob = json.dumps(item)
+        _check_banned_blob(item, blob)
+        ind = primary_industry(item)
+        if is_regulated(ind):
+            if OWN_ACCOUNTS not in item["setup"]:
+                raise SystemExit(f"{slug} setup must say the work stays on your own equipment and accounts")
+        if ind == "legal":
+            caution = (item.get("caution") or "").strip()
+            if not caution.startswith(industry_info("legal")["caution_prefix"]):
+                raise SystemExit(f"{slug} caution must start with the legal guardrail")
+            prompt = item["copy_prompt"]
+            if "Pause and show me before sending, filing, posting or changing anything" not in prompt:
+                raise SystemExit(f"{slug} prompt must pause before sending, filing, posting, or changing")
+            if (
+                "Use only the sample or de-identified information I provide; do not include client-confidential details"
+                not in prompt
+            ):
+                raise SystemExit(f"{slug} prompt must limit itself to sample or de-identified information")
+            if len(item["human_checks"]) < 3:
+                raise SystemExit(f"{slug} needs at least three human checks")
+        elif ind == "medical":
+            caution = (item.get("caution") or "").strip()
+            if not caution.startswith(industry_info("medical")["caution_prefix"]):
+                raise SystemExit(f"{slug} caution must start with the medical guardrail")
+            prompt = item["copy_prompt"]
+            if "Pause and show me before sending, submitting, billing, posting or changing anything" not in prompt:
+                raise SystemExit(f"{slug} prompt must pause before sending, submitting, billing, posting, or changing")
+            if (
+                "Use only the sample or de-identified information I provide; do not include any patient names or health information"
+                not in prompt
+            ):
+                raise SystemExit(f"{slug} prompt must limit itself to sample or de-identified information")
+            if len(item["human_checks"]) < 3:
+                raise SystemExit(f"{slug} needs at least three human checks")
+            if not item["setup"].startswith(OWN_ACCOUNTS):
+                raise SystemExit(f"{slug} setup must start with the own-equipment sentence")
+            if re.search(r"diagnose", blob, re.I):
+                raise SystemExit(f"{slug} must not use the word diagnose")
+        elif ind in ("real-estate", "home-services", "accounting"):
+            _check_industry_entry(item)
+        if item.get("featured"):
+            featured_flags.append(slug)
+        slugs.append(slug)
+    dupes = {slug for slug in slugs if slugs.count(slug) > 1}
+    if dupes:
+        raise SystemExit(f"Duplicate slugs: {', '.join(sorted(dupes))}")
+    if set(featured_flags) != set(FEATURED_SLUGS):
+        raise SystemExit(
+            "featured: true flags must match taxonomy.featured "
+            f"(flags={sorted(featured_flags)} taxonomy={FEATURED_SLUGS})"
+        )
+    return entries
+
+
+def featured_entries(entries: list) -> list:
+    by_slug = {item["slug"]: item for item in entries}
+    return [by_slug[slug] for slug in FEATURED_SLUGS]
+
+
+def matching_industry(entries: list, slug: str) -> list:
+    return [item for item in entries if slug in item["industries"]]
+
+
+def matching_function(entries: list, slug: str) -> list:
+    return [item for item in entries if slug in item["functions"]]
+
+
+def dedicated(entries: list, industry: str) -> list:
+    return [item for item in entries if primary_industry(item) == industry]
+
+
+def cross_tagged(entries: list, industry: str) -> list:
+    return [
+        item
+        for item in entries
+        if industry in item["industries"] and primary_industry(item) != industry
+    ]
+
+
+def industry_counts(entries: list) -> dict[str, int]:
+    return {slug: len(matching_industry(entries, slug)) for slug in INDUSTRIES}
+
+
+def function_counts(entries: list) -> dict[str, int]:
+    return {slug: len(matching_function(entries, slug)) for slug in FUNCTIONS}
 
 
 def nav(depth: int) -> str:
     up = "../" * depth
-    library = "index.html" if depth == 1 else "../index.html"
+    library = "../" * (depth - 1) + "index.html" if depth else "index.html"
     return f"""    <header class="nav">
       <a class="brand" href="{up}index.html" aria-label="GemmiSI home">
         <img class="brand-lockup" src="{up}assets/brand/gemmisi-lockup-dark.svg" alt="" width="159" height="36" />
@@ -644,7 +447,7 @@ def nav(depth: int) -> str:
 
 def foot(depth: int) -> str:
     up = "../" * depth
-    library = "index.html" if depth == 1 else "../index.html"
+    library = "../" * (depth - 1) + "index.html" if depth else "index.html"
     return f"""    <footer>
       <a class="footer-brand" href="{up}index.html" aria-label="GemmiSI home">
         <img class="footer-lockup" src="{up}assets/brand/gemmisi-lockup-dark.svg" alt="" width="123" height="28" />
@@ -665,14 +468,26 @@ def foot(depth: int) -> str:
 
 
 SCRIPTS = NAV_SCRIPT
+LIBRARY_JS = '  <script src="/assets/use-cases-library.js" defer></script>\n'
+PAGE_END = CLOUDFLARE_WEB_ANALYTICS + "</body>\n</html>\n"
 
 
-def head(title: str, desc: str, canon: str, depth: int, ld: dict, *, compact_ld: bool = False) -> str:
+def head(
+    title: str,
+    desc: str,
+    canon: str,
+    depth: int,
+    ld: dict,
+    *,
+    compact_ld: bool = False,
+    body_attrs: str = "",
+) -> str:
     up = "../" * depth
     assets = font_and_css_links(
         stylesheet=f"{up}styles.css?v={CSS_VERSION}",
         extra_css=f"{up}assets/use-cases.css?v={CSS_VERSION}",
     )
+    attrs = f" {body_attrs}" if body_attrs else ""
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -710,15 +525,20 @@ def head(title: str, desc: str, canon: str, depth: int, ld: dict, *, compact_ld:
 {json_ld(ld, compact=compact_ld)}
   </script>
 </head>
-<body>
+<body{attrs}>
   <div class="site-shell">
 {nav(depth)}
 """
 
 
 def haystack(item: dict) -> str:
-    short = SHORT[item["category"]][0]
-    parts = [item["title"], item["summary"], short, item["category"]]
+    parts = [item["title"], item["summary"], card_label(item)]
+    for slug in item["industries"]:
+        parts.append(industry_info(slug)["label"])
+        parts.append(slug.replace("-", " "))
+    for slug in item["functions"]:
+        parts.append(function_info(slug)["label"])
+        parts.append(slug.replace("-", " "))
     parts.extend(item.get("tools_examples") or [])
     for example in item.get("examples") or []:
         parts.append(example.get("business_type", ""))
@@ -726,20 +546,20 @@ def haystack(item: dict) -> str:
     return " ".join(parts).lower()
 
 
-def card_note(item: dict) -> str:
-    info = CATEGORY_NOTES.get(item["category"])
-    return info["short"] if info else ""
-
-
-def card(item: dict, href: str, show_cat: bool = True, extra: bool = False) -> str:
-    short = SHORT[item["category"]]
-    cat = f'<span class="uc-card-cat">{e(short[0])}</span>' if show_cat else ""
-    extra_cls = " uc-extra" if extra else ""
-    note = card_note(item)
-    note_html = f'\n              <p class="uc-card-note">{e(note)}</p>' if note else ""
-    return f"""<li class="uc-card{extra_cls}" data-cat="{short[1]}" data-slug="{e(item['slug'])}">
-            <a href="{href}">
-              {cat}
+def card(item: dict, *, extra_cls: str = "", note: str | None = None, featured: bool = False) -> str:
+    label = card_label(item)
+    cls = "uc-card"
+    if extra_cls:
+        cls += f" {extra_cls}"
+    if featured:
+        cls += " uc-featured"
+    note_text = dedicated_note(item) if note is None else note
+    note_html = f'\n              <p class="uc-card-note">{e(note_text)}</p>' if note_text else ""
+    inds = ",".join(item["industries"])
+    fns = ",".join(item["functions"])
+    return f"""<li class="{cls}" data-slug="{e(item['slug'])}" data-i="{e(inds)}" data-f="{e(fns)}">
+            <a href="/use-cases/{e(item['slug'])}/">
+              <span class="uc-card-cat">{e(label)}</span>
               <h3>{e(item['title'])}</h3>
               <p>{e(item['summary'])}</p>{note_html}
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
@@ -747,163 +567,211 @@ def card(item: dict, href: str, show_cat: bool = True, extra: bool = False) -> s
           </li>"""
 
 
-def compact_link(item: dict, href: str) -> str:
-    short = SHORT[item["category"]]
+def compact_link(item: dict) -> str:
+    inds = ",".join(item["industries"])
+    fns = ",".join(item["functions"])
     return (
-        f'<li class="uc-compact" data-cat="{short[1]}" data-slug="{e(item["slug"])}">'
-        f'<a href="{href}">{e(item["title"])}</a></li>'
+        f'<li class="uc-compact" data-slug="{e(item["slug"])}" data-i="{e(inds)}" data-f="{e(fns)}">'
+        f'<a href="/use-cases/{e(item["slug"])}/">{e(item["title"])}</a></li>'
     )
 
 
-def pick_visible_slugs(entries: list, cats: list) -> set[str]:
-    """One card per category first, then fill up to PAGE_SIZE in category order."""
-    by_cat = {cat: [item for item in entries if item["category"] == cat] for cat in cats}
-    visible: list[str] = []
-    for cat in cats:
-        if by_cat[cat]:
-            visible.append(by_cat[cat][0]["slug"])
-    for cat in cats:
-        for item in by_cat[cat][1:]:
-            if len(visible) >= PAGE_SIZE:
-                return set(visible)
-            visible.append(item["slug"])
-    return set(visible)
+def item_list(entries: list) -> dict:
+    return {
+        "@type": "ItemList",
+        "numberOfItems": len(entries),
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": i + 1,
+                "url": f"{BASE}/use-cases/{item['slug']}/",
+                "name": item["title"],
+            }
+            for i, item in enumerate(entries)
+        ],
+    }
+
+
+def crumbs(*parts: tuple[str, str]) -> dict:
+    return {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": i + 1, "name": name, "item": url}
+            for i, (name, url) in enumerate(parts)
+        ],
+    }
+
+
+def collection_ld(name: str, url: str, desc: str, entries: list, trail: list[tuple[str, str]]) -> dict:
+    return {
+        "@context": "https://schema.org",
+        "@graph": [
+            crumbs(*trail),
+            {
+                "@type": "CollectionPage",
+                "name": name,
+                "url": url,
+                "description": desc,
+                "isPartOf": {"@type": "WebSite", "name": "Yonatan Gemmi", "url": BASE + "/"},
+                "mainEntity": item_list(entries),
+            },
+        ],
+    }
+
+
+def breadcrumb_html(depth: int, items: list[tuple[str, str | None]]) -> str:
+    up = "../" * depth
+    parts = []
+    for i, (label, href) in enumerate(items):
+        if i:
+            parts.append('<span aria-hidden="true">/</span>')
+        if href:
+            parts.append(f'<a href="{href if href.startswith("/") or href.startswith(".") else up + href}">{e(label)}</a>')
+        else:
+            parts.append(f"<span>{e(label)}</span>")
+    return f'        <nav class="breadcrumb" aria-label="Breadcrumb">\n          ' + "\n          ".join(parts) + "\n        </nav>"
+
+
+def industry_tiles(entries: list, *, current: str | None = None, extra_query: str = "") -> str:
+    counts = industry_counts(entries)
+    tiles = []
+    for slug, info in INDUSTRIES.items():
+        n = counts[slug]
+        if n == 0:
+            continue
+        href = f"/use-cases/industry/{slug}/"
+        if extra_query:
+            href = f"/use-cases/?industry={slug}&{extra_query}"
+        active = " is-active" if current == slug else ""
+        tiles.append(
+            f'<a class="uc-tile{active}" href="{href}" data-industry="{slug}">'
+            f'<span class="uc-tile-label">{e(info["label"])}</span>'
+            f'<span class="uc-tile-count">{n}</span></a>'
+        )
+    return (
+        '<div class="uc-tiles" role="navigation" aria-label="Browse by industry">\n          '
+        + "\n          ".join(tiles)
+        + "\n        </div>"
+    )
+
+
+def function_pills(entries: list, *, current: str | None = None, industry: str | None = None) -> str:
+    counts = function_counts(entries)
+    pills = []
+    for slug, info in FUNCTIONS.items():
+        n = counts[slug]
+        if n == 0:
+            continue
+        if industry:
+            href = f"/use-cases/?industry={industry}&function={slug}"
+        else:
+            href = f"/use-cases/function/{slug}/"
+        active = " is-active" if current == slug else ""
+        pills.append(
+            f'<a class="uc-pill{active}" href="{href}" data-function="{slug}">'
+            f'{e(info["label"])} <span>{n}</span></a>'
+        )
+    return "\n            ".join(pills)
+
+
+def more_filters(entries: list, *, industry: str | None = None, current_fn: str | None = None) -> str:
+    pills = function_pills(entries, current=current_fn, industry=industry)
+    return f"""        <details class="uc-filters-more" id="uc-more-filters">
+          <summary aria-expanded="false">More filters</summary>
+          <div class="uc-pills" id="uc-functions" role="group" aria-label="Filter by function">
+            {pills}
+          </div>
+        </details>"""
+
+
+def read_first_banner(industry: str) -> str:
+    info = industry_info(industry)
+    if not info.get("regulated"):
+        return ""
+    return (
+        '        <div class="uc-read-first" role="note">\n'
+        f"          <p>{info['read_first']}</p>\n"
+        f'          <p class="uc-own-accounts">{e(OWN_ACCOUNTS)}</p>\n'
+        "        </div>\n"
+    )
 
 
 def search_records(entries: list) -> list[dict]:
     records = []
+    featured = set(FEATURED_SLUGS)
     for item in entries:
-        short = SHORT[item["category"]]
         row = {
             "s": item["slug"],
             "t": item["title"],
             "u": item["summary"],
-            "c": short[1],
-            "l": short[0],
+            "i": item["industries"],
+            "f": item["functions"],
+            "l": card_label(item),
             "h": haystack(item),
         }
-        note = card_note(item)
+        note = dedicated_note(item)
         if note:
             row["n"] = note
+        if item["slug"] in featured:
+            row["g"] = True
         records.append(row)
     return records
 
 
 def write_search_index(entries: list) -> None:
-    payload = {"items": search_records(entries)}
+    payload = {"legacy": LEGACY, "page": SHOW_MORE, "items": search_records(entries)}
     (OUT / "search.json").write_text(
         json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n",
         encoding="utf-8",
     )
 
 
+def closing_section() -> str:
+    return f"""      <section class="section closing-card uc-closing">
+        <div class="contact-panel">
+          <p class="section-kicker">Don’t see yours?</p>
+          <h2>Bring the task that keeps eating your week</h2>
+          <p class="section-intro">If it is repetitive, rule-based, and lives in email, spreadsheets, a store, or a CRM, there is a good chance it can be drafted by SI and checked by you. Book a free 30-minute call and we will look at it together.</p>
+          <div class="actions"><a class="button primary" href="{CAL}" target="_blank" rel="noreferrer">{CTA}</a></div>
+        </div>
+      </section>"""
+
+
 def library_page(entries: list) -> str:
     n = len(entries)
-    cats = categories(entries)
+    featured = featured_entries(entries)
     title = "SI use cases for small businesses and community organizations | Yonatan Gemmi"
     desc = (
-        f"{n} practical ways SI can take routine work off a small team: inbox and support, "
-        "sales follow-up, bookkeeping, reporting, scheduling, inventory, ecommerce, content, "
-        "hiring, documents, community organizations, local business, legal-practice admin, "
-        "medical-practice admin, real estate, home services, and accounting-firm admin. "
-        "Each one shows what a human still checks."
+        f"{n} practical ways SI can take routine work off a small team. Browse by industry "
+        "or search. Each entry shows what a human still checks."
     )
-    ld = {
-        "@context": "https://schema.org",
-        "@graph": [
-            {
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                    {"@type": "ListItem", "position": 1, "name": "Home", "item": BASE + "/"},
-                    {"@type": "ListItem", "position": 2, "name": "Use cases", "item": BASE + "/use-cases/"},
-                ],
-            },
-            {
-                "@type": "CollectionPage",
-                "name": "SI use cases",
-                "url": BASE + "/use-cases/",
-                "description": desc,
-                "isPartOf": {"@type": "WebSite", "name": "Yonatan Gemmi", "url": BASE + "/"},
-                "mainEntity": {
-                    "@type": "ItemList",
-                    "numberOfItems": n,
-                    "itemListElement": [
-                        {
-                            "@type": "ListItem",
-                            "position": i + 1,
-                            "url": f"{BASE}/use-cases/{item['slug']}/",
-                            "name": item["title"],
-                        }
-                        for i, item in enumerate(entries)
-                    ],
-                },
-            },
-        ],
-    }
-    pills = [
-        f'<button type="button" class="uc-pill is-active" data-filter="all" aria-pressed="true">All <span>{n}</span></button>'
-    ]
-    for cat in cats:
-        label, slug, _blurb = SHORT[cat]
-        count = sum(1 for item in entries if item["category"] == cat)
-        pills.append(
-            f'<button type="button" class="uc-pill" data-filter="{slug}" aria-pressed="false">{e(label)} <span>{count}</span></button>'
-        )
-    visible = pick_visible_slugs(entries, cats)
-    sections = []
-    for index, cat in enumerate(cats, 1):
-        label, slug, blurb = SHORT[cat]
-        items = [item for item in entries if item["category"] == cat]
-        shown = [item for item in items if item["slug"] in visible]
-        rest = [item for item in items if item["slug"] not in visible]
-        cards = "\n          ".join(card(item, f"{item['slug']}/", show_cat=False) for item in shown)
-        compact = ""
-        if rest:
-            links = "\n          ".join(compact_link(item, f"{item['slug']}/") for item in rest)
-            compact = (
-                f'        <ul class="uc-index" aria-label="All {e(label)} use cases">\n'
-                f"          {links}\n"
-                "        </ul>\n"
-            )
-        more = ""
-        if rest:
-            more = (
-                f'<button type="button" class="uc-more" data-n="{len(items)}" '
-                f'aria-expanded="false">Show all {len(items)}</button>'
-            )
-        banner = ""
-        closing_note = ""
-        info = CATEGORY_NOTES.get(cat)
-        if info:
-            banner = (
-                '        <div class="uc-read-first" role="note">\n'
-                f"          <p>{info['read_first']}</p>\n"
-                f"          <p class=\"uc-own-accounts\">{e(info['own'])}</p>\n"
-                "        </div>\n"
-            )
-            closing_note = f'        <p class="{info["foot_class"]}">{e(info["foot"])}</p>\n'
-        sections.append(
-            f"""      <section class="uc-group" data-group="{slug}" aria-labelledby="g-{slug}">
-        <div class="uc-group-head">
-          <span class="section-kicker">{index:02d}</span>
-          <h2 id="g-{slug}">{e(label)}</h2>
-          <p>{e(blurb)}</p>
-        </div>
-{banner}        <ul class="uc-grid">
-          {cards}
-        </ul>
-{compact}        {more}
-{closing_note}      </section>"""
-        )
+    ld = collection_ld(
+        "SI use cases",
+        BASE + "/use-cases/",
+        desc,
+        featured,
+        [("Home", BASE + "/"), ("Use cases", BASE + "/use-cases/")],
+    )
+    ld["@graph"][1]["mainEntity"]["numberOfItems"] = n
+    cards = "\n          ".join(card(item, featured=True) for item in featured)
+    config = json.dumps(
+        {"legacy": LEGACY, "n": n, "page": SHOW_MORE, "mode": "hub"},
+        ensure_ascii=False,
+        separators=(",", ":"),
+    )
     # The single allowed "AI" bridge lives in this intro and nowhere else.
-    return head(title, desc, "/use-cases/", 1, ld, compact_ld=True) + f"""
+    return head(
+        title,
+        desc,
+        "/use-cases/",
+        1,
+        ld,
+        compact_ld=True,
+        body_attrs='data-uc="hub"',
+    ) + f"""
     <main id="top">
       <section class="uc-hero">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="../index.html">Home</a>
-          <span aria-hidden="true">/</span>
-          <span>Use cases</span>
-        </nav>
+{breadcrumb_html(1, [("Home", "../index.html"), ("Use cases", None)])}
         <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>{n} practical examples</p>
         <h1>What SI can take off your plate</h1>
         <p class="lead">SI (Super Intelligence, formerly called AI) can take on a lot of the repetitive work in almost any business or organization: reading, sorting, matching, drafting, checking and summarizing. Each entry describes one practical job, what it needs to get started, and where a person stays in charge. Anything that sends, pays, orders or posts always waits for your approval.</p>
@@ -920,47 +788,290 @@ def library_page(entries: list) -> str:
           <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           <input id="uc-q" type="search" placeholder="Search, e.g. invoices, schedule, Gmail" autocomplete="off" />
         </div>
-        <div class="uc-pills" role="group" aria-label="Filter by category">
-          {chr(10) + '          '.join(pills)}
-        </div>
-        <p class="uc-count" id="uc-count" role="status" aria-live="polite">Showing {len(visible)} of {n} use cases</p>
-        <button type="button" class="uc-more uc-show-all" id="uc-show-all">Show all {n} use cases</button>
+        <p class="uc-tile-legend">Industry</p>
+        {industry_tiles(entries)}
+        {more_filters(entries)}
+        <p class="uc-count" id="uc-count" role="status" aria-live="polite">Showing {len(featured)} of {n} use cases</p>
+        <button type="button" class="uc-clear" id="uc-clear" hidden>Clear all</button>
       </section>
-{chr(10).join(sections)}
-      <p class="uc-empty" id="uc-empty" hidden>No use case matches that search. Try a broader word, or <a class="text-link" href="{CAL}" target="_blank" rel="noreferrer">tell me what you need</a> on a free call.</p>
 
-      <section class="section closing-card uc-closing">
-        <div class="contact-panel">
-          <p class="section-kicker">Don’t see yours?</p>
-          <h2>Bring the task that keeps eating your week</h2>
-          <p class="section-intro">If it is repetitive, rule-based, and lives in email, spreadsheets, a store, or a CRM, there is a good chance it can be drafted by SI and checked by you. Book a free 30-minute call and we will look at it together.</p>
-          <div class="actions"><a class="button primary" href="{CAL}" target="_blank" rel="noreferrer">{CTA}</a></div>
+      <section class="uc-group" aria-labelledby="featured-h">
+        <div class="uc-group-head">
+          <span class="section-kicker">Featured</span>
+          <h2 id="featured-h">A dozen places to start</h2>
+          <p>Twelve examples from the library. Pick an industry above for the rest, or show more.</p>
         </div>
+        <ul class="uc-grid" id="uc-grid">
+          {cards}
+        </ul>
+        <button type="button" class="uc-more uc-show-all" id="uc-show-more">Show more</button>
       </section>
+      <p class="uc-empty" id="uc-empty" hidden>No use case matches that search. Try a broader word, or <a class="text-link" href="{CAL}" target="_blank" rel="noreferrer">tell me what you need</a> on a free call.</p>
+      <p class="uc-noscript-links"><a class="text-link" href="industry/">Browse by industry</a> · <a class="text-link" href="function/">Browse by function</a></p>
+
+      {closing_section()}
     </main>
-""" + foot(1) + SCRIPTS + """  <script src="/assets/use-cases-library.js" defer></script>
-""" + CLOUDFLARE_WEB_ANALYTICS + """</body>
-</html>
+    <script type="application/json" id="uc-config">{config}</script>
+""" + foot(1) + SCRIPTS + LIBRARY_JS + PAGE_END
+
+
+def dimension_index_page(kind: str, entries: list) -> str:
+    is_industry = kind == "industry"
+    catalog = INDUSTRIES if is_industry else FUNCTIONS
+    counts = industry_counts(entries) if is_industry else function_counts(entries)
+    title = f"SI use cases by {'industry' if is_industry else 'function'} | Yonatan Gemmi"
+    desc = (
+        "Browse the GemmiSI use-case library by industry."
+        if is_industry
+        else "Browse the GemmiSI use-case library by the kind of job: support, sales, billing, scheduling, and more."
+    )
+    h1 = "Browse by industry" if is_industry else "Browse by function"
+    canon = f"/use-cases/{kind}/"
+    listed = [{"slug": slug, "title": info["label"]} for slug, info in catalog.items() if counts[slug]]
+    ld_items = [
+        {
+            "@type": "ListItem",
+            "position": i + 1,
+            "url": f"{BASE}/use-cases/{kind}/{row['slug']}/",
+            "name": row["title"],
+        }
+        for i, row in enumerate(listed)
+    ]
+    ld = {
+        "@context": "https://schema.org",
+        "@graph": [
+            crumbs(
+                ("Home", BASE + "/"),
+                ("Use cases", BASE + "/use-cases/"),
+                ("Industries" if is_industry else "Functions", BASE + canon),
+            ),
+            {
+                "@type": "CollectionPage",
+                "name": h1,
+                "url": BASE + canon,
+                "description": desc,
+                "isPartOf": {"@type": "WebSite", "name": "Yonatan Gemmi", "url": BASE + "/"},
+                "mainEntity": {"@type": "ItemList", "numberOfItems": len(ld_items), "itemListElement": ld_items},
+            },
+        ],
+    }
+    cards = []
+    for slug, info in catalog.items():
+        n = counts[slug]
+        if not n:
+            continue
+        cards.append(
+            f'<li class="uc-card"><a href="/use-cases/{kind}/{slug}/">'
+            f'<span class="uc-card-cat">{n}</span>'
+            f'<h3>{e(info["label"])}</h3>'
+            f'<p>{e(info["blurb"])}</p>'
+            f'<span class="uc-card-more">View use cases <span aria-hidden="true">→</span></span>'
+            f"</a></li>"
+        )
+    crumb_label = "Industries" if is_industry else "Functions"
+    return head(title, desc, canon, 2, ld, compact_ld=True) + f"""
+    <main id="top">
+      <section class="uc-hero">
+{breadcrumb_html(2, [("Home", "../../index.html"), ("Use cases", "../index.html"), (crumb_label, None)])}
+        <h1>{e(h1)}</h1>
+        <p class="lead">{e(desc)}</p>
+      </section>
+      <ul class="uc-grid">
+          {chr(10) + "          ".join(cards)}
+      </ul>
+      {closing_section()}
+    </main>
+""" + foot(2) + SCRIPTS + PAGE_END
+
+
+def industry_landing(slug: str, entries: list) -> str:
+    info = industry_info(slug)
+    dedicated_items = dedicated(entries, slug)
+    also = cross_tagged(entries, slug)
+    all_items = dedicated_items + also
+    if not all_items:
+        raise SystemExit(f"Refusing empty industry landing {slug}")
+    lazy = slug == "any-business"
+    visible = dedicated_items[:ANY_VISIBLE] if lazy else dedicated_items
+    rest = dedicated_items[ANY_VISIBLE:] if lazy else []
+    title = info["seo_title"]
+    desc = info["meta"]
+    canon = f"/use-cases/industry/{slug}/"
+    ld = collection_ld(
+        info["seo_h1"],
+        BASE + canon,
+        desc,
+        all_items,
+        [
+            ("Home", BASE + "/"),
+            ("Use cases", BASE + "/use-cases/"),
+            (info["label"], BASE + canon),
+        ],
+    )
+    banner = read_first_banner(slug)
+    cards = "\n          ".join(card(item) for item in visible)
+    compact = ""
+    more = ""
+    if rest:
+        links = "\n          ".join(compact_link(item) for item in rest)
+        compact = (
+            f'        <ul class="uc-index" aria-label="All {e(info["label"])} use cases">\n'
+            f"          {links}\n"
+            "        </ul>\n"
+        )
+        more = (
+            f'<button type="button" class="uc-more" id="uc-show-more">Show more</button>'
+        )
+    also_html = ""
+    if also:
+        also_cards = "\n          ".join(
+            card(item, extra_cls="uc-also", note="A general illustration, not written for this industry.")
+            for item in also
+        )
+        also_html = f"""      <section class="uc-group uc-also-used" aria-labelledby="also-h">
+        <div class="uc-group-head">
+          <h2 id="also-h">Also used in this kind of business</h2>
+          <p>{e(ALSO_USED_NOTE)}</p>
+        </div>
+        <ul class="uc-grid">
+          {also_cards}
+        </ul>
+      </section>
 """
+    foot_note = ""
+    if info.get("regulated"):
+        foot_note = f'      <p class="uc-cat-foot">{e(info["foot"])}</p>\n'
+    body = f'data-uc="industry" data-uc-slug="{slug}"' + (' data-uc-lazy="1"' if lazy else "")
+    config = json.dumps(
+        {"n": len(dedicated_items), "page": SHOW_MORE, "mode": "industry"},
+        ensure_ascii=False,
+        separators=(",", ":"),
+    )
+    config_html = f'    <script type="application/json" id="uc-config">{config}</script>\n' if lazy else ""
+    return head(title, desc, canon, 3, ld, compact_ld=True, body_attrs=body) + f"""
+    <main id="top">
+      <section class="uc-hero">
+{breadcrumb_html(3, [("Home", "../../../index.html"), ("Use cases", "../../index.html"), (info["label"], None)])}
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>{len(all_items)} use cases</p>
+        <h1>{e(info["seo_h1"])}</h1>
+        <p class="lead">{e(info["blurb"])}</p>
+      </section>
+{banner}      <section class="uc-tools" aria-label="Filter this industry">
+        <form class="uc-search" action="/use-cases/" method="get">
+          <label for="uc-q" class="visually-hidden">Search use cases</label>
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <input type="hidden" name="industry" value="{e(slug)}" />
+          <input id="uc-q" name="q" type="search" placeholder="Search this library" autocomplete="off" />
+        </form>
+        {more_filters(entries, industry=slug)}
+      </section>
+      <section class="uc-group" aria-labelledby="list-h">
+        <h2 id="list-h" class="visually-hidden">{e(info["label"])} use cases</h2>
+        <ul class="uc-grid" id="uc-grid">
+          {cards}
+        </ul>
+{compact}        {more}
+      </section>
+{also_html}{foot_note}      {closing_section()}
+    </main>
+{config_html}""" + foot(3) + SCRIPTS + (LIBRARY_JS if lazy else "") + PAGE_END
+
+
+def function_landing(slug: str, entries: list) -> str:
+    info = function_info(slug)
+    items = matching_function(entries, slug)
+    if not items:
+        raise SystemExit(f"Refusing empty function landing {slug}")
+    title = info["seo_title"]
+    desc = info["meta"]
+    canon = f"/use-cases/function/{slug}/"
+    ld = collection_ld(
+        info["seo_h1"],
+        BASE + canon,
+        desc,
+        items,
+        [
+            ("Home", BASE + "/"),
+            ("Use cases", BASE + "/use-cases/"),
+            (info["label"], BASE + canon),
+        ],
+    )
+    cards = []
+    for item in items:
+        note = dedicated_note(item)
+        extra = ""
+        if note:
+            extra = note
+        cards.append(card(item, note=extra or ""))
+    card_html = "\n          ".join(cards)
+    return head(
+        title,
+        desc,
+        canon,
+        3,
+        ld,
+        compact_ld=True,
+        body_attrs=f'data-uc="function" data-uc-slug="{slug}"',
+    ) + f"""
+    <main id="top">
+      <section class="uc-hero">
+{breadcrumb_html(3, [("Home", "../../../index.html"), ("Use cases", "../../index.html"), (info["label"], None)])}
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>{len(items)} use cases</p>
+        <h1>{e(info["seo_h1"])}</h1>
+        <p class="lead">{e(info["blurb"])}</p>
+      </section>
+      <section class="uc-tools" aria-label="Combine with an industry">
+        <p class="uc-tile-legend">Narrow by industry</p>
+        {industry_tiles(entries, extra_query=f"function={slug}")}
+      </section>
+      <section class="uc-group" aria-labelledby="list-h">
+        <h2 id="list-h" class="visually-hidden">{e(info["label"])} use cases</h2>
+        <ul class="uc-grid">
+          {card_html}
+        </ul>
+      </section>
+      {closing_section()}
+    </main>
+""" + foot(3) + SCRIPTS + PAGE_END
+
+
+def related_entries(item: dict, entries: list, cap: int = 3) -> list:
+    self_slug = item["slug"]
+    ind = set(item["industries"])
+    fn = set(item["functions"])
+    primary_i = primary_industry(item)
+    primary_f = primary_function(item)
+
+    def score(other: dict) -> tuple:
+        shared_i = len(ind & set(other["industries"]))
+        shared_f = len(fn & set(other["functions"]))
+        return (
+            1 if primary_industry(other) == primary_i else 0,
+            shared_i,
+            1 if primary_function(other) == primary_f else 0,
+            shared_f,
+        )
+
+    others = [other for other in entries if other["slug"] != self_slug]
+    others.sort(key=score, reverse=True)
+    return others[:cap]
 
 
 def detail_page(item: dict, entries: list) -> str:
     n = len(entries)
-    label, slug, _blurb = SHORT[item["category"]]
+    ind = primary_industry(item)
+    info = industry_info(ind)
     url = f"/use-cases/{item['slug']}/"
     title = f"{item['title']} | SI use case | Yonatan Gemmi"
     desc = item["summary"]
+    trail = [("Home", BASE + "/"), ("Use cases", BASE + "/use-cases/")]
+    if ind != "any-business":
+        trail.append((info["label"], BASE + f"/use-cases/industry/{ind}/"))
+    trail.append((item["title"], BASE + url))
     ld = {
         "@context": "https://schema.org",
         "@graph": [
-            {
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                    {"@type": "ListItem", "position": 1, "name": "Home", "item": BASE + "/"},
-                    {"@type": "ListItem", "position": 2, "name": "Use cases", "item": BASE + "/use-cases/"},
-                    {"@type": "ListItem", "position": 3, "name": item["title"], "item": BASE + url},
-                ],
-            },
+            crumbs(*trail),
             {
                 "@type": "WebPage",
                 "name": item["title"],
@@ -971,10 +1082,8 @@ def detail_page(item: dict, entries: list) -> str:
             },
         ],
     }
-    same = [other for other in entries if other["category"] == item["category"] and other["slug"] != item["slug"]]
-    rest = [other for other in entries if other["category"] != item["category"]]
-    related = (same + rest)[:3]
-    related_html = "\n          ".join(card(other, f"../{other['slug']}/") for other in related)
+    related = related_entries(item, entries)
+    related_html = "\n          ".join(card(other) for other in related)
     checks = "\n            ".join(f"<li>{e(line)}</li>" for line in item["human_checks"])
     examples = "\n            ".join(
         f'<li class="uc-ex"><span class="uc-ex-type">{e(ex["business_type"])}</span><p>{e(ex["scenario"])}</p></li>'
@@ -984,25 +1093,28 @@ def detail_page(item: dict, entries: list) -> str:
     if (item.get("caution") or "").strip():
         caution = f'<p class="uc-caution" role="note"><strong>Worth knowing:</strong> {e(item["caution"])}</p>'
     legal_note = ""
-    info = CATEGORY_NOTES.get(item["category"])
-    if info:
+    if info.get("regulated"):
         legal_note = f'<p class="uc-read-first" role="note">{e(info["short"])}</p>\n          '
     tools = "".join(f'<span class="tag green">{e(tool)}</span>' for tool in item["tools_examples"])
     graphic = motif_html(item)
+    crumb_items = [("Home", "../../index.html"), ("Use cases", "../index.html")]
+    if ind != "any-business":
+        crumb_items.append((info["label"], f"../industry/{ind}/"))
+    crumb_items.append((item["title"], None))
+    tags = []
+    if ind != "any-business":
+        tags.append(f'<a href="../industry/{e(ind)}/">{e(info["label"])}</a>')
+    for fn in item["functions"]:
+        tags.append(f'<a href="../function/{e(fn)}/">{e(function_info(fn)["label"])}</a>')
+    tag_html = ' <span aria-hidden="true">·</span> '.join(tags)
     return head(title, desc, url, 2, ld) + f"""
     <main id="top">
       <article class="uc-detail">
         <header class="uc-detail-head">
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="../../index.html">Home</a>
-            <span aria-hidden="true">/</span>
-            <a href="../index.html">Use cases</a>
-            <span aria-hidden="true">/</span>
-            <span>{e(item['title'])}</span>
-          </nav>
+{breadcrumb_html(2, crumb_items)}
           <div class="uc-detail-intro">
             <div class="uc-detail-copy">
-              <p class="uc-card-cat"><a href="../index.html#g-{slug}">{e(label)}</a></p>
+              <p class="uc-card-cat">{tag_html}</p>
               <h1>{e(item['title'])}</h1>
               <p class="lead">{e(item['summary'])}</p>
               {legal_note}{caution}
@@ -1113,13 +1225,10 @@ def detail_page(item: dict, entries: list) -> str:
       });
     })();
   </script>
-""" + CLOUDFLARE_WEB_ANALYTICS + """</body>
-</html>
-"""
+""" + PAGE_END
 
 
 def url_block(loc: str, priority: str) -> str:
-    # Stamp the day the library is regenerated so lastmod does not stay frozen.
     lastmod = date.today().isoformat()
     return (
         "  <url>\n"
@@ -1133,10 +1242,6 @@ def url_block(loc: str, priority: str) -> str:
 
 def update_sitemap(entries: list) -> None:
     text = SITEMAP.read_text(encoding="utf-8")
-    wanted = {f"{BASE}/use-cases/"} | {f"{BASE}/use-cases/{item['slug']}/" for item in entries}
-    existing = set(re.findall(r"<loc>(https://[^<]*use-cases/[^<]*)</loc>", text))
-    if existing == wanted:
-        return
     text = re.sub(
         r"\n  <url>\s*<loc>https://[^<]*/use-cases/.*?</url>",
         "",
@@ -1144,6 +1249,14 @@ def update_sitemap(entries: list) -> None:
         flags=re.S,
     )
     blocks = [url_block(f"{BASE}/use-cases/", "0.8")]
+    blocks.append(url_block(f"{BASE}/use-cases/industry/", "0.7"))
+    blocks.append(url_block(f"{BASE}/use-cases/function/", "0.7"))
+    for slug in INDUSTRIES:
+        if matching_industry(entries, slug):
+            blocks.append(url_block(f"{BASE}/use-cases/industry/{slug}/", "0.7"))
+    for slug in FUNCTIONS:
+        if matching_function(entries, slug):
+            blocks.append(url_block(f"{BASE}/use-cases/function/{slug}/", "0.7"))
     blocks.extend(url_block(f"{BASE}/use-cases/{item['slug']}/", "0.6") for item in entries)
     if "</urlset>" not in text:
         raise SystemExit("sitemap.xml is missing </urlset>")
@@ -1158,17 +1271,38 @@ def assert_wording(entries: list) -> None:
         raise SystemExit(f"Library intro must mention formerly called AI exactly once, found {ai_hits}")
     if "noindex" in library:
         raise SystemExit("Library page must be indexable")
-    if "Read this first." not in library:
-        raise SystemExit("A category section is missing the full disclaimer")
-    for cat, info in CATEGORY_NOTES.items():
-        if e(info["short"]) not in library:
-            raise SystemExit(f"{cat} cards are missing the short disclaimer")
-        if info["own"] not in library:
-            raise SystemExit(f"{cat} section is missing the own-equipment line")
-        for needle in info.get("library_needles") or ():
-            if needle not in library:
-                raise SystemExit(f"{cat} section is missing expected disclaimer text")
+    if "Read this first." in library:
+        raise SystemExit("Hub must stay a light page: regulated banners belong on industry landings")
+    size = len(library.encode("utf-8"))
+    if size < HUB_MIN_BYTES or size > HUB_MAX_BYTES:
+        raise SystemExit(f"Hub HTML must be {HUB_MIN_BYTES}-{HUB_MAX_BYTES} bytes, found {size}")
+    if library.count('class="uc-card') < 12:
+        raise SystemExit("Hub must include about 12 featured cards")
+    if 'data-industry=' not in library or "More filters" not in library:
+        raise SystemExit("Hub needs industry tiles and a More filters control")
+    if "data-hay=" in library:
+        raise SystemExit("Library page must not inline search haystacks")
+    if 'id="uc-show-more"' not in library:
+        raise SystemExit("Library page needs a show-more control")
+    if "cloudflareinsights.com/beacon.min.js" not in library:
+        raise SystemExit("Hub is missing Cloudflare Web Analytics")
+    index_path = OUT / "search.json"
+    if not index_path.exists():
+        raise SystemExit("use-cases/search.json is missing")
+    payload = json.loads(index_path.read_text(encoding="utf-8"))
+    records = payload["items"]
+    if len(records) != len(entries):
+        raise SystemExit(f"search.json has {len(records)} items, expected {len(entries)}")
+    record_slugs = {row["s"] for row in records}
+    sitemap = SITEMAP.read_text(encoding="utf-8")
     for item in entries:
+        if item["slug"] not in record_slugs:
+            raise SystemExit(f"search.json is missing {item['slug']}")
+        landing = OUT / "industry" / primary_industry(item) / "index.html"
+        if not landing.exists() or f"/use-cases/{item['slug']}/" not in landing.read_text(encoding="utf-8"):
+            raise SystemExit(f"Primary industry landing is missing a crawlable link for {item['slug']}")
+        if f"{BASE}/use-cases/{item['slug']}/" not in sitemap:
+            raise SystemExit(f"sitemap is missing {item['slug']}")
         page = (OUT / item["slug"] / "index.html").read_text(encoding="utf-8")
         if re.search(r"\bAI\b", page) or "noindex" in page or "Nous" in page or "Brandgate" in page:
             raise SystemExit(f"Wording check failed for {item['slug']}")
@@ -1177,36 +1311,42 @@ def assert_wording(entries: list) -> None:
         graphic = page.split('class="uc-motif', 1)[1].split("</div>\n          </div>", 1)[0]
         if "<text" in graphic:
             raise SystemExit(f"{item['slug']} motif must not contain text")
-        info = CATEGORY_NOTES.get(item["category"])
-        if info:
+        ind = primary_industry(item)
+        info = industry_info(ind)
+        if info.get("regulated"):
             if e(info["short"]) not in page:
-                raise SystemExit(f"{item['slug']} is missing the short category disclaimer")
-            if info["own"] not in page:
+                raise SystemExit(f"{item['slug']} is missing the short industry disclaimer")
+            if OWN_ACCOUNTS not in page:
                 raise SystemExit(f"{item['slug']} is missing the own-equipment setup line")
-        if item["category"] == "Medical and healthcare practices":
-            if re.search(r"diagnose", page, re.I):
-                raise SystemExit(f"{item['slug']} page must not use the word diagnose")
-    if "data-hay=" in library:
-        raise SystemExit("Library page must not inline search haystacks")
-    if 'id="uc-show-all"' not in library:
-        raise SystemExit("Library page needs a show-all control")
-    index_path = OUT / "search.json"
-    if not index_path.exists():
-        raise SystemExit("use-cases/search.json is missing")
-    payload = json.loads(index_path.read_text(encoding="utf-8"))
-    records = payload["items"] if isinstance(payload, dict) else payload
-    if len(records) != len(entries):
-        raise SystemExit(f"search.json has {len(records)} items, expected {len(entries)}")
-    record_slugs = {row["s"] for row in records}
-    for item in entries:
-        if item["slug"] not in record_slugs:
-            raise SystemExit(f"search.json is missing {item['slug']}")
-        if f'{item["slug"]}/' not in library:
-            raise SystemExit(f"Library is missing a crawlable link for {item['slug']}")
+        if ind == "medical" and re.search(r"diagnose", page, re.I):
+            raise SystemExit(f"{item['slug']} page must not use the word diagnose")
+        if ind == "any-business" and f"/use-cases/industry/{ind}/" in page.split("breadcrumb", 1)[-1].split("</nav>", 1)[0]:
+            raise SystemExit(f"{item['slug']} breadcrumb should skip the Any business crumb")
+    for slug, info in INDUSTRIES.items():
+        path = OUT / "industry" / slug / "index.html"
+        if not matching_industry(entries, slug):
+            if path.exists():
+                raise SystemExit(f"Empty industry landing should not exist: {slug}")
+            continue
+        html_page = path.read_text(encoding="utf-8")
+        if info.get("regulated"):
+            if "Read this first." not in html_page:
+                raise SystemExit(f"{slug} landing is missing the full disclaimer")
+            if OWN_ACCOUNTS not in html_page:
+                raise SystemExit(f"{slug} landing is missing the own-equipment line")
+            for needle in info.get("needles") or ():
+                if needle not in html_page:
+                    raise SystemExit(f"{slug} landing is missing expected disclaimer text")
+            if cross_tagged(entries, slug) and "Also used in this kind of business" not in html_page:
+                raise SystemExit(f"{slug} landing needs the Also used section")
+        if f"{BASE}/use-cases/industry/{slug}/" not in sitemap:
+            raise SystemExit(f"sitemap is missing industry/{slug}")
+    for slug in FUNCTIONS:
+        if matching_function(entries, slug) and f"{BASE}/use-cases/function/{slug}/" not in sitemap:
+            raise SystemExit(f"sitemap is missing function/{slug}")
 
 
-def main() -> None:
-    entries = load()
+def write_tree(entries: list) -> None:
     if OUT.exists():
         for path in OUT.rglob("*"):
             if path.is_file():
@@ -1217,18 +1357,39 @@ def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     write_search_index(entries)
     (OUT / "index.html").write_text(library_page(entries), encoding="utf-8")
+    (OUT / "industry").mkdir(parents=True, exist_ok=True)
+    (OUT / "function").mkdir(parents=True, exist_ok=True)
+    (OUT / "industry" / "index.html").write_text(dimension_index_page("industry", entries), encoding="utf-8")
+    (OUT / "function" / "index.html").write_text(dimension_index_page("function", entries), encoding="utf-8")
+    for slug in INDUSTRIES:
+        if matching_industry(entries, slug):
+            folder = OUT / "industry" / slug
+            folder.mkdir(parents=True, exist_ok=True)
+            (folder / "index.html").write_text(industry_landing(slug, entries), encoding="utf-8")
+    for slug in FUNCTIONS:
+        if matching_function(entries, slug):
+            folder = OUT / "function" / slug
+            folder.mkdir(parents=True, exist_ok=True)
+            (folder / "index.html").write_text(function_landing(slug, entries), encoding="utf-8")
     for item in entries:
         folder = OUT / item["slug"]
         folder.mkdir(parents=True, exist_ok=True)
         (folder / "index.html").write_text(detail_page(item, entries), encoding="utf-8")
+
+
+def main() -> None:
+    entries = load()
+    write_tree(entries)
     update_sitemap(entries)
     assert_wording(entries)
     sizes = [motif_bytes(item) for item in entries]
     motifs = Counter(pick_motif(item) for item in entries)
     industries = Counter(pick_industry(item)[0] for item in entries)
+    hub = len((OUT / "index.html").read_bytes())
     print(f"built {len(entries)} use cases")
+    print(f"hub bytes={hub}")
     print("motifs " + " ".join(f"{name}={motifs[name]}" for name in sorted(motifs)))
-    print("industries " + " ".join(f"{name}={industries[name]}" for name in sorted(industries)))
+    print("motif-industries " + " ".join(f"{name}={industries[name]}" for name in sorted(industries)))
     print(
         "graphic bytes min={0} median={1} max={2}".format(
             min(sizes), sorted(sizes)[len(sizes) // 2], max(sizes)

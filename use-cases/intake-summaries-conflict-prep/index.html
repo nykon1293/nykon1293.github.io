@@ -26,8 +26,8 @@
   <link rel="sitemap" type="application/xml" title="Sitemap" href="https://gemmisi.com/sitemap.xml" />
   <link rel="preload" href="/assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
   <style>@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 400 700; font-display: swap; src: url("/assets/fonts/ibm-plex-sans-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; } @font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 500 700; font-display: optional; src: url("/assets/fonts/jetbrains-mono-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }</style>
-  <link rel="stylesheet" href="../../styles.css?v=perf-1" />
-  <link rel="stylesheet" href="../../assets/use-cases.css?v=perf-1" />
+  <link rel="stylesheet" href="../../styles.css?v=browse-1" />
+  <link rel="stylesheet" href="../../assets/use-cases.css?v=browse-1" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" href="/assets/brand/gemmisi-icon.svg" type="image/svg+xml" />
   <link rel="icon" href="/assets/brand/gemmisi-icon-32.png" type="image/png" sizes="32x32" />
@@ -56,6 +56,12 @@
         {
           "@type": "ListItem",
           "position": 3,
+          "name": "Legal",
+          "item": "https://gemmisi.com/use-cases/industry/legal/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
           "name": "Intake summaries and conflict-check prep",
           "item": "https://gemmisi.com/use-cases/intake-summaries-conflict-prep/"
         }
@@ -116,16 +122,18 @@
     <main id="top">
       <article class="uc-detail">
         <header class="uc-detail-head">
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="../../index.html">Home</a>
-            <span aria-hidden="true">/</span>
-            <a href="../index.html">Use cases</a>
-            <span aria-hidden="true">/</span>
-            <span>Intake summaries and conflict-check prep</span>
-          </nav>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../../index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="../index.html">Use cases</a>
+          <span aria-hidden="true">/</span>
+          <a href="../industry/legal/">Legal</a>
+          <span aria-hidden="true">/</span>
+          <span>Intake summaries and conflict-check prep</span>
+        </nav>
           <div class="uc-detail-intro">
             <div class="uc-detail-copy">
-              <p class="uc-card-cat"><a href="../index.html#g-legal-practices">Legal practices</a></p>
+              <p class="uc-card-cat"><a href="../industry/legal/">Legal</a> <span aria-hidden="true">·</span> <a href="../function/customer-support/">Customer support</a> <span aria-hidden="true">·</span> <a href="../function/research-documents/">Research &amp; documents</a></p>
               <h1>Intake summaries and conflict-check prep</h1>
               <p class="lead">SI turns an intake form or email into a one-page summary and a name list formatted for the firm&#x27;s existing conflict-check process.</p>
               <p class="uc-read-first" role="note">Admin and operations help for solo attorneys and small firms. SI drafts and organizes; attorneys review and decide. No legal advice, no filing-ready work product, and client confidentiality comes first.</p>
@@ -204,29 +212,29 @@
         <section class="uc-related" aria-labelledby="related">
           <h2 id="related">Related use cases</h2>
           <ul class="uc-grid">
-          <li class="uc-card" data-cat="legal-practices" data-slug="after-hours-inquiry-triage">
-            <a href="../after-hours-inquiry-triage/">
-              <span class="uc-card-cat">Legal practices</span>
+          <li class="uc-card" data-slug="after-hours-inquiry-triage" data-i="legal" data-f="customer-support">
+            <a href="/use-cases/after-hours-inquiry-triage/">
+              <span class="uc-card-cat">Legal</span>
               <h3>After-hours inquiry triage with clear &quot;not legal advice&quot; handling</h3>
               <p>Overnight calls and web forms are sorted into queues, with deadlines flagged and a short acknowledgment drafted from the firm&#x27;s approved wording.</p>
               <p class="uc-card-note">Admin and operations help for solo attorneys and small firms. SI drafts and organizes; attorneys review and decide. No legal advice, no filing-ready work product, and client confidentiality comes first.</p>
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
             </a>
           </li>
-          <li class="uc-card" data-cat="legal-practices" data-slug="new-client-onboarding-checklists">
-            <a href="../new-client-onboarding-checklists/">
-              <span class="uc-card-cat">Legal practices</span>
+          <li class="uc-card" data-slug="new-client-onboarding-checklists" data-i="legal" data-f="customer-support">
+            <a href="/use-cases/new-client-onboarding-checklists/">
+              <span class="uc-card-cat">Legal</span>
               <h3>New-client onboarding checklists</h3>
               <p>Each new matter gets a checklist from the firm&#x27;s own template, with open steps nudged and the welcome email drafted from approved wording.</p>
               <p class="uc-card-note">Admin and operations help for solo attorneys and small firms. SI drafts and organizes; attorneys review and decide. No legal advice, no filing-ready work product, and client confidentiality comes first.</p>
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
             </a>
           </li>
-          <li class="uc-card" data-cat="legal-practices" data-slug="engagement-letter-template-assembly">
-            <a href="../engagement-letter-template-assembly/">
-              <span class="uc-card-cat">Legal practices</span>
-              <h3>Engagement-letter template assembly for attorney review</h3>
-              <p>SI fills the firm&#x27;s approved engagement-letter template from intake data, highlights every field it filled, and lists blanks or mismatches.</p>
+          <li class="uc-card" data-slug="client-status-updates" data-i="legal" data-f="customer-support">
+            <a href="/use-cases/client-status-updates/">
+              <span class="uc-card-cat">Legal</span>
+              <h3>Client status updates, attorney-approved</h3>
+              <p>SI drafts a plain update from the attorney&#x27;s own notes and the matter task list, and queues it for the attorney to edit and send.</p>
               <p class="uc-card-note">Admin and operations help for solo attorneys and small firms. SI drafts and organizes; attorneys review and decide. No legal advice, no filing-ready work product, and client confidentiality comes first.</p>
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
             </a>

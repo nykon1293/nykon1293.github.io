@@ -26,8 +26,8 @@
   <link rel="sitemap" type="application/xml" title="Sitemap" href="https://gemmisi.com/sitemap.xml" />
   <link rel="preload" href="/assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
   <style>@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 400 700; font-display: swap; src: url("/assets/fonts/ibm-plex-sans-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; } @font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 500 700; font-display: optional; src: url("/assets/fonts/jetbrains-mono-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }</style>
-  <link rel="stylesheet" href="../../styles.css?v=perf-1" />
-  <link rel="stylesheet" href="../../assets/use-cases.css?v=perf-1" />
+  <link rel="stylesheet" href="../../styles.css?v=browse-1" />
+  <link rel="stylesheet" href="../../assets/use-cases.css?v=browse-1" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" href="/assets/brand/gemmisi-icon.svg" type="image/svg+xml" />
   <link rel="icon" href="/assets/brand/gemmisi-icon-32.png" type="image/png" sizes="32x32" />
@@ -56,6 +56,12 @@
         {
           "@type": "ListItem",
           "position": 3,
+          "name": "Local & seasonal",
+          "item": "https://gemmisi.com/use-cases/industry/local-seasonal/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
           "name": "Google Business Profile upkeep",
           "item": "https://gemmisi.com/use-cases/google-business-profile-upkeep/"
         }
@@ -116,16 +122,18 @@
     <main id="top">
       <article class="uc-detail">
         <header class="uc-detail-head">
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="../../index.html">Home</a>
-            <span aria-hidden="true">/</span>
-            <a href="../index.html">Use cases</a>
-            <span aria-hidden="true">/</span>
-            <span>Google Business Profile upkeep</span>
-          </nav>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../../index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="../index.html">Use cases</a>
+          <span aria-hidden="true">/</span>
+          <a href="../industry/local-seasonal/">Local &amp; seasonal</a>
+          <span aria-hidden="true">/</span>
+          <span>Google Business Profile upkeep</span>
+        </nav>
           <div class="uc-detail-intro">
             <div class="uc-detail-copy">
-              <p class="uc-card-cat"><a href="../index.html#g-local-seasonal">Local &amp; seasonal</a></p>
+              <p class="uc-card-cat"><a href="../industry/local-seasonal/">Local &amp; seasonal</a> <span aria-hidden="true">·</span> <a href="../function/content-marketing/">Content &amp; marketing</a></p>
               <h1>Google Business Profile upkeep</h1>
               <p class="lead">SI checks your Google Business Profile against the hours, services, and details you actually use, and drafts updates and replies for you to post.</p>
               
@@ -202,27 +210,27 @@
         <section class="uc-related" aria-labelledby="related">
           <h2 id="related">Related use cases</h2>
           <ul class="uc-grid">
-          <li class="uc-card" data-cat="local-seasonal" data-slug="bilingual-english-spanish-replies">
-            <a href="../bilingual-english-spanish-replies/">
+          <li class="uc-card" data-slug="bilingual-english-spanish-replies" data-i="local-seasonal,home-services" data-f="customer-support">
+            <a href="/use-cases/bilingual-english-spanish-replies/">
               <span class="uc-card-cat">Local &amp; seasonal</span>
               <h3>Replying to customers in English and Spanish</h3>
               <p>SI drafts a reply in the language the customer wrote in, English or Spanish, and leaves it for someone who can read that language to approve.</p>
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
             </a>
           </li>
-          <li class="uc-card" data-cat="local-seasonal" data-slug="hurricane-season-readiness">
-            <a href="../hurricane-season-readiness/">
+          <li class="uc-card" data-slug="hurricane-season-readiness" data-i="local-seasonal,home-services" data-f="scheduling">
+            <a href="/use-cases/hurricane-season-readiness/">
               <span class="uc-card-cat">Local &amp; seasonal</span>
               <h3>Hurricane-season readiness and continuity plan</h3>
               <p>Before a storm, SI turns your own records into a checklist: what to protect, who to notify, and which files to copy, for you to act on.</p>
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
             </a>
           </li>
-          <li class="uc-card" data-cat="support-inbox" data-slug="inbox-triage">
-            <a href="../inbox-triage/">
-              <span class="uc-card-cat">Support &amp; inbox</span>
-              <h3>Morning inbox triage into labeled queues</h3>
-              <p>Each morning SI sorts the shared inbox into clear queues, flags what is urgent, and leaves draft replies for a person to review.</p>
+          <li class="uc-card" data-slug="after-hours-call-coverage" data-i="any-business,home-services,medical,local-seasonal" data-f="customer-support">
+            <a href="/use-cases/after-hours-call-coverage/">
+              <span class="uc-card-cat">Customer support</span>
+              <h3>After-hours and busy-time phone coverage</h3>
+              <p>A voice assistant answers calls you would miss, handles common questions, takes detailed messages or requests, and sends staff a summary.</p>
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
             </a>
           </li>
