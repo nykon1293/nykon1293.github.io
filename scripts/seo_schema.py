@@ -264,7 +264,7 @@ def service_node(*, name: str, description: str, url: str) -> dict:
     }
 
 
-CSS_VERSION = "browse-1"
+CSS_VERSION = "hub-filters-1"
 
 
 def graph_payload(nodes: list[dict]) -> str:

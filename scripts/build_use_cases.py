@@ -655,7 +655,13 @@ def industry_tiles(entries: list, *, current: str | None = None, extra_query: st
     )
 
 
-def function_pills(entries: list, *, current: str | None = None, industry: str | None = None) -> str:
+def function_pills(
+    entries: list,
+    *,
+    current: str | None = None,
+    industry: str | None = None,
+    toggles: bool = False,
+) -> str:
     counts = function_counts(entries)
     pills = []
     for slug, info in FUNCTIONS.items():
@@ -667,21 +673,27 @@ def function_pills(entries: list, *, current: str | None = None, industry: str |
         else:
             href = f"/use-cases/function/{slug}/"
         active = " is-active" if current == slug else ""
+        toggle_attrs = ' role="button" aria-pressed="false"' if toggles else ""
         pills.append(
-            f'<a class="uc-pill{active}" href="{href}" data-function="{slug}">'
+            f'<a class="uc-pill{active}" href="{href}" data-function="{slug}"{toggle_attrs}>'
             f'{e(info["label"])} <span>{n}</span></a>'
         )
     return "\n            ".join(pills)
 
 
-def more_filters(entries: list, *, industry: str | None = None, current_fn: str | None = None) -> str:
-    pills = function_pills(entries, current=current_fn, industry=industry)
-    return f"""        <details class="uc-filters-more" id="uc-more-filters">
-          <summary aria-expanded="false">More filters</summary>
-          <div class="uc-pills" id="uc-functions" role="group" aria-label="Filter by function">
-            {pills}
-          </div>
-        </details>"""
+def function_chip_row(
+    entries: list,
+    *,
+    industry: str | None = None,
+    current_fn: str | None = None,
+    toggles: bool = False,
+) -> str:
+    pills = function_pills(entries, current=current_fn, industry=industry, toggles=toggles)
+    return (
+        '<div class="uc-pills" id="uc-functions" role="group" aria-label="Filter by function">\n'
+        f"            {pills}\n"
+        "          </div>"
+    )
 
 
 def read_first_banner(industry: str) -> str:
@@ -753,7 +765,7 @@ def library_page(entries: list) -> str:
         [("Home", BASE + "/"), ("Use cases", BASE + "/use-cases/")],
     )
     ld["@graph"][1]["mainEntity"]["numberOfItems"] = n
-    cards = "\n          ".join(card(item, featured=True) for item in featured)
+    cards = "\n          ".join(card(item, featured=True, note="") for item in featured)
     config = json.dumps(
         {"legacy": LEGACY, "n": n, "page": SHOW_MORE, "mode": "hub"},
         ensure_ascii=False,
@@ -778,7 +790,6 @@ def library_page(entries: list) -> str:
         <p class="uc-note-intro">The examples show how the same job looks in different kinds of businesses. They are illustrations of what is possible, not reports of client results. Setup times are rough and depend on how clean your data and tools are.</p>
         <div class="actions">
           <a class="button primary" href="{CAL}" target="_blank" rel="noreferrer">{CTA}</a>
-          <a class="button ghost" href="#library">Browse the use cases</a>
         </div>
       </section>
 
@@ -788,9 +799,9 @@ def library_page(entries: list) -> str:
           <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           <input id="uc-q" type="search" placeholder="Search, e.g. invoices, schedule, Gmail" autocomplete="off" />
         </div>
+        {function_chip_row(entries, toggles=True)}
         <p class="uc-tile-legend">Industry</p>
         {industry_tiles(entries)}
-        {more_filters(entries)}
         <p class="uc-count" id="uc-count" role="status" aria-live="polite">Showing {len(featured)} of {n} use cases</p>
         <button type="button" class="uc-clear" id="uc-clear" hidden>Clear all</button>
       </section>
@@ -963,7 +974,7 @@ def industry_landing(slug: str, entries: list) -> str:
           <input type="hidden" name="industry" value="{e(slug)}" />
           <input id="uc-q" name="q" type="search" placeholder="Search this library" autocomplete="off" />
         </form>
-        {more_filters(entries, industry=slug)}
+        {function_chip_row(entries, industry=slug)}
       </section>
       <section class="uc-group" aria-labelledby="list-h">
         <h2 id="list-h" class="visually-hidden">{e(info["label"])} use cases</h2>
@@ -1278,14 +1289,20 @@ def assert_wording(entries: list) -> None:
         raise SystemExit(f"Hub HTML must be {HUB_MIN_BYTES}-{HUB_MAX_BYTES} bytes, found {size}")
     if library.count('class="uc-card') < 12:
         raise SystemExit("Hub must include about 12 featured cards")
-    if 'data-industry=' not in library or "More filters" not in library:
-        raise SystemExit("Hub needs industry tiles and a More filters control")
+    if "More filters" in library:
+        raise SystemExit("Hub must not hide function filters behind More filters")
+    if 'data-industry=' not in library or 'id="uc-functions"' not in library:
+        raise SystemExit("Hub needs industry tiles and visible function filter chips")
+    if "uc-card-note" in library:
+        raise SystemExit("Hub cards must not include regulated-industry disclaimer notes")
+    if "Browse the use cases" in library:
+        raise SystemExit("Hub hero must not include the Browse the use cases button")
+    if library.count("cloudflareinsights.com/beacon.min.js") != 1:
+        raise SystemExit("Hub must include exactly one Cloudflare Web Analytics beacon")
     if "data-hay=" in library:
         raise SystemExit("Library page must not inline search haystacks")
     if 'id="uc-show-more"' not in library:
         raise SystemExit("Library page needs a show-more control")
-    if "cloudflareinsights.com/beacon.min.js" not in library:
-        raise SystemExit("Hub is missing Cloudflare Web Analytics")
     index_path = OUT / "search.json"
     if not index_path.exists():
         raise SystemExit("use-cases/search.json is missing")
@@ -1306,6 +1323,8 @@ def assert_wording(entries: list) -> None:
         page = (OUT / item["slug"] / "index.html").read_text(encoding="utf-8")
         if re.search(r"\bAI\b", page) or "noindex" in page or "Nous" in page or "Brandgate" in page:
             raise SystemExit(f"Wording check failed for {item['slug']}")
+        if page.count("cloudflareinsights.com/beacon.min.js") != 1:
+            raise SystemExit(f"{item['slug']} must include exactly one Cloudflare beacon")
         if 'class="uc-motif' not in page or "aria-hidden" not in page:
             raise SystemExit(f"{item['slug']} is missing the decorative motif")
         graphic = page.split('class="uc-motif', 1)[1].split("</div>\n          </div>", 1)[0]
@@ -1329,6 +1348,8 @@ def assert_wording(entries: list) -> None:
                 raise SystemExit(f"Empty industry landing should not exist: {slug}")
             continue
         html_page = path.read_text(encoding="utf-8")
+        if html_page.count("cloudflareinsights.com/beacon.min.js") != 1:
+            raise SystemExit(f"{slug} landing must include exactly one Cloudflare beacon")
         if info.get("regulated"):
             if "Read this first." not in html_page:
                 raise SystemExit(f"{slug} landing is missing the full disclaimer")
@@ -1342,8 +1363,15 @@ def assert_wording(entries: list) -> None:
         if f"{BASE}/use-cases/industry/{slug}/" not in sitemap:
             raise SystemExit(f"sitemap is missing industry/{slug}")
     for slug in FUNCTIONS:
-        if matching_function(entries, slug) and f"{BASE}/use-cases/function/{slug}/" not in sitemap:
-            raise SystemExit(f"sitemap is missing function/{slug}")
+        path = OUT / "function" / slug / "index.html"
+        if matching_function(entries, slug):
+            if f"{BASE}/use-cases/function/{slug}/" not in sitemap:
+                raise SystemExit(f"sitemap is missing function/{slug}")
+            html_page = path.read_text(encoding="utf-8")
+            if html_page.count("cloudflareinsights.com/beacon.min.js") != 1:
+                raise SystemExit(f"function/{slug} landing must include exactly one Cloudflare beacon")
+        elif path.exists():
+            raise SystemExit(f"Empty function landing should not exist: {slug}")
 
 
 def write_tree(entries: list) -> None:

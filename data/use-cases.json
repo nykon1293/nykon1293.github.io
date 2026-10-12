@@ -6661,5 +6661,269 @@
     ],
     "effect": "The accountant gets ecommerce-specific reports in one place, instead of a folder of unlabeled exports.",
     "caution": "Tax: SI organizes reports and drafts notes; it does not give tax advice, decide nexus, or file returns. A qualified accountant or tax preparer makes those calls."
+  },
+  {
+    "slug": "seasonal-staffing-schedules",
+    "title": "Seasonal staffing schedule drafts",
+    "industries": [
+      "local-seasonal"
+    ],
+    "functions": [
+      "scheduling",
+      "hiring"
+    ],
+    "summary": "SI turns last season's roster, returning-staff notes, and this season's coverage rules into a draft schedule for peak weeks, for a manager to adjust.",
+    "problem": "Peak weeks need more people, different hours, and a mix of returning seasonal staff and new hires. Drafting next week's schedule from availability covers a normal week. It does not plan the extra shifts, holiday closures, and who is actually coming back this season.",
+    "what_si_does": "SI reads the last season's roster, this year's returning-staff notes, time-off, and the coverage rules you give it (roles per shift, days the shop is closed, max hours). It drafts a schedule for the weeks you name, lists shifts it could not fill, and flags people who worked last year but have not confirmed. It does not publish the schedule, text staff, or decide overtime.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Last season's roster or schedule export, a note on who is returning, coverage rules for the peak weeks, and the scheduling sheet or tool. Setup is often a few days before the season, then a refresh when hours change.",
+    "human_checks": [
+      "The manager reviews and publishes the schedule.",
+      "A person approves anything that sends, pays, orders, or posts.",
+      "Overtime, minors' hours, and other labor-rule exceptions are decided by a person."
+    ],
+    "examples": [
+      {
+        "business_type": "Ice cream shop",
+        "scenario": "Last summer's scoopers and this year's returning list produce a draft for opening week, with Friday nights still short a closer flagged for the owner."
+      },
+      {
+        "business_type": "Christmas tree lot",
+        "scenario": "Weekend coverage is drafted from last December's shifts and this year's confirmed crew, with Christmas Eve hours left for the manager to confirm."
+      },
+      {
+        "business_type": "Beach-rental outfitter",
+        "scenario": "Memorial Day through Labor Day weekends are drafted against the equipment-counter roles you listed, and anyone who has not confirmed a return is set aside."
+      }
+    ],
+    "copy_prompt": "Using last season's roster [file], this year's returning-staff notes [file], time-off [list], and these coverage rules [roles per shift, closures, max hours], draft a schedule for [weeks]. List unfilled shifts and people who have not confirmed. Do not publish the schedule or message staff. Pause and show me before sending, paying, ordering, posting, or changing anything.",
+    "tools_examples": [
+      "Google Sheets",
+      "When I Work",
+      "Homebase",
+      "7shifts",
+      "Google Forms"
+    ],
+    "effect": "Peak weeks start from a draft that uses last season's roster and this year's confirmations, and a person still publishes it.",
+    "caution": "Labor rules such as overtime, required breaks, and minors' hours stay with the manager. SI drafts; it does not decide compliance."
+  },
+  {
+    "slug": "holiday-hours-across-listings",
+    "title": "Holiday-hours updates across listings",
+    "industries": [
+      "local-seasonal"
+    ],
+    "functions": [
+      "content-marketing"
+    ],
+    "summary": "SI compares the holiday or season hours you actually run with each place those hours appear, and drafts the corrections for you to post.",
+    "problem": "Holiday and season hours live in too many places: Google, Apple Maps, Facebook, the website, and the reservation book. Google Business Profile upkeep checks one listing. It does not line up the same hours across every place customers look.",
+    "what_si_does": "SI takes the hours you treat as current for the dates you name and compares them with the copy you export or paste from each listing. It lists what is stale and drafts the corrected hours, a short closure note, and a checklist of places still not updated. It does not publish anything.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. The hours you want shown for the holiday or season, and a copy of each listing (Google, Apple, Facebook, website, reservation tool). Access stays with the person who posts. Setup is often a day, then a repeating check before each holiday.",
+    "human_checks": [
+      "A person confirms the real hours before anything is posted.",
+      "A person approves anything that sends, pays, orders, or posts.",
+      "SI does not invent reviews, ratings, or claims about rankings."
+    ],
+    "examples": [
+      {
+        "business_type": "Neighborhood restaurant",
+        "scenario": "Thanksgiving hours are closed on Google but still a normal dinner service on Facebook and the website. SI drafts the matching closure text for each place."
+      },
+      {
+        "business_type": "Farm stand",
+        "scenario": "Peak-season Saturday hours were extended in the reservation sheet and never copied to Apple Maps or the hours page."
+      },
+      {
+        "business_type": "Hair salon",
+        "scenario": "December 24 is a short day in the appointment book. SI lists Google, Instagram, and the booking site as still showing a full day, with drafted hours for each."
+      }
+    ],
+    "copy_prompt": "Here are the hours we actually run for [dates] [paste]. Compare them with these listing copies [Google, Apple, Facebook, website, reservation tool]. List what is stale and draft the corrected hours and a short note for each place. Do not invent reviews or ranking claims. Pause and show me before sending, paying, ordering, posting, or changing anything.",
+    "tools_examples": [
+      "Google Business Profile",
+      "Google Sheets",
+      "Facebook",
+      "OpenTable",
+      "WordPress"
+    ],
+    "effect": "Holiday and season hours are drafted once from the real calendar, and a person still posts each listing.",
+    "caution": null
+  },
+  {
+    "slug": "event-booking-waitlists",
+    "title": "Event and booking waitlists",
+    "industries": [
+      "local-seasonal"
+    ],
+    "functions": [
+      "scheduling",
+      "sales-follow-up"
+    ],
+    "summary": "When a class, tasting, or weekend slot opens, SI drafts an offer to the next people on your waitlist in the order you already set.",
+    "problem": "A cancellation leaves an empty seat while a list of people who asked for that class, tasting, or weekend sits in a notes app. Waitlist filling for cancellations is written for a medical practice. Event registration logistics is for seating and name tags. Neither is a local shop's booking waitlist.",
+    "what_si_does": "SI keeps the waitlist organized (who, which event or slot, how they asked to be reached). When you mark a seat open, it drafts an offer to the next people in the order you set, using only the facts you allow (date, time, what is included, how to confirm). It does not invent availability, prices, or discounts, and it does not send or book.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. The waitlist export or sheet, your written order for who is offered a seat, and the wording you already use. Permission is to read and draft, not to book, charge, or send. Setup is often a day or two.",
+    "human_checks": [
+      "A person confirms who is offered a seat and sends the message.",
+      "A person approves anything that sends, pays, orders, or posts.",
+      "SI does not charge a card, hold a deposit, or mark anyone booked."
+    ],
+    "examples": [
+      {
+        "business_type": "Cooking studio",
+        "scenario": "A Saturday tasting drops a guest. SI drafts an offer to the next names on that class waitlist, with the time and what is included from your notes."
+      },
+      {
+        "business_type": "U-pick farm",
+        "scenario": "A Sunday morning slot opens. The draft goes to the next household that asked for Sunday, in the order the farm already wrote down."
+      },
+      {
+        "business_type": "Holiday workshop shop",
+        "scenario": "A wreath-making evening has a cancellation. SI drafts a short offer with the remaining seats you named and leaves payment for the owner to take."
+      }
+    ],
+    "copy_prompt": "Here is the waitlist [file] and the order for who is offered a seat [paste]. A seat opened for [event] on [date and time]. Draft an offer to the next eligible people in that order using only these facts [paste]. Do not invent prices, remaining seats, or discounts. Do not book, charge, or send. Pause and show me before sending, paying, ordering, posting, or changing anything.",
+    "tools_examples": [
+      "Google Sheets",
+      "Square Appointments",
+      "FareHarbor",
+      "Resy",
+      "Gmail"
+    ],
+    "effect": "An open seat comes with a draft offer in your own order, ready for a person to send.",
+    "caution": "Texting rules vary; get consent and honor opt-outs. SI drafts; a person sends."
+  },
+  {
+    "slug": "weather-rescheduling-notices",
+    "title": "Weather-driven rescheduling notices",
+    "industries": [
+      "local-seasonal",
+      "home-services"
+    ],
+    "functions": [
+      "customer-support",
+      "scheduling"
+    ],
+    "summary": "When weather cancels outdoor work, a patio, or a market day, SI lists who is affected and drafts the same-day notice for you to send.",
+    "problem": "Rain, heat, or a freeze can wipe a day's outdoor jobs, patio reservations, or stall hours with little warning. Hurricane-season readiness is a checklist before a named storm. It does not draft same-day notices for the people on today's calendar.",
+    "what_si_does": "From the calendar, reservation list, or job board you point it at, SI lists who is booked in the window you name, drafts one notice in your voice (closed, delayed, or offering a reschedule using only openings you provide), and groups people by how they asked to be reached. It does not send, move bookings, or decide whether it is safe to operate.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Today's calendar or reservation export, the wording you want for a weather closure or delay, and any reschedule openings you are willing to offer. Setup is often a day, then used when the forecast changes.",
+    "human_checks": [
+      "The owner decides whether to close, delay, or keep going.",
+      "A person approves anything that sends, pays, orders, or posts.",
+      "Safety calls stay with the owner; SI only drafts from the list you give it."
+    ],
+    "examples": [
+      {
+        "business_type": "Landscaping crew",
+        "scenario": "Thunderstorms cancel the afternoon jobs. SI lists the stops still on the board and drafts a delay note with the next openings you typed in."
+      },
+      {
+        "business_type": "Restaurant with a patio",
+        "scenario": "A washout evening: patio reservations are listed, indoor leftovers you named are offered in the draft, and indoor-only bookings are left alone."
+      },
+      {
+        "business_type": "Saturday market stall",
+        "scenario": "The market closes for wind. SI drafts a closure post and an email to the pre-order list you exported, with pickup moved to the next market date you provided."
+      }
+    ],
+    "copy_prompt": "Using this calendar or reservation list [file] and this weather decision [closed, delayed, or reschedule], list who is affected in [time window]. Draft a notice in this voice [paste] using only these reschedule openings [paste]. Do not send messages or change bookings. Do not decide whether it is safe to operate. Pause and show me before sending, paying, ordering, posting, or changing anything.",
+    "tools_examples": [
+      "Google Calendar",
+      "Gmail",
+      "Google Sheets",
+      "Jobber",
+      "WhatsApp"
+    ],
+    "effect": "The people on today's list get a drafted notice from your own wording, after you decide what the weather means for the day.",
+    "caution": "This is a customer-notice draft from your calendar, not a safety or emergency plan. Weather and safety decisions stay with you. Texting rules vary; get consent and honor opt-outs."
+  },
+  {
+    "slug": "season-opening-re-engagement",
+    "title": "Season-opening customer re-engagement drafts",
+    "industries": [
+      "local-seasonal"
+    ],
+    "functions": [
+      "sales-follow-up",
+      "content-marketing"
+    ],
+    "summary": "When you reopen for the season, SI drafts a specific note to last season's customers from your own list and hours, for you to send.",
+    "problem": "The shop, stand, or book of work starts up again and last season's customers only find out if someone remembers to write. Check-ins for repeat customers who are due look at each person's usual interval. They do not draft the 'we are open again' note from last season's list.",
+    "what_si_does": "SI reads the last season's customer or booking list you provide, drops anyone on your do-not-contact list, and drafts a short note in your voice: that you are open, the hours or dates you supplied, and one next step (book, stop in, or reply). It does not invent discounts, wait times, or sell-out claims, and it does not send.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Last season's customer or booking export, the hours and dates that are actually true this season, a few notes you liked, and the do-not-contact list. Setup is often a few days before opening.",
+    "human_checks": [
+      "A person reviews the list and approves each message or the batch wording.",
+      "A person approves anything that sends, pays, orders, or posts.",
+      "People who asked not to be contacted are excluded before anything is sent."
+    ],
+    "examples": [
+      {
+        "business_type": "Pool-opening service",
+        "scenario": "Last spring's opening list gets a draft that names the weeks you are actually booking and asks them to reply with a preferred week, with no promise that a date is free."
+      },
+      {
+        "business_type": "Seasonal ice cream shop",
+        "scenario": "Last summer's email list gets a draft with opening weekend hours you typed in, and anyone who unsubscribed is left off."
+      },
+      {
+        "business_type": "Holiday pop-up shop",
+        "scenario": "Last December's buyers get a draft that the shop is open again on the dates you named, with the gift-wrap hours you supplied and no invented sale."
+      }
+    ],
+    "copy_prompt": "Using last season's customer or booking list [file], exclude [do-not-contact list]. Draft a short we-are-open-again note in this voice [paste] using only these hours and dates [paste] and this next step [book, stop in, or reply]. Do not invent discounts, wait times, or sell-out claims. Do not send. Pause and show me before sending, paying, ordering, posting, or changing anything.",
+    "tools_examples": [
+      "Gmail",
+      "Mailchimp",
+      "Google Sheets",
+      "Square",
+      "Klaviyo"
+    ],
+    "effect": "Last season's customers get a drafted opening note from facts you supplied, and a person still sends it.",
+    "caution": "Honor unsubscribes and opt-outs. SI drafts; a person sends."
+  },
+  {
+    "slug": "gift-card-holiday-promo-tracking",
+    "title": "Gift-card and holiday promo tracking",
+    "industries": [
+      "local-seasonal"
+    ],
+    "functions": [
+      "billing-admin",
+      "reporting-dashboards"
+    ],
+    "summary": "SI lines up outstanding gift cards and holiday promo codes from your POS export so you can see what is still open, without changing balances.",
+    "problem": "Gift cards sold in December and promo codes from a holiday weekend live in the POS, a spreadsheet, and someone's memory. Subscriptions and renewals track recurring plans. Sales-tax prep notes are for the accountant. Neither is a list of outstanding gift cards and holiday codes the shop still has to honor.",
+    "what_si_does": "SI reads the gift-card and discount-code export you provide. It lists outstanding gift-card balances, codes still marked active, codes past the end date you recorded, and totals by type (gift card vs promo). It flags rows with no end date or a balance that does not match the last activity line. It does not change balances, expire codes, charge anyone, or file anything.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. A gift-card and discount-code export from the POS or booking tool, and a note on which statuses count as open. Setup is often a day or two after the holiday rush, then a monthly refresh.",
+    "human_checks": [
+      "A person checks that balances and dates match the POS before relying on the list.",
+      "A person approves anything that sends, pays, orders, or posts.",
+      "SI does not expire codes, change balances, or take payment."
+    ],
+    "examples": [
+      {
+        "business_type": "Neighborhood restaurant",
+        "scenario": "December gift cards still open are listed with the remaining balance as printed in the POS, and codes with no end date are set aside."
+      },
+      {
+        "business_type": "Spa that sells holiday packages",
+        "scenario": "Holiday promo codes still marked active after the weekend you named are listed next to the end date in the file, for the owner to turn off."
+      },
+      {
+        "business_type": "Toy and gift shop",
+        "scenario": "Outstanding gift cards from last December are totaled by month of sale as they appear in the export, with unused cards that have no activity flagged for review."
+      }
+    ],
+    "copy_prompt": "Using this gift-card and discount-code export [file], list outstanding gift-card balances, codes still marked active, codes past the end date in the file, and totals by type. Flag rows with no end date or a balance that does not match the last activity line. Do not change balances, expire codes, charge anyone, or file anything. Pause and show me before sending, paying, ordering, posting, or changing anything.",
+    "tools_examples": [
+      "Square",
+      "Toast",
+      "Shopify POS",
+      "Google Sheets",
+      "QuickBooks Online"
+    ],
+    "effect": "Outstanding gift cards and holiday codes are a list from your own export, and a person still decides what to honor or turn off.",
+    "caution": "Gift-card expiry, breakage, and unclaimed-property rules vary. SI lists what is in your export; it does not give legal or tax advice."
   }
 ]
