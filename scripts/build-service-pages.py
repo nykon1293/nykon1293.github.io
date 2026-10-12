@@ -12,6 +12,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from seo_schema import (
     CALENDLY,
     BASE,
+    CLOUDFLARE_WEB_ANALYTICS,
     CSS_VERSION,
     NAV_SCRIPT,
     common_head_tags,
@@ -608,7 +609,7 @@ FOOTER_SCRIPTS = f"""
       </p>
     </footer>
   </div>
-{NAV_SCRIPT}</body>
+{NAV_SCRIPT}{CLOUDFLARE_WEB_ANALYTICS}</body>
 </html>
 """
 
