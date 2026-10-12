@@ -75,6 +75,8 @@
   align-items: center;
   text-decoration: none;
   cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
   transition: background .15s, color .15s, border-color .15s;
 }
 .uc-pill span {

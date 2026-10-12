@@ -283,12 +283,6 @@
         activateFilter();
       };
       pill.addEventListener("click", toggle);
-      pill.addEventListener("keydown", (event) => {
-        if (event.key === " " || event.key === "Spacebar") {
-          event.preventDefault();
-          toggle(event);
-        }
-      });
     });
 
     if (q) {

@@ -673,11 +673,16 @@ def function_pills(
         else:
             href = f"/use-cases/function/{slug}/"
         active = " is-active" if current == slug else ""
-        toggle_attrs = ' role="button" aria-pressed="false"' if toggles else ""
-        pills.append(
-            f'<a class="uc-pill{active}" href="{href}" data-function="{slug}"{toggle_attrs}>'
-            f'{e(info["label"])} <span>{n}</span></a>'
-        )
+        if toggles:
+            pills.append(
+                f'<button type="button" class="uc-pill{active}" data-function="{slug}" aria-pressed="false">'
+                f'{e(info["label"])} <span>{n}</span></button>'
+            )
+        else:
+            pills.append(
+                f'<a class="uc-pill{active}" href="{href}" data-function="{slug}">'
+                f'{e(info["label"])} <span>{n}</span></a>'
+            )
     return "\n            ".join(pills)
 
 
