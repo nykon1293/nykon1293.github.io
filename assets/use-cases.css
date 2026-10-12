@@ -350,6 +350,7 @@ html.uc-js .uc-group:not(.is-open) .uc-card.uc-extra { display: none; }
 .uc-motif--real-estate { --uc-accent: #c4a06a; }
 .uc-motif--home-services { --uc-accent: #d3aa55; }
 .uc-motif--accounting { --uc-accent: #cfc09a; }
+.uc-motif--education { --uc-accent: #8aa07a; }
 .uc-motif-frame {
   aspect-ratio: 1;
   padding: 3px;
