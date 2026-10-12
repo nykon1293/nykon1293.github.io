@@ -18,12 +18,12 @@ https://calendly.com/josh-gemmi/30min
 - Stocky dump recovery (Shopify CSV after Stocky shut down; not a Stocky replacement app): https://gemmisi.com/services/stocky-recovery.html
 - Advisory & Fractional CTO (inquire first): https://gemmisi.com/advisory.html
 - Anonymized case study: https://gemmisi.com/work/governed-ai-content-engine.html
-- Use cases (106 practical SI examples; illustrations, not client results): https://gemmisi.com/use-cases/
+- Use cases (142 practical SI examples; illustrations, not client results): https://gemmisi.com/use-cases/
 - Sitemap: https://gemmisi.com/sitemap.xml
 
 ## Use cases
 
-The library lists 106 practical SI jobs for small teams, community organizations, the business side of solo and small law practices, and the business side of small healthcare practices. They are illustrations of what is possible, not reports of client results. A person still approves anything that sends, pays, orders, or posts. The library also covers ecommerce operations, local or seasonal work, legal-practice administration, and medical-practice administration. Legal-practice pages are operations help only. SI does not give legal advice, and an attorney reviews anything client-facing. Medical-practice pages are operations help only. SI does not give medical advice or make clinical decisions, and a clinician or trained staff member reviews anything patient-facing. GemmiSI sets this up on your own equipment and accounts; your data stays with you.
+The library lists 142 practical SI jobs for small teams, community organizations, the business side of solo and small law practices, the business side of small healthcare practices, real estate and property management, home-service contractors, and small accounting, tax and bookkeeping firms. They are illustrations of what is possible, not reports of client results. A person still approves anything that sends, pays, orders, or posts. The library also covers ecommerce operations, local or seasonal work, legal-practice administration, medical-practice administration, real-estate operations, home-services office work, and accounting-firm administration. Legal-practice pages are operations help only. SI does not give legal advice, and an attorney reviews anything client-facing. Medical-practice pages are operations help only. SI does not give medical advice or make clinical decisions, and a clinician or trained staff member reviews anything patient-facing. Real-estate pages are operations help only. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. Home-services pages are office help only; the owner approves every quote and message. Accounting-firm pages are operations help only. SI does not give tax advice or file returns, and a professional reviews, signs and decides. GemmiSI sets this up on your own equipment and accounts; your data stays with you.
 
 - Library: https://gemmisi.com/use-cases/
 - Morning inbox triage into labeled queues: https://gemmisi.com/use-cases/inbox-triage/
@@ -66,6 +66,42 @@ The library lists 106 practical SI jobs for small teams, community organizations
 - Front-desk call summaries: https://gemmisi.com/use-cases/front-desk-call-summaries/
 - Recall and preventive-visit outreach: https://gemmisi.com/use-cases/recall-visit-outreach/
 - Review requests and public reply drafts: https://gemmisi.com/use-cases/review-request-drafts/
+- Lead and inquiry follow-up for agent or manager review: https://gemmisi.com/use-cases/rental-lead-inquiry-follow-up/
+- Showing scheduling and confirmation drafts: https://gemmisi.com/use-cases/showing-scheduling-confirmations/
+- Showing and open-house follow-up drafts: https://gemmisi.com/use-cases/showing-open-house-follow-up/
+- Listing and rental-ad description drafts for agent review: https://gemmisi.com/use-cases/listing-rental-ad-drafts/
+- Maintenance request intake and sorting: https://gemmisi.com/use-cases/maintenance-request-intake/
+- Tenant communication drafts for manager review: https://gemmisi.com/use-cases/tenant-notice-drafts/
+- Rent reminder and follow-up drafts for manager review: https://gemmisi.com/use-cases/rent-reminder-drafts/
+- Lease renewal and expiration tracking: https://gemmisi.com/use-cases/lease-renewal-expiration-tracking/
+- Vendor and work-order tracking: https://gemmisi.com/use-cases/vendor-work-order-tracking/
+- Move-in and move-out checklists and inspection photo organization: https://gemmisi.com/use-cases/move-in-move-out-checklists/
+- Hurricane-season readiness and tenant communication prep: https://gemmisi.com/use-cases/property-hurricane-season-prep/
+- Rental application completeness checklist: https://gemmisi.com/use-cases/rental-application-completeness/
+- Missed-call text-back and inquiry capture: https://gemmisi.com/use-cases/missed-call-text-back/
+- Quote and estimate follow-up for owner review: https://gemmisi.com/use-cases/contractor-quote-follow-up/
+- Quote and estimate drafting for owner approval: https://gemmisi.com/use-cases/quote-estimate-drafts/
+- Scheduling and dispatch prep for owner approval: https://gemmisi.com/use-cases/crew-dispatch-schedule-prep/
+- Job-photo organization: https://gemmisi.com/use-cases/job-photo-organization/
+- Invoice reminders and payment follow-up for owner review: https://gemmisi.com/use-cases/contractor-invoice-reminders/
+- Review requests and review-reply drafts for owner approval: https://gemmisi.com/use-cases/contractor-review-reply-drafts/
+- Warranty and maintenance reminder drafts: https://gemmisi.com/use-cases/warranty-maintenance-reminders/
+- Parts and materials reorder lists for owner approval: https://gemmisi.com/use-cases/parts-materials-reordering/
+- Permit and inspection tracking: https://gemmisi.com/use-cases/permit-inspection-tracking/
+- After-hours call and message sorting: https://gemmisi.com/use-cases/contractor-after-hours-sorting/
+- License, insurance and subcontractor document tracking: https://gemmisi.com/use-cases/contractor-license-insurance-tracker/
+- Client document chasing: https://gemmisi.com/use-cases/client-document-chasing/
+- New-client intake organization: https://gemmisi.com/use-cases/tax-new-client-intake/
+- Deadline tracking, human-verified: https://gemmisi.com/use-cases/tax-deadline-tracking/
+- Engagement letters assembled for review: https://gemmisi.com/use-cases/accounting-engagement-letter-assembly/
+- Client status updates for preparer approval: https://gemmisi.com/use-cases/tax-client-status-updates/
+- Invoice follow-up and receivables reminders for partner review: https://gemmisi.com/use-cases/accounting-invoice-follow-up/
+- Month-end close checklist preparation: https://gemmisi.com/use-cases/bookkeeping-month-end-checklist/
+- Reconciliation prep for accountant review: https://gemmisi.com/use-cases/reconciliation-prep-for-review/
+- Transaction categorization suggestions for bookkeeper review: https://gemmisi.com/use-cases/transaction-categorization-suggestions/
+- Vendor information collection and reminder prep for 1099 review: https://gemmisi.com/use-cases/vendor-1099-information-collection/
+- Sales-tax and recurring-filing reminder prep: https://gemmisi.com/use-cases/sales-tax-filing-reminders/
+- Security-plan upkeep checklists and access reviews: https://gemmisi.com/use-cases/security-plan-upkeep-checklists/
 
 ## Facts to keep straight
 
