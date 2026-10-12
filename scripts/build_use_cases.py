@@ -942,6 +942,12 @@ def industry_landing(slug: str, entries: list) -> str:
     if info.get("regulated"):
         foot_note = f'      <p class="uc-cat-foot">{e(info["foot"])}</p>\n'
     body = f'data-uc="industry" data-uc-slug="{slug}"' + (' data-uc-lazy="1"' if lazy else "")
+    config = json.dumps(
+        {"n": len(dedicated_items), "page": SHOW_MORE, "mode": "industry"},
+        ensure_ascii=False,
+        separators=(",", ":"),
+    )
+    config_html = f'    <script type="application/json" id="uc-config">{config}</script>\n' if lazy else ""
     return head(title, desc, canon, 3, ld, compact_ld=True, body_attrs=body) + f"""
     <main id="top">
       <section class="uc-hero">
@@ -968,7 +974,7 @@ def industry_landing(slug: str, entries: list) -> str:
       </section>
 {also_html}{foot_note}      {closing_section()}
     </main>
-""" + foot(3) + SCRIPTS + (LIBRARY_JS if lazy else "") + PAGE_END
+{config_html}""" + foot(3) + SCRIPTS + (LIBRARY_JS if lazy else "") + PAGE_END
 
 
 def function_landing(slug: str, entries: list) -> str:

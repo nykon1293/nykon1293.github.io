@@ -147,6 +147,18 @@
       }
     });
     if (clearBtn) clearBtn.hidden = !filtering();
+    if (moreFilters && functions.length) moreFilters.open = true;
+    const featuredHead = document.getElementById("featured-h");
+    if (featuredHead) {
+      const intro = featuredHead.parentElement && featuredHead.parentElement.querySelector("p");
+      if (filtering()) {
+        featuredHead.textContent = "Matching use cases";
+        if (intro) intro.hidden = true;
+      } else {
+        featuredHead.textContent = "A dozen places to start";
+        if (intro) intro.hidden = false;
+      }
+    }
   };
 
   const ensureCards = (wanted) => {
@@ -171,11 +183,9 @@
   const apply = () => {
     const cards = grid ? [...grid.querySelectorAll(".uc-card")] : [...document.querySelectorAll(".uc-card")];
     const compactItems = [...document.querySelectorAll(".uc-compact")];
-    const active = filtering();
-    const wanted = active ? pageSize : mode === "hub" ? pageSize : pageSize;
+    const wanted = pageSize;
     if (index) ensureCards(wanted);
 
-    const visibleSlugs = [];
     const nodes = grid ? [...grid.querySelectorAll(".uc-card")] : cards;
     let shown = 0;
     nodes.forEach((card) => {
@@ -188,18 +198,16 @@
             h: card.textContent,
           };
       const ok = item ? matches(item) : false;
-      const featured = card.classList.contains("uc-featured");
       if (!ok) {
         card.hidden = true;
         return;
       }
-      if (shown >= wanted && !(mode === "hub" && !active && featured && shown < 12)) {
+      if (shown >= wanted) {
         card.hidden = true;
         return;
       }
       card.hidden = false;
       shown += 1;
-      visibleSlugs.push(card.dataset.slug);
     });
 
     compactItems.forEach((item) => {
@@ -213,14 +221,14 @@
       item.hidden = !ok || (root.classList.contains("uc-js") && index);
     });
 
-    const totalMatches = index ? index.filter(matches).length : shown;
+    const totalMatches = index ? index.filter(matches).length : TOTAL || shown;
     const total = index ? index.length : TOTAL || nodes.length;
     if (count) {
       count.textContent = "Showing " + shown + " of " + total + " use cases";
     }
     if (empty) empty.hidden = shown > 0;
     if (showMore) {
-      const moreLeft = totalMatches > shown;
+      const moreLeft = index ? totalMatches > shown : lazy || TOTAL > shown;
       showMore.hidden = !moreLeft;
       showMore.textContent = "Show more";
     }
