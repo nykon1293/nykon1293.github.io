@@ -312,7 +312,7 @@
               <p class="uc-card-cat"><a href="../industry/ecommerce/">Ecommerce</a> <span aria-hidden="true">·</span> <a href="../function/inventory-orders/">Inventory &amp; orders</a> <span aria-hidden="true">·</span> <a href="../function/content-marketing/">Content &amp; marketing</a></p>
               <h1>Product-feed and catalog error checks before ads go live</h1>
               <p class="lead">SI (Super Intelligence, the new name for AI) compares your store catalog with the shopping or marketplace feed and lists errors that would block or mis-price an item, without changing the feed.</p>
-              <p class="uc-caution" role="note"><strong>Worth knowing:</strong> Channel rules change. The check uses the export and the rules you give it, not a promise that ads will be approved.</p>
+              <p class="uc-caution" role="note"><strong>Worth knowing:</strong> Channel rules change. The check uses the export and the rules you give it. It is not a promise that ads will be approved.</p>
             </div>
             <div class="uc-motif uc-motif--ecommerce" data-motif="inventory" aria-hidden="true">
             <div class="uc-motif-frame">
@@ -326,36 +326,36 @@
           <div class="uc-detail-main">
             <section class="uc-block" aria-labelledby="problem">
               <h2 id="problem">The problem</h2>
-              <p>Shopping ads and marketplace catalogs reject items for missing identifiers, broken images, or a price that does not match the store. Those errors sit in a dashboard until someone has time to read them, and the listing or ad never runs. Writing new product descriptions is a different job. This one is the error list.</p>
+              <p>Shopping ads and marketplace catalogs reject items for missing identifiers, broken images, or a price that does not match the store. Those errors sit in a dashboard until someone has time to read them. The listing or ad never runs. Writing new product descriptions is a different job. This one is the error list.</p>
             </section>
             <section class="uc-block" aria-labelledby="what">
               <h2 id="what">What SI does</h2>
-              <p>SI reads the feed or error export and the store catalog. It lists items with missing or invalid identifiers (GTIN, MPN, brand), image URLs that fail, price or availability that does not match the store, and titles or descriptions that exceed the channel&#x27;s limits. It does not guess identifiers or rewrite copy to paper over a claim.</p>
+              <p>SI reads the feed or error export and the store catalog. It lists items with missing or invalid identifiers (GTIN, MPN, brand) and image URLs that fail. It lists price or availability that does not match the store, and titles or descriptions that go over the channel&#x27;s limits. It does not guess identifiers. It does not rewrite copy to paper over a claim. It does not change the feed.</p>
             </section>
             <section class="uc-block" aria-labelledby="examples">
               <h2 id="examples">Examples</h2>
-              <p class="uc-ex-intro">The same job looks different in different businesses. These are illustrations, not client results.</p>
+              <p class="uc-ex-intro">The same job looks different in different businesses. These are examples, not client results.</p>
               <ul class="uc-examples">
-            <li class="uc-ex"><span class="uc-ex-type">Shopify store with a shopping feed</span><p>Twenty SKUs fail on a missing GTIN, and five have a feed price that does not match the product page.</p></li>
+            <li class="uc-ex"><span class="uc-ex-type">Shopify store with a shopping feed</span><p>Twenty SKUs fail on a missing GTIN. Five have a feed price that does not match the product page.</p></li>
             <li class="uc-ex"><span class="uc-ex-type">Beauty brand with a social catalog</span><p>Several items have an image URL that no longer loads after a file rename. SI lists those handles.</p></li>
-            <li class="uc-ex"><span class="uc-ex-type">Home-goods seller</span><p>Titles over the marketplace character limit are listed with the current length, not rewritten.</p></li>
+            <li class="uc-ex"><span class="uc-ex-type">Home-goods seller</span><p>Titles over the marketplace character limit are listed with the current length. They are not rewritten.</p></li>
               </ul>
             </section>
             <section class="uc-block" aria-labelledby="setup">
               <h2 id="setup">What it takes to set up</h2>
-              <p>A feed export or channel diagnostics export, and a catalog export. A note on which channel&#x27;s rules you are checking. Setup is often a few days.</p>
+              <p>You need a feed export or channel diagnostics export, and a catalog export. Add a note on which channel&#x27;s rules you are checking. Setup is often a few days.</p>
             </section>
             <section class="uc-block uc-checks" aria-labelledby="checks">
               <h2 id="checks">What a human still checks</h2>
               <ul class="uc-checklist">
             <li>A person decides what to fix in the store or the feed.</li>
-            <li>Missing identifiers stay blank unless you provide them; SI does not invent barcodes.</li>
+            <li>Missing identifiers stay blank unless you provide them. SI does not invent barcodes.</li>
             <li>Price and availability changes are made in the store by a person.</li>
               </ul>
             </section>
             <section class="uc-block" aria-labelledby="prompt">
               <h2 id="prompt">Try it yourself</h2>
-              <p>Paste this into your SI tool of choice and swap the [bracketed] parts for your own details. It asks SI to stop and show you before it does anything.</p>
+              <p>Paste this into your SI tool. Swap the [bracketed] parts for your own details. It asks SI to stop and show you before it does anything.</p>
               <div class="uc-prompt">
                 <div class="uc-prompt-bar">
                   <span class="uc-prompt-label">Copy-ready prompt</span>
@@ -370,7 +370,7 @@
             <div class="uc-side-stick">
             <div class="uc-side-card">
               <h3>Typical effect</h3>
-              <p>Feed errors are a punch list instead of a silent block on items you thought were advertised.</p>
+              <p>Feed errors are a punch list. They are not a silent block on items you thought were advertised.</p>
               <h3>Tools it usually touches</h3>
               <div class="uc-tags"><span class="tag green">Shopify</span><span class="tag green">Google Merchant Center</span><span class="tag green">Google Sheets</span><span class="tag green">Meta Commerce Manager</span><span class="tag green">Excel</span></div>
             </div>
@@ -399,7 +399,7 @@
             </div>
           </div>
               <h3>Marketplace listing sync checks across your channels</h3>
-              <p>SI compares title, price, quantity, and identifiers on the store with each marketplace listing and lists the rows that drifted.</p>
+              <p>SI compares title, price, quantity, and identifiers on the store with each marketplace listing. It lists the rows that drifted.</p>
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
             </a>
           </li>

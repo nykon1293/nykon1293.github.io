@@ -4,12 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Spotting supplier price increases on | SI (AI) | GemmiSI</title>
-  <meta name="description" content="SI (AI) compares the unit price on a new supplier invoice with the last price you paid for the same item, and flags the increases." />
+  <meta name="description" content="SI (AI) reads the unit price on a new supplier invoice. It compares that with the last price you paid for the same item. It flags the increases." />
   <link rel="canonical" href="https://gemmisi.com/use-cases/supplier-price-increases-on-invoices/" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Yonatan Gemmi" />
   <meta property="og:title" content="Spotting supplier price increases on | SI (AI) | GemmiSI" />
-  <meta property="og:description" content="SI (AI) compares the unit price on a new supplier invoice with the last price you paid for the same item, and flags the increases." />
+  <meta property="og:description" content="SI (AI) reads the unit price on a new supplier invoice. It compares that with the last price you paid for the same item. It flags the increases." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://gemmisi.com/use-cases/supplier-price-increases-on-invoices/" />
   <meta property="og:site_name" content="GemmiSI" />
@@ -20,7 +20,7 @@
   <meta property="og:image:alt" content="GemmiSI — SI &amp; AI, automation, dashboards, and technical operations" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Spotting supplier price increases on | SI (AI) | GemmiSI" />
-  <meta name="twitter:description" content="SI (AI) compares the unit price on a new supplier invoice with the last price you paid for the same item, and flags the increases." />
+  <meta name="twitter:description" content="SI (AI) reads the unit price on a new supplier invoice. It compares that with the last price you paid for the same item. It flags the increases." />
   <meta name="twitter:image" content="https://gemmisi.com/assets/brand/gemmisi-og.png" />
   <meta name="twitter:image:alt" content="GemmiSI — SI &amp; AI, automation, dashboards, and technical operations" />
   <link rel="sitemap" type="application/xml" title="Sitemap" href="https://gemmisi.com/sitemap.xml" />
@@ -242,7 +242,7 @@
       "@id": "https://gemmisi.com/use-cases/supplier-price-increases-on-invoices/#webpage",
       "name": "Spotting supplier price increases on | SI (AI) | GemmiSI",
       "url": "https://gemmisi.com/use-cases/supplier-price-increases-on-invoices/",
-      "description": "SI (AI) compares the unit price on a new supplier invoice with the last price you paid for the same item, and flags the increases.",
+      "description": "SI (AI) reads the unit price on a new supplier invoice. It compares that with the last price you paid for the same item. It flags the increases.",
       "isPartOf": {
         "@id": "https://gemmisi.com/#website"
       },
@@ -303,7 +303,7 @@
             <div class="uc-detail-copy">
               <p class="uc-card-cat"><a href="../function/billing-admin/">Billing &amp; admin</a></p>
               <h1>Spotting supplier price increases on invoices</h1>
-              <p class="lead">SI (Super Intelligence, the new name for AI) compares the unit price on a new supplier invoice with the last price you paid for the same item, and flags the increases.</p>
+              <p class="lead">SI (Super Intelligence, the new name for AI) reads the unit price on a new supplier invoice. It compares that with the last price you paid for the same item. It flags the increases.</p>
               
             </div>
             <div class="uc-motif uc-motif--billing" data-motif="invoices" aria-hidden="true">
@@ -318,36 +318,36 @@
           <div class="uc-detail-main">
             <section class="uc-block" aria-labelledby="problem">
               <h2 id="problem">The problem</h2>
-              <p>A supplier raises a unit price on the invoice and the bill still gets entered. The amount is captured, but nobody compares it with last time, so the increase sits in the books for months.</p>
+              <p>A supplier raises a unit price on the invoice. The bill still gets entered. The amount is captured. Nobody compares it with last time. The increase sits in the books for months.</p>
             </section>
             <section class="uc-block" aria-labelledby="what">
               <h2 id="what">What SI does</h2>
-              <p>SI reads new supplier invoices and your recent bill or item history. It matches lines by supplier and item (SKU, description, or the code you use) and compares the unit price with the previous price for that pair. It lists increases and decreases, the old price, the new price, and the invoice date. Lines it cannot match, or unit prices that look like a pack-size change, are set aside instead of called an increase. It does not edit the bill or the catalog price.</p>
+              <p>SI reads new supplier invoices and your recent bill or item history. It matches lines by supplier and item. The match uses SKU, description, or the code you use. It compares the unit price with the last price for that pair. It lists increases and decreases, the old price, the new price, and the invoice date. Lines it cannot match are set aside. Unit prices that look like a pack-size change are set aside too. They are not called an increase. SI does not edit the bill or the catalog price.</p>
             </section>
             <section class="uc-block" aria-labelledby="examples">
               <h2 id="examples">Examples</h2>
-              <p class="uc-ex-intro">The same job looks different in different businesses. These are illustrations, not client results.</p>
+              <p class="uc-ex-intro">The same job looks different in different businesses. These are examples, not client results.</p>
               <ul class="uc-examples">
             <li class="uc-ex"><span class="uc-ex-type">Restaurant</span><p>This week&#x27;s produce invoice is compared with the last one from the same vendor. Items with a higher unit price are listed before the bill is coded.</p></li>
-            <li class="uc-ex"><span class="uc-ex-type">Contractor</span><p>A supplier&#x27;s invoice for fittings is checked against the last three bills. One SKU is higher; another line is flagged because the pack size changed and may not be a real increase.</p></li>
-            <li class="uc-ex"><span class="uc-ex-type">Retailer</span><p>Wholesale invoices for a repeating brand are compared with last month&#x27;s unit costs, and increases are listed next to the current selling price so someone can decide whether to revisit it.</p></li>
+            <li class="uc-ex"><span class="uc-ex-type">Contractor</span><p>A supplier&#x27;s invoice for fittings is checked against the last three bills. One SKU is higher. Another line is flagged because the pack size changed. That may not be a real increase.</p></li>
+            <li class="uc-ex"><span class="uc-ex-type">Retailer</span><p>Wholesale invoices for a repeating brand are compared with last month&#x27;s unit costs. Increases are listed next to the current selling price. Someone can then decide whether to revisit it.</p></li>
               </ul>
             </section>
             <section class="uc-block" aria-labelledby="setup">
               <h2 id="setup">What it takes to set up</h2>
-              <p>New invoices (PDF or the bill already in the accounting tool) and a history of recent unit prices, from the books or a sheet. A note on how you identify the same item. Setup is often a few days.</p>
+              <p>New invoices, as a PDF or the bill already in the accounting tool. A history of recent unit prices, from the books or a sheet. A note on how you identify the same item. Setup is often a few days.</p>
             </section>
             <section class="uc-block uc-checks" aria-labelledby="checks">
               <h2 id="checks">What a human still checks</h2>
               <ul class="uc-checklist">
             <li>A person confirms a flagged line is the same item and the same pack size.</li>
             <li>SI does not change bill amounts, catalog prices, or what you pay.</li>
-            <li>Unmatched lines stay on a review list rather than being forced to a previous item.</li>
+            <li>Unmatched lines stay on a review list. They are not forced to a previous item.</li>
               </ul>
             </section>
             <section class="uc-block" aria-labelledby="prompt">
               <h2 id="prompt">Try it yourself</h2>
-              <p>Paste this into your SI tool of choice and swap the [bracketed] parts for your own details. It asks SI to stop and show you before it does anything.</p>
+              <p>Paste this into your SI tool. Swap the [bracketed] parts for your own details. It asks SI to stop and show you before it does anything.</p>
               <div class="uc-prompt">
                 <div class="uc-prompt-bar">
                   <span class="uc-prompt-label">Copy-ready prompt</span>
@@ -362,7 +362,7 @@
             <div class="uc-side-stick">
             <div class="uc-side-card">
               <h3>Typical effect</h3>
-              <p>Price changes on invoices are visible when the bill arrives, while the previous price is still easy to check.</p>
+              <p>Price changes on invoices are visible when the bill arrives. The previous price is still easy to check.</p>
               <h3>Tools it usually touches</h3>
               <div class="uc-tags"><span class="tag green">QuickBooks Online</span><span class="tag green">Xero</span><span class="tag green">Google Sheets</span><span class="tag green">Gmail</span><span class="tag green">Dext</span></div>
             </div>
@@ -391,7 +391,7 @@
             </div>
           </div>
               <h3>Supplier invoices from email into draft bills</h3>
-              <p>SI reads supplier invoices that arrive by email, creates draft bills in your accounting tool, and flags duplicates or missing details.</p>
+              <p>SI reads supplier invoices that arrive by email. It creates draft bills in your accounting tool. It flags duplicates or missing details.</p>
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
             </a>
           </li>
@@ -404,7 +404,7 @@
             </div>
           </div>
               <h3>Matching receipts to card transactions</h3>
-              <p>SI matches receipts from email and photos to card transactions, suggests categories, and lists what is still missing before month end.</p>
+              <p>SI matches receipts from email and photos to card transactions. It suggests categories. It lists what is still missing before month end.</p>
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
             </a>
           </li>
@@ -417,7 +417,7 @@
             </div>
           </div>
               <h3>Reminders for overdue invoices, firmer as they age</h3>
-              <p>SI checks open invoices each week and drafts reminders whose tone matches how late each one is, for you to approve.</p>
+              <p>SI checks open invoices each week. It drafts reminders whose tone matches how late each one is. You approve them.</p>
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
             </a>
           </li>
