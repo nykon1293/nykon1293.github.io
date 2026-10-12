@@ -26,8 +26,8 @@
   <link rel="sitemap" type="application/xml" title="Sitemap" href="https://gemmisi.com/sitemap.xml" />
   <link rel="preload" href="/assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
   <style>@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 400 700; font-display: swap; src: url("/assets/fonts/ibm-plex-sans-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; } @font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 500 700; font-display: optional; src: url("/assets/fonts/jetbrains-mono-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }</style>
-  <link rel="stylesheet" href="../../styles.css?v=perf-1" />
-  <link rel="stylesheet" href="../../assets/use-cases.css?v=perf-1" />
+  <link rel="stylesheet" href="../../styles.css?v=browse-1" />
+  <link rel="stylesheet" href="../../assets/use-cases.css?v=browse-1" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" href="/assets/brand/gemmisi-icon.svg" type="image/svg+xml" />
   <link rel="icon" href="/assets/brand/gemmisi-icon-32.png" type="image/png" sizes="32x32" />
@@ -56,6 +56,12 @@
         {
           "@type": "ListItem",
           "position": 3,
+          "name": "Home services",
+          "item": "https://gemmisi.com/use-cases/industry/home-services/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
           "name": "Parts and materials reorder lists for owner approval",
           "item": "https://gemmisi.com/use-cases/parts-materials-reordering/"
         }
@@ -116,16 +122,18 @@
     <main id="top">
       <article class="uc-detail">
         <header class="uc-detail-head">
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="../../index.html">Home</a>
-            <span aria-hidden="true">/</span>
-            <a href="../index.html">Use cases</a>
-            <span aria-hidden="true">/</span>
-            <span>Parts and materials reorder lists for owner approval</span>
-          </nav>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../../index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="../index.html">Use cases</a>
+          <span aria-hidden="true">/</span>
+          <a href="../industry/home-services/">Home services</a>
+          <span aria-hidden="true">/</span>
+          <span>Parts and materials reorder lists for owner approval</span>
+        </nav>
           <div class="uc-detail-intro">
             <div class="uc-detail-copy">
-              <p class="uc-card-cat"><a href="../index.html#g-home-services">Home services</a></p>
+              <p class="uc-card-cat"><a href="../industry/home-services/">Home services</a> <span aria-hidden="true">·</span> <a href="../function/inventory-orders/">Inventory &amp; orders</a></p>
               <h1>Parts and materials reorder lists for owner approval</h1>
               <p class="lead">From counts and job usage the owner provides, SI keeps a par-level list and drafts reorder lists by supplier.</p>
               <p class="uc-read-first" role="note">Office help for HVAC, plumbing, roofing, electrical, landscaping, pool and cleaning businesses. SI drafts, tracks and reminds; the owner approves every quote and message. No pricing promises, no safety or code advice, and customers&#x27; information stays private.</p>
@@ -205,8 +213,8 @@
         <section class="uc-related" aria-labelledby="related">
           <h2 id="related">Related use cases</h2>
           <ul class="uc-grid">
-          <li class="uc-card" data-cat="home-services" data-slug="missed-call-text-back">
-            <a href="../missed-call-text-back/">
+          <li class="uc-card" data-slug="missed-call-text-back" data-i="home-services" data-f="customer-support,sales-follow-up">
+            <a href="/use-cases/missed-call-text-back/">
               <span class="uc-card-cat">Home services</span>
               <h3>Missed-call text-back and inquiry capture</h3>
               <p>A missed call gets the owner&#x27;s pre-approved informational reply, and every number is logged on a callback list.</p>
@@ -214,8 +222,8 @@
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
             </a>
           </li>
-          <li class="uc-card" data-cat="home-services" data-slug="contractor-quote-follow-up">
-            <a href="../contractor-quote-follow-up/">
+          <li class="uc-card" data-slug="contractor-quote-follow-up" data-i="home-services" data-f="sales-follow-up">
+            <a href="/use-cases/contractor-quote-follow-up/">
               <span class="uc-card-cat">Home services</span>
               <h3>Quote and estimate follow-up for owner review</h3>
               <p>Open quotes sit on one list, with friendly follow-up drafts at the intervals the owner sets.</p>
@@ -223,8 +231,8 @@
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
             </a>
           </li>
-          <li class="uc-card" data-cat="home-services" data-slug="quote-estimate-drafts">
-            <a href="../quote-estimate-drafts/">
+          <li class="uc-card" data-slug="quote-estimate-drafts" data-i="home-services" data-f="sales-follow-up">
+            <a href="/use-cases/quote-estimate-drafts/">
               <span class="uc-card-cat">Home services</span>
               <h3>Quote and estimate drafting for owner approval</h3>
               <p>Field notes are formatted onto the business&#x27;s quote template and labeled as a draft the owner must approve.</p>

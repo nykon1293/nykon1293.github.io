@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Billing and admin SI use cases | Yonatan Gemmi</title>
+  <meta name="description" content="SI jobs for invoices, receipts, reminders, renewals, and month-end prep. A person still approves anything that bills or pays." />
+  <link rel="canonical" href="https://gemmisi.com/use-cases/function/billing-admin/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Yonatan Gemmi" />
+  <meta property="og:title" content="Billing and admin SI use cases | Yonatan Gemmi" />
+  <meta property="og:description" content="SI jobs for invoices, receipts, reminders, renewals, and month-end prep. A person still approves anything that bills or pays." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://gemmisi.com/use-cases/function/billing-admin/" />
+  <meta property="og:site_name" content="Yonatan Gemmi" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content="https://gemmisi.com/assets/brand/gemmisi-og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="GemmiSI — SI, automation, dashboards, and technical operations" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Billing and admin SI use cases | Yonatan Gemmi" />
+  <meta name="twitter:description" content="SI jobs for invoices, receipts, reminders, renewals, and month-end prep. A person still approves anything that bills or pays." />
+  <meta name="twitter:image" content="https://gemmisi.com/assets/brand/gemmisi-og.png" />
+  <meta name="twitter:image:alt" content="GemmiSI — SI, automation, dashboards, and technical operations" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://gemmisi.com/sitemap.xml" />
+  <link rel="preload" href="/assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <style>@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 400 700; font-display: swap; src: url("/assets/fonts/ibm-plex-sans-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; } @font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 500 700; font-display: optional; src: url("/assets/fonts/jetbrains-mono-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }</style>
+  <link rel="stylesheet" href="../../../styles.css?v=browse-1" />
+  <link rel="stylesheet" href="../../../assets/use-cases.css?v=browse-1" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon-32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon-16.png" type="image/png" sizes="16x16" />
+  <link rel="apple-touch-icon" href="/assets/brand/gemmisi-icon-180.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gemmisi.com/"},{"@type":"ListItem","position":2,"name":"Use cases","item":"https://gemmisi.com/use-cases/"},{"@type":"ListItem","position":3,"name":"Billing & admin","item":"https://gemmisi.com/use-cases/function/billing-admin/"}]},{"@type":"CollectionPage","name":"Billing and admin use cases","url":"https://gemmisi.com/use-cases/function/billing-admin/","description":"SI jobs for invoices, receipts, reminders, renewals, and month-end prep. A person still approves anything that bills or pays.","isPartOf":{"@type":"WebSite","name":"Yonatan Gemmi","url":"https://gemmisi.com/"},"mainEntity":{"@type":"ItemList","numberOfItems":31,"itemListElement":[{"@type":"ListItem","position":1,"url":"https://gemmisi.com/use-cases/invoice-intake-to-draft-bills/","name":"Supplier invoices from email into draft bills"},{"@type":"ListItem","position":2,"url":"https://gemmisi.com/use-cases/receipt-matching/","name":"Matching receipts to card transactions"},{"@type":"ListItem","position":3,"url":"https://gemmisi.com/use-cases/overdue-invoice-reminders/","name":"Reminders for overdue invoices, firmer as they age"},{"@type":"ListItem","position":4,"url":"https://gemmisi.com/use-cases/unbilled-work-check/","name":"Finding work that was done but never invoiced"},{"@type":"ListItem","position":5,"url":"https://gemmisi.com/use-cases/month-end-close-prep/","name":"Month-end close prep and the accountant's package"},{"@type":"ListItem","position":6,"url":"https://gemmisi.com/use-cases/subscriptions-and-renewals/","name":"Tracking subscriptions, contracts and renewal dates"},{"@type":"ListItem","position":7,"url":"https://gemmisi.com/use-cases/year-end-tax-document-packet/","name":"A year-end document packet for your tax preparer"},{"@type":"ListItem","position":8,"url":"https://gemmisi.com/use-cases/timesheet-review-before-payroll/","name":"Reviewing timesheets and time off before payroll"},{"@type":"ListItem","position":9,"url":"https://gemmisi.com/use-cases/donation-acknowledgments/","name":"Donation thank-yous and acknowledgment letters"},{"@type":"ListItem","position":10,"url":"https://gemmisi.com/use-cases/membership-renewals/","name":"Membership renewals and a clean member list"},{"@type":"ListItem","position":11,"url":"https://gemmisi.com/use-cases/supplier-price-increases-on-invoices/","name":"Spotting supplier price increases on invoices"},{"@type":"ListItem","position":12,"url":"https://gemmisi.com/use-cases/cash-flow-look-ahead/","name":"Cash-flow look-ahead from open invoices and bills"},{"@type":"ListItem","position":13,"url":"https://gemmisi.com/use-cases/engagement-letter-template-assembly/","name":"Engagement-letter template assembly for attorney review"},{"@type":"ListItem","position":14,"url":"https://gemmisi.com/use-cases/time-entry-cleanup/","name":"Time-entry cleanup and billing-narrative drafts"},{"@type":"ListItem","position":15,"url":"https://gemmisi.com/use-cases/invoice-follow-up-reminders/","name":"Invoice follow-up and receivables reminders"},{"@type":"ListItem","position":16,"url":"https://gemmisi.com/use-cases/insurance-verification-prep/","name":"Insurance verification prep and benefits summary for staff review"},{"@type":"ListItem","position":17,"url":"https://gemmisi.com/use-cases/prior-authorization-tracking/","name":"Prior-authorization tracking"},{"@type":"ListItem","position":18,"url":"https://gemmisi.com/use-cases/claim-denial-follow-up/","name":"Claim denial follow-up tracking"},{"@type":"ListItem","position":19,"url":"https://gemmisi.com/use-cases/patient-balance-reminders/","name":"Billing statements and balance reminders"},{"@type":"ListItem","position":20,"url":"https://gemmisi.com/use-cases/rent-reminder-drafts/","name":"Rent reminder and follow-up drafts for manager review"},{"@type":"ListItem","position":21,"url":"https://gemmisi.com/use-cases/lease-renewal-expiration-tracking/","name":"Lease renewal and expiration tracking"},{"@type":"ListItem","position":22,"url":"https://gemmisi.com/use-cases/contractor-invoice-reminders/","name":"Invoice reminders and payment follow-up for owner review"},{"@type":"ListItem","position":23,"url":"https://gemmisi.com/use-cases/accounting-engagement-letter-assembly/","name":"Engagement letters assembled for review"},{"@type":"ListItem","position":24,"url":"https://gemmisi.com/use-cases/accounting-invoice-follow-up/","name":"Invoice follow-up and receivables reminders for partner review"},{"@type":"ListItem","position":25,"url":"https://gemmisi.com/use-cases/bookkeeping-month-end-checklist/","name":"Month-end close checklist preparation"},{"@type":"ListItem","position":26,"url":"https://gemmisi.com/use-cases/reconciliation-prep-for-review/","name":"Reconciliation prep for accountant review"},{"@type":"ListItem","position":27,"url":"https://gemmisi.com/use-cases/transaction-categorization-suggestions/","name":"Transaction categorization suggestions for bookkeeper review"},{"@type":"ListItem","position":28,"url":"https://gemmisi.com/use-cases/vendor-1099-information-collection/","name":"Vendor information collection and reminder prep for 1099 review"},{"@type":"ListItem","position":29,"url":"https://gemmisi.com/use-cases/sales-tax-filing-reminders/","name":"Sales-tax and recurring-filing reminder prep"},{"@type":"ListItem","position":30,"url":"https://gemmisi.com/use-cases/chargeback-and-dispute-evidence/","name":"Chargeback and dispute evidence packets for you to file"},{"@type":"ListItem","position":31,"url":"https://gemmisi.com/use-cases/sales-tax-and-1099-prep-notes/","name":"Sales-tax and 1099 prep notes for the accountant"}]}}]}
+  </script>
+</head>
+<body data-uc="function" data-uc-slug="billing-admin">
+  <div class="site-shell">
+    <header class="nav">
+      <a class="brand" href="../../../index.html" aria-label="GemmiSI home">
+        <img class="brand-lockup" src="../../../assets/brand/gemmisi-lockup-dark.svg" alt="" width="159" height="36" />
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open site menu">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+        <span class="nav-toggle__label">Menu</span>
+      </button>
+      <nav id="site-nav" class="nav-links" aria-label="Primary navigation">
+        <a href="../../../index.html">Home</a>
+        <a href="../../../index.html#work">Work</a>
+        <details class="nav-dropdown">
+          <summary class="nav-dropdown-trigger">Services</summary>
+          <div class="nav-dropdown-menu">
+            <a href="../../../services/hermes-agents.html">Hermes Agents</a>
+            <a href="../../../services/ai-automation.html">SI automation</a>
+            <a href="../../../services/dashboards-reporting.html">Dashboards &amp; reporting</a>
+            <a href="../../../services/ecommerce-operations.html">Ecommerce operations</a>
+            <a href="../../../services/tutoring-project-help.html">Tutoring &amp; project help</a>
+            <a class="nav-dropdown-muted" href="../../../services/stocky-recovery.html">Stocky dump recovery</a>
+            <a class="nav-dropdown-muted" href="../../../index.html#service-hub">All services</a>
+            <a class="nav-dropdown-muted" href="../../../advisory.html">Advisory &amp; Fractional (ask first)</a>
+          </div>
+        </details>
+        <a href="../../index.html" aria-current="page">Use cases</a>
+        <a href="../../../pricing.html">Pricing</a>
+      </nav>
+      <a class="nav-cta" href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book consultation</a>
+    </header>
+
+    <main id="top">
+      <section class="uc-hero">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../../../index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="../../index.html">Use cases</a>
+          <span aria-hidden="true">/</span>
+          <span>Billing &amp; admin</span>
+        </nav>
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>31 use cases</p>
+        <h1>Billing and admin use cases</h1>
+        <p class="lead">Invoices, receipts, reminders and month-end prep.</p>
+      </section>
+      <section class="uc-tools" aria-label="Combine with an industry">
+        <p class="uc-tile-legend">Narrow by industry</p>
+        <div class="uc-tiles" role="navigation" aria-label="Browse by industry">
+          <a class="uc-tile" href="/use-cases/?industry=any-business&function=billing-admin" data-industry="any-business"><span class="uc-tile-label">Any business</span><span class="uc-tile-count">77</span></a>
+          <a class="uc-tile" href="/use-cases/?industry=ecommerce&function=billing-admin" data-industry="ecommerce"><span class="uc-tile-label">Ecommerce</span><span class="uc-tile-count">23</span></a>
+          <a class="uc-tile" href="/use-cases/?industry=local-seasonal&function=billing-admin" data-industry="local-seasonal"><span class="uc-tile-label">Local &amp; seasonal</span><span class="uc-tile-count">6</span></a>
+          <a class="uc-tile" href="/use-cases/?industry=legal&function=billing-admin" data-industry="legal"><span class="uc-tile-label">Legal</span><span class="uc-tile-count">18</span></a>
+          <a class="uc-tile" href="/use-cases/?industry=medical&function=billing-admin" data-industry="medical"><span class="uc-tile-label">Medical</span><span class="uc-tile-count">18</span></a>
+          <a class="uc-tile" href="/use-cases/?industry=real-estate&function=billing-admin" data-industry="real-estate"><span class="uc-tile-label">Real estate</span><span class="uc-tile-count">16</span></a>
+          <a class="uc-tile" href="/use-cases/?industry=home-services&function=billing-admin" data-industry="home-services"><span class="uc-tile-label">Home services</span><span class="uc-tile-count">23</span></a>
+          <a class="uc-tile" href="/use-cases/?industry=accounting&function=billing-admin" data-industry="accounting"><span class="uc-tile-label">Accounting</span><span class="uc-tile-count">19</span></a>
+        </div>
+      </section>
+      <section class="uc-group" aria-labelledby="list-h">
+        <h2 id="list-h" class="visually-hidden">Billing &amp; admin use cases</h2>
+        <ul class="uc-grid">
+          <li class="uc-card" data-slug="invoice-intake-to-draft-bills" data-i="any-business,accounting" data-f="billing-admin">
+            <a href="/use-cases/invoice-intake-to-draft-bills/">
+              <span class="uc-card-cat">Billing &amp; admin</span>
+              <h3>Supplier invoices from email into draft bills</h3>
+              <p>SI reads supplier invoices that arrive by email, creates draft bills in your accounting tool, and flags duplicates or missing details.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="receipt-matching" data-i="any-business,accounting" data-f="billing-admin">
+            <a href="/use-cases/receipt-matching/">
+              <span class="uc-card-cat">Billing &amp; admin</span>
+              <h3>Matching receipts to card transactions</h3>
+              <p>SI matches receipts from email and photos to card transactions, suggests categories, and lists what is still missing before month end.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="overdue-invoice-reminders" data-i="any-business" data-f="billing-admin">
+            <a href="/use-cases/overdue-invoice-reminders/">
+              <span class="uc-card-cat">Billing &amp; admin</span>
+              <h3>Reminders for overdue invoices, firmer as they age</h3>
+              <p>SI checks open invoices each week and drafts reminders whose tone matches how late each one is, for you to approve.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="unbilled-work-check" data-i="any-business,legal" data-f="billing-admin">
+            <a href="/use-cases/unbilled-work-check/">
+              <span class="uc-card-cat">Billing &amp; admin</span>
+              <h3>Finding work that was done but never invoiced</h3>
+              <p>SI compares completed jobs, time entries or deliveries against invoices sent and lists anything that was never billed.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="month-end-close-prep" data-i="any-business,accounting" data-f="billing-admin,reporting-dashboards">
+            <a href="/use-cases/month-end-close-prep/">
+              <span class="uc-card-cat">Billing &amp; admin</span>
+              <h3>Month-end close prep and the accountant&#x27;s package</h3>
+              <p>SI prepares the month-end checklist, reconciliation exceptions and an indexed bundle of documents for the bookkeeper or accountant.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="subscriptions-and-renewals" data-i="any-business,accounting" data-f="billing-admin">
+            <a href="/use-cases/subscriptions-and-renewals/">
+              <span class="uc-card-cat">Billing &amp; admin</span>
+              <h3>Tracking subscriptions, contracts and renewal dates</h3>
+              <p>SI finds recurring charges and contract renewal dates in statements and documents, and warns you before anything auto-renews.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="year-end-tax-document-packet" data-i="any-business,accounting,real-estate" data-f="billing-admin,research-documents">
+            <a href="/use-cases/year-end-tax-document-packet/">
+              <span class="uc-card-cat">Billing &amp; admin</span>
+              <h3>A year-end document packet for your tax preparer</h3>
+              <p>SI sorts the year&#x27;s documents, totals them by category and flags gaps, so your tax preparer gets one organized packet.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="timesheet-review-before-payroll" data-i="any-business" data-f="hiring,billing-admin">
+            <a href="/use-cases/timesheet-review-before-payroll/">
+              <span class="uc-card-cat">Hiring</span>
+              <h3>Reviewing timesheets and time off before payroll</h3>
+              <p>Before each payroll run, SI checks timesheets against schedules and time-off records and lists anything that looks wrong for a person to fix.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="donation-acknowledgments" data-i="any-business" data-f="community,billing-admin">
+            <a href="/use-cases/donation-acknowledgments/">
+              <span class="uc-card-cat">Community</span>
+              <h3>Donation thank-yous and acknowledgment letters</h3>
+              <p>SI drafts personal thank-you letters and acknowledgment receipts from donation records, using wording your accountant has approved.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="membership-renewals" data-i="any-business" data-f="community,billing-admin">
+            <a href="/use-cases/membership-renewals/">
+              <span class="uc-card-cat">Community</span>
+              <h3>Membership renewals and a clean member list</h3>
+              <p>SI tracks renewal dates, drafts reminders, and cleans up the member list by merging duplicates and flagging outdated contact details.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="supplier-price-increases-on-invoices" data-i="any-business" data-f="billing-admin">
+            <a href="/use-cases/supplier-price-increases-on-invoices/">
+              <span class="uc-card-cat">Billing &amp; admin</span>
+              <h3>Spotting supplier price increases on invoices</h3>
+              <p>SI compares the unit price on a new supplier invoice with the last price you paid for the same item, and flags the increases.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="cash-flow-look-ahead" data-i="any-business,accounting" data-f="reporting-dashboards,billing-admin">
+            <a href="/use-cases/cash-flow-look-ahead/">
+              <span class="uc-card-cat">Reporting &amp; dashboards</span>
+              <h3>Cash-flow look-ahead from open invoices and bills</h3>
+              <p>SI lines up open customer invoices and open bills by week so you can see where money is expected in and where it is due out.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="engagement-letter-template-assembly" data-i="legal" data-f="billing-admin,research-documents">
+            <a href="/use-cases/engagement-letter-template-assembly/">
+              <span class="uc-card-cat">Legal</span>
+              <h3>Engagement-letter template assembly for attorney review</h3>
+              <p>SI fills the firm&#x27;s approved engagement-letter template from intake data, highlights every field it filled, and lists blanks or mismatches.</p>
+              <p class="uc-card-note">Admin and operations help for solo attorneys and small firms. SI drafts and organizes; attorneys review and decide. No legal advice, no filing-ready work product, and client confidentiality comes first.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="time-entry-cleanup" data-i="legal" data-f="billing-admin">
+            <a href="/use-cases/time-entry-cleanup/">
+              <span class="uc-card-cat">Legal</span>
+              <h3>Time-entry cleanup and billing-narrative drafts</h3>
+              <p>SI suggests clearer wording for draft time entries from the attorney&#x27;s own notes, and flags entries that look incomplete, duplicated, or oddly long.</p>
+              <p class="uc-card-note">Admin and operations help for solo attorneys and small firms. SI drafts and organizes; attorneys review and decide. No legal advice, no filing-ready work product, and client confidentiality comes first.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="invoice-follow-up-reminders" data-i="legal" data-f="billing-admin">
+            <a href="/use-cases/invoice-follow-up-reminders/">
+              <span class="uc-card-cat">Legal</span>
+              <h3>Invoice follow-up and receivables reminders</h3>
+              <p>SI builds an aging list from the billing system and drafts polite reminders at the firm&#x27;s intervals, highlighting accounts that need a personal call.</p>
+              <p class="uc-card-note">Admin and operations help for solo attorneys and small firms. SI drafts and organizes; attorneys review and decide. No legal advice, no filing-ready work product, and client confidentiality comes first.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="insurance-verification-prep" data-i="medical" data-f="billing-admin">
+            <a href="/use-cases/insurance-verification-prep/">
+              <span class="uc-card-cat">Medical</span>
+              <h3>Insurance verification prep and benefits summary for staff review</h3>
+              <p>SI turns what staff already gathered from the payer into a one-page summary and a list of gaps to follow up, for a person to confirm.</p>
+              <p class="uc-card-note">Admin and operations help for small practices. SI drafts, tracks and organizes; clinicians and staff review and decide. No medical advice or clinical decisions, and patient information stays in tools covered by a BAA.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="prior-authorization-tracking" data-i="medical" data-f="billing-admin">
+            <a href="/use-cases/prior-authorization-tracking/">
+              <span class="uc-card-cat">Medical</span>
+              <h3>Prior-authorization tracking</h3>
+              <p>SI keeps each prior-authorization request, its status, and its expiration in one tracker and drafts routine status-check notes for staff.</p>
+              <p class="uc-card-note">Admin and operations help for small practices. SI drafts, tracks and organizes; clinicians and staff review and decide. No medical advice or clinical decisions, and patient information stays in tools covered by a BAA.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="claim-denial-follow-up" data-i="medical" data-f="billing-admin">
+            <a href="/use-cases/claim-denial-follow-up/">
+              <span class="uc-card-cat">Medical</span>
+              <h3>Claim denial follow-up tracking</h3>
+              <p>SI sorts denied and unpaid claims by payer, reason, and deadline, and drafts follow-up notes for a biller to review.</p>
+              <p class="uc-card-note">Admin and operations help for small practices. SI drafts, tracks and organizes; clinicians and staff review and decide. No medical advice or clinical decisions, and patient information stays in tools covered by a BAA.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="patient-balance-reminders" data-i="medical" data-f="billing-admin">
+            <a href="/use-cases/patient-balance-reminders/">
+              <span class="uc-card-cat">Medical</span>
+              <h3>Billing statements and balance reminders</h3>
+              <p>SI drafts polite balance reminders from the practice&#x27;s aging list and holds accounts that need a person, a payment plan, or an insurance check.</p>
+              <p class="uc-card-note">Admin and operations help for small practices. SI drafts, tracks and organizes; clinicians and staff review and decide. No medical advice or clinical decisions, and patient information stays in tools covered by a BAA.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="rent-reminder-drafts" data-i="real-estate" data-f="billing-admin">
+            <a href="/use-cases/rent-reminder-drafts/">
+              <span class="uc-card-cat">Real estate</span>
+              <h3>Rent reminder and follow-up drafts for manager review</h3>
+              <p>From the rent roll the manager provides, SI drafts polite reminders in approved wording and flags accounts for a personal call.</p>
+              <p class="uc-card-note">Admin and operations help for agents, landlords and small property managers. SI prepares drafts for the licensed agent or owner; they review and decide. SI does not lease, collect rent, screen or rank applicants.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="lease-renewal-expiration-tracking" data-i="real-estate" data-f="scheduling,billing-admin">
+            <a href="/use-cases/lease-renewal-expiration-tracking/">
+              <span class="uc-card-cat">Real estate</span>
+              <h3>Lease renewal and expiration tracking</h3>
+              <p>Lease dates the manager has verified sit in one tracker, with reminders and a neutral draft for the manager to review.</p>
+              <p class="uc-card-note">Admin and operations help for agents, landlords and small property managers. SI prepares drafts for the licensed agent or owner; they review and decide. SI does not lease, collect rent, screen or rank applicants.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="contractor-invoice-reminders" data-i="home-services" data-f="billing-admin">
+            <a href="/use-cases/contractor-invoice-reminders/">
+              <span class="uc-card-cat">Home services</span>
+              <h3>Invoice reminders and payment follow-up for owner review</h3>
+              <p>From the invoicing export, SI builds an aging list and drafts polite reminders, flagging accounts for the owner to call.</p>
+              <p class="uc-card-note">Office help for HVAC, plumbing, roofing, electrical, landscaping, pool and cleaning businesses. SI drafts, tracks and reminds; the owner approves every quote and message. No pricing promises, no safety or code advice, and customers&#x27; information stays private.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="accounting-engagement-letter-assembly" data-i="accounting" data-f="billing-admin,research-documents">
+            <a href="/use-cases/accounting-engagement-letter-assembly/">
+              <span class="uc-card-cat">Accounting</span>
+              <h3>Engagement letters assembled for review</h3>
+              <p>SI fills the firm&#x27;s own engagement-letter template from details the professional specifies, flags blanks, and tracks what is signed.</p>
+              <p class="uc-card-note">Admin and operations help for small CPA, tax and bookkeeping firms. SI chases, organizes and drafts; professionals review, sign and decide. No tax advice, no filings, and client data stays protected under your firm&#x27;s security plan.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="accounting-invoice-follow-up" data-i="accounting" data-f="billing-admin">
+            <a href="/use-cases/accounting-invoice-follow-up/">
+              <span class="uc-card-cat">Accounting</span>
+              <h3>Invoice follow-up and receivables reminders for partner review</h3>
+              <p>From the billing export, SI builds an aging list and drafts polite reminders, holding disputed accounts for the partner.</p>
+              <p class="uc-card-note">Admin and operations help for small CPA, tax and bookkeeping firms. SI chases, organizes and drafts; professionals review, sign and decide. No tax advice, no filings, and client data stays protected under your firm&#x27;s security plan.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="bookkeeping-month-end-checklist" data-i="accounting" data-f="billing-admin,reporting-dashboards">
+            <a href="/use-cases/bookkeeping-month-end-checklist/">
+              <span class="uc-card-cat">Accounting</span>
+              <h3>Month-end close checklist preparation</h3>
+              <p>Each client&#x27;s month-end checklist is generated from the firm&#x27;s template, with open items listed for staff and the client.</p>
+              <p class="uc-card-note">Admin and operations help for small CPA, tax and bookkeeping firms. SI chases, organizes and drafts; professionals review, sign and decide. No tax advice, no filings, and client data stays protected under your firm&#x27;s security plan.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="reconciliation-prep-for-review" data-i="accounting" data-f="billing-admin">
+            <a href="/use-cases/reconciliation-prep-for-review/">
+              <span class="uc-card-cat">Accounting</span>
+              <h3>Reconciliation prep for accountant review</h3>
+              <p>From statements and exports, SI lists unmatched, duplicate and unusual items and assembles a workpaper for the bookkeeper.</p>
+              <p class="uc-card-note">Admin and operations help for small CPA, tax and bookkeeping firms. SI chases, organizes and drafts; professionals review, sign and decide. No tax advice, no filings, and client data stays protected under your firm&#x27;s security plan.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="transaction-categorization-suggestions" data-i="accounting" data-f="billing-admin">
+            <a href="/use-cases/transaction-categorization-suggestions/">
+              <span class="uc-card-cat">Accounting</span>
+              <h3>Transaction categorization suggestions for bookkeeper review</h3>
+              <p>Using the firm&#x27;s chart of accounts and past approved coding, SI drafts suggested categories with a needs-a-question flag.</p>
+              <p class="uc-card-note">Admin and operations help for small CPA, tax and bookkeeping firms. SI chases, organizes and drafts; professionals review, sign and decide. No tax advice, no filings, and client data stays protected under your firm&#x27;s security plan.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="vendor-1099-information-collection" data-i="accounting" data-f="billing-admin,research-documents">
+            <a href="/use-cases/vendor-1099-information-collection/">
+              <span class="uc-card-cat">Accounting</span>
+              <h3>Vendor information collection and reminder prep for 1099 review</h3>
+              <p>A vendor list from payment records shows who has a W-9 on file, with request drafts and a review list for the professional.</p>
+              <p class="uc-card-note">Admin and operations help for small CPA, tax and bookkeeping firms. SI chases, organizes and drafts; professionals review, sign and decide. No tax advice, no filings, and client data stays protected under your firm&#x27;s security plan.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="sales-tax-filing-reminders" data-i="accounting" data-f="scheduling,billing-admin">
+            <a href="/use-cases/sales-tax-filing-reminders/">
+              <span class="uc-card-cat">Accounting</span>
+              <h3>Sales-tax and recurring-filing reminder prep</h3>
+              <p>For filings a professional has confirmed apply, SI reminds staff and the client and drafts requests for the period&#x27;s information.</p>
+              <p class="uc-card-note">Admin and operations help for small CPA, tax and bookkeeping firms. SI chases, organizes and drafts; professionals review, sign and decide. No tax advice, no filings, and client data stays protected under your firm&#x27;s security plan.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="chargeback-and-dispute-evidence" data-i="ecommerce" data-f="billing-admin,research-documents">
+            <a href="/use-cases/chargeback-and-dispute-evidence/">
+              <span class="uc-card-cat">Ecommerce</span>
+              <h3>Chargeback and dispute evidence packets for you to file</h3>
+              <p>When a payment is disputed, SI gathers the order, shipment, tracking, and messages you already have into one packet, and leaves the filing to you.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="sales-tax-and-1099-prep-notes" data-i="ecommerce" data-f="billing-admin,research-documents">
+            <a href="/use-cases/sales-tax-and-1099-prep-notes/">
+              <span class="uc-card-cat">Ecommerce</span>
+              <h3>Sales-tax and 1099 prep notes for the accountant</h3>
+              <p>SI gathers store tax reports, marketplace tax lines, and contractor payments into a notes packet for your accountant, and does not file anything.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+        </ul>
+      </section>
+            <section class="section closing-card uc-closing">
+        <div class="contact-panel">
+          <p class="section-kicker">Don’t see yours?</p>
+          <h2>Bring the task that keeps eating your week</h2>
+          <p class="section-intro">If it is repetitive, rule-based, and lives in email, spreadsheets, a store, or a CRM, there is a good chance it can be drafted by SI and checked by you. Book a free 30-minute call and we will look at it together.</p>
+          <div class="actions"><a class="button primary" href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book a free 30-minute consult</a></div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <a class="footer-brand" href="../../../index.html" aria-label="GemmiSI home">
+        <img class="footer-lockup" src="../../../assets/brand/gemmisi-lockup-dark.svg" alt="" width="123" height="28" />
+      </a>
+      <p>© <span id="year"></span> Yonatan Gemmi. Based in North Miami Beach, Florida · Miami-Dade, Broward, and remote</p>
+      <p class="footer-nav">
+        <a href="../../../index.html">Home</a>
+        <a href="../../index.html">Use cases</a>
+        <a href="../../../pricing.html">Pricing</a>
+        <a href="../../../services/hermes-agents.html">Hermes desks</a>
+        <a href="../../../services/ai-automation.html">SI automation</a>
+        <a href="../../../services/dashboards-reporting.html">Dashboards</a>
+        <a href="../../../services/ecommerce-operations.html">Ecommerce</a>
+        <a href="../../../services/tutoring-project-help.html">Tutoring</a>
+        <a href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book consultation</a>
+      </p>
+    </footer>  <script src="/assets/nav.js" defer></script>
+</body>
+</html>

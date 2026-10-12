@@ -26,8 +26,8 @@
   <link rel="sitemap" type="application/xml" title="Sitemap" href="https://gemmisi.com/sitemap.xml" />
   <link rel="preload" href="/assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
   <style>@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 400 700; font-display: swap; src: url("/assets/fonts/ibm-plex-sans-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; } @font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 500 700; font-display: optional; src: url("/assets/fonts/jetbrains-mono-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }</style>
-  <link rel="stylesheet" href="../../styles.css?v=perf-1" />
-  <link rel="stylesheet" href="../../assets/use-cases.css?v=perf-1" />
+  <link rel="stylesheet" href="../../styles.css?v=browse-1" />
+  <link rel="stylesheet" href="../../assets/use-cases.css?v=browse-1" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" href="/assets/brand/gemmisi-icon.svg" type="image/svg+xml" />
   <link rel="icon" href="/assets/brand/gemmisi-icon-32.png" type="image/png" sizes="32x32" />
@@ -116,16 +116,16 @@
     <main id="top">
       <article class="uc-detail">
         <header class="uc-detail-head">
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="../../index.html">Home</a>
-            <span aria-hidden="true">/</span>
-            <a href="../index.html">Use cases</a>
-            <span aria-hidden="true">/</span>
-            <span>Finding work that was done but never invoiced</span>
-          </nav>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../../index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="../index.html">Use cases</a>
+          <span aria-hidden="true">/</span>
+          <span>Finding work that was done but never invoiced</span>
+        </nav>
           <div class="uc-detail-intro">
             <div class="uc-detail-copy">
-              <p class="uc-card-cat"><a href="../index.html#g-bookkeeping-admin">Bookkeeping &amp; admin</a></p>
+              <p class="uc-card-cat"><a href="../function/billing-admin/">Billing &amp; admin</a></p>
               <h1>Finding work that was done but never invoiced</h1>
               <p class="lead">SI compares completed jobs, time entries or deliveries against invoices sent and lists anything that was never billed.</p>
               
@@ -202,27 +202,27 @@
         <section class="uc-related" aria-labelledby="related">
           <h2 id="related">Related use cases</h2>
           <ul class="uc-grid">
-          <li class="uc-card" data-cat="bookkeeping-admin" data-slug="invoice-intake-to-draft-bills">
-            <a href="../invoice-intake-to-draft-bills/">
-              <span class="uc-card-cat">Bookkeeping &amp; admin</span>
-              <h3>Supplier invoices from email into draft bills</h3>
-              <p>SI reads supplier invoices that arrive by email, creates draft bills in your accounting tool, and flags duplicates or missing details.</p>
+          <li class="uc-card" data-slug="lead-intake-to-crm" data-i="any-business,legal" data-f="sales-follow-up">
+            <a href="/use-cases/lead-intake-to-crm/">
+              <span class="uc-card-cat">Sales &amp; follow-up</span>
+              <h3>Turning form and email inquiries into clean CRM records</h3>
+              <p>SI reads each new inquiry from forms and email, creates or updates the CRM contact, and logs what they want and the next step.</p>
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
             </a>
           </li>
-          <li class="uc-card" data-cat="bookkeeping-admin" data-slug="receipt-matching">
-            <a href="../receipt-matching/">
-              <span class="uc-card-cat">Bookkeeping &amp; admin</span>
-              <h3>Matching receipts to card transactions</h3>
-              <p>SI matches receipts from email and photos to card transactions, suggests categories, and lists what is still missing before month end.</p>
+          <li class="uc-card" data-slug="requests-to-calendar-holds" data-i="any-business,legal,real-estate" data-f="scheduling">
+            <a href="/use-cases/requests-to-calendar-holds/">
+              <span class="uc-card-cat">Scheduling</span>
+              <h3>Turning meeting requests and forwarded emails into calendar holds</h3>
+              <p>When an email asks to meet or includes a date, SI drafts the reply with real open times and creates a tentative calendar hold for you to confirm.</p>
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
             </a>
           </li>
-          <li class="uc-card" data-cat="bookkeeping-admin" data-slug="overdue-invoice-reminders">
-            <a href="../overdue-invoice-reminders/">
-              <span class="uc-card-cat">Bookkeeping &amp; admin</span>
-              <h3>Reminders for overdue invoices, firmer as they age</h3>
-              <p>SI checks open invoices each week and drafts reminders whose tone matches how late each one is, for you to approve.</p>
+          <li class="uc-card" data-slug="contract-first-read" data-i="any-business,legal" data-f="research-documents">
+            <a href="/use-cases/contract-first-read/">
+              <span class="uc-card-cat">Research &amp; documents</span>
+              <h3>A first read of contracts for the terms that matter</h3>
+              <p>SI highlights dates, renewal terms, payment terms and unusual clauses in contracts so you know what to ask your lawyer or the other side.</p>
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
             </a>
           </li>

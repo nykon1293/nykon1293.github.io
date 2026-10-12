@@ -26,8 +26,8 @@
   <link rel="sitemap" type="application/xml" title="Sitemap" href="https://gemmisi.com/sitemap.xml" />
   <link rel="preload" href="/assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
   <style>@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 400 700; font-display: swap; src: url("/assets/fonts/ibm-plex-sans-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; } @font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 500 700; font-display: optional; src: url("/assets/fonts/jetbrains-mono-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }</style>
-  <link rel="stylesheet" href="../../styles.css?v=perf-1" />
-  <link rel="stylesheet" href="../../assets/use-cases.css?v=perf-1" />
+  <link rel="stylesheet" href="../../styles.css?v=browse-1" />
+  <link rel="stylesheet" href="../../assets/use-cases.css?v=browse-1" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" href="/assets/brand/gemmisi-icon.svg" type="image/svg+xml" />
   <link rel="icon" href="/assets/brand/gemmisi-icon-32.png" type="image/png" sizes="32x32" />
@@ -116,16 +116,16 @@
     <main id="top">
       <article class="uc-detail">
         <header class="uc-detail-head">
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="../../index.html">Home</a>
-            <span aria-hidden="true">/</span>
-            <a href="../index.html">Use cases</a>
-            <span aria-hidden="true">/</span>
-            <span>Product and service descriptions from specs, plus catalog cleanup</span>
-          </nav>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../../index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="../index.html">Use cases</a>
+          <span aria-hidden="true">/</span>
+          <span>Product and service descriptions from specs, plus catalog cleanup</span>
+        </nav>
           <div class="uc-detail-intro">
             <div class="uc-detail-copy">
-              <p class="uc-card-cat"><a href="../index.html#g-content-marketing">Content &amp; marketing</a></p>
+              <p class="uc-card-cat"><a href="../function/content-marketing/">Content &amp; marketing</a> <span aria-hidden="true">·</span> <a href="../function/inventory-orders/">Inventory &amp; orders</a></p>
               <h1>Product and service descriptions from specs, plus catalog cleanup</h1>
               <p class="lead">SI writes consistent descriptions from spec sheets and notes, and cleans up names, categories and details across your catalog, menu or service list.</p>
               
@@ -202,27 +202,27 @@
         <section class="uc-related" aria-labelledby="related">
           <h2 id="related">Related use cases</h2>
           <ul class="uc-grid">
-          <li class="uc-card" data-cat="content-marketing" data-slug="newsletter-from-real-updates">
-            <a href="../newsletter-from-real-updates/">
+          <li class="uc-card" data-slug="automated-email-review" data-i="any-business,ecommerce" data-f="content-marketing,customer-support">
+            <a href="/use-cases/automated-email-review/">
               <span class="uc-card-cat">Content &amp; marketing</span>
-              <h3>A newsletter drafted from what actually happened</h3>
-              <p>Each week or month SI collects real updates from your calendar, projects, photos and notes, and drafts a newsletter for you to edit.</p>
+              <h3>Reviewing and rewriting your automated emails</h3>
+              <p>SI reviews the emails your systems send automatically, such as welcomes, booking confirmations and follow-ups, and drafts clearer replacements.</p>
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
             </a>
           </li>
-          <li class="uc-card" data-cat="content-marketing" data-slug="social-post-calendar">
-            <a href="../social-post-calendar/">
-              <span class="uc-card-cat">Content &amp; marketing</span>
-              <h3>A month of social posts from one source</h3>
-              <p>SI turns one set of updates, photos or a single article into a month of platform-specific posts for you to approve and schedule.</p>
+          <li class="uc-card" data-slug="reorder-from-sales-pace" data-i="any-business,ecommerce" data-f="inventory-orders">
+            <a href="/use-cases/reorder-from-sales-pace/">
+              <span class="uc-card-cat">Inventory &amp; orders</span>
+              <h3>Reorder lists from sales pace</h3>
+              <p>On a set schedule, SI turns recent usage or sales and stock on hand into a suggested reorder list grouped by supplier, for you to approve.</p>
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
             </a>
           </li>
-          <li class="uc-card" data-cat="content-marketing" data-slug="repurpose-long-content">
-            <a href="../repurpose-long-content/">
-              <span class="uc-card-cat">Content &amp; marketing</span>
-              <h3>One talk, class or article into several pieces</h3>
-              <p>SI turns one long piece, such as a talk, webinar, interview or article, into shorter posts, an email, a handout and short video scripts.</p>
+          <li class="uc-card" data-slug="receiving-check" data-i="any-business,ecommerce,medical" data-f="inventory-orders">
+            <a href="/use-cases/receiving-check/">
+              <span class="uc-card-cat">Inventory &amp; orders</span>
+              <h3>Checking deliveries against what was ordered</h3>
+              <p>When a delivery arrives, SI compares the packing slip or invoice with the purchase order and lists shortages, substitutions and price differences.</p>
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
             </a>
           </li>

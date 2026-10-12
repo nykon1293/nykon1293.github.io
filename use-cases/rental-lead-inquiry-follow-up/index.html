@@ -26,8 +26,8 @@
   <link rel="sitemap" type="application/xml" title="Sitemap" href="https://gemmisi.com/sitemap.xml" />
   <link rel="preload" href="/assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
   <style>@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 400 700; font-display: swap; src: url("/assets/fonts/ibm-plex-sans-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; } @font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 500 700; font-display: optional; src: url("/assets/fonts/jetbrains-mono-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }</style>
-  <link rel="stylesheet" href="../../styles.css?v=perf-1" />
-  <link rel="stylesheet" href="../../assets/use-cases.css?v=perf-1" />
+  <link rel="stylesheet" href="../../styles.css?v=browse-1" />
+  <link rel="stylesheet" href="../../assets/use-cases.css?v=browse-1" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" href="/assets/brand/gemmisi-icon.svg" type="image/svg+xml" />
   <link rel="icon" href="/assets/brand/gemmisi-icon-32.png" type="image/png" sizes="32x32" />
@@ -56,6 +56,12 @@
         {
           "@type": "ListItem",
           "position": 3,
+          "name": "Real estate",
+          "item": "https://gemmisi.com/use-cases/industry/real-estate/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
           "name": "Lead and inquiry follow-up for agent or manager review",
           "item": "https://gemmisi.com/use-cases/rental-lead-inquiry-follow-up/"
         }
@@ -116,16 +122,18 @@
     <main id="top">
       <article class="uc-detail">
         <header class="uc-detail-head">
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="../../index.html">Home</a>
-            <span aria-hidden="true">/</span>
-            <a href="../index.html">Use cases</a>
-            <span aria-hidden="true">/</span>
-            <span>Lead and inquiry follow-up for agent or manager review</span>
-          </nav>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../../index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="../index.html">Use cases</a>
+          <span aria-hidden="true">/</span>
+          <a href="../industry/real-estate/">Real estate</a>
+          <span aria-hidden="true">/</span>
+          <span>Lead and inquiry follow-up for agent or manager review</span>
+        </nav>
           <div class="uc-detail-intro">
             <div class="uc-detail-copy">
-              <p class="uc-card-cat"><a href="../index.html#g-real-estate">Real estate</a></p>
+              <p class="uc-card-cat"><a href="../industry/real-estate/">Real estate</a> <span aria-hidden="true">·</span> <a href="../function/sales-follow-up/">Sales &amp; follow-up</a></p>
               <h1>Lead and inquiry follow-up for agent or manager review</h1>
               <p class="lead">Inquiries from the website, portals and calls are collected into one list, with a first-reply draft from the business&#x27;s own wording.</p>
               <p class="uc-read-first" role="note">Admin and operations help for agents, landlords and small property managers. SI prepares drafts for the licensed agent or owner; they review and decide. SI does not lease, collect rent, screen or rank applicants.</p>
@@ -205,17 +213,8 @@
         <section class="uc-related" aria-labelledby="related">
           <h2 id="related">Related use cases</h2>
           <ul class="uc-grid">
-          <li class="uc-card" data-cat="real-estate" data-slug="showing-scheduling-confirmations">
-            <a href="../showing-scheduling-confirmations/">
-              <span class="uc-card-cat">Real estate</span>
-              <h3>Showing scheduling and confirmation drafts</h3>
-              <p>From the calendar the business provides, SI proposes showing windows and drafts confirmations and reminders for the person showing.</p>
-              <p class="uc-card-note">Admin and operations help for agents, landlords and small property managers. SI prepares drafts for the licensed agent or owner; they review and decide. SI does not lease, collect rent, screen or rank applicants.</p>
-              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
-            </a>
-          </li>
-          <li class="uc-card" data-cat="real-estate" data-slug="showing-open-house-follow-up">
-            <a href="../showing-open-house-follow-up/">
+          <li class="uc-card" data-slug="showing-open-house-follow-up" data-i="real-estate" data-f="sales-follow-up">
+            <a href="/use-cases/showing-open-house-follow-up/">
               <span class="uc-card-cat">Real estate</span>
               <h3>Showing and open-house follow-up drafts</h3>
               <p>A sign-in sheet becomes a contact list, with the same thank-you and questions follow-up drafted from the agent&#x27;s approved wording.</p>
@@ -223,8 +222,17 @@
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
             </a>
           </li>
-          <li class="uc-card" data-cat="real-estate" data-slug="listing-rental-ad-drafts">
-            <a href="../listing-rental-ad-drafts/">
+          <li class="uc-card" data-slug="showing-scheduling-confirmations" data-i="real-estate" data-f="scheduling,sales-follow-up">
+            <a href="/use-cases/showing-scheduling-confirmations/">
+              <span class="uc-card-cat">Real estate</span>
+              <h3>Showing scheduling and confirmation drafts</h3>
+              <p>From the calendar the business provides, SI proposes showing windows and drafts confirmations and reminders for the person showing.</p>
+              <p class="uc-card-note">Admin and operations help for agents, landlords and small property managers. SI prepares drafts for the licensed agent or owner; they review and decide. SI does not lease, collect rent, screen or rank applicants.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="listing-rental-ad-drafts" data-i="real-estate" data-f="content-marketing">
+            <a href="/use-cases/listing-rental-ad-drafts/">
               <span class="uc-card-cat">Real estate</span>
               <h3>Listing and rental-ad description drafts for agent review</h3>
               <p>From the agent&#x27;s facts, SI drafts a property description and a flagged-phrases list so the agent can review wording before anything is published.</p>

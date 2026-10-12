@@ -26,8 +26,8 @@
   <link rel="sitemap" type="application/xml" title="Sitemap" href="https://gemmisi.com/sitemap.xml" />
   <link rel="preload" href="/assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
   <style>@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 400 700; font-display: swap; src: url("/assets/fonts/ibm-plex-sans-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; } @font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 500 700; font-display: optional; src: url("/assets/fonts/jetbrains-mono-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }</style>
-  <link rel="stylesheet" href="../../styles.css?v=perf-1" />
-  <link rel="stylesheet" href="../../assets/use-cases.css?v=perf-1" />
+  <link rel="stylesheet" href="../../styles.css?v=browse-1" />
+  <link rel="stylesheet" href="../../assets/use-cases.css?v=browse-1" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" href="/assets/brand/gemmisi-icon.svg" type="image/svg+xml" />
   <link rel="icon" href="/assets/brand/gemmisi-icon-32.png" type="image/png" sizes="32x32" />
@@ -116,16 +116,16 @@
     <main id="top">
       <article class="uc-detail">
         <header class="uc-detail-head">
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="../../index.html">Home</a>
-            <span aria-hidden="true">/</span>
-            <a href="../index.html">Use cases</a>
-            <span aria-hidden="true">/</span>
-            <span>Job postings drafted from a quick description of the role</span>
-          </nav>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../../index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="../index.html">Use cases</a>
+          <span aria-hidden="true">/</span>
+          <span>Job postings drafted from a quick description of the role</span>
+        </nav>
           <div class="uc-detail-intro">
             <div class="uc-detail-copy">
-              <p class="uc-card-cat"><a href="../index.html#g-hiring-team">Hiring &amp; team admin</a></p>
+              <p class="uc-card-cat"><a href="../function/hiring/">Hiring</a></p>
               <h1>Job postings drafted from a quick description of the role</h1>
               <p class="lead">SI turns a manager&#x27;s rough notes about a role into a clear job posting, screening questions and a short interview plan.</p>
               <p class="uc-caution" role="note"><strong>Worth knowing:</strong> Hiring: employment and anti-discrimination laws apply. Screening criteria must be job-related and applied consistently, SI should never score on protected characteristics, and some places regulate automated hiring tools. A person makes every hiring decision.</p>
@@ -202,27 +202,27 @@
         <section class="uc-related" aria-labelledby="related">
           <h2 id="related">Related use cases</h2>
           <ul class="uc-grid">
-          <li class="uc-card" data-cat="hiring-team" data-slug="application-summaries">
-            <a href="../application-summaries/">
-              <span class="uc-card-cat">Hiring &amp; team admin</span>
-              <h3>Summarizing job applications against the role&#x27;s criteria</h3>
-              <p>SI summarizes each application against the criteria you set for the role, so the hiring manager reads a consistent digest and decides.</p>
+          <li class="uc-card" data-slug="license-and-certification-tracker" data-i="any-business,home-services,medical" data-f="hiring">
+            <a href="/use-cases/license-and-certification-tracker/">
+              <span class="uc-card-cat">Hiring</span>
+              <h3>Tracking staff licenses, certifications and training renewals</h3>
+              <p>SI keeps one list of staff licenses, certifications and required training with expiry dates, and reminds people well before anything lapses.</p>
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
             </a>
           </li>
-          <li class="uc-card" data-cat="hiring-team" data-slug="interview-scheduling-and-kits">
-            <a href="../interview-scheduling-and-kits/">
-              <span class="uc-card-cat">Hiring &amp; team admin</span>
-              <h3>Interview scheduling and a consistent question kit</h3>
-              <p>SI coordinates interview times with candidates and interviewers, and prepares a consistent question set and scoring sheet for each role.</p>
+          <li class="uc-card" data-slug="inbox-triage" data-i="any-business,home-services,real-estate" data-f="customer-support">
+            <a href="/use-cases/inbox-triage/">
+              <span class="uc-card-cat">Customer support</span>
+              <h3>Morning inbox triage into labeled queues</h3>
+              <p>Each morning SI sorts the shared inbox into clear queues, flags what is urgent, and leaves draft replies for a person to review.</p>
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
             </a>
           </li>
-          <li class="uc-card" data-cat="hiring-team" data-slug="new-hire-onboarding">
-            <a href="../new-hire-onboarding/">
-              <span class="uc-card-cat">Hiring &amp; team admin</span>
-              <h3>A new-hire onboarding checklist that actually gets followed</h3>
-              <p>SI builds a role-specific onboarding plan, sends reminders to whoever owns each step, and tracks what is done.</p>
+          <li class="uc-card" data-slug="after-hours-call-coverage" data-i="any-business,home-services,medical,local-seasonal" data-f="customer-support">
+            <a href="/use-cases/after-hours-call-coverage/">
+              <span class="uc-card-cat">Customer support</span>
+              <h3>After-hours and busy-time phone coverage</h3>
+              <p>A voice assistant answers calls you would miss, handles common questions, takes detailed messages or requests, and sends staff a summary.</p>
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
             </a>
           </li>

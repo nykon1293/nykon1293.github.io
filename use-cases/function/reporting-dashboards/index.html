@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reporting and dashboard SI use cases | Yonatan Gemmi</title>
+  <meta name="description" content="SI jobs for weekly snapshots, revenue views, change notes, and simple dashboards assembled from tools you already use." />
+  <link rel="canonical" href="https://gemmisi.com/use-cases/function/reporting-dashboards/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Yonatan Gemmi" />
+  <meta property="og:title" content="Reporting and dashboard SI use cases | Yonatan Gemmi" />
+  <meta property="og:description" content="SI jobs for weekly snapshots, revenue views, change notes, and simple dashboards assembled from tools you already use." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://gemmisi.com/use-cases/function/reporting-dashboards/" />
+  <meta property="og:site_name" content="Yonatan Gemmi" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content="https://gemmisi.com/assets/brand/gemmisi-og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="GemmiSI — SI, automation, dashboards, and technical operations" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Reporting and dashboard SI use cases | Yonatan Gemmi" />
+  <meta name="twitter:description" content="SI jobs for weekly snapshots, revenue views, change notes, and simple dashboards assembled from tools you already use." />
+  <meta name="twitter:image" content="https://gemmisi.com/assets/brand/gemmisi-og.png" />
+  <meta name="twitter:image:alt" content="GemmiSI — SI, automation, dashboards, and technical operations" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://gemmisi.com/sitemap.xml" />
+  <link rel="preload" href="/assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <style>@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 400 700; font-display: swap; src: url("/assets/fonts/ibm-plex-sans-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; } @font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 500 700; font-display: optional; src: url("/assets/fonts/jetbrains-mono-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }</style>
+  <link rel="stylesheet" href="../../../styles.css?v=browse-1" />
+  <link rel="stylesheet" href="../../../assets/use-cases.css?v=browse-1" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon-32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon-16.png" type="image/png" sizes="16x16" />
+  <link rel="apple-touch-icon" href="/assets/brand/gemmisi-icon-180.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gemmisi.com/"},{"@type":"ListItem","position":2,"name":"Use cases","item":"https://gemmisi.com/use-cases/"},{"@type":"ListItem","position":3,"name":"Reporting & dashboards","item":"https://gemmisi.com/use-cases/function/reporting-dashboards/"}]},{"@type":"CollectionPage","name":"Reporting and dashboard use cases","url":"https://gemmisi.com/use-cases/function/reporting-dashboards/","description":"SI jobs for weekly snapshots, revenue views, change notes, and simple dashboards assembled from tools you already use.","isPartOf":{"@type":"WebSite","name":"Yonatan Gemmi","url":"https://gemmisi.com/"},"mainEntity":{"@type":"ItemList","numberOfItems":15,"itemListElement":[{"@type":"ListItem","position":1,"url":"https://gemmisi.com/use-cases/month-end-close-prep/","name":"Month-end close prep and the accountant's package"},{"@type":"ListItem","position":2,"url":"https://gemmisi.com/use-cases/weekly-owner-snapshot/","name":"A one-page weekly snapshot for the owner"},{"@type":"ListItem","position":3,"url":"https://gemmisi.com/use-cases/revenue-in-one-view/","name":"One view of revenue across every place you take money"},{"@type":"ListItem","position":4,"url":"https://gemmisi.com/use-cases/change-explanations/","name":"Plain-language notes when a number moves"},{"@type":"ListItem","position":5,"url":"https://gemmisi.com/use-cases/ad-spend-vs-results/","name":"Ad spend next to real results, in one sheet"},{"@type":"ListItem","position":6,"url":"https://gemmisi.com/use-cases/competitor-watch/","name":"A weekly watch on competitors' prices and offers"},{"@type":"ListItem","position":7,"url":"https://gemmisi.com/use-cases/weekly-team-report/","name":"A weekly team report assembled from the tools you already use"},{"@type":"ListItem","position":8,"url":"https://gemmisi.com/use-cases/feedback-themes/","name":"Monthly themes from customer questions, complaints and surveys"},{"@type":"ListItem","position":9,"url":"https://gemmisi.com/use-cases/daily-briefing/","name":"A morning briefing across inbox, calendar and tasks"},{"@type":"ListItem","position":10,"url":"https://gemmisi.com/use-cases/inventory-value-aging/","name":"Inventory value and aging report"},{"@type":"ListItem","position":11,"url":"https://gemmisi.com/use-cases/store-stock-and-spreadsheet-agreement/","name":"Keeping store stock counts and your spreadsheet in agreement"},{"@type":"ListItem","position":12,"url":"https://gemmisi.com/use-cases/catalog-pricing-and-margin-check/","name":"Pricing and margin check across your catalog"},{"@type":"ListItem","position":13,"url":"https://gemmisi.com/use-cases/cash-flow-look-ahead/","name":"Cash-flow look-ahead from open invoices and bills"},{"@type":"ListItem","position":14,"url":"https://gemmisi.com/use-cases/bookkeeping-month-end-checklist/","name":"Month-end close checklist preparation"},{"@type":"ListItem","position":15,"url":"https://gemmisi.com/use-cases/fulfillment-sla-watch/","name":"Fulfillment SLA watch for orders still waiting to ship"}]}}]}
+  </script>
+</head>
+<body data-uc="function" data-uc-slug="reporting-dashboards">
+  <div class="site-shell">
+    <header class="nav">
+      <a class="brand" href="../../../index.html" aria-label="GemmiSI home">
+        <img class="brand-lockup" src="../../../assets/brand/gemmisi-lockup-dark.svg" alt="" width="159" height="36" />
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open site menu">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+        <span class="nav-toggle__label">Menu</span>
+      </button>
+      <nav id="site-nav" class="nav-links" aria-label="Primary navigation">
+        <a href="../../../index.html">Home</a>
+        <a href="../../../index.html#work">Work</a>
+        <details class="nav-dropdown">
+          <summary class="nav-dropdown-trigger">Services</summary>
+          <div class="nav-dropdown-menu">
+            <a href="../../../services/hermes-agents.html">Hermes Agents</a>
+            <a href="../../../services/ai-automation.html">SI automation</a>
+            <a href="../../../services/dashboards-reporting.html">Dashboards &amp; reporting</a>
+            <a href="../../../services/ecommerce-operations.html">Ecommerce operations</a>
+            <a href="../../../services/tutoring-project-help.html">Tutoring &amp; project help</a>
+            <a class="nav-dropdown-muted" href="../../../services/stocky-recovery.html">Stocky dump recovery</a>
+            <a class="nav-dropdown-muted" href="../../../index.html#service-hub">All services</a>
+            <a class="nav-dropdown-muted" href="../../../advisory.html">Advisory &amp; Fractional (ask first)</a>
+          </div>
+        </details>
+        <a href="../../index.html" aria-current="page">Use cases</a>
+        <a href="../../../pricing.html">Pricing</a>
+      </nav>
+      <a class="nav-cta" href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book consultation</a>
+    </header>
+
+    <main id="top">
+      <section class="uc-hero">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../../../index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="../../index.html">Use cases</a>
+          <span aria-hidden="true">/</span>
+          <span>Reporting &amp; dashboards</span>
+        </nav>
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>15 use cases</p>
+        <h1>Reporting and dashboard use cases</h1>
+        <p class="lead">One trusted view of the business, written in plain language.</p>
+      </section>
+      <section class="uc-tools" aria-label="Combine with an industry">
+        <p class="uc-tile-legend">Narrow by industry</p>
+        <div class="uc-tiles" role="navigation" aria-label="Browse by industry">
+          <a class="uc-tile" href="/use-cases/?industry=any-business&function=reporting-dashboards" data-industry="any-business"><span class="uc-tile-label">Any business</span><span class="uc-tile-count">77</span></a>
+          <a class="uc-tile" href="/use-cases/?industry=ecommerce&function=reporting-dashboards" data-industry="ecommerce"><span class="uc-tile-label">Ecommerce</span><span class="uc-tile-count">23</span></a>
+          <a class="uc-tile" href="/use-cases/?industry=local-seasonal&function=reporting-dashboards" data-industry="local-seasonal"><span class="uc-tile-label">Local &amp; seasonal</span><span class="uc-tile-count">6</span></a>
+          <a class="uc-tile" href="/use-cases/?industry=legal&function=reporting-dashboards" data-industry="legal"><span class="uc-tile-label">Legal</span><span class="uc-tile-count">18</span></a>
+          <a class="uc-tile" href="/use-cases/?industry=medical&function=reporting-dashboards" data-industry="medical"><span class="uc-tile-label">Medical</span><span class="uc-tile-count">18</span></a>
+          <a class="uc-tile" href="/use-cases/?industry=real-estate&function=reporting-dashboards" data-industry="real-estate"><span class="uc-tile-label">Real estate</span><span class="uc-tile-count">16</span></a>
+          <a class="uc-tile" href="/use-cases/?industry=home-services&function=reporting-dashboards" data-industry="home-services"><span class="uc-tile-label">Home services</span><span class="uc-tile-count">23</span></a>
+          <a class="uc-tile" href="/use-cases/?industry=accounting&function=reporting-dashboards" data-industry="accounting"><span class="uc-tile-label">Accounting</span><span class="uc-tile-count">19</span></a>
+        </div>
+      </section>
+      <section class="uc-group" aria-labelledby="list-h">
+        <h2 id="list-h" class="visually-hidden">Reporting &amp; dashboards use cases</h2>
+        <ul class="uc-grid">
+          <li class="uc-card" data-slug="month-end-close-prep" data-i="any-business,accounting" data-f="billing-admin,reporting-dashboards">
+            <a href="/use-cases/month-end-close-prep/">
+              <span class="uc-card-cat">Billing &amp; admin</span>
+              <h3>Month-end close prep and the accountant&#x27;s package</h3>
+              <p>SI prepares the month-end checklist, reconciliation exceptions and an indexed bundle of documents for the bookkeeper or accountant.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="weekly-owner-snapshot" data-i="any-business,accounting" data-f="reporting-dashboards">
+            <a href="/use-cases/weekly-owner-snapshot/">
+              <span class="uc-card-cat">Reporting &amp; dashboards</span>
+              <h3>A one-page weekly snapshot for the owner</h3>
+              <p>Every Monday, SI pulls the numbers you care about from your tools into a single page with short notes on what changed.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="revenue-in-one-view" data-i="any-business,ecommerce" data-f="reporting-dashboards">
+            <a href="/use-cases/revenue-in-one-view/">
+              <span class="uc-card-cat">Reporting &amp; dashboards</span>
+              <h3>One view of revenue across every place you take money</h3>
+              <p>SI combines sales from each channel, location or payment system into one sheet or dashboard that updates on a schedule.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="change-explanations" data-i="any-business" data-f="reporting-dashboards">
+            <a href="/use-cases/change-explanations/">
+              <span class="uc-card-cat">Reporting &amp; dashboards</span>
+              <h3>Plain-language notes when a number moves</h3>
+              <p>When a key number jumps or drops, SI looks for likely reasons in the data and writes a short, plain note for the owner.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="ad-spend-vs-results" data-i="any-business" data-f="reporting-dashboards,content-marketing">
+            <a href="/use-cases/ad-spend-vs-results/">
+              <span class="uc-card-cat">Reporting &amp; dashboards</span>
+              <h3>Ad spend next to real results, in one sheet</h3>
+              <p>SI lines up spend from each ad platform with the inquiries, bookings or sales it produced, and lists campaigns that look weak.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="competitor-watch" data-i="any-business" data-f="reporting-dashboards">
+            <a href="/use-cases/competitor-watch/">
+              <span class="uc-card-cat">Reporting &amp; dashboards</span>
+              <h3>A weekly watch on competitors&#x27; prices and offers</h3>
+              <p>Once a week SI checks the competitor pages you choose and sends a short summary of changed prices, services, offers or openings.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="weekly-team-report" data-i="any-business" data-f="reporting-dashboards">
+            <a href="/use-cases/weekly-team-report/">
+              <span class="uc-card-cat">Reporting &amp; dashboards</span>
+              <h3>A weekly team report assembled from the tools you already use</h3>
+              <p>SI pulls updates from project, support and sales tools into a draft weekly report that a manager edits and sends.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="feedback-themes" data-i="any-business" data-f="reporting-dashboards,customer-support">
+            <a href="/use-cases/feedback-themes/">
+              <span class="uc-card-cat">Reporting &amp; dashboards</span>
+              <h3>Monthly themes from customer questions, complaints and surveys</h3>
+              <p>SI groups a month of support messages, reviews and survey answers by theme, counts them, and suggests what to fix upstream.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="daily-briefing" data-i="any-business,home-services" data-f="scheduling,reporting-dashboards">
+            <a href="/use-cases/daily-briefing/">
+              <span class="uc-card-cat">Scheduling</span>
+              <h3>A morning briefing across inbox, calendar and tasks</h3>
+              <p>Each morning SI prepares a short briefing on today&#x27;s meetings, urgent messages, overdue tasks and stalled deals.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="inventory-value-aging" data-i="any-business,ecommerce" data-f="inventory-orders,reporting-dashboards">
+            <a href="/use-cases/inventory-value-aging/">
+              <span class="uc-card-cat">Inventory &amp; orders</span>
+              <h3>Inventory value and aging report</h3>
+              <p>SI shows how much money is tied up in stock, what has not moved in months, and suggests what to discount, return or stop buying.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="store-stock-and-spreadsheet-agreement" data-i="ecommerce" data-f="inventory-orders,reporting-dashboards">
+            <a href="/use-cases/store-stock-and-spreadsheet-agreement/">
+              <span class="uc-card-cat">Ecommerce</span>
+              <h3>Keeping store stock counts and your spreadsheet in agreement</h3>
+              <p>SI compares the store&#x27;s available count, the warehouse or location count, and the spreadsheet, and lists where they disagree before you oversell or reorder the wrong amount.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="catalog-pricing-and-margin-check" data-i="any-business,ecommerce" data-f="reporting-dashboards">
+            <a href="/use-cases/catalog-pricing-and-margin-check/">
+              <span class="uc-card-cat">Reporting &amp; dashboards</span>
+              <h3>Pricing and margin check across your catalog</h3>
+              <p>SI compares the price you charge with the cost you have on file, and lists products or services where the price no longer covers that cost.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="cash-flow-look-ahead" data-i="any-business,accounting" data-f="reporting-dashboards,billing-admin">
+            <a href="/use-cases/cash-flow-look-ahead/">
+              <span class="uc-card-cat">Reporting &amp; dashboards</span>
+              <h3>Cash-flow look-ahead from open invoices and bills</h3>
+              <p>SI lines up open customer invoices and open bills by week so you can see where money is expected in and where it is due out.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="bookkeeping-month-end-checklist" data-i="accounting" data-f="billing-admin,reporting-dashboards">
+            <a href="/use-cases/bookkeeping-month-end-checklist/">
+              <span class="uc-card-cat">Accounting</span>
+              <h3>Month-end close checklist preparation</h3>
+              <p>Each client&#x27;s month-end checklist is generated from the firm&#x27;s template, with open items listed for staff and the client.</p>
+              <p class="uc-card-note">Admin and operations help for small CPA, tax and bookkeeping firms. SI chases, organizes and drafts; professionals review, sign and decide. No tax advice, no filings, and client data stays protected under your firm&#x27;s security plan.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="fulfillment-sla-watch" data-i="ecommerce" data-f="inventory-orders,reporting-dashboards">
+            <a href="/use-cases/fulfillment-sla-watch/">
+              <span class="uc-card-cat">Ecommerce</span>
+              <h3>Fulfillment SLA watch for orders still waiting to ship</h3>
+              <p>SI lists paid orders that are close to your ship-by time, or the marketplace&#x27;s, and are not yet fulfilled, so someone can pick, pack, or message the customer.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+        </ul>
+      </section>
+            <section class="section closing-card uc-closing">
+        <div class="contact-panel">
+          <p class="section-kicker">Don’t see yours?</p>
+          <h2>Bring the task that keeps eating your week</h2>
+          <p class="section-intro">If it is repetitive, rule-based, and lives in email, spreadsheets, a store, or a CRM, there is a good chance it can be drafted by SI and checked by you. Book a free 30-minute call and we will look at it together.</p>
+          <div class="actions"><a class="button primary" href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book a free 30-minute consult</a></div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <a class="footer-brand" href="../../../index.html" aria-label="GemmiSI home">
+        <img class="footer-lockup" src="../../../assets/brand/gemmisi-lockup-dark.svg" alt="" width="123" height="28" />
+      </a>
+      <p>© <span id="year"></span> Yonatan Gemmi. Based in North Miami Beach, Florida · Miami-Dade, Broward, and remote</p>
+      <p class="footer-nav">
+        <a href="../../../index.html">Home</a>
+        <a href="../../index.html">Use cases</a>
+        <a href="../../../pricing.html">Pricing</a>
+        <a href="../../../services/hermes-agents.html">Hermes desks</a>
+        <a href="../../../services/ai-automation.html">SI automation</a>
+        <a href="../../../services/dashboards-reporting.html">Dashboards</a>
+        <a href="../../../services/ecommerce-operations.html">Ecommerce</a>
+        <a href="../../../services/tutoring-project-help.html">Tutoring</a>
+        <a href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book consultation</a>
+      </p>
+    </footer>  <script src="/assets/nav.js" defer></script>
+</body>
+</html>

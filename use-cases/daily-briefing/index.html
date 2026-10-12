@@ -26,8 +26,8 @@
   <link rel="sitemap" type="application/xml" title="Sitemap" href="https://gemmisi.com/sitemap.xml" />
   <link rel="preload" href="/assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
   <style>@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 400 700; font-display: swap; src: url("/assets/fonts/ibm-plex-sans-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; } @font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 500 700; font-display: optional; src: url("/assets/fonts/jetbrains-mono-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }</style>
-  <link rel="stylesheet" href="../../styles.css?v=perf-1" />
-  <link rel="stylesheet" href="../../assets/use-cases.css?v=perf-1" />
+  <link rel="stylesheet" href="../../styles.css?v=browse-1" />
+  <link rel="stylesheet" href="../../assets/use-cases.css?v=browse-1" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" href="/assets/brand/gemmisi-icon.svg" type="image/svg+xml" />
   <link rel="icon" href="/assets/brand/gemmisi-icon-32.png" type="image/png" sizes="32x32" />
@@ -116,16 +116,16 @@
     <main id="top">
       <article class="uc-detail">
         <header class="uc-detail-head">
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="../../index.html">Home</a>
-            <span aria-hidden="true">/</span>
-            <a href="../index.html">Use cases</a>
-            <span aria-hidden="true">/</span>
-            <span>A morning briefing across inbox, calendar and tasks</span>
-          </nav>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../../index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="../index.html">Use cases</a>
+          <span aria-hidden="true">/</span>
+          <span>A morning briefing across inbox, calendar and tasks</span>
+        </nav>
           <div class="uc-detail-intro">
             <div class="uc-detail-copy">
-              <p class="uc-card-cat"><a href="../index.html#g-scheduling-operations">Scheduling &amp; operations</a></p>
+              <p class="uc-card-cat"><a href="../function/scheduling/">Scheduling</a> <span aria-hidden="true">·</span> <a href="../function/reporting-dashboards/">Reporting &amp; dashboards</a></p>
               <h1>A morning briefing across inbox, calendar and tasks</h1>
               <p class="lead">Each morning SI prepares a short briefing on today&#x27;s meetings, urgent messages, overdue tasks and stalled deals.</p>
               
@@ -202,27 +202,27 @@
         <section class="uc-related" aria-labelledby="related">
           <h2 id="related">Related use cases</h2>
           <ul class="uc-grid">
-          <li class="uc-card" data-cat="scheduling-operations" data-slug="staff-schedule-drafts">
-            <a href="../staff-schedule-drafts/">
-              <span class="uc-card-cat">Scheduling &amp; operations</span>
-              <h3>Drafting next week&#x27;s staff schedule from availability</h3>
-              <p>SI collects availability and time-off requests and drafts next week&#x27;s schedule against your coverage rules, for a manager to adjust.</p>
+          <li class="uc-card" data-slug="inbox-triage" data-i="any-business,home-services,real-estate" data-f="customer-support">
+            <a href="/use-cases/inbox-triage/">
+              <span class="uc-card-cat">Customer support</span>
+              <h3>Morning inbox triage into labeled queues</h3>
+              <p>Each morning SI sorts the shared inbox into clear queues, flags what is urgent, and leaves draft replies for a person to review.</p>
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
             </a>
           </li>
-          <li class="uc-card" data-cat="scheduling-operations" data-slug="sops-from-walkthroughs">
-            <a href="../sops-from-walkthroughs/">
-              <span class="uc-card-cat">Scheduling &amp; operations</span>
-              <h3>Turning how-we-do-it into written procedures</h3>
-              <p>SI turns a recorded walkthrough, voice memo or screen recording into a clear, step-by-step procedure your team can follow.</p>
+          <li class="uc-card" data-slug="after-hours-call-coverage" data-i="any-business,home-services,medical,local-seasonal" data-f="customer-support">
+            <a href="/use-cases/after-hours-call-coverage/">
+              <span class="uc-card-cat">Customer support</span>
+              <h3>After-hours and busy-time phone coverage</h3>
+              <p>A voice assistant answers calls you would miss, handles common questions, takes detailed messages or requests, and sends staff a summary.</p>
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
             </a>
           </li>
-          <li class="uc-card" data-cat="scheduling-operations" data-slug="appointment-confirmations">
-            <a href="../appointment-confirmations/">
-              <span class="uc-card-cat">Scheduling &amp; operations</span>
-              <h3>Appointment confirmations, reminders and reschedules</h3>
-              <p>SI sends approved confirmation and reminder messages, handles reschedule requests against your real calendar, and keeps the schedule current.</p>
+          <li class="uc-card" data-slug="quote-follow-ups" data-i="any-business,home-services" data-f="sales-follow-up">
+            <a href="/use-cases/quote-follow-ups/">
+              <span class="uc-card-cat">Sales &amp; follow-up</span>
+              <h3>Follow-ups for quotes and estimates that went quiet</h3>
+              <p>SI finds quotes and estimates with no reply after a set number of days and drafts a short, specific follow-up for each one.</p>
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
             </a>
           </li>

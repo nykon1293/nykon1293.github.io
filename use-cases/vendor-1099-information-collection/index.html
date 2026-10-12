@@ -26,8 +26,8 @@
   <link rel="sitemap" type="application/xml" title="Sitemap" href="https://gemmisi.com/sitemap.xml" />
   <link rel="preload" href="/assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
   <style>@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 400 700; font-display: swap; src: url("/assets/fonts/ibm-plex-sans-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; } @font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 500 700; font-display: optional; src: url("/assets/fonts/jetbrains-mono-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }</style>
-  <link rel="stylesheet" href="../../styles.css?v=perf-1" />
-  <link rel="stylesheet" href="../../assets/use-cases.css?v=perf-1" />
+  <link rel="stylesheet" href="../../styles.css?v=browse-1" />
+  <link rel="stylesheet" href="../../assets/use-cases.css?v=browse-1" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" href="/assets/brand/gemmisi-icon.svg" type="image/svg+xml" />
   <link rel="icon" href="/assets/brand/gemmisi-icon-32.png" type="image/png" sizes="32x32" />
@@ -56,6 +56,12 @@
         {
           "@type": "ListItem",
           "position": 3,
+          "name": "Accounting",
+          "item": "https://gemmisi.com/use-cases/industry/accounting/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
           "name": "Vendor information collection and reminder prep for 1099 review",
           "item": "https://gemmisi.com/use-cases/vendor-1099-information-collection/"
         }
@@ -116,16 +122,18 @@
     <main id="top">
       <article class="uc-detail">
         <header class="uc-detail-head">
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="../../index.html">Home</a>
-            <span aria-hidden="true">/</span>
-            <a href="../index.html">Use cases</a>
-            <span aria-hidden="true">/</span>
-            <span>Vendor information collection and reminder prep for 1099 review</span>
-          </nav>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../../index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="../index.html">Use cases</a>
+          <span aria-hidden="true">/</span>
+          <a href="../industry/accounting/">Accounting</a>
+          <span aria-hidden="true">/</span>
+          <span>Vendor information collection and reminder prep for 1099 review</span>
+        </nav>
           <div class="uc-detail-intro">
             <div class="uc-detail-copy">
-              <p class="uc-card-cat"><a href="../index.html#g-accounting-tax">Accounting &amp; tax</a></p>
+              <p class="uc-card-cat"><a href="../industry/accounting/">Accounting</a> <span aria-hidden="true">·</span> <a href="../function/billing-admin/">Billing &amp; admin</a> <span aria-hidden="true">·</span> <a href="../function/research-documents/">Research &amp; documents</a></p>
               <h1>Vendor information collection and reminder prep for 1099 review</h1>
               <p class="lead">A vendor list from payment records shows who has a W-9 on file, with request drafts and a review list for the professional.</p>
               <p class="uc-read-first" role="note">Admin and operations help for small CPA, tax and bookkeeping firms. SI chases, organizes and drafts; professionals review, sign and decide. No tax advice, no filings, and client data stays protected under your firm&#x27;s security plan.</p>
@@ -205,29 +213,29 @@
         <section class="uc-related" aria-labelledby="related">
           <h2 id="related">Related use cases</h2>
           <ul class="uc-grid">
-          <li class="uc-card" data-cat="accounting-tax" data-slug="client-document-chasing">
-            <a href="../client-document-chasing/">
-              <span class="uc-card-cat">Accounting &amp; tax</span>
-              <h3>Client document chasing</h3>
-              <p>From the firm&#x27;s checklist, SI keeps a per-client list of outstanding items and drafts reminders in the firm&#x27;s voice.</p>
+          <li class="uc-card" data-slug="accounting-engagement-letter-assembly" data-i="accounting" data-f="billing-admin,research-documents">
+            <a href="/use-cases/accounting-engagement-letter-assembly/">
+              <span class="uc-card-cat">Accounting</span>
+              <h3>Engagement letters assembled for review</h3>
+              <p>SI fills the firm&#x27;s own engagement-letter template from details the professional specifies, flags blanks, and tracks what is signed.</p>
               <p class="uc-card-note">Admin and operations help for small CPA, tax and bookkeeping firms. SI chases, organizes and drafts; professionals review, sign and decide. No tax advice, no filings, and client data stays protected under your firm&#x27;s security plan.</p>
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
             </a>
           </li>
-          <li class="uc-card" data-cat="accounting-tax" data-slug="tax-new-client-intake">
-            <a href="../tax-new-client-intake/">
-              <span class="uc-card-cat">Accounting &amp; tax</span>
-              <h3>New-client intake organization</h3>
-              <p>New-client files are organized from the firm&#x27;s templates, with a one-page summary of what has and has not been received.</p>
+          <li class="uc-card" data-slug="accounting-invoice-follow-up" data-i="accounting" data-f="billing-admin">
+            <a href="/use-cases/accounting-invoice-follow-up/">
+              <span class="uc-card-cat">Accounting</span>
+              <h3>Invoice follow-up and receivables reminders for partner review</h3>
+              <p>From the billing export, SI builds an aging list and drafts polite reminders, holding disputed accounts for the partner.</p>
               <p class="uc-card-note">Admin and operations help for small CPA, tax and bookkeeping firms. SI chases, organizes and drafts; professionals review, sign and decide. No tax advice, no filings, and client data stays protected under your firm&#x27;s security plan.</p>
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
             </a>
           </li>
-          <li class="uc-card" data-cat="accounting-tax" data-slug="tax-deadline-tracking">
-            <a href="../tax-deadline-tracking/">
-              <span class="uc-card-cat">Accounting &amp; tax</span>
-              <h3>Deadline tracking, human-verified</h3>
-              <p>Due dates a professional has verified against official sources sit in one tracker, with reminders and a weekly list for the partner.</p>
+          <li class="uc-card" data-slug="bookkeeping-month-end-checklist" data-i="accounting" data-f="billing-admin,reporting-dashboards">
+            <a href="/use-cases/bookkeeping-month-end-checklist/">
+              <span class="uc-card-cat">Accounting</span>
+              <h3>Month-end close checklist preparation</h3>
+              <p>Each client&#x27;s month-end checklist is generated from the firm&#x27;s template, with open items listed for staff and the client.</p>
               <p class="uc-card-note">Admin and operations help for small CPA, tax and bookkeeping firms. SI chases, organizes and drafts; professionals review, sign and decide. No tax advice, no filings, and client data stays protected under your firm&#x27;s security plan.</p>
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
             </a>

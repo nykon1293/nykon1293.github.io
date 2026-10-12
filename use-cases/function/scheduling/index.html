@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scheduling SI use cases | Yonatan Gemmi</title>
+  <meta name="description" content="SI jobs for staff schedules, appointment confirmations, calendar holds, and reminder drafts. A person still books and confirms." />
+  <link rel="canonical" href="https://gemmisi.com/use-cases/function/scheduling/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Yonatan Gemmi" />
+  <meta property="og:title" content="Scheduling SI use cases | Yonatan Gemmi" />
+  <meta property="og:description" content="SI jobs for staff schedules, appointment confirmations, calendar holds, and reminder drafts. A person still books and confirms." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://gemmisi.com/use-cases/function/scheduling/" />
+  <meta property="og:site_name" content="Yonatan Gemmi" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content="https://gemmisi.com/assets/brand/gemmisi-og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="GemmiSI — SI, automation, dashboards, and technical operations" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Scheduling SI use cases | Yonatan Gemmi" />
+  <meta name="twitter:description" content="SI jobs for staff schedules, appointment confirmations, calendar holds, and reminder drafts. A person still books and confirms." />
+  <meta name="twitter:image" content="https://gemmisi.com/assets/brand/gemmisi-og.png" />
+  <meta name="twitter:image:alt" content="GemmiSI — SI, automation, dashboards, and technical operations" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://gemmisi.com/sitemap.xml" />
+  <link rel="preload" href="/assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <style>@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 400 700; font-display: swap; src: url("/assets/fonts/ibm-plex-sans-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; } @font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 500 700; font-display: optional; src: url("/assets/fonts/jetbrains-mono-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }</style>
+  <link rel="stylesheet" href="../../../styles.css?v=browse-1" />
+  <link rel="stylesheet" href="../../../assets/use-cases.css?v=browse-1" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon-32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon-16.png" type="image/png" sizes="16x16" />
+  <link rel="apple-touch-icon" href="/assets/brand/gemmisi-icon-180.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gemmisi.com/"},{"@type":"ListItem","position":2,"name":"Use cases","item":"https://gemmisi.com/use-cases/"},{"@type":"ListItem","position":3,"name":"Scheduling","item":"https://gemmisi.com/use-cases/function/scheduling/"}]},{"@type":"CollectionPage","name":"Scheduling use cases","url":"https://gemmisi.com/use-cases/function/scheduling/","description":"SI jobs for staff schedules, appointment confirmations, calendar holds, and reminder drafts. A person still books and confirms.","isPartOf":{"@type":"WebSite","name":"Yonatan Gemmi","url":"https://gemmisi.com/"},"mainEntity":{"@type":"ItemList","numberOfItems":28,"itemListElement":[{"@type":"ListItem","position":1,"url":"https://gemmisi.com/use-cases/staff-schedule-drafts/","name":"Drafting next week's staff schedule from availability"},{"@type":"ListItem","position":2,"url":"https://gemmisi.com/use-cases/sops-from-walkthroughs/","name":"Turning how-we-do-it into written procedures"},{"@type":"ListItem","position":3,"url":"https://gemmisi.com/use-cases/appointment-confirmations/","name":"Appointment confirmations, reminders and reschedules"},{"@type":"ListItem","position":4,"url":"https://gemmisi.com/use-cases/meeting-notes-action-items/","name":"Meeting notes into owners and due dates"},{"@type":"ListItem","position":5,"url":"https://gemmisi.com/use-cases/requests-to-calendar-holds/","name":"Turning meeting requests and forwarded emails into calendar holds"},{"@type":"ListItem","position":6,"url":"https://gemmisi.com/use-cases/daily-briefing/","name":"A morning briefing across inbox, calendar and tasks"},{"@type":"ListItem","position":7,"url":"https://gemmisi.com/use-cases/requests-to-scheduled-jobs/","name":"Turning incoming work and maintenance requests into scheduled jobs"},{"@type":"ListItem","position":8,"url":"https://gemmisi.com/use-cases/interview-scheduling-and-kits/","name":"Interview scheduling and a consistent question kit"},{"@type":"ListItem","position":9,"url":"https://gemmisi.com/use-cases/volunteer-scheduling/","name":"Volunteer sign-ups, reminders and gap filling"},{"@type":"ListItem","position":10,"url":"https://gemmisi.com/use-cases/event-registration-logistics/","name":"Event registration, seating and reminders"},{"@type":"ListItem","position":11,"url":"https://gemmisi.com/use-cases/hurricane-season-readiness/","name":"Hurricane-season readiness and continuity plan"},{"@type":"ListItem","position":12,"url":"https://gemmisi.com/use-cases/standing-si-desk-approval-queue/","name":"A standing SI desk with an approval queue"},{"@type":"ListItem","position":13,"url":"https://gemmisi.com/use-cases/deadline-calendar-reminders/","name":"Deadline and calendar reminders, human-verified"},{"@type":"ListItem","position":14,"url":"https://gemmisi.com/use-cases/meeting-call-summaries/","name":"Meeting and call summaries for attorney review"},{"@type":"ListItem","position":15,"url":"https://gemmisi.com/use-cases/appointment-reminders/","name":"Appointment reminders and no-show reduction"},{"@type":"ListItem","position":16,"url":"https://gemmisi.com/use-cases/cancellation-waitlist/","name":"Waitlist filling for cancellations"},{"@type":"ListItem","position":17,"url":"https://gemmisi.com/use-cases/referral-loop-tracking/","name":"Referral tracking and closing the loop"},{"@type":"ListItem","position":18,"url":"https://gemmisi.com/use-cases/recall-visit-outreach/","name":"Recall and preventive-visit outreach"},{"@type":"ListItem","position":19,"url":"https://gemmisi.com/use-cases/showing-scheduling-confirmations/","name":"Showing scheduling and confirmation drafts"},{"@type":"ListItem","position":20,"url":"https://gemmisi.com/use-cases/maintenance-request-intake/","name":"Maintenance request intake and sorting"},{"@type":"ListItem","position":21,"url":"https://gemmisi.com/use-cases/lease-renewal-expiration-tracking/","name":"Lease renewal and expiration tracking"},{"@type":"ListItem","position":22,"url":"https://gemmisi.com/use-cases/vendor-work-order-tracking/","name":"Vendor and work-order tracking"},{"@type":"ListItem","position":23,"url":"https://gemmisi.com/use-cases/property-hurricane-season-prep/","name":"Hurricane-season readiness and tenant communication prep"},{"@type":"ListItem","position":24,"url":"https://gemmisi.com/use-cases/crew-dispatch-schedule-prep/","name":"Scheduling and dispatch prep for owner approval"},{"@type":"ListItem","position":25,"url":"https://gemmisi.com/use-cases/warranty-maintenance-reminders/","name":"Warranty and maintenance reminder drafts"},{"@type":"ListItem","position":26,"url":"https://gemmisi.com/use-cases/permit-inspection-tracking/","name":"Permit and inspection tracking"},{"@type":"ListItem","position":27,"url":"https://gemmisi.com/use-cases/tax-deadline-tracking/","name":"Deadline tracking, human-verified"},{"@type":"ListItem","position":28,"url":"https://gemmisi.com/use-cases/sales-tax-filing-reminders/","name":"Sales-tax and recurring-filing reminder prep"}]}}]}
+  </script>
+</head>
+<body data-uc="function" data-uc-slug="scheduling">
+  <div class="site-shell">
+    <header class="nav">
+      <a class="brand" href="../../../index.html" aria-label="GemmiSI home">
+        <img class="brand-lockup" src="../../../assets/brand/gemmisi-lockup-dark.svg" alt="" width="159" height="36" />
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open site menu">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+        <span class="nav-toggle__label">Menu</span>
+      </button>
+      <nav id="site-nav" class="nav-links" aria-label="Primary navigation">
+        <a href="../../../index.html">Home</a>
+        <a href="../../../index.html#work">Work</a>
+        <details class="nav-dropdown">
+          <summary class="nav-dropdown-trigger">Services</summary>
+          <div class="nav-dropdown-menu">
+            <a href="../../../services/hermes-agents.html">Hermes Agents</a>
+            <a href="../../../services/ai-automation.html">SI automation</a>
+            <a href="../../../services/dashboards-reporting.html">Dashboards &amp; reporting</a>
+            <a href="../../../services/ecommerce-operations.html">Ecommerce operations</a>
+            <a href="../../../services/tutoring-project-help.html">Tutoring &amp; project help</a>
+            <a class="nav-dropdown-muted" href="../../../services/stocky-recovery.html">Stocky dump recovery</a>
+            <a class="nav-dropdown-muted" href="../../../index.html#service-hub">All services</a>
+            <a class="nav-dropdown-muted" href="../../../advisory.html">Advisory &amp; Fractional (ask first)</a>
+          </div>
+        </details>
+        <a href="../../index.html" aria-current="page">Use cases</a>
+        <a href="../../../pricing.html">Pricing</a>
+      </nav>
+      <a class="nav-cta" href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book consultation</a>
+    </header>
+
+    <main id="top">
+      <section class="uc-hero">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../../../index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="../../index.html">Use cases</a>
+          <span aria-hidden="true">/</span>
+          <span>Scheduling</span>
+        </nav>
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>28 use cases</p>
+        <h1>Scheduling use cases</h1>
+        <p class="lead">Schedules, confirmations, reminders and calendar chores.</p>
+      </section>
+      <section class="uc-tools" aria-label="Combine with an industry">
+        <p class="uc-tile-legend">Narrow by industry</p>
+        <div class="uc-tiles" role="navigation" aria-label="Browse by industry">
+          <a class="uc-tile" href="/use-cases/?industry=any-business&function=scheduling" data-industry="any-business"><span class="uc-tile-label">Any business</span><span class="uc-tile-count">77</span></a>
+          <a class="uc-tile" href="/use-cases/?industry=ecommerce&function=scheduling" data-industry="ecommerce"><span class="uc-tile-label">Ecommerce</span><span class="uc-tile-count">23</span></a>
+          <a class="uc-tile" href="/use-cases/?industry=local-seasonal&function=scheduling" data-industry="local-seasonal"><span class="uc-tile-label">Local &amp; seasonal</span><span class="uc-tile-count">6</span></a>
+          <a class="uc-tile" href="/use-cases/?industry=legal&function=scheduling" data-industry="legal"><span class="uc-tile-label">Legal</span><span class="uc-tile-count">18</span></a>
+          <a class="uc-tile" href="/use-cases/?industry=medical&function=scheduling" data-industry="medical"><span class="uc-tile-label">Medical</span><span class="uc-tile-count">18</span></a>
+          <a class="uc-tile" href="/use-cases/?industry=real-estate&function=scheduling" data-industry="real-estate"><span class="uc-tile-label">Real estate</span><span class="uc-tile-count">16</span></a>
+          <a class="uc-tile" href="/use-cases/?industry=home-services&function=scheduling" data-industry="home-services"><span class="uc-tile-label">Home services</span><span class="uc-tile-count">23</span></a>
+          <a class="uc-tile" href="/use-cases/?industry=accounting&function=scheduling" data-industry="accounting"><span class="uc-tile-label">Accounting</span><span class="uc-tile-count">19</span></a>
+        </div>
+      </section>
+      <section class="uc-group" aria-labelledby="list-h">
+        <h2 id="list-h" class="visually-hidden">Scheduling use cases</h2>
+        <ul class="uc-grid">
+          <li class="uc-card" data-slug="staff-schedule-drafts" data-i="any-business,medical" data-f="scheduling">
+            <a href="/use-cases/staff-schedule-drafts/">
+              <span class="uc-card-cat">Scheduling</span>
+              <h3>Drafting next week&#x27;s staff schedule from availability</h3>
+              <p>SI collects availability and time-off requests and drafts next week&#x27;s schedule against your coverage rules, for a manager to adjust.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="sops-from-walkthroughs" data-i="any-business" data-f="scheduling,research-documents">
+            <a href="/use-cases/sops-from-walkthroughs/">
+              <span class="uc-card-cat">Scheduling</span>
+              <h3>Turning how-we-do-it into written procedures</h3>
+              <p>SI turns a recorded walkthrough, voice memo or screen recording into a clear, step-by-step procedure your team can follow.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="appointment-confirmations" data-i="any-business,medical" data-f="scheduling,customer-support">
+            <a href="/use-cases/appointment-confirmations/">
+              <span class="uc-card-cat">Scheduling</span>
+              <h3>Appointment confirmations, reminders and reschedules</h3>
+              <p>SI sends approved confirmation and reminder messages, handles reschedule requests against your real calendar, and keeps the schedule current.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="meeting-notes-action-items" data-i="any-business" data-f="scheduling">
+            <a href="/use-cases/meeting-notes-action-items/">
+              <span class="uc-card-cat">Scheduling</span>
+              <h3>Meeting notes into owners and due dates</h3>
+              <p>SI turns a meeting transcript or rough notes into a short summary, decisions and a task list with owners and due dates.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="requests-to-calendar-holds" data-i="any-business,legal,real-estate" data-f="scheduling">
+            <a href="/use-cases/requests-to-calendar-holds/">
+              <span class="uc-card-cat">Scheduling</span>
+              <h3>Turning meeting requests and forwarded emails into calendar holds</h3>
+              <p>When an email asks to meet or includes a date, SI drafts the reply with real open times and creates a tentative calendar hold for you to confirm.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="daily-briefing" data-i="any-business,home-services" data-f="scheduling,reporting-dashboards">
+            <a href="/use-cases/daily-briefing/">
+              <span class="uc-card-cat">Scheduling</span>
+              <h3>A morning briefing across inbox, calendar and tasks</h3>
+              <p>Each morning SI prepares a short briefing on today&#x27;s meetings, urgent messages, overdue tasks and stalled deals.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="requests-to-scheduled-jobs" data-i="any-business,real-estate" data-f="scheduling,customer-support">
+            <a href="/use-cases/requests-to-scheduled-jobs/">
+              <span class="uc-card-cat">Scheduling</span>
+              <h3>Turning incoming work and maintenance requests into scheduled jobs</h3>
+              <p>SI turns work requests from email, forms and messages into job tickets, sorts them by urgency, and drafts a schedule and customer updates.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="interview-scheduling-and-kits" data-i="any-business" data-f="hiring,scheduling">
+            <a href="/use-cases/interview-scheduling-and-kits/">
+              <span class="uc-card-cat">Hiring</span>
+              <h3>Interview scheduling and a consistent question kit</h3>
+              <p>SI coordinates interview times with candidates and interviewers, and prepares a consistent question set and scoring sheet for each role.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="volunteer-scheduling" data-i="any-business" data-f="community,scheduling">
+            <a href="/use-cases/volunteer-scheduling/">
+              <span class="uc-card-cat">Community</span>
+              <h3>Volunteer sign-ups, reminders and gap filling</h3>
+              <p>SI organizes volunteer sign-ups, sends reminders, spots unfilled shifts, and drafts targeted asks to people likely to help.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="event-registration-logistics" data-i="any-business" data-f="community,scheduling">
+            <a href="/use-cases/event-registration-logistics/">
+              <span class="uc-card-cat">Community</span>
+              <h3>Event registration, seating and reminders</h3>
+              <p>SI combines registrations and payments, flags unpaid or duplicate entries, drafts seating and name tags, and sends approved reminders.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="hurricane-season-readiness" data-i="local-seasonal,home-services" data-f="scheduling">
+            <a href="/use-cases/hurricane-season-readiness/">
+              <span class="uc-card-cat">Local &amp; seasonal</span>
+              <h3>Hurricane-season readiness and continuity plan</h3>
+              <p>Before a storm, SI turns your own records into a checklist: what to protect, who to notify, and which files to copy, for you to act on.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="standing-si-desk-approval-queue" data-i="any-business" data-f="scheduling">
+            <a href="/use-cases/standing-si-desk-approval-queue/">
+              <span class="uc-card-cat">Scheduling</span>
+              <h3>A standing SI desk with an approval queue</h3>
+              <p>A Hermes Desk stays on for routine drafts, puts them in a queue, and waits. A person approves anything that would send, pay, order, or post.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="deadline-calendar-reminders" data-i="legal" data-f="scheduling">
+            <a href="/use-cases/deadline-calendar-reminders/">
+              <span class="uc-card-cat">Legal</span>
+              <h3>Deadline and calendar reminders, human-verified</h3>
+              <p>Dates a person has already verified are collected into one tracker, with reminders, conflicts, and a weekly list per attorney.</p>
+              <p class="uc-card-note">Admin and operations help for solo attorneys and small firms. SI drafts and organizes; attorneys review and decide. No legal advice, no filing-ready work product, and client confidentiality comes first.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="meeting-call-summaries" data-i="legal" data-f="scheduling,research-documents">
+            <a href="/use-cases/meeting-call-summaries/">
+              <span class="uc-card-cat">Legal</span>
+              <h3>Meeting and call summaries for attorney review</h3>
+              <p>From notes or a transcript the attorney provides, SI drafts a summary with action items and owners, labeled as a draft for attorney review.</p>
+              <p class="uc-card-note">Admin and operations help for solo attorneys and small firms. SI drafts and organizes; attorneys review and decide. No legal advice, no filing-ready work product, and client confidentiality comes first.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="appointment-reminders" data-i="medical" data-f="scheduling,customer-support">
+            <a href="/use-cases/appointment-reminders/">
+              <span class="uc-card-cat">Medical</span>
+              <h3>Appointment reminders and no-show reduction</h3>
+              <p>SI drafts short confirm and reschedule reminders from the practice&#x27;s own schedule and lists unconfirmed visits for staff each morning.</p>
+              <p class="uc-card-note">Admin and operations help for small practices. SI drafts, tracks and organizes; clinicians and staff review and decide. No medical advice or clinical decisions, and patient information stays in tools covered by a BAA.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="cancellation-waitlist" data-i="medical" data-f="scheduling">
+            <a href="/use-cases/cancellation-waitlist/">
+              <span class="uc-card-cat">Medical</span>
+              <h3>Waitlist filling for cancellations</h3>
+              <p>When a slot opens, SI drafts an offer to the next people on the waitlist using only the order and rules the practice already set.</p>
+              <p class="uc-card-note">Admin and operations help for small practices. SI drafts, tracks and organizes; clinicians and staff review and decide. No medical advice or clinical decisions, and patient information stays in tools covered by a BAA.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="referral-loop-tracking" data-i="medical" data-f="scheduling,customer-support">
+            <a href="/use-cases/referral-loop-tracking/">
+              <span class="uc-card-cat">Medical</span>
+              <h3>Referral tracking and closing the loop</h3>
+              <p>SI tracks referrals in and out, drafts routine status notes from approved wording, and lists open loops for staff each week.</p>
+              <p class="uc-card-note">Admin and operations help for small practices. SI drafts, tracks and organizes; clinicians and staff review and decide. No medical advice or clinical decisions, and patient information stays in tools covered by a BAA.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="recall-visit-outreach" data-i="medical" data-f="scheduling,customer-support">
+            <a href="/use-cases/recall-visit-outreach/">
+              <span class="uc-card-cat">Medical</span>
+              <h3>Recall and preventive-visit outreach</h3>
+              <p>SI builds a recall list from the practice&#x27;s own rules and drafts generic book-a-visit reminders for staff to send.</p>
+              <p class="uc-card-note">Admin and operations help for small practices. SI drafts, tracks and organizes; clinicians and staff review and decide. No medical advice or clinical decisions, and patient information stays in tools covered by a BAA.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="showing-scheduling-confirmations" data-i="real-estate" data-f="scheduling,sales-follow-up">
+            <a href="/use-cases/showing-scheduling-confirmations/">
+              <span class="uc-card-cat">Real estate</span>
+              <h3>Showing scheduling and confirmation drafts</h3>
+              <p>From the calendar the business provides, SI proposes showing windows and drafts confirmations and reminders for the person showing.</p>
+              <p class="uc-card-note">Admin and operations help for agents, landlords and small property managers. SI prepares drafts for the licensed agent or owner; they review and decide. SI does not lease, collect rent, screen or rank applicants.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="maintenance-request-intake" data-i="real-estate" data-f="customer-support,scheduling">
+            <a href="/use-cases/maintenance-request-intake/">
+              <span class="uc-card-cat">Real estate</span>
+              <h3>Maintenance request intake and sorting</h3>
+              <p>Requests become standard tickets with an urgent queue for the manager, and the acknowledgment tells tenants to call 911 in an emergency.</p>
+              <p class="uc-card-note">Admin and operations help for agents, landlords and small property managers. SI prepares drafts for the licensed agent or owner; they review and decide. SI does not lease, collect rent, screen or rank applicants.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="lease-renewal-expiration-tracking" data-i="real-estate" data-f="scheduling,billing-admin">
+            <a href="/use-cases/lease-renewal-expiration-tracking/">
+              <span class="uc-card-cat">Real estate</span>
+              <h3>Lease renewal and expiration tracking</h3>
+              <p>Lease dates the manager has verified sit in one tracker, with reminders and a neutral draft for the manager to review.</p>
+              <p class="uc-card-note">Admin and operations help for agents, landlords and small property managers. SI prepares drafts for the licensed agent or owner; they review and decide. SI does not lease, collect rent, screen or rank applicants.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="vendor-work-order-tracking" data-i="real-estate" data-f="scheduling">
+            <a href="/use-cases/vendor-work-order-tracking/">
+              <span class="uc-card-cat">Real estate</span>
+              <h3>Vendor and work-order tracking</h3>
+              <p>Vendors and work orders sit in one tracker, with scheduling drafts and a weekly list of open and stale jobs.</p>
+              <p class="uc-card-note">Admin and operations help for agents, landlords and small property managers. SI prepares drafts for the licensed agent or owner; they review and decide. SI does not lease, collect rent, screen or rank applicants.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="property-hurricane-season-prep" data-i="real-estate" data-f="scheduling">
+            <a href="/use-cases/property-hurricane-season-prep/">
+              <span class="uc-card-cat">Real estate</span>
+              <h3>Hurricane-season readiness and tenant communication prep</h3>
+              <p>Before the season, SI builds a property readiness sheet from the manager&#x27;s information and drafts message templates for review in advance.</p>
+              <p class="uc-card-note">Admin and operations help for agents, landlords and small property managers. SI prepares drafts for the licensed agent or owner; they review and decide. SI does not lease, collect rent, screen or rank applicants.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="crew-dispatch-schedule-prep" data-i="home-services" data-f="scheduling">
+            <a href="/use-cases/crew-dispatch-schedule-prep/">
+              <span class="uc-card-cat">Home services</span>
+              <h3>Scheduling and dispatch prep for owner approval</h3>
+              <p>From jobs, crews and service areas the owner provides, SI drafts a proposed daily schedule, job sheets and appointment-window confirmations.</p>
+              <p class="uc-card-note">Office help for HVAC, plumbing, roofing, electrical, landscaping, pool and cleaning businesses. SI drafts, tracks and reminds; the owner approves every quote and message. No pricing promises, no safety or code advice, and customers&#x27; information stays private.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="warranty-maintenance-reminders" data-i="home-services" data-f="scheduling,customer-support">
+            <a href="/use-cases/warranty-maintenance-reminders/">
+              <span class="uc-card-cat">Home services</span>
+              <h3>Warranty and maintenance reminder drafts</h3>
+              <p>From install, service or warranty dates the owner provides, SI drafts seasonal maintenance messages for approval.</p>
+              <p class="uc-card-note">Office help for HVAC, plumbing, roofing, electrical, landscaping, pool and cleaning businesses. SI drafts, tracks and reminds; the owner approves every quote and message. No pricing promises, no safety or code advice, and customers&#x27; information stays private.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="permit-inspection-tracking" data-i="home-services" data-f="scheduling,research-documents">
+            <a href="/use-cases/permit-inspection-tracking/">
+              <span class="uc-card-cat">Home services</span>
+              <h3>Permit and inspection tracking</h3>
+              <p>Each job&#x27;s permit and inspection dates the owner entered sit in a tracker, with reminders and routine status-email drafts.</p>
+              <p class="uc-card-note">Office help for HVAC, plumbing, roofing, electrical, landscaping, pool and cleaning businesses. SI drafts, tracks and reminds; the owner approves every quote and message. No pricing promises, no safety or code advice, and customers&#x27; information stays private.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="tax-deadline-tracking" data-i="accounting" data-f="scheduling">
+            <a href="/use-cases/tax-deadline-tracking/">
+              <span class="uc-card-cat">Accounting</span>
+              <h3>Deadline tracking, human-verified</h3>
+              <p>Due dates a professional has verified against official sources sit in one tracker, with reminders and a weekly list for the partner.</p>
+              <p class="uc-card-note">Admin and operations help for small CPA, tax and bookkeeping firms. SI chases, organizes and drafts; professionals review, sign and decide. No tax advice, no filings, and client data stays protected under your firm&#x27;s security plan.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="sales-tax-filing-reminders" data-i="accounting" data-f="scheduling,billing-admin">
+            <a href="/use-cases/sales-tax-filing-reminders/">
+              <span class="uc-card-cat">Accounting</span>
+              <h3>Sales-tax and recurring-filing reminder prep</h3>
+              <p>For filings a professional has confirmed apply, SI reminds staff and the client and drafts requests for the period&#x27;s information.</p>
+              <p class="uc-card-note">Admin and operations help for small CPA, tax and bookkeeping firms. SI chases, organizes and drafts; professionals review, sign and decide. No tax advice, no filings, and client data stays protected under your firm&#x27;s security plan.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+        </ul>
+      </section>
+            <section class="section closing-card uc-closing">
+        <div class="contact-panel">
+          <p class="section-kicker">Don’t see yours?</p>
+          <h2>Bring the task that keeps eating your week</h2>
+          <p class="section-intro">If it is repetitive, rule-based, and lives in email, spreadsheets, a store, or a CRM, there is a good chance it can be drafted by SI and checked by you. Book a free 30-minute call and we will look at it together.</p>
+          <div class="actions"><a class="button primary" href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book a free 30-minute consult</a></div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <a class="footer-brand" href="../../../index.html" aria-label="GemmiSI home">
+        <img class="footer-lockup" src="../../../assets/brand/gemmisi-lockup-dark.svg" alt="" width="123" height="28" />
+      </a>
+      <p>© <span id="year"></span> Yonatan Gemmi. Based in North Miami Beach, Florida · Miami-Dade, Broward, and remote</p>
+      <p class="footer-nav">
+        <a href="../../../index.html">Home</a>
+        <a href="../../index.html">Use cases</a>
+        <a href="../../../pricing.html">Pricing</a>
+        <a href="../../../services/hermes-agents.html">Hermes desks</a>
+        <a href="../../../services/ai-automation.html">SI automation</a>
+        <a href="../../../services/dashboards-reporting.html">Dashboards</a>
+        <a href="../../../services/ecommerce-operations.html">Ecommerce</a>
+        <a href="../../../services/tutoring-project-help.html">Tutoring</a>
+        <a href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book consultation</a>
+      </p>
+    </footer>  <script src="/assets/nav.js" defer></script>
+</body>
+</html>

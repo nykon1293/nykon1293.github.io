@@ -4,8 +4,9 @@
 Nine function motifs share one 24×24 grid, palette, and framing. A tenth
 drawing (shield) is a simple lock, used only for true privacy topics.
 Legal pages use the scales of justice, or the sealed-document motif.
-Industry accent comes from the entry's category. An optional JSON field
-``motif`` overrides the keyword rules.
+Industry accent comes from the entry's primary industry, or from the
+primary function when the industry is ``any-business``. An optional JSON
+field ``motif`` overrides the keyword rules.
 """
 
 from __future__ import annotations
@@ -33,46 +34,52 @@ FUNCTION_MOTIFS = (
 )
 MOTIFS = FUNCTION_MOTIFS + ("shield",)
 
-INDUSTRY = {
-    "Legal practices": ("legal", "#c9a45c"),
-    "Medical and healthcare practices": ("medical", "#7eb8a4"),
-    "Ecommerce operations": ("ecommerce", "#e3b45a"),
-    "Bookkeeping, invoices and admin": ("billing", "#d3aa55"),
-    "Scheduling and operations": ("scheduling", "#a8b56a"),
-    "Community and membership organizations": ("community", "#d4a06e"),
-    "Inventory and orders": ("inventory", "#c4a056"),
-    "Customer support and inbox": ("support", "#d3aa55"),
-    "Sales and follow-up": ("sales", "#dbb05e"),
-    "Reporting and dashboards": ("reporting", "#8fbf9a"),
-    "Content and marketing": ("marketing", "#d3aa55"),
-    "Hiring and team admin": ("hiring", "#b89a74"),
-    "Research and documents": ("research", "#cfc09a"),
-    "Local business & seasonal": ("local", "#87b58a"),
-    "Real estate and property management": ("real-estate", "#c4a06a"),
-    "Home services and contractors": ("home-services", "#d3aa55"),
-    "Accounting, tax and bookkeeping firms": ("accounting", "#cfc09a"),
+INDUSTRY_ACCENT = {
+    "legal": ("legal", "#c9a45c"),
+    "medical": ("medical", "#7eb8a4"),
+    "ecommerce": ("ecommerce", "#e3b45a"),
+    "local-seasonal": ("local", "#87b58a"),
+    "real-estate": ("real-estate", "#c4a06a"),
+    "home-services": ("home-services", "#d3aa55"),
+    "accounting": ("accounting", "#cfc09a"),
+}
+
+FUNCTION_ACCENT = {
+    "customer-support": ("support", "#d3aa55"),
+    "sales-follow-up": ("sales", "#dbb05e"),
+    "billing-admin": ("billing", "#d3aa55"),
+    "scheduling": ("scheduling", "#a8b56a"),
+    "reporting-dashboards": ("reporting", "#8fbf9a"),
+    "inventory-orders": ("inventory", "#c4a056"),
+    "content-marketing": ("marketing", "#d3aa55"),
+    "hiring": ("hiring", "#b89a74"),
+    "research-documents": ("research", "#cfc09a"),
+    "community": ("community", "#d4a06e"),
 }
 
 DEFAULT_INDUSTRY = ("default", "#d3aa55")
 
-CATEGORY_MOTIF = {
-    "Customer support and inbox": "inbox",
-    "Sales and follow-up": "inbox",
-    "Bookkeeping, invoices and admin": "invoices",
-    "Reporting and dashboards": "dashboard",
-    "Scheduling and operations": "calendar",
-    "Inventory and orders": "inventory",
-    "Content and marketing": "documents",
-    "Hiring and team admin": "checklist",
-    "Research and documents": "documents",
-    "Community and membership organizations": "inbox",
-    "Ecommerce operations": "inventory",
-    "Local business & seasonal": "inbox",
-    "Legal practices": "scales",
-    "Medical and healthcare practices": "checklist",
-    "Real estate and property management": "inbox",
-    "Home services and contractors": "phone",
-    "Accounting, tax and bookkeeping firms": "documents",
+INDUSTRY_MOTIF = {
+    "legal": "scales",
+    "medical": "checklist",
+    "ecommerce": "inventory",
+    "local-seasonal": "inbox",
+    "real-estate": "inbox",
+    "home-services": "phone",
+    "accounting": "documents",
+}
+
+FUNCTION_MOTIF = {
+    "customer-support": "inbox",
+    "sales-follow-up": "inbox",
+    "billing-admin": "invoices",
+    "reporting-dashboards": "dashboard",
+    "scheduling": "calendar",
+    "inventory-orders": "inventory",
+    "content-marketing": "documents",
+    "hiring": "checklist",
+    "research-documents": "documents",
+    "community": "inbox",
 }
 
 # First matching keyword wins. Slug, then title, then summary. Short tokens
@@ -624,8 +631,17 @@ def _contains(blob: str, word: str) -> bool:
     return re.search(r"(?<![a-z0-9])" + re.escape(word) + r"(?![a-z0-9])", blob) is not None
 
 
+def _primary(item: dict, field: str) -> str:
+    values = item.get(field) or []
+    return values[0] if values else ""
+
+
 def pick_industry(item: dict) -> tuple[str, str]:
-    return INDUSTRY.get(item.get("category", ""), DEFAULT_INDUSTRY)
+    ind = _primary(item, "industries")
+    if ind in INDUSTRY_ACCENT:
+        return INDUSTRY_ACCENT[ind]
+    fn = _primary(item, "functions")
+    return FUNCTION_ACCENT.get(fn, DEFAULT_INDUSTRY)
 
 
 def pick_motif(item: dict) -> str:
@@ -644,7 +660,10 @@ def pick_motif(item: dict) -> str:
         for motif, words in KEYWORD_RULES:
             if any(_contains(blob, word) for word in words):
                 return motif
-    return CATEGORY_MOTIF.get(item.get("category", ""), "documents")
+    ind = _primary(item, "industries")
+    if ind in INDUSTRY_MOTIF:
+        return INDUSTRY_MOTIF[ind]
+    return FUNCTION_MOTIF.get(_primary(item, "functions"), "documents")
 
 
 def render_svg(motif: str, accent: str) -> str:
