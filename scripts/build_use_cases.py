@@ -5,9 +5,10 @@ Run from the repo root:
 
     python3 scripts/build_use_cases.py
 
-Writes use-cases/index.html, one folder per slug, and refreshes the
-use-case URLs in sitemap.xml. Pages are plain HTML. GitHub Pages serves
-them with no build step.
+Writes use-cases/index.html, use-cases/search.json, one folder per slug,
+and refreshes the use-case URLs in sitemap.xml. Pages are plain HTML.
+GitHub Pages serves them with no build step. The search index is fetched
+only when someone searches or filters the library.
 """
 
 from __future__ import annotations
@@ -15,8 +16,12 @@ from __future__ import annotations
 import html
 import json
 import re
+import sys
 from datetime import date
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from seo_schema import CSS_VERSION, NAV_SCRIPT, font_and_css_links
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "use-cases.json"
@@ -359,8 +364,14 @@ def e(value) -> str:
     return html.escape("" if value is None else str(value), quote=True)
 
 
-def json_ld(obj) -> str:
-    raw = json.dumps(obj, ensure_ascii=False, indent=2)
+PAGE_SIZE = 24
+
+
+def json_ld(obj, *, compact: bool = False) -> str:
+    if compact:
+        raw = json.dumps(obj, ensure_ascii=False, separators=(",", ":"))
+    else:
+        raw = json.dumps(obj, ensure_ascii=False, indent=2)
     return raw.replace("<", "\\u003c")
 
 
@@ -651,40 +662,15 @@ def foot(depth: int) -> str:
     </footer>"""
 
 
-SCRIPTS = """  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-  <script>
-    (() => {
-      const nav = document.querySelector('.nav');
-      const toggle = document.querySelector('.nav-toggle');
-      const links = document.getElementById('site-nav');
-      if (!nav || !toggle || !links) return;
-      const setOpen = (open) => {
-        nav.classList.toggle('is-menu-open', open);
-        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        toggle.setAttribute('aria-label', open ? 'Close site menu' : 'Open site menu');
-      };
-      toggle.addEventListener('click', () => setOpen(!nav.classList.contains('is-menu-open')));
-      links.querySelectorAll('a').forEach((link) => {
-        link.addEventListener('click', () => {
-          setOpen(false);
-          links.querySelectorAll('details.nav-dropdown[open]').forEach((d) => d.removeAttribute('open'));
-        });
-      });
-      document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') setOpen(false);
-      });
-      document.addEventListener('click', (event) => {
-        if (!nav.classList.contains('is-menu-open')) return;
-        if (nav.contains(event.target)) return;
-        setOpen(false);
-      });
-    })();
-  </script>
-"""
+SCRIPTS = NAV_SCRIPT
 
 
-def head(title: str, desc: str, canon: str, depth: int, ld: dict) -> str:
+def head(title: str, desc: str, canon: str, depth: int, ld: dict, *, compact_ld: bool = False) -> str:
     up = "../" * depth
+    assets = font_and_css_links(
+        stylesheet=f"{up}styles.css?v={CSS_VERSION}",
+        extra_css=f"{up}assets/use-cases.css?v={CSS_VERSION}",
+    )
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -711,11 +697,7 @@ def head(title: str, desc: str, canon: str, depth: int, ld: dict) -> str:
   <meta name="twitter:image" content="{OG_IMAGE}" />
   <meta name="twitter:image:alt" content="{e(OG_ALT)}" />
   <link rel="sitemap" type="application/xml" title="Sitemap" href="{BASE}/sitemap.xml" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="{up}styles.css?v=g4-logo-1" />
-  <link rel="stylesheet" href="{up}assets/use-cases.css" />
+{assets}
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" href="/assets/brand/gemmisi-icon.svg" type="image/svg+xml" />
   <link rel="icon" href="/assets/brand/gemmisi-icon-32.png" type="image/png" sizes="32x32" />
@@ -723,7 +705,7 @@ def head(title: str, desc: str, canon: str, depth: int, ld: dict) -> str:
   <link rel="apple-touch-icon" href="/assets/brand/gemmisi-icon-180.png" />
   <link rel="manifest" href="/site.webmanifest" />
   <script type="application/ld+json">
-{json_ld(ld)}
+{json_ld(ld, compact=compact_ld)}
   </script>
 </head>
 <body>
@@ -742,22 +724,75 @@ def haystack(item: dict) -> str:
     return " ".join(parts).lower()
 
 
+def card_note(item: dict) -> str:
+    info = CATEGORY_NOTES.get(item["category"])
+    return info["short"] if info else ""
+
+
 def card(item: dict, href: str, show_cat: bool = True, extra: bool = False) -> str:
     short = SHORT[item["category"]]
     cat = f'<span class="uc-card-cat">{e(short[0])}</span>' if show_cat else ""
     extra_cls = " uc-extra" if extra else ""
-    note = ""
-    info = CATEGORY_NOTES.get(item["category"])
-    if info:
-        note = f'\n              <p class="uc-card-note">{e(info["short"])}</p>'
-    return f"""<li class="uc-card{extra_cls}" data-cat="{short[1]}" data-hay="{e(haystack(item))}">
+    note = card_note(item)
+    note_html = f'\n              <p class="uc-card-note">{e(note)}</p>' if note else ""
+    return f"""<li class="uc-card{extra_cls}" data-cat="{short[1]}" data-slug="{e(item['slug'])}">
             <a href="{href}">
               {cat}
               <h3>{e(item['title'])}</h3>
-              <p>{e(item['summary'])}</p>{note}
+              <p>{e(item['summary'])}</p>{note_html}
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
             </a>
           </li>"""
+
+
+def compact_link(item: dict, href: str) -> str:
+    short = SHORT[item["category"]]
+    return (
+        f'<li class="uc-compact" data-cat="{short[1]}" data-slug="{e(item["slug"])}">'
+        f'<a href="{href}">{e(item["title"])}</a></li>'
+    )
+
+
+def pick_visible_slugs(entries: list, cats: list) -> set[str]:
+    """One card per category first, then fill up to PAGE_SIZE in category order."""
+    by_cat = {cat: [item for item in entries if item["category"] == cat] for cat in cats}
+    visible: list[str] = []
+    for cat in cats:
+        if by_cat[cat]:
+            visible.append(by_cat[cat][0]["slug"])
+    for cat in cats:
+        for item in by_cat[cat][1:]:
+            if len(visible) >= PAGE_SIZE:
+                return set(visible)
+            visible.append(item["slug"])
+    return set(visible)
+
+
+def search_records(entries: list) -> list[dict]:
+    records = []
+    for item in entries:
+        short = SHORT[item["category"]]
+        row = {
+            "s": item["slug"],
+            "t": item["title"],
+            "u": item["summary"],
+            "c": short[1],
+            "l": short[0],
+            "h": haystack(item),
+        }
+        note = card_note(item)
+        if note:
+            row["n"] = note
+        records.append(row)
+    return records
+
+
+def write_search_index(entries: list) -> None:
+    payload = {"items": search_records(entries)}
+    (OUT / "search.json").write_text(
+        json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n",
+        encoding="utf-8",
+    )
 
 
 def library_page(entries: list) -> str:
@@ -812,15 +847,24 @@ def library_page(entries: list) -> str:
         pills.append(
             f'<button type="button" class="uc-pill" data-filter="{slug}" aria-pressed="false">{e(label)} <span>{count}</span></button>'
         )
+    visible = pick_visible_slugs(entries, cats)
     sections = []
     for index, cat in enumerate(cats, 1):
         label, slug, blurb = SHORT[cat]
         items = [item for item in entries if item["category"] == cat]
-        cards = "\n          ".join(
-            card(item, f"{item['slug']}/", show_cat=False, extra=i >= 4) for i, item in enumerate(items)
-        )
+        shown = [item for item in items if item["slug"] in visible]
+        rest = [item for item in items if item["slug"] not in visible]
+        cards = "\n          ".join(card(item, f"{item['slug']}/", show_cat=False) for item in shown)
+        compact = ""
+        if rest:
+            links = "\n          ".join(compact_link(item, f"{item['slug']}/") for item in rest)
+            compact = (
+                f'        <ul class="uc-index" aria-label="All {e(label)} use cases">\n'
+                f"          {links}\n"
+                "        </ul>\n"
+            )
         more = ""
-        if len(items) > 4:
+        if rest:
             more = (
                 f'<button type="button" class="uc-more" data-n="{len(items)}" '
                 f'aria-expanded="false">Show all {len(items)}</button>'
@@ -846,11 +890,11 @@ def library_page(entries: list) -> str:
 {banner}        <ul class="uc-grid">
           {cards}
         </ul>
-        {more}
+{compact}        {more}
 {closing_note}      </section>"""
         )
     # The single allowed "AI" bridge lives in this intro and nowhere else.
-    return head(title, desc, "/use-cases/", 1, ld) + f"""
+    return head(title, desc, "/use-cases/", 1, ld, compact_ld=True) + f"""
     <main id="top">
       <section class="uc-hero">
         <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -877,7 +921,8 @@ def library_page(entries: list) -> str:
         <div class="uc-pills" role="group" aria-label="Filter by category">
           {chr(10) + '          '.join(pills)}
         </div>
-        <p class="uc-count" id="uc-count" role="status" aria-live="polite">Showing {n} of {n} use cases</p>
+        <p class="uc-count" id="uc-count" role="status" aria-live="polite">Showing {len(visible)} of {n} use cases</p>
+        <button type="button" class="uc-more uc-show-all" id="uc-show-all">Show all {n} use cases</button>
       </section>
 {chr(10).join(sections)}
       <p class="uc-empty" id="uc-empty" hidden>No use case matches that search. Try a broader word, or <a class="text-link" href="{CAL}" target="_blank" rel="noreferrer">tell me what you need</a> on a free call.</p>
@@ -891,56 +936,7 @@ def library_page(entries: list) -> str:
         </div>
       </section>
     </main>
-""" + foot(1) + SCRIPTS + """  <script>
-    (() => {
-      const q = document.getElementById('uc-q');
-      const pills = [...document.querySelectorAll('.uc-pill')];
-      const cards = [...document.querySelectorAll('.uc-card')];
-      const groups = [...document.querySelectorAll('.uc-group')];
-      const count = document.getElementById('uc-count');
-      const empty = document.getElementById('uc-empty');
-      let cat = 'all';
-      const apply = () => {
-        const terms = q.value.trim().toLowerCase().split(/\\s+/).filter(Boolean);
-        const filtering = terms.length > 0 || cat !== 'all';
-        let shown = 0;
-        cards.forEach((card) => {
-          const ok = (cat === 'all' || card.dataset.cat === cat) && terms.every((term) => card.dataset.hay.includes(term));
-          card.hidden = !ok;
-          if (ok) shown++;
-        });
-        groups.forEach((group) => {
-          const vis = group.querySelectorAll('.uc-card:not([hidden])').length;
-          group.hidden = vis === 0;
-          const btn = group.querySelector('.uc-more');
-          group.classList.toggle('is-open', filtering || (btn && btn.getAttribute('aria-expanded') === 'true'));
-          if (btn) btn.hidden = filtering;
-        });
-        count.textContent = 'Showing ' + shown + ' of ' + cards.length + ' use cases';
-        empty.hidden = shown > 0;
-      };
-      groups.forEach((group) => {
-        const btn = group.querySelector('.uc-more');
-        if (!btn) return;
-        btn.addEventListener('click', () => {
-          const open = btn.getAttribute('aria-expanded') !== 'true';
-          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-          btn.textContent = open ? 'Show fewer' : 'Show all ' + btn.dataset.n;
-          group.classList.toggle('is-open', open);
-        });
-      });
-      pills.forEach((pill) => pill.addEventListener('click', () => {
-        cat = pill.dataset.filter;
-        pills.forEach((other) => {
-          const on = other === pill;
-          other.classList.toggle('is-active', on);
-          other.setAttribute('aria-pressed', on ? 'true' : 'false');
-        });
-        apply();
-      }));
-      q.addEventListener('input', apply);
-    })();
-  </script>
+""" + foot(1) + SCRIPTS + """  <script src="/assets/use-cases-library.js" defer></script>
 </body>
 </html>
 """
@@ -1173,6 +1169,23 @@ def assert_wording(entries: list) -> None:
         if item["category"] == "Medical and healthcare practices":
             if re.search(r"diagnose", page, re.I):
                 raise SystemExit(f"{item['slug']} page must not use the word diagnose")
+    if "data-hay=" in library:
+        raise SystemExit("Library page must not inline search haystacks")
+    if 'id="uc-show-all"' not in library:
+        raise SystemExit("Library page needs a show-all control")
+    index_path = OUT / "search.json"
+    if not index_path.exists():
+        raise SystemExit("use-cases/search.json is missing")
+    payload = json.loads(index_path.read_text(encoding="utf-8"))
+    records = payload["items"] if isinstance(payload, dict) else payload
+    if len(records) != len(entries):
+        raise SystemExit(f"search.json has {len(records)} items, expected {len(entries)}")
+    record_slugs = {row["s"] for row in records}
+    for item in entries:
+        if item["slug"] not in record_slugs:
+            raise SystemExit(f"search.json is missing {item['slug']}")
+        if f'{item["slug"]}/' not in library:
+            raise SystemExit(f"Library is missing a crawlable link for {item['slug']}")
 
 
 def main() -> None:
@@ -1185,6 +1198,7 @@ def main() -> None:
             if path.is_dir():
                 path.rmdir()
     OUT.mkdir(parents=True, exist_ok=True)
+    write_search_index(entries)
     (OUT / "index.html").write_text(library_page(entries), encoding="utf-8")
     for item in entries:
         folder = OUT / item["slug"]

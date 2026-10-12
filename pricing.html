@@ -24,10 +24,9 @@
   <meta name="twitter:image" content="https://gemmisi.com/assets/brand/gemmisi-og.png" />
   <meta name="twitter:image:alt" content="GemmiSI — SI, automation, dashboards, and technical operations" />
   <link rel="sitemap" type="application/xml" title="Sitemap" href="https://gemmisi.com/sitemap.xml" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=g4-logo-1" />
+  <link rel="preload" href="/assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <style>@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 400 700; font-display: swap; src: url("/assets/fonts/ibm-plex-sans-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; } @font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 500 700; font-display: optional; src: url("/assets/fonts/jetbrains-mono-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }</style>
+  <link rel="stylesheet" href="styles.css?v=perf-1" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" href="/assets/brand/gemmisi-icon.svg" type="image/svg+xml" />
   <link rel="icon" href="/assets/brand/gemmisi-icon-32.png" type="image/png" sizes="32x32" />
@@ -598,7 +597,7 @@
           <span class="pay-accept__coins" aria-hidden="true">
             <img src="assets/usdc.svg" width="22" height="22" alt="">
             <img src="assets/bitcoin.svg" width="22" height="22" alt="">
-            <img src="assets/x-money.png" width="22" height="22" alt="">
+            <picture><source type="image/webp" srcset="assets/x-money-44.webp" /><img src="assets/x-money-44.png" width="22" height="22" alt="" decoding="async"></picture>
           </span>
           <span>Prices are in USD. I accept bank wire, Zelle, X Money, USDC, or Bitcoin (BTC). Other crypto only if we agree first. Inquire for more info.</span>
         </p>
@@ -835,7 +834,7 @@
           <details class="faq-item"><summary>Can I run a local model with a Desk?</summary><p>Yes, as an add-on on an existing Desk. I install it and hook it up after I see the machine. That add-on is quoted. It is not a fixed price.</p></details>
           <details class="faq-item"><summary>What is a Care retainer?</summary><p>Care starts after a Desk or a build is live. Owner Care is $300 a month: a 45-minute pairing block so you stay fluent on the live Desk, plus getting it running if it will not start. Starter Care is $750 a month for fixes, small edits, a monthly check, help changing the model on the same Desk, and short questions from the people who use it. It does not add new systems. Operator Care is $1,500 a month and includes one small add each month on the system you already have. All three are month to month with 30 days' notice. Care is not unlimited chat, not a new Desk, and not a rebuild.</p></details>
           <details class="faq-item"><summary>Do you offer Advisory or Fractional CTO?</summary><p>Yes. Seats are scarce. Ask first. These are monthly leadership seats, not Care and not a one-time Desk. Details are on the <a href="advisory.html">Advisory and Fractional page</a>.</p></details>
-          <details class="faq-item"><summary>What payment methods do you accept?</summary><p class="pay-faq"><span class="pay-accept__coins" aria-hidden="true"><img src="assets/usdc.svg" width="22" height="22" alt=""><img src="assets/bitcoin.svg" width="22" height="22" alt=""><img src="assets/x-money.png" width="22" height="22" alt=""></span><span>I accept bank wire, Zelle, X Money, USDC, or Bitcoin (BTC). Other crypto only if we agree first. Inquire for more info.</span></p></details>
+          <details class="faq-item"><summary>What payment methods do you accept?</summary><p class="pay-faq"><span class="pay-accept__coins" aria-hidden="true"><img src="assets/usdc.svg" width="22" height="22" alt=""><img src="assets/bitcoin.svg" width="22" height="22" alt=""><picture><source type="image/webp" srcset="assets/x-money-44.webp" /><img src="assets/x-money-44.png" width="22" height="22" alt="" decoding="async"></picture></span><span>I accept bank wire, Zelle, X Money, USDC, or Bitcoin (BTC). Other crypto only if we agree first. Inquire for more info.</span></p></details>
           <details class="faq-item"><summary>How do we start?</summary><p>Pick a time at <a href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Calendly</a>. The free 30-minute consultation is the first step. No note to send first.</p></details>
           <details class="faq-item"><summary>Does Stocky dump recovery have its own price?</summary><p>No. Starter Desk at $500 and Operator Desk at $1,500 are the usual sizes for turning a Stocky CSV dump into a weekly system. A larger rebuild is Paid Discovery. The <a href="services/stocky-recovery.html">recovery page</a> explains the job. It is not another inventory app.</p></details>
         </div>
@@ -871,32 +870,6 @@
       </p>
     </footer>
   </div>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-  <script>
-    (() => {
-      const nav = document.querySelector('.nav');
-      const toggle = document.querySelector('.nav-toggle');
-      const links = document.getElementById('site-nav');
-      if (!nav || !toggle || !links) return;
-      const setOpen = (open) => {
-        nav.classList.toggle('is-menu-open', open);
-        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        toggle.setAttribute('aria-label', open ? 'Close site menu' : 'Open site menu');
-      };
-      toggle.addEventListener('click', () => setOpen(!nav.classList.contains('is-menu-open')));
-      links.querySelectorAll('a').forEach((link) => {
-        link.addEventListener('click', () => {
-          setOpen(false);
-          links.querySelectorAll('details.nav-dropdown[open]').forEach((d) => d.removeAttribute('open'));
-        });
-      });
-      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
-      document.addEventListener('click', (e) => {
-        if (!nav.classList.contains('is-menu-open')) return;
-        if (nav.contains(e.target)) return;
-        setOpen(false);
-      });
-    })();
-  </script>
+  <script src="/assets/nav.js" defer></script>
 </body>
 </html>

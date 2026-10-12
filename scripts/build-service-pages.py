@@ -9,7 +9,15 @@ import sys
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from seo_schema import CALENDLY, BASE, common_head_tags, service_page_graph
+from seo_schema import (
+    CALENDLY,
+    BASE,
+    CSS_VERSION,
+    NAV_SCRIPT,
+    common_head_tags,
+    font_and_css_links,
+    service_page_graph,
+)
 
 SERVICES_DIR = ROOT / "services"
 
@@ -581,7 +589,7 @@ PAGES = [
 ]
 
 
-FOOTER_SCRIPTS = """
+FOOTER_SCRIPTS = f"""
     <footer>
       <a class="footer-brand" href="../index.html" aria-label="GemmiSI home">
         <img class="footer-lockup" src="../assets/brand/gemmisi-lockup-dark.svg" alt="" width="123" height="28" />
@@ -600,34 +608,7 @@ FOOTER_SCRIPTS = """
       </p>
     </footer>
   </div>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-  <script>
-    (() => {
-      const nav = document.querySelector('.nav');
-      const toggle = document.querySelector('.nav-toggle');
-      const links = document.getElementById('site-nav');
-      if (!nav || !toggle || !links) return;
-      const setOpen = (open) => {
-        nav.classList.toggle('is-menu-open', open);
-        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        toggle.setAttribute('aria-label', open ? 'Close site menu' : 'Open site menu');
-      };
-      toggle.addEventListener('click', () => setOpen(!nav.classList.contains('is-menu-open')));
-      links.querySelectorAll('a').forEach((link) => {
-        link.addEventListener('click', () => {
-          setOpen(false);
-          links.querySelectorAll('details.nav-dropdown[open]').forEach((d) => d.removeAttribute('open'));
-        });
-      });
-      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
-      document.addEventListener('click', (e) => {
-        if (!nav.classList.contains('is-menu-open')) return;
-        if (nav.contains(e.target)) return;
-        setOpen(false);
-      });
-    })();
-  </script>
-</body>
+{NAV_SCRIPT}</body>
 </html>
 """
 
@@ -778,10 +759,7 @@ def render(page: dict) -> str:
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Yonatan Gemmi" />
 {og_block}
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css?v=g4-logo-1" />
+{font_and_css_links(stylesheet=f"../styles.css?v={CSS_VERSION}")}
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" href="/assets/brand/gemmisi-icon.svg" type="image/svg+xml" />
   <link rel="icon" href="/assets/brand/gemmisi-icon-32.png" type="image/png" sizes="32x32" />

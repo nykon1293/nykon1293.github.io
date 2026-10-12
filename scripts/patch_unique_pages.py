@@ -14,6 +14,7 @@ from seo_schema import (
     breadcrumb_node,
     common_head_tags,
     faq_node,
+    font_and_css_links,
     graph_payload,
     person_node,
     professional_service_node,
@@ -195,18 +196,13 @@ def patch_head(
         count=1,
     )
     og = common_head_tags(title=title, description=description, canonical=canonical, og_type=og_type)
+    assets = font_and_css_links(stylesheet=stylesheet)
     html = re.sub(
-        r'  <meta property="og:title".*?(?:\n  <link rel="sitemap"[^\n]*\n)?  <link rel="preconnect"',
-        og + '\n  <link rel="preconnect"',
+        r'  <meta property="og:title".*?<link rel="stylesheet" href="[^"]+" />',
+        og + "\n" + assets,
         html,
         count=1,
         flags=re.DOTALL,
-    )
-    html = re.sub(
-        r'<link rel="stylesheet" href="[^"]+" />',
-        f'<link rel="stylesheet" href="{stylesheet}" />',
-        html,
-        count=1,
     )
     return html
 
@@ -415,7 +411,7 @@ def patch_home() -> None:
         title=title,
         description=description,
         canonical=f"{BASE}/",
-        stylesheet="styles.css?v=seo-1",
+        stylesheet="styles.css?v=perf-1",
         icon="assets/yonatan-gemmi-pixel-portrait-256.png",
     )
     html = replace_jsonld(html, home_graph())
@@ -452,7 +448,7 @@ def patch_pricing() -> None:
         title=title,
         description=description,
         canonical=f"{BASE}/pricing.html",
-        stylesheet="styles.css?v=seo-1",
+        stylesheet="styles.css?v=perf-1",
         icon="assets/yonatan-gemmi-pixel-portrait-256.png",
     )
     html = replace_jsonld(html, pricing_graph())
@@ -482,7 +478,7 @@ def patch_advisory() -> None:
         title=title,
         description=description,
         canonical=f"{BASE}/advisory.html",
-        stylesheet="styles.css?v=seo-1",
+        stylesheet="styles.css?v=perf-1",
         icon="assets/yonatan-gemmi-pixel-portrait-256.png",
     )
     html = replace_jsonld(html, advisory_graph())
@@ -507,7 +503,7 @@ def patch_stocky() -> None:
         title=title,
         description=description,
         canonical=f"{BASE}/services/stocky-recovery.html",
-        stylesheet="../styles.css?v=seo-1",
+        stylesheet="../styles.css?v=perf-1",
         icon="../assets/yonatan-gemmi-pixel-portrait-256.png",
     )
     html = replace_jsonld(html, stocky_graph())
@@ -557,7 +553,7 @@ def patch_work() -> None:
         description=description,
         canonical=f"{BASE}/work/governed-ai-content-engine.html",
         og_type="article",
-        stylesheet="../styles.css?v=seo-1",
+        stylesheet="../styles.css?v=perf-1",
         icon="../assets/yonatan-gemmi-pixel-portrait-256.png",
     )
     html = replace_jsonld(html, work_graph())

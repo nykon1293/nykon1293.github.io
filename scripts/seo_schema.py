@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import json
+import re
+from pathlib import Path
 
 BASE = "https://gemmisi.com"
 PERSON_ID = f"{BASE}/#person"
@@ -262,9 +264,33 @@ def service_node(*, name: str, description: str, url: str) -> dict:
     }
 
 
+CSS_VERSION = "perf-1"
+
+
 def graph_payload(nodes: list[dict]) -> str:
     payload = {"@context": "https://schema.org", "@graph": nodes}
     return json.dumps(payload, indent=2, ensure_ascii=False)
+
+
+def _font_face_css() -> str:
+    raw = (Path(__file__).resolve().parent.parent / "assets" / "fonts.css").read_text(encoding="utf-8")
+    raw = re.sub(r"/\*.*?\*/", "", raw, flags=re.S)
+    return re.sub(r"\s+", " ", raw).strip()
+
+
+def font_and_css_links(*, stylesheet: str, extra_css: str | None = None) -> str:
+    """Preload Plex, inline @font-face, then site CSS. Replaces the Google Fonts <link>s."""
+    lines = [
+        '  <link rel="preload" href="/assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin />',
+        f"  <style>{_font_face_css()}</style>",
+        f'  <link rel="stylesheet" href="{stylesheet}" />',
+    ]
+    if extra_css:
+        lines.append(f'  <link rel="stylesheet" href="{extra_css}" />')
+    return "\n".join(lines)
+
+
+NAV_SCRIPT = '  <script src="/assets/nav.js" defer></script>\n'
 
 
 def common_head_tags(*, title: str, description: str, canonical: str, og_type: str = "website") -> str:
