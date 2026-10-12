@@ -5406,5 +5406,385 @@
     ],
     "effect": "The firm's own security-plan tasks are on a calendar with a log, and no compliance claim is made.",
     "caution": "Administrative support only: SI does not give tax or accounting advice, prepare or sign returns or reports, file anything, or calculate legal deadlines. A qualified professional reviews, signs and approves all work product and every date SI tracks. Client information is used only in tools the firm has vetted, under its written security plan and with any client consent or agreements the rules require. SI never describes the plan as meeting any rule, never approves a vendor or tool, and never certifies that the firm meets the FTC Safeguards Rule or any other requirement; it only helps the firm track its own tasks. Tax return information has special disclosure and use rules for preparers; check with your professional advisor before using any outside tool."
+  },
+  {
+    "slug": "abandoned-checkout-follow-up-drafts",
+    "title": "Abandoned-checkout follow-up drafts from your store records",
+    "category": "Ecommerce operations",
+    "summary": "SI lists checkouts that were started and not finished, and drafts a short follow-up from the actual cart, for you to send only if the customer is allowed to hear from you.",
+    "problem": "People start checkout and leave. Follow-up either never happens, or a generic automated email goes out with a discount you no longer offer. The store already has the cart, the email, and the time it was left. A review of your automated emails rewrites templates. It does not turn this week's abandoned checkouts into specific drafts.",
+    "what_si_does": "On a schedule you choose, SI reads abandoned checkouts from the store or an export. It lists ones still incomplete after a wait you set, with the items, total, and when the checkout was left. It drops checkouts that later became orders, checkouts with no email, and anyone on your do-not-contact list. It drafts a short follow-up from your past replies and policy: no invented discounts, no fake scarcity, no stock claims that are not in the catalog. It does not send.",
+    "setup": "Read access or an export of checkouts and completed orders, your contact rules (who may be emailed, how long to wait), and a few follow-ups you actually sent. Setup is often a few days.",
+    "human_checks": [
+      "A person approves every message; SI never sends.",
+      "Opt-outs and contact rules are followed; SI does not guess consent.",
+      "Discounts and stock claims come only from what you provided."
+    ],
+    "examples": [
+      {
+        "business_type": "Shopify apparel store",
+        "scenario": "Three checkouts from yesterday are still open. The drafts name the exact sizes left in the cart and offer no extra discount."
+      },
+      {
+        "business_type": "Home-goods store",
+        "scenario": "A checkout that became an order overnight is dropped from the list. The remaining draft is a short 'still saved' note for the owner to send."
+      },
+      {
+        "business_type": "Shop that also sells on a marketplace",
+        "scenario": "Marketplace checkouts are left out because those channels run their own recovery. Only the store's own checkouts are listed."
+      }
+    ],
+    "copy_prompt": "From [store export or checkout list], list checkouts started after [date] that are still incomplete after [hours] and did not become an order. Skip checkouts with no email and anyone on [do-not-contact list]. For each, draft a short follow-up from these past replies [paste] that names the items in the cart. Do not invent discounts, scarcity, or stock. Do not send. Pause and show me before sending, submitting, posting, or changing anything.",
+    "tools_examples": [
+      "Shopify",
+      "Klaviyo",
+      "Google Sheets",
+      "Gmail",
+      "Gorgias"
+    ],
+    "effect": "Follow-ups are specific to the cart and wait for a person, instead of a stale template or silence.",
+    "caution": "Email and texting rules vary. Only contact people you are allowed to contact, and honor opt-outs."
+  },
+  {
+    "slug": "shipping-exceptions-package-watch",
+    "title": "Shipping exceptions and a 'where is my package' watch",
+    "category": "Ecommerce operations",
+    "summary": "SI watches carrier scans for exceptions, failed deliveries, and stalled tracking, and prepares a short list plus a draft note before the customer has to ask.",
+    "problem": "The first time many stores learn a package failed delivery or sat at a depot is when the customer writes 'where is my package?'. Drafting a status reply from your own records helps once they write in. It does not watch carrier exceptions before that. A daily low-stock and stuck-order list is a different job.",
+    "what_si_does": "SI reads tracking for open shipments from the store, a shipping tool, or an export. It lists exception scans, failed delivery, address issues, and tracking with no scan past a wait you set. For each, it notes the last scan, the order, and a suggested next step such as asking the customer to confirm the address, contacting the carrier, or waiting. It can draft a customer note from the real tracking. It does not change addresses or file claims.",
+    "setup": "Tracking numbers for open shipments, carrier or shipping-tool access or a daily export, and a wait threshold. Setup is often a few days.",
+    "human_checks": [
+      "A person decides whether to contact the customer, the carrier, or wait.",
+      "SI does not promise a delivery date that is not on the scan.",
+      "Address changes and claims are made by a person."
+    ],
+    "examples": [
+      {
+        "business_type": "Shopify store using a shipping app",
+        "scenario": "Two packages show a delivery exception and one has no scan in five days. The list and draft notes wait for the owner."
+      },
+      {
+        "business_type": "Beauty brand shipping two-day",
+        "scenario": "A failed delivery marked 'need new address' is listed with the order, and a draft asks the customer to confirm the door code."
+      },
+      {
+        "business_type": "Outdoor gear shop",
+        "scenario": "Weekend scans lag, so SI still lists exceptions and flags ones that already have a customer email so you do not double-reply."
+      }
+    ],
+    "copy_prompt": "From open shipments in [store or shipping export], list tracking with an exception scan, failed delivery, address issue, or no scan in [5] days. For each, show order number, last scan, and a suggested next step. Draft a customer note using only the tracking on file. Do not change addresses or file claims. Pause and show me before sending, submitting, posting, or changing anything.",
+    "tools_examples": [
+      "Shopify",
+      "ShipStation",
+      "AfterShip",
+      "Google Sheets",
+      "Gorgias"
+    ],
+    "effect": "Exceptions show up as a list you can work, instead of as a pile of 'where is my package' emails.",
+    "caution": "Carrier tracking can lag. A missing scan is not always a lost package."
+  },
+  {
+    "slug": "chargeback-and-dispute-evidence",
+    "title": "Chargeback and dispute evidence packets for you to file",
+    "category": "Ecommerce operations",
+    "summary": "When a payment is disputed, SI gathers the order, shipment, tracking, and messages you already have into one packet, and leaves the filing to you.",
+    "problem": "Chargebacks and marketplace disputes arrive with a short deadline. The evidence is spread across the store, the shipping tool, and the inbox. Someone spends an afternoon hunting screenshots, and the packet is incomplete or late.",
+    "what_si_does": "SI collects, from the sources you point at, the order, payment, shipping label, tracking, delivery scan if any, the product page or description as you saved it, and the customer messages. It builds a packet with a short timeline and a checklist of what the processor asked for. It flags missing pieces, such as no delivery scan or no copy of the policy shown at checkout. It does not file the dispute or write a legal argument.",
+    "setup": "The dispute notice, read access to orders, shipping, and the helpdesk or inbox, plus your posted policies. Setup is often a few days, then a repeatable packet per dispute.",
+    "human_checks": [
+      "A person files the dispute; SI never submits to the processor or marketplace.",
+      "Missing evidence stays listed as missing; SI does not invent screenshots or dates.",
+      "Refunds, partial credits, and accepting the dispute are owner decisions."
+    ],
+    "examples": [
+      {
+        "business_type": "Shopify store",
+        "scenario": "A card dispute packet includes the order, a delivered scan, and the two emails the customer sent before the chargeback."
+      },
+      {
+        "business_type": "Marketplace seller",
+        "scenario": "The listing, shipment, and buyer messages are collated. The note flags that the return window had already closed according to the order dates on file."
+      },
+      {
+        "business_type": "Shop that sells kits",
+        "scenario": "A claim timeline shows shipped, delivered, and a return request two weeks later. The owner decides whether to respond or refund."
+      }
+    ],
+    "copy_prompt": "For this dispute [notice], gather the order, payment, shipping label, tracking, delivery scan if present, saved product page, posted policy, and customer messages from [store, shipping tool, inbox]. Build a packet with a short timeline and a checklist of what the notice asked for. List anything missing. Do not invent dates or screenshots. Do not file. Pause and show me before sending, submitting, filing, posting, or changing anything.",
+    "tools_examples": [
+      "Shopify",
+      "PayPal",
+      "Stripe",
+      "Google Drive",
+      "Gorgias",
+      "ShipStation"
+    ],
+    "effect": "Evidence you already have is in one place before the deadline, and gaps are visible.",
+    "caution": "This is not legal advice and does not promise a dispute will be decided in your favor. Processors and marketplaces set their own rules."
+  },
+  {
+    "slug": "product-feed-catalog-error-checks",
+    "title": "Product-feed and catalog error checks before ads go live",
+    "category": "Ecommerce operations",
+    "summary": "SI compares your store catalog with the shopping or marketplace feed and lists errors that would block or mis-price an item, without changing the feed.",
+    "problem": "Shopping ads and marketplace catalogs reject items for missing identifiers, broken images, or a price that does not match the store. Those errors sit in a dashboard until someone has time to read them, and the listing or ad never runs. Writing new product descriptions is a different job. This one is the error list.",
+    "what_si_does": "SI reads the feed or error export and the store catalog. It lists items with missing or invalid identifiers (GTIN, MPN, brand), image URLs that fail, price or availability that does not match the store, and titles or descriptions that exceed the channel's limits. It does not guess identifiers or rewrite copy to paper over a claim.",
+    "setup": "A feed export or channel diagnostics export, and a catalog export. A note on which channel's rules you are checking. Setup is often a few days.",
+    "human_checks": [
+      "A person decides what to fix in the store or the feed.",
+      "Missing identifiers stay blank unless you provide them; SI does not invent barcodes.",
+      "Price and availability changes are made in the store by a person."
+    ],
+    "examples": [
+      {
+        "business_type": "Shopify store with a shopping feed",
+        "scenario": "Twenty SKUs fail on a missing GTIN, and five have a feed price that does not match the product page."
+      },
+      {
+        "business_type": "Beauty brand with a social catalog",
+        "scenario": "Several items have an image URL that no longer loads after a file rename. SI lists those handles."
+      },
+      {
+        "business_type": "Home-goods seller",
+        "scenario": "Titles over the marketplace character limit are listed with the current length, not rewritten."
+      }
+    ],
+    "copy_prompt": "Compare this feed or error export [file] with the store catalog [file], matching on [SKU]. List items with missing or invalid GTIN, MPN, or brand, image URLs that fail, price or availability that does not match the store, and titles over [character limit]. Do not invent identifiers. Do not change the feed. Pause and show me before sending, submitting, posting, or changing anything.",
+    "tools_examples": [
+      "Shopify",
+      "Google Merchant Center",
+      "Google Sheets",
+      "Meta Commerce Manager",
+      "Excel"
+    ],
+    "effect": "Feed errors are a punch list instead of a silent block on items you thought were advertised.",
+    "caution": "Channel rules change. The check uses the export and the rules you give it, not a promise that ads will be approved."
+  },
+  {
+    "slug": "bundle-and-kit-stock-rules",
+    "title": "Bundle and kit stock rules so components do not go negative",
+    "category": "Ecommerce operations",
+    "summary": "SI applies your kit recipe to available component stock and lists which bundles can still sell, which should be held, and which components a sale would oversell.",
+    "problem": "A bundle or kit is one SKU on the store, made of parts that also sell alone. The store can sell the kit after a component is gone, or sell the last component and leave kits that cannot be built. Comparing store counts with a spreadsheet flags kits as a special case. It does not apply the recipe.",
+    "what_si_does": "From a bill of materials you maintain (kit SKU, component SKUs, quantity each), SI calculates how many complete kits you can still build from component on-hand, compares that with the kit's available quantity on the store, and lists kits that should be held or reduced, and components that a recent kit sale would take below zero. It does not change inventory.",
+    "setup": "A kit recipe sheet and store or warehouse quantities for kits and components. Setup is often a few days if the recipes are already written down.",
+    "human_checks": [
+      "A person changes store quantities; SI only lists what the recipe implies.",
+      "Recipes that are missing a component or a quantity are flagged, not guessed.",
+      "Open orders and incoming purchase orders are noted only if you provide them."
+    ],
+    "examples": [
+      {
+        "business_type": "Cosmetics brand",
+        "scenario": "A starter set needs a cleanser and a moisturizer. SI lists that only four complete sets can be built while the store still offers twelve."
+      },
+      {
+        "business_type": "Coffee roaster selling online",
+        "scenario": "A gift box of three bags cannot be sold because one origin is at zero. The other two bags still sell on their own."
+      },
+      {
+        "business_type": "Electronics accessories shop",
+        "scenario": "A cable-and-charger kit would oversell the charger if two more kits sell today. SI lists the charger and the kit together."
+      }
+    ],
+    "copy_prompt": "Using this kit recipe [file] and quantities [store or warehouse export], calculate how many complete kits can be built from component stock. Compare that with the kit quantity on the store. List kits that should be held or reduced, and components a kit sale would take below zero. Do not invent missing recipe lines. Do not change inventory. Pause and show me before sending, submitting, posting, ordering, or changing anything.",
+    "tools_examples": [
+      "Shopify",
+      "Google Sheets",
+      "Excel",
+      "CSV export"
+    ],
+    "effect": "Kits and loose components are checked against the same recipe before the store oversells a part.",
+    "caution": null
+  },
+  {
+    "slug": "returns-and-exchange-handling-prep",
+    "title": "Returns and exchange handling prep for the warehouse",
+    "category": "Ecommerce operations",
+    "summary": "SI turns an approved return or exchange into a warehouse checklist: what should come back, whether it can be restocked, and whether the swap SKU is actually on hand.",
+    "problem": "A return is approved in the helpdesk, then the warehouse is surprised: wrong item, not restockable, or the exchange size is already sold out. Checking a request against your refund policy decides whether the customer is allowed to return. It does not prep the dock.",
+    "what_si_does": "For each approved return or exchange, SI pulls the original order, the reason, photos if you keep them, and the requested swap. It drafts a receiving note (order, SKU, expected condition, restock vs quarantine vs discard per your rules) and checks whether the exchange SKU and size are available. If not, it lists alternatives you have already said are allowed, or marks it as a refund conversation. It does not issue refunds or change stock.",
+    "setup": "Your restock rules, the returns tool or a sheet of open returns, and store stock. Setup is often a few days.",
+    "human_checks": [
+      "Refunds, store credit, and exchanges are issued by a person.",
+      "Condition on arrival is confirmed by the warehouse, not guessed from a photo.",
+      "Items that might be unsafe to restock go to a person."
+    ],
+    "examples": [
+      {
+        "business_type": "Shopify apparel store",
+        "scenario": "An exchange for size M is requested. SI notes size M is at one unit and drafts a dock note to inspect the returned size S before restocking."
+      },
+      {
+        "business_type": "Home-goods store",
+        "scenario": "A damaged-table return is tagged quarantine per the written rules. SI does not suggest putting it back for sale."
+      },
+      {
+        "business_type": "Beauty brand",
+        "scenario": "A used personal-care return is listed as discard, with a refund draft waiting for the owner."
+      }
+    ],
+    "copy_prompt": "For each approved return or exchange in [returns sheet or export], pull the original order, reason, and requested swap. Using restock rules [paste] and stock [export], draft a receiving note (SKU, expected condition, restock, quarantine, or discard) and say whether the swap SKU is on hand. Do not issue refunds or change stock. Pause and show me before sending, submitting, posting, refunding, or changing anything.",
+    "tools_examples": [
+      "Shopify",
+      "Loop Returns",
+      "Gorgias",
+      "Google Sheets",
+      "ShipStation"
+    ],
+    "effect": "The warehouse gets a list of what is coming and what to do with it, before the box lands.",
+    "caution": "Health and safety rules for restocking vary. Follow your own policy and the rules that apply to you, especially for used personal-care items."
+  },
+  {
+    "slug": "marketplace-listing-sync-checks",
+    "title": "Marketplace listing sync checks across your channels",
+    "category": "Ecommerce operations",
+    "summary": "SI compares title, price, quantity, and identifiers on the store with each marketplace listing and lists the rows that drifted.",
+    "problem": "The store product is the source, but Amazon, eBay, or another channel still shows an old price, a sold-out quantity, or a different identifier. Matching store counts with your spreadsheet catches drift in your own files. It does not compare live listings across channels.",
+    "what_si_does": "SI matches SKUs or identifiers across the store export and each channel export. It lists mismatches in price, quantity, title, GTIN, and status (active vs draft vs ended). It does not push updates to any channel.",
+    "setup": "Exports from the store and each marketplace, plus the match key (SKU, ASIN, marketplace item ID). Setup is often a few days, longer if identifiers were never aligned.",
+    "human_checks": [
+      "A person decides which channel is wrong before anything is edited.",
+      "SI does not publish, end, or change prices on listings.",
+      "Unmatched SKUs stay on a review list rather than being forced to a listing."
+    ],
+    "examples": [
+      {
+        "business_type": "Seller on Shopify and Amazon",
+        "scenario": "Three listings still show a sale price that ended on the store last week."
+      },
+      {
+        "business_type": "Seller on Shopify and eBay",
+        "scenario": "Two listings are active on eBay with quantity 1 while the store is at zero."
+      },
+      {
+        "business_type": "Home-goods brand",
+        "scenario": "Titles were rewritten on the store and never copied to the marketplace. SI lists those SKUs with both titles."
+      }
+    ],
+    "copy_prompt": "Match [store export] to [marketplace export] on [SKU or identifier]. List rows where price, quantity, title, GTIN, or status disagree. Include both values and the date of each file. Do not publish, end, or change any listing. Pause and show me before sending, submitting, posting, or changing anything.",
+    "tools_examples": [
+      "Shopify",
+      "Amazon Seller Central",
+      "eBay",
+      "Google Sheets",
+      "Excel"
+    ],
+    "effect": "Drift between channels is a list, not a surprise oversell or a stale price.",
+    "caution": "Marketplace fees and listing rules are not applied here. This is a match of the fields you export."
+  },
+  {
+    "slug": "fulfillment-sla-watch",
+    "title": "Fulfillment SLA watch for orders still waiting to ship",
+    "category": "Ecommerce operations",
+    "summary": "SI lists paid orders that are close to your ship-by time, or the marketplace's, and are not yet fulfilled, so someone can pick, pack, or message the customer.",
+    "problem": "Orders sit in unfulfilled until a marketplace late-shipment warning or a customer complaint. Watching stalled tracking helps after a label exists. It does not watch the clock before the first scan.",
+    "what_si_does": "SI reads paid, unfulfilled orders and the ship-by or promised date you use (store SLA, marketplace ship-by, or a number of hours after payment). It lists orders in buckets: on track, due today, overdue, and missing a shipping method or address. It can draft a packing note or a delay note from your templates. It does not buy labels or mark orders fulfilled.",
+    "setup": "Order export or read access, your SLA rules, and any marketplace ship-by field you keep. Setup is often a few days.",
+    "human_checks": [
+      "A person decides the pick order and any customer message.",
+      "SI does not purchase postage or mark orders fulfilled.",
+      "Hold, fraud-review, and preorder orders are excluded if you tag them."
+    ],
+    "examples": [
+      {
+        "business_type": "Shopify store that promises two-day fulfillment",
+        "scenario": "Eight paid orders are unfulfilled at 30 hours, and two are overdue. The list is grouped by due time."
+      },
+      {
+        "business_type": "Marketplace seller",
+        "scenario": "Three orders hit ship-by tomorrow morning with no label. SI lists them with SKU and bin location if the sheet has it."
+      },
+      {
+        "business_type": "Multi-channel seller",
+        "scenario": "Marketplace orders and store orders sit in one list, tagged by channel, so the warehouse works the tightest clock first."
+      }
+    ],
+    "copy_prompt": "From paid unfulfilled orders in [store or marketplace export], apply SLA rules [paste]. List orders as on track, due today, overdue, or missing shipping method or address. Exclude holds, fraud review, and preorders if tagged. Draft packing or delay notes from [templates] using only dates on the order. Do not buy labels or mark fulfilled. Pause and show me before sending, submitting, posting, or changing anything.",
+    "tools_examples": [
+      "Shopify",
+      "Amazon Seller Central",
+      "ShipStation",
+      "Google Sheets",
+      "Slack"
+    ],
+    "effect": "The warehouse sees what will miss the clock while there is still time to pack it.",
+    "caution": null
+  },
+  {
+    "slug": "customer-service-macros-from-past-tickets",
+    "title": "Customer-service macros drafted from past tickets",
+    "category": "Ecommerce operations",
+    "summary": "SI groups past helpdesk tickets, turns the clearest replies into draft macros with the merge fields you use, and leaves publishing the macros to you.",
+    "problem": "Agents rewrite the same shipping, sizing, and order-status answers every day. Building an FAQ from past replies helps customers who read a help page. It does not put a checked reply one click away in the helpdesk.",
+    "what_si_does": "SI reads an export of tickets or macros you already have. It groups similar questions (shipping times, how to start a return, sizing, missing item), picks the clearest past reply, and drafts a macro in your voice with placeholders for order number, tracking, and name. It notes where past agents disagreed so you can pick a policy. It does not publish macros or send them.",
+    "setup": "A few months of ticket export or existing macros, your policy pages, and the merge-field names your helpdesk uses. Setup is often a few days plus editing.",
+    "human_checks": [
+      "A person edits and publishes every macro.",
+      "Conflicting past answers are resolved by a person, not averaged.",
+      "Refund, discount, and legal wording is checked before a macro goes live."
+    ],
+    "examples": [
+      {
+        "business_type": "Shopify store using a helpdesk",
+        "scenario": "'Where is my order' and 'how do I start a return' become two macros with order and tracking fields, from the replies staff already send."
+      },
+      {
+        "business_type": "Beauty brand",
+        "scenario": "Shade-match threads produce three drafts. One is flagged because past answers promised a result the policy does not."
+      },
+      {
+        "business_type": "Outdoor shop",
+        "scenario": "A 'will it arrive by Friday' macro is drafted to use only the carrier date already on the order."
+      }
+    ],
+    "copy_prompt": "Read these tickets or macros [export]. Group questions that come up more than [3] times. For each group, draft a helpdesk macro from the clearest past reply, in this voice [examples], with merge fields [order number, tracking, name]. List groups where past answers disagree. Do not publish or send. Pause and show me before sending, submitting, posting, or changing anything.",
+    "tools_examples": [
+      "Gorgias",
+      "Zendesk",
+      "Shopify",
+      "Google Docs",
+      "Help Scout"
+    ],
+    "effect": "Agents start from a checked reply instead of rewriting the same paragraph, and the public FAQ can stay a separate page.",
+    "caution": null
+  },
+  {
+    "slug": "sales-tax-and-1099-prep-notes",
+    "title": "Sales-tax and 1099 prep notes for the accountant",
+    "category": "Ecommerce operations",
+    "summary": "SI gathers store tax reports, marketplace tax lines, and contractor payments into a notes packet for your accountant, and does not file anything.",
+    "problem": "The store, the marketplace, and the payment processor each show tax a different way. Sales-tax returns and 1099 forms are the accountant's job, but the store owner still has to find the reports. A general year-end packet gathers folders. It does not line up ecommerce tax reports with what a marketplace already remitted.",
+    "what_si_does": "SI collects the reports you point it at: store tax summary, marketplace tax or facilitator statements, payout reports, and contractor payment totals. It builds a notes sheet: tax collected vs remitted by channel, jurisdictions named in the reports, 1099-K figures as they appear, and contractor totals that may need a 1099-NEC. It lists gaps, such as a channel with no report or a missing month. It does not decide nexus, what is taxable, or what to file.",
+    "setup": "The year's store and marketplace tax reports, payout exports, and a list of contractors you paid. Last year's filing or the accountant's checklist if you have it. Setup is often a few days.",
+    "human_checks": [
+      "The accountant decides what to file; SI makes no tax judgments.",
+      "Totals are checked against the source reports.",
+      "Sensitive documents go only through the accountant's channel."
+    ],
+    "examples": [
+      {
+        "business_type": "Shopify store selling in several states",
+        "scenario": "Notes show tax collected in the store vs tax a marketplace says it remitted as facilitator, with months that have no marketplace file listed as missing."
+      },
+      {
+        "business_type": "Multi-channel seller",
+        "scenario": "1099-K figures from the processor are copied as printed, next to payout totals, for the accountant to reconcile."
+      },
+      {
+        "business_type": "Brand that pays makers",
+        "scenario": "Contractor payments from the year are totaled by person from the bill sheet, with a note that addresses still need to be confirmed before any 1099-NEC."
+      }
+    ],
+    "copy_prompt": "Using these store tax reports, marketplace tax or facilitator statements, payout exports, and contractor payments [files], build a notes sheet for [year]: tax collected vs remitted by channel, jurisdictions named in the reports, 1099-K figures as printed, and contractor totals. List missing months or channels. Do not decide nexus, what is taxable, or what to file. Pause and show me before sending, submitting, filing, posting, or changing anything.",
+    "tools_examples": [
+      "Shopify",
+      "Amazon Seller Central",
+      "QuickBooks Online",
+      "Google Sheets",
+      "Gmail"
+    ],
+    "effect": "The accountant gets ecommerce-specific reports in one place, instead of a folder of unlabeled exports.",
+    "caution": "Tax: SI organizes reports and drafts notes; it does not give tax advice, decide nexus, or file returns. A qualified accountant or tax preparer makes those calls."
   }
 ]

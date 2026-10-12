@@ -18,12 +18,12 @@ https://calendly.com/josh-gemmi/30min
 - Stocky dump recovery (Shopify CSV after Stocky shut down; not a Stocky replacement app): https://gemmisi.com/services/stocky-recovery.html
 - Advisory & Fractional CTO (inquire first): https://gemmisi.com/advisory.html
 - Anonymized case study: https://gemmisi.com/work/governed-ai-content-engine.html
-- Use cases (142 practical SI examples; illustrations, not client results): https://gemmisi.com/use-cases/
+- Use cases (152 practical SI examples; illustrations, not client results): https://gemmisi.com/use-cases/
 - Sitemap: https://gemmisi.com/sitemap.xml
 
 ## Use cases
 
-The library lists 142 practical SI jobs for small teams, community organizations, the business side of solo and small law practices, the business side of small healthcare practices, real estate and property management, home-service contractors, and small accounting, tax and bookkeeping firms. They are illustrations of what is possible, not reports of client results. A person still approves anything that sends, pays, orders, or posts. The library also covers ecommerce operations, local or seasonal work, legal-practice administration, medical-practice administration, real-estate operations, home-services office work, and accounting-firm administration. Legal-practice pages are operations help only. SI does not give legal advice, and an attorney reviews anything client-facing. Medical-practice pages are operations help only. SI does not give medical advice or make clinical decisions, and a clinician or trained staff member reviews anything patient-facing. Real-estate pages are operations help only. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. Home-services pages are office help only; the owner approves every quote and message. Accounting-firm pages are operations help only. SI does not give tax advice or file returns, and a professional reviews, signs and decides. GemmiSI sets this up on your own equipment and accounts; your data stays with you.
+The library lists 152 practical SI jobs for small teams, community organizations, the business side of solo and small law practices, the business side of small healthcare practices, real estate and property management, home-service contractors, and small accounting, tax and bookkeeping firms. They are illustrations of what is possible, not reports of client results. A person still approves anything that sends, pays, orders, or posts. The library also covers ecommerce operations, local or seasonal work, legal-practice administration, medical-practice administration, real-estate operations, home-services office work, and accounting-firm administration. Legal-practice pages are operations help only. SI does not give legal advice, and an attorney reviews anything client-facing. Medical-practice pages are operations help only. SI does not give medical advice or make clinical decisions, and a clinician or trained staff member reviews anything patient-facing. Real-estate pages are operations help only. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. Home-services pages are office help only; the owner approves every quote and message. Accounting-firm pages are operations help only. SI does not give tax advice or file returns, and a professional reviews, signs and decides. GemmiSI sets this up on your own equipment and accounts; your data stays with you.
 
 - Library: https://gemmisi.com/use-cases/
 - Morning inbox triage into labeled queues: https://gemmisi.com/use-cases/inbox-triage/
@@ -34,6 +34,16 @@ The library lists 142 practical SI jobs for small teams, community organizations
 - A weekly announcements email for members: https://gemmisi.com/use-cases/weekly-member-announcements/
 - Moving off a retired inventory app without losing your reorder history: https://gemmisi.com/use-cases/retired-inventory-app-reorder-history/
 - Keeping store stock counts and your spreadsheet in agreement: https://gemmisi.com/use-cases/store-stock-and-spreadsheet-agreement/
+- Abandoned-checkout follow-up drafts from your store records: https://gemmisi.com/use-cases/abandoned-checkout-follow-up-drafts/
+- Shipping exceptions and a 'where is my package' watch: https://gemmisi.com/use-cases/shipping-exceptions-package-watch/
+- Chargeback and dispute evidence packets for you to file: https://gemmisi.com/use-cases/chargeback-and-dispute-evidence/
+- Product-feed and catalog error checks before ads go live: https://gemmisi.com/use-cases/product-feed-catalog-error-checks/
+- Bundle and kit stock rules so components do not go negative: https://gemmisi.com/use-cases/bundle-and-kit-stock-rules/
+- Returns and exchange handling prep for the warehouse: https://gemmisi.com/use-cases/returns-and-exchange-handling-prep/
+- Marketplace listing sync checks across your channels: https://gemmisi.com/use-cases/marketplace-listing-sync-checks/
+- Fulfillment SLA watch for orders still waiting to ship: https://gemmisi.com/use-cases/fulfillment-sla-watch/
+- Customer-service macros drafted from past tickets: https://gemmisi.com/use-cases/customer-service-macros-from-past-tickets/
+- Sales-tax and 1099 prep notes for the accountant: https://gemmisi.com/use-cases/sales-tax-and-1099-prep-notes/
 - Pricing and margin check across your catalog: https://gemmisi.com/use-cases/catalog-pricing-and-margin-check/
 - Spotting supplier price increases on invoices: https://gemmisi.com/use-cases/supplier-price-increases-on-invoices/
 - Replying to customers in English and Spanish: https://gemmisi.com/use-cases/bilingual-english-spanish-replies/

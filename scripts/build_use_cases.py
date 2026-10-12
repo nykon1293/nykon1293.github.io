@@ -89,7 +89,7 @@ SHORT = {
     "Ecommerce operations": (
         "Ecommerce operations",
         "ecommerce-operations",
-        "Store counts, catalog moves, and reorder history after a tool goes away.",
+        "Store stock, checkouts, shipping, catalogs, disputes, and marketplace listings.",
     ),
     "Local business & seasonal": (
         "Local & seasonal",

@@ -24,11 +24,10 @@
   <meta name="twitter:image" content="https://gemmisi.com/assets/brand/gemmisi-og.png" />
   <meta name="twitter:image:alt" content="GemmiSI — SI, automation, dashboards, and technical operations" />
   <link rel="sitemap" type="application/xml" title="Sitemap" href="https://gemmisi.com/sitemap.xml" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../styles.css?v=g4-logo-1" />
-  <link rel="stylesheet" href="../../assets/use-cases.css" />
+  <link rel="preload" href="/assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <style>@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 400 700; font-display: swap; src: url("/assets/fonts/ibm-plex-sans-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; } @font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 500 700; font-display: optional; src: url("/assets/fonts/jetbrains-mono-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }</style>
+  <link rel="stylesheet" href="../../styles.css?v=perf-1" />
+  <link rel="stylesheet" href="../../assets/use-cases.css?v=perf-1" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" href="/assets/brand/gemmisi-icon.svg" type="image/svg+xml" />
   <link rel="icon" href="/assets/brand/gemmisi-icon-32.png" type="image/png" sizes="32x32" />
@@ -194,7 +193,7 @@
         <section class="uc-related" aria-labelledby="related">
           <h2 id="related">Related use cases</h2>
           <ul class="uc-grid">
-          <li class="uc-card" data-cat="research-documents" data-hay="a first read of contracts for the terms that matter si highlights dates, renewal terms, payment terms and unusual clauses in contracts so you know what to ask your lawyer or the other side. research &amp; documents research and documents google docs microsoft word adobe acrobat google drive restaurant owner a new commercial lease summary highlights a personal guarantee, a percentage-rent clause and the required notice to renew. marketing agency a client&#x27;s master services agreement is compared with the agency&#x27;s standard terms, flagging an unlimited revision clause and payment at 90 days. nonprofit a grant agreement&#x27;s reporting deadlines and restrictions on spending are pulled into a calendar and summary.">
+          <li class="uc-card" data-cat="research-documents" data-slug="contract-first-read">
             <a href="../contract-first-read/">
               <span class="uc-card-cat">Research &amp; documents</span>
               <h3>A first read of contracts for the terms that matter</h3>
@@ -202,7 +201,7 @@
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
             </a>
           </li>
-          <li class="uc-card" data-cat="research-documents" data-hay="filling routine forms from saved company details si fills vendor setup forms, applications, permits and questionnaires from a saved set of company details, and stops before anything is submitted. research &amp; documents research and documents adobe acrobat google drive docusign google sheets electrical contractor a general contractor&#x27;s subcontractor packet is filled with license numbers, insurance limits and safety program answers, with two questions left for the owner. food producer a grocery distributor&#x27;s vendor setup form is completed and the food-safety certificate attached. event planner venue permit applications for an outdoor event are pre-filled from the event details.">
+          <li class="uc-card" data-cat="research-documents" data-slug="routine-form-filling">
             <a href="../routine-form-filling/">
               <span class="uc-card-cat">Research &amp; documents</span>
               <h3>Filling routine forms from saved company details</h3>
@@ -210,7 +209,7 @@
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
             </a>
           </li>
-          <li class="uc-card" data-cat="research-documents" data-hay="drafting bids, rfp responses and grant applications from past answers si drafts responses to bids, rfps and grant applications from your past submissions and documents, and lists what still needs a human answer. research &amp; documents research and documents google docs google drive microsoft word submittable environmental nonprofit a foundation grant application is drafted from last year&#x27;s proposal and program reports, with the new evaluation section flagged as needing input. it consulting firm a city&#x27;s request for proposals gets a compliance checklist and draft answers from previous public-sector bids. architecture firm a qualifications package is assembled with relevant project sheets and team resumes.">
+          <li class="uc-card" data-cat="research-documents" data-slug="rfp-and-grant-drafts">
             <a href="../rfp-and-grant-drafts/">
               <span class="uc-card-cat">Research &amp; documents</span>
               <h3>Drafting bids, RFP responses and grant applications from past answers</h3>
@@ -219,7 +218,7 @@
             </a>
           </li>
           </ul>
-          <p class="uc-all"><a class="text-link" href="../index.html">See all 142 use cases →</a></p>
+          <p class="uc-all"><a class="text-link" href="../index.html">See all 152 use cases →</a></p>
         </section>
 
         <section class="uc-cta-band" aria-labelledby="cta-h">
@@ -248,35 +247,7 @@
         <a href="../../services/tutoring-project-help.html">Tutoring</a>
         <a href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book consultation</a>
       </p>
-    </footer>  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-  <script>
-    (() => {
-      const nav = document.querySelector('.nav');
-      const toggle = document.querySelector('.nav-toggle');
-      const links = document.getElementById('site-nav');
-      if (!nav || !toggle || !links) return;
-      const setOpen = (open) => {
-        nav.classList.toggle('is-menu-open', open);
-        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        toggle.setAttribute('aria-label', open ? 'Close site menu' : 'Open site menu');
-      };
-      toggle.addEventListener('click', () => setOpen(!nav.classList.contains('is-menu-open')));
-      links.querySelectorAll('a').forEach((link) => {
-        link.addEventListener('click', () => {
-          setOpen(false);
-          links.querySelectorAll('details.nav-dropdown[open]').forEach((d) => d.removeAttribute('open'));
-        });
-      });
-      document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') setOpen(false);
-      });
-      document.addEventListener('click', (event) => {
-        if (!nav.classList.contains('is-menu-open')) return;
-        if (nav.contains(event.target)) return;
-        setOpen(false);
-      });
-    })();
-  </script>
+    </footer>  <script src="/assets/nav.js" defer></script>
   <script>
     (() => {
       const button = document.getElementById('uc-copy');
