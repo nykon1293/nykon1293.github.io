@@ -11,10 +11,42 @@ PERSON_ID = f"{BASE}/#person"
 BUSINESS_ID = f"{BASE}/#business"
 WEBSITE_ID = f"{BASE}/#website"
 CALENDLY = "https://calendly.com/josh-gemmi/30min"
+LINKEDIN = "https://www.linkedin.com/in/joshuah-gemmi-16046233/"
 OG_IMAGE = f"{BASE}/assets/brand/gemmisi-og.png"
 PORTRAIT = f"{BASE}/assets/yonatan-gemmi-pixel-portrait-256.png"
 LOGO = f"{BASE}/assets/brand/gemmisi-icon-512.png"
-OG_IMAGE_ALT = "GemmiSI — SI, automation, dashboards, and technical operations"
+OG_IMAGE_ALT = "GemmiSI — SI & AI, automation, dashboards, and technical operations"
+SITE_NAME = "GemmiSI"
+OWN_EQUIPMENT = (
+    "GemmiSI sets this up on your own equipment and accounts; your data stays with you."
+)
+SI_GLOSS = "SI (Super Intelligence, the new name for AI)"
+APPROVAL_LINE = (
+    "Anything that sends, pays, orders, posts, or changes a record waits for your approval."
+)
+
+KNOWS_ABOUT = [
+    "SI",
+    "Super Intelligence",
+    "AI automation",
+    "AI agents",
+    "dashboards",
+    "ecommerce operations",
+    "Hermes Agents",
+    "Hermes Desk setup",
+    "SI implementation",
+    "workflow automation",
+    "technical operations",
+    "data dashboards",
+    "Shopify inventory",
+    "Stocky dump recovery",
+    "Custom GPTs",
+    "ChatGPT workflows",
+    "technical tutoring",
+    "Google BigQuery",
+    "Amazon FBA",
+    "eBay operations",
+]
 
 AREA_SERVED = [
     {
@@ -33,12 +65,103 @@ AREA_SERVED = [
 ]
 
 
+def clip_meta(text: str, limit: int = 155) -> str:
+    text = re.sub(r"\s+", " ", text).strip()
+    if len(text) <= limit:
+        return text
+    return text[: limit - 1].rsplit(" ", 1)[0].rstrip(",.;:") + "…"
+
+
+def with_si_ai(text: str) -> str:
+    """Put the searchable AI synonym on the first SI (titles and meta)."""
+    if re.search(r"\bSI \(AI\)", text):
+        return text
+    if re.search(r"\bSI\b", text):
+        return re.sub(r"\bSI\b", "SI (AI)", text, count=1)
+    if re.search(r"\bAI\b", text) and "SI" not in text:
+        return re.sub(r"\bAI\b", "SI (AI)", text, count=1)
+    return f"SI (AI): {text}"
+
+
+def with_si_gloss(text: str) -> str:
+    """First body mention: SI as Super Intelligence, the new name for AI."""
+    if "Super Intelligence" in text:
+        return text
+    if re.search(r"\bSI\b", text):
+        return re.sub(r"\bSI\b", SI_GLOSS, text, count=1)
+    return f"{SI_GLOSS} can help with this kind of work. {text}"
+
+
+def use_case_seo_title(title: str) -> str:
+    """Lead the qualifier with SI, add AI, brand as GemmiSI. Prefer ≤60 characters."""
+    name = re.sub(r"^(A|An|The) ", "", title).strip()
+    style_a = f"{name} with SI (AI) | GemmiSI Use Cases"
+    style_b = f"{name} | SI (AI) | GemmiSI"
+    if len(style_a) <= 60:
+        return style_a
+    if len(style_b) <= 60:
+        return style_b
+    suffix = " | SI (AI) | GemmiSI"
+    words = name.split()
+    dangling = {"that", "the", "and", "for", "of", "to", "a", "an", "or", "with", "from", "into"}
+    while len(" ".join(words)) + len(suffix) > 60 and len(words) > 2:
+        words = words[:-1]
+        while words and words[-1].lower().rstrip(",.;:") in dangling:
+            words = words[:-1]
+    short = " ".join(words)
+    candidate = f"{short}{suffix}"
+    if len(candidate) > 60:
+        budget = max(12, 60 - len(suffix))
+        short = short[:budget].rsplit(" ", 1)[0]
+        candidate = f"{short}{suffix}"
+    return candidate
+
+
+def use_case_seo_titles(entries: list[dict]) -> dict[str, str]:
+    """Unique document titles; disambiguate with industry or slug if a short form collides."""
+    assigned: dict[str, str] = {}
+    used: set[str] = set()
+    suffix = " | SI (AI) | GemmiSI"
+    for item in entries:
+        candidate = use_case_seo_title(item["title"])
+        if candidate.casefold() in used:
+            industry = str((item.get("industries") or ["use-case"])[0]).replace("-", " ")
+            stem = re.sub(r"( with SI \(AI\) \| GemmiSI Use Cases| \| SI \(AI\) \| GemmiSI)$", "", candidate)
+            tag = f" ({industry})"
+            words = stem.split()
+            dangling = {"that", "the", "and", "for", "of", "to", "a", "an", "or", "with", "from", "into"}
+            while words and len(" ".join(words)) + len(tag) + len(suffix) > 60:
+                words.pop()
+                while words and words[-1].lower().rstrip(",.;:") in dangling:
+                    words.pop()
+            candidate = f"{' '.join(words)}{tag}{suffix}"
+        if candidate.casefold() in used or len(candidate) > 60:
+            slug_words = item["slug"].replace("-", " ")
+            candidate = f"{slug_words}{suffix}"
+            if len(candidate) > 60:
+                budget = 60 - len(suffix)
+                candidate = f"{slug_words[:budget].rsplit(' ', 1)[0]}{suffix}"
+        used.add(candidate.casefold())
+        assigned[item["slug"]] = candidate
+    return assigned
+
+
+def use_case_seo_desc(summary: str) -> str:
+    return clip_meta(with_si_ai(summary))
+
+
 def _offer(name: str, url: str, *, price: str | None = None, service: str, description: str | None = None) -> dict:
     item: dict = {
         "@type": "Offer",
         "name": name,
         "url": url,
-        "itemOffered": {"@type": "Service", "name": service},
+        "offeredBy": {"@id": BUSINESS_ID},
+        "seller": {"@id": BUSINESS_ID},
+        "itemOffered": {
+            "@type": "Service",
+            "name": service,
+            "provider": {"@id": BUSINESS_ID},
+        },
     }
     if price is not None:
         item["price"] = price
@@ -52,7 +175,8 @@ def person_node() -> dict:
     return {
         "@type": "Person",
         "@id": PERSON_ID,
-        "name": "Yonatan Gemmi",
+        "name": "Yonatan (Josh) Gemmi",
+        "alternateName": "Josh Gemmi",
         "url": f"{BASE}/",
         "image": PORTRAIT,
         "email": "mailto:y@gemmisi.com",
@@ -66,26 +190,10 @@ def person_node() -> dict:
         },
         "areaServed": AREA_SERVED,
         "sameAs": [
-            "https://www.linkedin.com/in/joshuah-gemmi-16046233/",
+            LINKEDIN,
             "https://github.com/nykon1293",
         ],
-        "knowsAbout": [
-            "Hermes Agents",
-            "Hermes Desk setup",
-            "SI implementation",
-            "workflow automation",
-            "technical operations",
-            "data dashboards",
-            "ecommerce operations",
-            "Shopify inventory",
-            "Stocky dump recovery",
-            "Custom GPTs",
-            "ChatGPT workflows",
-            "technical tutoring",
-            "Google BigQuery",
-            "Amazon FBA",
-            "eBay operations",
-        ],
+        "knowsAbout": KNOWS_ABOUT,
     }
 
 
@@ -93,16 +201,17 @@ def professional_service_node(*, include_catalog: bool = True) -> dict:
     node: dict = {
         "@type": ["ProfessionalService", "Organization"],
         "@id": BUSINESS_ID,
-        "name": "Yonatan Gemmi",
-        "alternateName": "Yonatan Gemmi SI and operations",
+        "name": "GemmiSI",
+        "alternateName": "Yonatan Gemmi",
         "url": f"{BASE}/",
         "image": OG_IMAGE,
         "logo": LOGO,
         "email": "y@gemmisi.com",
         "description": (
-            "SI implementation, workflow automation, dashboards, ecommerce operations, "
-            "Hermes Desk setups, tutoring, and Stocky dump recovery. Based in North Miami Beach. "
-            "Serves Miami-Dade, Broward, South Florida, and remote clients."
+            "SI (Super Intelligence, also known as AI) implementation, AI automation, "
+            "AI agents, dashboards, ecommerce operations, Hermes Desk setups, tutoring, "
+            "and Stocky dump recovery. Based in North Miami Beach. Serves Miami-Dade, "
+            "Broward, South Florida, and remote clients."
         ),
         "priceRange": "$$",
         "currenciesAccepted": "USD",
@@ -113,10 +222,16 @@ def professional_service_node(*, include_catalog: bool = True) -> dict:
             "addressCountry": "US",
         },
         "areaServed": AREA_SERVED,
-        "founder": {"@id": PERSON_ID},
+        "founder": {
+            "@type": "Person",
+            "@id": PERSON_ID,
+            "name": "Yonatan (Josh) Gemmi",
+            "alternateName": "Josh Gemmi",
+        },
         "employee": {"@id": PERSON_ID},
+        "knowsAbout": KNOWS_ABOUT,
         "sameAs": [
-            "https://www.linkedin.com/in/joshuah-gemmi-16046233/",
+            LINKEDIN,
             "https://github.com/nykon1293",
         ],
         "contactPoint": {
@@ -202,11 +317,19 @@ def website_node() -> dict:
         "@type": "WebSite",
         "@id": WEBSITE_ID,
         "url": f"{BASE}/",
-        "name": "Yonatan Gemmi",
+        "name": SITE_NAME,
         "inLanguage": "en-US",
-        "publisher": {"@id": PERSON_ID},
+        "publisher": {"@id": BUSINESS_ID},
         "about": {"@id": BUSINESS_ID},
     }
+
+
+def sitewide_nodes(*, include_catalog: bool = False) -> list[dict]:
+    return [
+        website_node(),
+        person_node(),
+        professional_service_node(include_catalog=include_catalog),
+    ]
 
 
 def webpage_node(*, name: str, url: str, description: str, extra: dict | None = None) -> dict:
@@ -258,7 +381,9 @@ def service_node(*, name: str, description: str, url: str) -> dict:
         "name": name,
         "description": description,
         "url": url,
-        "provider": {"@id": PERSON_ID},
+        "serviceType": [name, "SI automation", "AI automation"],
+        "provider": {"@id": BUSINESS_ID},
+        "brand": {"@id": BUSINESS_ID},
         "areaServed": AREA_SERVED,
         "isRelatedTo": {"@id": BUSINESS_ID},
     }
@@ -304,7 +429,7 @@ def common_head_tags(*, title: str, description: str, canonical: str, og_type: s
   <meta property="og:description" content="{description}" />
   <meta property="og:type" content="{og_type}" />
   <meta property="og:url" content="{canonical}" />
-  <meta property="og:site_name" content="Yonatan Gemmi" />
+  <meta property="og:site_name" content="{SITE_NAME}" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:image" content="{OG_IMAGE}" />
   <meta property="og:image:width" content="1200" />

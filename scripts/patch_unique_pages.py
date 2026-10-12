@@ -8,8 +8,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from seo_schema import (
+    APPROVAL_LINE,
     BASE,
     CALENDLY,
+    OWN_EQUIPMENT,
     _offer,
     breadcrumb_node,
     common_head_tags,
@@ -124,16 +126,12 @@ STOCKY_FAQS = [
         "No. I am not selling Prediko, Klerio, or another inventory product. If you want a full inventory app, buy one. This job is making the dump operable: a weekly view you can run with Sheets and the ChatGPT or Claude seat you already pay for.",
     ),
     (
-        "Is this a Stocky alternative?",
-        "No. A Stocky alternative is another inventory app. This is recovery of the CSV export you already have after Stocky shut down — a weekly Shopify inventory view, not a new SKU system to migrate into.",
+        "Does this run on my own equipment?",
+        OWN_EQUIPMENT,
     ),
     (
-        "Did supplier notes and par levels export from Stocky?",
-        "Often they did not. SKUs, vendors, and purchase orders usually survive in the CSV. Supplier notes and par levels often stayed in Stocky or in someone's head. We recover what still exists and give the missing pieces a place to live.",
-    ),
-    (
-        "I have a Stocky CSV export. Can you recover Shopify inventory from that?",
-        "Yes. SKUs, vendors, and purchase orders usually survive in the dump. I build a weekly reorder view from those files. This is not a Stocky replacement app.",
+        "Will SI change inventory or send messages on its own?",
+        APPROVAL_LINE,
     ),
     (
         "Starter Desk, Operator Desk, or Paid Discovery?",
@@ -214,11 +212,11 @@ def home_graph() -> str:
             person_node(),
             professional_service_node(),
             webpage_node(
-                name="Yonatan Gemmi | SI, automation & operations | North Miami Beach",
+                name="SI & AI Automation | GemmiSI | N. Miami Beach",
                 url=f"{BASE}/",
                 description=(
-                    "Free 30-minute consult for Super Intelligence (SI), formerly called AI. "
-                    "Dashboards, ecommerce, Hermes desks, and tutoring. Remote or North Miami Beach."
+                    "SI & AI automation, dashboards, ecommerce, Hermes desks, and tutoring. "
+                    "Free 30-minute consult. Remote or North Miami Beach."
                 ),
             ),
             faq_node(HOME_FAQS),
@@ -240,11 +238,11 @@ def pricing_graph() -> str:
             person_node(),
             professional_service_node(),
             webpage_node(
-                name="Hermes Desk, Discovery & Care Pricing | Yonatan Gemmi",
+                name="SI (AI) Desk & Care Pricing | GemmiSI",
                 url=url,
                 description=(
-                    "Fixed prices: Starter, Operator, and Connected Hermes Desks, Paid Discovery, "
-                    "Care retainers, and tutoring. Free 30-minute consultation. North Miami Beach / remote."
+                    "SI (AI) pricing: Hermes Desks, Paid Discovery, Care retainers, and tutoring. "
+                    "Free 30-minute consultation. North Miami Beach / remote."
                 ),
             ),
             breadcrumb_node([("Home", f"{BASE}/"), ("Pricing", url)]),
@@ -262,11 +260,11 @@ def advisory_graph() -> str:
             person_node(),
             professional_service_node(include_catalog=True),
             webpage_node(
-                name="Advisory & Fractional CTO | Yonatan Gemmi",
+                name="SI (AI) Advisory & Fractional | GemmiSI",
                 url=url,
                 description=(
-                    "Monthly Advisory Light or Fractional CTO with Yonatan Gemmi. Limited seats. "
-                    "North Miami Beach / remote. Inquire first. Not Care and not a one-time Desk."
+                    "Monthly SI (AI) Advisory Light or Fractional CTO with Yonatan (Josh) Gemmi. "
+                    "Limited seats. Inquire first. Not Care and not a Desk."
                 ),
             ),
             breadcrumb_node(
@@ -303,11 +301,11 @@ def stocky_graph() -> str:
             person_node(),
             professional_service_node(),
             webpage_node(
-                name="Stocky Shut Down? Shopify CSV Dump Recovery | Yonatan Gemmi",
+                name="Stocky Recovery with SI (AI) | GemmiSI",
                 url=url,
                 description=(
-                    "Stocky shut down Aug 31, 2026. I turn a Shopify CSV export into a weekly Sheets system "
-                    "on ChatGPT or Claude seats you already pay for — not a replacement app."
+                    "Stocky shut down Aug 31, 2026. SI (AI) turns a Shopify CSV export into a weekly "
+                    "Sheets system on seats you already pay for — not a replacement app."
                 ),
             ),
             breadcrumb_node(
@@ -379,11 +377,11 @@ def work_graph() -> str:
             person_node(),
             professional_service_node(),
             webpage_node(
-                name="Multi-Agent SI Production Case Study | Yonatan Gemmi",
+                name="SI (AI) Multi-Agent Case Study | GemmiSI",
                 url=url,
                 description=(
-                    "An anonymized multi-agent SI case study by Yonatan Gemmi: operator-led briefs, "
-                    "coordinated video execution, recovery, and configurable control."
+                    "An anonymized multi-agent SI (AI) case study by Yonatan (Josh) Gemmi: operator-led "
+                    "briefs, coordinated video execution, recovery, and configurable control."
                 ),
             ),
             breadcrumb_node(
@@ -565,30 +563,102 @@ def patch_work() -> None:
     print("patched", path.relative_to(ROOT))
 
 
+HAND_PAGES = [
+    {
+        "path": ROOT / "index.html",
+        "title": "SI &amp; AI Automation | GemmiSI | N. Miami Beach",
+        "description": (
+            "SI &amp; AI automation, dashboards, ecommerce, Hermes desks, and tutoring. "
+            "Free 30-minute consult. Remote or North Miami Beach."
+        ),
+        "canonical": f"{BASE}/",
+        "stylesheet": "styles.css?v=perf-1",
+        "icon": "assets/yonatan-gemmi-pixel-portrait-256.png",
+        "graph": home_graph,
+    },
+    {
+        "path": ROOT / "pricing.html",
+        "title": "SI (AI) Desk &amp; Care Pricing | GemmiSI",
+        "description": (
+            "SI (AI) pricing: Hermes Desks, Paid Discovery, Care retainers, and tutoring. "
+            "Free 30-minute consultation. North Miami Beach / remote."
+        ),
+        "canonical": f"{BASE}/pricing.html",
+        "stylesheet": "styles.css?v=perf-1",
+        "icon": "assets/yonatan-gemmi-pixel-portrait-256.png",
+        "graph": pricing_graph,
+    },
+    {
+        "path": ROOT / "advisory.html",
+        "title": "SI (AI) Advisory &amp; Fractional | GemmiSI",
+        "description": (
+            "Monthly SI (AI) Advisory Light or Fractional CTO with Yonatan (Josh) Gemmi. "
+            "Limited seats. Inquire first. Not Care and not a Desk."
+        ),
+        "canonical": f"{BASE}/advisory.html",
+        "stylesheet": "styles.css?v=perf-1",
+        "icon": "assets/yonatan-gemmi-pixel-portrait-256.png",
+        "graph": advisory_graph,
+    },
+    {
+        "path": ROOT / "services/stocky-recovery.html",
+        "title": "Stocky Recovery with SI (AI) | GemmiSI",
+        "description": (
+            "Stocky shut down Aug 31, 2026. SI (AI) turns a Shopify CSV export into a weekly "
+            "Sheets system on seats you already pay for — not a replacement app."
+        ),
+        "canonical": f"{BASE}/services/stocky-recovery.html",
+        "stylesheet": "../styles.css?v=perf-1",
+        "icon": "../assets/yonatan-gemmi-pixel-portrait-256.png",
+        "graph": stocky_graph,
+    },
+    {
+        "path": ROOT / "work/governed-ai-content-engine.html",
+        "title": "SI (AI) Multi-Agent Case Study | GemmiSI",
+        "description": (
+            "An anonymized multi-agent SI (AI) case study by Yonatan (Josh) Gemmi: operator-led "
+            "briefs, coordinated video execution, recovery, and configurable control."
+        ),
+        "canonical": f"{BASE}/work/governed-ai-content-engine.html",
+        "og_type": "article",
+        "stylesheet": "../styles.css?v=perf-1",
+        "icon": "../assets/yonatan-gemmi-pixel-portrait-256.png",
+        "graph": work_graph,
+    },
+]
+
+
 def refresh_jsonld_only() -> None:
     """Replace JSON-LD on hand-maintained pages without mutating visible HTML."""
-    patches = [
-        (ROOT / "index.html", home_graph()),
-        (ROOT / "pricing.html", pricing_graph()),
-        (ROOT / "advisory.html", advisory_graph()),
-        (ROOT / "services/stocky-recovery.html", stocky_graph()),
-        (ROOT / "work/governed-ai-content-engine.html", work_graph()),
-    ]
-    for path, payload in patches:
-        html = path.read_text(encoding="utf-8")
-        path.write_text(replace_jsonld(html, payload), encoding="utf-8")
-        print("jsonld", path.relative_to(ROOT))
+    for spec in HAND_PAGES:
+        html = spec["path"].read_text(encoding="utf-8")
+        spec["path"].write_text(replace_jsonld(html, spec["graph"]()), encoding="utf-8")
+        print("jsonld", spec["path"].relative_to(ROOT))
+
+
+def refresh_head_and_jsonld() -> None:
+    """Update titles, meta, and JSON-LD on hand-maintained pages."""
+    for spec in HAND_PAGES:
+        html = spec["path"].read_text(encoding="utf-8")
+        html = patch_head(
+            html,
+            title=spec["title"],
+            description=spec["description"],
+            canonical=spec["canonical"],
+            og_type=spec.get("og_type", "website"),
+            stylesheet=spec["stylesheet"],
+            icon=spec["icon"],
+        )
+        html = replace_jsonld(html, spec["graph"]())
+        spec["path"].write_text(html, encoding="utf-8")
+        print("patched", spec["path"].relative_to(ROOT))
 
 
 def main() -> None:
     if "--jsonld-only" in sys.argv:
         refresh_jsonld_only()
         return
-    patch_home()
-    patch_pricing()
-    patch_advisory()
-    patch_stocky()
-    patch_work()
+    refresh_head_and_jsonld()
 
 
 if __name__ == "__main__":

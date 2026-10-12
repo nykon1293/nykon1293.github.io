@@ -4,17 +4,21 @@ from __future__ import annotations
 
 from html import escape
 from pathlib import Path
+import json
 import re
 import sys
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from seo_schema import (
+    APPROVAL_LINE,
     CALENDLY,
     BASE,
     CLOUDFLARE_WEB_ANALYTICS,
     CSS_VERSION,
     NAV_SCRIPT,
+    OWN_EQUIPMENT,
+    clip_meta,
     common_head_tags,
     font_and_css_links,
     service_page_graph,
@@ -75,6 +79,42 @@ def faq_schema(
         faqs=plain,
         breadcrumb_label=breadcrumb_label,
     )
+
+
+def use_case_title_map() -> dict[str, str]:
+    entries = json.loads((ROOT / "data" / "use-cases.json").read_text(encoding="utf-8"))
+    return {item["slug"]: item["title"] for item in entries}
+
+
+def related_use_cases_html(page: dict) -> str:
+    slugs = page.get("related_use_cases") or []
+    landings = page.get("related_landings") or []
+    if not slugs and not landings:
+        return ""
+    titles = use_case_title_map()
+    items = []
+    for slug in slugs[:6]:
+        label = titles.get(slug, slug.replace("-", " "))
+        items.append(f'            <li><a class="text-link" href="/use-cases/{slug}/">{escape(label)}</a></li>')
+    landing_bits = []
+    for href, label in landings:
+        landing_bits.append(f'<a class="text-link" href="{escape(href)}">{escape(label)}</a>')
+    landings_html = ""
+    if landing_bits:
+        landings_html = f'          <p class="related-landings">Also see {", ".join(landing_bits)}.</p>'
+    list_html = ""
+    if items:
+        list_html = "          <ul class=\"related-uc-list\">\n" + "\n".join(items) + "\n          </ul>\n"
+    return f"""
+      <section class="section related-case-study" aria-labelledby="related-uc-title">
+        <div>
+          <h2 id="related-uc-title">Example SI (AI) use cases</h2>
+          <p class="section-intro">These library entries are illustrations of the same kind of job, not client results.</p>
+{list_html}{landings_html}
+        </div>
+        <a class="button ghost" href="../use-cases/">All use cases</a>
+      </section>
+"""
 
 
 def faq_html(faqs: list[tuple[str, str]]) -> str:
@@ -148,12 +188,12 @@ PAGES = [
     {
         "slug": "hermes-agents",
         "filename": "hermes-agents.html",
-        "title": "Hermes Desk on Mac, Windows extra charge | Yonatan Gemmi",
-        "meta_description": "Install a Hermes Desk on a Mac you control. Windows is an extra charge, quoted separately. ChatGPT and Claude are examples; 300+ models. You pay those bills.",
+        "title": "Hermes SI (AI) Agents | GemmiSI",
+        "meta_description": "Install a Hermes SI (AI) Desk on a Mac you control. Windows is extra, quoted separately. ChatGPT and Claude are examples; you pay those bills.",
         "service_name": "Hermes Agent setup",
         "eyebrow": "On your machine",
         "h1": "Hermes is an SI agent on your computer, not another chat tab.",
-        "lead": "ChatGPT and Claude are chat boxes. Hermes is the software around them. It lives on a Mac you control, uses the model you already pay for, and can work with your files and tools. If a ChatGPT seat is already on the bill and sitting idle, we put it on a real job. I install it, write the limits, and hand it off so you can run it.",
+        "lead": "ChatGPT and Claude are chat boxes. Hermes is the software around them: an SI (Super Intelligence, the new name for AI) agent on a Mac you control. It uses the model you already pay for and can work with your files and tools. If a ChatGPT seat is already on the bill and sitting idle, we put it on a real job. I install it, write the limits, and hand it off so you can run it.",
         "cta_primary": "Book a free 30-minute consultation",
         "closing_intro": "Tell me what you want the agent to do. Book a free 30-minute consultation. Bring questions.",
         "scope_intro": "Hermes runs on a Mac you control, uses the model you already pay for, and works only inside limits we write down first. You leave with a running install you can use yourself.",
@@ -213,50 +253,53 @@ PAGES = [
                 "SI automation",
             ),
         ],
+        "related_use_cases": [
+            "standing-si-desk-approval-queue",
+            "inbox-triage",
+            "weekly-owner-snapshot",
+            "after-hours-inquiry-triage",
+        ],
+        "related_landings": [
+            ("/use-cases/", "the use-case hub"),
+            ("/use-cases/industry/any-business/", "any-business use cases"),
+            ("/use-cases/function/customer-support/", "customer support"),
+        ],
         "faqs": [
             (
+                "Does Hermes run on my own computer?",
+                f"Yes. {OWN_EQUIPMENT} We agree on folders, repos, and accounts first.",
+            ),
+            (
+                "Will the agent send messages or change files on its own?",
+                f"No. {APPROVAL_LINE} We write those limits down before the Desk starts working.",
+            ),
+            (
                 "What is Hermes?",
-                "Hermes is an SI agent you run on your own computer. ChatGPT and Claude are chat boxes. Hermes is the software around them: it can work with your files and tools, follow written limits, and remember your rules. I install a Desk and hand it off so you can run it. We hook up ChatGPT, Claude, or another model you choose, including a local one.",
+                "Hermes is an SI agent you run on your own computer. ChatGPT and Claude are chat boxes. Hermes is the software around them: it can work with your files and tools, follow written limits, and remember your rules. I install a Desk and hand it off so you can run it.",
             ),
             (
-                "Is this the same as a Custom GPT?",
-                "No. A Custom GPT lives in a chat product. A Hermes Agent lives on your machine, with your projects and rules. I offer both when they fit.",
-            ),
-            (
-                "Will the agent have access to everything on my computer?",
-                "No. We agree on folders, repos, and accounts first. The point of the setup is useful help with clear limits.",
+                "Can I use a ChatGPT seat I already pay for?",
+                'Yes. A Desk uses the ChatGPT or Claude seat you already pay for around files you control. You keep those bills. Named Desk prices are on the <a href="../pricing.html">pricing page</a>.',
             ),
             (
                 "What does Starter Desk include?",
                 "Hermes on a Mac you control, written limits, one channel, one standard connection, a proof task, and a walkthrough. CRM plus books is a Connected Desk. Full prices are on the pricing page.",
             ),
             (
-                "Which Desk if I need CRM and accounting?",
-                "Connected Desk. That is a different setup from Starter. See the pricing page, then start with the free 30-minute consultation.",
-            ),
-            (
                 "How do we start?",
-                "Book a free 30-minute consultation. Bring what you want the agent to do and which tools you use. No note required. Then we pick the matching Desk if it still fits.",
-            ),
-            (
-                "Which model does Hermes use?",
-                "Hermes is the software around the model, not the chat box. We hook up ChatGPT, Claude, or another model you choose, including a local one on your machine. You pay for the cloud model. Local install is a Desk add-on, quoted after I see the machine.",
-            ),
-            (
-                "Can I use a ChatGPT seat I already pay for?",
-                'Yes. A Desk uses the ChatGPT or Claude seat you already pay for around files you control. You keep those bills. I install Hermes and hand off a first real task. Named Desk prices are on the <a href="../pricing.html">pricing page</a>.',
+                "Book a free 30-minute consultation. Bring what you want the agent to do and which tools you use. No note required.",
             ),
         ],
     },
     {
         "slug": "ai-automation",
         "filename": "ai-automation.html",
-        "title": "SI Workflow Automation & Custom GPTs | Yonatan Gemmi",
-        "meta_description": "Custom GPTs, workflow automation, and help putting unused ChatGPT seats on real weekly jobs. Remote or North Miami Beach / South Florida.",
+        "title": "SI & AI Workflow Automation | GemmiSI",
+        "meta_description": "SI & AI workflow automation, Custom GPTs, and unused ChatGPT seats on real weekly jobs. Remote or North Miami Beach / South Florida.",
         "service_name": "SI tools and workflow automation",
         "eyebrow": "SI workflows",
         "h1": "Turn SI tests into tools your team uses each week",
-        "lead": "I help teams move from random SI tests to useful tools. These tools can help with research, reports, drafts, checks, and intake. If you already pay for ChatGPT and it sits unused, we put that seat on a weekly job people can review.",
+        "lead": "I help teams move from random SI (Super Intelligence, the new name for AI) tests to useful tools. These tools can help with research, reports, drafts, checks, and intake. If you already pay for ChatGPT and it sits unused, we put that seat on a weekly job people can review.",
         "scope_intro": "I find where your team loses time to manual steps, build the smallest useful automation, and show the team how to run it.",
         "pfd_label": "When teams call for SI automation",
         "pfd_caption": "For teams that need a working tool, not another demo.",
@@ -302,7 +345,29 @@ PAGES = [
             "../pricing.html#consulting",
             "See pricing",
         ),
+        "related_use_cases": [
+            "inbox-triage",
+            "quote-follow-ups",
+            "invoice-intake-to-draft-bills",
+            "bilingual-english-spanish-replies",
+            "appointment-reminders",
+            "client-document-chasing",
+        ],
+        "related_landings": [
+            ("/use-cases/", "the use-case hub"),
+            ("/use-cases/industry/any-business/", "any-business use cases"),
+            ("/use-cases/function/customer-support/", "customer support"),
+            ("/use-cases/function/sales-follow-up/", "sales & follow-up"),
+        ],
         "faqs": [
+            (
+                "Does this run on my own equipment?",
+                f"Yes. {OWN_EQUIPMENT}",
+            ),
+            (
+                "Will SI send or change things without me?",
+                f"No. {APPROVAL_LINE}",
+            ),
             (
                 "Do you only build Custom GPTs?",
                 "No. They are only one option. A simple script, automation, or dashboard may fit the job better.",
@@ -312,16 +377,12 @@ PAGES = [
                 "Usually. I can connect files, CRMs, online stores, email, chat tools, and cloud data when access is available.",
             ),
             (
-                "Is this remote or on-site?",
-                "Most work is remote. I am based in North Miami Beach and can meet in South Florida when it helps.",
+                "Can you put unused ChatGPT seats to work?",
+                'Yes. Many jobs use the ChatGPT or Claude seat you already pay for around files and tools you already have. A <a href="hermes-agents.html">Hermes Desk</a> is one option when an agent on your Mac fits.',
             ),
             (
                 "How do we start?",
                 "Book a free 30-minute consultation. Bring a short note about the problem and tools if you have one. No note required.",
-            ),
-            (
-                "Can you put unused ChatGPT seats to work?",
-                'Yes. Many jobs use the ChatGPT or Claude seat you already pay for around files and tools you already have. A <a href="hermes-agents.html">Hermes Desk</a> is one option when an agent on your Mac fits. We only recommend that when it actually fits.',
             ),
         ],
         "related_jobs": [
@@ -336,12 +397,12 @@ PAGES = [
     {
         "slug": "dashboards-reporting",
         "filename": "dashboards-reporting.html",
-        "title": "Ecommerce Dashboards & Reporting | Yonatan Gemmi",
-        "meta_description": "Spreadsheet cleanup, trusted daily dashboards, and reporting for ecommerce and ops teams. BigQuery when it fits. Remote or North Miami Beach.",
+        "title": "SI & AI Dashboards & Reporting | GemmiSI",
+        "meta_description": "SI & AI dashboards, spreadsheet cleanup, and trusted daily reporting for ecommerce and ops teams. BigQuery when it fits. Remote or North Miami Beach.",
         "service_name": "Dashboards, reporting, and data cleanup",
         "eyebrow": "Data visibility",
         "h1": "Dashboards and reports your team can trust each day",
-        "lead": "Work slows down when each team has different numbers. I clean the data, set clear rules, and build reports people can trust. The goal is a useful daily view, not another report to rebuild by hand.",
+        "lead": "Work slows down when each team has different numbers. I clean the data, set clear rules, and build reports people can trust — including SI (Super Intelligence, the new name for AI) help for notes and checks. The goal is a useful daily view, not another report to rebuild by hand.",
         "scope_intro": "I clean the data, agree on the numbers that matter, and build a daily view your team can trust — not another export to rebuild by hand.",
         "pfd_label": "When the numbers are not clear",
         "pfd_caption": "For teams that are tired of guessing from exports and mixed-up files.",
@@ -396,7 +457,26 @@ PAGES = [
                 "Ecommerce operations",
             ),
         ],
+        "related_use_cases": [
+            "weekly-owner-snapshot",
+            "weekly-team-report",
+            "revenue-in-one-view",
+            "cash-flow-look-ahead",
+            "ad-spend-vs-results",
+        ],
+        "related_landings": [
+            ("/use-cases/function/reporting-dashboards/", "reporting & dashboards"),
+            ("/use-cases/industry/ecommerce/", "ecommerce use cases"),
+        ],
         "faqs": [
+            (
+                "Does this run on my own accounts?",
+                f"Yes. {OWN_EQUIPMENT}",
+            ),
+            (
+                "Will SI change source systems on its own?",
+                f"No. {APPROVAL_LINE} Dashboards read and draft; you decide what gets written back.",
+            ),
             (
                 "Can you fix our spreadsheets without a full BI project?",
                 "Often. Many projects start by cleaning the files, adding checks, and naming an owner. A larger tool may not be needed.",
@@ -418,12 +498,12 @@ PAGES = [
     {
         "slug": "ecommerce-operations",
         "filename": "ecommerce-operations.html",
-        "title": "Ecommerce Operations | Yonatan Gemmi | South FL",
-        "meta_description": "Amazon, eBay, inventory, fulfillment, listings, and marketplace reporting for multi-channel sellers. Remote or South Florida. Free 30-minute consultation.",
+        "title": "Ecommerce Ops with SI (AI) | GemmiSI",
+        "meta_description": "Ecommerce ops with SI (AI): Amazon, eBay, inventory, fulfillment, listings, and marketplace reporting. Remote or South Florida. Free 30-minute consultation.",
         "service_name": "Ecommerce operations systems",
         "eyebrow": "Ecommerce ops",
         "h1": "Fix the ecommerce problems that keep coming back",
-        "lead": "I help online sellers fix problems with listings, inventory, shipping, and reports. I build clear work steps, simple automation, and useful daily views. My approach comes from real warehouse and marketplace work.",
+        "lead": "I help online sellers fix problems with listings, inventory, shipping, and reports. I build clear work steps, simple automation — including SI (Super Intelligence, the new name for AI) help for research, drafts, and checks — and useful daily views. My approach comes from real warehouse and marketplace work.",
         "scope_intro": "I map how product, inventory, and order data moves, fix the weak points in listings and handoffs, and turn scattered work into clear daily steps.",
         "pfd_label": "When ecommerce work feels chaotic",
         "pfd_caption": "For Amazon, eBay, and product teams that spend each week putting out fires.",
@@ -483,10 +563,26 @@ PAGES = [
                 "Dashboards &amp; reporting",
             ),
         ],
+        "related_use_cases": [
+            "reorder-from-sales-pace",
+            "abandoned-checkout-follow-up-drafts",
+            "shipping-exceptions-package-watch",
+            "store-stock-and-spreadsheet-agreement",
+            "marketplace-listing-sync-checks",
+            "catalog-pricing-and-margin-check",
+        ],
+        "related_landings": [
+            ("/use-cases/industry/ecommerce/", "ecommerce use cases"),
+            ("/use-cases/function/inventory-orders/", "inventory & orders"),
+        ],
         "faqs": [
             (
-                "Do you only work with large brands?",
-                "No. I also help founders and small teams that sell on more than one channel.",
+                "Does this run on my own store and accounts?",
+                f"Yes. {OWN_EQUIPMENT}",
+            ),
+            (
+                "Will SI refund orders or post listings?",
+                f"No. {APPROVAL_LINE} That includes refunds, marketplace posts, and customer messages.",
             ),
             (
                 "Can you help with Amazon and eBay at the same time?",
@@ -497,24 +593,24 @@ PAGES = [
                 "No. I help the team work better with clear steps, tools, and cleaner data.",
             ),
             (
-                "How do we start?",
-                "Book a free 30-minute consultation. Bring where you sell, how many items you manage, and the top two weekly problems. No note required.",
-            ),
-            (
                 "Can you help after Stocky shut down?",
                 'Yes. If you exported a Shopify Stocky CSV dump, I have a dedicated <a href="stocky-recovery.html">recovery page</a>. That job is making the dump operable for the week, not selling another inventory app.',
+            ),
+            (
+                "How do we start?",
+                "Book a free 30-minute consultation. Bring where you sell, how many items you manage, and the top two weekly problems. No note required.",
             ),
         ],
     },
     {
         "slug": "tutoring-project-help",
         "filename": "tutoring-project-help.html",
-        "title": "SI Tutoring & Technical Project Help | Yonatan Gemmi",
-        "meta_description": "One-on-one SI tutoring, ChatGPT help, and technical project pairing for founders, students, and teams. Remote or South Florida. $125/hr after a free consult.",
+        "title": "SI (AI) Tutoring & Project Help | GemmiSI",
+        "meta_description": "One-on-one SI (AI) tutoring, ChatGPT help, and technical project pairing. Remote or South Florida. $125/hr after a free consult.",
         "service_name": "Technical tutoring, coaching, and project help",
         "eyebrow": "Hands-on help",
         "h1": "Hands-on help with SI tools, workflows, and technical projects",
-        "lead": "Not every problem needs a large project. I help founders, students, and teams learn SI tools, fix workflows, and finish builds. We agree on a clear goal before the session starts.",
+        "lead": "Not every problem needs a large project. I help founders, students, and teams learn SI (Super Intelligence, the new name for AI) tools, fix workflows, and finish builds. We agree on a clear goal before the session starts.",
         "scope_intro": "We focus on one problem at a time. I work through the fix with you and write down the steps so you can use them again.",
         "pfd_label": "When you need hands-on help",
         "pfd_caption": "For people who want help now and clear steps they can use later.",
@@ -568,14 +664,28 @@ PAGES = [
                 "SI automation",
             ),
         ],
+        "related_use_cases": [
+            "sops-from-walkthroughs",
+            "internal-answers-helper",
+            "website-chat-assistant",
+            "routine-form-filling",
+        ],
+        "related_landings": [
+            ("/use-cases/", "the use-case hub"),
+            ("/use-cases/function/research-documents/", "research & documents"),
+        ],
         "faqs": [
+            (
+                "Do we work in my own accounts?",
+                f"Yes. {OWN_EQUIPMENT}",
+            ),
+            (
+                "Do you give legal, medical, or tax advice?",
+                "No. Tutoring is hands-on help with tools and projects. I do not give legal, medical, accounting, or tax advice.",
+            ),
             (
                 "Is this the same as full consulting?",
                 "Tutoring is for a small, clear goal. Larger builds become consulting or contract work with a written plan.",
-            ),
-            (
-                "Remote only?",
-                "Most sessions are remote by video. Longer South Florida workshops may be held in person.",
             ),
             (
                 "Can you help my team adopt a new SI tool?",
@@ -702,8 +812,10 @@ def render(page: dict) -> str:
     slug = page["slug"]
     canonical = f"{BASE}/services/{page['filename']}"
     faqs = page["faqs"]
+    if not (4 <= len(faqs) <= 6):
+        raise SystemExit(f"{page['slug']} must have 4–6 FAQs, found {len(faqs)}")
     title = escape(page["title"])
-    meta_description = escape(page["meta_description"], quote=True)
+    meta_description = escape(clip_meta(page["meta_description"]), quote=True)
     service_name = escape(page["service_name"])
     faq_topic = escape(page["faq_topic"])
     cta_primary = escape(page.get("cta_primary", "Book a free 30-minute consultation"))
@@ -734,6 +846,7 @@ def render(page: dict) -> str:
         <a class="button ghost" href="../work/governed-ai-content-engine.html">View the case study</a>
       </section>
 """
+    related_case_study += related_use_cases_html(page)
     related_jobs = []
     if page.get("related_job"):
         related_jobs.append(page["related_job"])

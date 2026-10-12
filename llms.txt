@@ -1,51 +1,129 @@
-# Yonatan Gemmi
+# GemmiSI
 # https://gemmisi.com/
 
-Yonatan Gemmi is a technical operations and SI implementation specialist based in North Miami Beach, Florida. He works remotely and in Miami-Dade County, Broward County, and South Florida.
+SI means Super Intelligence, also known as AI. GemmiSI uses SI as the official term; AI is the searchable synonym.
+
+Yonatan (Josh) Gemmi is a technical operations and SI implementation specialist based in North Miami Beach, Florida. He works remotely and in Miami-Dade County, Broward County, and South Florida.
 
 This is a personal consulting site, not a SaaS product. Start with a free 30-minute consultation:
 https://calendly.com/josh-gemmi/30min
 
-## Pages
+## Services
 
 - Home: https://gemmisi.com/
 - Pricing (Hermes Desks, Paid Discovery, Care, tutoring): https://gemmisi.com/pricing.html
 - Hermes Desk setup: https://gemmisi.com/services/hermes-agents.html
-- SI automation / Custom GPTs / unused ChatGPT seats: https://gemmisi.com/services/ai-automation.html
+- SI & AI automation / Custom GPTs / unused ChatGPT seats: https://gemmisi.com/services/ai-automation.html
 - Dashboards & reporting: https://gemmisi.com/services/dashboards-reporting.html
 - Ecommerce operations: https://gemmisi.com/services/ecommerce-operations.html
 - Tutoring & project help: https://gemmisi.com/services/tutoring-project-help.html
 - Stocky dump recovery (Shopify CSV after Stocky shut down; not a Stocky replacement app): https://gemmisi.com/services/stocky-recovery.html
 - Advisory & Fractional CTO (inquire first): https://gemmisi.com/advisory.html
 - Anonymized case study: https://gemmisi.com/work/governed-ai-content-engine.html
-- Use cases (158 practical SI examples; illustrations, not client results): https://gemmisi.com/use-cases/
 - Sitemap: https://gemmisi.com/sitemap.xml
+
+## Use-case hub and landings
+
+- Hub (158 practical SI / AI examples; illustrations, not client results): https://gemmisi.com/use-cases/
+- Browse by industry: https://gemmisi.com/use-cases/industry/
+- Any business: https://gemmisi.com/use-cases/industry/any-business/
+- Ecommerce: https://gemmisi.com/use-cases/industry/ecommerce/
+- Local & seasonal: https://gemmisi.com/use-cases/industry/local-seasonal/
+- Legal: https://gemmisi.com/use-cases/industry/legal/
+- Medical: https://gemmisi.com/use-cases/industry/medical/
+- Real estate: https://gemmisi.com/use-cases/industry/real-estate/
+- Home services: https://gemmisi.com/use-cases/industry/home-services/
+- Accounting: https://gemmisi.com/use-cases/industry/accounting/
+- Browse by function: https://gemmisi.com/use-cases/function/
+- Customer support: https://gemmisi.com/use-cases/function/customer-support/
+- Sales & follow-up: https://gemmisi.com/use-cases/function/sales-follow-up/
+- Billing & admin: https://gemmisi.com/use-cases/function/billing-admin/
+- Scheduling: https://gemmisi.com/use-cases/function/scheduling/
+- Reporting & dashboards: https://gemmisi.com/use-cases/function/reporting-dashboards/
+- Inventory & orders: https://gemmisi.com/use-cases/function/inventory-orders/
+- Content & marketing: https://gemmisi.com/use-cases/function/content-marketing/
+- Hiring: https://gemmisi.com/use-cases/function/hiring/
+- Research & documents: https://gemmisi.com/use-cases/function/research-documents/
+- Community: https://gemmisi.com/use-cases/function/community/
 
 ## Use cases
 
-The library lists 158 practical SI jobs for small teams, community organizations, the business side of solo and small law practices, the business side of small healthcare practices, real estate and property management, home-service contractors, and small accounting, tax and bookkeeping firms. They are illustrations of what is possible, not reports of client results. A person still approves anything that sends, pays, orders, or posts. The library also covers ecommerce operations, local or seasonal work, legal-practice administration, medical-practice administration, real-estate operations, home-services office work, and accounting-firm administration. Legal-practice pages are operations help only. SI does not give legal advice, and an attorney reviews anything client-facing. Medical-practice pages are operations help only. SI does not give medical advice or make clinical decisions, and a clinician or trained staff member reviews anything patient-facing. Real-estate pages are operations help only. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. Home-services pages are office help only; the owner approves every quote and message. Accounting-firm pages are operations help only. SI does not give tax advice or file returns, and a professional reviews, signs and decides. GemmiSI sets this up on your own equipment and accounts; your data stays with you.
+The library lists 158 practical SI (AI) jobs for small teams, community organizations, the business side of solo and small law practices, the business side of small healthcare practices, real estate and property management, home-service contractors, and small accounting, tax and bookkeeping firms. They are illustrations of what is possible, not reports of client results. A person still approves anything that sends, pays, orders, or posts. Legal-practice pages are operations help only. SI does not give legal advice. Medical-practice pages are operations help only. SI does not give medical advice or make clinical decisions. Real-estate pages are operations help only. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. Home-services pages are office help only; the owner approves every quote and message. Accounting-firm pages are operations help only. SI does not give tax advice or file returns. GemmiSI sets this up on your own equipment and accounts; your data stays with you.
 
-- Library: https://gemmisi.com/use-cases/
-- Browse by industry: https://gemmisi.com/use-cases/industry/
-- Browse by function: https://gemmisi.com/use-cases/function/
 - Morning inbox triage into labeled queues: https://gemmisi.com/use-cases/inbox-triage/
+- A weekly list of emails still waiting on you: https://gemmisi.com/use-cases/unanswered-threads/
+- Answering 'where is it?' questions from your own records: https://gemmisi.com/use-cases/status-question-replies/
+- Refunds, returns and cancellations checked against your policy: https://gemmisi.com/use-cases/policy-request-checks/
+- Building an FAQ from answers you have already written: https://gemmisi.com/use-cases/faq-from-past-replies/
+- Replies to online reviews and public comments: https://gemmisi.com/use-cases/review-and-comment-replies/
+- A website or messaging chat assistant that hands hard cases to a person: https://gemmisi.com/use-cases/website-chat-assistant/
+- After-hours and busy-time phone coverage: https://gemmisi.com/use-cases/after-hours-call-coverage/
 - Follow-ups for quotes and estimates that went quiet: https://gemmisi.com/use-cases/quote-follow-ups/
+- Turning form and email inquiries into clean CRM records: https://gemmisi.com/use-cases/lead-intake-to-crm/
+- Call notes into a follow-up email and tasks: https://gemmisi.com/use-cases/call-notes-to-next-steps/
+- First-draft proposals from discovery notes: https://gemmisi.com/use-cases/proposal-first-drafts/
+- A one-page brief on a prospect before you meet: https://gemmisi.com/use-cases/prospect-briefs/
+- Personal outreach drafts and reply handling you approve: https://gemmisi.com/use-cases/outreach-drafts-and-replies/
+- Check-ins for repeat customers who are due: https://gemmisi.com/use-cases/repeat-customer-checkins/
 - Supplier invoices from email into draft bills: https://gemmisi.com/use-cases/invoice-intake-to-draft-bills/
+- Matching receipts to card transactions: https://gemmisi.com/use-cases/receipt-matching/
+- Reminders for overdue invoices, firmer as they age: https://gemmisi.com/use-cases/overdue-invoice-reminders/
+- Finding work that was done but never invoiced: https://gemmisi.com/use-cases/unbilled-work-check/
+- Month-end close prep and the accountant's package: https://gemmisi.com/use-cases/month-end-close-prep/
+- Tracking subscriptions, contracts and renewal dates: https://gemmisi.com/use-cases/subscriptions-and-renewals/
+- A year-end document packet for your tax preparer: https://gemmisi.com/use-cases/year-end-tax-document-packet/
 - A one-page weekly snapshot for the owner: https://gemmisi.com/use-cases/weekly-owner-snapshot/
+- One view of revenue across every place you take money: https://gemmisi.com/use-cases/revenue-in-one-view/
+- Plain-language notes when a number moves: https://gemmisi.com/use-cases/change-explanations/
+- Ad spend next to real results, in one sheet: https://gemmisi.com/use-cases/ad-spend-vs-results/
+- A weekly watch on competitors' prices and offers: https://gemmisi.com/use-cases/competitor-watch/
+- A weekly team report assembled from the tools you already use: https://gemmisi.com/use-cases/weekly-team-report/
+- Monthly themes from customer questions, complaints and surveys: https://gemmisi.com/use-cases/feedback-themes/
+- Drafting next week's staff schedule from availability: https://gemmisi.com/use-cases/staff-schedule-drafts/
+- Turning how-we-do-it into written procedures: https://gemmisi.com/use-cases/sops-from-walkthroughs/
+- Appointment confirmations, reminders and reschedules: https://gemmisi.com/use-cases/appointment-confirmations/
+- Meeting notes into owners and due dates: https://gemmisi.com/use-cases/meeting-notes-action-items/
+- Turning meeting requests and forwarded emails into calendar holds: https://gemmisi.com/use-cases/requests-to-calendar-holds/
+- A morning briefing across inbox, calendar and tasks: https://gemmisi.com/use-cases/daily-briefing/
+- Turning incoming work and maintenance requests into scheduled jobs: https://gemmisi.com/use-cases/requests-to-scheduled-jobs/
 - Reorder lists from sales pace: https://gemmisi.com/use-cases/reorder-from-sales-pace/
+- Drafting purchase orders without a dedicated purchasing system: https://gemmisi.com/use-cases/purchase-order-drafts/
+- Checking deliveries against what was ordered: https://gemmisi.com/use-cases/receiving-check/
+- A daily watch for low stock and stuck orders: https://gemmisi.com/use-cases/stock-and-stuck-order-watch/
+- Tracking supplier lead times and late deliveries: https://gemmisi.com/use-cases/supplier-lead-times/
+- Inventory value and aging report: https://gemmisi.com/use-cases/inventory-value-aging/
+- Checking customer orders against their PO and payment: https://gemmisi.com/use-cases/order-paperwork-check/
+- Product and service descriptions from specs, plus catalog cleanup: https://gemmisi.com/use-cases/descriptions-and-catalog-cleanup/
+- A newsletter drafted from what actually happened: https://gemmisi.com/use-cases/newsletter-from-real-updates/
+- A month of social posts from one source: https://gemmisi.com/use-cases/social-post-calendar/
+- One talk, class or article into several pieces: https://gemmisi.com/use-cases/repurpose-long-content/
+- Refreshing tired web pages and search snippets: https://gemmisi.com/use-cases/web-pages-and-search-snippets/
+- Checking marketing copy for claims you cannot back up: https://gemmisi.com/use-cases/marketing-claims-check/
+- Reviewing and rewriting your automated emails: https://gemmisi.com/use-cases/automated-email-review/
+- Job postings drafted from a quick description of the role: https://gemmisi.com/use-cases/job-posting-drafts/
+- Summarizing job applications against the role's criteria: https://gemmisi.com/use-cases/application-summaries/
+- Interview scheduling and a consistent question kit: https://gemmisi.com/use-cases/interview-scheduling-and-kits/
+- A new-hire onboarding checklist that actually gets followed: https://gemmisi.com/use-cases/new-hire-onboarding/
+- An internal helper that answers staff questions from your own documents: https://gemmisi.com/use-cases/internal-answers-helper/
+- Tracking staff licenses, certifications and training renewals: https://gemmisi.com/use-cases/license-and-certification-tracker/
+- Reviewing timesheets and time off before payroll: https://gemmisi.com/use-cases/timesheet-review-before-payroll/
+- A first read of contracts for the terms that matter: https://gemmisi.com/use-cases/contract-first-read/
+- Filling routine forms from saved company details: https://gemmisi.com/use-cases/routine-form-filling/
+- Short briefs from long documents: https://gemmisi.com/use-cases/long-document-briefs/
+- Drafting bids, RFP responses and grant applications from past answers: https://gemmisi.com/use-cases/rfp-and-grant-drafts/
+- Pulling data out of PDFs and scans, and filing them: https://gemmisi.com/use-cases/pdf-data-extraction-and-filing/
+- Comparing vendors, tools or options in one decision sheet: https://gemmisi.com/use-cases/options-comparison/
+- Handing recurring web-portal chores to SI: https://gemmisi.com/use-cases/portal-chores/
 - A weekly announcements email for members: https://gemmisi.com/use-cases/weekly-member-announcements/
+- Donation thank-yous and acknowledgment letters: https://gemmisi.com/use-cases/donation-acknowledgments/
+- Volunteer sign-ups, reminders and gap filling: https://gemmisi.com/use-cases/volunteer-scheduling/
+- Event registration, seating and reminders: https://gemmisi.com/use-cases/event-registration-logistics/
+- Membership renewals and a clean member list: https://gemmisi.com/use-cases/membership-renewals/
+- Session notes into progress updates for families or clients: https://gemmisi.com/use-cases/session-notes-to-progress-updates/
+- Lesson plans, quizzes and training materials for instructors: https://gemmisi.com/use-cases/lesson-and-training-materials/
+- Board packets and minutes for volunteer boards: https://gemmisi.com/use-cases/board-packet-and-minutes/
 - Moving off a retired inventory app without losing your reorder history: https://gemmisi.com/use-cases/retired-inventory-app-reorder-history/
 - Keeping store stock counts and your spreadsheet in agreement: https://gemmisi.com/use-cases/store-stock-and-spreadsheet-agreement/
-- Abandoned-checkout follow-up drafts from your store records: https://gemmisi.com/use-cases/abandoned-checkout-follow-up-drafts/
-- Shipping exceptions and a 'where is my package' watch: https://gemmisi.com/use-cases/shipping-exceptions-package-watch/
-- Chargeback and dispute evidence packets for you to file: https://gemmisi.com/use-cases/chargeback-and-dispute-evidence/
-- Product-feed and catalog error checks before ads go live: https://gemmisi.com/use-cases/product-feed-catalog-error-checks/
-- Bundle and kit stock rules so components do not go negative: https://gemmisi.com/use-cases/bundle-and-kit-stock-rules/
-- Returns and exchange handling prep for the warehouse: https://gemmisi.com/use-cases/returns-and-exchange-handling-prep/
-- Marketplace listing sync checks across your channels: https://gemmisi.com/use-cases/marketplace-listing-sync-checks/
-- Fulfillment SLA watch for orders still waiting to ship: https://gemmisi.com/use-cases/fulfillment-sla-watch/
-- Customer-service macros drafted from past tickets: https://gemmisi.com/use-cases/customer-service-macros-from-past-tickets/
-- Sales-tax and 1099 prep notes for the accountant: https://gemmisi.com/use-cases/sales-tax-and-1099-prep-notes/
 - Pricing and margin check across your catalog: https://gemmisi.com/use-cases/catalog-pricing-and-margin-check/
 - Spotting supplier price increases on invoices: https://gemmisi.com/use-cases/supplier-price-increases-on-invoices/
 - Replying to customers in English and Spanish: https://gemmisi.com/use-cases/bilingual-english-spanish-replies/
@@ -53,12 +131,6 @@ The library lists 158 practical SI jobs for small teams, community organizations
 - A standing SI desk with an approval queue: https://gemmisi.com/use-cases/standing-si-desk-approval-queue/
 - Speed-to-lead replies for new inquiries: https://gemmisi.com/use-cases/speed-to-lead-replies/
 - Google Business Profile upkeep: https://gemmisi.com/use-cases/google-business-profile-upkeep/
-- Seasonal staffing schedule drafts: https://gemmisi.com/use-cases/seasonal-staffing-schedules/
-- Holiday-hours updates across listings: https://gemmisi.com/use-cases/holiday-hours-across-listings/
-- Event and booking waitlists: https://gemmisi.com/use-cases/event-booking-waitlists/
-- Weather-driven rescheduling notices: https://gemmisi.com/use-cases/weather-rescheduling-notices/
-- Season-opening customer re-engagement drafts: https://gemmisi.com/use-cases/season-opening-re-engagement/
-- Gift-card and holiday promo tracking: https://gemmisi.com/use-cases/gift-card-holiday-promo-tracking/
 - Cash-flow look-ahead from open invoices and bills: https://gemmisi.com/use-cases/cash-flow-look-ahead/
 - After-hours inquiry triage with clear "not legal advice" handling: https://gemmisi.com/use-cases/after-hours-inquiry-triage/
 - Intake summaries and conflict-check prep: https://gemmisi.com/use-cases/intake-summaries-conflict-prep/
@@ -120,11 +192,29 @@ The library lists 158 practical SI jobs for small teams, community organizations
 - Vendor information collection and reminder prep for 1099 review: https://gemmisi.com/use-cases/vendor-1099-information-collection/
 - Sales-tax and recurring-filing reminder prep: https://gemmisi.com/use-cases/sales-tax-filing-reminders/
 - Security-plan upkeep checklists and access reviews: https://gemmisi.com/use-cases/security-plan-upkeep-checklists/
+- Abandoned-checkout follow-up drafts from your store records: https://gemmisi.com/use-cases/abandoned-checkout-follow-up-drafts/
+- Shipping exceptions and a 'where is my package' watch: https://gemmisi.com/use-cases/shipping-exceptions-package-watch/
+- Chargeback and dispute evidence packets for you to file: https://gemmisi.com/use-cases/chargeback-and-dispute-evidence/
+- Product-feed and catalog error checks before ads go live: https://gemmisi.com/use-cases/product-feed-catalog-error-checks/
+- Bundle and kit stock rules so components do not go negative: https://gemmisi.com/use-cases/bundle-and-kit-stock-rules/
+- Returns and exchange handling prep for the warehouse: https://gemmisi.com/use-cases/returns-and-exchange-handling-prep/
+- Marketplace listing sync checks across your channels: https://gemmisi.com/use-cases/marketplace-listing-sync-checks/
+- Fulfillment SLA watch for orders still waiting to ship: https://gemmisi.com/use-cases/fulfillment-sla-watch/
+- Customer-service macros drafted from past tickets: https://gemmisi.com/use-cases/customer-service-macros-from-past-tickets/
+- Sales-tax and 1099 prep notes for the accountant: https://gemmisi.com/use-cases/sales-tax-and-1099-prep-notes/
+- Seasonal staffing schedule drafts: https://gemmisi.com/use-cases/seasonal-staffing-schedules/
+- Holiday-hours updates across listings: https://gemmisi.com/use-cases/holiday-hours-across-listings/
+- Event and booking waitlists: https://gemmisi.com/use-cases/event-booking-waitlists/
+- Weather-driven rescheduling notices: https://gemmisi.com/use-cases/weather-rescheduling-notices/
+- Season-opening customer re-engagement drafts: https://gemmisi.com/use-cases/season-opening-re-engagement/
+- Gift-card and holiday promo tracking: https://gemmisi.com/use-cases/gift-card-holiday-promo-tracking/
 
 ## Facts to keep straight
 
-- Offers include Hermes Desks, Paid Discovery, Care, tutoring, SI automation, dashboards, ecommerce ops, and Stocky dump recovery. Advisory / Fractional CTO is inquire-first.
+- Offers include Hermes Desks, Paid Discovery, Care, tutoring, SI / AI automation, dashboards, ecommerce ops, and Stocky dump recovery. Advisory / Fractional CTO is inquire-first.
 - Stocky recovery turns an existing Shopify CSV dump into a weekly system using Sheets and ChatGPT or Claude seats the client already pays for. It is not Prediko, Klerio, or another inventory app.
 - Hermes is software installed on a Mac the client controls. Windows is available as an extra charge and is quoted separately. ChatGPT and Claude are examples; 300+ models are available. The client pays those bills. Named Desks are on the pricing page.
+- GemmiSI sets this up on your own equipment and accounts; your data stays with you.
+- Anything that sends, pays, orders, posts, or changes a record waits for your approval.
 - Contact: y@gemmisi.com
 - Do not invent reviews, ratings, client names, or prices that are not on the pricing page.

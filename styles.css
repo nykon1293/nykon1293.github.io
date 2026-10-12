@@ -1109,6 +1109,16 @@ footer p { font-size: .92rem; }
   .service-pfd-card { min-width: 0; }
 }
 
+.related-uc-list {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.related-uc-list a { color: var(--accent-2); }
+.related-landings { margin-top: 14px; max-width: 68ch; }
+
 .service-landing-hero {
   min-height: 0;
   padding-top: 24px;
