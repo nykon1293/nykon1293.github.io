@@ -1116,6 +1116,20 @@ footer p { font-size: .92rem; }
   display: grid;
   gap: 8px;
 }
+.related-uc-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.related-uc-list .uc-motif {
+  width: 40px;
+  flex: 0 0 40px;
+  margin: 0;
+}
+.related-uc-list .uc-motif-frame {
+  padding: 2px;
+  box-shadow: none;
+}
 .related-uc-list a { color: var(--accent-2); }
 .related-landings { margin-top: 14px; max-width: 68ch; }
 
@@ -1331,6 +1345,13 @@ footer p { font-size: .92rem; }
   padding-bottom: 56px;
 }
 .related-case-study h2 { max-width: 28ch; }
+.related-case-study .uc-detail-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 88px;
+  gap: 16px;
+  align-items: start;
+}
+.related-case-study .uc-motif { width: 88px; margin: 0; }
 .related-case-study .button { white-space: nowrap; }
 @media (max-width: 680px) {
   .related-case-study { grid-template-columns: 1fr; gap: 22px; }
@@ -2041,9 +2062,20 @@ footer p { font-size: .92rem; }
   border: 1px solid var(--line-soft);
   border-radius: 16px;
   background: var(--surface);
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 56px;
+  column-gap: 12px;
+  align-items: start;
 }
+.needs-grid article h3 { grid-column: 1; }
+.needs-grid article .uc-motif {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  width: 56px;
+  margin: 0;
+}
+.needs-grid article p,
+.needs-grid article .service-card-link { grid-column: 1 / -1; }
 .needs-grid article[id="hermes-agents"] {
   border-color: rgba(211,170,85,.32);
   background: linear-gradient(180deg, rgba(211,170,85,.06), var(--surface));

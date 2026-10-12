@@ -63,9 +63,14 @@
     const label = item.l ? `<span class="uc-card-cat">${escapeHtml(item.l)}</span>` : "";
     const i = (item.i || []).join(",");
     const f = (item.f || []).join(",");
+    const motif =
+      item.m && item.c
+        ? `<div class="uc-motif uc-motif--${escapeHtml(item.c)}" data-motif="${escapeHtml(item.m)}" aria-hidden="true"><div class="uc-motif-frame"><img src="/assets/use-case-motifs/${encodeURIComponent(item.m)}--${encodeURIComponent(item.c)}.svg" width="64" height="64" alt="" decoding="async"></div></div>`
+        : "";
     return `<li class="uc-card uc-injected" data-slug="${escapeHtml(item.s)}" data-i="${escapeHtml(i)}" data-f="${escapeHtml(f)}">
             <a href="/use-cases/${escapeHtml(item.s)}/">
               ${label}
+              ${motif}
               <h3>${escapeHtml(item.t)}</h3>
               <p>${escapeHtml(item.u)}</p>${note}
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>

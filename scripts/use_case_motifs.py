@@ -12,6 +12,7 @@ field ``motif`` overrides the keyword rules.
 from __future__ import annotations
 
 import re
+from pathlib import Path
 
 N = 24
 BG = "#121914"
@@ -42,6 +43,7 @@ INDUSTRY_ACCENT = {
     "real-estate": ("real-estate", "#c4a06a"),
     "home-services": ("home-services", "#d3aa55"),
     "accounting": ("accounting", "#cfc09a"),
+    "education": ("education", "#8aa07a"),
 }
 
 FUNCTION_ACCENT = {
@@ -60,6 +62,7 @@ FUNCTION_ACCENT = {
 DEFAULT_INDUSTRY = ("default", "#d3aa55")
 
 INDUSTRY_MOTIF = {
+    "any-business": "inbox",
     "legal": "scales",
     "medical": "checklist",
     "ecommerce": "inventory",
@@ -67,6 +70,7 @@ INDUSTRY_MOTIF = {
     "real-estate": "inbox",
     "home-services": "phone",
     "accounting": "documents",
+    "education": "documents",
 }
 
 FUNCTION_MOTIF = {
@@ -685,17 +689,74 @@ def render_svg(motif: str, accent: str) -> str:
     return svg
 
 
-def motif_html(item: dict) -> str:
-    motif = pick_motif(item)
-    industry, accent = pick_industry(item)
-    svg = render_svg(motif, accent)
+def motif_html_from_parts(motif: str, key: str, accent: str, *, inline: bool = True) -> str:
+    if inline:
+        inner = render_svg(motif, accent)
+    else:
+        inner = (
+            f'<img src="/assets/use-case-motifs/{motif}--{key}.svg" '
+            f'width="220" height="220" alt="" decoding="async">'
+        )
     return (
-        f'<div class="uc-motif uc-motif--{industry}" data-motif="{motif}" aria-hidden="true">\n'
+        f'<div class="uc-motif uc-motif--{key}" data-motif="{motif}" aria-hidden="true">\n'
         f'            <div class="uc-motif-frame">\n'
-        f"              {svg}\n"
+        f"              {inner}\n"
         f"            </div>\n"
         f"          </div>"
     )
+
+
+def motif_html(item: dict, *, inline: bool = True) -> str:
+    motif = pick_motif(item)
+    key, accent = pick_industry(item)
+    return motif_html_from_parts(motif, key, accent, inline=inline)
+
+
+def motif_thumb_html(item: dict) -> str:
+    return motif_html(item, inline=False)
+
+
+def landing_motif_parts(kind: str, slug: str) -> tuple[str, str, str]:
+    if kind == "industry":
+        if slug in INDUSTRY_ACCENT:
+            key, accent = INDUSTRY_ACCENT[slug]
+            motif = INDUSTRY_MOTIF.get(slug, "documents")
+        else:
+            key, accent = DEFAULT_INDUSTRY
+            motif = INDUSTRY_MOTIF.get(slug, "inbox")
+        return motif, key, accent
+    key, accent = FUNCTION_ACCENT.get(slug, DEFAULT_INDUSTRY)
+    motif = FUNCTION_MOTIF.get(slug, "documents")
+    return motif, key, accent
+
+
+def landing_motif_html(kind: str, slug: str, *, inline: bool = True) -> str:
+    motif, key, accent = landing_motif_parts(kind, slug)
+    return motif_html_from_parts(motif, key, accent, inline=inline)
+
+
+def write_motif_assets(entries: list) -> None:
+    dest = Path(__file__).resolve().parent.parent / "assets" / "use-case-motifs"
+    dest.mkdir(parents=True, exist_ok=True)
+    wanted: dict[tuple[str, str], str] = {}
+    for item in entries:
+        motif = pick_motif(item)
+        key, accent = pick_industry(item)
+        wanted[(motif, key)] = accent
+    for slug in list(INDUSTRY_MOTIF) + list(INDUSTRY_ACCENT):
+        motif, key, accent = landing_motif_parts("industry", slug)
+        wanted[(motif, key)] = accent
+    for slug in FUNCTION_ACCENT:
+        motif, key, accent = landing_motif_parts("function", slug)
+        wanted[(motif, key)] = accent
+    keep = set()
+    for (motif, key), accent in wanted.items():
+        name = f"{motif}--{key}.svg"
+        keep.add(name)
+        (dest / name).write_text(render_svg(motif, accent) + "\n", encoding="utf-8")
+    for old in dest.glob("*.svg"):
+        if old.name not in keep:
+            old.unlink()
 
 
 def motif_bytes(item: dict) -> int:

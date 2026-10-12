@@ -23,6 +23,7 @@ from seo_schema import (
     font_and_css_links,
     service_page_graph,
 )
+from use_case_motifs import landing_motif_html, motif_thumb_html
 
 SERVICES_DIR = ROOT / "services"
 
@@ -86,16 +87,35 @@ def use_case_title_map() -> dict[str, str]:
     return {item["slug"]: item["title"] for item in entries}
 
 
+SERVICE_MOTIF = {
+    "hermes-agents": ("function", "hiring"),
+    "ai-automation": ("industry", "any-business"),
+    "dashboards-reporting": ("function", "reporting-dashboards"),
+    "ecommerce-operations": ("industry", "ecommerce"),
+    "tutoring-project-help": ("industry", "education"),
+    "stocky-recovery": ("industry", "ecommerce"),
+}
+
+
+def _entries_by_slug() -> dict:
+    return {item["slug"]: item for item in json.loads((ROOT / "data" / "use-cases.json").read_text(encoding="utf-8"))}
+
+
 def related_use_cases_html(page: dict) -> str:
     slugs = page.get("related_use_cases") or []
     landings = page.get("related_landings") or []
     if not slugs and not landings:
         return ""
     titles = use_case_title_map()
+    catalog = _entries_by_slug()
     items = []
     for slug in slugs[:6]:
         label = titles.get(slug, slug.replace("-", " "))
-        items.append(f'            <li><a class="text-link" href="/use-cases/{slug}/">{escape(label)}</a></li>')
+        item = catalog.get(slug)
+        thumb = motif_thumb_html(item) if item else ""
+        items.append(
+            f'            <li>{thumb}<a class="text-link" href="/use-cases/{slug}/">{escape(label)}</a></li>'
+        )
     landing_bits = []
     for href, label in landings:
         landing_bits.append(f'<a class="text-link" href="{escape(href)}">{escape(label)}</a>')
@@ -105,12 +125,17 @@ def related_use_cases_html(page: dict) -> str:
     list_html = ""
     if items:
         list_html = "          <ul class=\"related-uc-list\">\n" + "\n".join(items) + "\n          </ul>\n"
+    kind, key = SERVICE_MOTIF.get(page.get("slug"), ("industry", "any-business"))
+    graphic = landing_motif_html(kind, key, inline=False)
     return f"""
       <section class="section related-case-study" aria-labelledby="related-uc-title">
-        <div>
+        <div class="uc-detail-intro">
+          <div class="uc-detail-copy">
           <h2 id="related-uc-title">Example SI (AI) use cases</h2>
           <p class="section-intro">These library entries are illustrations of the same kind of job, not client results.</p>
 {list_html}{landings_html}
+          </div>
+          {graphic}
         </div>
         <a class="button ghost" href="../use-cases/">All use cases</a>
       </section>
@@ -672,6 +697,7 @@ PAGES = [
         ],
         "related_landings": [
             ("/use-cases/", "the use-case hub"),
+            ("/use-cases/industry/education/", "education use cases"),
             ("/use-cases/function/research-documents/", "research & documents"),
         ],
         "faqs": [
@@ -873,7 +899,7 @@ def render(page: dict) -> str:
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Yonatan Gemmi" />
 {og_block}
-{font_and_css_links(stylesheet=f"../styles.css?v={CSS_VERSION}")}
+{font_and_css_links(stylesheet=f"../styles.css?v={CSS_VERSION}", extra_css=f"../assets/use-cases.css?v={CSS_VERSION}")}
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" href="/assets/brand/gemmisi-icon.svg" type="image/svg+xml" />
   <link rel="icon" href="/assets/brand/gemmisi-icon-32.png" type="image/png" sizes="32x32" />
