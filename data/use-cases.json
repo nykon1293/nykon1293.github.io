@@ -3994,5 +3994,1417 @@
     "effect": "Request and reply drafts stay neutral, and a person approves each one before it is posted.",
     "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. A reply must not disclose PHI or even confirm someone is a patient. SI never writes fake or filtered reviews, outcome claims, testimonials, or before-and-after content, and identifiable photos or testimonials need the patient's written authorization. Texting and recording rules vary; get consent and honor opt-outs.",
     "category": "Medical and healthcare practices"
+  },
+  {
+    "slug": "rental-lead-inquiry-follow-up",
+    "title": "Lead and inquiry follow-up for agent or manager review",
+    "category": "Real estate and property management",
+    "summary": "Inquiries from the website, portals and calls are collected into one list, with a first-reply draft from the business's own wording.",
+    "problem": "Inquiries from the website, portals and calls sit for hours, and the first agent or manager to reply usually wins the conversation.",
+    "what_si_does": "SI collects inquiries from the inboxes and forms the business chooses into one list (name, contact, what they asked about, source, time received), drafts a short, friendly first reply from the business's own wording, and builds a follow-up reminder list so no inquiry is dropped. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds applicant or tenant information, the business checks the tool's terms and data practices, sets access controls and limits SI to the minimum necessary. Start with sample or made-up information. Connect the inboxes and forms with permission to read and draft, not to send. Save the reply wording the agent or manager has already approved. Setup is often a few days.",
+    "human_checks": [
+      "The agent, broker or manager approves before anything goes to a client, tenant, applicant or vendor.",
+      "SI never sends, posts, signs or changes records on its own.",
+      "Unusual items go to a \"needs manager or attorney review\" queue.",
+      "The business decides what personal data SI may see, and testing starts with sample information.",
+      "The agent or manager answers all questions about availability, terms and price, and decides how each lead is handled."
+    ],
+    "examples": [
+      {
+        "business_type": "Independent real estate agent",
+        "scenario": "Website and portal inquiries about [Property] are listed with the source and time received. A first-reply draft uses the agent's approved wording and waits for the agent to send it."
+      },
+      {
+        "business_type": "Small brokerage",
+        "scenario": "Calls logged during the day are added to the same list as form submissions, and the assigned agent reviews the draft before anything goes out."
+      },
+      {
+        "business_type": "Small property-management company",
+        "scenario": "Rental inquiries for [Unit] are collected in the order received. The manager sends the same approved first reply to each one."
+      }
+    ],
+    "copy_prompt": "Collect these inquiries [paste or export] into one list with name, contact, what they asked about, source, and time received. Draft a short first reply from this approved wording only: [paste]. Do not answer questions about terms, price, neighborhoods, or who would fit. Treat every inquiry the same way. Do not send anything. Texting rules vary; get consent and honor opt-outs. Pause and show me before sending, posting, signing or changing anything. Use only the sample or made-up information I provide; do not include real tenant or applicant names, IDs or financial details.",
+    "tools_examples": [
+      "Google Workspace",
+      "Microsoft 365",
+      "Calendly",
+      "Spreadsheets"
+    ],
+    "effect": "New inquiries sit on one list with a first-reply draft, ready for the agent or manager to send.",
+    "caution": "Administrative support only: SI does not give legal or lease advice, make leasing, screening or pricing decisions, or act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything client-facing, tenant-facing or contractual. Fair housing laws apply: SI never screens, ranks, steers or targets by protected characteristics, and applicant and tenant information is used only in checked tools with access controls and the minimum necessary. SI answers no questions about terms, price, neighborhoods or who would fit; all leads are treated the same under the same rules. Texting rules vary; get consent and honor opt-outs."
+  },
+  {
+    "slug": "showing-scheduling-confirmations",
+    "title": "Showing scheduling and confirmation drafts",
+    "category": "Real estate and property management",
+    "summary": "From the calendar the business provides, SI proposes showing windows and drafts confirmations and reminders for the person showing.",
+    "problem": "Back-and-forth over times, and no-shows, eat the day.",
+    "what_si_does": "From the calendar and availability the business provides, SI proposes showing windows, drafts confirmation and reminder messages with address, time and who to contact, keeps a daily showing sheet, and prepares a short who-is-coming-and-when summary for the person showing. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds applicant or tenant information, the business checks the tool's terms and data practices, sets access controls and limits SI to the minimum necessary. Start with sample or made-up information. Use the calendar the business already keeps and the confirmation wording already approved. Permission is to read and draft, not to send or change access. Setup is often a few days.",
+    "human_checks": [
+      "The agent, broker or manager approves before anything goes to a client, tenant, applicant or vendor.",
+      "SI never sends, posts, signs or changes records on its own.",
+      "Unusual items go to a \"needs manager or attorney review\" queue.",
+      "The business decides what personal data SI may see, and testing starts with sample information.",
+      "The agent or manager approves the schedule, handles access to the property, and decides who shows what.",
+      "Owners and tenants are notified as the lease or listing agreement requires."
+    ],
+    "examples": [
+      {
+        "business_type": "Independent real estate agent",
+        "scenario": "Proposed windows for [Property] are listed against the agent's calendar. Confirmation drafts name the address, time, and who to contact, and wait for approval."
+      },
+      {
+        "business_type": "Landlord with a few rental units",
+        "scenario": "A daily showing sheet for [Unit] lists who is coming and when. The owner reviews it before any message goes out."
+      },
+      {
+        "business_type": "Small brokerage",
+        "scenario": "Reminder drafts do not include lockbox codes. The showing agent adds access details only after approving the schedule."
+      }
+    ],
+    "copy_prompt": "From this calendar and availability [paste], propose showing windows and draft confirmation and reminder messages with address, time, and who to contact. Build a daily showing sheet. Do not include lockbox codes, access instructions, or occupant details. Offer the same access options to everyone. Do not send anything. Texting rules vary; get consent and honor opt-outs. Pause and show me before sending, posting, signing or changing anything. Use only the sample or made-up information I provide; do not include real tenant or applicant names, IDs or financial details.",
+    "tools_examples": [
+      "Google Workspace",
+      "Microsoft 365",
+      "Calendly",
+      "Spreadsheets"
+    ],
+    "effect": "Showing windows and confirmation drafts are ready for the agent or manager before anyone is told a time.",
+    "caution": "Administrative support only: SI does not give legal or lease advice, make leasing, screening or pricing decisions, or act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything client-facing, tenant-facing or contractual. Fair housing laws apply: SI never screens, ranks, steers or targets by protected characteristics, and applicant and tenant information is used only in checked tools with access controls and the minimum necessary. SI never shares lockbox codes, access instructions or occupant details in messages without the business's approval, and it offers the same access options to everyone. Texting rules vary; get consent and honor opt-outs."
+  },
+  {
+    "slug": "showing-open-house-follow-up",
+    "title": "Showing and open-house follow-up drafts",
+    "category": "Real estate and property management",
+    "summary": "A sign-in sheet becomes a contact list, with the same thank-you and questions follow-up drafted from the agent's approved wording.",
+    "problem": "Visitors sign in and then hear nothing, so interest cools.",
+    "what_si_does": "SI turns a sign-in sheet or visit list into a tidy contact list, drafts a thank-you note and a questions follow-up for every visitor from the agent's approved wording, and logs who responded. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds applicant or tenant information, the business checks the tool's terms and data practices, sets access controls and limits SI to the minimum necessary. Start with sample or made-up information. Start from a sample sign-in sheet and the follow-up wording the agent has already approved. Permission is to draft, not to send. Setup is often a day or two.",
+    "human_checks": [
+      "The agent, broker or manager approves before anything goes to a client, tenant, applicant or vendor.",
+      "SI never sends, posts, signs or changes records on its own.",
+      "Unusual items go to a \"needs manager or attorney review\" queue.",
+      "The business decides what personal data SI may see, and testing starts with sample information.",
+      "The agent approves the message, decides who to call personally, and answers all questions about the property and terms."
+    ],
+    "examples": [
+      {
+        "business_type": "Independent real estate agent",
+        "scenario": "An open-house sign-in list becomes a contact sheet. Each visitor gets the same thank-you draft from the agent's wording."
+      },
+      {
+        "business_type": "Small brokerage",
+        "scenario": "A showing visit list is logged with who responded. Follow-up drafts do not mention neighbors, schools, or who would fit."
+      },
+      {
+        "business_type": "Small property-management company",
+        "scenario": "Everyone who toured [Unit] is sent the same approved questions follow-up after the manager reviews it."
+      }
+    ],
+    "copy_prompt": "Turn this sign-in sheet or visit list [paste] into a contact list. Draft a thank-you and a questions follow-up for every visitor from this approved wording only: [paste]. Give every visitor the same follow-up. Do not tailor messages to a person, and do not mention neighbors, schools, or type of residents. Do not send anything. Texting rules vary; get consent and honor opt-outs. Pause and show me before sending, posting, signing or changing anything. Use only the sample or made-up information I provide; do not include real tenant or applicant names, IDs or financial details.",
+    "tools_examples": [
+      "Google Workspace",
+      "Microsoft 365",
+      "Spreadsheets",
+      "Calendly"
+    ],
+    "effect": "Every visitor is on one list with the same follow-up draft, ready for the agent to send.",
+    "caution": "Administrative support only: SI does not give legal or lease advice, make leasing, screening or pricing decisions, or act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything client-facing, tenant-facing or contractual. Fair housing laws apply: SI never screens, ranks, steers or targets by protected characteristics, and applicant and tenant information is used only in checked tools with access controls and the minimum necessary. Every visitor gets the same follow-up; SI never tailors messages to a person's apparent race, family, religion, disability or other protected trait, and never makes statements about neighbors, schools or type of residents. Texting rules vary; get consent and honor opt-outs."
+  },
+  {
+    "slug": "listing-rental-ad-drafts",
+    "title": "Listing and rental-ad description drafts for agent review",
+    "category": "Real estate and property management",
+    "summary": "From the agent's facts, SI drafts a property description and a flagged-phrases list so the agent can review wording before anything is published.",
+    "problem": "Writing a fresh, accurate description for every property is slow, and careless wording can create fair-housing problems.",
+    "what_si_does": "From the agent's facts (beds, baths, features, condition, terms, photo list), SI drafts a description and a short social caption, plus a flagged-phrases list that marks wording that could suggest a preference or limitation, so the agent can review and revise. SI describes the property, not people or neighborhoods. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds applicant or tenant information, the business checks the tool's terms and data practices, sets access controls and limits SI to the minimum necessary. Start with sample or made-up information. Start from a fact sheet the agent supplies and a few past descriptions the broker is comfortable using as a tone sample, with no client details. Setup is often a few days.",
+    "human_checks": [
+      "The agent, broker or manager approves before anything goes to a client, tenant, applicant or vendor.",
+      "SI never sends, posts, signs or changes records on its own.",
+      "Unusual items go to a \"needs manager or attorney review\" queue.",
+      "The business decides what personal data SI may see, and testing starts with sample information.",
+      "The agent or broker confirms every fact, approves the final text, and is responsible for the ad.",
+      "The broker's own compliance policy governs."
+    ],
+    "examples": [
+      {
+        "business_type": "Independent real estate agent",
+        "scenario": "A draft for [Property] restates beds, baths, and features from the agent's fact sheet. A flagged list marks any phrase that could read as a preference."
+      },
+      {
+        "business_type": "Small brokerage",
+        "scenario": "A social caption describes the property only. The broker reviews the flagged-phrases list before anything is posted."
+      },
+      {
+        "business_type": "Landlord with a few rental units",
+        "scenario": "A rental-ad draft for [Unit] uses the owner's facts and does not say who the home is for. The owner edits it before it is used."
+      }
+    ],
+    "copy_prompt": "From these property facts only [paste], draft a listing description and a short social caption. List any phrases that could suggest a preference or limitation. Describe the property, not people or neighborhoods. Do not write about who a home is perfect for or about residents, schools, or safety. Do not describe or evaluate any person or neighborhood; describe only the property. The flagged list is a helper, not a legal review. Do not publish anything. Do not describe or evaluate any person or neighborhood; describe only the property. Pause and show me before sending, posting, signing or changing anything. Use only the sample or made-up information I provide; do not include real tenant or applicant names, IDs or financial details.",
+    "tools_examples": [
+      "Google Workspace",
+      "Microsoft 365",
+      "Spreadsheets",
+      "Property-management software"
+    ],
+    "effect": "A description draft and a flagged-phrases list wait for the agent or broker before anything is published.",
+    "caution": "Administrative support only: SI does not give legal or lease advice, make leasing, screening or pricing decisions, or act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything client-facing, tenant-facing or contractual. Fair housing laws apply: SI never screens, ranks, steers or targets by protected characteristics, and applicant and tenant information is used only in checked tools with access controls and the minimum necessary. SI describes the property, not people or neighborhoods, and never writes about who a home is for or about residents, schools or safety; the flagged list is a helper, not a legal review, and a person checks fair housing rules before anything is published."
+  },
+  {
+    "slug": "maintenance-request-intake",
+    "title": "Maintenance request intake and sorting",
+    "category": "Real estate and property management",
+    "summary": "Requests become standard tickets with an urgent queue for the manager, and the acknowledgment tells tenants to call 911 in an emergency.",
+    "problem": "Requests arrive by text, email and call in no standard form, and urgent problems get buried.",
+    "what_si_does": "SI turns each request into a standard ticket (unit, issue, when it started, access notes, photos) and sorts tickets into queues for the manager (urgent-flag, routine, vendor needed, awaiting tenant). Anything mentioning gas, fire, flooding, no power or safety is flagged to the top for a person, and the acknowledgment tells the tenant the request was received and that in an emergency they should call 911 or the number the manager provides. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds applicant or tenant information, the business checks the tool's terms and data practices, sets access controls and limits SI to the minimum necessary. Start with sample or made-up information. Connect the inboxes the manager chooses with permission to read and draft, not to send. Save the acknowledgment the manager has already approved, including the emergency line. Setup is often a few days.",
+    "human_checks": [
+      "The agent, broker or manager approves before anything goes to a client, tenant, applicant or vendor.",
+      "SI never sends, posts, signs or changes records on its own.",
+      "Unusual items go to a \"needs manager or attorney review\" queue.",
+      "The business decides what personal data SI may see, and testing starts with sample information.",
+      "The manager reads the urgent queue first, decides priority and which vendor is called, and sends all repair commitments.",
+      "Urgent matters are handled by a person."
+    ],
+    "examples": [
+      {
+        "business_type": "Landlord with a few rental units",
+        "scenario": "A message about [Unit] becomes a ticket with when it started and any photos. Mentions of flooding are flagged to the top for the owner."
+      },
+      {
+        "business_type": "Small property-management company",
+        "scenario": "Requests are sorted into urgent-flag, routine, vendor needed, and awaiting tenant. The acknowledgment uses only the manager's approved text."
+      },
+      {
+        "business_type": "Small brokerage",
+        "scenario": "A property the firm manages has incoming repair notes turned into tickets. The manager decides who is called."
+      }
+    ],
+    "copy_prompt": "Turn these maintenance requests [paste] into tickets with unit, issue, when it started, access notes, and photos. Sort them into urgent-flag, routine, vendor needed, and awaiting tenant. Flag anything mentioning gas, fire, flooding, no power, or safety to the top. Draft only this acknowledgment: [paste], including that in an emergency they should call 911 or the number the manager provides. Do not give repair, safety, or code advice, and do not promise response times. Do not describe or evaluate any person or neighborhood; describe only the property. Do not send anything. Do not describe or evaluate any person or neighborhood; describe only the property. Pause and show me before sending, posting, signing or changing anything. Use only the sample or made-up information I provide; do not include real tenant or applicant names, IDs or financial details.",
+    "tools_examples": [
+      "Google Workspace",
+      "Microsoft 365",
+      "Spreadsheets",
+      "Property-management software"
+    ],
+    "effect": "Requests are tickets in queues, with anything that sounds urgent sitting at the top for a person.",
+    "caution": "Administrative support only: SI does not give legal or lease advice, make leasing, screening or pricing decisions, or act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything client-facing, tenant-facing or contractual. Fair housing laws apply: SI never screens, ranks, steers or targets by protected characteristics, and applicant and tenant information is used only in checked tools with access controls and the minimum necessary. SI never gives repair, safety or code advice and never promises response times or repairs; it does not decide who is responsible under a lease; the emergency line is limited to the approved text."
+  },
+  {
+    "slug": "tenant-notice-drafts",
+    "title": "Tenant communication drafts for manager review",
+    "category": "Real estate and property management",
+    "summary": "Routine notices are filled from the manager's approved templates and labeled as drafts, with a log of what was prepared.",
+    "problem": "Routine notices (office closures, pest treatment, water shutoff, parking, move-out reminders) are written from scratch each time.",
+    "what_si_does": "SI keeps a library of the manager's approved notice templates, fills in dates and addresses from details the manager gives, and drafts the notice labeled DRAFT, for manager review. It also keeps a log of what was sent to which building or unit. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds applicant or tenant information, the business checks the tool's terms and data practices, sets access controls and limits SI to the minimum necessary. Start with sample or made-up information. Use only the manager's approved templates and the dates and addresses the manager supplies. Permission is to draft, not to send. Setup is often a day or two.",
+    "human_checks": [
+      "The agent, broker or manager approves before anything goes to a client, tenant, applicant or vendor.",
+      "SI never sends, posts, signs or changes records on its own.",
+      "Unusual items go to a \"needs manager or attorney review\" queue.",
+      "The business decides what personal data SI may see, and testing starts with sample information.",
+      "The manager checks the content and any notice-period or delivery requirements with the lease or the attorney, then sends it."
+    ],
+    "examples": [
+      {
+        "business_type": "Small property-management company",
+        "scenario": "A water-shutoff notice for [Property] is filled from the manager's template with the dates the manager supplied, labeled as a draft."
+      },
+      {
+        "business_type": "Landlord with a few rental units",
+        "scenario": "A parking reminder uses the owner's approved wording. The log lists which building it was prepared for."
+      },
+      {
+        "business_type": "Independent real estate agent",
+        "scenario": "A pest-treatment notice for a unit the agent manages waits as a draft until the owner reviews it."
+      }
+    ],
+    "copy_prompt": "Fill this approved notice template [paste] with these dates and addresses the manager supplied [paste]. Label it DRAFT, for manager review. Log which building or unit it is for. Draft routine, non-legal notices only. Do not write late, default, entry, eviction, or lease-violation notices or anything with a legal deadline. Do not decide what the lease or the law requires. Do not send anything. Pause and show me before sending, posting, signing or changing anything. Use only the sample or made-up information I provide; do not include real tenant or applicant names, IDs or financial details.",
+    "tools_examples": [
+      "Google Workspace",
+      "Microsoft 365",
+      "Spreadsheets",
+      "Property-management software"
+    ],
+    "effect": "Routine notices start from the manager's own templates and stay labeled as drafts until they are sent.",
+    "caution": "Administrative support only: SI does not give legal or lease advice, make leasing, screening or pricing decisions, or act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything client-facing, tenant-facing or contractual. Fair housing laws apply: SI never screens, ranks, steers or targets by protected characteristics, and applicant and tenant information is used only in checked tools with access controls and the minimum necessary. SI drafts routine, non-legal notices only; it never writes late, default, entry, eviction or lease-violation notices or anything with a legal deadline, and does not decide what the lease or the law requires."
+  },
+  {
+    "slug": "rent-reminder-drafts",
+    "title": "Rent reminder and follow-up drafts for manager review",
+    "category": "Real estate and property management",
+    "summary": "From the rent roll the manager provides, SI drafts polite reminders in approved wording and flags accounts for a personal call.",
+    "problem": "Chasing rent is awkward and inconsistent, and late payments are noticed days after they happen.",
+    "what_si_does": "From the rent roll or ledger export the manager provides, SI builds a list of upcoming and overdue amounts, drafts a polite reminder and a friendly follow-up in the manager's approved wording at the intervals the manager chooses, and flags accounts for a personal call. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds applicant or tenant information, the business checks the tool's terms and data practices, sets access controls and limits SI to the minimum necessary. Start with sample or made-up information. Use a read-only rent-roll or ledger export and the reminder wording and intervals the manager has already chosen. Permission is to draft, not to send. Setup is often a few days.",
+    "human_checks": [
+      "The agent, broker or manager approves before anything goes to a client, tenant, applicant or vendor.",
+      "SI never sends, posts, signs or changes records on its own.",
+      "Unusual items go to a \"needs manager or attorney review\" queue.",
+      "The business decides what personal data SI may see, and testing starts with sample information.",
+      "The manager approves and sends each message, decides on payment plans, waivers and fees, and takes any further step through the lease or an attorney."
+    ],
+    "examples": [
+      {
+        "business_type": "Landlord with a few rental units",
+        "scenario": "A list from the ledger export shows upcoming amounts. Reminder drafts use the owner's wording and wait for the owner to send them."
+      },
+      {
+        "business_type": "Small property-management company",
+        "scenario": "Accounts the manager marked for a personal call are highlighted instead of a standard reminder."
+      },
+      {
+        "business_type": "Small brokerage",
+        "scenario": "Follow-up drafts treat every tenant the same way under the same intervals the manager set."
+      }
+    ],
+    "copy_prompt": "From this rent roll or ledger export [paste], list upcoming and overdue amounts. Draft a polite reminder and a follow-up from this approved wording [paste] at these intervals [paste]. Flag accounts the manager marked for a personal call. Treat every tenant the same way. Do not state or calculate late fees, threaten action, or issue notices. Do not send anything. Texting rules vary; get consent and honor opt-outs. Pause and show me before sending, posting, signing or changing anything. Use only the sample or made-up information I provide; do not include real tenant or applicant names, IDs or financial details.",
+    "tools_examples": [
+      "Spreadsheets",
+      "Accounting software",
+      "Google Workspace",
+      "Microsoft 365"
+    ],
+    "effect": "Reminders are drafted on the manager's schedule, and accounts that need a call are set aside for a person.",
+    "caution": "Administrative support only: SI does not give legal or lease advice, make leasing, screening or pricing decisions, or act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything client-facing, tenant-facing or contractual. Fair housing laws apply: SI never screens, ranks, steers or targets by protected characteristics, and applicant and tenant information is used only in checked tools with access controls and the minimum necessary. SI never states or calculates late fees, threatens action or issues notices, sends nothing on its own, and treats every tenant the same way under the same rules. Texting rules vary; get consent and honor opt-outs."
+  },
+  {
+    "slug": "lease-renewal-expiration-tracking",
+    "title": "Lease renewal and expiration tracking",
+    "category": "Real estate and property management",
+    "summary": "Lease dates the manager has verified sit in one tracker, with reminders and a neutral draft for the manager to review.",
+    "problem": "Lease end dates sneak up, and renewals, rent reviews and turnover planning start too late.",
+    "what_si_does": "SI builds a tracker from the lease dates the manager enters (end date, notice windows the manager has verified, renewal status), reminds the manager at intervals they set, and drafts a neutral your-lease-ends-on-[date], let's-talk message for review. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds applicant or tenant information, the business checks the tool's terms and data practices, sets access controls and limits SI to the minimum necessary. Start with sample or made-up information. Use dates a person has already verified against the lease. Only those dates may be entered. Setup is often a few days.",
+    "human_checks": [
+      "The agent, broker or manager approves before anything goes to a client, tenant, applicant or vendor.",
+      "SI never sends, posts, signs or changes records on its own.",
+      "Unusual items go to a \"needs manager or attorney review\" queue.",
+      "The business decides what personal data SI may see, and testing starts with sample information.",
+      "The manager verifies dates and notice requirements against the actual lease and the law, decides renewal terms and rent, and sends everything."
+    ],
+    "examples": [
+      {
+        "business_type": "Small property-management company",
+        "scenario": "End dates the manager entered for each unit sit in one tracker, with reminders at the intervals the manager set."
+      },
+      {
+        "business_type": "Landlord with a few rental units",
+        "scenario": "A draft for [Unit] says the lease ends on the date the owner entered and asks to talk. The owner reviews it before it is sent."
+      },
+      {
+        "business_type": "Independent real estate agent",
+        "scenario": "A weekly list shows which leases the agent marked as coming up, drawn only from dates someone has already verified."
+      }
+    ],
+    "copy_prompt": "Build a tracker from these lease dates a person has already verified [paste], including end date, notice windows the manager verified, and renewal status. Remind at these intervals [paste]. Draft a neutral message that the lease ends on [date] and that they should talk. Do not calculate legal notice deadlines, propose rent amounts or renewal terms, or decide who is renewed. Do not send anything. Pause and show me before sending, posting, signing or changing anything. Use only the sample or made-up information I provide; do not include real tenant or applicant names, IDs or financial details.",
+    "tools_examples": [
+      "Spreadsheets",
+      "Google Workspace",
+      "Microsoft 365",
+      "Property-management software"
+    ],
+    "effect": "Verified end dates sit in one list with reminders, and the renewal draft waits for the manager.",
+    "caution": "Administrative support only: SI does not give legal or lease advice, make leasing, screening or pricing decisions, or act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything client-facing, tenant-facing or contractual. Fair housing laws apply: SI never screens, ranks, steers or targets by protected characteristics, and applicant and tenant information is used only in checked tools with access controls and the minimum necessary. SI tracks dates a person has verified; it never calculates legal notice deadlines, proposes rent amounts or renewal terms, or decides who is renewed, and nothing about renewal is based on a protected characteristic."
+  },
+  {
+    "slug": "vendor-work-order-tracking",
+    "title": "Vendor and work-order tracking",
+    "category": "Real estate and property management",
+    "summary": "Vendors and work orders sit in one tracker, with scheduling drafts and a weekly list of open and stale jobs.",
+    "problem": "Which vendor was called, what was quoted, and whether the job got done lives in texts and memory.",
+    "what_si_does": "SI keeps a vendor list (trade, contact, rates the manager entered, notes) and a work-order tracker (ticket, vendor, quote, status, invoice received), drafts scheduling and status messages, and lists open and stale jobs each week. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds applicant or tenant information, the business checks the tool's terms and data practices, sets access controls and limits SI to the minimum necessary. Start with sample or made-up information. Start from the vendor list and work-order sheet the manager already keeps. Permission is to draft, not to hire or pay. Setup is often a few days.",
+    "human_checks": [
+      "The agent, broker or manager approves before anything goes to a client, tenant, applicant or vendor.",
+      "SI never sends, posts, signs or changes records on its own.",
+      "Unusual items go to a \"needs manager or attorney review\" queue.",
+      "The business decides what personal data SI may see, and testing starts with sample information.",
+      "The manager chooses vendors, approves quotes and invoices, verifies work, and confirms vendors' licenses and insurance."
+    ],
+    "examples": [
+      {
+        "business_type": "Small property-management company",
+        "scenario": "Open work orders are listed by status. A status draft to a vendor waits for the manager to send it."
+      },
+      {
+        "business_type": "Landlord with a few rental units",
+        "scenario": "The vendor list holds trades and contacts the owner entered. SI does not recommend who to hire."
+      },
+      {
+        "business_type": "Independent real estate agent",
+        "scenario": "A weekly list shows stale jobs on properties the agent manages, for the owner to follow up."
+      }
+    ],
+    "copy_prompt": "Update this vendor list and work-order tracker [paste] with these items [paste]. Draft scheduling and status messages from this approved wording [paste]. List open and stale jobs. Do not hire, approve spending, or pay. Do not recommend a vendor on quality or safety grounds, and do not vouch that a vendor is licensed or insured. Give no repair or code advice. Do not send anything. Pause and show me before sending, posting, signing or changing anything. Use only the sample or made-up information I provide; do not include real tenant or applicant names, IDs or financial details.",
+    "tools_examples": [
+      "Spreadsheets",
+      "Google Workspace",
+      "Microsoft 365",
+      "Accounting software"
+    ],
+    "effect": "Open jobs and vendor contacts sit in one tracker, with status drafts ready for the manager.",
+    "caution": "Administrative support only: SI does not give legal or lease advice, make leasing, screening or pricing decisions, or act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything client-facing, tenant-facing or contractual. Fair housing laws apply: SI never screens, ranks, steers or targets by protected characteristics, and applicant and tenant information is used only in checked tools with access controls and the minimum necessary. SI never hires, approves spending or pays; it does not recommend a vendor on quality or safety grounds and does not vouch that a vendor is licensed or insured, and it gives no repair or code advice."
+  },
+  {
+    "slug": "move-in-move-out-checklists",
+    "title": "Move-in and move-out checklists and inspection photo organization",
+    "category": "Real estate and property management",
+    "summary": "Each unit gets a checklist from the manager's template, with photos organized by room and date for the manager to review.",
+    "problem": "Condition records are scattered, so deposit and damage questions turn into arguments.",
+    "what_si_does": "SI generates a checklist for each unit from the manager's template, organizes the photos and notes the manager or tenant uploads by unit, room and date with consistent file names, and drafts a here-is-what-we-recorded summary for review. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds applicant or tenant information, the business checks the tool's terms and data practices, sets access controls and limits SI to the minimum necessary. Start with sample or made-up information. Use the manager's checklist template and a sample photo folder the business is comfortable testing. Setup is often a few days.",
+    "human_checks": [
+      "The agent, broker or manager approves before anything goes to a client, tenant, applicant or vendor.",
+      "SI never sends, posts, signs or changes records on its own.",
+      "Unusual items go to a \"needs manager or attorney review\" queue.",
+      "The business decides what personal data SI may see, and testing starts with sample information.",
+      "The manager does the inspection, decides what is damage versus normal wear, and handles any deposit decision under the lease and state law."
+    ],
+    "examples": [
+      {
+        "business_type": "Landlord with a few rental units",
+        "scenario": "Photos for [Unit] are grouped by room and date with consistent names. The summary waits for the owner to review."
+      },
+      {
+        "business_type": "Small property-management company",
+        "scenario": "A move-out checklist is generated from the manager's template. Nothing about charges is added until the manager decides."
+      },
+      {
+        "business_type": "Small brokerage",
+        "scenario": "A change list proposes file names only. The manager confirms the photos before anything is shared."
+      }
+    ],
+    "copy_prompt": "From this checklist template [paste], make a checklist for [Unit]. Organize these photo and note names [paste] by unit, room, and date with consistent file names. Draft a here-is-what-we-recorded summary. Do not determine charges, deposit deductions, or responsibility, and do not decide what the law requires for deposit handling or timing. Do not rename or move files until I approve. Pause and show me before sending, posting, signing or changing anything. Use only the sample or made-up information I provide; do not include real tenant or applicant names, IDs or financial details.",
+    "tools_examples": [
+      "Google Workspace",
+      "Microsoft 365",
+      "Spreadsheets",
+      "Property-management software"
+    ],
+    "effect": "Condition photos and notes are grouped for the manager, and the summary stays a draft.",
+    "caution": "Administrative support only: SI does not give legal or lease advice, make leasing, screening or pricing decisions, or act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything client-facing, tenant-facing or contractual. Fair housing laws apply: SI never screens, ranks, steers or targets by protected characteristics, and applicant and tenant information is used only in checked tools with access controls and the minimum necessary. SI organizes records only; it never determines charges, deposit deductions or responsibility, and never decides what the law requires for deposit handling or timing."
+  },
+  {
+    "slug": "property-hurricane-season-prep",
+    "title": "Hurricane-season readiness and tenant communication prep",
+    "category": "Real estate and property management",
+    "summary": "Before the season, SI builds a property readiness sheet from the manager's information and drafts message templates for review in advance.",
+    "problem": "When a storm is forecast, managers scramble to find contacts, shutter and drain checklists, and what to tell residents.",
+    "what_si_does": "Before the season, SI builds a property-by-property readiness sheet from the manager's information (vendor and insurance contacts, utility shutoffs, photo-documentation checklist, resident contact list), and drafts message templates (what we are doing, where to find official updates) for the manager to review in advance. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds applicant or tenant information, the business checks the tool's terms and data practices, sets access controls and limits SI to the minimum necessary. Start with sample or made-up information. Use contacts and checklists the manager already keeps. Drafts stay in a review folder until a person sends them. Setup is often a few days before the season.",
+    "human_checks": [
+      "The agent, broker or manager approves before anything goes to a client, tenant, applicant or vendor.",
+      "SI never sends, posts, signs or changes records on its own.",
+      "Unusual items go to a \"needs manager or attorney review\" queue.",
+      "The business decides what personal data SI may see, and testing starts with sample information.",
+      "The manager decides what to do and what to tell residents, follows the instructions of local authorities, and keeps insurance and licensed-professional decisions in human hands."
+    ],
+    "examples": [
+      {
+        "business_type": "Small property-management company",
+        "scenario": "A readiness sheet for [Property] lists vendor and insurance contacts the manager entered, plus a photo-documentation checklist."
+      },
+      {
+        "business_type": "Landlord with a few rental units",
+        "scenario": "Message templates point residents to official emergency sources. The owner reviews them before hurricane season."
+      },
+      {
+        "business_type": "Independent real estate agent",
+        "scenario": "A South Florida listing the agent manages has a shutoff and contact sheet ready for the owner to use."
+      }
+    ],
+    "copy_prompt": "From this manager-supplied information [paste], build a property-by-property readiness sheet with vendor and insurance contacts, utility shutoffs, a photo-documentation checklist, and the resident contact list. Draft message templates for what we are doing and where to find official updates. Do not give evacuation, safety, or insurance-claim advice, do not tell anyone to stay or go, and make no timing or damage predictions. Point to official emergency sources and 911. Do not send anything. Pause and show me before sending, posting, signing or changing anything. Use only the sample or made-up information I provide; do not include real tenant or applicant names, IDs or financial details.",
+    "tools_examples": [
+      "Google Workspace",
+      "Microsoft 365",
+      "Spreadsheets",
+      "Calendly"
+    ],
+    "effect": "Readiness sheets and message templates are reviewed before a storm is forecast, not during one.",
+    "caution": "Administrative support only: SI does not give legal or lease advice, make leasing, screening or pricing decisions, or act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything client-facing, tenant-facing or contractual. Fair housing laws apply: SI never screens, ranks, steers or targets by protected characteristics, and applicant and tenant information is used only in checked tools with access controls and the minimum necessary. SI never gives evacuation, safety or insurance-claim advice, never tells anyone to stay or go, and points to official emergency sources and 911; it makes no timing or damage predictions."
+  },
+  {
+    "slug": "rental-application-completeness",
+    "title": "Rental application completeness checklist",
+    "category": "Real estate and property management",
+    "summary": "Each application is checked against the manager's own form for missing items, with a neutral request draft and a log in the order received.",
+    "problem": "Applications come in with missing pages, and managers spend time chasing documents.",
+    "what_si_does": "SI generates a checklist from the manager's own application form (fields completed, documents requested, fee receipt noted), drafts a neutral we-are-still-missing-[item] request using the manager's wording, and logs the status of each application in the order received. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds applicant or tenant information, the business checks the tool's terms and data practices, sets access controls and limits SI to the minimum necessary. Start with sample or made-up information. Use the manager's application form and approved missing-item wording. Start with sample applications. Permission is to checklist and draft, not to decide. Setup is often a few days.",
+    "human_checks": [
+      "The agent, broker or manager approves before anything goes to a client, tenant, applicant or vendor.",
+      "SI never sends, posts, signs or changes records on its own.",
+      "Unusual items go to a \"needs manager or attorney review\" queue.",
+      "The business decides what personal data SI may see, and testing starts with sample information.",
+      "The manager sets written, consistent screening criteria, applies them to every applicant the same way, reviews each application, and makes and communicates every decision, including any required notice if an application is denied."
+    ],
+    "examples": [
+      {
+        "business_type": "Small property-management company",
+        "scenario": "An application for [Unit] is checked against the manager's form. A missing-item draft uses the manager's wording and waits for approval."
+      },
+      {
+        "business_type": "Landlord with a few rental units",
+        "scenario": "Applications are logged in the order received. SI does not score or rank anyone."
+      },
+      {
+        "business_type": "Independent real estate agent",
+        "scenario": "A completeness checklist lists fields and documents. The owner reviews the file and makes every decision."
+      }
+    ],
+    "copy_prompt": "From this application form [paste], make a completeness checklist for this sample application [paste]: fields completed, documents requested, fee receipt noted. Draft a neutral we-are-still-missing-[item] request from this approved wording [paste]. Log status in the order received. Do not review, score, rank, recommend, or deny an applicant. Do not evaluate credit, background, or income. Do not describe or evaluate any person or neighborhood; describe only the property. Do not send anything. Do not describe or evaluate any person or neighborhood; describe only the property. Pause and show me before sending, posting, signing or changing anything. Use only the sample or made-up information I provide; do not include real tenant or applicant names, IDs or financial details.",
+    "tools_examples": [
+      "Google Workspace",
+      "Microsoft 365",
+      "Spreadsheets",
+      "Property-management software"
+    ],
+    "effect": "Missing items are listed in the order applications arrived, and every decision stays with the manager.",
+    "caution": "Administrative support only: SI does not give legal or lease advice, make leasing, screening or pricing decisions, or act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything client-facing, tenant-facing or contractual. Fair housing laws apply: SI never screens, ranks, steers or targets by protected characteristics, and applicant and tenant information is used only in checked tools with access controls and the minimum necessary. SI never reviews, scores, ranks, recommends or denies an applicant, never evaluates credit, background or income, and never filters on any protected characteristic or its proxies; the manager applies written criteria equally to everyone and gets legal advice on screening rules."
+  },
+  {
+    "slug": "missed-call-text-back",
+    "title": "Missed-call text-back and inquiry capture",
+    "category": "Home services and contractors",
+    "summary": "A missed call gets the owner's pre-approved informational reply, and every number is logged on a callback list.",
+    "problem": "The owner is on a roof or under a sink, the call goes to voicemail, and the customer calls the next company.",
+    "what_si_does": "Within the tool the business sets up, SI sends the owner's pre-approved reply to a missed call (sorry we missed you, we will call back as soon as we can; for an emergency such as gas, fire or smoke, call 911), logs the caller's number and what they said, and puts every missed call on a callback list for the office or owner.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds customer information, the business checks the tool's terms and data practices, sets access controls and limits SI to the minimum necessary. Start with sample or made-up information. Connect the business phone with permission to log and draft, not to quote or book. Save the informational reply the owner has already approved. Setup is often a few days.",
+    "human_checks": [
+      "The owner or office manager approves before anything goes to a customer, vendor or inspector.",
+      "SI never sends a quote, takes a payment, books a job or submits anything on its own.",
+      "Urgent or unusual items go to a \"needs owner review\" queue.",
+      "The business decides what customer data SI may see, and testing starts with sample information.",
+      "The owner or office returns the call, answers questions, provides prices and books the work.",
+      "The owner approves the text and sets who may be texted."
+    ],
+    "examples": [
+      {
+        "business_type": "Solo plumber",
+        "scenario": "A missed call while the owner is on a job is logged with the number. The approved reply says the office will call back and to dial 911 for gas, fire, or smoke."
+      },
+      {
+        "business_type": "Small HVAC company",
+        "scenario": "Afternoon missed calls sit on a callback list for the office. Texts include no prices or promotions."
+      },
+      {
+        "business_type": "Two-crew roofing business",
+        "scenario": "Numbers and what the caller said are listed for the owner. SI does not promise an arrival time."
+      }
+    ],
+    "copy_prompt": "For these missed calls [paste], log the number and what they said and put each on a callback list. Draft only this owner-approved reply: [paste], including that for an emergency such as gas, fire, or smoke they should call 911. Keep the text informational, with no promotions or pricing. Do not promise arrival times or advise what the caller should do about the problem. Do not send anything I have not approved. Texting rules vary; get consent and honor opt-outs. Pause and show me before sending, quoting, booking, ordering or changing anything. Use only the sample or made-up information I provide; do not include real customer names, addresses or payment details.",
+    "tools_examples": [
+      "Google Workspace",
+      "Microsoft 365",
+      "Calendly",
+      "Field-service software"
+    ],
+    "effect": "Missed calls are on a callback list, and the reply stays inside wording the owner already approved.",
+    "caution": "Office support only: SI does not set or promise prices, give safety, repair, code or insurance advice, or make any commitment for the business. The owner or an authorized person reviews and approves every quote, schedule commitment and customer message. Licensing, advertising, deposit and permit rules vary by state, and customer information is used only in checked tools with access controls. Texts are informational only (no promotions or pricing), SI never promises arrival times, and it gives no advice on what the caller should do about the problem. SI is not an emergency service. Texting rules vary; get consent and honor opt-outs."
+  },
+  {
+    "slug": "contractor-quote-follow-up",
+    "title": "Quote and estimate follow-up for owner review",
+    "category": "Home services and contractors",
+    "summary": "Open quotes sit on one list, with friendly follow-up drafts at the intervals the owner sets.",
+    "problem": "Quotes go out and nobody follows up, so jobs quietly die.",
+    "what_si_does": "SI keeps a list of open quotes (customer, job, date sent, amount as entered by the owner, status), drafts a friendly follow-up at intervals the owner sets, and reminds the owner which quotes to call personally.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds customer information, the business checks the tool's terms and data practices, sets access controls and limits SI to the minimum necessary. Start with sample or made-up information. Use a read-only list of open quotes the owner already keeps, plus the follow-up wording and intervals the owner has chosen. Permission is to draft, not to send. Setup is often a few days.",
+    "human_checks": [
+      "The owner or office manager approves before anything goes to a customer, vendor or inspector.",
+      "SI never sends a quote, takes a payment, books a job or submits anything on its own.",
+      "Urgent or unusual items go to a \"needs owner review\" queue.",
+      "The business decides what customer data SI may see, and testing starts with sample information.",
+      "The owner decides who gets a follow-up, approves the wording, makes the calls, and handles all questions about scope and price."
+    ],
+    "examples": [
+      {
+        "business_type": "Two-crew roofing business",
+        "scenario": "Open quotes are listed with the date sent and the amount the owner entered. Follow-up drafts wait for the owner."
+      },
+      {
+        "business_type": "Small HVAC company",
+        "scenario": "Quotes the owner marked for a personal call are highlighted instead of a standard note."
+      },
+      {
+        "business_type": "Landscaping crew",
+        "scenario": "A follow-up draft uses the owner's wording and does not change or discount the price."
+      }
+    ],
+    "copy_prompt": "From this open-quote list [paste], draft a friendly follow-up at these intervals [paste] from this approved wording [paste]. Remind me which quotes to call personally. Do not change, discount, or promise a price. Do not pressure a customer or use fake deadlines. Do not say anything about insurance coverage or claims. Do not send anything. Pause and show me before sending, quoting, booking, ordering or changing anything. Use only the sample or made-up information I provide; do not include real customer names, addresses or payment details.",
+    "tools_examples": [
+      "QuickBooks",
+      "Spreadsheets",
+      "Google Workspace",
+      "Microsoft 365"
+    ],
+    "effect": "Open quotes have follow-up drafts on the owner's schedule, and personal-call items are set aside.",
+    "caution": "Office support only: SI does not set or promise prices, give safety, repair, code or insurance advice, or make any commitment for the business. The owner or an authorized person reviews and approves every quote, schedule commitment and customer message. Licensing, advertising, deposit and permit rules vary by state, and customer information is used only in checked tools with access controls. SI never changes, discounts or promises a price, never pressures a customer or uses fake deadlines, and never says anything about insurance coverage or claims."
+  },
+  {
+    "slug": "quote-estimate-drafts",
+    "title": "Quote and estimate drafting for owner approval",
+    "category": "Home services and contractors",
+    "summary": "Field notes are formatted onto the business's quote template and labeled as a draft the owner must approve.",
+    "problem": "Writing up a quote from field notes takes evenings.",
+    "what_si_does": "From the owner's price list, rates and the job notes or measurements the owner provides, SI formats a clear quote draft on the business's template (scope, materials, exclusions, terms as written by the owner) labeled DRAFT, owner must approve, and flags missing information.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds customer information, the business checks the tool's terms and data practices, sets access controls and limits SI to the minimum necessary. Start with sample or made-up information. Start from the owner's price list, template, and a sample of job notes. Mark which fields SI may fill. Setup is often a few days.",
+    "human_checks": [
+      "The owner or office manager approves before anything goes to a customer, vendor or inspector.",
+      "SI never sends a quote, takes a payment, books a job or submits anything on its own.",
+      "Urgent or unusual items go to a \"needs owner review\" queue.",
+      "The business decides what customer data SI may see, and testing starts with sample information.",
+      "The owner or estimator checks the scope, measurements and every price, adds the license number and any required notices, and approves and sends the quote."
+    ],
+    "examples": [
+      {
+        "business_type": "Solo plumber",
+        "scenario": "Job notes for [Address] are placed on the owner's template. Missing measurements are flagged, and every price waits for the owner."
+      },
+      {
+        "business_type": "Two-crew roofing business",
+        "scenario": "The draft is labeled DRAFT, owner must approve. The license number is left for the owner to add."
+      },
+      {
+        "business_type": "Small HVAC company",
+        "scenario": "Exclusions and terms come only from the owner's template. SI does not decide what work is needed."
+      }
+    ],
+    "copy_prompt": "From this price list and template [paste] and these job notes or measurements [paste], format a quote draft labeled DRAFT, owner must approve. Flag missing information. Do not set a price on your own judgment, decide what work is needed, or write contract terms. Do not decide prices, code requirements or whether a permit is needed. Do not send anything. Do not decide prices, code requirements or whether a permit is needed. Pause and show me before sending, quoting, booking, ordering or changing anything. Use only the sample or made-up information I provide; do not include real customer names, addresses or payment details.",
+    "tools_examples": [
+      "QuickBooks",
+      "Google Workspace",
+      "Microsoft 365",
+      "Spreadsheets"
+    ],
+    "effect": "A quote draft sits on the owner's template with blanks marked, ready for prices and the license number.",
+    "caution": "Office support only: SI does not set or promise prices, give safety, repair, code or insurance advice, or make any commitment for the business. The owner or an authorized person reviews and approves every quote, schedule commitment and customer message. Licensing, advertising, deposit and permit rules vary by state, and customer information is used only in checked tools with access controls. SI never sets a price on its own judgment, never decides what work is needed, code-required or safe, never writes contract terms, and advertising, license-number, deposit and permit rules vary by state and are the owner's to apply. SI does not write insurance-claim or deductible messaging; check your state's rules."
+  },
+  {
+    "slug": "crew-dispatch-schedule-prep",
+    "title": "Scheduling and dispatch prep for owner approval",
+    "category": "Home services and contractors",
+    "summary": "From jobs, crews and service areas the owner provides, SI drafts a proposed daily schedule, job sheets and appointment-window confirmations.",
+    "problem": "Building tomorrow's route and job list from texts and a calendar is a nightly puzzle.",
+    "what_si_does": "From the jobs, crew availability and service areas the owner provides, SI drafts a proposed daily schedule and route order, a job sheet for each crew (address, job notes, customer contact, parts needed), and customer appointment-window confirmations for approval.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds customer information, the business checks the tool's terms and data practices, sets access controls and limits SI to the minimum necessary. Start with sample or made-up information. Use the calendar, crew list, and job notes the owner already keeps. Permission is to propose, not to commit. Setup is often a few days.",
+    "human_checks": [
+      "The owner or office manager approves before anything goes to a customer, vendor or inspector.",
+      "SI never sends a quote, takes a payment, books a job or submits anything on its own.",
+      "Urgent or unusual items go to a \"needs owner review\" queue.",
+      "The business decides what customer data SI may see, and testing starts with sample information.",
+      "The owner or dispatcher approves the schedule, assigns crews by qualification, handles changes and emergencies, and tells customers the actual windows."
+    ],
+    "examples": [
+      {
+        "business_type": "Two-crew roofing business",
+        "scenario": "A proposed route order for tomorrow lists [Address] jobs and parts needed. The owner assigns crews."
+      },
+      {
+        "business_type": "Small HVAC company",
+        "scenario": "Appointment-window confirmation drafts wait for the dispatcher. SI does not commit an arrival time."
+      },
+      {
+        "business_type": "Pool-service company",
+        "scenario": "Job sheets list customer contact and notes the owner entered. Licensed work is left for the owner to assign."
+      }
+    ],
+    "copy_prompt": "From these jobs, crew availability, and service areas [paste], draft a proposed daily schedule and route order, a job sheet for each crew, and appointment-window confirmations. Do not commit a crew or arrival time. Do not assign work that needs a licensed person to an unlicensed worker. Do not decide what is an emergency call. Do not send anything. Pause and show me before sending, quoting, booking, ordering or changing anything. Use only the sample or made-up information I provide; do not include real customer names, addresses or payment details.",
+    "tools_examples": [
+      "Google Workspace",
+      "Microsoft 365",
+      "Calendly",
+      "Field-service software"
+    ],
+    "effect": "Tomorrow's proposed schedule and job sheets are ready for the owner or dispatcher to approve.",
+    "caution": "Office support only: SI does not set or promise prices, give safety, repair, code or insurance advice, or make any commitment for the business. The owner or an authorized person reviews and approves every quote, schedule commitment and customer message. Licensing, advertising, deposit and permit rules vary by state, and customer information is used only in checked tools with access controls. SI proposes only; it never commits a crew or arrival time, never assigns work that needs a licensed person to an unlicensed worker, and never decides what is an emergency call."
+  },
+  {
+    "slug": "job-photo-organization",
+    "title": "Job-photo organization",
+    "category": "Home services and contractors",
+    "summary": "Before, during and after photos are sorted by customer, address, job and date, with consistent names for the job file.",
+    "problem": "Before, during and after photos are scattered across phones and never filed with the job.",
+    "what_si_does": "From the photos and notes the crew uploads to the business's shared folder, SI sorts them by customer, address, job and date, applies consistent names, and builds a simple photo log for the job file and for the owner to use in a customer report.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds customer information, the business checks the tool's terms and data practices, sets access controls and limits SI to the minimum necessary. Start with sample or made-up information. Use a shared folder the business already has and a naming pattern the owner wants. Start with sample photos. Setup is often a few days.",
+    "human_checks": [
+      "The owner or office manager approves before anything goes to a customer, vendor or inspector.",
+      "SI never sends a quote, takes a payment, books a job or submits anything on its own.",
+      "Urgent or unusual items go to a \"needs owner review\" queue.",
+      "The business decides what customer data SI may see, and testing starts with sample information.",
+      "The crew lead confirms the right photos are on the right job.",
+      "The owner decides what is shared with a customer or an insurer and keeps records as the business's policy requires."
+    ],
+    "examples": [
+      {
+        "business_type": "Two-crew roofing business",
+        "scenario": "Photos for [Job] at [Address] are grouped by date with consistent names. The owner decides what is shared."
+      },
+      {
+        "business_type": "Solo plumber",
+        "scenario": "Before and after photos sit in the job folder. SI does not describe damage or cause from a photo."
+      },
+      {
+        "business_type": "Landscaping crew",
+        "scenario": "A photo log lists files by customer and date for the owner to use in a report."
+      }
+    ],
+    "copy_prompt": "From these photo and note names [paste], sort them by customer, address, job, and date, propose consistent names, and build a simple photo log. Do not describe damage, cause, code compliance, or safety from a photo. Do not share anything. Pause and show me before renaming or moving files. Pause and show me before sending, quoting, booking, ordering or changing anything. Use only the sample or made-up information I provide; do not include real customer names, addresses or payment details.",
+    "tools_examples": [
+      "Google Workspace",
+      "Microsoft 365",
+      "Spreadsheets",
+      "Field-service software"
+    ],
+    "effect": "Job photos sit in one folder with a log, ready for the owner to share or keep.",
+    "caution": "Office support only: SI does not set or promise prices, give safety, repair, code or insurance advice, or make any commitment for the business. The owner or an authorized person reviews and approves every quote, schedule commitment and customer message. Licensing, advertising, deposit and permit rules vary by state, and customer information is used only in checked tools with access controls. SI only organizes what is uploaded and never describes damage, cause, code compliance or safety from a photo; customers' faces, documents and interiors are handled privately and shared only with the owner's approval."
+  },
+  {
+    "slug": "contractor-invoice-reminders",
+    "title": "Invoice reminders and payment follow-up for owner review",
+    "category": "Home services and contractors",
+    "summary": "From the invoicing export, SI builds an aging list and drafts polite reminders, flagging accounts for the owner to call.",
+    "problem": "Invoices go out and unpaid ones are discovered weeks later.",
+    "what_si_does": "From the invoicing export the owner provides, SI builds an aging list, drafts polite reminders at set intervals, and flags accounts for the owner to call.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds customer information, the business checks the tool's terms and data practices, sets access controls and limits SI to the minimum necessary. Start with sample or made-up information. Use a read-only aging export and the reminder wording and intervals the owner has already chosen. Permission is to draft, not to send. Setup is often a few days.",
+    "human_checks": [
+      "The owner or office manager approves before anything goes to a customer, vendor or inspector.",
+      "SI never sends a quote, takes a payment, books a job or submits anything on its own.",
+      "Urgent or unusual items go to a \"needs owner review\" queue.",
+      "The business decides what customer data SI may see, and testing starts with sample information.",
+      "The owner approves messages, sets any payment plan, discount or write-off, and decides on any lien or collection step with proper advice."
+    ],
+    "examples": [
+      {
+        "business_type": "Residential cleaning business",
+        "scenario": "An aging list shows which invoices have passed the owner's first reminder interval. Drafts wait for approval."
+      },
+      {
+        "business_type": "Small HVAC company",
+        "scenario": "Accounts the owner marked to call are highlighted. SI does not add fees."
+      },
+      {
+        "business_type": "Solo plumber",
+        "scenario": "Reminder drafts follow the owner's wording and do not threaten liens or legal action."
+      }
+    ],
+    "copy_prompt": "From this invoicing export [paste], build an aging list and draft polite reminders at these intervals [paste] from this approved wording [paste]. Flag accounts for me to call. Do not threaten liens or legal action, add fees or interest, or decide what a customer owes. Do not send anything. Texting rules vary; get consent and honor opt-outs. Pause and show me before sending, quoting, booking, ordering or changing anything. Use only the sample or made-up information I provide; do not include real customer names, addresses or payment details.",
+    "tools_examples": [
+      "QuickBooks",
+      "Spreadsheets",
+      "Google Workspace",
+      "Microsoft 365"
+    ],
+    "effect": "Unpaid invoices are listed with reminder drafts, and disputes stay with the owner.",
+    "caution": "Office support only: SI does not set or promise prices, give safety, repair, code or insurance advice, or make any commitment for the business. The owner or an authorized person reviews and approves every quote, schedule commitment and customer message. Licensing, advertising, deposit and permit rules vary by state, and customer information is used only in checked tools with access controls. SI never threatens liens or legal action, never adds fees or interest, never sends anything on its own, and does not decide what a customer owes; disputes go to the owner. Texting rules vary; get consent and honor opt-outs."
+  },
+  {
+    "slug": "contractor-review-reply-drafts",
+    "title": "Review requests and review-reply drafts for owner approval",
+    "category": "Home services and contractors",
+    "summary": "SI drafts a short review request for completed jobs the owner chooses, and calm reply options to public reviews for the owner to edit.",
+    "problem": "Satisfied customers rarely post reviews, and negative reviews are answered late or angrily.",
+    "what_si_does": "SI drafts a short, neutral review request for the owner to send to completed-job customers the owner chooses, and drafts calm reply options to public reviews for the owner to edit.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds customer information, the business checks the tool's terms and data practices, sets access controls and limits SI to the minimum necessary. Start with sample or made-up information. Start with review-request wording the owner has approved and a few public reviews as examples, with no extra customer detail. Setup is often a day or two.",
+    "human_checks": [
+      "The owner or office manager approves before anything goes to a customer, vendor or inspector.",
+      "SI never sends a quote, takes a payment, books a job or submits anything on its own.",
+      "Urgent or unusual items go to a \"needs owner review\" queue.",
+      "The business decides what customer data SI may see, and testing starts with sample information.",
+      "The owner picks who is asked, approves each reply, and does not offer or accept anything in exchange for a good review."
+    ],
+    "examples": [
+      {
+        "business_type": "Pool-service company",
+        "scenario": "A review-request draft is prepared only for completed jobs the owner listed. The owner sends it."
+      },
+      {
+        "business_type": "Two-crew roofing business",
+        "scenario": "Calm reply options to a public review wait for the owner to edit. Nothing is said about work quality or code."
+      },
+      {
+        "business_type": "Residential cleaning business",
+        "scenario": "The owner picks who is asked. SI does not write, buy, or filter reviews."
+      }
+    ],
+    "copy_prompt": "Draft a short, neutral review request from this approved wording [paste] for these completed jobs the owner chose [paste]. Draft calm reply options to this public review [paste] for the owner to edit. Do not write, buy, or filter reviews, fabricate testimonials, offer incentives tied to a rating, or write anything about the quality, safety, or code compliance of work. Do not send or post anything. Texting rules vary; get consent and honor opt-outs. Pause and show me before sending, quoting, booking, ordering or changing anything. Use only the sample or made-up information I provide; do not include real customer names, addresses or payment details.",
+    "tools_examples": [
+      "Google Workspace",
+      "Microsoft 365",
+      "Spreadsheets",
+      "Calendly"
+    ],
+    "effect": "Review requests and public replies start as drafts the owner can edit, and nothing is posted until it is approved.",
+    "caution": "Office support only: SI does not set or promise prices, give safety, repair, code or insurance advice, or make any commitment for the business. The owner or an authorized person reviews and approves every quote, schedule commitment and customer message. Licensing, advertising, deposit and permit rules vary by state, and customer information is used only in checked tools with access controls. SI never writes, buys or filters reviews, never fabricates testimonials, never offers incentives tied to a rating, and never writes anything about the quality, safety or code compliance of work; rules on reviews and advertising apply, so check yours. Texting rules vary; get consent and honor opt-outs."
+  },
+  {
+    "slug": "warranty-maintenance-reminders",
+    "title": "Warranty and maintenance reminder drafts",
+    "category": "Home services and contractors",
+    "summary": "From install, service or warranty dates the owner provides, SI drafts seasonal maintenance messages for approval.",
+    "problem": "Customers forget annual tune-ups, filter changes and warranty dates, and the business loses repeat work.",
+    "what_si_does": "SI builds a reminder list from the install, service or warranty dates the owner provides, drafts a seasonal time-for-your-[service] message for approval, and tracks who responded.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds customer information, the business checks the tool's terms and data practices, sets access controls and limits SI to the minimum necessary. Start with sample or made-up information. Use dates the owner has on file and the reminder wording the owner has approved. Permission is to draft, not to send. Setup is often a few days.",
+    "human_checks": [
+      "The owner or office manager approves before anything goes to a customer, vendor or inspector.",
+      "SI never sends a quote, takes a payment, books a job or submits anything on its own.",
+      "Urgent or unusual items go to a \"needs owner review\" queue.",
+      "The business decides what customer data SI may see, and testing starts with sample information.",
+      "The owner defines the service intervals and what is covered, approves the wording, and decides what the warranty means in each case."
+    ],
+    "examples": [
+      {
+        "business_type": "Small HVAC company",
+        "scenario": "A reminder list is built from install dates the owner entered. The draft says it is time to schedule maintenance, with no coverage claim."
+      },
+      {
+        "business_type": "Pool-service company",
+        "scenario": "Seasonal messages wait for the owner. Who responded is logged after the owner sends them."
+      },
+      {
+        "business_type": "Landscaping crew",
+        "scenario": "A spring reminder uses the owner's wording and includes no performance claims."
+      }
+    ],
+    "copy_prompt": "From these install, service, or warranty dates [paste], build a reminder list and draft a seasonal time-for-your-[service] message from this approved wording [paste]. Track who responded. Do not state what a warranty covers or promise coverage. Keep reminders generic, with no safety or performance claims. Do not send anything. Texting rules vary; get consent and honor opt-outs. Pause and show me before sending, quoting, booking, ordering or changing anything. Use only the sample or made-up information I provide; do not include real customer names, addresses or payment details.",
+    "tools_examples": [
+      "Spreadsheets",
+      "Google Workspace",
+      "Microsoft 365",
+      "Calendly"
+    ],
+    "effect": "Maintenance dates the owner entered become reminder drafts, with no coverage language added.",
+    "caution": "Office support only: SI does not set or promise prices, give safety, repair, code or insurance advice, or make any commitment for the business. The owner or an authorized person reviews and approves every quote, schedule commitment and customer message. Licensing, advertising, deposit and permit rules vary by state, and customer information is used only in checked tools with access controls. SI never states what a warranty covers or promises coverage; reminders are generic (time to schedule maintenance) and include no safety or performance claims. Texting rules vary; get consent and honor opt-outs."
+  },
+  {
+    "slug": "parts-materials-reordering",
+    "title": "Parts and materials reorder lists for owner approval",
+    "category": "Home services and contractors",
+    "summary": "From counts and job usage the owner provides, SI keeps a par-level list and drafts reorder lists by supplier.",
+    "problem": "Trucks run short on common parts, or the shop is overstocked with the wrong ones.",
+    "what_si_does": "From the counts and job usage the owner provides, SI keeps a par-level list, drafts reorder lists by supplier, and flags items that were used on jobs but not yet restocked.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds customer information, the business checks the tool's terms and data practices, sets access controls and limits SI to the minimum necessary. Start with sample or made-up information. Use the counts and par levels the owner already keeps. Permission is to draft lists, not to place orders. Setup is often a few days.",
+    "human_checks": [
+      "The owner or office manager approves before anything goes to a customer, vendor or inspector.",
+      "SI never sends a quote, takes a payment, books a job or submits anything on its own.",
+      "Urgent or unusual items go to a \"needs owner review\" queue.",
+      "The business decides what customer data SI may see, and testing starts with sample information.",
+      "A person verifies counts, approves every order, and picks suppliers and specifications."
+    ],
+    "examples": [
+      {
+        "business_type": "Small HVAC company",
+        "scenario": "Items used on jobs and not yet restocked are flagged. The reorder list waits for the owner to approve."
+      },
+      {
+        "business_type": "Solo plumber",
+        "scenario": "A par-level list is drafted by supplier from counts the owner entered. SI does not place an order."
+      },
+      {
+        "business_type": "Pool-service company",
+        "scenario": "The owner picks specifications. SI does not recommend a part for a safety or code purpose."
+      }
+    ],
+    "copy_prompt": "From these counts, par levels, and job usage [paste], keep a par-level list, draft reorder lists by supplier, and flag items used on jobs but not yet restocked. Do not place an order. Do not recommend a part for a safety or code purpose, and do not decide what equipment suits a job. Pause and show me before sending, quoting, booking, ordering or changing anything. Use only the sample or made-up information I provide; do not include real customer names, addresses or payment details.",
+    "tools_examples": [
+      "Spreadsheets",
+      "QuickBooks",
+      "Google Workspace",
+      "Microsoft 365"
+    ],
+    "effect": "Reorder lists are grouped by supplier from the owner's counts, and nothing is ordered until a person approves.",
+    "caution": "Office support only: SI does not set or promise prices, give safety, repair, code or insurance advice, or make any commitment for the business. The owner or an authorized person reviews and approves every quote, schedule commitment and customer message. Licensing, advertising, deposit and permit rules vary by state, and customer information is used only in checked tools with access controls. SI never places an order, never recommends a part for a safety or code purpose, and never decides what equipment suits a job."
+  },
+  {
+    "slug": "permit-inspection-tracking",
+    "title": "Permit and inspection tracking",
+    "category": "Home services and contractors",
+    "summary": "Each job's permit and inspection dates the owner entered sit in a tracker, with reminders and routine status-email drafts.",
+    "problem": "Permits and inspections are missed or forgotten, which stalls jobs and can cause problems later.",
+    "what_si_does": "SI keeps a tracker per job (permit needed per the owner, applied date, permit number, inspection dates, status), reminds the office of next steps and stale items, and drafts routine status emails to the permitting office for the owner to send.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds customer information, the business checks the tool's terms and data practices, sets access controls and limits SI to the minimum necessary. Start with sample or made-up information. Use only dates and permit numbers the owner has entered. SI does not decide whether a permit is required. Setup is often a few days.",
+    "human_checks": [
+      "The owner or office manager approves before anything goes to a customer, vendor or inspector.",
+      "SI never sends a quote, takes a payment, books a job or submits anything on its own.",
+      "Urgent or unusual items go to a \"needs owner review\" queue.",
+      "The business decides what customer data SI may see, and testing starts with sample information.",
+      "The owner or licensed qualifier decides which permits are required, pulls and signs the permits, and attends or schedules inspections."
+    ],
+    "examples": [
+      {
+        "business_type": "Two-crew roofing business",
+        "scenario": "A tracker for [Job] lists the permit number and inspection dates the owner entered. Stale items are flagged for the office."
+      },
+      {
+        "business_type": "Small HVAC company",
+        "scenario": "A routine status-email draft to the permitting office waits for the owner to send."
+      },
+      {
+        "business_type": "Solo plumber",
+        "scenario": "Next-step reminders cover only dates the owner supplied. SI does not say whether a permit is required."
+      }
+    ],
+    "copy_prompt": "Keep a tracker per job from these owner-entered fields [paste]: permit needed per the owner, applied date, permit number, inspection dates, status. Remind the office of next steps and stale items. Draft routine status emails for the owner to send. Do not decide prices, code requirements or whether a permit is needed. Do not say whether work passes code or what a deadline legally is. Permit, deposit, and start-date rules vary by state and city, so the owner checks theirs. Do not send anything. Do not decide prices, code requirements or whether a permit is needed. Pause and show me before sending, quoting, booking, ordering or changing anything. Use only the sample or made-up information I provide; do not include real customer names, addresses or payment details.",
+    "tools_examples": [
+      "Spreadsheets",
+      "Google Workspace",
+      "Microsoft 365",
+      "Field-service software"
+    ],
+    "effect": "Permit and inspection dates the owner entered are visible, with routine drafts ready to send.",
+    "caution": "Office support only: SI does not set or promise prices, give safety, repair, code or insurance advice, or make any commitment for the business. The owner or an authorized person reviews and approves every quote, schedule commitment and customer message. Licensing, advertising, deposit and permit rules vary by state, and customer information is used only in checked tools with access controls. SI tracks only what the owner enters and never says whether a permit is required, whether work passes code, or what a deadline legally is; permit, deposit and start-date rules vary by state and city, so check yours."
+  },
+  {
+    "slug": "contractor-after-hours-sorting",
+    "title": "After-hours call and message sorting",
+    "category": "Home services and contractors",
+    "summary": "Overnight messages are sorted into queues, with gas, fire, smoke or flooding flagged for the owner and one approved acknowledgment.",
+    "problem": "Calls and web forms arrive at night, and a true emergency can sit next to a routine request.",
+    "what_si_does": "SI sorts overnight messages into queues (new job request, existing customer, billing, supplier, spam), pulls out name, address, contact and the problem as described, flags messages mentioning gas, fire, smoke, flooding or electrical hazards to the top for the owner, and sends one approved acknowledgment: the business will follow up, and for an emergency call 911 or the utility.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds customer information, the business checks the tool's terms and data practices, sets access controls and limits SI to the minimum necessary. Start with sample or made-up information. Connect the inbox or web form with permission to read and draft, not to dispatch. Save the acknowledgment the owner has already approved. Setup is often a few days.",
+    "human_checks": [
+      "The owner or office manager approves before anything goes to a customer, vendor or inspector.",
+      "SI never sends a quote, takes a payment, books a job or submits anything on its own.",
+      "Urgent or unusual items go to a \"needs owner review\" queue.",
+      "The business decides what customer data SI may see, and testing starts with sample information.",
+      "The owner or on-call person reads the queue first thing, decides who gets a callback and when, and handles every emergency dispatch."
+    ],
+    "examples": [
+      {
+        "business_type": "Small HVAC company",
+        "scenario": "Overnight messages are split into new job, existing customer, billing, supplier, and spam. Mentions of gas or no heat with smoke are flagged to the top."
+      },
+      {
+        "business_type": "Solo plumber",
+        "scenario": "The approved acknowledgment says the business will follow up and to call 911 or the utility in an emergency."
+      },
+      {
+        "business_type": "Two-crew roofing business",
+        "scenario": "Name, address, and the problem as described are pulled out. SI does not say the crew will arrive at a time."
+      }
+    ],
+    "copy_prompt": "Sort these overnight messages [paste] into new job request, existing customer, billing, supplier, and spam. Pull out name, address, contact, and the problem as described. Flag messages mentioning gas, fire, smoke, flooding, or electrical hazards to the top. Draft only this approved acknowledgment: [paste], including that for an emergency they should call 911 or the utility. Do not give safety instructions, troubleshoot hazards, or tell a caller what to do. Do not say the business will arrive at a time. Do not send anything I have not approved. Texting rules vary; get consent and honor opt-outs. Pause and show me before sending, quoting, booking, ordering or changing anything. Use only the sample or made-up information I provide; do not include real customer names, addresses or payment details.",
+    "tools_examples": [
+      "Google Workspace",
+      "Microsoft 365",
+      "Field-service software",
+      "Calendly"
+    ],
+    "effect": "Overnight messages are queued before the office opens, with anything that sounds urgent sitting at the top for a person.",
+    "caution": "Office support only: SI does not set or promise prices, give safety, repair, code or insurance advice, or make any commitment for the business. The owner or an authorized person reviews and approves every quote, schedule commitment and customer message. Licensing, advertising, deposit and permit rules vary by state, and customer information is used only in checked tools with access controls. SI never gives safety instructions, troubleshoots hazards or tells a caller what to do, never says the business will arrive at a time, and is not an emergency service; the approved acknowledgment is the only auto-reply. Texting rules vary; get consent and honor opt-outs."
+  },
+  {
+    "slug": "contractor-license-insurance-tracker",
+    "title": "License, insurance and subcontractor document tracking",
+    "category": "Home services and contractors",
+    "summary": "The business's own and its subs' license, insurance and tax-form dates the owner verified sit in a tracker, with reminder and request drafts.",
+    "problem": "Certificates of insurance, licenses and W-9s for subs and vendors expire or go missing until a customer or GC asks.",
+    "what_si_does": "SI keeps a tracker of the business's own and its subs' license, insurance and tax-form documents and dates the owner has verified, reminds the office ahead of expiry, and drafts please-send-an-updated-certificate requests.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds customer information, the business checks the tool's terms and data practices, sets access controls and limits SI to the minimum necessary. Start with sample or made-up information. Use dates the owner has verified against the issuing source. Permission is to track and draft, not to confirm validity. Setup is often a few days.",
+    "human_checks": [
+      "The owner or office manager approves before anything goes to a customer, vendor or inspector.",
+      "SI never sends a quote, takes a payment, books a job or submits anything on its own.",
+      "Urgent or unusual items go to a \"needs owner review\" queue.",
+      "The business decides what customer data SI may see, and testing starts with sample information.",
+      "The owner verifies documents against the issuing source, decides whether a sub may work, and handles renewals."
+    ],
+    "examples": [
+      {
+        "business_type": "Two-crew roofing business",
+        "scenario": "Expiry dates the owner verified sit in one tracker. A request draft for an updated certificate waits for the owner."
+      },
+      {
+        "business_type": "Small HVAC company",
+        "scenario": "The office is reminded ahead of a date the owner entered. SI does not confirm that a policy is valid."
+      },
+      {
+        "business_type": "Landscaping crew",
+        "scenario": "W-9 and license documents are listed as on file or missing. The owner decides who may work."
+      }
+    ],
+    "copy_prompt": "Keep a tracker of these license, insurance, and tax-form documents and dates the owner has verified [paste]. Remind the office ahead of expiry. Draft please-send-an-updated-certificate requests from this wording [paste]. Do not confirm that a license or policy is valid, decide who may do licensed work, or give insurance or licensing advice. Do not send anything. Pause and show me before sending, quoting, booking, ordering or changing anything. Use only the sample or made-up information I provide; do not include real customer names, addresses or payment details.",
+    "tools_examples": [
+      "Spreadsheets",
+      "Google Workspace",
+      "Microsoft 365",
+      "QuickBooks"
+    ],
+    "effect": "Document dates the owner verified are visible, with request drafts ready before something expires.",
+    "caution": "Office support only: SI does not set or promise prices, give safety, repair, code or insurance advice, or make any commitment for the business. The owner or an authorized person reviews and approves every quote, schedule commitment and customer message. Licensing, advertising, deposit and permit rules vary by state, and customer information is used only in checked tools with access controls. SI tracks dates and requests documents only; it never confirms that a license or policy is valid, never decides who may do licensed work, and gives no insurance or licensing advice."
+  },
+  {
+    "slug": "client-document-chasing",
+    "title": "Client document chasing",
+    "category": "Accounting, tax and bookkeeping firms",
+    "summary": "From the firm's checklist, SI keeps a per-client list of outstanding items and drafts reminders in the firm's voice.",
+    "problem": "Every busy season, staff spend hours asking clients for the same missing W-2s, statements and receipts.",
+    "what_si_does": "From the firm's own checklist and what has been received, SI keeps a per-client list of what is outstanding, drafts polite, firm-voice reminders at intervals the firm sets, and gives staff a morning list of who to call.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds client information, the firm checks the tool against its written information security plan, confirms the agreements and any client consent required for tax return information, sets access controls and multi-factor authentication, and limits SI to the minimum necessary. Start with sample or made-up information. Use the firm's checklist and a sample of what has been received. Permission is to draft, not to send. Setup is often a few days.",
+    "human_checks": [
+      "The CPA, EA or preparer reviews and approves before anything goes to a client, agency or third party.",
+      "SI never sends, files, e-signs or posts on its own.",
+      "Unusual items go to a \"needs professional review\" queue.",
+      "The firm decides what client data SI may see, and testing starts with sample or made-up information.",
+      "Staff approves the wording and cadence, sends or approves each reminder, decides what is actually required for the engagement, and reviews each document received."
+    ],
+    "examples": [
+      {
+        "business_type": "Small tax-preparation office",
+        "scenario": "A per-client list shows which items on the firm's checklist are still outstanding. Reminder drafts wait for staff."
+      },
+      {
+        "business_type": "Solo CPA",
+        "scenario": "The morning list names who to call. Messages list items by name only, with no account numbers or amounts."
+      },
+      {
+        "business_type": "Two-partner accounting firm",
+        "scenario": "Drafts tell clients to use the firm's portal rather than plain email."
+      }
+    ],
+    "copy_prompt": "From this firm checklist and what has been received [paste], keep a per-client list of what is outstanding. Draft polite reminders at these intervals [paste] in this firm voice [paste]. Give a morning list of who to call. Do not tell a client what they owe, what to claim, or what is deductible. List items by name only; avoid account numbers, SSNs, or amounts. Tell clients to use the firm's secure portal rather than plain email. Do not send anything. Pause and show me before sending, filing, posting or changing anything. Use only the sample or made-up information I provide; do not include real client names, SSNs, account numbers or tax details.",
+    "tools_examples": [
+      "Google Workspace",
+      "Microsoft 365",
+      "Calendly",
+      "Practice-management software"
+    ],
+    "effect": "Outstanding documents are on one list, and reminder drafts stay inside the firm's wording.",
+    "caution": "Administrative support only: SI does not give tax or accounting advice, prepare or sign returns or reports, file anything, or calculate legal deadlines. A qualified professional reviews, signs and approves all work product and every date SI tracks. Client information is used only in tools the firm has vetted, under its written security plan and with any client consent or agreements the rules require. SI never tells a client what they owe, what to claim or what is deductible; messages list items by name only, avoid account numbers, SSNs or amounts, and tell clients to use the firm's portal rather than plain email."
+  },
+  {
+    "slug": "tax-new-client-intake",
+    "title": "New-client intake organization",
+    "category": "Accounting, tax and bookkeeping firms",
+    "summary": "New-client files are organized from the firm's templates, with a one-page summary of what has and has not been received.",
+    "problem": "New-client information arrives in emails, photos and PDFs, and setting up the file takes a long time.",
+    "what_si_does": "SI builds an intake checklist and a clean file structure from the firm's templates, files received documents under consistent names, and produces a one-page summary of what has and has not been received.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds client information, the firm checks the tool against its written information security plan, confirms the agreements and any client consent required for tax return information, sets access controls and multi-factor authentication, and limits SI to the minimum necessary. Start with sample or made-up information. Use the firm's intake templates and a sample packet. Collect documents only through tools the firm has vetted. Setup is often a few days.",
+    "human_checks": [
+      "The CPA, EA or preparer reviews and approves before anything goes to a client, agency or third party.",
+      "SI never sends, files, e-signs or posts on its own.",
+      "Unusual items go to a \"needs professional review\" queue.",
+      "The firm decides what client data SI may see, and testing starts with sample or made-up information.",
+      "The firm decides whether to accept the client, collects signed engagement documents, verifies identity as its procedures require, and reviews all documents."
+    ],
+    "examples": [
+      {
+        "business_type": "Solo CPA",
+        "scenario": "A new-client packet is filed under consistent names from the firm's template. A one-page summary lists what is still missing."
+      },
+      {
+        "business_type": "Bookkeeping firm with recurring clients",
+        "scenario": "Intake checklists follow the firm's own steps. SI does not interpret the documents."
+      },
+      {
+        "business_type": "Small tax-preparation office",
+        "scenario": "Identity numbers stay in tools the firm has vetted. The professional reviews every file."
+      }
+    ],
+    "copy_prompt": "From these firm templates [paste], build an intake checklist and a clean file structure for this sample packet [paste]. File documents under consistent names and produce a one-page summary of what has and has not been received. Organize only; do not interpret or advise. Do not send anything. Tax return information has special disclosure and use rules for preparers; check with your professional advisor before using any outside tool. Pause and show me before sending, filing, posting or changing anything. Use only the sample or made-up information I provide; do not include real client names, SSNs, account numbers or tax details.",
+    "tools_examples": [
+      "Google Workspace",
+      "Microsoft 365",
+      "Client portal the firm already uses",
+      "Practice-management software"
+    ],
+    "effect": "New files follow the firm's structure, with a summary of what is still missing for a person to review.",
+    "caution": "Administrative support only: SI does not give tax or accounting advice, prepare or sign returns or reports, file anything, or calculate legal deadlines. A qualified professional reviews, signs and approves all work product and every date SI tracks. Client information is used only in tools the firm has vetted, under its written security plan and with any client consent or agreements the rules require. SI organizes and does not interpret or advise; client identity numbers and tax documents go only into tools the firm has vetted under its written security plan. Tax return information has special disclosure and use rules for preparers; check with your professional advisor before using any outside tool."
+  },
+  {
+    "slug": "tax-deadline-tracking",
+    "title": "Deadline tracking, human-verified",
+    "category": "Accounting, tax and bookkeeping firms",
+    "summary": "Due dates a professional has verified against official sources sit in one tracker, with reminders and a weekly list for the partner.",
+    "problem": "Client due dates, extensions and recurring filings live in scattered calendars, and one missed date is costly.",
+    "what_si_does": "SI keeps a client calendar and tracker from due dates a professional has verified against official sources, reminds the assigned staff member at intervals the firm sets, and shows a weekly coming-up and overdue list for the partner.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds client information, the firm checks the tool against its written information security plan, confirms the agreements and any client consent required for tax return information, sets access controls and multi-factor authentication, and limits SI to the minimum necessary. Start with sample or made-up information. Use only dates a professional has already verified. The firm keeps its own calendar of record. Setup is often a few days.",
+    "human_checks": [
+      "The CPA, EA or preparer reviews and approves before anything goes to a client, agency or third party.",
+      "SI never sends, files, e-signs or posts on its own.",
+      "Unusual items go to a \"needs professional review\" queue.",
+      "The firm decides what client data SI may see, and testing starts with sample or made-up information.",
+      "A professional verifies every date against the IRS, state and local sources and decides extensions and whether a filing is required."
+    ],
+    "examples": [
+      {
+        "business_type": "Two-partner accounting firm",
+        "scenario": "Dates a professional verified sit in one tracker. The weekly list shows what is coming up and what is overdue."
+      },
+      {
+        "business_type": "Small tax-preparation office",
+        "scenario": "Reminders go to the assigned staff member at intervals the firm set. SI does not add dates of its own."
+      },
+      {
+        "business_type": "Solo CPA",
+        "scenario": "The firm's calendar of record stays with the professional. SI only tracks what was entered."
+      }
+    ],
+    "copy_prompt": "Keep a tracker from these due dates a professional has already verified [paste]. Remind assigned staff at these intervals [paste]. Show a weekly coming-up and overdue list. Do not calculate or confirm any due date, threshold or tax; list only what I give you for a professional to verify. Do not determine whether anyone must file. Tax dates and rules differ by state, so the firm checks theirs. Do not send anything. Do not calculate or confirm any due date, threshold or tax; list only what I give you for a professional to verify. Pause and show me before sending, filing, posting or changing anything. Use only the sample or made-up information I provide; do not include real client names, SSNs, account numbers or tax details.",
+    "tools_examples": [
+      "Google Workspace",
+      "Microsoft 365",
+      "Calendly",
+      "Practice-management software"
+    ],
+    "effect": "Verified dates sit in one list with reminders, and the partner sees what is coming up that week.",
+    "caution": "Administrative support only: SI does not give tax or accounting advice, prepare or sign returns or reports, file anything, or calculate legal deadlines. A qualified professional reviews, signs and approves all work product and every date SI tracks. Client information is used only in tools the firm has vetted, under its written security plan and with any client consent or agreements the rules require. SI never calculates or confirms a legal due date, never determines whether anyone must file, and reminders cover only dates a person entered and verified; tax dates and rules differ by state, so check yours."
+  },
+  {
+    "slug": "accounting-engagement-letter-assembly",
+    "title": "Engagement letters assembled for review",
+    "category": "Accounting, tax and bookkeeping firms",
+    "summary": "SI fills the firm's own engagement-letter template from details the professional specifies, flags blanks, and tracks what is signed.",
+    "problem": "Engagement letters are re-typed with small changes, and some clients never sign before work begins.",
+    "what_si_does": "SI fills the firm's own engagement-letter template with client details and scope items the professional specifies, flags empty fields and unusual changes from the standard language, and tracks which letters are sent and signed.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds client information, the firm checks the tool against its written information security plan, confirms the agreements and any client consent required for tax return information, sets access controls and multi-factor authentication, and limits SI to the minimum necessary. Start with sample or made-up information. Start from the firm's approved template and a sample of client details the professional specifies. Mark which fields SI may fill. Setup is often a few days.",
+    "human_checks": [
+      "The CPA, EA or preparer reviews and approves before anything goes to a client, agency or third party.",
+      "SI never sends, files, e-signs or posts on its own.",
+      "Unusual items go to a \"needs professional review\" queue.",
+      "The firm decides what client data SI may see, and testing starts with sample or made-up information.",
+      "The CPA or owner approves the letter, any changes to the scope or fee, and sends and countersigns it.",
+      "The firm's counsel or professional body handles required terms.",
+      "Work does not start until a person confirms the signed letter."
+    ],
+    "examples": [
+      {
+        "business_type": "Solo CPA",
+        "scenario": "The firm's template is filled with details the professional specified. Empty fields are flagged for review."
+      },
+      {
+        "business_type": "Two-partner accounting firm",
+        "scenario": "Unusual changes from the standard language are listed. The owner approves any fee or scope edit."
+      },
+      {
+        "business_type": "Small tax-preparation office",
+        "scenario": "Which letters are sent and signed is tracked. SI does not write new terms."
+      }
+    ],
+    "copy_prompt": "Fill this firm-approved engagement-letter template [paste] with these client details and scope items the professional specified [paste]. Flag empty fields and unusual changes from the standard language. Track which letters are sent and signed. Use only the firm's approved language. Do not write new terms, scope, or fee language, and do not decide what the rules require. Do not send anything. Pause and show me before sending, filing, posting or changing anything. Use only the sample or made-up information I provide; do not include real client names, SSNs, account numbers or tax details.",
+    "tools_examples": [
+      "Microsoft 365",
+      "Google Workspace",
+      "Practice-management software",
+      "Client portal the firm already uses"
+    ],
+    "effect": "The draft starts from the firm's approved language, with blanks and unusual changes marked for the owner.",
+    "caution": "Administrative support only: SI does not give tax or accounting advice, prepare or sign returns or reports, file anything, or calculate legal deadlines. A qualified professional reviews, signs and approves all work product and every date SI tracks. Client information is used only in tools the firm has vetted, under its written security plan and with any client consent or agreements the rules require. SI uses only the firm's approved language, never writes new terms, scope or fee language, and does not decide what the rules require; work does not start until a person confirms the signed letter."
+  },
+  {
+    "slug": "tax-client-status-updates",
+    "title": "Client status updates for preparer approval",
+    "category": "Accounting, tax and bookkeeping firms",
+    "summary": "From the firm's workflow status, SI drafts a short, plain update for the preparer to approve, with a weekly list of clients awaiting responses.",
+    "problem": "Clients keep asking where is my return or is my bookkeeping done.",
+    "what_si_does": "From the firm's internal workflow status (received, in prep, in review, awaiting client, ready for signature), SI drafts a short, plain-language update for the preparer to approve and builds a weekly list of clients awaiting responses.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds client information, the firm checks the tool against its written information security plan, confirms the agreements and any client consent required for tax return information, sets access controls and multi-factor authentication, and limits SI to the minimum necessary. Start with sample or made-up information. Use the firm's workflow statuses and a tone sample with client details removed. Permission is to draft, not to send. Setup is often a few days.",
+    "human_checks": [
+      "The CPA, EA or preparer reviews and approves before anything goes to a client, agency or third party.",
+      "SI never sends, files, e-signs or posts on its own.",
+      "Unusual items go to a \"needs professional review\" queue.",
+      "The firm decides what client data SI may see, and testing starts with sample or made-up information.",
+      "The preparer approves each update, answers client questions, and communicates any tax result, refund, balance or advice personally."
+    ],
+    "examples": [
+      {
+        "business_type": "Small tax-preparation office",
+        "scenario": "A draft restates that a return is in review, using only the firm's status. The preparer sends it."
+      },
+      {
+        "business_type": "Solo CPA",
+        "scenario": "Clients awaiting a response are listed weekly. The draft states no refund or amount."
+      },
+      {
+        "business_type": "Bookkeeping firm with recurring clients",
+        "scenario": "A status update says books are awaiting client items. Any advice stays with the accountant."
+      }
+    ],
+    "copy_prompt": "From this internal workflow status [paste], draft a short plain-language update for the preparer to approve. Build a weekly list of clients awaiting responses. Status only: do not state an expected refund, amount owed, savings, or timing promise, and do not discuss a client's tax position. Do not send anything. Pause and show me before sending, filing, posting or changing anything. Use only the sample or made-up information I provide; do not include real client names, SSNs, account numbers or tax details.",
+    "tools_examples": [
+      "Practice-management software",
+      "Google Workspace",
+      "Microsoft 365",
+      "Calendly"
+    ],
+    "effect": "Routine status drafts wait for the preparer, and nothing about a result is included.",
+    "caution": "Administrative support only: SI does not give tax or accounting advice, prepare or sign returns or reports, file anything, or calculate legal deadlines. A qualified professional reviews, signs and approves all work product and every date SI tracks. Client information is used only in tools the firm has vetted, under its written security plan and with any client consent or agreements the rules require. Updates contain status only; SI never states an expected refund, amount owed, savings or timing promise, and never discusses a client's tax position by text or email."
+  },
+  {
+    "slug": "accounting-invoice-follow-up",
+    "title": "Invoice follow-up and receivables reminders for partner review",
+    "category": "Accounting, tax and bookkeeping firms",
+    "summary": "From the billing export, SI builds an aging list and drafts polite reminders, holding disputed accounts for the partner.",
+    "problem": "Firm invoices age while staff are busy, and cash flow suffers.",
+    "what_si_does": "From the billing system export, SI builds an aging list, drafts polite reminders at set intervals in the firm's voice, flags accounts for the partner to call, and holds accounts with open disputes.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds client information, the firm checks the tool against its written information security plan, confirms the agreements and any client consent required for tax return information, sets access controls and multi-factor authentication, and limits SI to the minimum necessary. Start with sample or made-up information. Use a read-only aging export and the reminder wording and intervals the firm has already chosen. Permission is to draft, not to send. Setup is often a few days.",
+    "human_checks": [
+      "The CPA, EA or preparer reviews and approves before anything goes to a client, agency or third party.",
+      "SI never sends, files, e-signs or posts on its own.",
+      "Unusual items go to a \"needs professional review\" queue.",
+      "The firm decides what client data SI may see, and testing starts with sample or made-up information.",
+      "The partner approves messages, decides on payment arrangements and write-offs, and handles any withholding of work product under the engagement terms and professional rules."
+    ],
+    "examples": [
+      {
+        "business_type": "Two-partner accounting firm",
+        "scenario": "An aging list shows invoices past the firm's intervals. Disputed accounts are held for the partner."
+      },
+      {
+        "business_type": "Solo CPA",
+        "scenario": "Reminder drafts use the firm's voice and include no tax details."
+      },
+      {
+        "business_type": "Bookkeeping firm with recurring clients",
+        "scenario": "Accounts flagged for a call sit aside. SI does not apply fees."
+      }
+    ],
+    "copy_prompt": "From this billing export [paste], build an aging list, draft polite reminders at these intervals [paste] in this firm voice [paste], flag accounts for the partner to call, and hold accounts with open disputes. Do not threaten, hold back work product, or apply fees. Do not include tax details. Do not send anything. Pause and show me before sending, filing, posting or changing anything. Use only the sample or made-up information I provide; do not include real client names, SSNs, account numbers or tax details.",
+    "tools_examples": [
+      "QuickBooks",
+      "Practice-management software",
+      "Google Workspace",
+      "Microsoft 365"
+    ],
+    "effect": "Aging is visible, reminder drafts wait for the partner, and disputed accounts are held.",
+    "caution": "Administrative support only: SI does not give tax or accounting advice, prepare or sign returns or reports, file anything, or calculate legal deadlines. A qualified professional reviews, signs and approves all work product and every date SI tracks. Client information is used only in tools the firm has vetted, under its written security plan and with any client consent or agreements the rules require. SI never threatens, holds back work product, or applies fees on its own; messages never include tax details, and a person approves every message."
+  },
+  {
+    "slug": "bookkeeping-month-end-checklist",
+    "title": "Month-end close checklist preparation",
+    "category": "Accounting, tax and bookkeeping firms",
+    "summary": "Each client's month-end checklist is generated from the firm's template, with open items listed for staff and the client.",
+    "problem": "Month-end tasks vary by client and steps get skipped.",
+    "what_si_does": "SI generates each client's month-end checklist from the firm's template (bank feeds reviewed, statements received, payroll entries, loans, accruals the firm uses), tracks completion by staff member, and lists open items and requests for the client.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds client information, the firm checks the tool against its written information security plan, confirms the agreements and any client consent required for tax return information, sets access controls and multi-factor authentication, and limits SI to the minimum necessary. Start with sample or made-up information. Use the firm's month-end template per client. SI tracks steps; people make entries. Setup is often a few days.",
+    "human_checks": [
+      "The CPA, EA or preparer reviews and approves before anything goes to a client, agency or third party.",
+      "SI never sends, files, e-signs or posts on its own.",
+      "Unusual items go to a \"needs professional review\" queue.",
+      "The firm decides what client data SI may see, and testing starts with sample or made-up information.",
+      "The bookkeeper does the work and signs off each step, and the accountant reviews the close."
+    ],
+    "examples": [
+      {
+        "business_type": "Bookkeeping firm with recurring clients",
+        "scenario": "Each client's checklist follows the firm's template. Open items are listed for the client."
+      },
+      {
+        "business_type": "Two-partner accounting firm",
+        "scenario": "Completion is tracked by staff member. The accountant still reviews the close."
+      },
+      {
+        "business_type": "Solo CPA",
+        "scenario": "SI does not decide accounting treatments. Entries are left for people."
+      }
+    ],
+    "copy_prompt": "From this firm template [paste], generate each client's month-end checklist, track completion by staff member, and list open items and requests for the client. Track the firm's own steps only. Do not decide accounting treatments, adjustments, or whether books are correct. Do not post entries. Pause and show me before sending, filing, posting or changing anything. Use only the sample or made-up information I provide; do not include real client names, SSNs, account numbers or tax details.",
+    "tools_examples": [
+      "QuickBooks",
+      "Spreadsheets",
+      "Google Workspace",
+      "Microsoft 365"
+    ],
+    "effect": "Each client's month-end steps are visible, and open items are ready for a person to request.",
+    "caution": "Administrative support only: SI does not give tax or accounting advice, prepare or sign returns or reports, file anything, or calculate legal deadlines. A qualified professional reviews, signs and approves all work product and every date SI tracks. Client information is used only in tools the firm has vetted, under its written security plan and with any client consent or agreements the rules require. SI tracks the firm's own steps and never decides accounting treatments, adjustments or whether books are correct; entries are made by people."
+  },
+  {
+    "slug": "reconciliation-prep-for-review",
+    "title": "Reconciliation prep for accountant review",
+    "category": "Accounting, tax and bookkeeping firms",
+    "summary": "From statements and exports, SI lists unmatched, duplicate and unusual items and assembles a workpaper for the bookkeeper.",
+    "problem": "Matching bank and card transactions takes time that could go to review.",
+    "what_si_does": "From statements and exports the firm provides, SI lists unmatched, duplicate and unusual items, drafts questions to the client (what was this charge on [date]?), and assembles a reconciliation workpaper for the bookkeeper to review.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds client information, the firm checks the tool against its written information security plan, confirms the agreements and any client consent required for tax return information, sets access controls and multi-factor authentication, and limits SI to the minimum necessary. Start with sample or made-up information. Use statements and exports the firm provides inside tools it has vetted. Permission is to list and draft, not to post. Setup is often a few days.",
+    "human_checks": [
+      "The CPA, EA or preparer reviews and approves before anything goes to a client, agency or third party.",
+      "SI never sends, files, e-signs or posts on its own.",
+      "Unusual items go to a \"needs professional review\" queue.",
+      "The firm decides what client data SI may see, and testing starts with sample or made-up information.",
+      "The bookkeeper investigates every flagged item, makes the entries, and the accountant reviews and approves the reconciliation."
+    ],
+    "examples": [
+      {
+        "business_type": "Bookkeeping firm with recurring clients",
+        "scenario": "Unmatched and duplicate items from the export are listed for the bookkeeper. Flagged items are not called errors."
+      },
+      {
+        "business_type": "Solo CPA",
+        "scenario": "A draft question asks what a charge on [date] was. The accountant reviews the workpaper."
+      },
+      {
+        "business_type": "Two-partner accounting firm",
+        "scenario": "SI does not plug differences or conclude that an account reconciles."
+      }
+    ],
+    "copy_prompt": "From these statements and exports [paste], list unmatched, duplicate, and unusual items, draft questions to the client, and assemble a reconciliation workpaper. Prepare a review list only. Do not post entries, plug differences, or conclude that an account reconciles. Flagged items are not conclusions about errors or fraud. Tax return information has special disclosure and use rules for preparers; check with your professional advisor before using any outside tool. Pause and show me before sending, filing, posting or changing anything. Use only the sample or made-up information I provide; do not include real client names, SSNs, account numbers or tax details.",
+    "tools_examples": [
+      "QuickBooks",
+      "Spreadsheets",
+      "Google Workspace",
+      "Microsoft 365"
+    ],
+    "effect": "A review list and workpaper are ready for the bookkeeper, with no entries posted.",
+    "caution": "Administrative support only: SI does not give tax or accounting advice, prepare or sign returns or reports, file anything, or calculate legal deadlines. A qualified professional reviews, signs and approves all work product and every date SI tracks. Client information is used only in tools the firm has vetted, under its written security plan and with any client consent or agreements the rules require. SI prepares a review list only; it never posts entries, plugs differences or concludes that an account reconciles, and flagged items are not conclusions about errors or fraud. Tax return information has special disclosure and use rules for preparers; check with your professional advisor before using any outside tool."
+  },
+  {
+    "slug": "transaction-categorization-suggestions",
+    "title": "Transaction categorization suggestions for bookkeeper review",
+    "category": "Accounting, tax and bookkeeping firms",
+    "summary": "Using the firm's chart of accounts and past approved coding, SI drafts suggested categories with a needs-a-question flag.",
+    "problem": "Uncategorized transactions pile up and the same vendors get coded differently.",
+    "what_si_does": "Using the firm's chart of accounts and past approved coding, SI drafts suggested categories with a needs-a-question flag for unclear items, and groups recurring vendors so the bookkeeper can approve in bulk.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds client information, the firm checks the tool against its written information security plan, confirms the agreements and any client consent required for tax return information, sets access controls and multi-factor authentication, and limits SI to the minimum necessary. Start with sample or made-up information. Use the firm's chart of accounts and past approved coding only. Permission is to suggest, not to post. Setup is often a few days.",
+    "human_checks": [
+      "The CPA, EA or preparer reviews and approves before anything goes to a client, agency or third party.",
+      "SI never sends, files, e-signs or posts on its own.",
+      "Unusual items go to a \"needs professional review\" queue.",
+      "The firm decides what client data SI may see, and testing starts with sample or made-up information.",
+      "The bookkeeper reviews and approves every category before it is posted, and the accountant decides tax and accounting treatment."
+    ],
+    "examples": [
+      {
+        "business_type": "Bookkeeping firm with recurring clients",
+        "scenario": "Recurring vendors are grouped for bulk review. Unclear items are flagged needs a question."
+      },
+      {
+        "business_type": "Solo CPA",
+        "scenario": "Suggestions follow the firm's chart of accounts. Nothing is posted until the bookkeeper approves."
+      },
+      {
+        "business_type": "Two-partner accounting firm",
+        "scenario": "SI does not decide what is deductible or capitalizable."
+      }
+    ],
+    "copy_prompt": "Using this chart of accounts and past approved coding [paste], draft suggested categories for these transactions [paste]. Flag unclear items as needs a question, and group recurring vendors for bulk review. Suggestions are drafts based on the firm's own rules. Do not post, decide what is deductible or capitalizable, or give tax treatment. Pause and show me before sending, filing, posting or changing anything. Use only the sample or made-up information I provide; do not include real client names, SSNs, account numbers or tax details.",
+    "tools_examples": [
+      "QuickBooks",
+      "Spreadsheets",
+      "Google Workspace",
+      "Microsoft 365"
+    ],
+    "effect": "Suggested categories wait for the bookkeeper, with unclear items set aside as questions.",
+    "caution": "Administrative support only: SI does not give tax or accounting advice, prepare or sign returns or reports, file anything, or calculate legal deadlines. A qualified professional reviews, signs and approves all work product and every date SI tracks. Client information is used only in tools the firm has vetted, under its written security plan and with any client consent or agreements the rules require. Suggestions are drafts based on the firm's own rules; SI never posts, decides what is deductible or capitalizable, or gives tax treatment."
+  },
+  {
+    "slug": "vendor-1099-information-collection",
+    "title": "Vendor information collection and reminder prep for 1099 review",
+    "category": "Accounting, tax and bookkeeping firms",
+    "summary": "A vendor list from payment records shows who has a W-9 on file, with request drafts and a review list for the professional.",
+    "problem": "Collecting W-9s and sorting who needs a reporting form is a last-minute scramble each year.",
+    "what_si_does": "SI builds a vendor list from the client's payment records, marks who has a W-9 on file, drafts polite requests for missing forms from the firm's template, and prepares a vendors-to-review-for-reporting list for the professional.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds client information, the firm checks the tool against its written information security plan, confirms the agreements and any client consent required for tax return information, sets access controls and multi-factor authentication, and limits SI to the minimum necessary. Start with sample or made-up information. Use payment records and W-9 status the firm already keeps, inside tools it has vetted. The professional decides who is reportable. Setup is often a few days.",
+    "human_checks": [
+      "The CPA, EA or preparer reviews and approves before anything goes to a client, agency or third party.",
+      "SI never sends, files, e-signs or posts on its own.",
+      "Unusual items go to a \"needs professional review\" queue.",
+      "The firm decides what client data SI may see, and testing starts with sample or made-up information.",
+      "The professional decides who is reportable, checks current IRS thresholds and rules, prepares and files the forms, and handles TIN matching."
+    ],
+    "examples": [
+      {
+        "business_type": "Bookkeeping firm with recurring clients",
+        "scenario": "Vendors from payment records are listed with whether a W-9 is on file. Request drafts wait for the professional."
+      },
+      {
+        "business_type": "Small tax-preparation office",
+        "scenario": "A vendors-to-review list is prepared. SI does not apply a threshold or decide who is reportable."
+      },
+      {
+        "business_type": "Two-partner accounting firm",
+        "scenario": "W-9 data stays in the firm's vetted tools. The professional checks current IRS guidance."
+      }
+    ],
+    "copy_prompt": "From these payment records [paste], build a vendor list, mark who has a W-9 on file, draft polite requests for missing forms from this template [paste], and prepare a vendors-to-review-for-reporting list. Do not calculate or confirm any due date, threshold or tax; list only what I give you for a professional to verify. Do not decide whether a payment is reportable or file a form. Thresholds and rules change, so the firm checks current IRS guidance. Handle W-9 data only in the sample I provide. Do not calculate or confirm any due date, threshold or tax; list only what I give you for a professional to verify. Tax return information has special disclosure and use rules for preparers; check with your professional advisor before using any outside tool. Pause and show me before sending, filing, posting or changing anything. Use only the sample or made-up information I provide; do not include real client names, SSNs, account numbers or tax details.",
+    "tools_examples": [
+      "QuickBooks",
+      "Spreadsheets",
+      "Google Workspace",
+      "Client portal the firm already uses"
+    ],
+    "effect": "Missing forms are listed for the professional, and no reporting decision is made by SI.",
+    "caution": "Administrative support only: SI does not give tax or accounting advice, prepare or sign returns or reports, file anything, or calculate legal deadlines. A qualified professional reviews, signs and approves all work product and every date SI tracks. Client information is used only in tools the firm has vetted, under its written security plan and with any client consent or agreements the rules require. SI never decides whether a payment is reportable, applies a threshold, or files a form; thresholds and rules change, so the firm checks current IRS guidance; W-9 data is handled only in the firm's vetted tools. Tax return information has special disclosure and use rules for preparers; check with your professional advisor before using any outside tool."
+  },
+  {
+    "slug": "sales-tax-filing-reminders",
+    "title": "Sales-tax and recurring-filing reminder prep",
+    "category": "Accounting, tax and bookkeeping firms",
+    "summary": "For filings a professional has confirmed apply, SI reminds staff and the client and drafts requests for the period's information.",
+    "problem": "Clients with sales-tax, payroll or other recurring filings forget dates or send information late.",
+    "what_si_does": "For each client, SI keeps a list of the recurring filings the professional has confirmed apply (agency, frequency, due date as verified, who prepares), reminds the client and staff ahead of the date, and drafts please-send-your-[month]-sales-report requests.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds client information, the firm checks the tool against its written information security plan, confirms the agreements and any client consent required for tax return information, sets access controls and multi-factor authentication, and limits SI to the minimum necessary. Start with sample or made-up information. Use only filings and dates a professional has confirmed. Permission is to remind and draft, not to file or pay. Setup is often a few days.",
+    "human_checks": [
+      "The CPA, EA or preparer reviews and approves before anything goes to a client, agency or third party.",
+      "SI never sends, files, e-signs or posts on its own.",
+      "Unusual items go to a \"needs professional review\" queue.",
+      "The firm decides what client data SI may see, and testing starts with sample or made-up information.",
+      "The professional decides which filings apply, verifies every due date with the agency, prepares the return or reviews the client's, and confirms what was filed and paid."
+    ],
+    "examples": [
+      {
+        "business_type": "Small tax-preparation office",
+        "scenario": "Recurring filings the professional confirmed sit on a list with the verified due date. Reminder drafts wait for staff."
+      },
+      {
+        "business_type": "Bookkeeping firm with recurring clients",
+        "scenario": "A please-send-your-[month]-sales-report draft uses the firm's wording."
+      },
+      {
+        "business_type": "Solo CPA",
+        "scenario": "SI does not determine whether tax applies or calculate tax. The professional confirms what was filed."
+      }
+    ],
+    "copy_prompt": "For each client, keep a list of these recurring filings a professional has confirmed apply [paste], including agency, frequency, due date as verified, and who prepares. Remind the client and staff ahead of the date. Draft please-send-your-[month]-sales-report requests from this wording [paste]. Do not calculate or confirm any due date, threshold or tax; list only what I give you for a professional to verify. Do not determine whether tax applies, file, or pay anything. Dates and rules vary by state and agency, so the firm checks theirs. Do not send anything. Do not calculate or confirm any due date, threshold or tax; list only what I give you for a professional to verify. Pause and show me before sending, filing, posting or changing anything. Use only the sample or made-up information I provide; do not include real client names, SSNs, account numbers or tax details.",
+    "tools_examples": [
+      "Google Workspace",
+      "Microsoft 365",
+      "Calendly",
+      "Practice-management software"
+    ],
+    "effect": "Confirmed recurring filings have reminders and information-request drafts, with no tax calculated.",
+    "caution": "Administrative support only: SI does not give tax or accounting advice, prepare or sign returns or reports, file anything, or calculate legal deadlines. A qualified professional reviews, signs and approves all work product and every date SI tracks. Client information is used only in tools the firm has vetted, under its written security plan and with any client consent or agreements the rules require. SI never determines whether tax applies, calculates tax, or files or pays anything; dates and rules vary by state and agency, so check yours."
+  },
+  {
+    "slug": "security-plan-upkeep-checklists",
+    "title": "Security-plan upkeep checklists and access reviews",
+    "category": "Accounting, tax and bookkeeping firms",
+    "summary": "From the firm's own written security plan, SI builds a calendar of recurring tasks and a log of what was done.",
+    "problem": "Firms write a security plan once and then rarely revisit it, and it is hard to show that training, access reviews and vendor checks actually happened.",
+    "what_si_does": "From the firm's own plan (for example one built from the IRS's Publication 5708 template), SI builds a calendar and checklist of recurring tasks (staff training, access and multi-factor authentication reviews, device inventory, vendor reviews, backups, data disposal), reminds the responsible person, and keeps a log of what was done and when.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds client information, the firm checks the tool against its written information security plan, confirms the agreements and any client consent required for tax return information, sets access controls and multi-factor authentication, and limits SI to the minimum necessary. Start with sample or made-up information. Use the firm's own written plan. SI tracks the firm's tasks; it does not describe the plan as meeting any rule. Setup is often a few days.",
+    "human_checks": [
+      "The CPA, EA or preparer reviews and approves before anything goes to a client, agency or third party.",
+      "SI never sends, files, e-signs or posts on its own.",
+      "Unusual items go to a \"needs professional review\" queue.",
+      "The firm decides what client data SI may see, and testing starts with sample or made-up information.",
+      "The firm's designated security lead owns the plan, performs and documents each review, and decides what the plan must contain.",
+      "Counsel or a security professional advises where needed."
+    ],
+    "examples": [
+      {
+        "business_type": "Two-partner accounting firm",
+        "scenario": "Recurring tasks from the firm's own plan sit on a calendar. The security lead documents each review."
+      },
+      {
+        "business_type": "Solo CPA",
+        "scenario": "A log lists what was done and when. SI does not approve a vendor or tool as meeting any rule."
+      },
+      {
+        "business_type": "Small tax-preparation office",
+        "scenario": "Access and multi-factor authentication reviews are reminded. The firm owns the plan."
+      }
+    ],
+    "copy_prompt": "From this firm's own written security plan [paste], build a calendar and checklist of recurring tasks (staff training, access and multi-factor authentication reviews, device inventory, vendor reviews, backups, data disposal). Remind the responsible person and keep a log of what was done and when. Do not describe the plan as meeting any rule, approve a vendor or tool, or certify that the firm meets the FTC Safeguards Rule or any other requirement. Track the firm's own tasks only. Tax return information has special disclosure and use rules for preparers; check with your professional advisor before using any outside tool. Pause and show me before sending, filing, posting or changing anything. Use only the sample or made-up information I provide; do not include real client names, SSNs, account numbers or tax details.",
+    "tools_examples": [
+      "Google Workspace",
+      "Microsoft 365",
+      "Spreadsheets",
+      "Practice-management software"
+    ],
+    "effect": "The firm's own security-plan tasks are on a calendar with a log, and no compliance claim is made.",
+    "caution": "Administrative support only: SI does not give tax or accounting advice, prepare or sign returns or reports, file anything, or calculate legal deadlines. A qualified professional reviews, signs and approves all work product and every date SI tracks. Client information is used only in tools the firm has vetted, under its written security plan and with any client consent or agreements the rules require. SI never describes the plan as meeting any rule, never approves a vendor or tool, and never certifies that the firm meets the FTC Safeguards Rule or any other requirement; it only helps the firm track its own tasks. Tax return information has special disclosure and use rules for preparers; check with your professional advisor before using any outside tool."
   }
 ]

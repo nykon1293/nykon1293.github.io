@@ -101,6 +101,21 @@ SHORT = {
         "medical-healthcare",
         "Scheduling, reminders, intake, and billing admin for small practices. Clinicians and staff review and decide.",
     ),
+    "Real estate and property management": (
+        "Real estate",
+        "real-estate",
+        "Business-side admin for agents, landlords and small property managers. Licensed professionals and owners review and decide.",
+    ),
+    "Home services and contractors": (
+        "Home services",
+        "home-services",
+        "Office help for HVAC, plumbing, roofing, electrical, landscaping, pool and cleaning businesses. The owner approves every quote and message.",
+    ),
+    "Accounting, tax and bookkeeping firms": (
+        "Accounting & tax",
+        "accounting-tax",
+        "Admin for small CPA, tax and bookkeeping firms. Professionals review, sign and decide.",
+    ),
 }
 
 # Shown on the Legal practices section. The opinion title is quoted as published.
@@ -170,6 +185,157 @@ MEDICAL_CAUTION_PREFIX = (
     "anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools "
     "covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools."
 )
+
+# Shown on the Real estate and property management section.
+REAL_ESTATE_READ_FIRST = (
+    "<strong>Read this first.</strong> The use cases in this category are about running the "
+    "<em>business side</em> of real estate and property management: lead follow-up, scheduling, "
+    "maintenance coordination, reminders, tracking and communications drafts. SI does not give "
+    "legal, lease or financial advice, does not negotiate or sign anything, and does not replace "
+    "the judgment of a licensed agent, broker or property manager. SI prepares drafts for the "
+    "licensed agent or owner and does not lease, collect rent, screen or rank applicants. A "
+    "licensed professional or the property owner reviews and approves anything client-facing, "
+    "tenant-facing or contractual before it goes out, and nothing here promises any sale, lease, "
+    "price or result. Fair housing laws apply however a task is done: SI never screens, ranks, "
+    "steers, targets or describes people or neighborhoods by protected characteristics, and every "
+    "listing, ad and message is reviewed by a person before it is used. Applicant and tenant "
+    "information is private, so it should only go into tools the business has checked, with access "
+    "controls and the minimum necessary. Texting is regulated, so get consent and honor opt-outs. "
+    "Licensing, landlord-tenant and advertising rules differ by state, so check yours. These pages "
+    "are general information, not legal or compliance advice, and not a guarantee of compliance "
+    "with any law."
+)
+REAL_ESTATE_SHORT = (
+    "Admin and operations help for agents, landlords and small property managers. SI prepares "
+    "drafts for the licensed agent or owner; they review and decide. SI does not lease, collect "
+    "rent, screen or rank applicants."
+)
+REAL_ESTATE_FOOT = (
+    "Not legal advice. Talk with your broker, attorney or local fair housing resources about your obligations."
+)
+REAL_ESTATE_OWN_ACCOUNTS = LEGAL_OWN_ACCOUNTS
+REAL_ESTATE_CAUTION_PREFIX = (
+    "Administrative support only: SI does not give legal or lease advice, make leasing, screening "
+    "or pricing decisions, or act as an agent or broker. SI prepares drafts for the licensed agent "
+    "or owner and does not lease, collect rent, screen or rank applicants. A licensed professional "
+    "or the property owner reviews and approves anything client-facing, tenant-facing or "
+    "contractual. Fair housing laws apply: SI never screens, ranks, steers or targets by protected "
+    "characteristics, and applicant and tenant information is used only in checked tools with "
+    "access controls and the minimum necessary."
+)
+
+# Shown on the Home services and contractors section.
+HOME_SERVICES_READ_FIRST = (
+    "<strong>Read this first.</strong> The use cases in this category are about running the "
+    "<em>office side</em> of a home-service business: missed calls, quotes, scheduling, invoices, "
+    "reminders, paperwork and records. SI does not set prices, make promises, or give safety, "
+    "repair, code or insurance advice, and it does not replace a licensed professional's judgment "
+    "on the job. The owner or an authorized person reviews and approves every quote, price, "
+    "schedule commitment and customer message before it goes out, and nothing here promises any "
+    "job, timeline, savings or result. Licensing, advertising, deposit, permit and contract rules "
+    "differ by state and city, so check yours. The business's license number and required notices "
+    "come from the owner, not from SI. Texting customers is regulated, so get consent and honor "
+    "opt-outs. Customer information is private and should only go into tools the business has "
+    "checked. If something sounds like an emergency, such as gas, fire, smoke or flooding near "
+    "electricity, it goes to a person and to 911 or the utility, never to SI. These pages are "
+    "general information, not legal, safety or compliance advice, and not a guarantee of "
+    "compliance with any rule."
+)
+HOME_SERVICES_SHORT = (
+    "Office help for HVAC, plumbing, roofing, electrical, landscaping, pool and cleaning "
+    "businesses. SI drafts, tracks and reminds; the owner approves every quote and message. No "
+    "pricing promises, no safety or code advice, and customers' information stays private."
+)
+HOME_SERVICES_FOOT = (
+    "Not legal, safety or compliance advice. Check your state's contractor licensing board and your local permitting office."
+)
+HOME_SERVICES_OWN_ACCOUNTS = LEGAL_OWN_ACCOUNTS
+HOME_SERVICES_CAUTION_PREFIX = (
+    "Office support only: SI does not set or promise prices, give safety, repair, code or "
+    "insurance advice, or make any commitment for the business. The owner or an authorized person "
+    "reviews and approves every quote, schedule commitment and customer message. Licensing, "
+    "advertising, deposit and permit rules vary by state, and customer information is used only in "
+    "checked tools with access controls."
+)
+
+# Shown on the Accounting, tax and bookkeeping firms section.
+ACCOUNTING_READ_FIRST = (
+    "<strong>Read this first.</strong> The use cases in this category are about running the "
+    "<em>practice side</em> of an accounting, tax or bookkeeping firm: chasing documents, "
+    "organizing intake, tracking dates, preparing checklists, drafting routine communications and "
+    "getting information ready for a professional's review. SI does not give tax, accounting or "
+    "legal advice, does not prepare, sign or file any return or report, and does not replace a "
+    "CPA's, enrolled agent's or preparer's judgment. A qualified professional reviews, signs and "
+    "takes responsibility for all work product, and every deadline SI tracks is verified by a "
+    "person against official sources. Nothing here promises any refund, tax result or savings. "
+    "Client financial and tax information is among the most sensitive a firm holds: firms that "
+    "prepare returns have legal duties around data security (the FTC Safeguards Rule, covered in "
+    "IRS Publication 4557) and around using or disclosing tax return information (Internal Revenue "
+    "Code section 7216), and professional rules apply on top. Put client information only into "
+    "tools the firm has vetted, with the agreements, access controls and any client consent the "
+    "rules require, and start with sample data. State rules differ, so check yours. These pages "
+    "are general information, not tax, legal or compliance advice, and not a guarantee of "
+    "compliance with any rule."
+)
+ACCOUNTING_SHORT = (
+    "Admin and operations help for small CPA, tax and bookkeeping firms. SI chases, organizes and "
+    "drafts; professionals review, sign and decide. No tax advice, no filings, and client data "
+    "stays protected under your firm's security plan."
+)
+ACCOUNTING_FOOT = (
+    "Not tax, accounting or legal advice. Talk with your professional-liability advisor, state board and counsel about your obligations."
+)
+ACCOUNTING_OWN_ACCOUNTS = LEGAL_OWN_ACCOUNTS
+ACCOUNTING_CAUTION_PREFIX = (
+    "Administrative support only: SI does not give tax or accounting advice, prepare or sign "
+    "returns or reports, file anything, or calculate legal deadlines. A qualified professional "
+    "reviews, signs and approves all work product and every date SI tracks. Client information is "
+    "used only in tools the firm has vetted, under its written security plan and with any client "
+    "consent or agreements the rules require."
+)
+
+CATEGORY_NOTES = {
+    "Legal practices": {
+        "read_first": LEGAL_READ_FIRST,
+        "short": LEGAL_SHORT,
+        "foot": LEGAL_FOOT,
+        "own": LEGAL_OWN_ACCOUNTS,
+        "foot_class": "uc-legal-foot",
+        "library_needles": ("generative artificial intelligence",),
+    },
+    "Medical and healthcare practices": {
+        "read_first": MEDICAL_READ_FIRST,
+        "short": MEDICAL_SHORT,
+        "foot": MEDICAL_FOOT,
+        "own": MEDICAL_OWN_ACCOUNTS,
+        "foot_class": "uc-cat-foot",
+        "library_needles": ("healthcare practice",),
+    },
+    "Real estate and property management": {
+        "read_first": REAL_ESTATE_READ_FIRST,
+        "short": REAL_ESTATE_SHORT,
+        "foot": REAL_ESTATE_FOOT,
+        "own": REAL_ESTATE_OWN_ACCOUNTS,
+        "foot_class": "uc-cat-foot",
+        "library_needles": ("does not lease, collect rent, screen or rank applicants",),
+    },
+    "Home services and contractors": {
+        "read_first": HOME_SERVICES_READ_FIRST,
+        "short": HOME_SERVICES_SHORT,
+        "foot": HOME_SERVICES_FOOT,
+        "own": HOME_SERVICES_OWN_ACCOUNTS,
+        "foot_class": "uc-cat-foot",
+        "library_needles": ("office side",),
+    },
+    "Accounting, tax and bookkeeping firms": {
+        "read_first": ACCOUNTING_READ_FIRST,
+        "short": ACCOUNTING_SHORT,
+        "foot": ACCOUNTING_FOOT,
+        "own": ACCOUNTING_OWN_ACCOUNTS,
+        "foot_class": "uc-cat-foot",
+        "library_needles": ("FTC Safeguards Rule",),
+    },
+}
 
 REQUIRED = (
     "slug",
@@ -273,11 +439,152 @@ def load() -> list:
             ):
                 if banned in lowered:
                     raise SystemExit(f"{item['slug']} contains wording that must stay off the public site")
+        if item["category"] in (
+            "Real estate and property management",
+            "Home services and contractors",
+            "Accounting, tax and bookkeeping firms",
+        ):
+            _check_industry_entry(item)
         slugs.append(item["slug"])
     dupes = {slug for slug in slugs if slugs.count(slug) > 1}
     if dupes:
         raise SystemExit(f"Duplicate slugs: {', '.join(sorted(dupes))}")
     return entries
+
+
+def _check_industry_entry(item: dict) -> None:
+    cat = item["category"]
+    caution = (item.get("caution") or "").strip()
+    prompt = item["copy_prompt"]
+    blob = json.dumps(item)
+    lowered = blob.lower()
+    if len(item["human_checks"]) < 3:
+        raise SystemExit(f"{item['slug']} needs at least three human checks")
+    if not item["setup"].startswith(LEGAL_OWN_ACCOUNTS):
+        raise SystemExit(f"{item['slug']} setup must start with the own-equipment sentence")
+    for banned in ("Ohr", "Kayla", "josh.gemmi@gmail.com", "Brandgate"):
+        if banned in blob:
+            raise SystemExit(f"{item['slug']} contains wording that must stay off the public site")
+    extra = ""
+    texting = False
+    if cat == "Real estate and property management":
+        if not caution.startswith(REAL_ESTATE_CAUTION_PREFIX):
+            raise SystemExit(f"{item['slug']} caution must start with the real-estate guardrail")
+        if "Pause and show me before sending, posting, signing or changing anything" not in prompt:
+            raise SystemExit(f"{item['slug']} prompt must pause before sending, posting, signing, or changing")
+        if (
+            "Use only the sample or made-up information I provide; do not include real tenant or applicant names, IDs or financial details"
+            not in prompt
+        ):
+            raise SystemExit(f"{item['slug']} prompt must limit itself to sample or made-up information")
+        if item["slug"] in (
+            "listing-rental-ad-drafts",
+            "maintenance-request-intake",
+            "rental-application-completeness",
+        ):
+            extra = "Do not describe or evaluate any person or neighborhood; describe only the property."
+        texting = item["slug"] in (
+            "rental-lead-inquiry-follow-up",
+            "showing-scheduling-confirmations",
+            "showing-open-house-follow-up",
+            "rent-reminder-drafts",
+        )
+        if "does not lease, collect rent, screen or rank applicants" not in blob:
+            raise SystemExit(f"{item['slug']} must say SI does not lease, collect rent, screen or rank applicants")
+        for phrase in (
+            "fair housing compliant",
+            "guaranteed compliance",
+            "tenant scoring",
+            "best tenants",
+            "ideal tenant",
+            "good neighborhood",
+            "safe area",
+            "family-friendly",
+            "never miss a lead",
+            "fully automated",
+            "we handle your leasing",
+            "boost sales",
+        ):
+            if phrase in lowered:
+                raise SystemExit(f"{item['slug']} contains wording that must stay off the public site")
+    elif cat == "Home services and contractors":
+        if not caution.startswith(HOME_SERVICES_CAUTION_PREFIX):
+            raise SystemExit(f"{item['slug']} caution must start with the home-services guardrail")
+        if "Pause and show me before sending, quoting, booking, ordering or changing anything" not in prompt:
+            raise SystemExit(f"{item['slug']} prompt must pause before sending, quoting, booking, ordering, or changing")
+        if (
+            "Use only the sample or made-up information I provide; do not include real customer names, addresses or payment details"
+            not in prompt
+        ):
+            raise SystemExit(f"{item['slug']} prompt must limit itself to sample or made-up information")
+        if item["slug"] in ("quote-estimate-drafts", "permit-inspection-tracking"):
+            extra = "Do not decide prices, code requirements or whether a permit is needed."
+        texting = item["slug"] in (
+            "missed-call-text-back",
+            "contractor-invoice-reminders",
+            "contractor-review-reply-drafts",
+            "warranty-maintenance-reminders",
+            "contractor-after-hours-sorting",
+        )
+        for phrase in (
+            "lowest price",
+            "best in town",
+            "instant quote",
+            "automatic pricing",
+            "book jobs automatically",
+            "never miss a call",
+            "boost revenue",
+            "fully automated",
+            "free roof inspection",
+            "si diagnoses",
+        ):
+            if phrase in lowered:
+                raise SystemExit(f"{item['slug']} contains wording that must stay off the public site")
+    else:
+        if not caution.startswith(ACCOUNTING_CAUTION_PREFIX):
+            raise SystemExit(f"{item['slug']} caution must start with the accounting guardrail")
+        if "Pause and show me before sending, filing, posting or changing anything" not in prompt:
+            raise SystemExit(f"{item['slug']} prompt must pause before sending, filing, posting, or changing")
+        if (
+            "Use only the sample or made-up information I provide; do not include real client names, SSNs, account numbers or tax details"
+            not in prompt
+        ):
+            raise SystemExit(f"{item['slug']} prompt must limit itself to sample or made-up information")
+        if item["slug"] in (
+            "tax-deadline-tracking",
+            "vendor-1099-information-collection",
+            "sales-tax-filing-reminders",
+        ):
+            extra = "Do not calculate or confirm any due date, threshold or tax; list only what I give you for a professional to verify."
+        if item["slug"] in (
+            "tax-new-client-intake",
+            "reconciliation-prep-for-review",
+            "vendor-1099-information-collection",
+            "security-plan-upkeep-checklists",
+        ):
+            extra2 = "Tax return information has special disclosure and use rules for preparers; check with your professional advisor before using any outside tool."
+            if extra2 not in prompt and extra2 not in caution:
+                raise SystemExit(f"{item['slug']} must note tax return information disclosure rules")
+        for phrase in (
+            "maximize your refund",
+            "audit-proof",
+            "irs compliant",
+            "safeguards compliant",
+            "7216 compliant",
+            "bank-level security",
+            "never miss a deadline",
+            "guaranteed on time",
+            "audit-ready books",
+            "fully automated",
+            "cpa-approved",
+            "replace your accountant",
+        ):
+            if phrase in lowered:
+                raise SystemExit(f"{item['slug']} contains wording that must stay off the public site")
+    if extra and extra not in prompt:
+        raise SystemExit(f"{item['slug']} prompt must include {extra!r}")
+    if texting and "Texting rules vary; get consent and honor opt-outs." not in caution and "Texting rules vary; get consent and honor opt-outs." not in prompt:
+        raise SystemExit(f"{item['slug']} must note texting consent and opt-outs")
 
 
 def categories(entries: list) -> list:
@@ -440,10 +747,9 @@ def card(item: dict, href: str, show_cat: bool = True, extra: bool = False) -> s
     cat = f'<span class="uc-card-cat">{e(short[0])}</span>' if show_cat else ""
     extra_cls = " uc-extra" if extra else ""
     note = ""
-    if item["category"] == "Legal practices":
-        note = f'\n              <p class="uc-card-note">{e(LEGAL_SHORT)}</p>'
-    elif item["category"] == "Medical and healthcare practices":
-        note = f'\n              <p class="uc-card-note">{e(MEDICAL_SHORT)}</p>'
+    info = CATEGORY_NOTES.get(item["category"])
+    if info:
+        note = f'\n              <p class="uc-card-note">{e(info["short"])}</p>'
     return f"""<li class="uc-card{extra_cls}" data-cat="{short[1]}" data-hay="{e(haystack(item))}">
             <a href="{href}">
               {cat}
@@ -462,7 +768,8 @@ def library_page(entries: list) -> str:
         f"{n} practical ways SI can take routine work off a small team: inbox and support, "
         "sales follow-up, bookkeeping, reporting, scheduling, inventory, ecommerce, content, "
         "hiring, documents, community organizations, local business, legal-practice admin, "
-        "and medical-practice admin. Each one shows what a human still checks."
+        "medical-practice admin, real estate, home services, and accounting-firm admin. "
+        "Each one shows what a human still checks."
     )
     ld = {
         "@context": "https://schema.org",
@@ -520,22 +827,15 @@ def library_page(entries: list) -> str:
             )
         banner = ""
         closing_note = ""
-        if cat == "Legal practices":
+        info = CATEGORY_NOTES.get(cat)
+        if info:
             banner = (
                 '        <div class="uc-read-first" role="note">\n'
-                f"          <p>{LEGAL_READ_FIRST}</p>\n"
-                f"          <p class=\"uc-own-accounts\">{e(LEGAL_OWN_ACCOUNTS)}</p>\n"
+                f"          <p>{info['read_first']}</p>\n"
+                f"          <p class=\"uc-own-accounts\">{e(info['own'])}</p>\n"
                 "        </div>\n"
             )
-            closing_note = f'        <p class="uc-legal-foot">{e(LEGAL_FOOT)}</p>\n'
-        elif cat == "Medical and healthcare practices":
-            banner = (
-                '        <div class="uc-read-first" role="note">\n'
-                f"          <p>{MEDICAL_READ_FIRST}</p>\n"
-                f"          <p class=\"uc-own-accounts\">{e(MEDICAL_OWN_ACCOUNTS)}</p>\n"
-                "        </div>\n"
-            )
-            closing_note = f'        <p class="uc-cat-foot">{e(MEDICAL_FOOT)}</p>\n'
+            closing_note = f'        <p class="{info["foot_class"]}">{e(info["foot"])}</p>\n'
         sections.append(
             f"""      <section class="uc-group" data-group="{slug}" aria-labelledby="g-{slug}">
         <div class="uc-group-head">
@@ -686,10 +986,9 @@ def detail_page(item: dict, entries: list) -> str:
     if (item.get("caution") or "").strip():
         caution = f'<p class="uc-caution" role="note"><strong>Worth knowing:</strong> {e(item["caution"])}</p>'
     legal_note = ""
-    if item["category"] == "Legal practices":
-        legal_note = f'<p class="uc-read-first" role="note">{e(LEGAL_SHORT)}</p>\n          '
-    elif item["category"] == "Medical and healthcare practices":
-        legal_note = f'<p class="uc-read-first" role="note">{e(MEDICAL_SHORT)}</p>\n          '
+    info = CATEGORY_NOTES.get(item["category"])
+    if info:
+        legal_note = f'<p class="uc-read-first" role="note">{e(info["short"])}</p>\n          '
     tools = "".join(f'<span class="tag green">{e(tool)}</span>' for tool in item["tools_examples"])
     return head(title, desc, url, 2, ld) + f"""
     <main id="top">
@@ -851,31 +1150,29 @@ def assert_wording(entries: list) -> None:
         raise SystemExit(f"Library intro must mention formerly called AI exactly once, found {ai_hits}")
     if "noindex" in library:
         raise SystemExit("Library page must be indexable")
-    if "Read this first." not in library or "generative artificial intelligence" not in library:
-        raise SystemExit("Legal practices section is missing the full disclaimer")
-    if LEGAL_OWN_ACCOUNTS not in library:
-        raise SystemExit("Legal practices section is missing the own-equipment line")
-    if library.count(LEGAL_SHORT) < 1:
-        raise SystemExit("Legal cards are missing the short disclaimer")
+    if "Read this first." not in library:
+        raise SystemExit("A category section is missing the full disclaimer")
+    for cat, info in CATEGORY_NOTES.items():
+        if e(info["short"]) not in library:
+            raise SystemExit(f"{cat} cards are missing the short disclaimer")
+        if info["own"] not in library:
+            raise SystemExit(f"{cat} section is missing the own-equipment line")
+        for needle in info.get("library_needles") or ():
+            if needle not in library:
+                raise SystemExit(f"{cat} section is missing expected disclaimer text")
     for item in entries:
         page = (OUT / item["slug"] / "index.html").read_text(encoding="utf-8")
         if re.search(r"\bAI\b", page) or "noindex" in page or "Nous" in page or "Brandgate" in page:
             raise SystemExit(f"Wording check failed for {item['slug']}")
-        if item["category"] == "Legal practices" and LEGAL_SHORT not in page:
-            raise SystemExit(f"{item['slug']} is missing the short legal disclaimer")
-        if item["category"] == "Legal practices" and LEGAL_OWN_ACCOUNTS not in page:
-            raise SystemExit(f"{item['slug']} is missing the own-equipment setup line")
-        if item["category"] == "Medical and healthcare practices":
-            if MEDICAL_SHORT not in page:
-                raise SystemExit(f"{item['slug']} is missing the short medical disclaimer")
-            if MEDICAL_OWN_ACCOUNTS not in page:
+        info = CATEGORY_NOTES.get(item["category"])
+        if info:
+            if e(info["short"]) not in page:
+                raise SystemExit(f"{item['slug']} is missing the short category disclaimer")
+            if info["own"] not in page:
                 raise SystemExit(f"{item['slug']} is missing the own-equipment setup line")
+        if item["category"] == "Medical and healthcare practices":
             if re.search(r"diagnose", page, re.I):
                 raise SystemExit(f"{item['slug']} page must not use the word diagnose")
-    if library.count(MEDICAL_SHORT) < 1:
-        raise SystemExit("Medical cards are missing the short disclaimer")
-    if "healthcare practice" not in library or library.count(MEDICAL_OWN_ACCOUNTS) < 2:
-        raise SystemExit("Medical practices section is missing the disclaimer or own-equipment line")
 
 
 def main() -> None:
