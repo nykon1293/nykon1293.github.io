@@ -14,3 +14,5 @@ To add one entry:
 4. Commit `data/use-cases.json`, `data/taxonomy.json` if you changed it, the generated HTML, `use-cases/search.json`, and the sitemap update.
 
 The hub at `/use-cases/` is a light page: search, function chips, industry tiles, twelve featured cards, and a show-more control that loads the rest from `use-cases/search.json`. Static landings live at `/use-cases/industry/<slug>/` and `/use-cases/function/<slug>/`. GitHub Pages serves those files as they are. SI (Super Intelligence) is the official term; put “AI” next to it in titles, meta, and the first body mention so searches still match. Do not rewrite the rest of the copy. Examples are illustrations, not client results. After data edits, also run `python3 scripts/build-service-pages.py` and `python3 scripts/patch_unique_pages.py` so service pages and shared JSON-LD stay in sync.
+
+Pushes to `main` run `.github/workflows/indexnow.yml`, which calls `python3 scripts/indexnow_ping.py` to POST changed public URLs (or the sitemap) to IndexNow. The key file is the 32-hex `*.txt` at the repo root; do not move it off the site root.

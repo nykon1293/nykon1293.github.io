@@ -1,8 +1,34 @@
 User-agent: *
 Allow: /
 Allow: /use-cases/
+Disallow: /chatbot/
 
-# Project Scout source is not published on GitHub Pages.
+User-agent: GPTBot
+Allow: /
+Disallow: /chatbot/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /chatbot/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /chatbot/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /chatbot/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /chatbot/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /chatbot/
+
+User-agent: Bingbot
+Allow: /
 Disallow: /chatbot/
 
 Sitemap: https://gemmisi.com/sitemap.xml
