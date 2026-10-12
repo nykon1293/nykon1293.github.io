@@ -198,11 +198,11 @@ def industry_faqs(slug: str) -> list[tuple[str, str]]:
         ),
         (
             "Are these client results?",
-            "No. They are illustrations of what is possible, not reports of client work. Setup times are rough and depend on how clean your data and tools are.",
+            "No. These are examples of what is possible. They are not reports of client work. Setup times are rough. They depend on how clean your data and tools are.",
         ),
         (
             "How do we start?",
-            "Book a free 30-minute consultation. Bring one real example, such as an inbox, export, or spreadsheet. No note required.",
+            "Book a free 30-minute consultation. Bring one real example, such as an inbox, export, or spreadsheet. No note is required.",
         ),
     ]
     extra: list[tuple[str, str]] = []
@@ -210,29 +210,29 @@ def industry_faqs(slug: str) -> list[tuple[str, str]]:
         extra = [
             (
                 "Does SI give legal advice?",
-                "No. These pages are business-side admin only. SI does not give legal advice, practice law, or replace an attorney's judgment. An attorney reviews anything client-facing or substantive.",
+                "No. These pages are office help only. SI does not give legal advice. SI does not practice law. SI does not replace an attorney's judgment. An attorney reviews anything that faces a client or is substantive.",
             ),
             (
                 "Can we put client files in consumer chat tools?",
-                "Not by default. Confidential or privileged information should only go into a tool after the firm has checked terms, agreements, access controls, and any required consent. Start with sample or de-identified information.",
+                "Not by default. Confidential or privileged files go into a tool only after the firm checks terms. The firm also needs agreements, access controls, and any required consent. Start with sample data. Do not use real client names.",
             ),
         ]
     elif slug == "medical":
         extra = [
             (
                 "Does SI give medical advice?",
-                "No. SI does not name a condition, give medical advice, or make clinical decisions. A clinician or trained staff member reviews anything clinical or patient-facing. This is not a guarantee of HIPAA compliance.",
+                "No. SI does not name a condition. SI does not give medical advice. SI does not make clinical decisions. A clinician or trained staff member reviews anything clinical or patient-facing. This is not a guarantee of HIPAA compliance.",
             ),
             (
                 "What about patient information?",
-                "Protected health information belongs only in tools covered by a signed business associate agreement, with access controls and the minimum necessary. It never belongs in consumer chat apps.",
+                "Protected health information (PHI) goes only into tools with a signed BAA. BAA means business associate agreement. Use access controls. Use only the minimum needed. Never put PHI in consumer chat apps.",
             ),
         ]
     elif slug == "accounting":
         extra = [
             (
                 "Does SI give tax or accounting advice?",
-                "No. SI does not give tax, accounting, or legal advice, and it does not prepare, sign, or file any return or report. A qualified professional reviews, signs, and decides.",
+                "No. SI does not give tax, accounting, or legal advice. SI does not prepare, sign, or file any return or report. A qualified professional reviews, signs, and decides.",
             ),
             (
                 "Where does client financial data live?",
@@ -243,11 +243,11 @@ def industry_faqs(slug: str) -> list[tuple[str, str]]:
         extra = [
             (
                 "Does SI lease units or screen applicants?",
-                "No. SI prepares drafts for the licensed agent or owner. It does not lease, collect rent, screen or rank applicants, and it does not give legal or lease advice.",
+                "No. SI prepares drafts for the licensed agent or owner. It does not lease, collect rent, screen or rank applicants. It does not give legal or lease advice.",
             ),
             (
                 "Who approves listings and tenant messages?",
-                "A licensed professional or the property owner. Fair housing laws still apply. SI never screens, ranks, or describes people or neighborhoods by protected characteristics.",
+                "A licensed agent, broker, or the owner. Fair housing laws still apply. SI never screens or ranks people. SI never describes people by protected characteristics. SI never describes neighborhoods that way.",
             ),
         ]
     elif slug == "home-services":
@@ -279,14 +279,14 @@ def industry_faqs(slug: str) -> list[tuple[str, str]]:
             ),
             (
                 "What about student records and FERPA?",
-                f"{OWN_ACCOUNTS} Education records belong only in tools the school has checked, with access controls and the minimum necessary, never in consumer chat apps. This is not a guarantee of FERPA compliance.",
+                f"{OWN_ACCOUNTS} Education records belong only in tools the school has checked. Use access controls. Use only the minimum necessary. Never put them in consumer chat apps. This is not a guarantee of FERPA compliance.",
             ),
         ]
     else:
         extra = [
             (
                 "What kinds of jobs are these?",
-                "Inbox, follow-up, books, schedules, stock, and documents: the repetitive work that shows up in almost any small team. SI drafts and sorts; a person still checks.",
+                "Inbox, follow-up, books, schedules, stock, and documents. This is the repetitive work that shows up in almost any small team. SI drafts and sorts. A person still checks.",
             ),
         ]
     faqs = extra[:2] + shared
@@ -1019,7 +1019,7 @@ def closing_section() -> str:
         <div class="contact-panel">
           <p class="section-kicker">Don’t see yours?</p>
           <h2>Bring the task that keeps eating your week</h2>
-          <p class="section-intro">If it is repetitive, rule-based, and lives in email, spreadsheets, a store, or a CRM, there is a good chance it can be drafted by SI and checked by you. Book a free 30-minute call and we will look at it together.</p>
+          <p class="section-intro">If the work repeats and follows rules, SI can often draft it. That includes email, spreadsheets, a store, or a CRM. You still check it. Book a free 30-minute call and we will look at it together.</p>
           <div class="actions"><a class="button primary" href="{CAL}" target="_blank" rel="noreferrer">{CTA}</a></div>
         </div>
       </section>"""
@@ -1031,7 +1031,7 @@ def library_page(entries: list) -> str:
     title = "SI (AI) use cases for small teams | GemmiSI"
     desc = clip_meta(
         f"{n} practical SI (AI) jobs that take routine work off a small team. "
-        "Browse by industry or search. Each entry shows what a human still checks."
+        "Browse by industry or search. Each page shows what a person still checks."
     )
     ld = collection_ld(
         "SI use cases",
@@ -1061,8 +1061,8 @@ def library_page(entries: list) -> str:
 {breadcrumb_html(1, [("Home", "../index.html"), ("Use cases", None)])}
         <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>{n} practical examples</p>
         <h1>What SI can take off your plate</h1>
-        <p class="lead">SI (Super Intelligence, the new name for AI) can take on a lot of the repetitive work in almost any business or organization: reading, sorting, matching, drafting, checking and summarizing. Each entry describes one practical job, what it needs to get started, and where a person stays in charge. Anything that sends, pays, orders or posts always waits for your approval.</p>
-        <p class="uc-note-intro">The examples show how the same job looks in different kinds of businesses. They are illustrations of what is possible, not reports of client results. Setup times are rough and depend on how clean your data and tools are.</p>
+        <p class="lead">SI (Super Intelligence, the new name for AI) can take on a lot of repetitive work. It can read, sort, match, draft, check, and summarize. That work shows up in almost any business or group. Each entry describes one practical job. It shows what you need to start. It shows where a person stays in charge. Anything that sends, pays, orders, or posts always waits for your approval.</p>
+        <p class="uc-note-intro">The examples show how the same job looks in different kinds of businesses. They are examples of what is possible. They are not reports of client results. Setup times are rough. They depend on how clean your data and tools are.</p>
         <div class="actions">
           <a class="button primary" href="{CAL}" target="_blank" rel="noreferrer">{CTA}</a>
         </div>
@@ -1085,7 +1085,7 @@ def library_page(entries: list) -> str:
         <div class="uc-group-head">
           <span class="section-kicker">Featured</span>
           <h2 id="featured-h">A dozen places to start</h2>
-          <p>Twelve examples from the library. Pick an industry above for the rest, or show more.</p>
+          <p>Twelve examples from the library. Pick an industry above for the rest. Or show more.</p>
         </div>
         <ul class="uc-grid" id="uc-grid">
           {cards}
@@ -1113,7 +1113,7 @@ def dimension_index_page(kind: str, entries: list) -> str:
     desc = (
         "Browse the GemmiSI SI (AI) use-case library by industry."
         if is_industry
-        else "Browse the GemmiSI SI (AI) use-case library by the kind of job: support, sales, billing, scheduling, and more."
+        else "Browse the GemmiSI SI (AI) use-case library by the kind of job. Support, sales, billing, scheduling, and more."
     )
     h1 = "Browse by industry" if is_industry else "Browse by function"
     canon = f"/use-cases/{kind}/"
@@ -1475,7 +1475,7 @@ def detail_page(item: dict, entries: list) -> str:
             </section>
             <section class="uc-block" aria-labelledby="examples">
               <h2 id="examples">Examples</h2>
-              <p class="uc-ex-intro">The same job looks different in different businesses. These are illustrations, not client results.</p>
+              <p class="uc-ex-intro">The same job looks different in different businesses. These are examples, not client results.</p>
               <ul class="uc-examples">
             {examples}
               </ul>
@@ -1492,7 +1492,7 @@ def detail_page(item: dict, entries: list) -> str:
             </section>
             <section class="uc-block" aria-labelledby="prompt">
               <h2 id="prompt">Try it yourself</h2>
-              <p>Paste this into your SI tool of choice and swap the [bracketed] parts for your own details. It asks SI to stop and show you before it does anything.</p>
+              <p>Paste this into your SI tool. Swap the [bracketed] parts for your own details. It asks SI to stop and show you before it does anything.</p>
               <div class="uc-prompt">
                 <div class="uc-prompt-bar">
                   <span class="uc-prompt-label">Copy-ready prompt</span>

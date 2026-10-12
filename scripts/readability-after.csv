@@ -1,0 +1,250 @@
+kind,id,label,grade,asl,asw,sentences,words,syllables,ease,over_target
+use-case,inbox-triage,Morning inbox sort into labeled queues,5.63,8.95,1.503,40,358,538,70.61,False
+use-case,unanswered-threads,A weekly list of emails still waiting on you,5.58,9.18,1.49,34,312,465,71.43,False
+use-case,status-question-replies,Answering 'where is it?' questions from your own records,4.82,8.76,1.44,41,359,517,76.11,False
+use-case,policy-request-checks,"Refunds, returns and cancellations checked against your policy",5.94,8.36,1.548,36,301,466,67.37,False
+use-case,faq-from-past-replies,Building an FAQ from answers you have already written,5.95,9.03,1.527,29,262,400,68.5,False
+use-case,review-and-comment-replies,Replies to online reviews and public comments,5.87,7.97,1.556,35,279,434,67.14,False
+use-case,website-chat-assistant,A website or messaging chat assistant that hands hard cases to a person,5.19,8.78,1.471,37,325,478,73.49,False
+use-case,after-hours-call-coverage,After-hours and busy-time phone coverage,6.56,8.38,1.6,40,335,536,62.97,False
+use-case,quote-follow-ups,Follow-ups for quotes and estimates that went quiet,5.11,9.72,1.433,29,282,404,75.77,False
+use-case,lead-intake-to-crm,Turning form and email inquiries into clean CRM records,4.99,7.97,1.48,35,279,413,73.51,False
+use-case,call-notes-to-next-steps,Call notes into a follow-up email and tasks,5.22,9.09,1.463,34,309,452,73.86,False
+use-case,proposal-first-drafts,First-draft proposals from discovery notes,5.35,8.15,1.505,34,277,417,71.21,False
+use-case,prospect-briefs,A one-page brief on a prospect before you meet,6.08,8.3,1.562,33,274,428,66.26,False
+use-case,outreach-drafts-and-replies,Personal outreach drafts and reply handling you approve,6.76,8.19,1.624,37,303,492,61.15,False
+use-case,repeat-customer-checkins,Check-ins for repeat customers who are due,5.85,8.96,1.521,27,242,368,69.09,False
+use-case,invoice-intake-to-draft-bills,Supplier invoices from email into draft bills,6.35,8.18,1.589,33,270,429,64.11,False
+use-case,receipt-matching,Matching receipts to card transactions,6.16,9.04,1.545,26,235,363,66.98,False
+use-case,overdue-invoice-reminders,"Reminders for overdue invoices, firmer as they age",6.25,7.83,1.592,36,282,449,64.18,False
+use-case,unbilled-work-check,Finding work that was done but never invoiced,6.49,9.73,1.549,26,253,392,65.88,False
+use-case,month-end-close-prep,Month-end close prep and the accountant's package,7.16,8.28,1.654,29,240,397,58.49,False
+use-case,subscriptions-and-renewals,"Tracking subscriptions, contracts and renewal dates",6.78,8.23,1.623,30,247,401,61.13,False
+use-case,year-end-tax-document-packet,A year-end document packet for your tax preparer,6.68,8.3,1.613,33,274,442,61.94,False
+use-case,weekly-owner-snapshot,A one-page weekly snapshot for the owner,4.53,8.86,1.412,29,257,363,78.35,False
+use-case,revenue-in-one-view,One view of revenue across every place you take money,6.52,8.96,1.578,28,251,396,64.26,False
+use-case,change-explanations,Plain-language notes when a number moves,4.84,7.93,1.47,29,230,338,74.46,False
+use-case,ad-spend-vs-results,"Ad spend next to real results, in one sheet",5.16,9.43,1.447,28,264,382,74.85,False
+use-case,competitor-watch,A weekly watch on competitors' prices and offers,6.08,8.29,1.563,24,199,311,66.2,False
+use-case,weekly-team-report,A weekly team report from the tools you already use,6.47,7.97,1.606,29,231,371,62.88,False
+use-case,feedback-themes,"Monthly themes from customer questions, complaints and surveys",5.79,9.04,1.513,25,226,342,69.64,False
+use-case,staff-schedule-drafts,Drafting next week's staff schedule from availability,7.29,7.74,1.683,31,240,404,56.57,False
+use-case,sops-from-walkthroughs,Turning how-we-do-it into written procedures,7.03,8.96,1.621,25,224,363,60.64,False
+use-case,appointment-confirmations,"Appointment confirmations, reminders and reschedules",7.37,7.52,1.698,33,248,421,55.59,False
+use-case,meeting-notes-action-items,Meeting notes into owners and due dates,5.87,8.79,1.528,28,246,376,68.61,False
+use-case,requests-to-calendar-holds,Turning meeting requests and forwarded emails into calendar holds,6.91,9.84,1.581,25,246,389,63.07,False
+use-case,daily-briefing,"A morning briefing across inbox, calendar and tasks",5.55,8.63,1.506,27,233,351,70.63,False
+use-case,requests-to-scheduled-jobs,Turning incoming work and maintenance requests into scheduled jobs,7.46,8.96,1.657,28,251,416,57.52,False
+use-case,reorder-from-sales-pace,Reorder lists from sales pace,5.53,9.83,1.465,35,344,504,72.91,False
+use-case,purchase-order-drafts,Drafting purchase orders without a dedicated purchasing system,6.21,9.36,1.538,28,262,403,67.21,False
+use-case,receiving-check,Checking deliveries against what was ordered,6.9,8.78,1.616,27,237,383,61.21,False
+use-case,stock-and-stuck-order-watch,A daily watch for low stock and stuck orders,5.81,9.32,1.506,28,261,393,69.99,False
+use-case,supplier-lead-times,Tracking supplier lead times and late deliveries,5.62,8.15,1.528,26,212,324,69.26,False
+use-case,inventory-value-aging,Inventory value and aging report,4.97,9.6,1.425,25,240,342,76.54,False
+use-case,order-paperwork-check,Checking customer orders against their PO and payment,6.85,8.0,1.637,31,248,406,60.22,False
+use-case,descriptions-and-catalog-cleanup,"Product and service descriptions from specs, plus catalog cleanup",5.35,8.65,1.489,31,268,399,72.11,False
+use-case,newsletter-from-real-updates,A newsletter drafted from what actually happened,5.93,8.28,1.55,29,240,372,67.31,False
+use-case,social-post-calendar,A month of social posts from one source,5.8,8.17,1.543,30,245,378,68.02,False
+use-case,repurpose-long-content,"One talk, class or article into several pieces",5.81,8.78,1.523,27,237,361,69.06,False
+use-case,web-pages-and-search-snippets,Refreshing tired web pages and search snippets,5.54,7.83,1.532,30,235,360,69.28,False
+use-case,marketing-claims-check,Checking marketing copy for claims you cannot back up,7.62,8.13,1.698,31,252,428,54.9,False
+use-case,automated-email-review,Reviewing and rewriting emails your systems send,6.21,8.78,1.557,27,237,369,66.21,False
+use-case,job-posting-drafts,Job postings drafted from a quick description of the role,6.09,8.32,1.562,34,283,442,66.26,False
+use-case,application-summaries,Job application summaries against the role's criteria,8.24,7.92,1.757,39,309,543,50.13,False
+use-case,interview-scheduling-and-kits,Interview scheduling and a matching question kit,7.98,7.46,1.751,35,261,457,51.13,False
+use-case,new-hire-onboarding,A new-hire onboarding checklist that actually gets followed,5.67,7.97,1.538,31,247,380,68.59,False
+use-case,internal-answers-helper,A helper that answers staff questions from your own documents,5.94,9.04,1.526,28,253,386,68.59,False
+use-case,license-and-certification-tracker,"Tracking staff licenses, certifications and training renewals",8.32,8.77,1.737,26,228,396,51.0,False
+use-case,timesheet-review-before-payroll,Reviewing timesheets and time off before payroll,5.95,7.88,1.565,33,260,407,66.41,False
+use-case,contract-first-read,A first read of contracts for the terms that matter,7.48,8.97,1.658,31,278,461,57.44,False
+use-case,routine-form-filling,Filling routine forms from saved company details,8.04,7.88,1.742,32,252,439,51.46,False
+use-case,long-document-briefs,Short briefs from long documents,5.79,8.38,1.535,29,243,373,68.47,False
+use-case,rfp-and-grant-drafts,"Drafting bids, RFP responses and grant applications from past answers",7.06,8.88,1.626,25,222,361,60.25,False
+use-case,pdf-data-extraction-and-filing,"Pulling data out of PDFs and scans, then filing them",6.03,8.52,1.551,29,247,383,67.01,False
+use-case,options-comparison,"Comparing vendors, tools or options in one decision sheet",5.61,9.5,1.482,24,228,338,71.78,False
+use-case,portal-chores,Handing repeating web-portal chores to SI,5.21,7.94,1.5,32,254,381,71.88,False
+use-case,weekly-member-announcements,A weekly announcements email for members,6.75,9.35,1.584,26,243,385,63.31,False
+use-case,donation-acknowledgments,Donation thank-yous and acknowledgment letters,7.09,9.26,1.616,27,250,404,60.72,False
+use-case,volunteer-scheduling,"Volunteer sign-ups, reminders and gap filling",6.07,8.62,1.551,24,207,321,66.89,False
+use-case,event-registration-logistics,"Event registration, seating and reminders",6.94,7.34,1.667,29,213,355,58.38,False
+use-case,membership-renewals,Membership renewals and a clean member list,7.11,8.38,1.647,24,201,331,59.02,False
+use-case,session-notes-to-progress-updates,Session notes into progress updates for families or clients,5.75,8.87,1.515,30,266,403,69.66,False
+use-case,lesson-and-training-materials,"Lesson plans, quizzes and training materials for instructors",6.38,9.32,1.554,25,233,362,65.94,False
+use-case,board-packet-and-minutes,Board packets and minutes for volunteer boards,7.5,9.19,1.653,27,248,410,57.65,False
+use-case,retired-inventory-app-reorder-history,Moving off a retired inventory app without losing your reorder history,5.94,11.78,1.435,40,471,676,73.46,False
+use-case,store-stock-and-spreadsheet-agreement,Keeping store stock counts and your spreadsheet in agreement,6.19,13.89,1.387,27,375,520,75.43,False
+use-case,catalog-pricing-and-margin-check,Pricing and margin check across your catalog,3.97,10.24,1.319,37,379,500,84.83,False
+use-case,supplier-price-increases-on-invoices,Spotting supplier price increases on invoices,4.32,9.69,1.367,36,349,477,81.37,False
+use-case,bilingual-english-spanish-replies,Replying to customers in English and Spanish,5.84,11.94,1.422,31,370,526,74.45,False
+use-case,hurricane-season-readiness,Hurricane-season readiness and continuity plan,6.68,10.89,1.528,35,381,582,66.55,False
+use-case,standing-si-desk-approval-queue,A standing SI desk with an approval queue,4.29,9.04,1.386,47,425,589,80.41,False
+use-case,speed-to-lead-replies,Speed-to-lead replies for new inquiries,3.85,9.1,1.346,39,355,478,83.68,False
+use-case,google-business-profile-upkeep,Google Business Profile upkeep,6.79,11.96,1.502,26,311,467,67.66,False
+use-case,cash-flow-look-ahead,Cash-flow look-ahead from open invoices and bills,4.54,10.0,1.375,36,360,495,80.36,False
+use-case,after-hours-inquiry-triage,"After-hours inquiry triage with clear ""not legal advice"" handling",5.86,9.12,1.517,52,474,719,69.26,False
+use-case,intake-summaries-conflict-prep,Intake summaries and conflict-check prep,6.89,9.98,1.575,42,419,660,63.45,False
+use-case,new-client-onboarding-checklists,New-client onboarding checklists,6.91,9.44,1.595,39,368,587,62.31,False
+use-case,engagement-letter-template-assembly,Engagement-letter template assembly for attorney review,6.61,9.41,1.57,44,414,650,64.46,False
+use-case,deadline-calendar-reminders,"Deadline and calendar reminders, human-verified",7.06,9.71,1.598,42,408,652,61.78,False
+use-case,client-status-updates,"Client status updates, attorney-approved",5.94,9.87,1.499,38,375,562,70.03,False
+use-case,matter-file-naming,Document organization and consistent file naming,7.17,9.55,1.613,42,401,647,60.64,False
+use-case,time-entry-cleanup,Time-entry cleanup and billing-narrative drafts,7.11,9.74,1.601,42,409,655,61.47,False
+use-case,invoice-follow-up-reminders,Invoice follow-up and receivables reminders,6.99,9.31,1.606,39,363,583,61.51,False
+use-case,records-request-tracking,Records-request tracking,6.08,8.95,1.54,43,385,593,67.44,False
+use-case,meeting-call-summaries,Meeting and call summaries for attorney review,6.98,9.29,1.605,48,446,716,61.59,False
+use-case,firm-marketing-drafts,"Marketing drafts, newsletters, and review requests",6.96,8.7,1.623,47,409,664,60.66,False
+use-case,appointment-reminders,Appointment reminders and no-show reduction,6.82,8.64,1.614,59,510,823,61.54,False
+use-case,cancellation-waitlist,Waitlist filling for cancellations,7.04,9.91,1.59,47,466,741,62.25,False
+use-case,new-patient-intake-checklist,New-patient intake packet and checklist,7.01,9.27,1.609,51,473,761,61.31,False
+use-case,insurance-verification-prep,Insurance verification prep and benefits summary for staff review,7.31,9.65,1.622,49,473,767,59.85,False
+use-case,prior-authorization-tracking,Prior-authorization tracking,7.88,8.76,1.699,49,429,729,54.19,False
+use-case,claim-denial-follow-up,Claim denial follow-up tracking,7.35,8.98,1.647,48,431,710,58.36,False
+use-case,patient-balance-reminders,Billing statements and balance reminders,7.08,9.18,1.618,49,450,728,60.65,False
+use-case,referral-loop-tracking,Referral tracking and closing the loop,6.98,8.92,1.618,49,437,707,60.91,False
+use-case,after-hours-patient-message-triage,"After-hours inquiry triage with clear ""not medical advice, call 911"" handling",6.74,9.2,1.588,56,515,818,63.13,False
+use-case,front-desk-call-summaries,Front-desk call summaries,6.19,8.79,1.555,57,501,779,66.37,False
+use-case,recall-visit-outreach,Recall and preventive-visit outreach,6.65,8.62,1.6,53,457,731,62.76,False
+use-case,review-request-drafts,Review requests and public reply drafts,6.94,8.95,1.614,55,492,794,61.23,False
+use-case,rental-lead-inquiry-follow-up,Lead and inquiry follow-up for agent or manager review,6.27,9.83,1.528,53,521,796,67.6,False
+use-case,showing-scheduling-confirmations,Showing scheduling and confirmation drafts,6.95,9.49,1.596,53,503,803,62.14,False
+use-case,showing-open-house-follow-up,Showing and open-house follow-up drafts,6.59,9.57,1.564,51,488,763,64.85,False
+use-case,listing-rental-ad-drafts,Listing and rental-ad drafts for agent review,6.8,9.91,1.57,54,535,840,63.95,False
+use-case,maintenance-request-intake,Maintenance request intake and sorting,7.29,10.04,1.607,54,542,871,60.69,False
+use-case,tenant-notice-drafts,Tenant message drafts for manager review,6.86,9.86,1.577,51,503,793,63.45,False
+use-case,rent-reminder-drafts,Rent reminder and follow-up drafts for manager review,6.69,9.33,1.579,54,504,796,63.75,False
+use-case,lease-renewal-expiration-tracking,Lease renewal and end-date tracking,6.97,9.86,1.586,50,493,782,62.63,False
+use-case,vendor-work-order-tracking,Vendor and work-order tracking,6.4,9.47,1.551,51,483,749,66.03,False
+use-case,move-in-move-out-checklists,Move-in and move-out checklists and photo sorting,7.49,9.85,1.631,47,463,755,58.88,False
+use-case,property-hurricane-season-prep,Hurricane-season readiness and tenant message prep,7.82,10.5,1.637,48,504,825,57.7,False
+use-case,rental-application-completeness,Rental application missing-item checklist,8.45,9.63,1.719,52,501,861,51.67,False
+use-case,missed-call-text-back,Missed-call text-back and inquiry capture,5.67,8.95,1.506,55,492,741,70.34,False
+use-case,contractor-quote-follow-up,Quote and estimate follow-up for owner review,5.95,8.9,1.532,48,427,654,68.23,False
+use-case,quote-estimate-drafts,Quote and estimate drafting for owner approval,6.08,9.04,1.538,50,452,695,67.58,False
+use-case,crew-dispatch-schedule-prep,Scheduling and dispatch prep for owner approval,7.22,9.39,1.623,46,432,701,60.02,False
+use-case,job-photo-organization,Job-photo sorting,6.44,9.17,1.564,48,440,688,65.25,False
+use-case,contractor-invoice-reminders,Invoice reminders and payment follow-up for owner review,6.28,7.98,1.59,51,407,647,64.25,False
+use-case,contractor-review-reply-drafts,Review requests and review-reply drafts for owner approval,6.88,8.88,1.61,50,444,715,61.59,False
+use-case,warranty-maintenance-reminders,Warranty and maintenance reminder drafts,6.89,8.04,1.639,51,410,672,60.01,False
+use-case,parts-materials-reordering,Parts and materials reorder lists for owner approval,6.05,9.07,1.534,44,399,612,67.87,False
+use-case,permit-inspection-tracking,Permit and inspection tracking,6.79,9.08,1.596,48,436,696,62.57,False
+use-case,contractor-after-hours-sorting,After-hours call and message sorting,6.39,8.8,1.572,56,493,775,64.91,False
+use-case,contractor-license-insurance-tracker,"License, insurance and subcontractor document tracking",7.25,9.19,1.632,47,432,705,59.44,False
+use-case,client-document-chasing,Client document chasing,5.69,9.87,1.477,45,444,656,71.83,False
+use-case,tax-new-client-intake,New-client intake organization,6.98,9.64,1.594,47,453,722,62.22,False
+use-case,tax-deadline-tracking,"Deadline tracking, human-verified",6.91,9.5,1.593,46,437,696,62.45,False
+use-case,accounting-engagement-letter-assembly,Engagement letters assembled for review,6.67,9.67,1.566,46,445,697,64.51,False
+use-case,tax-client-status-updates,Client status updates for preparer approval,6.85,9.4,1.591,45,423,673,62.69,False
+use-case,accounting-invoice-follow-up,Invoice follow-up and receivables reminders for partner review,6.59,9.36,1.57,44,412,647,64.48,False
+use-case,bookkeeping-month-end-checklist,Month-end close checklist preparation,5.95,8.89,1.532,44,391,599,68.21,False
+use-case,reconciliation-prep-for-review,Reconciliation prep for accountant review,7.31,9.3,1.633,46,428,699,59.22,False
+use-case,transaction-categorization-suggestions,Transaction category suggestions for bookkeeper review,7.66,8.73,1.682,45,393,661,55.68,False
+use-case,vendor-1099-information-collection,Vendor information collection and reminder prep for 1099 review,7.11,9.65,1.605,49,473,759,61.28,False
+use-case,sales-tax-filing-reminders,Sales-tax and recurring-filing reminder prep,7.21,9.77,1.609,44,430,692,60.77,False
+use-case,security-plan-upkeep-checklists,Security-plan upkeep checklists and access reviews,7.11,10.02,1.593,50,501,798,61.91,False
+use-case,abandoned-checkout-follow-up-drafts,Abandoned-checkout follow-up drafts from your store records,6.05,11.5,1.454,32,368,535,72.17,False
+use-case,shipping-exceptions-package-watch,Shipping exceptions and a 'where is my package' watch,5.77,12.21,1.407,29,354,498,75.43,False
+use-case,chargeback-and-dispute-evidence,Chargeback and dispute evidence packets for you to file,7.07,10.87,1.561,31,337,526,63.75,False
+use-case,product-feed-catalog-error-checks,Product-feed and catalog error checks before ads go live,5.78,11.17,1.442,30,335,483,73.53,False
+use-case,bundle-and-kit-stock-rules,Bundle and kit stock rules so components do not go negative,6.31,12.15,1.454,27,328,477,71.47,False
+use-case,returns-and-exchange-handling-prep,Returns and exchange handling prep for the warehouse,6.77,11.57,1.513,30,347,525,67.1,False
+use-case,marketplace-listing-sync-checks,Marketplace listing sync checks across your channels,6.6,12.18,1.478,22,268,396,69.46,False
+use-case,fulfillment-sla-watch,Fulfillment SLA watch for orders still waiting to ship,6.1,12.3,1.431,23,283,405,73.28,False
+use-case,customer-service-macros-from-past-tickets,Customer-service macros drafted from past tickets,6.38,11.76,1.473,25,294,433,70.3,False
+use-case,sales-tax-and-1099-prep-notes,Sales-tax and 1099 prep notes for the accountant,6.47,10.97,1.507,34,373,562,68.23,False
+use-case,seasonal-staffing-schedules,Seasonal staffing schedule drafts,6.76,12.34,1.486,29,358,532,68.59,False
+use-case,holiday-hours-across-listings,Holiday-hours updates across listings,6.44,11.48,1.487,27,310,461,69.37,False
+use-case,event-booking-waitlists,Event and booking waitlists,5.64,11.9,1.406,30,357,502,75.8,False
+use-case,weather-rescheduling-notices,Weather-driven rescheduling notices,6.55,11.66,1.491,32,373,556,68.9,False
+use-case,season-opening-re-engagement,Season-opening customer re-engagement drafts,5.47,12.28,1.379,29,356,491,77.69,False
+use-case,gift-card-holiday-promo-tracking,Gift-card and holiday promo tracking,6.04,12.97,1.404,29,376,528,74.88,False
+use-case,parent-email-drafts,Parent email drafts in the teacher's own voice,6.11,12.0,1.443,32,384,554,72.6,False
+use-case,report-card-comment-drafts,Report-card comment drafts from the teacher's notes,5.69,11.48,1.424,31,356,507,74.7,False
+use-case,rubric-lesson-plan-outlines,Rubric and lesson-plan outlines from the teacher's own standards,7.01,11.41,1.538,29,331,509,65.16,False
+use-case,missing-assignment-reminders,Missing-assignment lists and gentle reminder drafts,6.58,11.14,1.511,29,323,488,67.71,False
+use-case,tutoring-session-progress-notes,Tutoring session notes and parent progress summaries,5.94,10.63,1.473,30,319,470,71.4,False
+use-case,enrollment-inquiry-follow-up,Enrollment and admissions inquiry follow-up drafts,7.26,11.03,1.572,29,320,503,62.65,False
+use-case,substitute-plan-packets,Substitute plan packets from the teacher's materials,6.92,11.27,1.536,30,338,519,65.5,False
+use-case,field-trip-form-chasing,Field-trip permission and form chasing,6.24,10.63,1.498,30,319,478,69.27,False
+use-case,tuition-payment-reminders,Tuition and payment reminder drafts for the business office,7.07,11.03,1.556,30,331,515,64.01,False
+use-case,parent-teacher-conference-scheduling,Parent-teacher conference scheduling drafts,6.3,10.53,1.507,32,337,508,68.62,False
+site,own_accounts,Own equipment line,6.78,15.0,1.4,1,15,21,73.17,False
+site,also_used_note,Also-used note,5.33,9.33,1.464,3,28,41,73.48,False
+industry,any-business,Any business,4.59,8.26,1.437,23,190,273,76.89,False
+industry-intro,any-business,Any business intro,8.32,11.75,1.638,4,47,77,56.31,False
+industry-faq,any-business-1,What kinds of jobs are these?,2.99,7.0,1.343,5,35,47,86.12,False
+industry-faq,any-business-2,Does any business SI run on my own computer?,4.65,8.33,1.44,3,25,36,76.55,False
+industry-faq,any-business-3,Will SI send messages or change records on its own?,4.86,12.5,1.32,2,25,33,82.48,False
+industry-faq,any-business-4,Are these client results?,2.36,6.6,1.303,5,33,43,89.9,False
+industry-faq,any-business-5,How do we start?,4.31,6.25,1.48,4,25,37,75.28,False
+industry,ecommerce,Ecommerce,4.81,8.75,1.44,20,175,252,76.13,False
+industry-intro,ecommerce,Ecommerce intro,7.67,12.67,1.553,3,38,59,62.63,False
+industry-faq,ecommerce-1,Will SI refund orders or post listings?,6.4,10.0,1.533,3,30,46,66.97,False
+industry-faq,ecommerce-2,Does ecommerce SI run on my own computer?,4.25,8.0,1.417,3,24,34,78.87,False
+industry-faq,ecommerce-3,Will SI send messages or change records on its own?,4.86,12.5,1.32,2,25,33,82.48,False
+industry-faq,ecommerce-4,Are these client results?,2.36,6.6,1.303,5,33,43,89.9,False
+industry-faq,ecommerce-5,How do we start?,4.31,6.25,1.48,4,25,37,75.28,False
+industry,local-seasonal,Local & seasonal,4.59,8.52,1.429,23,196,280,77.33,False
+industry-intro,local-seasonal,Local & seasonal intro,6.71,9.0,1.593,6,54,86,62.97,False
+industry-faq,local-seasonal-1,Will SI post holiday hours or send weather notices?,4.45,11.33,1.324,3,34,45,83.36,False
+industry-faq,local-seasonal-2,Does local & seasonal SI run on my own computer?,4.65,8.33,1.44,3,25,36,76.55,False
+industry-faq,local-seasonal-3,Will SI send messages or change records on its own?,4.86,12.5,1.32,2,25,33,82.48,False
+industry-faq,local-seasonal-4,Are these client results?,2.36,6.6,1.303,5,33,43,89.9,False
+industry-faq,local-seasonal-5,How do we start?,4.31,6.25,1.48,4,25,37,75.28,False
+industry,legal,Legal,6.1,8.08,1.571,62,501,787,65.74,False
+industry-intro,legal,Legal intro,7.35,8.5,1.663,36,306,509,57.48,False
+industry-faq,legal-1,Does SI give legal advice?,4.06,6.83,1.439,6,41,59,78.16,False
+industry-faq,legal-2,Can we put client files in consumer chat tools?,5.79,7.83,1.553,6,47,73,67.48,False
+industry-faq,legal-3,Does legal SI run on my own computer?,3.76,8.0,1.375,3,24,33,82.39,False
+industry-faq,legal-4,Will SI send messages or change records on its own?,4.86,12.5,1.32,2,25,33,82.48,False
+industry-faq,legal-5,Are these client results?,2.36,6.6,1.303,5,33,43,89.9,False
+industry-faq,legal-6,How do we start?,4.31,6.25,1.48,4,25,37,75.28,False
+industry,medical,Medical,6.74,7.55,1.643,76,574,943,60.18,False
+industry-intro,medical,Medical intro,7.58,7.74,1.708,50,387,661,54.48,False
+industry-faq,medical-1,Does SI give medical advice?,6.31,7.33,1.614,6,44,71,62.88,False
+industry-faq,medical-2,What about patient information?,7.73,6.0,1.778,6,36,64,50.35,False
+industry-faq,medical-3,Does medical SI run on my own computer?,4.25,8.0,1.417,3,24,34,78.87,False
+industry-faq,medical-4,Will SI send messages or change records on its own?,4.86,12.5,1.32,2,25,33,82.48,False
+industry-faq,medical-5,Are these client results?,2.36,6.6,1.303,5,33,43,89.9,False
+industry-faq,medical-6,How do we start?,4.31,6.25,1.48,4,25,37,75.28,False
+industry,real-estate,Real estate,6.69,9.48,1.575,63,597,940,64.01,False
+industry-intro,real-estate,Real estate intro,7.82,10.69,1.631,39,417,680,58.03,False
+industry-faq,real-estate-1,Does SI lease units or screen applicants?,4.01,8.75,1.371,4,35,48,81.93,False
+industry-faq,real-estate-2,Who approves listings and tenant messages?,7.54,6.17,1.757,6,37,65,51.95,False
+industry-faq,real-estate-3,Does real estate SI run on my own computer?,3.71,8.33,1.36,3,25,34,83.32,False
+industry-faq,real-estate-4,Will SI send messages or change records on its own?,4.86,12.5,1.32,2,25,33,82.48,False
+industry-faq,real-estate-5,Are these client results?,2.36,6.6,1.303,5,33,43,89.9,False
+industry-faq,real-estate-6,How do we start?,4.31,6.25,1.48,4,25,37,75.28,False
+industry,home-services,Home services,6.73,8.95,1.595,58,519,828,62.78,False
+industry-intro,home-services,Home services intro,7.76,9.38,1.669,40,375,626,56.09,False
+industry-faq,home-services-1,Does SI set prices or book jobs?,5.95,9.0,1.528,4,36,55,68.45,False
+industry-faq,home-services-2,Does home services SI run on my own computer?,3.71,8.33,1.36,3,25,34,83.32,False
+industry-faq,home-services-3,Will SI send messages or change records on its own?,4.86,12.5,1.32,2,25,33,82.48,False
+industry-faq,home-services-4,Are these client results?,2.36,6.6,1.303,5,33,43,89.9,False
+industry-faq,home-services-5,How do we start?,4.31,6.25,1.48,4,25,37,75.28,False
+industry,accounting,Accounting,6.84,8.95,1.605,63,564,905,62.0,False
+industry-intro,accounting,Accounting intro,7.82,9.21,1.68,42,387,650,55.39,False
+industry-faq,accounting-1,Does SI give tax or accounting advice?,6.03,8.75,1.543,4,35,54,67.43,False
+industry-faq,accounting-2,Where does client financial data live?,7.17,11.67,1.543,3,35,54,64.47,False
+industry-faq,accounting-3,Does accounting SI run on my own computer?,4.25,8.0,1.417,3,24,34,78.87,False
+industry-faq,accounting-4,Will SI send messages or change records on its own?,4.86,12.5,1.32,2,25,33,82.48,False
+industry-faq,accounting-5,Are these client results?,2.36,6.6,1.303,5,33,43,89.9,False
+industry-faq,accounting-6,How do we start?,4.31,6.25,1.48,4,25,37,75.28,False
+industry,education,Education,6.45,9.34,1.559,59,551,859,65.47,False
+industry-intro,education,Education intro,7.45,10.26,1.613,34,349,563,59.94,False
+industry-faq,education-1,Does SI grade students or email parents on its own?,6.25,10.25,1.512,4,41,62,68.5,False
+industry-faq,education-2,What about student records and FERPA?,6.21,7.71,1.593,7,54,86,64.27,False
+industry-faq,education-3,Does education SI run on my own computer?,4.74,8.0,1.458,3,24,35,75.34,False
+industry-faq,education-4,Will SI send messages or change records on its own?,4.86,12.5,1.32,2,25,33,82.48,False
+industry-faq,education-5,Are these client results?,2.36,6.6,1.303,5,33,43,89.9,False
+industry-faq,education-6,How do we start?,4.31,6.25,1.48,4,25,37,75.28,False
+function,customer-support,Customer support,7.37,7.0,1.714,5,35,60,54.7,False
+function,sales-follow-up,Sales & follow-up,4.66,13.33,1.275,3,40,51,85.44,False
+function,billing-admin,Billing & admin,6.83,11.67,1.514,3,35,53,66.88,False
+function,scheduling,Scheduling,6.34,8.0,1.594,4,32,51,63.88,False
+function,reporting-dashboards,Reporting & dashboards,7.5,11.67,1.571,3,35,55,62.05,False
+function,inventory-orders,Inventory & orders,8.01,11.0,1.636,3,33,54,57.23,False
+function,content-marketing,Content & marketing,6.37,8.75,1.571,4,35,55,65.01,False
+function,hiring,Hiring,7.38,10.67,1.594,3,32,51,61.18,False
+function,research-documents,Research & documents,6.83,11.67,1.514,3,35,53,66.88,False
+function,community,Community,7.29,11.0,1.576,3,33,52,62.36,False
+hub,use-cases-hub,Use-case hub intros,3.69,8.53,1.352,19,162,219,83.81,False

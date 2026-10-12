@@ -312,7 +312,7 @@
               <p class="uc-card-cat"><a href="../industry/ecommerce/">Ecommerce</a> <span aria-hidden="true">·</span> <a href="../function/inventory-orders/">Inventory &amp; orders</a></p>
               <h1>Moving off a retired inventory app without losing your reorder history</h1>
               <p class="lead">When the inventory or purchase-order tool shuts down, SI (Super Intelligence, the new name for AI) reads the export and rebuilds suppliers, past orders, and reorder rules into a sheet you can use next week.</p>
-              <p class="uc-caution" role="note"><strong>Worth knowing:</strong> This is an illustration of a migration, not a report of a client result. SI does not replace the retired app and does not place orders.</p>
+              <p class="uc-caution" role="note"><strong>Worth knowing:</strong> This is an illustration of a migration, not a report of a client result. SI does not replace the retired app. SI does not place orders.</p>
             </div>
             <div class="uc-motif uc-motif--ecommerce" data-motif="inventory" aria-hidden="true">
             <div class="uc-motif-frame">
@@ -326,36 +326,36 @@
           <div class="uc-detail-main">
             <section class="uc-block" aria-labelledby="problem">
               <h2 id="problem">The problem</h2>
-              <p>The app you used for stock and purchase orders is gone, and what you have left is an export. Supplier names, past orders, and the rules for when to reorder are in those files, but they are not a Monday list of what to buy. A working reorder list and a low-stock watch assume the system is still running. This job is the move itself.</p>
+              <p>The app you used for stock and purchase orders is gone. What you have left is an export. Supplier names, past orders, and reorder rules sit in those files. They are not a Monday list of what to buy. A working reorder list and a low-stock watch assume the system is still running. This job is the move itself.</p>
             </section>
             <section class="uc-block" aria-labelledby="what">
               <h2 id="what">What SI does</h2>
-              <p>SI reads the export (CSV or spreadsheet) and lists suppliers, items, past purchase orders, quantities, and any reorder points or par levels that are actually in the file. It maps those into a simple sheet: who you buy from, what you last ordered, and a suggested reorder line you can edit. It flags fields the export does not contain, duplicate item names, and suppliers with no contact. It does not place orders. A common version of this is a Shopify store that exported Stocky before that app shut down and now has CSVs instead of a weekly system. The same steps apply to any retired inventory or purchase-order tool that left you a file.</p>
+              <p>SI reads the export (CSV or spreadsheet). It lists suppliers, items, past purchase orders, and quantities. It also lists any reorder points or par levels that are actually in the file. It maps those into a simple sheet. You see who you buy from, what you last ordered, and a suggested reorder line you can edit. It flags fields the export does not contain, duplicate item names, and suppliers with no contact. It does not place orders. A common version is a Shopify store that exported Stocky before that app shut down. Now it has CSVs instead of a weekly system. The same steps apply to any retired inventory or purchase-order tool that left you a file.</p>
             </section>
             <section class="uc-block" aria-labelledby="examples">
               <h2 id="examples">Examples</h2>
-              <p class="uc-ex-intro">The same job looks different in different businesses. These are illustrations, not client results.</p>
+              <p class="uc-ex-intro">The same job looks different in different businesses. These are examples, not client results.</p>
               <ul class="uc-examples">
-            <li class="uc-ex"><span class="uc-ex-type">Shopify store after an inventory app shutdown</span><p>The CSV dump still has suppliers and past purchase orders. SI turns that into a sheet grouped by supplier, and lists items whose reorder point never made it into the export.</p></li>
-            <li class="uc-ex"><span class="uc-ex-type">Specialty retailer</span><p>A discontinued purchase-order tool left a spreadsheet of vendors and last order dates. SI groups items by vendor and marks vendors with no email or phone on the export.</p></li>
-            <li class="uc-ex"><span class="uc-ex-type">Wholesale distributor</span><p>Several years of purchase-order lines are in one export. SI builds a per-item history of who was ordered from and when, so the buyer is not starting from a blank list.</p></li>
+            <li class="uc-ex"><span class="uc-ex-type">Shopify store after an inventory app shutdown</span><p>The CSV dump still has suppliers and past purchase orders. SI turns that into a sheet grouped by supplier. It lists items whose reorder point never made it into the export.</p></li>
+            <li class="uc-ex"><span class="uc-ex-type">Specialty retailer</span><p>A discontinued purchase-order tool left a spreadsheet of vendors and last order dates. SI groups items by vendor. It marks vendors with no email or phone on the export.</p></li>
+            <li class="uc-ex"><span class="uc-ex-type">Wholesale distributor</span><p>Several years of purchase-order lines are in one export. SI builds a per-item history of who was ordered from and when. The buyer is not starting from a blank list.</p></li>
               </ul>
             </section>
             <section class="uc-block" aria-labelledby="setup">
               <h2 id="setup">What it takes to set up</h2>
-              <p>The export folder, a note on which columns matter (supplier, SKU, on hand, last cost, reorder point), and one recent order you still trust as a sample. Setup is often a few days, mostly spent deciding what the new sheet must show each week. This is a weekly system from the files you already have, not a new inventory app.</p>
+              <p>You need the export folder. Add a note on which columns matter (supplier, SKU, on hand, last cost, reorder point). Add one recent order you still trust as a sample. Setup is often a few days, mostly spent deciding what the new sheet must show each week. This is a weekly system from the files you already have, not a new inventory app.</p>
             </section>
             <section class="uc-block uc-checks" aria-labelledby="checks">
               <h2 id="checks">What a human still checks</h2>
               <ul class="uc-checklist">
             <li>A person confirms the mapping before anyone orders from it.</li>
-            <li>Missing reorder rules stay blank for the buyer to fill in; SI does not invent par levels.</li>
+            <li>Missing reorder rules stay blank for the buyer to fill in. SI does not invent par levels.</li>
             <li>Nothing is sent to a supplier until a person approves the order.</li>
               </ul>
             </section>
             <section class="uc-block" aria-labelledby="prompt">
               <h2 id="prompt">Try it yourself</h2>
-              <p>Paste this into your SI tool of choice and swap the [bracketed] parts for your own details. It asks SI to stop and show you before it does anything.</p>
+              <p>Paste this into your SI tool. Swap the [bracketed] parts for your own details. It asks SI to stop and show you before it does anything.</p>
               <div class="uc-prompt">
                 <div class="uc-prompt-bar">
                   <span class="uc-prompt-label">Copy-ready prompt</span>
@@ -370,7 +370,7 @@
             <div class="uc-side-stick">
             <div class="uc-side-card">
               <h3>Typical effect</h3>
-              <p>The buyer has a usable reorder sheet from the export, and can see what the old tool did not hand over.</p>
+              <p>The buyer has a usable reorder sheet from the export. They can see what the old tool did not hand over.</p>
               <h3>Tools it usually touches</h3>
               <div class="uc-tags"><span class="tag green">Google Sheets</span><span class="tag green">Excel</span><span class="tag green">Shopify</span><span class="tag green">CSV export</span><span class="tag green">Google Drive</span></div>
             </div>
@@ -425,7 +425,7 @@
             </div>
           </div>
               <h3>Bundle and kit stock rules so components do not go negative</h3>
-              <p>SI applies your kit recipe to available component stock and lists which bundles can still sell, which should be held, and which components a sale would oversell.</p>
+              <p>SI applies your kit recipe to available component stock. It lists which bundles can still sell, which should be held, and which components a sale would oversell.</p>
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
             </a>
           </li>
