@@ -114,7 +114,9 @@
 }
 .uc-read-first strong { color: #fff8e6; }
 .uc-read-first em { font-style: italic; }
-.uc-legal-foot {
+.uc-read-first a { color: #fff8e6; text-decoration: underline; text-underline-offset: 2px; }
+.uc-legal-foot,
+.uc-cat-foot {
   margin: 14px 0 0;
   max-width: 68ch;
   font-size: .92rem;

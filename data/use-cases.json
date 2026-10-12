@@ -3526,5 +3526,473 @@
     ],
     "effect": "Drafts and a simple calendar are ready for an attorney to edit, and nothing is published until it is approved.",
     "caution": "Administrative support only: this is not legal advice and does not replace attorney judgment. An attorney reviews and approves anything client-facing or substantive, and client-confidential information is used only with the firm's agreements, access controls and consent. Advertising rules vary by state and require communications to be truthful and not misleading. SI never writes client results, testimonials, or comparisons, never promises outcomes, and never includes any client's identity or matter details. Asking satisfied clients for reviews is generally permitted, and paying for them is generally not, so check your state's rules."
+  },
+  {
+    "slug": "appointment-reminders",
+    "title": "Appointment reminders and no-show reduction",
+    "summary": "SI drafts short confirm and reschedule reminders from the practice's own schedule and lists unconfirmed visits for staff each morning.",
+    "problem": "Patients forget or cannot easily confirm, so slots go empty and the front desk spends the day on reminder calls.",
+    "what_si_does": "SI builds a reminder sequence from the practice's own schedule (for example, a few days before, then a day before), drafts short confirm or reschedule messages in the practice's wording with the practice name, callback number, and a clear opt-out, and lists unconfirmed appointments for staff each morning. Reminder text stays minimal: date, time, practice name, and callback number only, with no condition, procedure, or reason for the visit.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds patient information, the practice confirms the tool is covered by a signed BAA, sets role-based access, and limits SI to the minimum necessary. Start with sample or de-identified material. Connect the practice schedule with permission to read and draft, not to send, and save the templates and timing staff have already approved.",
+    "human_checks": [
+      "A staff member or clinician approves before anything goes to a patient, a payer, or any outside party.",
+      "SI never sends, submits, bills, or posts on its own.",
+      "Anything unusual goes to a \"needs clinician or manager review\" queue.",
+      "The practice decides what patient data SI may see, and testing starts with synthetic or de-identified samples.",
+      "Staff honor opt-outs and each patient's preferred contact method, and decide how to handle repeat missed visits."
+    ],
+    "examples": [
+      {
+        "business_type": "Small family-medicine practice",
+        "scenario": "The morning list shows which visits at [Appointment time] are still unconfirmed. The draft names the practice, the date, and the callback number, and staff send it."
+      },
+      {
+        "business_type": "Two-dentist practice",
+        "scenario": "Drafts are prepared a few days before and the day before, each with an opt-out line. Staff reschedule anyone who replies."
+      },
+      {
+        "business_type": "Solo therapy practice",
+        "scenario": "The draft lists the date, time, and practice phone number only. Staff use the contact method already on file."
+      }
+    ],
+    "copy_prompt": "Using this schedule export [paste], list visits in the next [7] days that are not confirmed. Draft a short reminder for each using this approved wording [paste], with the practice name, date, time, callback number, and an opt-out. Do not include a condition, procedure, or reason for the visit. Do not send anything. Pause and show me before sending, submitting, billing, posting or changing anything. Use only the sample or de-identified information I provide; do not include any patient names or health information.",
+    "tools_examples": [
+      "Practice scheduling system",
+      "Google Workspace (plans that offer a BAA)",
+      "Microsoft 365 (plans that offer a BAA)",
+      "Texting tool the practice already uses"
+    ],
+    "effect": "Unconfirmed visits are listed each morning, and reminder wording stays limited to date, time, and how to reach the practice.",
+    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. Reminders carry date, time, and practice contact only. SI never discusses symptoms or visit reasons by text or voicemail, never sends outside approved templates, and texting patients is regulated so opt-outs are honored immediately. Texting and recording rules vary; get consent and honor opt-outs. Mental-health and substance-use records have additional protections; check your state and federal rules before using any tool.",
+    "category": "Medical and healthcare practices"
+  },
+  {
+    "slug": "cancellation-waitlist",
+    "title": "Waitlist filling for cancellations",
+    "summary": "When a slot opens, SI drafts an offer to the next people on the waitlist using only the order and rules the practice already set.",
+    "problem": "A cancellation leaves a gap while patients who wanted an earlier slot sit on a list nobody has time to work.",
+    "what_si_does": "SI keeps the waitlist organized (who, what appointment type, preferred times, and how they asked to be contacted). When a slot opens, it drafts an offer to the next eligible people per the practice's own rules and prepares the order to contact.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds patient information, the practice confirms the tool is covered by a signed BAA, sets role-based access, and limits SI to the minimum necessary. Start with sample or de-identified material. Start from the practice's waitlist export and the written order for who is offered a slot. Permission is to read and draft, not to book or send.",
+    "human_checks": [
+      "A staff member or clinician approves before anything goes to a patient, a payer, or any outside party.",
+      "SI never sends, submits, bills, or posts on its own.",
+      "Anything unusual goes to a \"needs clinician or manager review\" queue.",
+      "The practice decides what patient data SI may see, and testing starts with synthetic or de-identified samples.",
+      "Staff confirm who is offered a slot and in what order, book it, and a clinician decides which patients are appropriate for which slots."
+    ],
+    "examples": [
+      {
+        "business_type": "Two-dentist practice",
+        "scenario": "A morning cancellation is matched to the next person on the list who asked for a morning visit. Staff review the draft offer, which has no clinical detail, and place the call."
+      },
+      {
+        "business_type": "Independent chiropractic clinic",
+        "scenario": "The waitlist is grouped by appointment type and preferred time. When [Appointment time] opens, staff get a draft in the order the clinic already set."
+      },
+      {
+        "business_type": "Specialty clinic",
+        "scenario": "An opening is offered only to people the practice marked as eligible for that visit type. Staff decide whether to book it."
+      }
+    ],
+    "copy_prompt": "Here is the waitlist [paste] and the rules for who is offered a slot [paste]. A slot opened at [Appointment time] for [appointment type]. Draft an offer, with no clinical detail, to the next eligible people in the order those rules set. Do not decide who is urgent and do not book or send anything. Pause and show me before sending, submitting, billing, posting or changing anything. Use only the sample or de-identified information I provide; do not include any patient names or health information.",
+    "tools_examples": [
+      "Practice scheduling system",
+      "Google Workspace (plans that offer a BAA)",
+      "Microsoft 365 (plans that offer a BAA)",
+      "Calendar"
+    ],
+    "effect": "An open slot comes with a draft offer in the practice's own order, ready for staff to send.",
+    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. SI never decides who is clinically urgent or gives anyone priority based on a medical judgment. It follows only the order and rules the practice has set, and offers contain no clinical detail.",
+    "category": "Medical and healthcare practices"
+  },
+  {
+    "slug": "new-patient-intake-checklist",
+    "title": "New-patient intake packet and checklist",
+    "summary": "SI assembles the practice's own forms into one packet and a checklist of what is still missing before the visit.",
+    "problem": "Intake paperwork arrives incomplete or in different forms, and front-desk staff chase missing items right up to the visit.",
+    "what_si_does": "SI assembles the practice's own forms into one packet, builds a per-patient checklist (forms signed, ID and insurance card received, consents on file, records requested), reminds staff and the patient about what is outstanding, and drafts the welcome message with directions and what to bring.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds patient information, the practice confirms the tool is covered by a signed BAA, sets role-based access, and limits SI to the minimum necessary. Start with sample or de-identified material. Use only the practice's approved forms and welcome wording. Collect patient forms only through tools covered by a BAA.",
+    "human_checks": [
+      "A staff member or clinician approves before anything goes to a patient, a payer, or any outside party.",
+      "SI never sends, submits, bills, or posts on its own.",
+      "Anything unusual goes to a \"needs clinician or manager review\" queue.",
+      "The practice decides what patient data SI may see, and testing starts with synthetic or de-identified samples.",
+      "Staff collect and file the documents, confirm signatures and consents are valid, and route clinical questionnaires to the clinician."
+    ],
+    "examples": [
+      {
+        "business_type": "Small family-medicine practice",
+        "scenario": "For [Patient], the checklist shows the consent is on file and the insurance card is still missing. Staff follow up, and the welcome draft lists directions and what to bring."
+      },
+      {
+        "business_type": "Med spa",
+        "scenario": "The packet uses the practice's own forms only. Staff check that the signature line is complete before the visit is marked ready."
+      },
+      {
+        "business_type": "Solo therapy practice",
+        "scenario": "Outstanding items are listed for staff. Clinical questions stay with the clinician and are not interpreted in the checklist."
+      }
+    ],
+    "copy_prompt": "Using only these approved forms [paste], build one intake packet and a checklist for [Patient]: forms signed, ID and insurance card received, consents on file, records requested. Draft a welcome note with directions and what to bring, from this approved wording [paste]. Do not write new consent or privacy language, and do not interpret answers. Pause and show me before sending, submitting, billing, posting or changing anything. Use only the sample or de-identified information I provide; do not include any patient names or health information.",
+    "tools_examples": [
+      "EHR or practice-management system",
+      "Google Workspace (plans that offer a BAA)",
+      "Microsoft 365 (plans that offer a BAA)",
+      "Practice scheduling system"
+    ],
+    "effect": "Outstanding intake items are listed before the visit, and staff still collect, check, and file the forms.",
+    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. SI uses only the practice's approved forms, writes no new consent or privacy language, and does not interpret answers to clinical or history questions. Patient forms are collected only through tools covered by a BAA. Mental-health and substance-use records have additional protections; check your state and federal rules before using any tool.",
+    "category": "Medical and healthcare practices"
+  },
+  {
+    "slug": "insurance-verification-prep",
+    "title": "Insurance verification prep and benefits summary for staff review",
+    "summary": "SI turns what staff already gathered from the payer into a one-page summary and a list of gaps to follow up, for a person to confirm.",
+    "problem": "Verifying eligibility and benefits takes calls and portal time, and the details get scattered or missed before the visit.",
+    "what_si_does": "SI prepares a pre-visit verification worklist from the schedule, organizes what staff gathered from the payer portal or call (plan, copay, deductible, whether an authorization is required) into a one-page summary, and flags items to follow up, such as a missing member ID or a coverage date that has passed.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds patient information, the practice confirms the tool is covered by a signed BAA, sets role-based access, and limits SI to the minimum necessary. Start with sample or de-identified material. Staff do the payer lookup. SI only organizes notes staff have already recorded. Share the summary inside a tool covered by a BAA.",
+    "human_checks": [
+      "A staff member or clinician approves before anything goes to a patient, a payer, or any outside party.",
+      "SI never sends, submits, bills, or posts on its own.",
+      "Anything unusual goes to a \"needs clinician or manager review\" queue.",
+      "The practice decides what patient data SI may see, and testing starts with synthetic or de-identified samples.",
+      "Staff confirm the summary against the payer's information before anyone discusses cost, and the practice decides which estimates it shares."
+    ],
+    "examples": [
+      {
+        "business_type": "Small family-medicine practice",
+        "scenario": "Notes from a payer call are arranged on one page: plan name, copay, and a missing member ID flagged for staff to finish before [Appointment time]."
+      },
+      {
+        "business_type": "Specialty clinic",
+        "scenario": "The worklist shows which visits this week still need a payer check. Staff confirm each line against the portal before it is used."
+      },
+      {
+        "business_type": "Two-dentist practice",
+        "scenario": "A summary lists what staff wrote down and leaves a blank where coverage was not recorded, instead of filling it in."
+      }
+    ],
+    "copy_prompt": "From this schedule [paste] and these staff notes from the payer [paste], make a one-page summary of plan, copay, deductible, and whether an authorization is required. Flag missing member IDs or dates that have passed. Do not guess coverage, do not say a service is covered, and do not state a cost. Pause and show me before sending, submitting, billing, posting or changing anything. Use only the sample or de-identified information I provide; do not include any patient names or health information.",
+    "tools_examples": [
+      "EHR or practice-management system",
+      "Billing system",
+      "Google Workspace (plans that offer a BAA)",
+      "Microsoft 365 (plans that offer a BAA)"
+    ],
+    "effect": "Details staff already collected sit on one page for a person to check before anyone discusses cost with a patient.",
+    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. SI summarizes what staff recorded and never guesses coverage, never states that a service is covered, and never gives the patient a cost promise. Only the minimum necessary data goes into the summary.",
+    "category": "Medical and healthcare practices"
+  },
+  {
+    "slug": "prior-authorization-tracking",
+    "title": "Prior-authorization tracking",
+    "summary": "SI keeps each prior-authorization request, its status, and its expiration in one tracker and drafts routine status-check notes for staff.",
+    "problem": "Prior authorizations live in emails, portals, and sticky notes, and a lapsed or missing authorization can delay a visit or leave the practice with an unpaid claim.",
+    "what_si_does": "SI keeps a tracker of each request (patient reference, service, payer, date submitted, status, expiration, and follow-up due), drafts routine status-check notes from approved wording, and shows what is pending, expiring, or overdue.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds patient information, the practice confirms the tool is covered by a signed BAA, sets role-based access, and limits SI to the minimum necessary. Start with sample or de-identified material. Use the tracker the practice already keeps. A clinician supplies any clinical information. SI does not write it.",
+    "human_checks": [
+      "A staff member or clinician approves before anything goes to a patient, a payer, or any outside party.",
+      "SI never sends, submits, bills, or posts on its own.",
+      "Anything unusual goes to a \"needs clinician or manager review\" queue.",
+      "The practice decides what patient data SI may see, and testing starts with synthetic or de-identified samples.",
+      "Staff submit requests and follow-ups. A clinician supplies and approves the clinical information, and a person handles denials and appeals."
+    ],
+    "examples": [
+      {
+        "business_type": "Specialty clinic",
+        "scenario": "The tracker lists requests by status and expiration. A draft status-check note uses the clinic's approved wording, and staff send it."
+      },
+      {
+        "business_type": "Small family-medicine practice",
+        "scenario": "Items due for follow-up this week are listed with the payer and the date submitted. Clinical letters stay with the clinician."
+      },
+      {
+        "business_type": "Solo therapy practice",
+        "scenario": "An authorization nearing its end date is flagged for staff. SI does not decide whether another visit is appropriate."
+      }
+    ],
+    "copy_prompt": "From this authorization log [paste], list what is pending, expiring, or overdue. For each overdue item, draft a status-check note from this approved wording [paste]. Do not write clinical justification, do not invent documents, and do not decide whether a service is appropriate. Pause and show me before sending, submitting, billing, posting or changing anything. Use only the sample or de-identified information I provide; do not include any patient names or health information.",
+    "tools_examples": [
+      "EHR or practice-management system",
+      "Billing system",
+      "Google Workspace (plans that offer a BAA)",
+      "Microsoft 365 (plans that offer a BAA)"
+    ],
+    "effect": "Pending, expiring, and overdue requests are visible in one list, and a person still submits, follows up, and handles denials.",
+    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. SI tracks and drafts logistics only. It never writes or alters clinical justification, never invents documentation, and never decides whether a service is medically necessary.",
+    "category": "Medical and healthcare practices"
+  },
+  {
+    "slug": "claim-denial-follow-up",
+    "title": "Claim denial follow-up tracking",
+    "summary": "SI sorts denied and unpaid claims by payer, reason, and deadline, and drafts follow-up notes for a biller to review.",
+    "problem": "Denied and unpaid claims pile up because nobody has time to work them in order, and appeal deadlines slip.",
+    "what_si_does": "SI sorts the denial list by payer, reason code, and date, tracks each item's status and deadline, groups routine fixes (missing information, demographic errors) for staff to correct, and drafts follow-up notes for the biller to review.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds patient information, the practice confirms the tool is covered by a signed BAA, sets role-based access, and limits SI to the minimum necessary. Start with sample or de-identified material. Start from a denial export the biller provides. SI organizes the list. A trained biller still corrects and resubmits.",
+    "human_checks": [
+      "A staff member or clinician approves before anything goes to a patient, a payer, or any outside party.",
+      "SI never sends, submits, bills, or posts on its own.",
+      "Anything unusual goes to a \"needs clinician or manager review\" queue.",
+      "The practice decides what patient data SI may see, and testing starts with synthetic or de-identified samples.",
+      "A trained biller or coder reviews each denial against the record, corrects and resubmits, and a clinician reviews any clinical content."
+    ],
+    "examples": [
+      {
+        "business_type": "Small family-medicine practice",
+        "scenario": "Denials are grouped by payer and reason code, with the appeal date shown. The biller reviews the draft note before anything is resubmitted."
+      },
+      {
+        "business_type": "Specialty clinic",
+        "scenario": "Missing-information denials are listed separately from items that need a clinician. Staff correct only what the record already supports."
+      },
+      {
+        "business_type": "Independent chiropractic clinic",
+        "scenario": "Each open denial shows its deadline. Nothing is changed in the billing system until a person approves it."
+      }
+    ],
+    "copy_prompt": "Sort this denial list [paste] by payer, reason code, and deadline. Group routine fixes such as missing information or demographic errors. Draft a follow-up note for the biller from this approved wording [paste]. Do not change codes, add conditions, or write documentation to fit a denial. Pause and show me before sending, submitting, billing, posting or changing anything. Use only the sample or de-identified information I provide; do not include any patient names or health information.",
+    "tools_examples": [
+      "Billing system",
+      "EHR or practice-management system",
+      "Google Workspace (plans that offer a BAA)",
+      "Microsoft 365 (plans that offer a BAA)"
+    ],
+    "effect": "Denials are grouped by payer, reason, and deadline so a trained biller can work them in order.",
+    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. SI never changes codes, adds conditions, or writes documentation to fit a payer's denial. Billing and coding must reflect what was actually documented and performed, and a person approves every submission.",
+    "category": "Medical and healthcare practices"
+  },
+  {
+    "slug": "patient-balance-reminders",
+    "title": "Billing statements and balance reminders",
+    "summary": "SI drafts polite balance reminders from the practice's aging list and holds accounts that need a person, a payment plan, or an insurance check.",
+    "problem": "Patient balances sit unpaid because reminders are inconsistent or uncomfortable to send.",
+    "what_si_does": "SI builds an aging list from the billing system, drafts polite statement reminders at intervals the practice sets, flags accounts that need a personal call (payment plan, hardship, or insurance still pending), and holds accounts with open insurance questions.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds patient information, the practice confirms the tool is covered by a signed BAA, sets role-based access, and limits SI to the minimum necessary. Start with sample or de-identified material. Use the billing export and the reminder wording the practice has approved. SI drafts only. A person sends, adjusts, or writes off.",
+    "human_checks": [
+      "A staff member or clinician approves before anything goes to a patient, a payer, or any outside party.",
+      "SI never sends, submits, bills, or posts on its own.",
+      "Anything unusual goes to a \"needs clinician or manager review\" queue.",
+      "The practice decides what patient data SI may see, and testing starts with synthetic or de-identified samples.",
+      "A person approves each message, decides on payment plans, discounts, and write-offs, and checks accounts with pending insurance or disputes first."
+    ],
+    "examples": [
+      {
+        "business_type": "Two-dentist practice",
+        "scenario": "Balances past the practice's chosen interval get a draft reminder with the amount and how to call. Accounts with an open insurance question are held."
+      },
+      {
+        "business_type": "Med spa",
+        "scenario": "The aging list flags a balance the practice marked for a personal call. The draft is not sent until a person approves it."
+      },
+      {
+        "business_type": "Small family-medicine practice",
+        "scenario": "Reminder drafts use the practice's wording and leave out any clinical detail. Staff decide which ones go out."
+      }
+    ],
+    "copy_prompt": "From this aging report [paste], draft polite balance reminders at these intervals [paste] using this approved wording [paste]. Flag accounts marked for a payment plan, hardship, or pending insurance, and hold those. Do not include a condition or procedure. Do not send, discount, or change a balance. Pause and show me before sending, submitting, billing, posting or changing anything. Use only the sample or de-identified information I provide; do not include any patient names or health information.",
+    "tools_examples": [
+      "Billing system",
+      "Google Workspace (plans that offer a BAA)",
+      "Microsoft 365 (plans that offer a BAA)",
+      "Practice scheduling system"
+    ],
+    "effect": "Reminder drafts follow the practice's wording and timing, and a person decides which ones go out.",
+    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. SI drafts reminders only. It never sends, adjusts balances, or discounts on its own, never includes a condition or procedure in messages, and billing and collection messages follow the practice's approved wording and the rules for patient contact.",
+    "category": "Medical and healthcare practices"
+  },
+  {
+    "slug": "referral-loop-tracking",
+    "title": "Referral tracking and closing the loop",
+    "summary": "SI tracks referrals in and out, drafts routine status notes from approved wording, and lists open loops for staff each week.",
+    "problem": "Referrals out and in get lost, and no one knows whether the patient was seen or the report came back.",
+    "what_si_does": "SI keeps a referral tracker (referring and receiving practice, date, status, records sent, and follow-up due), drafts routine status requests and thank-you notes from approved wording, and lists open loops each week.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds patient information, the practice confirms the tool is covered by a signed BAA, sets role-based access, and limits SI to the minimum necessary. Start with sample or de-identified material. Use the referral log the practice already keeps. Records move only through channels the practice has secured and covered by the right agreements.",
+    "human_checks": [
+      "A staff member or clinician approves before anything goes to a patient, a payer, or any outside party.",
+      "SI never sends, submits, bills, or posts on its own.",
+      "Anything unusual goes to a \"needs clinician or manager review\" queue.",
+      "The practice decides what patient data SI may see, and testing starts with synthetic or de-identified samples.",
+      "Staff send records through approved channels and confirm receipt. The clinician reviews returned reports and decides any follow-up with the patient."
+    ],
+    "examples": [
+      {
+        "business_type": "Small family-medicine practice",
+        "scenario": "Open referrals are listed with the date sent and whether a report is back. A draft status request uses approved wording, and staff send it."
+      },
+      {
+        "business_type": "Specialty clinic",
+        "scenario": "Incoming referrals show whether records were received. Staff confirm receipt. The clinician reads any report that comes back."
+      },
+      {
+        "business_type": "Two-dentist practice",
+        "scenario": "A weekly list shows loops still open. Thank-you drafts wait for staff approval and include no clinical detail."
+      }
+    ],
+    "copy_prompt": "From this referral log [paste], list open loops with the referring practice, receiving practice, date, status, and follow-up due. Draft a status request or thank-you from this approved wording [paste]. Do not summarize clinical results or send records. Pause and show me before sending, submitting, billing, posting or changing anything. Use only the sample or de-identified information I provide; do not include any patient names or health information.",
+    "tools_examples": [
+      "EHR or practice-management system",
+      "Google Workspace (plans that offer a BAA)",
+      "Microsoft 365 (plans that offer a BAA)",
+      "Calendar"
+    ],
+    "effect": "Open referral loops are listed each week, and staff still send records through the practice's own channels.",
+    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. SI tracks and drafts logistics only, never summarizes or interprets clinical results for action, and records move only through channels the practice has secured and covered by the right agreements.",
+    "category": "Medical and healthcare practices"
+  },
+  {
+    "slug": "after-hours-patient-message-triage",
+    "title": "After-hours inquiry triage with clear \"not medical advice, call 911\" handling",
+    "summary": "SI sorts overnight messages into queues, flags anything urgent for a person, and uses only one pre-approved acknowledgment.",
+    "problem": "Calls and web forms arrive at night and on weekends. Urgent messages get buried, and staff worry about saying too much.",
+    "what_si_does": "SI sorts overnight messages into queues (new patient, existing patient, billing, refill or records, vendor, spam), pulls out name, contact, and request type, flags any message that mentions symptoms or an emergency to the top for a person, and uses one pre-approved acknowledgment: the practice will follow up, the message is not medical advice, and for an emergency call 911.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds patient information, the practice confirms the tool is covered by a signed BAA, sets role-based access, and limits SI to the minimum necessary. Start with sample or de-identified material. Save the acknowledgment the practice has already approved, the queue names, and what should be flagged for a person. Permission is to read and draft, not to send other replies.",
+    "human_checks": [
+      "A staff member or clinician approves before anything goes to a patient, a payer, or any outside party.",
+      "SI never sends, submits, bills, or posts on its own.",
+      "Anything unusual goes to a \"needs clinician or manager review\" queue.",
+      "The practice decides what patient data SI may see, and testing starts with synthetic or de-identified samples.",
+      "A person reads the queue first thing and sends every reply other than the approved acknowledgment. The on-call clinician decides on any clinical response."
+    ],
+    "examples": [
+      {
+        "business_type": "Small family-medicine practice",
+        "scenario": "An overnight form is labeled billing. A second message is placed at the top of the queue for a person. The only automatic note is the approved acknowledgment with the 911 line."
+      },
+      {
+        "business_type": "Solo therapy practice",
+        "scenario": "Weekend messages are sorted into new patient, existing patient, and other. Staff read the queue in the morning and decide who is called back."
+      },
+      {
+        "business_type": "Independent chiropractic clinic",
+        "scenario": "A vendor email is separated from patient messages. Nothing is answered except the one approved note that emergencies go to 911."
+      }
+    ],
+    "copy_prompt": "Sort these overnight messages [paste] into: new patient, existing patient, billing, refill or records, vendor, spam. Pull out name, contact, and request type. Flag anything that mentions symptoms or an emergency for a person. The only reply you may draft is this approved acknowledgment [paste], which says the practice will follow up, this is not medical advice, and an emergency means call 911. Do not answer medical questions. Pause and show me before sending, submitting, billing, posting or changing anything. Use only the sample or de-identified information I provide; do not include any patient names or health information.",
+    "tools_examples": [
+      "Practice web form",
+      "Google Workspace (plans that offer a BAA)",
+      "Microsoft 365 (plans that offer a BAA)",
+      "Practice scheduling system"
+    ],
+    "effect": "Overnight messages are sorted for a person to read first, with one approved note that emergencies go to 911.",
+    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. SI never answers medical questions, assesses symptoms, advises on medication, or tells anyone what to do. Auto-replies are limited to the approved acknowledgment with the 911 line, and SI is not a replacement for the practice's emergency or on-call process.",
+    "category": "Medical and healthcare practices"
+  },
+  {
+    "slug": "front-desk-call-summaries",
+    "title": "Front-desk call summaries",
+    "summary": "From staff notes or an approved transcript, SI drafts a short call summary labeled for staff review and routes it to the right person.",
+    "problem": "Messages taken at the front desk are thin, get passed along late, and action items disappear.",
+    "what_si_does": "From notes or an approved call transcript, SI drafts a short summary (caller, request, who owns the follow-up, and due date) in the practice's message format, labeled \"DRAFT, for staff review,\" and routes it to the right person.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds patient information, the practice confirms the tool is covered by a signed BAA, sets role-based access, and limits SI to the minimum necessary. Start with sample or de-identified material. Use a call tool covered by a BAA, with access controls. Get consent before recording or transcribing. Start from staff notes or a transcript the practice is allowed to use.",
+    "human_checks": [
+      "A staff member or clinician approves before anything goes to a patient, a payer, or any outside party.",
+      "SI never sends, submits, bills, or posts on its own.",
+      "Anything unusual goes to a \"needs clinician or manager review\" queue.",
+      "The practice decides what patient data SI may see, and testing starts with synthetic or de-identified samples.",
+      "The staff member checks the summary against the call, corrects it, files it where the practice keeps messages, and a clinician handles any clinical message."
+    ],
+    "examples": [
+      {
+        "business_type": "Small family-medicine practice",
+        "scenario": "A front-desk note becomes a draft with the caller, the request, and who should call back. Staff correct it before it is filed."
+      },
+      {
+        "business_type": "Two-dentist practice",
+        "scenario": "An approved transcript is turned into the practice's message format and labeled as a draft. The person who took the call checks it."
+      },
+      {
+        "business_type": "Solo therapy practice",
+        "scenario": "The draft names the follow-up owner and a due date. It is not filed as a clinical record until a person approves it."
+      }
+    ],
+    "copy_prompt": "From these staff notes or this approved transcript [paste], draft a short summary: caller, request, who owns the follow-up, and due date. Use this message format [paste]. Label the top \"DRAFT, for staff review.\" Do not add facts that are not in the notes. Pause and show me before sending, submitting, billing, posting or changing anything. Use only the sample or de-identified information I provide; do not include any patient names or health information.",
+    "tools_examples": [
+      "Google Workspace (plans that offer a BAA)",
+      "Microsoft 365 (plans that offer a BAA)",
+      "EHR or practice-management system",
+      "Call tool the practice already uses"
+    ],
+    "effect": "Each call becomes a labeled draft a staff member can correct before it is filed.",
+    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. Recording or transcribing a call may require everyone's consent, and state rules differ, so get consent and give notice first. Call content is PHI, so use only a tool covered by a BAA with access controls, and the summary is a draft, not a clinical record. Texting and recording rules vary; get consent and honor opt-outs. Mental-health and substance-use records have additional protections; check your state and federal rules before using any tool.",
+    "category": "Medical and healthcare practices"
+  },
+  {
+    "slug": "recall-visit-outreach",
+    "title": "Recall and preventive-visit outreach",
+    "summary": "SI builds a recall list from the practice's own rules and drafts generic book-a-visit reminders for staff to send.",
+    "problem": "Patients due for cleanings, check-ups, follow-ups, or re-evaluations slip through because recall lists are manual.",
+    "what_si_does": "SI builds the recall list from the practice's own recall rules, drafts friendly, generic reminders to book, tracks who has responded, and gives staff a short list for personal calls.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds patient information, the practice confirms the tool is covered by a signed BAA, sets role-based access, and limits SI to the minimum necessary. Start with sample or de-identified material. The practice defines who is due and the interval. Outreach uses approved generic wording with no health details. Honor opt-outs and contact preferences.",
+    "human_checks": [
+      "A staff member or clinician approves before anything goes to a patient, a payer, or any outside party.",
+      "SI never sends, submits, bills, or posts on its own.",
+      "Anything unusual goes to a \"needs clinician or manager review\" queue.",
+      "The practice decides what patient data SI may see, and testing starts with synthetic or de-identified samples.",
+      "The practice approves the wording, sends the outreach, books the visit, and clinicians decide what follow-up is appropriate for any patient."
+    ],
+    "examples": [
+      {
+        "business_type": "Two-dentist practice",
+        "scenario": "People due under the practice's own cleaning interval are listed. The draft reminder asks them to book and names no procedure."
+      },
+      {
+        "business_type": "Small family-medicine practice",
+        "scenario": "A recall list follows the interval the practice set. Staff get a short call list for people who have not replied, and opt-outs are left off."
+      },
+      {
+        "business_type": "Independent chiropractic clinic",
+        "scenario": "Generic book-a-visit drafts wait for approval. The message has no health details and no promise about results."
+      }
+    ],
+    "copy_prompt": "Using these recall rules [paste] and this list [paste], list who is due. Draft a generic reminder to book from this approved wording [paste], with no health details and no offers. Track who has responded, and make a short call list for staff. Do not send anything. Pause and show me before sending, submitting, billing, posting or changing anything. Use only the sample or de-identified information I provide; do not include any patient names or health information.",
+    "tools_examples": [
+      "Practice scheduling system",
+      "Google Workspace (plans that offer a BAA)",
+      "Microsoft 365 (plans that offer a BAA)",
+      "Calendly (scheduling without health details)"
+    ],
+    "effect": "Staff get a recall list and generic draft reminders based on the practice's own intervals, and a person still sends them.",
+    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. SI never decides who needs care or says what a patient should do medically. Messages are generic reminders only, with no health details, no promotions or offers tied to PHI without the authorization the rules require, and no outcome promises. Texting and recording rules vary; get consent and honor opt-outs.",
+    "category": "Medical and healthcare practices"
+  },
+  {
+    "slug": "review-request-drafts",
+    "title": "Review requests and public reply drafts",
+    "summary": "SI drafts a neutral review request for patients the practice chooses, and public replies that thank the reviewer and invite a call, without confirming anyone is a patient.",
+    "problem": "Happy patients rarely post reviews, and replying to negative reviews is a privacy minefield.",
+    "what_si_does": "SI drafts a polite, neutral review-request message for the practice to send to all patients, or to a group staff choose, with no filtering by satisfaction, and drafts reply options to public reviews that thank the reviewer and invite them to call, without confirming that the reviewer is a patient or mentioning any care.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds patient information, the practice confirms the tool is covered by a signed BAA, sets role-based access, and limits SI to the minimum necessary. Start with sample or de-identified material. Start from review-request and reply wording the practice has approved. A person approves every request and every public reply before it is posted.",
+    "human_checks": [
+      "A staff member or clinician approves before anything goes to a patient, a payer, or any outside party.",
+      "SI never sends, submits, bills, or posts on its own.",
+      "Anything unusual goes to a \"needs clinician or manager review\" queue.",
+      "The practice decides what patient data SI may see, and testing starts with synthetic or de-identified samples.",
+      "Staff decide who receives requests and never offer incentives tied to the content of a review."
+    ],
+    "examples": [
+      {
+        "business_type": "Two-dentist practice",
+        "scenario": "A review-request draft goes to the whole recent-visit list, not a hand-picked happy subset. Staff approve it before it is sent."
+      },
+      {
+        "business_type": "Med spa",
+        "scenario": "A public reply draft thanks the reviewer and gives the practice phone number. It does not say the reviewer was a patient and includes no before-and-after language."
+      },
+      {
+        "business_type": "Independent chiropractic clinic",
+        "scenario": "Reply options for a public comment invite a phone call and mention no care. A person posts only the version they approve."
+      }
+    ],
+    "copy_prompt": "Draft a neutral review request from this approved wording [paste] for all patients, or for this staff-chosen group [paste], with no filtering by satisfaction. Draft public replies that thank the reviewer and invite them to call. Do not confirm that anyone is a patient, mention care, write a fake review, or include testimonials or before-and-after content. Pause and show me before sending, submitting, billing, posting or changing anything. Use only the sample or de-identified information I provide; do not include any patient names or health information.",
+    "tools_examples": [
+      "Google Workspace (plans that offer a BAA)",
+      "Microsoft 365 (plans that offer a BAA)",
+      "Google Business Profile",
+      "Practice scheduling system"
+    ],
+    "effect": "Request and reply drafts stay neutral, and a person approves each one before it is posted.",
+    "caution": "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools. A reply must not disclose PHI or even confirm someone is a patient. SI never writes fake or filtered reviews, outcome claims, testimonials, or before-and-after content, and identifiable photos or testimonials need the patient's written authorization. Texting and recording rules vary; get consent and honor opt-outs.",
+    "category": "Medical and healthcare practices"
   }
 ]

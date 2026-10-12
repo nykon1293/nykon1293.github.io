@@ -18,12 +18,12 @@ https://calendly.com/josh-gemmi/30min
 - Stocky dump recovery (Shopify CSV after Stocky shut down; not a Stocky replacement app): https://gemmisi.com/services/stocky-recovery.html
 - Advisory & Fractional CTO (inquire first): https://gemmisi.com/advisory.html
 - Anonymized case study: https://gemmisi.com/work/governed-ai-content-engine.html
-- Use cases (94 practical SI examples; illustrations, not client results): https://gemmisi.com/use-cases/
+- Use cases (106 practical SI examples; illustrations, not client results): https://gemmisi.com/use-cases/
 - Sitemap: https://gemmisi.com/sitemap.xml
 
 ## Use cases
 
-The library lists 94 practical SI jobs for small teams, community organizations, and the business side of solo and small law practices. They are illustrations of what is possible, not reports of client results. A person still approves anything that sends, pays, orders, or posts. The library also covers ecommerce operations, local or seasonal work, and legal-practice administration. Legal-practice pages are operations help only. SI does not give legal advice, and an attorney reviews anything client-facing.
+The library lists 106 practical SI jobs for small teams, community organizations, the business side of solo and small law practices, and the business side of small healthcare practices. They are illustrations of what is possible, not reports of client results. A person still approves anything that sends, pays, orders, or posts. The library also covers ecommerce operations, local or seasonal work, legal-practice administration, and medical-practice administration. Legal-practice pages are operations help only. SI does not give legal advice, and an attorney reviews anything client-facing. Medical-practice pages are operations help only. SI does not give medical advice or make clinical decisions, and a clinician or trained staff member reviews anything patient-facing. GemmiSI sets this up on your own equipment and accounts; your data stays with you.
 
 - Library: https://gemmisi.com/use-cases/
 - Morning inbox triage into labeled queues: https://gemmisi.com/use-cases/inbox-triage/
@@ -54,6 +54,18 @@ The library lists 94 practical SI jobs for small teams, community organizations,
 - Records-request tracking: https://gemmisi.com/use-cases/records-request-tracking/
 - Meeting and call summaries for attorney review: https://gemmisi.com/use-cases/meeting-call-summaries/
 - Marketing drafts, newsletters, and review requests: https://gemmisi.com/use-cases/firm-marketing-drafts/
+- Appointment reminders and no-show reduction: https://gemmisi.com/use-cases/appointment-reminders/
+- Waitlist filling for cancellations: https://gemmisi.com/use-cases/cancellation-waitlist/
+- New-patient intake packet and checklist: https://gemmisi.com/use-cases/new-patient-intake-checklist/
+- Insurance verification prep and benefits summary for staff review: https://gemmisi.com/use-cases/insurance-verification-prep/
+- Prior-authorization tracking: https://gemmisi.com/use-cases/prior-authorization-tracking/
+- Claim denial follow-up tracking: https://gemmisi.com/use-cases/claim-denial-follow-up/
+- Billing statements and balance reminders: https://gemmisi.com/use-cases/patient-balance-reminders/
+- Referral tracking and closing the loop: https://gemmisi.com/use-cases/referral-loop-tracking/
+- After-hours inquiry triage with clear "not medical advice, call 911" handling: https://gemmisi.com/use-cases/after-hours-patient-message-triage/
+- Front-desk call summaries: https://gemmisi.com/use-cases/front-desk-call-summaries/
+- Recall and preventive-visit outreach: https://gemmisi.com/use-cases/recall-visit-outreach/
+- Review requests and public reply drafts: https://gemmisi.com/use-cases/review-request-drafts/
 
 ## Facts to keep straight
 
