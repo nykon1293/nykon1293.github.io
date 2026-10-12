@@ -672,6 +672,7 @@ PAGES = [
         ],
         "related_landings": [
             ("/use-cases/", "the use-case hub"),
+            ("/use-cases/industry/education/", "education use cases"),
             ("/use-cases/function/research-documents/", "research & documents"),
         ],
         "faqs": [

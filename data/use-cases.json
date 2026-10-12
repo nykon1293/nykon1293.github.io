@@ -1270,7 +1270,8 @@
     "title": "Drafting next week's staff schedule from availability",
     "industries": [
       "any-business",
-      "medical"
+      "medical",
+      "education"
     ],
     "functions": [
       "scheduling"
@@ -1358,7 +1359,8 @@
     "title": "Appointment confirmations, reminders and reschedules",
     "industries": [
       "any-business",
-      "medical"
+      "medical",
+      "education"
     ],
     "functions": [
       "scheduling",
@@ -2778,7 +2780,8 @@
     "slug": "weekly-member-announcements",
     "title": "A weekly announcements email for members",
     "industries": [
-      "any-business"
+      "any-business",
+      "education"
     ],
     "functions": [
       "community",
@@ -2822,7 +2825,8 @@
     "slug": "donation-acknowledgments",
     "title": "Donation thank-yous and acknowledgment letters",
     "industries": [
-      "any-business"
+      "any-business",
+      "education"
     ],
     "functions": [
       "community",
@@ -2997,7 +3001,8 @@
     "slug": "session-notes-to-progress-updates",
     "title": "Session notes into progress updates for families or clients",
     "industries": [
-      "any-business"
+      "any-business",
+      "education"
     ],
     "functions": [
       "community"
@@ -3039,7 +3044,8 @@
     "slug": "lesson-and-training-materials",
     "title": "Lesson plans, quizzes and training materials for instructors",
     "industries": [
-      "any-business"
+      "any-business",
+      "education"
     ],
     "functions": [
       "community"
@@ -6925,5 +6931,620 @@
     ],
     "effect": "Outstanding gift cards and holiday codes are a list from your own export, and a person still decides what to honor or turn off.",
     "caution": "Gift-card expiry, breakage, and unclaimed-property rules vary. SI lists what is in your export; it does not give legal or tax advice."
+  },
+  {
+    "slug": "parent-email-drafts",
+    "title": "Parent email drafts in the teacher's own voice",
+    "industries": [
+      "education"
+    ],
+    "functions": [
+      "customer-support",
+      "content-marketing"
+    ],
+    "summary": "SI drafts parent emails and a weekly class note from the teacher's notes and saved wording, and a person approves anything sent to a student or parent.",
+    "problem": "Teachers write the same kinds of parent emails after school: a short class update, a reminder, a thank-you. The wording has to sound like that teacher, not like a form letter, and it often waits until late.",
+    "what_si_does": "SI reads the teacher's notes or a short voice memo and drafts a parent email in the teacher's saved voice: what happened in class, what to expect next, and any reminder the teacher already decided to send. It can also assemble a weekly class note from items the teacher marked to share. It does not invent student stories or grades.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds student records, the school reviews the vendor's terms, access controls, and any FERPA or state student-privacy duties. Start with sample or de-identified material. Save a few parent emails the teacher already sent, the weekly-note layout if there is one, and permission to read notes and draft, not to send. Setup is often a day or two.",
+    "human_checks": [
+      "A teacher, tutor, or school staff member reviews and approves anything sent to a student or parent.",
+      "SI never sends, posts, or changes a record on its own.",
+      "Concerns about a student are handled by the teacher, not by a template.",
+      "Testing starts with sample or de-identified material."
+    ],
+    "examples": [
+      {
+        "business_type": "Fourth-grade classroom teacher",
+        "scenario": "Friday notes become a weekly class email in the teacher's usual layout, with no student named unless the teacher already wrote that name in the notes to share."
+      },
+      {
+        "business_type": "Middle-school English teacher",
+        "scenario": "A short draft thanks families for returning permission slips and reminds them of the due date the teacher already set."
+      },
+      {
+        "business_type": "Independent tutor",
+        "scenario": "After a session, the tutor's two-line note becomes a parent email in the tutor's voice, waiting for the tutor to send."
+      }
+    ],
+    "copy_prompt": "Draft a parent email from these teacher notes [paste] using only this saved voice and layout [paste]. Include only facts the teacher wrote. Do not invent student stories, grades, or next steps the teacher did not list. Pause and show me before sending, posting or changing anything. Use only the sample or de-identified information I provide; do not include real student names, grades, or family contact details.",
+    "tools_examples": [
+      "Google Classroom",
+      "Gmail",
+      "Google Workspace for Education",
+      "Microsoft 365 Education"
+    ],
+    "effect": "Parent drafts wait in the teacher's voice, and nothing goes to a family until a person sends it.",
+    "caution": "Administrative support only: SI does not grade, evaluate, or make academic decisions, and does not replace a teacher's or school's judgment. A teacher, tutor, or school staff member reviews and approves anything sent to a student or parent. Student records are used only on the school's own equipment and accounts, with access controls and the minimum necessary, never in consumer tools. SI drafts from the teacher's own notes and saved wording. It does not invent student progress or send anything to a student or parent. FERPA and state student-privacy rules still apply."
+  },
+  {
+    "slug": "report-card-comment-drafts",
+    "title": "Report-card comment drafts from the teacher's notes",
+    "industries": [
+      "education"
+    ],
+    "functions": [
+      "research-documents"
+    ],
+    "summary": "SI turns the teacher's own notes into first-draft report-card comments in the school's comment style, and the teacher edits and signs every one.",
+    "problem": "Comment writing is slow because each one has to sound specific and fair. Teachers copy old comments or write late at night, and the voice is uneven.",
+    "what_si_does": "SI reads the teacher's notes for a marking period and drafts a comment in the school's length and tone rules: strengths the teacher recorded, a next step the teacher recorded, and no grade the teacher did not already assign. It flags notes that are too thin to draft from.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds student records, the school reviews the vendor's terms, access controls, and any FERPA or state student-privacy duties. Start with sample or de-identified material. Use the school's comment length and tone sheet, a few comments the teacher already approved, and de-identified notes. Permission is to draft, not to post comments into the student-information system. Setup is often a few days.",
+    "human_checks": [
+      "The teacher edits and approves every comment before it is posted or sent to a student or parent.",
+      "SI never assigns a grade, promotion, or placement.",
+      "SI never sends, posts, or changes a record on its own.",
+      "Thin or sensitive notes go to the teacher without a draft."
+    ],
+    "examples": [
+      {
+        "business_type": "Elementary classroom teacher",
+        "scenario": "Notes on reading stamina and a writing goal become a draft comment in the school's usual length. The teacher edits the wording and posts it."
+      },
+      {
+        "business_type": "High-school science teacher",
+        "scenario": "Lab-notebook notes become a short draft. A note that only says 'quiet' is flagged as too thin to draft from."
+      },
+      {
+        "business_type": "Specials teacher with many sections",
+        "scenario": "The draft uses only the teacher's saved phrases for effort and next practice, and leaves blanks where notes are missing."
+      }
+    ],
+    "copy_prompt": "From these teacher notes [paste] and this comment style [paste], draft one report-card comment. Use only strengths and next steps the teacher wrote. Do not assign a grade or invent progress. Flag notes that are too thin to draft from. Pause and show me before sending, posting or changing anything. Use only the sample or de-identified information I provide; do not include real student names, grades, or family contact details.",
+    "tools_examples": [
+      "Google Docs",
+      "PowerSchool",
+      "Microsoft 365 Education",
+      "Google Sheets"
+    ],
+    "effect": "First drafts follow the school's comment style, and the teacher still writes the final words.",
+    "caution": "Administrative support only: SI does not grade, evaluate, or make academic decisions, and does not replace a teacher's or school's judgment. A teacher, tutor, or school staff member reviews and approves anything sent to a student or parent. Student records are used only on the school's own equipment and accounts, with access controls and the minimum necessary, never in consumer tools. Comments are drafts for the teacher. SI does not assign grades or decide promotion. FERPA applies to education records, including comments."
+  },
+  {
+    "slug": "rubric-lesson-plan-outlines",
+    "title": "Rubric and lesson-plan outlines from the teacher's own standards",
+    "industries": [
+      "education"
+    ],
+    "functions": [
+      "research-documents"
+    ],
+    "summary": "SI outlines a lesson or rubric from the standards and materials the teacher already chose, and the teacher decides what to teach.",
+    "problem": "Teachers spend evenings turning their own standards and textbook pages into a usable outline. Starting from a blank page takes longer than adapting a clear draft.",
+    "what_si_does": "SI reads the standards, textbook pages, or past plan the teacher provides and drafts an outline: goals the teacher already named, suggested timing, a check for understanding, and a rubric skeleton that uses only the criteria the teacher listed. It does not invent standards or decide what is required.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds student records, the school reviews the vendor's terms, access controls, and any FERPA or state student-privacy duties. Start with sample or de-identified material. Provide the teacher's standards list or a past plan, and the outline format the teacher uses. Setup is often a day.",
+    "human_checks": [
+      "The teacher reviews every outline and decides what is taught.",
+      "SI does not grade student work or set official standards.",
+      "A person approves anything that would be sent to a student or parent.",
+      "SI never sends, posts, or changes a record on its own."
+    ],
+    "examples": [
+      {
+        "business_type": "Fifth-grade teacher",
+        "scenario": "The teacher's listed writing standards become a lesson outline and a three-level rubric skeleton. The teacher cuts and reorders the activities."
+      },
+      {
+        "business_type": "High-school history teacher",
+        "scenario": "A chapter the teacher already assigned becomes a two-day outline with a short check for understanding, using only that chapter."
+      },
+      {
+        "business_type": "Independent math tutor",
+        "scenario": "The tutor's own skill list becomes a session outline and a simple rubric for practice problems the tutor will choose."
+      }
+    ],
+    "copy_prompt": "Using only these standards or materials the teacher already chose [paste] and this outline format [paste], draft a lesson outline and a rubric skeleton. Do not add standards the teacher did not list. Do not write student-facing work as if it were assigned. Pause and show me before sending, posting or changing anything. Use only the sample or de-identified information I provide; do not include real student names, grades, or family contact details.",
+    "tools_examples": [
+      "Google Docs",
+      "Google Classroom",
+      "Microsoft 365 Education",
+      "Canvas"
+    ],
+    "effect": "The teacher starts from an outline of their own standards, not a blank page, and still decides the lesson.",
+    "caution": "Administrative support only: SI does not grade, evaluate, or make academic decisions, and does not replace a teacher's or school's judgment. A teacher, tutor, or school staff member reviews and approves anything sent to a student or parent. Student records are used only on the school's own equipment and accounts, with access controls and the minimum necessary, never in consumer tools. SI outlines from the teacher's materials. It does not set curriculum, assign work to students, or grade. FERPA still applies if student work is later attached."
+  },
+  {
+    "slug": "missing-assignment-reminders",
+    "title": "Missing-assignment lists and gentle reminder drafts",
+    "industries": [
+      "education"
+    ],
+    "functions": [
+      "customer-support",
+      "scheduling"
+    ],
+    "summary": "SI builds a missing-work list from the gradebook export the teacher provides and drafts a gentle reminder for the teacher to send.",
+    "problem": "Missing work is visible in the gradebook and still takes a separate pass to list and write home. Reminders go out late or in a tone the teacher did not mean.",
+    "what_si_does": "SI reads the teacher's gradebook export, lists assignments marked missing, and drafts a short, calm reminder from wording the teacher already approved. It does not change scores, excuse work, or contact families.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds student records, the school reviews the vendor's terms, access controls, and any FERPA or state student-privacy duties. Start with sample or de-identified material. A gradebook export and the reminder wording the teacher has already approved. Permission is to read and draft, not to send or change scores. Setup is often a day or two.",
+    "human_checks": [
+      "The teacher checks the list against the gradebook and decides who is contacted.",
+      "A teacher or staff member approves anything sent to a student or parent.",
+      "SI never changes a score or marks work late or excused.",
+      "Sensitive situations go to the teacher without a draft."
+    ],
+    "examples": [
+      {
+        "business_type": "Middle-school team teacher",
+        "scenario": "The export shows three missing homework rows. The draft reminder uses the teacher's approved wording and waits in a queue."
+      },
+      {
+        "business_type": "High-school math teacher",
+        "scenario": "Missing quizzes are listed with the due date already in the file. The teacher decides which families hear from the teacher that day."
+      },
+      {
+        "business_type": "Learning-support teacher",
+        "scenario": "The list is grouped by class period from the export. Anything the teacher marked 'do not contact' is left off the draft list."
+      }
+    ],
+    "copy_prompt": "From this gradebook export [file], list assignments marked missing. Draft a short reminder using only this approved wording [paste]. Do not change scores, excuse work, or contact anyone. Pause and show me before sending, posting or changing anything. Use only the sample or de-identified information I provide; do not include real student names, grades, or family contact details.",
+    "tools_examples": [
+      "Google Classroom",
+      "PowerSchool",
+      "Canvas",
+      "Google Sheets"
+    ],
+    "effect": "Missing work is a list the teacher can act on, and reminder wording stays inside what the teacher already approved.",
+    "caution": "Administrative support only: SI does not grade, evaluate, or make academic decisions, and does not replace a teacher's or school's judgment. A teacher, tutor, or school staff member reviews and approves anything sent to a student or parent. Student records are used only on the school's own equipment and accounts, with access controls and the minimum necessary, never in consumer tools. Gradebook data is an education record. SI lists what the export shows and drafts wording; the teacher decides who is contacted. FERPA and local grade-reporting rules still apply."
+  },
+  {
+    "slug": "tutoring-session-progress-notes",
+    "title": "Tutoring session notes and parent progress summaries",
+    "industries": [
+      "education"
+    ],
+    "functions": [
+      "customer-support",
+      "research-documents"
+    ],
+    "summary": "After a session, SI turns the tutor's notes into a short parent summary in a consistent format, and the tutor approves it.",
+    "problem": "Tutors jot what was practiced and rarely have time to write a clear parent update. Families hear little until there is a problem.",
+    "what_si_does": "SI takes the tutor's notes and drafts a short summary: what was practiced, what to review, and what is next, using only what the tutor wrote. It keeps a running record the tutor can see and flags notes that sound like a concern for the tutor to handle in person.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds student records, the school reviews the vendor's terms, access controls, and any FERPA or state student-privacy duties. Start with sample or de-identified material. A simple notes form or voice-memo path, the tutor's summary template, and permission to draft, not to send. Setup is often a day or two.",
+    "human_checks": [
+      "The tutor reviews and approves anything sent to a student or parent.",
+      "Concerns are handled by the tutor, not by a template.",
+      "SI never sends, posts, or changes a record on its own.",
+      "Notes about minors stay on the tutor's or school's own accounts."
+    ],
+    "examples": [
+      {
+        "business_type": "Independent math tutor",
+        "scenario": "A two-line note on fractions practice becomes a parent summary with the next-session focus the tutor already wrote."
+      },
+      {
+        "business_type": "Writing tutor",
+        "scenario": "Session notes become a short update on the essay stage the student is in, with no grade invented."
+      },
+      {
+        "business_type": "School-based tutoring hour",
+        "scenario": "The draft stays in the tutor's queue. The school decides whether the family receives it through the usual parent channel."
+      }
+    ],
+    "copy_prompt": "Turn these tutor notes [paste] into a short parent summary using this template [paste]: what was practiced, what to review, and what is next. Use only facts the tutor wrote. Flag notes that sound like a concern for the tutor to handle in person. Pause and show me before sending, posting or changing anything. Use only the sample or de-identified information I provide; do not include real student names, grades, or family contact details.",
+    "tools_examples": [
+      "Google Docs",
+      "Gmail",
+      "Google Sheets",
+      "Microsoft 365 Education"
+    ],
+    "effect": "Parents get a consistent draft after sessions, and the tutor still decides what is said.",
+    "caution": "Administrative support only: SI does not grade, evaluate, or make academic decisions, and does not replace a teacher's or school's judgment. A teacher, tutor, or school staff member reviews and approves anything sent to a student or parent. Student records are used only on the school's own equipment and accounts, with access controls and the minimum necessary, never in consumer tools. Progress summaries are drafts. SI does not assess or place a student. FERPA or the program's privacy rules apply to notes about minors."
+  },
+  {
+    "slug": "enrollment-inquiry-follow-up",
+    "title": "Enrollment and admissions inquiry follow-up drafts",
+    "industries": [
+      "education"
+    ],
+    "functions": [
+      "sales-follow-up",
+      "customer-support"
+    ],
+    "summary": "SI turns tour and inquiry forms into a clean list and drafts a follow-up from the school's approved wording for admissions staff.",
+    "problem": "Inquiry forms, tour requests, and 'is there space?' emails sit in a shared inbox. Families wait, and the office cannot see who still needs a reply.",
+    "what_si_does": "SI reads new inquiry forms and emails, pulls out the grade, preferred tour times, and questions the family asked, and drafts a follow-up from the school's approved wording. It does not decide admission, offer a seat, or rank families.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds student records, the school reviews the vendor's terms, access controls, and any FERPA or state student-privacy duties. Start with sample or de-identified material. The inquiry form or inbox with permission to read and draft, not to send, and the follow-up wording admissions has already approved. Setup is often a few days.",
+    "human_checks": [
+      "Admissions or office staff review and send every reply to a student or parent.",
+      "SI never offers a seat, waitlist place, or scholarship.",
+      "SI never sends, posts, or changes a record on its own.",
+      "Unusual or sensitive inquiries go to a person without a draft promise."
+    ],
+    "examples": [
+      {
+        "business_type": "Independent elementary school office",
+        "scenario": "A tour-request form becomes a row with grade and preferred times, plus a draft in the school's usual wording."
+      },
+      {
+        "business_type": "Small high-school admissions office",
+        "scenario": "Weekend inquiry emails are listed with the questions asked. Staff choose who gets the open-house note."
+      },
+      {
+        "business_type": "Homeschool co-op registrar",
+        "scenario": "New-family questions about remaining seats are drafted as 'we will confirm availability' using only approved wording."
+      }
+    ],
+    "copy_prompt": "From these inquiry forms and emails [paste], list grade, preferred times, and questions asked. Draft a follow-up from this approved wording only [paste]. Do not offer a seat, waitlist place, price, or scholarship. Pause and show me before sending, posting or changing anything. Use only the sample or de-identified information I provide; do not include real student names, grades, or family contact details.",
+    "tools_examples": [
+      "Gmail",
+      "Google Forms",
+      "Google Sheets",
+      "FACTS",
+      "Blackbaud"
+    ],
+    "effect": "Inquiries are visible in one list, and the first reply stays inside wording the school already approved.",
+    "caution": "Administrative support only: SI does not grade, evaluate, or make academic decisions, and does not replace a teacher's or school's judgment. A teacher, tutor, or school staff member reviews and approves anything sent to a student or parent. Student records are used only on the school's own equipment and accounts, with access controls and the minimum necessary, never in consumer tools. SI does not admit, waitlist, or rank applicants. Admissions decisions stay with the school. Inquiry records are treated as student or family information under FERPA and the school's own rules."
+  },
+  {
+    "slug": "substitute-plan-packets",
+    "title": "Substitute plan packets from the teacher's materials",
+    "industries": [
+      "education"
+    ],
+    "functions": [
+      "research-documents"
+    ],
+    "summary": "SI assembles a substitute packet from the teacher's own plans, class lists the teacher provides, and the school's cover-page template.",
+    "problem": "When a teacher is out, plans, rosters, and room notes live in different places. The substitute gets an incomplete packet, and the office spends the morning assembling one.",
+    "what_si_does": "SI gathers the teacher's plan, the class list the teacher or office already exported, and the school's cover-page template into one packet: schedule, where materials are, and work the teacher already chose. It lists missing pieces. It does not invent lessons or share extra student information.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds student records, the school reviews the vendor's terms, access controls, and any FERPA or state student-privacy duties. Start with sample or de-identified material. The school's substitute cover-page template, a place the teacher drops plans, and a de-identified class-list format. Permission is to assemble a draft packet, not to email it to a substitute. Setup is often a few days.",
+    "human_checks": [
+      "The teacher or office reviews the packet before a substitute sees it.",
+      "SI does not add student medical, family, or discipline details.",
+      "A person approves anything sent to a student, parent, or substitute.",
+      "SI never sends, posts, or changes a record on its own."
+    ],
+    "examples": [
+      {
+        "business_type": "Elementary school office",
+        "scenario": "The teacher's plan and the cover-page template become one packet. A missing afternoon plan is listed for the teacher to add."
+      },
+      {
+        "business_type": "Middle-school teacher",
+        "scenario": "The draft packet uses only the work the teacher already attached and the room-note fields the school template asks for."
+      },
+      {
+        "business_type": "Small private school",
+        "scenario": "The office prints the approved packet. SI does not email the substitute."
+      }
+    ],
+    "copy_prompt": "Assemble a substitute packet from this teacher plan [paste], this class-list format [paste], and this cover-page template [paste]. List missing pieces. Do not invent lessons or add student details that are not in the files. Pause and show me before sending, posting or changing anything. Use only the sample or de-identified information I provide; do not include real student names, grades, or family contact details.",
+    "tools_examples": [
+      "Google Drive",
+      "Google Docs",
+      "Microsoft 365 Education",
+      "Google Classroom"
+    ],
+    "effect": "The substitute packet starts from the teacher's own materials, and a person still hands it off.",
+    "caution": "Administrative support only: SI does not grade, evaluate, or make academic decisions, and does not replace a teacher's or school's judgment. A teacher, tutor, or school staff member reviews and approves anything sent to a student or parent. Student records are used only on the school's own equipment and accounts, with access controls and the minimum necessary, never in consumer tools. Packets may include class lists. Share only the minimum a substitute needs, on the school's own accounts. FERPA still applies."
+  },
+  {
+    "slug": "field-trip-form-chasing",
+    "title": "Field-trip permission and form chasing",
+    "industries": [
+      "education"
+    ],
+    "functions": [
+      "research-documents",
+      "customer-support"
+    ],
+    "summary": "SI keeps a checklist of permission slips and required forms and drafts a reminder from approved wording for families who have not returned them.",
+    "problem": "Permission slips come back on paper, by email, and through a form. The trip lead cannot see who is still missing, and reminders are uneven.",
+    "what_si_does": "SI reads the return list the teacher or office keeps, marks which forms are in, and drafts a reminder from the school's approved wording for rows still open. It does not decide who may attend and does not send the reminder.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds student records, the school reviews the vendor's terms, access controls, and any FERPA or state student-privacy duties. Start with sample or de-identified material. The trip roster, the list of required forms, and the reminder wording the school has already approved. Permission is to read and draft, not to send. Setup is often a day or two.",
+    "human_checks": [
+      "The teacher or office checks returns before anyone is told a form is missing.",
+      "A person approves anything sent to a student or parent.",
+      "SI never decides who may attend a trip.",
+      "SI never sends, posts, or changes a record on its own."
+    ],
+    "examples": [
+      {
+        "business_type": "Fifth-grade team",
+        "scenario": "The roster shows which permission slips are still open. The draft reminder uses only the school's wording and the trip date already on the form."
+      },
+      {
+        "business_type": "Middle-school club advisor",
+        "scenario": "Medical-form rows the school marked required are listed as open or returned. The advisor sends the reminder."
+      },
+      {
+        "business_type": "Small private school office",
+        "scenario": "Paper slips the office logged are merged with the online form list so one checklist is visible."
+      }
+    ],
+    "copy_prompt": "Using this trip roster and form-return list [file], mark which required forms are still open. Draft a reminder from this approved wording only [paste]. Do not decide who may attend. Do not send anything. Pause and show me before sending, posting or changing anything. Use only the sample or de-identified information I provide; do not include real student names, grades, or family contact details.",
+    "tools_examples": [
+      "Google Forms",
+      "Google Sheets",
+      "Gmail",
+      "Microsoft 365 Education"
+    ],
+    "effect": "Open forms are visible on one list, and reminder wording stays inside what the school already approved.",
+    "caution": "Administrative support only: SI does not grade, evaluate, or make academic decisions, and does not replace a teacher's or school's judgment. A teacher, tutor, or school staff member reviews and approves anything sent to a student or parent. Student records are used only on the school's own equipment and accounts, with access controls and the minimum necessary, never in consumer tools. Permission and health forms are sensitive. SI tracks return status; it does not interpret medical information or decide attendance. FERPA and school health-record rules still apply."
+  },
+  {
+    "slug": "tuition-payment-reminders",
+    "title": "Tuition and payment reminder drafts for the business office",
+    "industries": [
+      "education"
+    ],
+    "functions": [
+      "billing-admin"
+    ],
+    "summary": "SI drafts polite tuition reminders from the aging list the business office already keeps, and a person in that office approves every message.",
+    "problem": "Tuition reminders are overdue work for a small business office. Wording has to stay calm and accurate, and accounts that need a personal call get mixed in with routine reminders.",
+    "what_si_does": "SI reads the aging list the office exports and drafts a reminder from the school's approved wording at the intervals the office already set. It highlights accounts the office marked for a personal call or a payment-plan conversation. It does not take payment, apply fees, or change balances.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds student records, the school reviews the vendor's terms, access controls, and any FERPA or state student-privacy duties. Start with sample or de-identified material. An aging export and the reminder wording and intervals the business office has already approved. Permission is to read and draft, not to send or charge. Setup is often a few days.",
+    "human_checks": [
+      "The business office reviews and sends every reminder to a student or parent.",
+      "SI never takes payment, adds a fee, or changes a balance.",
+      "Accounts marked sensitive go to a person without a draft.",
+      "SI never sends, posts, or changes a record on its own."
+    ],
+    "examples": [
+      {
+        "business_type": "Independent school business office",
+        "scenario": "The aging list becomes draft reminders at the school's usual intervals. Rows the office tagged 'call' are set aside."
+      },
+      {
+        "business_type": "Small private elementary school",
+        "scenario": "A draft names only the amount and due date already on the statement, using approved wording."
+      },
+      {
+        "business_type": "Tutoring studio with monthly invoices",
+        "scenario": "Open invoices from the export get a short draft. The owner sends it."
+      }
+    ],
+    "copy_prompt": "Using this aging export [file] and these approved reminder intervals and wording [paste], draft reminders for open balances. Set aside accounts marked for a personal call. Do not take payment, add fees, or change balances. Pause and show me before sending, posting or changing anything. Use only the sample or de-identified information I provide; do not include real student names, grades, or family contact details.",
+    "tools_examples": [
+      "FACTS",
+      "QuickBooks Online",
+      "Google Sheets",
+      "Gmail"
+    ],
+    "effect": "Routine tuition drafts wait for the business office, and sensitive accounts stay with a person.",
+    "caution": "Administrative support only: SI does not grade, evaluate, or make academic decisions, and does not replace a teacher's or school's judgment. A teacher, tutor, or school staff member reviews and approves anything sent to a student or parent. Student records are used only on the school's own equipment and accounts, with access controls and the minimum necessary, never in consumer tools. Tuition records are family financial information. SI drafts from the office's own list; it does not collect money or give financial advice. FERPA and the school's billing rules still apply."
+  },
+  {
+    "slug": "parent-teacher-conference-scheduling",
+    "title": "Parent-teacher conference scheduling drafts",
+    "industries": [
+      "education"
+    ],
+    "functions": [
+      "scheduling",
+      "customer-support"
+    ],
+    "summary": "SI offers conference times from the teacher's real open slots and drafts confirmations for the teacher or office to send.",
+    "problem": "Conference week is a tangle of sign-up sheets, emails, and double-booked slots. Families wait for a time, and the teacher cannot see what is still open.",
+    "what_si_does": "SI reads the teacher's open times and the sign-up list, drafts a confirmation or a few open times that still fit the rules the school set, and flags conflicts. It does not book a slot until a person confirms.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds student records, the school reviews the vendor's terms, access controls, and any FERPA or state student-privacy duties. Start with sample or de-identified material. The teacher's conference calendar or sheet, the sign-up form, and the confirmation wording the school has already approved. Permission is to read and draft, not to send or lock a time. Setup is often a few days before conference week.",
+    "human_checks": [
+      "The teacher or office confirms every conference time before a student or parent is told it is set.",
+      "SI never sends, posts, or changes a record on its own.",
+      "Requests that need a longer meeting or a counselor go to a person.",
+      "Testing starts with sample or de-identified names."
+    ],
+    "examples": [
+      {
+        "business_type": "Elementary classroom teacher",
+        "scenario": "Open fifteen-minute slots from the teacher's sheet are offered in a draft confirmation. The teacher sends it."
+      },
+      {
+        "business_type": "Middle-school team",
+        "scenario": "A family asking for two teachers at once is flagged for the office to place, not auto-booked."
+      },
+      {
+        "business_type": "Small private school office",
+        "scenario": "The office sees which families have not picked a time and drafts one reminder from approved wording."
+      }
+    ],
+    "copy_prompt": "Using this conference calendar [file] and this sign-up list [file], draft confirmations or a short list of still-open times that fit these rules [paste]. Flag conflicts. Do not lock a time or contact a family. Pause and show me before sending, posting or changing anything. Use only the sample or de-identified information I provide; do not include real student names, grades, or family contact details.",
+    "tools_examples": [
+      "Google Calendar",
+      "Google Forms",
+      "Google Sheets",
+      "Microsoft 365 Education"
+    ],
+    "effect": "Open conference times are visible, and families hear from a person after the teacher or office confirms the slot.",
+    "caution": "Administrative support only: SI does not grade, evaluate, or make academic decisions, and does not replace a teacher's or school's judgment. A teacher, tutor, or school staff member reviews and approves anything sent to a student or parent. Student records are used only on the school's own equipment and accounts, with access controls and the minimum necessary, never in consumer tools. Conference schedules include family names. SI drafts holds; a person confirms. FERPA and the school's conference rules still apply."
+  },
+  {
+    "slug": "jewish-calendar-schedule-planning",
+    "title": "Jewish-calendar and dual-track schedule planning for day-school staff",
+    "industries": [
+      "education"
+    ],
+    "functions": [
+      "scheduling"
+    ],
+    "summary": "SI lines up Judaic-studies and general-studies schedule blocks against the school's own Jewish calendar and queues any notices until after Shabbat and Yom Tov.",
+    "problem": "A day school has to place Judaic-studies and general-studies blocks around Shabbat, Yom Tov, and other closed days the school already set. Doing that by hand in a spreadsheet is slow, and a notice must not go out on Shabbat or Yom Tov.",
+    "what_si_does": "SI reads the school's own calendar of closed days and the two track labels the school already uses (Judaic studies and general studies). It drafts a week or term grid that leaves those closed days empty and lists conflicts with the hours the school already recorded. It does not decide when Shabbat or Yom Tov begins or ends. Any parent notice is drafted only, then held in a queue until after Shabbat or Yom Tov. It does not write religious rulings or Judaic lesson content, and it does not create or attach images of people.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds student records, the school reviews the vendor's terms, access controls, and any FERPA or state student-privacy duties. Start with sample or de-identified material. The school's written calendar of closed days and the hours it already uses for each track. Permission is to draft a grid, not to publish or send. Setup is often a few days.",
+    "human_checks": [
+      "The head of school or scheduler reviews the grid before anyone relies on it.",
+      "A person on staff approves anything sent to a student or parent.",
+      "Nothing sends, posts, or runs on Shabbat or Yom Tov; approved messages wait in a queue until after.",
+      "SI does not create or attach images of people, and it does not write religious rulings or Judaic lesson content."
+    ],
+    "examples": [
+      {
+        "business_type": "Orthodox Jewish day school",
+        "scenario": "The school's closed-day list is applied to a draft week. Judaic-studies and general-studies blocks the school already named are placed only on open days."
+      },
+      {
+        "business_type": "Orthodox Jewish day school office",
+        "scenario": "A draft notice about an early Friday dismissal the school already set waits in a queue until after Shabbat."
+      },
+      {
+        "business_type": "Orthodox Jewish day school scheduler",
+        "scenario": "A conflict between a recorded general-studies hour and a closed day is listed for the scheduler to move."
+      }
+    ],
+    "copy_prompt": "Using only this school calendar of closed days [file] and these Judaic-studies and general-studies hours the school already recorded [file], draft a schedule grid that leaves closed days empty. List conflicts. Do not decide when Shabbat or Yom Tov begins or ends. Do not publish the grid. Pause and show me before sending, posting or changing anything. Use only the sample or de-identified information I provide; do not include real student names, grades, or family contact details. Do not send, post, or run anything on Shabbat or Yom Tov; queue drafts for after. Do not create or attach images of people. Do not write religious rulings or Judaic lesson content.",
+    "tools_examples": [
+      "Google Calendar",
+      "Google Sheets",
+      "Microsoft 365 Education",
+      "Google Docs"
+    ],
+    "effect": "Track hours are drafted around the school's own Jewish calendar, and no notice goes out on Shabbat or Yom Tov.",
+    "caution": "Administrative support only: SI does not grade, evaluate, or make academic decisions, and does not replace a teacher's or school's judgment. A teacher, tutor, or school staff member reviews and approves anything sent to a student or parent. Student records are used only on the school's own equipment and accounts, with access controls and the minimum necessary, never in consumer tools. SI uses only the closed days and hours the school already recorded. It does not determine the Jewish calendar or write Judaic lesson content. Nothing sends, posts, or runs on Shabbat or Yom Tov; drafts wait in a queue until after. No images of people. FERPA still applies to any student names on a schedule.",
+    "group": "orthodox-day-school"
+  },
+  {
+    "slug": "bilingual-hebrew-english-parent-notes",
+    "title": "Bilingual Hebrew and English parent notes from approved wording",
+    "industries": [
+      "education"
+    ],
+    "functions": [
+      "customer-support"
+    ],
+    "summary": "SI prepares a Hebrew and English parent note from wording staff already approved, and the note waits in a queue until after Shabbat or Yom Tov.",
+    "problem": "The office often needs the same parent note in Hebrew and in English. Drafting both by hand is slow, and a message must not go out on Shabbat or Yom Tov.",
+    "what_si_does": "SI fills the school's approved Hebrew and English templates from the facts staff already wrote (date, time, room, what to bring). A staff member who can read both languages reviews the draft. The message is held in a queue until after Shabbat or Yom Tov. SI does not compose religious content, does not write religious rulings or Judaic lesson content, and does not create or attach images of people.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds student records, the school reviews the vendor's terms, access controls, and any FERPA or state student-privacy duties. Start with sample or de-identified material. The school's approved Hebrew and English note templates and a short list of facts for one notice. Permission is to draft, not to send. Setup is often a few days.",
+    "human_checks": [
+      "A staff member who can read the Hebrew and the English approves the note before a student or parent receives it.",
+      "Nothing sends, posts, or runs on Shabbat or Yom Tov; approved messages wait in a queue until after.",
+      "SI does not create or attach images of people.",
+      "SI does not write religious rulings or Judaic lesson content."
+    ],
+    "examples": [
+      {
+        "business_type": "Orthodox Jewish day school",
+        "scenario": "A dismissal-time change the office already decided is filled into the approved Hebrew and English templates and held until after Shabbat."
+      },
+      {
+        "business_type": "Orthodox Jewish day school office",
+        "scenario": "A reminder to return a form uses only the school's saved sentences in both languages. Staff review the Hebrew before anyone is sent the note."
+      },
+      {
+        "business_type": "Orthodox Jewish day school grade office",
+        "scenario": "The draft names only the date and room already written by staff. No photograph is attached."
+      }
+    ],
+    "copy_prompt": "Fill this approved Hebrew template [paste] and this approved English template [paste] using only these facts staff already wrote [paste]. Do not add sentences that are not in the templates. Do not compose religious content. Pause and show me before sending, posting or changing anything. Use only the sample or de-identified information I provide; do not include real student names, grades, or family contact details. Do not send, post, or run anything on Shabbat or Yom Tov; queue drafts for after. Do not create or attach images of people. Do not write religious rulings or Judaic lesson content.",
+    "tools_examples": [
+      "Google Docs",
+      "Gmail",
+      "Google Workspace for Education",
+      "Microsoft 365 Education"
+    ],
+    "effect": "Both language versions start from the school's own wording, and the note waits until after Shabbat or Yom Tov.",
+    "caution": "Administrative support only: SI does not grade, evaluate, or make academic decisions, and does not replace a teacher's or school's judgment. A teacher, tutor, or school staff member reviews and approves anything sent to a student or parent. Student records are used only on the school's own equipment and accounts, with access controls and the minimum necessary, never in consumer tools. SI fills staff-approved wording only. It does not translate religious texts or write Judaic lesson content. Nothing sends, posts, or runs on Shabbat or Yom Tov; drafts wait in a queue until after. No images of people. FERPA still applies to any student names in a note.",
+    "group": "orthodox-day-school"
+  },
+  {
+    "slug": "tuition-assistance-document-chasing",
+    "title": "Tuition-assistance application document chasing",
+    "industries": [
+      "education"
+    ],
+    "functions": [
+      "billing-admin",
+      "research-documents"
+    ],
+    "summary": "SI keeps a checklist of tuition-assistance papers the office already requested and drafts a quiet reminder from approved wording, queued until after Shabbat or Yom Tov.",
+    "problem": "Assistance files wait on tax forms, school forms, and signatures. The business office cannot see what is still missing, and a reminder must not go out on Shabbat or Yom Tov.",
+    "what_si_does": "SI reads the office's checklist of required papers, marks what has arrived, and drafts a reminder from the school's approved wording for open items. The reminder is held in a queue until after Shabbat or Yom Tov. SI does not decide awards, does not read tax returns for advice, does not write religious rulings or Judaic lesson content, and does not create or attach images of people.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds student records, the school reviews the vendor's terms, access controls, and any FERPA or state student-privacy duties. Start with sample or de-identified material. The office's required-document list and approved reminder wording. Start with sample or de-identified files. Permission is to track and draft, not to send or decide an award. Setup is often a few days.",
+    "human_checks": [
+      "The business office checks the checklist before a student or parent is contacted.",
+      "SI never decides an award, a discount, or a payment plan.",
+      "Nothing sends, posts, or runs on Shabbat or Yom Tov; approved messages wait in a queue until after.",
+      "SI does not create or attach images of people, and it does not write religious rulings or Judaic lesson content."
+    ],
+    "examples": [
+      {
+        "business_type": "Orthodox Jewish day school business office",
+        "scenario": "The checklist shows which school form is still open. The draft reminder uses approved wording and waits until after Shabbat."
+      },
+      {
+        "business_type": "Orthodox Jewish day school",
+        "scenario": "Rows the office marked complete are left off the reminder list. Award decisions stay with the committee."
+      },
+      {
+        "business_type": "Orthodox Jewish day school tuition office",
+        "scenario": "A missing signature page is listed by form name only. No tax figures are copied into the reminder."
+      }
+    ],
+    "copy_prompt": "Using this required-document checklist [file], mark which items are still open. Draft a reminder from this approved wording only [paste]. Do not decide an award. Do not copy tax figures into the reminder. Pause and show me before sending, posting or changing anything. Use only the sample or de-identified information I provide; do not include real student names, grades, or family contact details. Do not send, post, or run anything on Shabbat or Yom Tov; queue drafts for after. Do not create or attach images of people. Do not write religious rulings or Judaic lesson content.",
+    "tools_examples": [
+      "Google Sheets",
+      "FACTS",
+      "Gmail",
+      "Google Drive"
+    ],
+    "effect": "Missing assistance papers are visible to the office, and reminders wait until after Shabbat or Yom Tov.",
+    "caution": "Administrative support only: SI does not grade, evaluate, or make academic decisions, and does not replace a teacher's or school's judgment. A teacher, tutor, or school staff member reviews and approves anything sent to a student or parent. Student records are used only on the school's own equipment and accounts, with access controls and the minimum necessary, never in consumer tools. Assistance files include family financial information. SI tracks papers; it does not award aid or give financial advice. Nothing sends, posts, or runs on Shabbat or Yom Tov; drafts wait in a queue until after. No images of people. FERPA and the school's confidentiality rules still apply.",
+    "group": "orthodox-day-school"
+  },
+  {
+    "slug": "donor-scholarship-thank-you-drafts",
+    "title": "Donor and scholarship thank-you drafts in the school's own wording",
+    "industries": [
+      "education"
+    ],
+    "functions": [
+      "community",
+      "billing-admin"
+    ],
+    "summary": "SI drafts thank-you notes for gifts and scholarships from the school's saved wording and holds them until after Shabbat or Yom Tov.",
+    "problem": "Thank-you notes for gifts and scholarship funds wait until someone has time. Wording has to stay modest and in the school's voice, and a note must not go out on Shabbat or Yom Tov.",
+    "what_si_does": "SI reads the gift or scholarship-acknowledgment list the office provides and fills the school's approved thank-you wording with the designation and amount the office already recorded. Notes wait in a queue until after Shabbat or Yom Tov. SI does not invent results, does not attach images of people, keeps a modest tone, and does not write religious rulings or Judaic lesson content.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds student records, the school reviews the vendor's terms, access controls, and any FERPA or state student-privacy duties. Start with sample or de-identified material. The school's approved thank-you wording and a de-identified gift list. Permission is to draft, not to send. Setup is often a few days.",
+    "human_checks": [
+      "The development or business office reviews every note before a donor or a parent receives it.",
+      "Nothing sends, posts, or runs on Shabbat or Yom Tov; approved messages wait in a queue until after.",
+      "SI does not create or attach images of people.",
+      "SI does not write religious rulings or Judaic lesson content, and it does not invent how a gift was used."
+    ],
+    "examples": [
+      {
+        "business_type": "Orthodox Jewish day school",
+        "scenario": "A scholarship-fund gift the office already recorded is filled into the approved thank-you wording and held until after Shabbat."
+      },
+      {
+        "business_type": "Orthodox Jewish day school development office",
+        "scenario": "A community-event pledge list becomes draft notes from the school's sentences only. No photograph is added."
+      },
+      {
+        "business_type": "Orthodox Jewish day school business office",
+        "scenario": "Year-end acknowledgment drafts use the amount and designation already in the file. Staff send them after Yom Tov."
+      }
+    ],
+    "copy_prompt": "Using this gift list [file] and this approved thank-you wording [paste], draft a note for each row with only the designation and amount already recorded. Do not invent how the gift was used. Do not add photographs. Pause and show me before sending, posting or changing anything. Use only the sample or de-identified information I provide; do not include real student names, grades, or family contact details. Do not send, post, or run anything on Shabbat or Yom Tov; queue drafts for after. Do not create or attach images of people. Do not write religious rulings or Judaic lesson content.",
+    "tools_examples": [
+      "Google Docs",
+      "Gmail",
+      "Google Sheets",
+      "Blackbaud"
+    ],
+    "effect": "Thank-you drafts stay in the school's own wording and wait until after Shabbat or Yom Tov.",
+    "caution": "Administrative support only: SI does not grade, evaluate, or make academic decisions, and does not replace a teacher's or school's judgment. A teacher, tutor, or school staff member reviews and approves anything sent to a student or parent. Student records are used only on the school's own equipment and accounts, with access controls and the minimum necessary, never in consumer tools. Donor and scholarship records are confidential. SI fills the school's wording; it does not solicit, value a gift, or claim a tax result. Nothing sends, posts, or runs on Shabbat or Yom Tov; drafts wait in a queue until after. No images of people. FERPA still applies if a student scholarship is named.",
+    "group": "orthodox-day-school"
   }
 ]

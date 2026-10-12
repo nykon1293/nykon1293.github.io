@@ -171,6 +171,7 @@
 .uc-clear:hover { color: var(--text); }
 .uc-noscript-links { margin: 18px 0 0; color: var(--muted-2); }
 .uc-also-used { padding-top: 28px; }
+.uc-optional-group { padding-top: 28px; }
 
 .uc-group { padding: 38px 0 8px; scroll-margin-top: 200px; }
 .uc-group-head {

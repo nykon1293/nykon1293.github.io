@@ -153,6 +153,10 @@ def card_label(item: dict) -> str:
 def dedicated_note(item: dict) -> str:
     ind = primary_industry(item)
     info = industry_info(ind)
+    group_id = item.get("group")
+    groups = TAX.get("optional_groups") or {}
+    if group_id and group_id in groups and groups[group_id].get("short"):
+        return groups[group_id]["short"]
     return info["short"] if info.get("regulated") else ""
 
 
@@ -163,6 +167,8 @@ def relevant_service(item: dict) -> tuple[str, str]:
         return ("/services/stocky-recovery.html", "Stocky dump recovery")
     if slug in HERMES_SLUGS or "hermes" in blob:
         return ("/services/hermes-agents.html", "Hermes Agents")
+    if primary_industry(item) == "education":
+        return ("/services/tutoring-project-help.html", "Tutoring & project help")
     if primary_industry(item) == "ecommerce" or "inventory-orders" in item["functions"]:
         return ("/services/ecommerce-operations.html", "Ecommerce operations")
     if "reporting-dashboards" in item["functions"]:
@@ -257,6 +263,17 @@ def industry_faqs(slug: str) -> list[tuple[str, str]]:
                 f"No. {APPROVAL_LINE} SI can draft the update; you post or send it.",
             ),
         ]
+    elif slug == "education":
+        extra = [
+            (
+                "Does SI grade students or email parents on its own?",
+                "No. SI drafts and organizes. A teacher, tutor, or school staff member reviews and approves anything sent to a student or parent. SI does not grade, evaluate, or make academic decisions.",
+            ),
+            (
+                "What about student records and FERPA?",
+                f"{OWN_ACCOUNTS} Education records belong only in tools the school has checked, with access controls and the minimum necessary, never in consumer chat apps. This is not a guarantee of FERPA compliance.",
+            ),
+        ]
     else:
         extra = [
             (
@@ -299,6 +316,84 @@ def _check_banned_blob(item: dict, blob: str) -> None:
     for banned in BANNED_SUBSTRINGS:
         if banned in blob:
             raise SystemExit(f"{slug} contains wording that must stay off the public site")
+
+
+EDU_PAUSE = "Pause and show me before sending, posting or changing anything."
+EDU_SAMPLE = (
+    "Use only the sample or de-identified information I provide; "
+    "do not include real student names, grades, or family contact details"
+)
+EDU_SHABBAT = (
+    "Do not send, post, or run anything on Shabbat or Yom Tov; queue drafts for after"
+)
+EDU_NO_IMAGES = "Do not create or attach images of people"
+EDU_NO_JUDAIC = "Do not write religious rulings or Judaic lesson content"
+ORTHODOX_GROUP = "orthodox-day-school"
+
+
+def _check_education_entry(item: dict) -> None:
+    slug = item["slug"]
+    caution = (item.get("caution") or "").strip()
+    prompt = item["copy_prompt"]
+    blob = json.dumps(item)
+    lowered = blob.lower()
+    info = industry_info("education")
+    if len(item["human_checks"]) < 3:
+        raise SystemExit(f"{slug} needs at least three human checks")
+    prefix = info.get("caution_prefix") or ""
+    if prefix and not caution.startswith(prefix):
+        raise SystemExit(f"{slug} caution must start with the education guardrail")
+    if not item["setup"].startswith(OWN_ACCOUNTS):
+        raise SystemExit(f"{slug} setup must start with the own-equipment sentence")
+    if "FERPA" not in item["setup"] and "FERPA" not in caution:
+        raise SystemExit(f"{slug} must mention FERPA in setup or caution")
+    if EDU_PAUSE not in prompt:
+        raise SystemExit(f"{slug} prompt must pause before sending, posting, or changing")
+    if EDU_SAMPLE not in prompt:
+        raise SystemExit(f"{slug} prompt must limit itself to sample or de-identified information")
+    if "student or parent" not in lowered and "students or parents" not in lowered:
+        raise SystemExit(f"{slug} must say a person approves anything sent to a student or parent")
+    for phrase in (
+        "ferpa compliant",
+        "ferpa-compliant",
+        "guaranteed compliance",
+        "fully automated",
+        "grades students",
+        "send to parents automatically",
+        "never miss a parent",
+        "replace the teacher",
+        "replaces the teacher",
+    ):
+        if phrase in lowered:
+            raise SystemExit(f"{slug} contains wording that must stay off the public site")
+    group_id = item.get("group")
+    groups = TAX.get("optional_groups") or {}
+    if group_id:
+        if group_id not in groups:
+            raise SystemExit(f"{slug} has unknown group {group_id!r}")
+        if groups[group_id].get("industry") != "education":
+            raise SystemExit(f"{slug} group {group_id!r} is not an education group")
+    if group_id == ORTHODOX_GROUP:
+        if EDU_SHABBAT not in prompt and EDU_SHABBAT not in caution:
+            raise SystemExit(f"{slug} must queue work until after Shabbat or Yom Tov")
+        if "shabbat" not in lowered or "yom tov" not in lowered:
+            raise SystemExit(f"{slug} must name Shabbat and Yom Tov")
+        if "queue" not in lowered:
+            raise SystemExit(f"{slug} must say messages are queued")
+        if EDU_NO_IMAGES not in prompt and "images of people" not in lowered:
+            raise SystemExit(f"{slug} must forbid images of people")
+        if EDU_NO_JUDAIC not in prompt and "religious rulings" not in lowered:
+            raise SystemExit(f"{slug} must forbid religious rulings and Judaic lesson content")
+        for phrase in (
+            "dvar torah",
+            "write a shiur",
+            "issue a psak",
+            "teach torah",
+            "torah lesson",
+            "limudei kodesh content",
+        ):
+            if phrase in lowered:
+                raise SystemExit(f"{slug} Orthodox day-school admin must stay off religious teaching")
 
 
 def _check_industry_entry(item: dict) -> None:
@@ -467,6 +562,11 @@ def load() -> list:
                 raise SystemExit(f"Unknown function {fn!r} on {slug}")
         if primary_industry(item) != "any-business" and "any-business" in inds:
             raise SystemExit(f"{slug} dedicated vertical entries must not also be any-business")
+        group_id = item.get("group")
+        if group_id:
+            groups = TAX.get("optional_groups") or {}
+            if group_id not in groups:
+                raise SystemExit(f"{slug} has unknown group {group_id!r}")
         if not item["examples"] or not all(
             isinstance(ex, dict) and ex.get("business_type") and ex.get("scenario")
             for ex in item["examples"]
@@ -510,6 +610,8 @@ def load() -> list:
                 raise SystemExit(f"{slug} setup must start with the own-equipment sentence")
             if re.search(r"diagnose", blob, re.I):
                 raise SystemExit(f"{slug} must not use the word diagnose")
+        elif ind == "education":
+            _check_education_entry(item)
         elif ind in ("real-estate", "home-services", "accounting"):
             _check_industry_entry(item)
         if item.get("featured"):
@@ -543,6 +645,20 @@ def matching_function(entries: list, slug: str) -> list:
 
 def dedicated(entries: list, industry: str) -> list:
     return [item for item in entries if primary_industry(item) == industry]
+
+
+def split_optional_groups(items: list, industry: str) -> tuple[list, list[tuple[str, dict, list]]]:
+    groups = TAX.get("optional_groups") or {}
+    main = []
+    grouped: dict[str, list] = {}
+    for item in items:
+        gid = item.get("group")
+        if gid and gid in groups and groups[gid].get("industry") == industry:
+            grouped.setdefault(gid, []).append(item)
+        else:
+            main.append(item)
+    extra = [(gid, groups[gid], grouped[gid]) for gid in groups if gid in grouped]
+    return main, extra
 
 
 def cross_tagged(entries: list, industry: str) -> list:
@@ -707,7 +823,9 @@ def card(item: dict, *, extra_cls: str = "", note: str | None = None, featured: 
     note_html = f'\n              <p class="uc-card-note">{e(note_text)}</p>' if note_text else ""
     inds = ",".join(item["industries"])
     fns = ",".join(item["functions"])
-    return f"""<li class="{cls}" data-slug="{e(item['slug'])}" data-i="{e(inds)}" data-f="{e(fns)}">
+    group = item.get("group")
+    group_attr = f' data-group="{e(group)}"' if group else ""
+    return f"""<li class="{cls}" data-slug="{e(item['slug'])}" data-i="{e(inds)}" data-f="{e(fns)}"{group_attr}>
             <a href="/use-cases/{e(item['slug'])}/">
               <span class="uc-card-cat">{e(label)}</span>
               <h3>{e(item['title'])}</h3>
@@ -1076,13 +1194,14 @@ def dimension_index_page(kind: str, entries: list) -> str:
 def industry_landing(slug: str, entries: list) -> str:
     info = industry_info(slug)
     dedicated_items = dedicated(entries, slug)
+    main_items, extra_groups = split_optional_groups(dedicated_items, slug)
     also = cross_tagged(entries, slug)
     all_items = dedicated_items + also
     if not all_items:
         raise SystemExit(f"Refusing empty industry landing {slug}")
     lazy = slug == "any-business"
-    visible = dedicated_items[:ANY_VISIBLE] if lazy else dedicated_items
-    rest = dedicated_items[ANY_VISIBLE:] if lazy else []
+    visible = main_items[:ANY_VISIBLE] if lazy else main_items
+    rest = main_items[ANY_VISIBLE:] if lazy else []
     title = info["seo_title"]
     desc = clip_meta(info["meta"])
     faqs = industry_faqs(slug)
@@ -1129,6 +1248,21 @@ def industry_landing(slug: str, entries: list) -> str:
         </ul>
       </section>
 """
+    optional_html = ""
+    for gid, group_info, group_items in extra_groups:
+        group_cards = "\n          ".join(card(item, extra_cls="uc-optional") for item in group_items)
+        kicker = group_info.get("kicker") or "Optional group"
+        optional_html += f"""      <section class="uc-group uc-optional-group" id="{e(gid)}" aria-labelledby="{e(gid)}-h">
+        <div class="uc-group-head">
+          <span class="section-kicker">{e(kicker)}</span>
+          <h2 id="{e(gid)}-h">{e(group_info["heading"])}</h2>
+          <p>{e(group_info["note"])}</p>
+        </div>
+        <ul class="uc-grid">
+          {group_cards}
+        </ul>
+      </section>
+"""
     foot_note = ""
     if info.get("regulated"):
         foot_note = f'      <p class="uc-cat-foot">{e(info["foot"])}</p>\n'
@@ -1163,7 +1297,7 @@ def industry_landing(slug: str, entries: list) -> str:
         </ul>
 {compact}        {more}
       </section>
-{also_html}{foot_note}      <section id="faq" class="section uc-faq">
+{optional_html}{also_html}{foot_note}      <section id="faq" class="section uc-faq">
         <div class="section-heading stacked">
           <h2>Questions about {e(info["label"])} SI (AI) use cases</h2>
         </div>
@@ -1585,6 +1719,13 @@ def assert_wording(entries: list) -> None:
                     raise SystemExit(f"{slug} landing is missing expected disclaimer text")
             if cross_tagged(entries, slug) and "Also used in this kind of business" not in html_page:
                 raise SystemExit(f"{slug} landing needs the Also used section")
+            groups = TAX.get("optional_groups") or {}
+            for gid, group_info in groups.items():
+                if group_info.get("industry") != slug:
+                    continue
+                if any(item.get("group") == gid for item in dedicated(entries, slug)):
+                    if f'id="{gid}"' not in html_page or group_info["heading"] not in html_page:
+                        raise SystemExit(f"{slug} landing is missing optional group {gid}")
         if f"{BASE}/use-cases/industry/{slug}/" not in sitemap:
             raise SystemExit(f"sitemap is missing industry/{slug}")
     for slug in FUNCTIONS:
@@ -1652,7 +1793,7 @@ def write_llms_txt(entries: list) -> None:
             "",
             "## Use cases",
             "",
-            f"The library lists {n} practical SI (AI) jobs for small teams, community organizations, the business side of solo and small law practices, the business side of small healthcare practices, real estate and property management, home-service contractors, and small accounting, tax and bookkeeping firms. They are illustrations of what is possible, not reports of client results. A person still approves anything that sends, pays, orders, or posts. Legal-practice pages are operations help only. SI does not give legal advice. Medical-practice pages are operations help only. SI does not give medical advice or make clinical decisions. Real-estate pages are operations help only. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. Home-services pages are office help only; the owner approves every quote and message. Accounting-firm pages are operations help only. SI does not give tax advice or file returns. {OWN_ACCOUNTS}",
+            f"The library lists {n} practical SI (AI) jobs for small teams, community organizations, teachers, tutors and schools, the business side of solo and small law practices, the business side of small healthcare practices, real estate and property management, home-service contractors, and small accounting, tax and bookkeeping firms. They are illustrations of what is possible, not reports of client results. A person still approves anything that sends, pays, orders, or posts. Education pages are operations help only. SI does not grade students. A person approves anything sent to a student or parent. Student records stay on the school's own equipment and accounts. A removable Orthodox Jewish day-school admin group never sends, posts, or runs on Shabbat or Yom Tov. Legal-practice pages are operations help only. SI does not give legal advice. Medical-practice pages are operations help only. SI does not give medical advice or make clinical decisions. Real-estate pages are operations help only. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. Home-services pages are office help only; the owner approves every quote and message. Accounting-firm pages are operations help only. SI does not give tax advice or file returns. {OWN_ACCOUNTS}",
             "",
         ]
     )

@@ -42,6 +42,7 @@ INDUSTRY_ACCENT = {
     "real-estate": ("real-estate", "#c4a06a"),
     "home-services": ("home-services", "#d3aa55"),
     "accounting": ("accounting", "#cfc09a"),
+    "education": ("education", "#8aa07a"),
 }
 
 FUNCTION_ACCENT = {
@@ -67,6 +68,7 @@ INDUSTRY_MOTIF = {
     "real-estate": "inbox",
     "home-services": "phone",
     "accounting": "documents",
+    "education": "documents",
 }
 
 FUNCTION_MOTIF = {
