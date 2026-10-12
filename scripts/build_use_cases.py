@@ -96,6 +96,11 @@ SHORT = {
         "legal-practices",
         "Business-side admin for solo attorneys and small firms. Attorneys review and decide.",
     ),
+    "Medical and healthcare practices": (
+        "Medical & healthcare",
+        "medical-healthcare",
+        "Scheduling, reminders, intake, and billing admin for small practices. Clinicians and staff review and decide.",
+    ),
 }
 
 # Shown on the Legal practices section. The opinion title is quoted as published.
@@ -129,6 +134,41 @@ LEGAL_CAUTION_PREFIX = (
     "Administrative support only: this is not legal advice and does not replace attorney judgment. "
     "An attorney reviews and approves anything client-facing or substantive, and client-confidential "
     "information is used only with the firm's agreements, access controls and consent."
+)
+
+# Shown on the Medical and healthcare practices section.
+MEDICAL_READ_FIRST = (
+    "<strong>Read this first.</strong> The use cases in this category are about running the "
+    "<em>business side</em> of a healthcare practice: scheduling, reminders, intake logistics, "
+    "insurance and billing admin, referral tracking, and communications drafts. SI does not name a "
+    "condition, give medical advice, or make clinical decisions, and it does not replace a "
+    "clinician's judgment. A clinician or trained staff member reviews and approves anything "
+    "clinical or patient-facing before it goes out, and nothing here promises any health outcome "
+    "or result. Patient privacy comes first: protected health information (PHI) should only go into "
+    "tools covered by a signed business associate agreement (BAA) with the practice, with proper "
+    "access controls, and only the minimum necessary; it never belongs in consumer tools or free "
+    "chat apps. Billing and coding are always approved by a person; SI never invents documentation "
+    "or assigns codes on its own. Recording or transcribing calls and visits may require consent, "
+    "texting patients is regulated, and state laws differ, so check yours. SI never handles "
+    "emergencies: anything urgent goes to a person or to 911. These pages are general information, "
+    "not medical, legal or compliance advice, and not a guarantee of compliance with HIPAA or any "
+    "other rule. <a href=\"https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/business-associates/index.html\" "
+    "target=\"_blank\" rel=\"noopener noreferrer\">HHS guidance on business associates</a> is a good starting point."
+)
+MEDICAL_SHORT = (
+    "Admin and operations help for small practices. SI drafts, tracks and organizes; "
+    "clinicians and staff review and decide. No medical advice or clinical decisions, and patient "
+    "information stays in tools covered by a BAA."
+)
+MEDICAL_FOOT = (
+    "Not medical, legal or compliance advice. Talk with your compliance officer or healthcare counsel about HIPAA and your state's rules."
+)
+MEDICAL_OWN_ACCOUNTS = LEGAL_OWN_ACCOUNTS
+MEDICAL_CAUTION_PREFIX = (
+    "Administrative support only: SI does not name a condition, recommend treatment, or make clinical decisions, "
+    "and does not replace a clinician's judgment. A clinician or trained staff member reviews and approves "
+    "anything clinical, billing-related or patient-facing. Patient information (PHI) is used only in tools "
+    "covered by a signed business associate agreement, with access controls and the minimum necessary, never in consumer tools."
 )
 
 REQUIRED = (
@@ -200,6 +240,38 @@ def load() -> list:
                 raise SystemExit(f"{item['slug']} setup must say the work stays on the firm's own equipment and accounts")
             for banned in ("Ohr", "Kayla", "josh.gemmi@gmail.com"):
                 if banned in blob:
+                    raise SystemExit(f"{item['slug']} contains wording that must stay off the public site")
+        if item["category"] == "Medical and healthcare practices":
+            caution = (item.get("caution") or "").strip()
+            if not caution.startswith(MEDICAL_CAUTION_PREFIX):
+                raise SystemExit(f"{item['slug']} caution must start with the medical guardrail")
+            prompt = item["copy_prompt"]
+            if "Pause and show me before sending, submitting, billing, posting or changing anything" not in prompt:
+                raise SystemExit(f"{item['slug']} prompt must pause before sending, submitting, billing, posting, or changing")
+            if (
+                "Use only the sample or de-identified information I provide; do not include any patient names or health information"
+                not in prompt
+            ):
+                raise SystemExit(f"{item['slug']} prompt must limit itself to sample or de-identified information")
+            if len(item["human_checks"]) < 3:
+                raise SystemExit(f"{item['slug']} needs at least three human checks")
+            if not item["setup"].startswith(MEDICAL_OWN_ACCOUNTS):
+                raise SystemExit(f"{item['slug']} setup must start with the own-equipment sentence")
+            if re.search(r"diagnose", blob, re.I):
+                raise SystemExit(f"{item['slug']} must not use the word diagnose")
+            lowered = blob.lower()
+            for banned in (
+                "hipaa compliant",
+                "hipaa-compliant",
+                "hipaa certified",
+                "hipaa-certified",
+                "hipaa safe",
+                "hipaa-safe",
+                "ohr",
+                "kayla",
+                "josh.gemmi@gmail.com",
+            ):
+                if banned in lowered:
                     raise SystemExit(f"{item['slug']} contains wording that must stay off the public site")
         slugs.append(item["slug"])
     dupes = {slug for slug in slugs if slugs.count(slug) > 1}
@@ -370,6 +442,8 @@ def card(item: dict, href: str, show_cat: bool = True, extra: bool = False) -> s
     note = ""
     if item["category"] == "Legal practices":
         note = f'\n              <p class="uc-card-note">{e(LEGAL_SHORT)}</p>'
+    elif item["category"] == "Medical and healthcare practices":
+        note = f'\n              <p class="uc-card-note">{e(MEDICAL_SHORT)}</p>'
     return f"""<li class="uc-card{extra_cls}" data-cat="{short[1]}" data-hay="{e(haystack(item))}">
             <a href="{href}">
               {cat}
@@ -387,8 +461,8 @@ def library_page(entries: list) -> str:
     desc = (
         f"{n} practical ways SI can take routine work off a small team: inbox and support, "
         "sales follow-up, bookkeeping, reporting, scheduling, inventory, ecommerce, content, "
-        "hiring, documents, community organizations, local business, and legal-practice admin. "
-        "Each one shows what a human still checks."
+        "hiring, documents, community organizations, local business, legal-practice admin, "
+        "and medical-practice admin. Each one shows what a human still checks."
     )
     ld = {
         "@context": "https://schema.org",
@@ -454,6 +528,14 @@ def library_page(entries: list) -> str:
                 "        </div>\n"
             )
             closing_note = f'        <p class="uc-legal-foot">{e(LEGAL_FOOT)}</p>\n'
+        elif cat == "Medical and healthcare practices":
+            banner = (
+                '        <div class="uc-read-first" role="note">\n'
+                f"          <p>{MEDICAL_READ_FIRST}</p>\n"
+                f"          <p class=\"uc-own-accounts\">{e(MEDICAL_OWN_ACCOUNTS)}</p>\n"
+                "        </div>\n"
+            )
+            closing_note = f'        <p class="uc-cat-foot">{e(MEDICAL_FOOT)}</p>\n'
         sections.append(
             f"""      <section class="uc-group" data-group="{slug}" aria-labelledby="g-{slug}">
         <div class="uc-group-head">
@@ -606,6 +688,8 @@ def detail_page(item: dict, entries: list) -> str:
     legal_note = ""
     if item["category"] == "Legal practices":
         legal_note = f'<p class="uc-read-first" role="note">{e(LEGAL_SHORT)}</p>\n          '
+    elif item["category"] == "Medical and healthcare practices":
+        legal_note = f'<p class="uc-read-first" role="note">{e(MEDICAL_SHORT)}</p>\n          '
     tools = "".join(f'<span class="tag green">{e(tool)}</span>' for tool in item["tools_examples"])
     return head(title, desc, url, 2, ld) + f"""
     <main id="top">
@@ -781,6 +865,17 @@ def assert_wording(entries: list) -> None:
             raise SystemExit(f"{item['slug']} is missing the short legal disclaimer")
         if item["category"] == "Legal practices" and LEGAL_OWN_ACCOUNTS not in page:
             raise SystemExit(f"{item['slug']} is missing the own-equipment setup line")
+        if item["category"] == "Medical and healthcare practices":
+            if MEDICAL_SHORT not in page:
+                raise SystemExit(f"{item['slug']} is missing the short medical disclaimer")
+            if MEDICAL_OWN_ACCOUNTS not in page:
+                raise SystemExit(f"{item['slug']} is missing the own-equipment setup line")
+            if re.search(r"diagnose", page, re.I):
+                raise SystemExit(f"{item['slug']} page must not use the word diagnose")
+    if library.count(MEDICAL_SHORT) < 1:
+        raise SystemExit("Medical cards are missing the short disclaimer")
+    if "healthcare practice" not in library or library.count(MEDICAL_OWN_ACCOUNTS) < 2:
+        raise SystemExit("Medical practices section is missing the disclaimer or own-equipment line")
 
 
 def main() -> None:
