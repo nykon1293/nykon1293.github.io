@@ -17,11 +17,13 @@ import html
 import json
 import re
 import sys
+from collections import Counter
 from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from seo_schema import CSS_VERSION, NAV_SCRIPT, font_and_css_links
+from use_case_motifs import motif_bytes, motif_html, pick_industry, pick_motif
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "use-cases.json"
@@ -986,6 +988,7 @@ def detail_page(item: dict, entries: list) -> str:
     if info:
         legal_note = f'<p class="uc-read-first" role="note">{e(info["short"])}</p>\n          '
     tools = "".join(f'<span class="tag green">{e(tool)}</span>' for tool in item["tools_examples"])
+    graphic = motif_html(item)
     return head(title, desc, url, 2, ld) + f"""
     <main id="top">
       <article class="uc-detail">
@@ -997,10 +1000,15 @@ def detail_page(item: dict, entries: list) -> str:
             <span aria-hidden="true">/</span>
             <span>{e(item['title'])}</span>
           </nav>
-          <p class="uc-card-cat"><a href="../index.html#g-{slug}">{e(label)}</a></p>
-          <h1>{e(item['title'])}</h1>
-          <p class="lead">{e(item['summary'])}</p>
-          {legal_note}{caution}
+          <div class="uc-detail-intro">
+            <div class="uc-detail-copy">
+              <p class="uc-card-cat"><a href="../index.html#g-{slug}">{e(label)}</a></p>
+              <h1>{e(item['title'])}</h1>
+              <p class="lead">{e(item['summary'])}</p>
+              {legal_note}{caution}
+            </div>
+            {graphic}
+          </div>
         </header>
 
         <div class="uc-detail-body">
@@ -1125,6 +1133,10 @@ def url_block(loc: str, priority: str) -> str:
 
 def update_sitemap(entries: list) -> None:
     text = SITEMAP.read_text(encoding="utf-8")
+    wanted = {f"{BASE}/use-cases/"} | {f"{BASE}/use-cases/{item['slug']}/" for item in entries}
+    existing = set(re.findall(r"<loc>(https://[^<]*use-cases/[^<]*)</loc>", text))
+    if existing == wanted:
+        return
     text = re.sub(
         r"\n  <url>\s*<loc>https://[^<]*/use-cases/.*?</url>",
         "",
@@ -1160,6 +1172,11 @@ def assert_wording(entries: list) -> None:
         page = (OUT / item["slug"] / "index.html").read_text(encoding="utf-8")
         if re.search(r"\bAI\b", page) or "noindex" in page or "Nous" in page or "Brandgate" in page:
             raise SystemExit(f"Wording check failed for {item['slug']}")
+        if 'class="uc-motif' not in page or "aria-hidden" not in page:
+            raise SystemExit(f"{item['slug']} is missing the decorative motif")
+        graphic = page.split('class="uc-motif', 1)[1].split("</div>\n          </div>", 1)[0]
+        if "<text" in graphic:
+            raise SystemExit(f"{item['slug']} motif must not contain text")
         info = CATEGORY_NOTES.get(item["category"])
         if info:
             if e(info["short"]) not in page:
@@ -1206,7 +1223,17 @@ def main() -> None:
         (folder / "index.html").write_text(detail_page(item, entries), encoding="utf-8")
     update_sitemap(entries)
     assert_wording(entries)
+    sizes = [motif_bytes(item) for item in entries]
+    motifs = Counter(pick_motif(item) for item in entries)
+    industries = Counter(pick_industry(item)[0] for item in entries)
     print(f"built {len(entries)} use cases")
+    print("motifs " + " ".join(f"{name}={motifs[name]}" for name in sorted(motifs)))
+    print("industries " + " ".join(f"{name}={industries[name]}" for name in sorted(industries)))
+    print(
+        "graphic bytes min={0} median={1} max={2}".format(
+            min(sizes), sorted(sizes)[len(sizes) // 2], max(sizes)
+        )
+    )
 
 
 if __name__ == "__main__":

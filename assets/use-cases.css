@@ -221,9 +221,77 @@ html.uc-js .uc-index { display: none; }
 html.uc-js .uc-group.is-open .uc-index { display: grid; }
 html.uc-js .uc-group:not(.is-open) .uc-card.uc-extra { display: none; }
 
-.uc-detail-head { max-width: 860px; padding: 8px 0 28px; }
+.uc-detail-head { max-width: none; padding: 8px 0 28px; }
 .uc-detail-head h1 { font-size: clamp(2rem, 4vw, 3.2rem); margin-top: 6px; overflow-wrap: anywhere; }
 .uc-detail-head .uc-card-cat { margin: 0; }
+.uc-detail-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 88px;
+  gap: 12px 16px;
+  align-items: start;
+}
+.uc-detail-copy { min-width: 0; }
+.uc-motif {
+  --uc-accent: var(--accent);
+  width: 88px;
+  justify-self: end;
+  margin-top: 4px;
+  pointer-events: none;
+}
+.uc-motif--legal { --uc-accent: #c9a45c; }
+.uc-motif--medical { --uc-accent: #7eb8a4; }
+.uc-motif--ecommerce { --uc-accent: #e3b45a; }
+.uc-motif--billing { --uc-accent: #d3aa55; }
+.uc-motif--scheduling { --uc-accent: #a8b56a; }
+.uc-motif--community { --uc-accent: #d4a06e; }
+.uc-motif--inventory { --uc-accent: #c4a056; }
+.uc-motif--support { --uc-accent: #d3aa55; }
+.uc-motif--sales { --uc-accent: #dbb05e; }
+.uc-motif--reporting { --uc-accent: #8fbf9a; }
+.uc-motif--marketing { --uc-accent: #d3aa55; }
+.uc-motif--hiring { --uc-accent: #b89a74; }
+.uc-motif--research { --uc-accent: #cfc09a; }
+.uc-motif--local { --uc-accent: #87b58a; }
+.uc-motif--real-estate { --uc-accent: #c4a06a; }
+.uc-motif--home-services { --uc-accent: #d3aa55; }
+.uc-motif--accounting { --uc-accent: #cfc09a; }
+.uc-motif-frame {
+  aspect-ratio: 1;
+  padding: 3px;
+  border: 1px solid rgba(255, 255, 255, .16);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .10), rgba(255, 255, 255, .035)),
+    radial-gradient(circle at 30% 20%, color-mix(in srgb, var(--uc-accent) 22%, transparent), transparent 58%);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, .25);
+}
+.uc-motif svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+@media (min-width: 1001px) {
+  .uc-detail-intro {
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 48px;
+  }
+  .uc-motif {
+    width: 220px;
+    justify-self: start;
+    margin-top: 8px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .uc-motif,
+  .uc-motif-frame,
+  .uc-motif svg {
+    animation: none !important;
+    transition: none !important;
+  }
+}
 .uc-detail-body {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 340px;
