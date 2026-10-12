@@ -262,9 +262,27 @@ def service_node(*, name: str, description: str, url: str) -> dict:
     }
 
 
+CSS_VERSION = "perf-1"
+
+
 def graph_payload(nodes: list[dict]) -> str:
     payload = {"@context": "https://schema.org", "@graph": nodes}
     return json.dumps(payload, indent=2, ensure_ascii=False)
+
+
+def font_and_css_links(*, stylesheet: str, extra_css: str | None = None) -> str:
+    """Self-hosted latin fonts plus site CSS. Replaces the Google Fonts <link>s."""
+    lines = [
+        '  <link rel="preload" href="/assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin />',
+        '  <link rel="stylesheet" href="/assets/fonts.css" />',
+        f'  <link rel="stylesheet" href="{stylesheet}" />',
+    ]
+    if extra_css:
+        lines.append(f'  <link rel="stylesheet" href="{extra_css}" />')
+    return "\n".join(lines)
+
+
+NAV_SCRIPT = '  <script src="/assets/nav.js" defer></script>\n'
 
 
 def common_head_tags(*, title: str, description: str, canonical: str, og_type: str = "website") -> str:
