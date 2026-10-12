@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shipping exceptions and a &#x27;where is my package&#x27; watch | SI use case | Yonatan Gemmi</title>
+  <meta name="description" content="SI watches carrier scans for exceptions, failed deliveries, and stalled tracking, and prepares a short list plus a draft note before the customer has to ask." />
+  <link rel="canonical" href="https://gemmisi.com/use-cases/shipping-exceptions-package-watch/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Yonatan Gemmi" />
+  <meta property="og:title" content="Shipping exceptions and a &#x27;where is my package&#x27; watch | SI use case | Yonatan Gemmi" />
+  <meta property="og:description" content="SI watches carrier scans for exceptions, failed deliveries, and stalled tracking, and prepares a short list plus a draft note before the customer has to ask." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://gemmisi.com/use-cases/shipping-exceptions-package-watch/" />
+  <meta property="og:site_name" content="Yonatan Gemmi" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content="https://gemmisi.com/assets/brand/gemmisi-og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="GemmiSI — SI, automation, dashboards, and technical operations" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Shipping exceptions and a &#x27;where is my package&#x27; watch | SI use case | Yonatan Gemmi" />
+  <meta name="twitter:description" content="SI watches carrier scans for exceptions, failed deliveries, and stalled tracking, and prepares a short list plus a draft note before the customer has to ask." />
+  <meta name="twitter:image" content="https://gemmisi.com/assets/brand/gemmisi-og.png" />
+  <meta name="twitter:image:alt" content="GemmiSI — SI, automation, dashboards, and technical operations" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://gemmisi.com/sitemap.xml" />
+  <link rel="preload" href="/assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <style>@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 400 700; font-display: swap; src: url("/assets/fonts/ibm-plex-sans-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; } @font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 500 700; font-display: optional; src: url("/assets/fonts/jetbrains-mono-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }</style>
+  <link rel="stylesheet" href="../../styles.css?v=perf-1" />
+  <link rel="stylesheet" href="../../assets/use-cases.css?v=perf-1" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon-32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon-16.png" type="image/png" sizes="16x16" />
+  <link rel="apple-touch-icon" href="/assets/brand/gemmisi-icon-180.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://gemmisi.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Use cases",
+          "item": "https://gemmisi.com/use-cases/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Shipping exceptions and a 'where is my package' watch",
+          "item": "https://gemmisi.com/use-cases/shipping-exceptions-package-watch/"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "name": "Shipping exceptions and a 'where is my package' watch",
+      "url": "https://gemmisi.com/use-cases/shipping-exceptions-package-watch/",
+      "description": "SI watches carrier scans for exceptions, failed deliveries, and stalled tracking, and prepares a short list plus a draft note before the customer has to ask.",
+      "isPartOf": {
+        "@type": "CollectionPage",
+        "name": "SI use cases",
+        "url": "https://gemmisi.com/use-cases/"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Yonatan Gemmi",
+        "url": "https://gemmisi.com/"
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="nav">
+      <a class="brand" href="../../index.html" aria-label="GemmiSI home">
+        <img class="brand-lockup" src="../../assets/brand/gemmisi-lockup-dark.svg" alt="" width="159" height="36" />
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open site menu">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+        <span class="nav-toggle__label">Menu</span>
+      </button>
+      <nav id="site-nav" class="nav-links" aria-label="Primary navigation">
+        <a href="../../index.html">Home</a>
+        <a href="../../index.html#work">Work</a>
+        <details class="nav-dropdown">
+          <summary class="nav-dropdown-trigger">Services</summary>
+          <div class="nav-dropdown-menu">
+            <a href="../../services/hermes-agents.html">Hermes Agents</a>
+            <a href="../../services/ai-automation.html">SI automation</a>
+            <a href="../../services/dashboards-reporting.html">Dashboards &amp; reporting</a>
+            <a href="../../services/ecommerce-operations.html">Ecommerce operations</a>
+            <a href="../../services/tutoring-project-help.html">Tutoring &amp; project help</a>
+            <a class="nav-dropdown-muted" href="../../services/stocky-recovery.html">Stocky dump recovery</a>
+            <a class="nav-dropdown-muted" href="../../index.html#service-hub">All services</a>
+            <a class="nav-dropdown-muted" href="../../advisory.html">Advisory &amp; Fractional (ask first)</a>
+          </div>
+        </details>
+        <a href="../index.html" aria-current="page">Use cases</a>
+        <a href="../../pricing.html">Pricing</a>
+      </nav>
+      <a class="nav-cta" href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book consultation</a>
+    </header>
+
+    <main id="top">
+      <article class="uc-detail">
+        <header class="uc-detail-head">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span aria-hidden="true">/</span>
+            <a href="../index.html">Use cases</a>
+            <span aria-hidden="true">/</span>
+            <span>Shipping exceptions and a &#x27;where is my package&#x27; watch</span>
+          </nav>
+          <p class="uc-card-cat"><a href="../index.html#g-ecommerce-operations">Ecommerce operations</a></p>
+          <h1>Shipping exceptions and a &#x27;where is my package&#x27; watch</h1>
+          <p class="lead">SI watches carrier scans for exceptions, failed deliveries, and stalled tracking, and prepares a short list plus a draft note before the customer has to ask.</p>
+          <p class="uc-caution" role="note"><strong>Worth knowing:</strong> Carrier tracking can lag. A missing scan is not always a lost package.</p>
+        </header>
+
+        <div class="uc-detail-body">
+          <div class="uc-detail-main">
+            <section class="uc-block" aria-labelledby="problem">
+              <h2 id="problem">The problem</h2>
+              <p>The first time many stores learn a package failed delivery or sat at a depot is when the customer writes &#x27;where is my package?&#x27;. Drafting a status reply from your own records helps once they write in. It does not watch carrier exceptions before that. A daily low-stock and stuck-order list is a different job.</p>
+            </section>
+            <section class="uc-block" aria-labelledby="what">
+              <h2 id="what">What SI does</h2>
+              <p>SI reads tracking for open shipments from the store, a shipping tool, or an export. It lists exception scans, failed delivery, address issues, and tracking with no scan past a wait you set. For each, it notes the last scan, the order, and a suggested next step such as asking the customer to confirm the address, contacting the carrier, or waiting. It can draft a customer note from the real tracking. It does not change addresses or file claims.</p>
+            </section>
+            <section class="uc-block" aria-labelledby="examples">
+              <h2 id="examples">Examples</h2>
+              <p class="uc-ex-intro">The same job looks different in different businesses. These are illustrations, not client results.</p>
+              <ul class="uc-examples">
+            <li class="uc-ex"><span class="uc-ex-type">Shopify store using a shipping app</span><p>Two packages show a delivery exception and one has no scan in five days. The list and draft notes wait for the owner.</p></li>
+            <li class="uc-ex"><span class="uc-ex-type">Beauty brand shipping two-day</span><p>A failed delivery marked &#x27;need new address&#x27; is listed with the order, and a draft asks the customer to confirm the door code.</p></li>
+            <li class="uc-ex"><span class="uc-ex-type">Outdoor gear shop</span><p>Weekend scans lag, so SI still lists exceptions and flags ones that already have a customer email so you do not double-reply.</p></li>
+              </ul>
+            </section>
+            <section class="uc-block" aria-labelledby="setup">
+              <h2 id="setup">What it takes to set up</h2>
+              <p>Tracking numbers for open shipments, carrier or shipping-tool access or a daily export, and a wait threshold. Setup is often a few days.</p>
+            </section>
+            <section class="uc-block uc-checks" aria-labelledby="checks">
+              <h2 id="checks">What a human still checks</h2>
+              <ul class="uc-checklist">
+            <li>A person decides whether to contact the customer, the carrier, or wait.</li>
+            <li>SI does not promise a delivery date that is not on the scan.</li>
+            <li>Address changes and claims are made by a person.</li>
+              </ul>
+            </section>
+            <section class="uc-block" aria-labelledby="prompt">
+              <h2 id="prompt">Try it yourself</h2>
+              <p>Paste this into your SI tool of choice and swap the [bracketed] parts for your own details. It asks SI to stop and show you before it does anything.</p>
+              <div class="uc-prompt">
+                <div class="uc-prompt-bar">
+                  <span class="uc-prompt-label">Copy-ready prompt</span>
+                  <button type="button" class="uc-copy" id="uc-copy" aria-live="polite">Copy</button>
+                </div>
+                <pre id="uc-prompt-text">From open shipments in [store or shipping export], list tracking with an exception scan, failed delivery, address issue, or no scan in [5] days. For each, show order number, last scan, and a suggested next step. Draft a customer note using only the tracking on file. Do not change addresses or file claims. Pause and show me before sending, submitting, posting, or changing anything.</pre>
+              </div>
+            </section>
+          </div>
+
+          <aside class="uc-detail-side" aria-label="At a glance">
+            <div class="uc-side-stick">
+            <div class="uc-side-card">
+              <h3>Typical effect</h3>
+              <p>Exceptions show up as a list you can work, instead of as a pile of &#x27;where is my package&#x27; emails.</p>
+              <h3>Tools it usually touches</h3>
+              <div class="uc-tags"><span class="tag green">Shopify</span><span class="tag green">ShipStation</span><span class="tag green">AfterShip</span><span class="tag green">Google Sheets</span><span class="tag green">Gorgias</span></div>
+            </div>
+            <div class="uc-side-card uc-side-cta">
+              <p class="section-kicker">Want this built?</p>
+              <p>I will look at your setup on a free call and tell you honestly whether this is worth doing.</p>
+              <a class="button primary full" href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book a free 30-minute consult</a>
+            </div>
+            </div>
+          </aside>
+        </div>
+
+        <section class="uc-related" aria-labelledby="related">
+          <h2 id="related">Related use cases</h2>
+          <ul class="uc-grid">
+          <li class="uc-card" data-cat="ecommerce-operations" data-slug="retired-inventory-app-reorder-history">
+            <a href="../retired-inventory-app-reorder-history/">
+              <span class="uc-card-cat">Ecommerce operations</span>
+              <h3>Moving off a retired inventory app without losing your reorder history</h3>
+              <p>When the inventory or purchase-order tool shuts down, SI reads the export and rebuilds suppliers, past orders, and reorder rules into a sheet you can use next week.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-cat="ecommerce-operations" data-slug="store-stock-and-spreadsheet-agreement">
+            <a href="../store-stock-and-spreadsheet-agreement/">
+              <span class="uc-card-cat">Ecommerce operations</span>
+              <h3>Keeping store stock counts and your spreadsheet in agreement</h3>
+              <p>SI compares the store&#x27;s available count, the warehouse or location count, and the spreadsheet, and lists where they disagree before you oversell or reorder the wrong amount.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-cat="ecommerce-operations" data-slug="abandoned-checkout-follow-up-drafts">
+            <a href="../abandoned-checkout-follow-up-drafts/">
+              <span class="uc-card-cat">Ecommerce operations</span>
+              <h3>Abandoned-checkout follow-up drafts from your store records</h3>
+              <p>SI lists checkouts that were started and not finished, and drafts a short follow-up from the actual cart, for you to send only if the customer is allowed to hear from you.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          </ul>
+          <p class="uc-all"><a class="text-link" href="../index.html">See all 152 use cases →</a></p>
+        </section>
+
+        <section class="uc-cta-band" aria-labelledby="cta-h">
+          <div>
+            <p class="section-kicker">Next step</p>
+            <h2 id="cta-h">Want this built? Book a free 30-minute consult</h2>
+            <p>Bring one real example, such as an export, an inbox, or a spreadsheet. We will map the steps and decide what SI drafts and what you approve.</p>
+          </div>
+          <div class="actions"><a class="button primary" href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book a free 30-minute consult</a></div>
+        </section>
+      </article>
+    </main>
+    <footer>
+      <a class="footer-brand" href="../../index.html" aria-label="GemmiSI home">
+        <img class="footer-lockup" src="../../assets/brand/gemmisi-lockup-dark.svg" alt="" width="123" height="28" />
+      </a>
+      <p>© <span id="year"></span> Yonatan Gemmi. Based in North Miami Beach, Florida · Miami-Dade, Broward, and remote</p>
+      <p class="footer-nav">
+        <a href="../../index.html">Home</a>
+        <a href="../index.html">Use cases</a>
+        <a href="../../pricing.html">Pricing</a>
+        <a href="../../services/hermes-agents.html">Hermes desks</a>
+        <a href="../../services/ai-automation.html">SI automation</a>
+        <a href="../../services/dashboards-reporting.html">Dashboards</a>
+        <a href="../../services/ecommerce-operations.html">Ecommerce</a>
+        <a href="../../services/tutoring-project-help.html">Tutoring</a>
+        <a href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book consultation</a>
+      </p>
+    </footer>  <script src="/assets/nav.js" defer></script>
+  <script>
+    (() => {
+      const button = document.getElementById('uc-copy');
+      const text = document.getElementById('uc-prompt-text');
+      if (!button || !text) return;
+      button.addEventListener('click', async () => {
+        const value = text.textContent || '';
+        try {
+          await navigator.clipboard.writeText(value);
+        } catch (err) {
+          const range = document.createRange();
+          range.selectNodeContents(text);
+          const selection = getSelection();
+          selection.removeAllRanges();
+          selection.addRange(range);
+          document.execCommand('copy');
+          selection.removeAllRanges();
+        }
+        button.textContent = 'Copied';
+        button.classList.add('is-done');
+        window.setTimeout(() => {
+          button.textContent = 'Copy';
+          button.classList.remove('is-done');
+        }, 1800);
+      });
+    })();
+  </script>
+</body>
+</html>
