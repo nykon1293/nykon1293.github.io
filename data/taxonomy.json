@@ -122,23 +122,13 @@
       "seo_h1": "Use cases for teachers, tutors and schools",
       "meta": "Admin-side SI (AI) jobs for teachers, tutors, and schools: parent notes, drafts, and reminders. A person approves anything sent to a student or parent.",
       "regulated": true,
-      "read_first": "<strong>Read this first.</strong> The use cases in this category are about running the <em>admin side</em> of teaching and school work: parent notes, report-card comment drafts, outlines from the teacher's own standards, reminders, enrollment follow-up, substitute packets, form chasing, tuition drafts, and conference scheduling. SI does not grade, evaluate, promote, or discipline students, does not replace a teacher's or school's judgment, and does not give educational, legal or compliance advice. A teacher, tutor, or school staff member reviews and approves anything sent to a student or parent before it goes out, and nothing here promises any grade, admission, or result. Student privacy comes first: education records should only go into tools the school has checked, with access controls and the minimum necessary, never into consumer chat apps. FERPA and state student-privacy rules differ, so check yours. These pages are general information, not educational, legal or compliance advice, and not a guarantee of compliance with FERPA or any other rule. <a href=\"https://studentprivacy.ed.gov/ferpa\" target=\"_blank\" rel=\"noopener noreferrer\">U.S. Department of Education FERPA guidance</a> is a starting point. A clearly marked optional group below is for Orthodox Jewish day-school admin only: nothing sends, posts, or runs on Shabbat or Yom Tov; drafts wait in a queue until after; there are no images of people, no humor, and no religious rulings or Judaic teaching.",
+      "read_first": "<strong>Read this first.</strong> The use cases in this category are about running the <em>admin side</em> of teaching and school work: parent notes, report-card comment drafts, outlines from the teacher's own standards, reminders, enrollment follow-up, substitute packets, form chasing, tuition drafts, and conference scheduling. SI does not grade, evaluate, promote, or discipline students, does not replace a teacher's or school's judgment, and does not give educational, legal or compliance advice. A teacher, tutor, or school staff member reviews and approves anything sent to a student or parent before it goes out, and nothing here promises any grade, admission, or result. Student privacy comes first: education records should only go into tools the school has checked, with access controls and the minimum necessary, never into consumer chat apps. FERPA and state student-privacy rules differ, so check yours. These pages are general information, not educational, legal or compliance advice, and not a guarantee of compliance with FERPA or any other rule. <a href=\"https://studentprivacy.ed.gov/ferpa\" target=\"_blank\" rel=\"noopener noreferrer\">U.S. Department of Education FERPA guidance</a> is a starting point.",
       "short": "Admin help for teachers, tutors and schools. SI drafts and organizes; a person approves anything sent to a student or parent. No grading decisions, and student records stay on the school's own equipment and accounts.",
       "foot": "Not educational, legal or compliance advice. Talk with your school counsel or registrar about FERPA and your state's student-privacy rules.",
       "caution_prefix": "Administrative support only: SI does not grade, evaluate, or make academic decisions, and does not replace a teacher's or school's judgment. A teacher, tutor, or school staff member reviews and approves anything sent to a student or parent. Student records are used only on the school's own equipment and accounts, with access controls and the minimum necessary, never in consumer tools.",
       "needles": [
         "FERPA"
       ]
-    }
-  },
-  "optional_groups": {
-    "orthodox-day-school": {
-      "industry": "education",
-      "heading": "Orthodox Jewish day-school admin",
-      "kicker": "Optional group",
-      "note": "A removable set. Admin work only. Nothing sends, posts, or runs on Shabbat or Yom Tov; drafts wait in a queue until after. No images of people, no humor, and no religious rulings or Judaic teaching. A person on staff approves every parent message.",
-      "removal": "To leave this set out, delete the entries tagged group orthodox-day-school from data/use-cases.json and this optional_groups key, then run python3 scripts/build_use_cases.py.",
-      "short": "Optional Orthodox Jewish day-school admin only. SI drafts office work; staff approve every parent message. Nothing sends, posts, or runs on Shabbat or Yom Tov. No images of people, no humor, and no religious rulings or Judaic teaching."
     }
   },
   "functions": {

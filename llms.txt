@@ -24,7 +24,7 @@ https://calendly.com/josh-gemmi/30min
 
 ## Use-case hub and landings
 
-- Hub (172 practical SI / AI examples; illustrations, not client results): https://gemmisi.com/use-cases/
+- Hub (168 practical SI / AI examples; illustrations, not client results): https://gemmisi.com/use-cases/
 - Browse by industry: https://gemmisi.com/use-cases/industry/
 - Any business: https://gemmisi.com/use-cases/industry/any-business/
 - Ecommerce: https://gemmisi.com/use-cases/industry/ecommerce/
@@ -49,7 +49,7 @@ https://calendly.com/josh-gemmi/30min
 
 ## Use cases
 
-The library lists 172 practical SI (AI) jobs for small teams, community organizations, teachers, tutors and schools, the business side of solo and small law practices, the business side of small healthcare practices, real estate and property management, home-service contractors, and small accounting, tax and bookkeeping firms. They are illustrations of what is possible, not reports of client results. A person still approves anything that sends, pays, orders, or posts. Education pages are operations help only. SI does not grade students. A person approves anything sent to a student or parent. Student records stay on the school's own equipment and accounts. A removable Orthodox Jewish day-school admin group never sends, posts, or runs on Shabbat or Yom Tov. Legal-practice pages are operations help only. SI does not give legal advice. Medical-practice pages are operations help only. SI does not give medical advice or make clinical decisions. Real-estate pages are operations help only. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. Home-services pages are office help only; the owner approves every quote and message. Accounting-firm pages are operations help only. SI does not give tax advice or file returns. GemmiSI sets this up on your own equipment and accounts; your data stays with you.
+The library lists 168 practical SI (AI) jobs for small teams, community organizations, teachers, tutors and schools, the business side of solo and small law practices, the business side of small healthcare practices, real estate and property management, home-service contractors, and small accounting, tax and bookkeeping firms. They are illustrations of what is possible, not reports of client results. A person still approves anything that sends, pays, orders, or posts. Education pages are operations help only. SI does not grade students. A person approves anything sent to a student or parent. Student records stay on the school's own equipment and accounts. Legal-practice pages are operations help only. SI does not give legal advice. Medical-practice pages are operations help only. SI does not give medical advice or make clinical decisions. Real-estate pages are operations help only. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. Home-services pages are office help only; the owner approves every quote and message. Accounting-firm pages are operations help only. SI does not give tax advice or file returns. GemmiSI sets this up on your own equipment and accounts; your data stays with you.
 
 - Morning inbox triage into labeled queues: https://gemmisi.com/use-cases/inbox-triage/
 - A weekly list of emails still waiting on you: https://gemmisi.com/use-cases/unanswered-threads/
@@ -219,10 +219,6 @@ The library lists 172 practical SI (AI) jobs for small teams, community organiza
 - Field-trip permission and form chasing: https://gemmisi.com/use-cases/field-trip-form-chasing/
 - Tuition and payment reminder drafts for the business office: https://gemmisi.com/use-cases/tuition-payment-reminders/
 - Parent-teacher conference scheduling drafts: https://gemmisi.com/use-cases/parent-teacher-conference-scheduling/
-- Jewish-calendar and dual-track schedule planning for day-school staff: https://gemmisi.com/use-cases/jewish-calendar-schedule-planning/
-- Bilingual Hebrew and English parent notes from approved wording: https://gemmisi.com/use-cases/bilingual-hebrew-english-parent-notes/
-- Tuition-assistance application document chasing: https://gemmisi.com/use-cases/tuition-assistance-document-chasing/
-- Donor and scholarship thank-you drafts in the school's own wording: https://gemmisi.com/use-cases/donor-scholarship-thank-you-drafts/
 
 ## Facts to keep straight
 

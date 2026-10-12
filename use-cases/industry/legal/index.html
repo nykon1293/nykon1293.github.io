@@ -26,8 +26,8 @@
   <link rel="sitemap" type="application/xml" title="Sitemap" href="https://gemmisi.com/sitemap.xml" />
   <link rel="preload" href="/assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
   <style>@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 400 700; font-display: swap; src: url("/assets/fonts/ibm-plex-sans-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; } @font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 500 700; font-display: optional; src: url("/assets/fonts/jetbrains-mono-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }</style>
-  <link rel="stylesheet" href="../../../styles.css?v=hub-filters-1" />
-  <link rel="stylesheet" href="../../../assets/use-cases.css?v=hub-filters-1" />
+  <link rel="stylesheet" href="../../../styles.css?v=uc-motifs-2" />
+  <link rel="stylesheet" href="../../../assets/use-cases.css?v=uc-motifs-2" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" href="/assets/brand/gemmisi-icon.svg" type="image/svg+xml" />
   <link rel="icon" href="/assets/brand/gemmisi-icon-32.png" type="image/png" sizes="32x32" />
@@ -71,7 +71,9 @@
     </header>
 
     <main id="top">
-      <section class="uc-hero">
+      <section class="uc-hero has-motif">
+          <div class="uc-detail-intro">
+            <div class="uc-detail-copy">
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href="../../../index.html">Home</a>
           <span aria-hidden="true">/</span>
@@ -82,6 +84,13 @@
         <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>18 use cases</p>
         <h1>Use cases for legal practices</h1>
         <p class="lead">SI (Super Intelligence, the new name for AI) can help with this kind of work. Business-side admin for solo attorneys and small firms. Attorneys review and decide.</p>
+            </div>
+            <div class="uc-motif uc-motif--legal" data-motif="scales" aria-hidden="true">
+            <div class="uc-motif-frame">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="220" height="220" focusable="false" shape-rendering="crispEdges"><rect width="24" height="24" fill="#121914"/><rect x="11" y="1" width="2" height="1" fill="#d9c089"/><rect x="10" y="2" width="4" height="4" fill="#c9a45c"/><rect x="3" y="4" width="1" height="1" fill="#d9c089"/><rect x="4" y="4" width="6" height="2" fill="#c9a45c"/><rect x="14" y="4" width="6" height="2" fill="#c9a45c"/><rect x="20" y="4" width="1" height="1" fill="#d9c089"/><rect x="3" y="5" width="1" height="1" fill="#c9a45c"/><rect x="20" y="5" width="1" height="1" fill="#c9a45c"/><rect x="5" y="6" width="1" height="5" fill="#806a3d"/><rect x="8" y="6" width="1" height="5" fill="#806a3d"/><rect x="11" y="6" width="2" height="16" fill="#c9a45c"/><rect x="15" y="6" width="1" height="5" fill="#806a3d"/><rect x="18" y="6" width="1" height="5" fill="#806a3d"/><rect x="3" y="11" width="8" height="1" fill="#c9a45c"/><rect x="13" y="11" width="8" height="1" fill="#c9a45c"/><rect x="4" y="12" width="6" height="1" fill="#806a3d"/><rect x="14" y="12" width="6" height="1" fill="#806a3d"/><rect x="5" y="13" width="4" height="1" fill="#c9a45c"/><rect x="15" y="13" width="4" height="1" fill="#c9a45c"/><rect x="9" y="19" width="2" height="3" fill="#c9a45c"/><rect x="13" y="19" width="2" height="3" fill="#c9a45c"/><rect x="7" y="20" width="2" height="2" fill="#c9a45c"/><rect x="15" y="20" width="2" height="2" fill="#c9a45c"/></svg>
+            </div>
+          </div>
+          </div>
       </section>
         <div class="uc-read-first" role="note">
           <p><strong>Read this first.</strong> The use cases in this category are about running the <em>business side</em> of a law practice: scheduling, intake logistics, billing admin, document organization, and communications drafts. SI does not give legal advice, does not practice law, and does not replace an attorney's judgment. An attorney reviews and approves anything client-facing or substantive before it goes out, and nothing here promises any legal outcome or result. Client confidentiality comes first: confidential or privileged client information should only be put into a tool after the firm has checked the vendor's terms and data practices, has proper agreements and access controls in place, and has any consent the rules require. ABA Formal Opinion 512 (2024) addresses lawyers' use of generative artificial intelligence tools and is a good starting point; state bar rules differ, so check yours. Trust-account (IOLTA) and billing records are handled with extra care, and a person approves every entry. These pages are general information, not legal or ethics advice, and not a guarantee of compliance with any rule.</p>
@@ -95,16 +104,16 @@
           <input id="uc-q" name="q" type="search" placeholder="Search this library" autocomplete="off" />
         </form>
         <div class="uc-pills" id="uc-functions" role="group" aria-label="Filter by function">
-            <a class="uc-pill" href="/use-cases/?industry=legal&function=customer-support" data-function="customer-support">Customer support <span>46</span></a>
+            <a class="uc-pill" href="/use-cases/?industry=legal&function=customer-support" data-function="customer-support">Customer support <span>45</span></a>
             <a class="uc-pill" href="/use-cases/?industry=legal&function=sales-follow-up" data-function="sales-follow-up">Sales &amp; follow-up <span>18</span></a>
-            <a class="uc-pill" href="/use-cases/?industry=legal&function=billing-admin" data-function="billing-admin">Billing &amp; admin <span>35</span></a>
-            <a class="uc-pill" href="/use-cases/?industry=legal&function=scheduling" data-function="scheduling">Scheduling <span>34</span></a>
+            <a class="uc-pill" href="/use-cases/?industry=legal&function=billing-admin" data-function="billing-admin">Billing &amp; admin <span>33</span></a>
+            <a class="uc-pill" href="/use-cases/?industry=legal&function=scheduling" data-function="scheduling">Scheduling <span>33</span></a>
             <a class="uc-pill" href="/use-cases/?industry=legal&function=reporting-dashboards" data-function="reporting-dashboards">Reporting &amp; dashboards <span>16</span></a>
             <a class="uc-pill" href="/use-cases/?industry=legal&function=inventory-orders" data-function="inventory-orders">Inventory &amp; orders <span>17</span></a>
             <a class="uc-pill" href="/use-cases/?industry=legal&function=content-marketing" data-function="content-marketing">Content &amp; marketing <span>21</span></a>
             <a class="uc-pill" href="/use-cases/?industry=legal&function=hiring" data-function="hiring">Hiring <span>8</span></a>
-            <a class="uc-pill" href="/use-cases/?industry=legal&function=research-documents" data-function="research-documents">Research &amp; documents <span>36</span></a>
-            <a class="uc-pill" href="/use-cases/?industry=legal&function=community" data-function="community">Community <span>9</span></a>
+            <a class="uc-pill" href="/use-cases/?industry=legal&function=research-documents" data-function="research-documents">Research &amp; documents <span>35</span></a>
+            <a class="uc-pill" href="/use-cases/?industry=legal&function=community" data-function="community">Community <span>8</span></a>
           </div>
       </section>
       <section class="uc-group" aria-labelledby="list-h">
@@ -113,6 +122,11 @@
           <li class="uc-card" data-slug="after-hours-inquiry-triage" data-i="legal" data-f="customer-support">
             <a href="/use-cases/after-hours-inquiry-triage/">
               <span class="uc-card-cat">Legal</span>
+              <div class="uc-motif uc-motif--legal" data-motif="phone" aria-hidden="true">
+            <div class="uc-motif-frame">
+              <img src="/assets/use-case-motifs/phone--legal.svg" width="220" height="220" alt="" decoding="async">
+            </div>
+          </div>
               <h3>After-hours inquiry triage with clear &quot;not legal advice&quot; handling</h3>
               <p>Overnight calls and web forms are sorted into queues, with deadlines flagged and a short acknowledgment drafted from the firm&#x27;s approved wording.</p>
               <p class="uc-card-note">Admin and operations help for solo attorneys and small firms. SI drafts and organizes; attorneys review and decide. No legal advice, no filing-ready work product, and client confidentiality comes first.</p>
@@ -122,6 +136,11 @@
           <li class="uc-card" data-slug="intake-summaries-conflict-prep" data-i="legal" data-f="customer-support,research-documents">
             <a href="/use-cases/intake-summaries-conflict-prep/">
               <span class="uc-card-cat">Legal</span>
+              <div class="uc-motif uc-motif--legal" data-motif="scales" aria-hidden="true">
+            <div class="uc-motif-frame">
+              <img src="/assets/use-case-motifs/scales--legal.svg" width="220" height="220" alt="" decoding="async">
+            </div>
+          </div>
               <h3>Intake summaries and conflict-check prep</h3>
               <p>SI turns an intake form or email into a one-page summary and a name list formatted for the firm&#x27;s existing conflict-check process.</p>
               <p class="uc-card-note">Admin and operations help for solo attorneys and small firms. SI drafts and organizes; attorneys review and decide. No legal advice, no filing-ready work product, and client confidentiality comes first.</p>
@@ -131,6 +150,11 @@
           <li class="uc-card" data-slug="new-client-onboarding-checklists" data-i="legal" data-f="customer-support">
             <a href="/use-cases/new-client-onboarding-checklists/">
               <span class="uc-card-cat">Legal</span>
+              <div class="uc-motif uc-motif--legal" data-motif="checklist" aria-hidden="true">
+            <div class="uc-motif-frame">
+              <img src="/assets/use-case-motifs/checklist--legal.svg" width="220" height="220" alt="" decoding="async">
+            </div>
+          </div>
               <h3>New-client onboarding checklists</h3>
               <p>Each new matter gets a checklist from the firm&#x27;s own template, with open steps nudged and the welcome email drafted from approved wording.</p>
               <p class="uc-card-note">Admin and operations help for solo attorneys and small firms. SI drafts and organizes; attorneys review and decide. No legal advice, no filing-ready work product, and client confidentiality comes first.</p>
@@ -140,6 +164,11 @@
           <li class="uc-card" data-slug="engagement-letter-template-assembly" data-i="legal" data-f="billing-admin,research-documents">
             <a href="/use-cases/engagement-letter-template-assembly/">
               <span class="uc-card-cat">Legal</span>
+              <div class="uc-motif uc-motif--legal" data-motif="documents" aria-hidden="true">
+            <div class="uc-motif-frame">
+              <img src="/assets/use-case-motifs/documents--legal.svg" width="220" height="220" alt="" decoding="async">
+            </div>
+          </div>
               <h3>Engagement-letter template assembly for attorney review</h3>
               <p>SI fills the firm&#x27;s approved engagement-letter template from intake data, highlights every field it filled, and lists blanks or mismatches.</p>
               <p class="uc-card-note">Admin and operations help for solo attorneys and small firms. SI drafts and organizes; attorneys review and decide. No legal advice, no filing-ready work product, and client confidentiality comes first.</p>
@@ -149,6 +178,11 @@
           <li class="uc-card" data-slug="deadline-calendar-reminders" data-i="legal" data-f="scheduling">
             <a href="/use-cases/deadline-calendar-reminders/">
               <span class="uc-card-cat">Legal</span>
+              <div class="uc-motif uc-motif--legal" data-motif="calendar" aria-hidden="true">
+            <div class="uc-motif-frame">
+              <img src="/assets/use-case-motifs/calendar--legal.svg" width="220" height="220" alt="" decoding="async">
+            </div>
+          </div>
               <h3>Deadline and calendar reminders, human-verified</h3>
               <p>Dates a person has already verified are collected into one tracker, with reminders, conflicts, and a weekly list per attorney.</p>
               <p class="uc-card-note">Admin and operations help for solo attorneys and small firms. SI drafts and organizes; attorneys review and decide. No legal advice, no filing-ready work product, and client confidentiality comes first.</p>
@@ -158,6 +192,11 @@
           <li class="uc-card" data-slug="client-status-updates" data-i="legal" data-f="customer-support">
             <a href="/use-cases/client-status-updates/">
               <span class="uc-card-cat">Legal</span>
+              <div class="uc-motif uc-motif--legal" data-motif="inbox" aria-hidden="true">
+            <div class="uc-motif-frame">
+              <img src="/assets/use-case-motifs/inbox--legal.svg" width="220" height="220" alt="" decoding="async">
+            </div>
+          </div>
               <h3>Client status updates, attorney-approved</h3>
               <p>SI drafts a plain update from the attorney&#x27;s own notes and the matter task list, and queues it for the attorney to edit and send.</p>
               <p class="uc-card-note">Admin and operations help for solo attorneys and small firms. SI drafts and organizes; attorneys review and decide. No legal advice, no filing-ready work product, and client confidentiality comes first.</p>
@@ -167,6 +206,11 @@
           <li class="uc-card" data-slug="matter-file-naming" data-i="legal" data-f="research-documents">
             <a href="/use-cases/matter-file-naming/">
               <span class="uc-card-cat">Legal</span>
+              <div class="uc-motif uc-motif--legal" data-motif="documents" aria-hidden="true">
+            <div class="uc-motif-frame">
+              <img src="/assets/use-case-motifs/documents--legal.svg" width="220" height="220" alt="" decoding="async">
+            </div>
+          </div>
               <h3>Document organization and consistent file naming</h3>
               <p>SI proposes a folder pattern and a rename list for matter files, and waits for a person to approve it before anything moves.</p>
               <p class="uc-card-note">Admin and operations help for solo attorneys and small firms. SI drafts and organizes; attorneys review and decide. No legal advice, no filing-ready work product, and client confidentiality comes first.</p>
@@ -176,6 +220,11 @@
           <li class="uc-card" data-slug="time-entry-cleanup" data-i="legal" data-f="billing-admin">
             <a href="/use-cases/time-entry-cleanup/">
               <span class="uc-card-cat">Legal</span>
+              <div class="uc-motif uc-motif--legal" data-motif="invoices" aria-hidden="true">
+            <div class="uc-motif-frame">
+              <img src="/assets/use-case-motifs/invoices--legal.svg" width="220" height="220" alt="" decoding="async">
+            </div>
+          </div>
               <h3>Time-entry cleanup and billing-narrative drafts</h3>
               <p>SI suggests clearer wording for draft time entries from the attorney&#x27;s own notes, and flags entries that look incomplete, duplicated, or oddly long.</p>
               <p class="uc-card-note">Admin and operations help for solo attorneys and small firms. SI drafts and organizes; attorneys review and decide. No legal advice, no filing-ready work product, and client confidentiality comes first.</p>
@@ -185,6 +234,11 @@
           <li class="uc-card" data-slug="invoice-follow-up-reminders" data-i="legal" data-f="billing-admin">
             <a href="/use-cases/invoice-follow-up-reminders/">
               <span class="uc-card-cat">Legal</span>
+              <div class="uc-motif uc-motif--legal" data-motif="invoices" aria-hidden="true">
+            <div class="uc-motif-frame">
+              <img src="/assets/use-case-motifs/invoices--legal.svg" width="220" height="220" alt="" decoding="async">
+            </div>
+          </div>
               <h3>Invoice follow-up and receivables reminders</h3>
               <p>SI builds an aging list from the billing system and drafts polite reminders at the firm&#x27;s intervals, highlighting accounts that need a personal call.</p>
               <p class="uc-card-note">Admin and operations help for solo attorneys and small firms. SI drafts and organizes; attorneys review and decide. No legal advice, no filing-ready work product, and client confidentiality comes first.</p>
@@ -194,6 +248,11 @@
           <li class="uc-card" data-slug="records-request-tracking" data-i="legal" data-f="research-documents">
             <a href="/use-cases/records-request-tracking/">
               <span class="uc-card-cat">Legal</span>
+              <div class="uc-motif uc-motif--legal" data-motif="documents" aria-hidden="true">
+            <div class="uc-motif-frame">
+              <img src="/assets/use-case-motifs/documents--legal.svg" width="220" height="220" alt="" decoding="async">
+            </div>
+          </div>
               <h3>Records-request tracking</h3>
               <p>SI keeps a tracker of records requests and drafts routine follow-up notes from approved wording, so overdue items are visible.</p>
               <p class="uc-card-note">Admin and operations help for solo attorneys and small firms. SI drafts and organizes; attorneys review and decide. No legal advice, no filing-ready work product, and client confidentiality comes first.</p>
@@ -203,6 +262,11 @@
           <li class="uc-card" data-slug="meeting-call-summaries" data-i="legal" data-f="scheduling,research-documents">
             <a href="/use-cases/meeting-call-summaries/">
               <span class="uc-card-cat">Legal</span>
+              <div class="uc-motif uc-motif--legal" data-motif="phone" aria-hidden="true">
+            <div class="uc-motif-frame">
+              <img src="/assets/use-case-motifs/phone--legal.svg" width="220" height="220" alt="" decoding="async">
+            </div>
+          </div>
               <h3>Meeting and call summaries for attorney review</h3>
               <p>From notes or a transcript the attorney provides, SI drafts a summary with action items and owners, labeled as a draft for attorney review.</p>
               <p class="uc-card-note">Admin and operations help for solo attorneys and small firms. SI drafts and organizes; attorneys review and decide. No legal advice, no filing-ready work product, and client confidentiality comes first.</p>
@@ -212,6 +276,11 @@
           <li class="uc-card" data-slug="firm-marketing-drafts" data-i="legal" data-f="content-marketing">
             <a href="/use-cases/firm-marketing-drafts/">
               <span class="uc-card-cat">Legal</span>
+              <div class="uc-motif uc-motif--legal" data-motif="documents" aria-hidden="true">
+            <div class="uc-motif-frame">
+              <img src="/assets/use-case-motifs/documents--legal.svg" width="220" height="220" alt="" decoding="async">
+            </div>
+          </div>
               <h3>Marketing drafts, newsletters, and review requests</h3>
               <p>SI drafts newsletters, site updates, and review requests from topics the firm chooses, and a person approves every piece before it is published.</p>
               <p class="uc-card-note">Admin and operations help for solo attorneys and small firms. SI drafts and organizes; attorneys review and decide. No legal advice, no filing-ready work product, and client confidentiality comes first.</p>
@@ -230,6 +299,11 @@
           <li class="uc-card uc-also" data-slug="lead-intake-to-crm" data-i="any-business,legal" data-f="sales-follow-up">
             <a href="/use-cases/lead-intake-to-crm/">
               <span class="uc-card-cat">Sales &amp; follow-up</span>
+              <div class="uc-motif uc-motif--sales" data-motif="inbox" aria-hidden="true">
+            <div class="uc-motif-frame">
+              <img src="/assets/use-case-motifs/inbox--sales.svg" width="220" height="220" alt="" decoding="async">
+            </div>
+          </div>
               <h3>Turning form and email inquiries into clean CRM records</h3>
               <p>SI reads each new inquiry from forms and email, creates or updates the CRM contact, and logs what they want and the next step.</p>
               <p class="uc-card-note">A general illustration, not written for this industry.</p>
@@ -239,6 +313,11 @@
           <li class="uc-card uc-also" data-slug="unbilled-work-check" data-i="any-business,legal" data-f="billing-admin">
             <a href="/use-cases/unbilled-work-check/">
               <span class="uc-card-cat">Billing &amp; admin</span>
+              <div class="uc-motif uc-motif--billing" data-motif="invoices" aria-hidden="true">
+            <div class="uc-motif-frame">
+              <img src="/assets/use-case-motifs/invoices--billing.svg" width="220" height="220" alt="" decoding="async">
+            </div>
+          </div>
               <h3>Finding work that was done but never invoiced</h3>
               <p>SI compares completed jobs, time entries or deliveries against invoices sent and lists anything that was never billed.</p>
               <p class="uc-card-note">A general illustration, not written for this industry.</p>
@@ -248,6 +327,11 @@
           <li class="uc-card uc-also" data-slug="requests-to-calendar-holds" data-i="any-business,legal,real-estate" data-f="scheduling">
             <a href="/use-cases/requests-to-calendar-holds/">
               <span class="uc-card-cat">Scheduling</span>
+              <div class="uc-motif uc-motif--scheduling" data-motif="calendar" aria-hidden="true">
+            <div class="uc-motif-frame">
+              <img src="/assets/use-case-motifs/calendar--scheduling.svg" width="220" height="220" alt="" decoding="async">
+            </div>
+          </div>
               <h3>Turning meeting requests and forwarded emails into calendar holds</h3>
               <p>When an email asks to meet or includes a date, SI drafts the reply with real open times and creates a tentative calendar hold for you to confirm.</p>
               <p class="uc-card-note">A general illustration, not written for this industry.</p>
@@ -257,6 +341,11 @@
           <li class="uc-card uc-also" data-slug="contract-first-read" data-i="any-business,legal" data-f="research-documents">
             <a href="/use-cases/contract-first-read/">
               <span class="uc-card-cat">Research &amp; documents</span>
+              <div class="uc-motif uc-motif--research" data-motif="documents" aria-hidden="true">
+            <div class="uc-motif-frame">
+              <img src="/assets/use-case-motifs/documents--research.svg" width="220" height="220" alt="" decoding="async">
+            </div>
+          </div>
               <h3>A first read of contracts for the terms that matter</h3>
               <p>SI highlights dates, renewal terms, payment terms and unusual clauses in contracts so you know what to ask your lawyer or the other side.</p>
               <p class="uc-card-note">A general illustration, not written for this industry.</p>
@@ -266,6 +355,11 @@
           <li class="uc-card uc-also" data-slug="long-document-briefs" data-i="any-business,legal" data-f="research-documents">
             <a href="/use-cases/long-document-briefs/">
               <span class="uc-card-cat">Research &amp; documents</span>
+              <div class="uc-motif uc-motif--research" data-motif="documents" aria-hidden="true">
+            <div class="uc-motif-frame">
+              <img src="/assets/use-case-motifs/documents--research.svg" width="220" height="220" alt="" decoding="async">
+            </div>
+          </div>
               <h3>Short briefs from long documents</h3>
               <p>SI reads long documents such as regulations, bid packages, reports or board packets and writes a short brief with what matters to you and what to do next.</p>
               <p class="uc-card-note">A general illustration, not written for this industry.</p>
@@ -275,6 +369,11 @@
           <li class="uc-card uc-also" data-slug="pdf-data-extraction-and-filing" data-i="any-business,legal" data-f="research-documents">
             <a href="/use-cases/pdf-data-extraction-and-filing/">
               <span class="uc-card-cat">Research &amp; documents</span>
+              <div class="uc-motif uc-motif--research" data-motif="documents" aria-hidden="true">
+            <div class="uc-motif-frame">
+              <img src="/assets/use-case-motifs/documents--research.svg" width="220" height="220" alt="" decoding="async">
+            </div>
+          </div>
               <h3>Pulling data out of PDFs and scans, and filing them</h3>
               <p>SI reads PDFs, scans and photos, extracts the fields you need into a spreadsheet, and renames and files the documents consistently.</p>
               <p class="uc-card-note">A general illustration, not written for this industry.</p>

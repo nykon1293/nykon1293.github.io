@@ -41,7 +41,15 @@ from seo_schema import (
     website_node,
     with_si_gloss,
 )
-from use_case_motifs import motif_bytes, motif_html, pick_industry, pick_motif
+from use_case_motifs import (
+    landing_motif_html,
+    motif_bytes,
+    motif_html,
+    motif_thumb_html,
+    pick_industry,
+    pick_motif,
+    write_motif_assets,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "use-cases.json"
@@ -323,12 +331,6 @@ EDU_SAMPLE = (
     "Use only the sample or de-identified information I provide; "
     "do not include real student names, grades, or family contact details"
 )
-EDU_SHABBAT = (
-    "Do not send, post, or run anything on Shabbat or Yom Tov; queue drafts for after"
-)
-EDU_NO_IMAGES = "Do not create or attach images of people"
-EDU_NO_JUDAIC = "Do not write religious rulings or Judaic lesson content"
-ORTHODOX_GROUP = "orthodox-day-school"
 
 
 def _check_education_entry(item: dict) -> None:
@@ -337,22 +339,28 @@ def _check_education_entry(item: dict) -> None:
     prompt = item["copy_prompt"]
     blob = json.dumps(item)
     lowered = blob.lower()
-    info = industry_info("education")
     if len(item["human_checks"]) < 3:
         raise SystemExit(f"{slug} needs at least three human checks")
-    prefix = info.get("caution_prefix") or ""
-    if prefix and not caution.startswith(prefix):
-        raise SystemExit(f"{slug} caution must start with the education guardrail")
+    if not caution:
+        raise SystemExit(f"{slug} needs a short caution line")
+    if caution.startswith("Administrative support only:"):
+        raise SystemExit(
+            f"{slug} caution must be one short line; shared privacy and approval stay on the Education landing"
+        )
+    if "\n" in caution or len(caution) > 220:
+        raise SystemExit(f"{slug} education caution must be one short line")
     if not item["setup"].startswith(OWN_ACCOUNTS):
         raise SystemExit(f"{slug} setup must start with the own-equipment sentence")
-    if "FERPA" not in item["setup"] and "FERPA" not in caution:
-        raise SystemExit(f"{slug} must mention FERPA in setup or caution")
+    if "FERPA" not in item["setup"]:
+        raise SystemExit(f"{slug} setup must mention FERPA")
     if EDU_PAUSE not in prompt:
         raise SystemExit(f"{slug} prompt must pause before sending, posting, or changing")
     if EDU_SAMPLE not in prompt:
         raise SystemExit(f"{slug} prompt must limit itself to sample or de-identified information")
     if "student or parent" not in lowered and "students or parents" not in lowered:
         raise SystemExit(f"{slug} must say a person approves anything sent to a student or parent")
+    if item.get("group"):
+        raise SystemExit(f"{slug} must not use an optional group")
     for phrase in (
         "ferpa compliant",
         "ferpa-compliant",
@@ -363,37 +371,12 @@ def _check_education_entry(item: dict) -> None:
         "never miss a parent",
         "replace the teacher",
         "replaces the teacher",
+        "shabbat",
+        "yom tov",
+        "orthodox",
     ):
         if phrase in lowered:
             raise SystemExit(f"{slug} contains wording that must stay off the public site")
-    group_id = item.get("group")
-    groups = TAX.get("optional_groups") or {}
-    if group_id:
-        if group_id not in groups:
-            raise SystemExit(f"{slug} has unknown group {group_id!r}")
-        if groups[group_id].get("industry") != "education":
-            raise SystemExit(f"{slug} group {group_id!r} is not an education group")
-    if group_id == ORTHODOX_GROUP:
-        if EDU_SHABBAT not in prompt and EDU_SHABBAT not in caution:
-            raise SystemExit(f"{slug} must queue work until after Shabbat or Yom Tov")
-        if "shabbat" not in lowered or "yom tov" not in lowered:
-            raise SystemExit(f"{slug} must name Shabbat and Yom Tov")
-        if "queue" not in lowered:
-            raise SystemExit(f"{slug} must say messages are queued")
-        if EDU_NO_IMAGES not in prompt and "images of people" not in lowered:
-            raise SystemExit(f"{slug} must forbid images of people")
-        if EDU_NO_JUDAIC not in prompt and "religious rulings" not in lowered:
-            raise SystemExit(f"{slug} must forbid religious rulings and Judaic lesson content")
-        for phrase in (
-            "dvar torah",
-            "write a shiur",
-            "issue a psak",
-            "teach torah",
-            "torah lesson",
-            "limudei kodesh content",
-        ):
-            if phrase in lowered:
-                raise SystemExit(f"{slug} Orthodox day-school admin must stay off religious teaching")
 
 
 def _check_industry_entry(item: dict) -> None:
@@ -825,9 +808,11 @@ def card(item: dict, *, extra_cls: str = "", note: str | None = None, featured: 
     fns = ",".join(item["functions"])
     group = item.get("group")
     group_attr = f' data-group="{e(group)}"' if group else ""
+    thumb = motif_thumb_html(item)
     return f"""<li class="{cls}" data-slug="{e(item['slug'])}" data-i="{e(inds)}" data-f="{e(fns)}"{group_attr}>
             <a href="/use-cases/{e(item['slug'])}/">
               <span class="uc-card-cat">{e(label)}</span>
+              {thumb}
               <h3>{e(item['title'])}</h3>
               <p>{e(item['summary'])}</p>{note_html}
               <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
@@ -928,6 +913,7 @@ def industry_tiles(entries: list, *, current: str | None = None, extra_query: st
         active = " is-active" if current == slug else ""
         tiles.append(
             f'<a class="uc-tile{active}" href="{href}" data-industry="{slug}">'
+            f'{landing_motif_html("industry", slug, inline=False)}'
             f'<span class="uc-tile-label">{e(info["label"])}</span>'
             f'<span class="uc-tile-count">{n}</span></a>'
         )
@@ -1014,6 +1000,8 @@ def search_records(entries: list) -> list[dict]:
             row["n"] = note
         if item["slug"] in featured:
             row["g"] = True
+        row["m"] = pick_motif(item)
+        row["c"] = pick_industry(item)[0]
         records.append(row)
     return records
 
@@ -1170,6 +1158,7 @@ def dimension_index_page(kind: str, entries: list) -> str:
         cards.append(
             f'<li class="uc-card"><a href="/use-cases/{kind}/{slug}/">'
             f'<span class="uc-card-cat">{n}</span>'
+            f'{landing_motif_html(kind, slug, inline=False)}'
             f'<h3>{e(info["label"])}</h3>'
             f'<p>{e(info["blurb"])}</p>'
             f'<span class="uc-card-more">View use cases <span aria-hidden="true">→</span></span>'
@@ -1273,13 +1262,19 @@ def industry_landing(slug: str, entries: list) -> str:
         separators=(",", ":"),
     )
     config_html = f'    <script type="application/json" id="uc-config">{config}</script>\n' if lazy else ""
+    graphic = landing_motif_html("industry", slug)
     return head(title, desc, canon, 3, ld, compact_ld=True, body_attrs=body) + f"""
     <main id="top">
-      <section class="uc-hero">
+      <section class="uc-hero has-motif">
+          <div class="uc-detail-intro">
+            <div class="uc-detail-copy">
 {breadcrumb_html(3, [("Home", "../../../index.html"), ("Use cases", "../../index.html"), (info["label"], None)])}
         <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>{len(all_items)} use cases</p>
         <h1>{e(info["seo_h1"])}</h1>
         <p class="lead">{e(with_si_gloss(info["blurb"]))}</p>
+            </div>
+            {graphic}
+          </div>
       </section>
 {banner}      <section class="uc-tools" aria-label="Filter this industry">
         <form class="uc-search" action="/use-cases/" method="get">
@@ -1337,6 +1332,7 @@ def function_landing(slug: str, entries: list) -> str:
             extra = note
         cards.append(card(item, note=extra or ""))
     card_html = "\n          ".join(cards)
+    graphic = landing_motif_html("function", slug)
     return head(
         title,
         desc,
@@ -1347,11 +1343,16 @@ def function_landing(slug: str, entries: list) -> str:
         body_attrs=f'data-uc="function" data-uc-slug="{slug}"',
     ) + f"""
     <main id="top">
-      <section class="uc-hero">
+      <section class="uc-hero has-motif">
+          <div class="uc-detail-intro">
+            <div class="uc-detail-copy">
 {breadcrumb_html(3, [("Home", "../../../index.html"), ("Use cases", "../../index.html"), (info["label"], None)])}
         <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>{len(items)} use cases</p>
         <h1>{e(info["seo_h1"])}</h1>
         <p class="lead">{e(with_si_gloss(info["blurb"]))}</p>
+            </div>
+            {graphic}
+          </div>
       </section>
       <section class="uc-tools" aria-label="Combine with an industry">
         <p class="uc-tile-legend">Narrow by industry</p>
@@ -1432,7 +1433,7 @@ def detail_page(item: dict, entries: list) -> str:
     if (item.get("caution") or "").strip():
         caution = f'<p class="uc-caution" role="note"><strong>Worth knowing:</strong> {e(item["caution"])}</p>'
     legal_note = ""
-    if info.get("regulated"):
+    if info.get("regulated") and ind != "education":
         legal_note = f'<p class="uc-read-first" role="note">{e(info["short"])}</p>\n          '
     tools = "".join(f'<span class="tag green">{e(tool)}</span>' for tool in item["tools_examples"])
     graphic = motif_html(item)
@@ -1624,6 +1625,10 @@ def assert_wording(entries: list) -> None:
         raise SystemExit(f"Hub HTML must be {HUB_MIN_BYTES}-{HUB_MAX_BYTES} bytes, found {size}")
     if library.count('class="uc-card') < 12:
         raise SystemExit("Hub must include about 12 featured cards")
+    if library.count('class="uc-motif') < 21:
+        raise SystemExit("Hub tiles and featured cards need motifs")
+    if "uc-motif--education" not in library:
+        raise SystemExit("Hub is missing the Education motif accent")
     if "More filters" in library:
         raise SystemExit("Hub must not hide function filters behind More filters")
     if 'data-industry=' not in library or 'id="uc-functions"' not in library:
@@ -1683,8 +1688,21 @@ def assert_wording(entries: list) -> None:
             raise SystemExit(f"{item['slug']} motif must not contain text")
         ind = primary_industry(item)
         info = industry_info(ind)
+        key, accent = pick_industry(item)
+        if f"uc-motif--{key}" not in page:
+            raise SystemExit(f"{item['slug']} motif is missing the {key} accent class")
+        if accent.lower() not in page.lower():
+            raise SystemExit(f"{item['slug']} motif is missing the {accent} accent color")
+        asset = ROOT / "assets" / "use-case-motifs" / f"{pick_motif(item)}--{key}.svg"
+        if not asset.exists():
+            raise SystemExit(f"{item['slug']} is missing motif asset {asset.name}")
         if info.get("regulated"):
-            if e(info["short"]) not in page:
+            if ind == "education":
+                if '<p class="uc-read-first"' in page:
+                    raise SystemExit(f"{item['slug']} should not repeat the Education landing banner")
+                if "Administrative support only:" in page:
+                    raise SystemExit(f"{item['slug']} should keep the long shared caution on the landing only")
+            elif e(info["short"]) not in page:
                 raise SystemExit(f"{item['slug']} is missing the short industry disclaimer")
             if OWN_ACCOUNTS not in page:
                 raise SystemExit(f"{item['slug']} is missing the own-equipment setup line")
@@ -1719,13 +1737,12 @@ def assert_wording(entries: list) -> None:
                     raise SystemExit(f"{slug} landing is missing expected disclaimer text")
             if cross_tagged(entries, slug) and "Also used in this kind of business" not in html_page:
                 raise SystemExit(f"{slug} landing needs the Also used section")
-            groups = TAX.get("optional_groups") or {}
-            for gid, group_info in groups.items():
-                if group_info.get("industry") != slug:
-                    continue
-                if any(item.get("group") == gid for item in dedicated(entries, slug)):
-                    if f'id="{gid}"' not in html_page or group_info["heading"] not in html_page:
-                        raise SystemExit(f"{slug} landing is missing optional group {gid}")
+            if slug == "education":
+                lowered = html_page.lower()
+                if "orthodox" in lowered or "shabbat" in lowered or "optional group" in lowered:
+                    raise SystemExit("Education landing still has the removed Orthodox day-school group")
+        if 'has-motif' not in html_page or 'class="uc-motif' not in html_page:
+            raise SystemExit(f"{slug} landing is missing the industry motif")
         if f"{BASE}/use-cases/industry/{slug}/" not in sitemap:
             raise SystemExit(f"sitemap is missing industry/{slug}")
     for slug in FUNCTIONS:
@@ -1739,6 +1756,8 @@ def assert_wording(entries: list) -> None:
             title = html.unescape(html_page.split("<title>", 1)[1].split("</title>", 1)[0])
             if "SI" not in title or "AI" not in title:
                 raise SystemExit(f"function/{slug} title must include SI and AI")
+            if 'has-motif' not in html_page or 'class="uc-motif' not in html_page:
+                raise SystemExit(f"function/{slug} landing is missing the function motif")
         elif path.exists():
             raise SystemExit(f"Empty function landing should not exist: {slug}")
     titles = []
@@ -1793,7 +1812,7 @@ def write_llms_txt(entries: list) -> None:
             "",
             "## Use cases",
             "",
-            f"The library lists {n} practical SI (AI) jobs for small teams, community organizations, teachers, tutors and schools, the business side of solo and small law practices, the business side of small healthcare practices, real estate and property management, home-service contractors, and small accounting, tax and bookkeeping firms. They are illustrations of what is possible, not reports of client results. A person still approves anything that sends, pays, orders, or posts. Education pages are operations help only. SI does not grade students. A person approves anything sent to a student or parent. Student records stay on the school's own equipment and accounts. A removable Orthodox Jewish day-school admin group never sends, posts, or runs on Shabbat or Yom Tov. Legal-practice pages are operations help only. SI does not give legal advice. Medical-practice pages are operations help only. SI does not give medical advice or make clinical decisions. Real-estate pages are operations help only. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. Home-services pages are office help only; the owner approves every quote and message. Accounting-firm pages are operations help only. SI does not give tax advice or file returns. {OWN_ACCOUNTS}",
+            f"The library lists {n} practical SI (AI) jobs for small teams, community organizations, teachers, tutors and schools, the business side of solo and small law practices, the business side of small healthcare practices, real estate and property management, home-service contractors, and small accounting, tax and bookkeeping firms. They are illustrations of what is possible, not reports of client results. A person still approves anything that sends, pays, orders, or posts. Education pages are operations help only. SI does not grade students. A person approves anything sent to a student or parent. Student records stay on the school's own equipment and accounts. Legal-practice pages are operations help only. SI does not give legal advice. Medical-practice pages are operations help only. SI does not give medical advice or make clinical decisions. Real-estate pages are operations help only. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. Home-services pages are office help only; the owner approves every quote and message. Accounting-firm pages are operations help only. SI does not give tax advice or file returns. {OWN_ACCOUNTS}",
             "",
         ]
     )
@@ -1850,6 +1869,7 @@ def write_tree(entries: list) -> None:
 
 def main() -> None:
     entries = load()
+    write_motif_assets(entries)
     write_tree(entries)
     update_sitemap(entries)
     write_llms_txt(entries)

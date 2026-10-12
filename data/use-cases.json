@@ -6974,7 +6974,7 @@
       "Microsoft 365 Education"
     ],
     "effect": "Parent drafts wait in the teacher's voice, and nothing goes to a family until a person sends it.",
-    "caution": "Administrative support only: SI does not grade, evaluate, or make academic decisions, and does not replace a teacher's or school's judgment. A teacher, tutor, or school staff member reviews and approves anything sent to a student or parent. Student records are used only on the school's own equipment and accounts, with access controls and the minimum necessary, never in consumer tools. SI drafts from the teacher's own notes and saved wording. It does not invent student progress or send anything to a student or parent. FERPA and state student-privacy rules still apply."
+    "caution": "SI drafts from the teacher's own notes and saved wording. It does not invent student progress or send anything."
   },
   {
     "slug": "report-card-comment-drafts",
@@ -7017,7 +7017,7 @@
       "Google Sheets"
     ],
     "effect": "First drafts follow the school's comment style, and the teacher still writes the final words.",
-    "caution": "Administrative support only: SI does not grade, evaluate, or make academic decisions, and does not replace a teacher's or school's judgment. A teacher, tutor, or school staff member reviews and approves anything sent to a student or parent. Student records are used only on the school's own equipment and accounts, with access controls and the minimum necessary, never in consumer tools. Comments are drafts for the teacher. SI does not assign grades or decide promotion. FERPA applies to education records, including comments."
+    "caution": "Comments are drafts for the teacher. SI does not assign grades or decide promotion."
   },
   {
     "slug": "rubric-lesson-plan-outlines",
@@ -7060,7 +7060,7 @@
       "Canvas"
     ],
     "effect": "The teacher starts from an outline of their own standards, not a blank page, and still decides the lesson.",
-    "caution": "Administrative support only: SI does not grade, evaluate, or make academic decisions, and does not replace a teacher's or school's judgment. A teacher, tutor, or school staff member reviews and approves anything sent to a student or parent. Student records are used only on the school's own equipment and accounts, with access controls and the minimum necessary, never in consumer tools. SI outlines from the teacher's materials. It does not set curriculum, assign work to students, or grade. FERPA still applies if student work is later attached."
+    "caution": "SI outlines from the teacher's own materials. It does not set curriculum, assign work, or grade."
   },
   {
     "slug": "missing-assignment-reminders",
@@ -7104,7 +7104,7 @@
       "Google Sheets"
     ],
     "effect": "Missing work is a list the teacher can act on, and reminder wording stays inside what the teacher already approved.",
-    "caution": "Administrative support only: SI does not grade, evaluate, or make academic decisions, and does not replace a teacher's or school's judgment. A teacher, tutor, or school staff member reviews and approves anything sent to a student or parent. Student records are used only on the school's own equipment and accounts, with access controls and the minimum necessary, never in consumer tools. Gradebook data is an education record. SI lists what the export shows and drafts wording; the teacher decides who is contacted. FERPA and local grade-reporting rules still apply."
+    "caution": "SI lists what the gradebook export shows. The teacher decides who is contacted."
   },
   {
     "slug": "tutoring-session-progress-notes",
@@ -7148,7 +7148,7 @@
       "Microsoft 365 Education"
     ],
     "effect": "Parents get a consistent draft after sessions, and the tutor still decides what is said.",
-    "caution": "Administrative support only: SI does not grade, evaluate, or make academic decisions, and does not replace a teacher's or school's judgment. A teacher, tutor, or school staff member reviews and approves anything sent to a student or parent. Student records are used only on the school's own equipment and accounts, with access controls and the minimum necessary, never in consumer tools. Progress summaries are drafts. SI does not assess or place a student. FERPA or the program's privacy rules apply to notes about minors."
+    "caution": "Progress summaries are drafts. SI does not assess or place a student."
   },
   {
     "slug": "enrollment-inquiry-follow-up",
@@ -7193,7 +7193,7 @@
       "Blackbaud"
     ],
     "effect": "Inquiries are visible in one list, and the first reply stays inside wording the school already approved.",
-    "caution": "Administrative support only: SI does not grade, evaluate, or make academic decisions, and does not replace a teacher's or school's judgment. A teacher, tutor, or school staff member reviews and approves anything sent to a student or parent. Student records are used only on the school's own equipment and accounts, with access controls and the minimum necessary, never in consumer tools. SI does not admit, waitlist, or rank applicants. Admissions decisions stay with the school. Inquiry records are treated as student or family information under FERPA and the school's own rules."
+    "caution": "SI does not admit, waitlist, or rank applicants. Admissions decisions stay with the school."
   },
   {
     "slug": "substitute-plan-packets",
@@ -7211,7 +7211,7 @@
     "human_checks": [
       "The teacher or office reviews the packet before a substitute sees it.",
       "SI does not add student medical, family, or discipline details.",
-      "A person approves anything sent to a student, parent, or substitute.",
+      "A person approves anything sent to a student or parent, or to a substitute.",
       "SI never sends, posts, or changes a record on its own."
     ],
     "examples": [
@@ -7236,7 +7236,7 @@
       "Google Classroom"
     ],
     "effect": "The substitute packet starts from the teacher's own materials, and a person still hands it off.",
-    "caution": "Administrative support only: SI does not grade, evaluate, or make academic decisions, and does not replace a teacher's or school's judgment. A teacher, tutor, or school staff member reviews and approves anything sent to a student or parent. Student records are used only on the school's own equipment and accounts, with access controls and the minimum necessary, never in consumer tools. Packets may include class lists. Share only the minimum a substitute needs, on the school's own accounts. FERPA still applies."
+    "caution": "Share only the minimum a substitute needs, on the school's own accounts."
   },
   {
     "slug": "field-trip-form-chasing",
@@ -7280,7 +7280,7 @@
       "Microsoft 365 Education"
     ],
     "effect": "Open forms are visible on one list, and reminder wording stays inside what the school already approved.",
-    "caution": "Administrative support only: SI does not grade, evaluate, or make academic decisions, and does not replace a teacher's or school's judgment. A teacher, tutor, or school staff member reviews and approves anything sent to a student or parent. Student records are used only on the school's own equipment and accounts, with access controls and the minimum necessary, never in consumer tools. Permission and health forms are sensitive. SI tracks return status; it does not interpret medical information or decide attendance. FERPA and school health-record rules still apply."
+    "caution": "SI tracks return status. It does not interpret medical information or decide attendance."
   },
   {
     "slug": "tuition-payment-reminders",
@@ -7323,7 +7323,7 @@
       "Gmail"
     ],
     "effect": "Routine tuition drafts wait for the business office, and sensitive accounts stay with a person.",
-    "caution": "Administrative support only: SI does not grade, evaluate, or make academic decisions, and does not replace a teacher's or school's judgment. A teacher, tutor, or school staff member reviews and approves anything sent to a student or parent. Student records are used only on the school's own equipment and accounts, with access controls and the minimum necessary, never in consumer tools. Tuition records are family financial information. SI drafts from the office's own list; it does not collect money or give financial advice. FERPA and the school's billing rules still apply."
+    "caution": "SI drafts from the office's own list. It does not collect money or give financial advice."
   },
   {
     "slug": "parent-teacher-conference-scheduling",
@@ -7367,184 +7367,6 @@
       "Microsoft 365 Education"
     ],
     "effect": "Open conference times are visible, and families hear from a person after the teacher or office confirms the slot.",
-    "caution": "Administrative support only: SI does not grade, evaluate, or make academic decisions, and does not replace a teacher's or school's judgment. A teacher, tutor, or school staff member reviews and approves anything sent to a student or parent. Student records are used only on the school's own equipment and accounts, with access controls and the minimum necessary, never in consumer tools. Conference schedules include family names. SI drafts holds; a person confirms. FERPA and the school's conference rules still apply."
-  },
-  {
-    "slug": "jewish-calendar-schedule-planning",
-    "title": "Jewish-calendar and dual-track schedule planning for day-school staff",
-    "industries": [
-      "education"
-    ],
-    "functions": [
-      "scheduling"
-    ],
-    "summary": "SI lines up Judaic-studies and general-studies schedule blocks against the school's own Jewish calendar and queues any notices until after Shabbat and Yom Tov.",
-    "problem": "A day school has to place Judaic-studies and general-studies blocks around Shabbat, Yom Tov, and other closed days the school already set. Doing that by hand in a spreadsheet is slow, and a notice must not go out on Shabbat or Yom Tov.",
-    "what_si_does": "SI reads the school's own calendar of closed days and the two track labels the school already uses (Judaic studies and general studies). It drafts a week or term grid that leaves those closed days empty and lists conflicts with the hours the school already recorded. It does not decide when Shabbat or Yom Tov begins or ends. Any parent notice is drafted only, then held in a queue until after Shabbat or Yom Tov. It does not write religious rulings or Judaic lesson content, and it does not create or attach images of people.",
-    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds student records, the school reviews the vendor's terms, access controls, and any FERPA or state student-privacy duties. Start with sample or de-identified material. The school's written calendar of closed days and the hours it already uses for each track. Permission is to draft a grid, not to publish or send. Setup is often a few days.",
-    "human_checks": [
-      "The head of school or scheduler reviews the grid before anyone relies on it.",
-      "A person on staff approves anything sent to a student or parent.",
-      "Nothing sends, posts, or runs on Shabbat or Yom Tov; approved messages wait in a queue until after.",
-      "SI does not create or attach images of people, and it does not write religious rulings or Judaic lesson content."
-    ],
-    "examples": [
-      {
-        "business_type": "Orthodox Jewish day school",
-        "scenario": "The school's closed-day list is applied to a draft week. Judaic-studies and general-studies blocks the school already named are placed only on open days."
-      },
-      {
-        "business_type": "Orthodox Jewish day school office",
-        "scenario": "A draft notice about an early Friday dismissal the school already set waits in a queue until after Shabbat."
-      },
-      {
-        "business_type": "Orthodox Jewish day school scheduler",
-        "scenario": "A conflict between a recorded general-studies hour and a closed day is listed for the scheduler to move."
-      }
-    ],
-    "copy_prompt": "Using only this school calendar of closed days [file] and these Judaic-studies and general-studies hours the school already recorded [file], draft a schedule grid that leaves closed days empty. List conflicts. Do not decide when Shabbat or Yom Tov begins or ends. Do not publish the grid. Pause and show me before sending, posting or changing anything. Use only the sample or de-identified information I provide; do not include real student names, grades, or family contact details. Do not send, post, or run anything on Shabbat or Yom Tov; queue drafts for after. Do not create or attach images of people. Do not write religious rulings or Judaic lesson content.",
-    "tools_examples": [
-      "Google Calendar",
-      "Google Sheets",
-      "Microsoft 365 Education",
-      "Google Docs"
-    ],
-    "effect": "Track hours are drafted around the school's own Jewish calendar, and no notice goes out on Shabbat or Yom Tov.",
-    "caution": "Administrative support only: SI does not grade, evaluate, or make academic decisions, and does not replace a teacher's or school's judgment. A teacher, tutor, or school staff member reviews and approves anything sent to a student or parent. Student records are used only on the school's own equipment and accounts, with access controls and the minimum necessary, never in consumer tools. SI uses only the closed days and hours the school already recorded. It does not determine the Jewish calendar or write Judaic lesson content. Nothing sends, posts, or runs on Shabbat or Yom Tov; drafts wait in a queue until after. No images of people. FERPA still applies to any student names on a schedule.",
-    "group": "orthodox-day-school"
-  },
-  {
-    "slug": "bilingual-hebrew-english-parent-notes",
-    "title": "Bilingual Hebrew and English parent notes from approved wording",
-    "industries": [
-      "education"
-    ],
-    "functions": [
-      "customer-support"
-    ],
-    "summary": "SI prepares a Hebrew and English parent note from wording staff already approved, and the note waits in a queue until after Shabbat or Yom Tov.",
-    "problem": "The office often needs the same parent note in Hebrew and in English. Drafting both by hand is slow, and a message must not go out on Shabbat or Yom Tov.",
-    "what_si_does": "SI fills the school's approved Hebrew and English templates from the facts staff already wrote (date, time, room, what to bring). A staff member who can read both languages reviews the draft. The message is held in a queue until after Shabbat or Yom Tov. SI does not compose religious content, does not write religious rulings or Judaic lesson content, and does not create or attach images of people.",
-    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds student records, the school reviews the vendor's terms, access controls, and any FERPA or state student-privacy duties. Start with sample or de-identified material. The school's approved Hebrew and English note templates and a short list of facts for one notice. Permission is to draft, not to send. Setup is often a few days.",
-    "human_checks": [
-      "A staff member who can read the Hebrew and the English approves the note before a student or parent receives it.",
-      "Nothing sends, posts, or runs on Shabbat or Yom Tov; approved messages wait in a queue until after.",
-      "SI does not create or attach images of people.",
-      "SI does not write religious rulings or Judaic lesson content."
-    ],
-    "examples": [
-      {
-        "business_type": "Orthodox Jewish day school",
-        "scenario": "A dismissal-time change the office already decided is filled into the approved Hebrew and English templates and held until after Shabbat."
-      },
-      {
-        "business_type": "Orthodox Jewish day school office",
-        "scenario": "A reminder to return a form uses only the school's saved sentences in both languages. Staff review the Hebrew before anyone is sent the note."
-      },
-      {
-        "business_type": "Orthodox Jewish day school grade office",
-        "scenario": "The draft names only the date and room already written by staff. No photograph is attached."
-      }
-    ],
-    "copy_prompt": "Fill this approved Hebrew template [paste] and this approved English template [paste] using only these facts staff already wrote [paste]. Do not add sentences that are not in the templates. Do not compose religious content. Pause and show me before sending, posting or changing anything. Use only the sample or de-identified information I provide; do not include real student names, grades, or family contact details. Do not send, post, or run anything on Shabbat or Yom Tov; queue drafts for after. Do not create or attach images of people. Do not write religious rulings or Judaic lesson content.",
-    "tools_examples": [
-      "Google Docs",
-      "Gmail",
-      "Google Workspace for Education",
-      "Microsoft 365 Education"
-    ],
-    "effect": "Both language versions start from the school's own wording, and the note waits until after Shabbat or Yom Tov.",
-    "caution": "Administrative support only: SI does not grade, evaluate, or make academic decisions, and does not replace a teacher's or school's judgment. A teacher, tutor, or school staff member reviews and approves anything sent to a student or parent. Student records are used only on the school's own equipment and accounts, with access controls and the minimum necessary, never in consumer tools. SI fills staff-approved wording only. It does not translate religious texts or write Judaic lesson content. Nothing sends, posts, or runs on Shabbat or Yom Tov; drafts wait in a queue until after. No images of people. FERPA still applies to any student names in a note.",
-    "group": "orthodox-day-school"
-  },
-  {
-    "slug": "tuition-assistance-document-chasing",
-    "title": "Tuition-assistance application document chasing",
-    "industries": [
-      "education"
-    ],
-    "functions": [
-      "billing-admin",
-      "research-documents"
-    ],
-    "summary": "SI keeps a checklist of tuition-assistance papers the office already requested and drafts a quiet reminder from approved wording, queued until after Shabbat or Yom Tov.",
-    "problem": "Assistance files wait on tax forms, school forms, and signatures. The business office cannot see what is still missing, and a reminder must not go out on Shabbat or Yom Tov.",
-    "what_si_does": "SI reads the office's checklist of required papers, marks what has arrived, and drafts a reminder from the school's approved wording for open items. The reminder is held in a queue until after Shabbat or Yom Tov. SI does not decide awards, does not read tax returns for advice, does not write religious rulings or Judaic lesson content, and does not create or attach images of people.",
-    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds student records, the school reviews the vendor's terms, access controls, and any FERPA or state student-privacy duties. Start with sample or de-identified material. The office's required-document list and approved reminder wording. Start with sample or de-identified files. Permission is to track and draft, not to send or decide an award. Setup is often a few days.",
-    "human_checks": [
-      "The business office checks the checklist before a student or parent is contacted.",
-      "SI never decides an award, a discount, or a payment plan.",
-      "Nothing sends, posts, or runs on Shabbat or Yom Tov; approved messages wait in a queue until after.",
-      "SI does not create or attach images of people, and it does not write religious rulings or Judaic lesson content."
-    ],
-    "examples": [
-      {
-        "business_type": "Orthodox Jewish day school business office",
-        "scenario": "The checklist shows which school form is still open. The draft reminder uses approved wording and waits until after Shabbat."
-      },
-      {
-        "business_type": "Orthodox Jewish day school",
-        "scenario": "Rows the office marked complete are left off the reminder list. Award decisions stay with the committee."
-      },
-      {
-        "business_type": "Orthodox Jewish day school tuition office",
-        "scenario": "A missing signature page is listed by form name only. No tax figures are copied into the reminder."
-      }
-    ],
-    "copy_prompt": "Using this required-document checklist [file], mark which items are still open. Draft a reminder from this approved wording only [paste]. Do not decide an award. Do not copy tax figures into the reminder. Pause and show me before sending, posting or changing anything. Use only the sample or de-identified information I provide; do not include real student names, grades, or family contact details. Do not send, post, or run anything on Shabbat or Yom Tov; queue drafts for after. Do not create or attach images of people. Do not write religious rulings or Judaic lesson content.",
-    "tools_examples": [
-      "Google Sheets",
-      "FACTS",
-      "Gmail",
-      "Google Drive"
-    ],
-    "effect": "Missing assistance papers are visible to the office, and reminders wait until after Shabbat or Yom Tov.",
-    "caution": "Administrative support only: SI does not grade, evaluate, or make academic decisions, and does not replace a teacher's or school's judgment. A teacher, tutor, or school staff member reviews and approves anything sent to a student or parent. Student records are used only on the school's own equipment and accounts, with access controls and the minimum necessary, never in consumer tools. Assistance files include family financial information. SI tracks papers; it does not award aid or give financial advice. Nothing sends, posts, or runs on Shabbat or Yom Tov; drafts wait in a queue until after. No images of people. FERPA and the school's confidentiality rules still apply.",
-    "group": "orthodox-day-school"
-  },
-  {
-    "slug": "donor-scholarship-thank-you-drafts",
-    "title": "Donor and scholarship thank-you drafts in the school's own wording",
-    "industries": [
-      "education"
-    ],
-    "functions": [
-      "community",
-      "billing-admin"
-    ],
-    "summary": "SI drafts thank-you notes for gifts and scholarships from the school's saved wording and holds them until after Shabbat or Yom Tov.",
-    "problem": "Thank-you notes for gifts and scholarship funds wait until someone has time. Wording has to stay modest and in the school's voice, and a note must not go out on Shabbat or Yom Tov.",
-    "what_si_does": "SI reads the gift or scholarship-acknowledgment list the office provides and fills the school's approved thank-you wording with the designation and amount the office already recorded. Notes wait in a queue until after Shabbat or Yom Tov. SI does not invent results, does not attach images of people, keeps a modest tone, and does not write religious rulings or Judaic lesson content.",
-    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds student records, the school reviews the vendor's terms, access controls, and any FERPA or state student-privacy duties. Start with sample or de-identified material. The school's approved thank-you wording and a de-identified gift list. Permission is to draft, not to send. Setup is often a few days.",
-    "human_checks": [
-      "The development or business office reviews every note before a donor or a parent receives it.",
-      "Nothing sends, posts, or runs on Shabbat or Yom Tov; approved messages wait in a queue until after.",
-      "SI does not create or attach images of people.",
-      "SI does not write religious rulings or Judaic lesson content, and it does not invent how a gift was used."
-    ],
-    "examples": [
-      {
-        "business_type": "Orthodox Jewish day school",
-        "scenario": "A scholarship-fund gift the office already recorded is filled into the approved thank-you wording and held until after Shabbat."
-      },
-      {
-        "business_type": "Orthodox Jewish day school development office",
-        "scenario": "A community-event pledge list becomes draft notes from the school's sentences only. No photograph is added."
-      },
-      {
-        "business_type": "Orthodox Jewish day school business office",
-        "scenario": "Year-end acknowledgment drafts use the amount and designation already in the file. Staff send them after Yom Tov."
-      }
-    ],
-    "copy_prompt": "Using this gift list [file] and this approved thank-you wording [paste], draft a note for each row with only the designation and amount already recorded. Do not invent how the gift was used. Do not add photographs. Pause and show me before sending, posting or changing anything. Use only the sample or de-identified information I provide; do not include real student names, grades, or family contact details. Do not send, post, or run anything on Shabbat or Yom Tov; queue drafts for after. Do not create or attach images of people. Do not write religious rulings or Judaic lesson content.",
-    "tools_examples": [
-      "Google Docs",
-      "Gmail",
-      "Google Sheets",
-      "Blackbaud"
-    ],
-    "effect": "Thank-you drafts stay in the school's own wording and wait until after Shabbat or Yom Tov.",
-    "caution": "Administrative support only: SI does not grade, evaluate, or make academic decisions, and does not replace a teacher's or school's judgment. A teacher, tutor, or school staff member reviews and approves anything sent to a student or parent. Student records are used only on the school's own equipment and accounts, with access controls and the minimum necessary, never in consumer tools. Donor and scholarship records are confidential. SI fills the school's wording; it does not solicit, value a gift, or claim a tax result. Nothing sends, posts, or runs on Shabbat or Yom Tov; drafts wait in a queue until after. No images of people. FERPA still applies if a student scholarship is named.",
-    "group": "orthodox-day-school"
+    "caution": "SI drafts conference holds. A person confirms every time."
   }
 ]
