@@ -106,6 +106,12 @@
   color: #f6edd6;
   overflow-wrap: anywhere;
 }
+.uc-read-first p.uc-own-accounts {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(211, 170, 85, .35);
+  font-weight: 600;
+}
 .uc-read-first strong { color: #fff8e6; }
 .uc-read-first em { font-style: italic; }
 .uc-legal-foot {

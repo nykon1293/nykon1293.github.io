@@ -122,6 +122,9 @@ LEGAL_SHORT = (
 LEGAL_FOOT = (
     "Not legal or ethics advice. Talk with your state bar or ethics counsel about your obligations."
 )
+LEGAL_OWN_ACCOUNTS = (
+    "GemmiSI sets this up on your own equipment and accounts; your data stays with you."
+)
 LEGAL_CAUTION_PREFIX = (
     "Administrative support only: this is not legal advice and does not replace attorney judgment. "
     "An attorney reviews and approves anything client-facing or substantive, and client-confidential "
@@ -193,6 +196,8 @@ def load() -> list:
                 raise SystemExit(f"{item['slug']} prompt must limit itself to sample or de-identified information")
             if len(item["human_checks"]) < 3:
                 raise SystemExit(f"{item['slug']} needs at least three human checks")
+            if LEGAL_OWN_ACCOUNTS not in item["setup"]:
+                raise SystemExit(f"{item['slug']} setup must say the work stays on the firm's own equipment and accounts")
             for banned in ("Ohr", "Kayla", "josh.gemmi@gmail.com"):
                 if banned in blob:
                     raise SystemExit(f"{item['slug']} contains wording that must stay off the public site")
@@ -445,6 +450,7 @@ def library_page(entries: list) -> str:
             banner = (
                 '        <div class="uc-read-first" role="note">\n'
                 f"          <p>{LEGAL_READ_FIRST}</p>\n"
+                f"          <p class=\"uc-own-accounts\">{e(LEGAL_OWN_ACCOUNTS)}</p>\n"
                 "        </div>\n"
             )
             closing_note = f'        <p class="uc-legal-foot">{e(LEGAL_FOOT)}</p>\n'
@@ -763,6 +769,8 @@ def assert_wording(entries: list) -> None:
         raise SystemExit("Library page must be indexable")
     if "Read this first." not in library or "generative artificial intelligence" not in library:
         raise SystemExit("Legal practices section is missing the full disclaimer")
+    if LEGAL_OWN_ACCOUNTS not in library:
+        raise SystemExit("Legal practices section is missing the own-equipment line")
     if library.count(LEGAL_SHORT) < 1:
         raise SystemExit("Legal cards are missing the short disclaimer")
     for item in entries:
@@ -771,6 +779,8 @@ def assert_wording(entries: list) -> None:
             raise SystemExit(f"Wording check failed for {item['slug']}")
         if item["category"] == "Legal practices" and LEGAL_SHORT not in page:
             raise SystemExit(f"{item['slug']} is missing the short legal disclaimer")
+        if item["category"] == "Legal practices" and LEGAL_OWN_ACCOUNTS not in page:
+            raise SystemExit(f"{item['slug']} is missing the own-equipment setup line")
 
 
 def main() -> None:

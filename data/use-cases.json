@@ -3078,7 +3078,7 @@
     "summary": "Overnight calls and web forms are sorted into queues, with deadlines flagged and a short acknowledgment drafted from the firm's approved wording.",
     "problem": "Calls and web forms arrive at night and on weekends. Urgent matters get buried, prospective clients wait until morning, and staff worry about saying too much.",
     "what_si_does": "SI sorts overnight messages into queues (new inquiry, existing client, vendor, opposing counsel or court, spam), pulls out the name, contact, matter type, and any dates the sender mentions, flags anything that mentions a deadline or emergency, and drafts a short, plain acknowledgment that the firm will follow up and that the message is not legal advice and does not create an attorney-client relationship.",
-    "setup": "Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. Connect the inbox or web form with permission to read and draft, not to send. Save the acknowledgment the firm has already approved, the queue names, and what counts as a deadline or emergency. Setup is often a few days.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. Connect the inbox or web form with permission to read and draft, not to send. Save the acknowledgment the firm has already approved, the queue names, and what counts as a deadline or emergency. Setup is often a few days.",
     "human_checks": [
       "A person reads the queue first thing, decides who gets a callback, and sends every reply.",
       "An attorney decides whether to take the matter and whether anyone should be called right away.",
@@ -3116,7 +3116,7 @@
     "summary": "SI turns an intake form or email into a one-page summary and a name list formatted for the firm's existing conflict-check process.",
     "problem": "New-matter intake forms are inconsistent, and building the list of parties and names to run through the conflict system is slow and easy to get wrong.",
     "what_si_does": "SI turns an intake form or email into a clean one-page summary, lists every person and organization named (client, adverse parties, related entities, spelling variants), and formats that list for the firm's existing conflict-check process.",
-    "setup": "Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. Provide the intake form or a de-identified sample, and the column layout the conflict system expects. Setup is often a few days.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. Provide the intake form or a de-identified sample, and the column layout the conflict system expects. Setup is often a few days.",
     "human_checks": [
       "A person runs the actual conflict search in the firm's system.",
       "An attorney reviews the results, makes the conflict determination, and decides whether to accept the matter.",
@@ -3154,7 +3154,7 @@
     "summary": "Each new matter gets a checklist from the firm's own template, with open steps nudged and the welcome email drafted from approved wording.",
     "problem": "Onboarding steps such as a signed engagement letter, ID and contact details, billing setup, folder creation, and a welcome message get missed or done in different orders.",
     "what_si_does": "SI generates a checklist for each new matter from the firm's own template, tracks which steps are done, nudges the assigned staff member on what is outstanding, and drafts the welcome email from the firm's approved wording.",
-    "setup": "Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. Use the firm's own onboarding template and the welcome wording an attorney has already approved. Setup is often a day or two.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. Use the firm's own onboarding template and the welcome wording an attorney has already approved. Setup is often a day or two.",
     "human_checks": [
       "Staff completes the steps.",
       "An attorney confirms the engagement is properly signed before work starts and approves the welcome message.",
@@ -3192,7 +3192,7 @@
     "summary": "SI fills the firm's approved engagement-letter template from intake data, highlights every field it filled, and lists blanks or mismatches.",
     "problem": "Engagement letters are assembled by copying an old one and editing, which leaves stale names, wrong fee terms, or missing clauses.",
     "what_si_does": "SI fills the firm's attorney-approved template from the intake data (names, matter description, and the fee arrangement the attorney already selected), highlights every field it filled, and lists any blanks or mismatches, such as a name spelled two ways.",
-    "setup": "Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. Start from the firm's attorney-approved template and a de-identified intake that includes the fields the template expects. Setup is often a few days, mostly spent marking which fields SI may fill.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. Start from the firm's attorney-approved template and a de-identified intake that includes the fields the template expects. Setup is often a few days, mostly spent marking which fields SI may fill.",
     "human_checks": [
       "The attorney reviews and edits the full letter, chooses the terms, and sends it.",
       "The client signs the letter the attorney sent.",
@@ -3230,7 +3230,7 @@
     "summary": "Dates a person has already verified are collected into one tracker, with reminders, conflicts, and a weekly list per attorney.",
     "problem": "Dates are scattered across emails, notices, and calendars, and a missed date is among the most serious errors a firm can make.",
     "what_si_does": "SI collects dates that attorneys or staff have already identified into one calendar or tracker, sends reminders ahead of each, flags dates that conflict with other commitments, and produces a weekly coming-up list per attorney.",
-    "setup": "Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. Use the calendar or tracker the firm already keeps, and a written rule that only dates a person has verified may be entered. Setup is often a few days.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. Use the calendar or tracker the firm already keeps, and a written rule that only dates a person has verified may be entered. Setup is often a few days.",
     "human_checks": [
       "An attorney or designated staff member determines and confirms each date and how it was calculated, using the firm's docketing process and the applicable rules.",
       "A second person spot-checks the list.",
@@ -3268,7 +3268,7 @@
     "summary": "SI drafts a plain update from the attorney's own notes and the matter task list, and queues it for the attorney to edit and send.",
     "problem": "Clients call asking what is happening with a matter, and attorneys spend time writing the same kind of routine update.",
     "what_si_does": "From the attorney's own notes and the matter's task list, SI drafts a short, plain-language update covering what has been done and what is next, as the attorney has recorded it, and queues it for review.",
-    "setup": "Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. Use the attorney's notes and the matter task list, plus one or two past updates with client details removed, as a tone sample. Setup is often a few days.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. Use the attorney's notes and the matter task list, plus one or two past updates with client details removed, as a tone sample. Setup is often a few days.",
     "human_checks": [
       "The attorney reads, edits, and approves each update before it is sent.",
       "The attorney handles any question that needs judgment.",
@@ -3306,7 +3306,7 @@
     "summary": "SI proposes a folder pattern and a rename list for matter files, and waits for a person to approve it before anything moves.",
     "problem": "Matter folders fill with names like scan0043.pdf and final_v2_REAL.docx, so files are hard to find and hard to hand off.",
     "what_si_does": "SI proposes a standard folder structure and naming convention, then suggests renames and filing locations for each document using date, type, and party. It produces a change list before moving anything, and an index of the folder.",
-    "setup": "Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. Use a sample matter folder the firm is comfortable testing, and the naming pattern the firm wants. Work only inside systems the firm has already approved. Setup is often a few days.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. Use a sample matter folder the firm is comfortable testing, and the naming pattern the firm wants. Work only inside systems the firm has already approved. Setup is often a few days.",
     "human_checks": [
       "A staff member or attorney approves the naming scheme and the change list before anything is renamed or moved.",
       "The attorney sets privilege and confidentiality designations.",
@@ -3344,7 +3344,7 @@
     "summary": "SI suggests clearer wording for draft time entries from the attorney's own notes, and flags entries that look incomplete, duplicated, or oddly long.",
     "problem": "Time entries are entered late, vague, or inconsistent, so bills are harder to review and harder to explain.",
     "what_si_does": "SI reviews draft time entries against the day's calendar and the attorney's own notes, suggests clearer narrative wording in the firm's style, and flags entries that look incomplete, duplicated, or oddly long.",
-    "setup": "Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. Give SI read access to draft time entries, the calendar, and the attorney's notes, or a de-identified export of the same. Include a few past narratives the firm considers clear, with client details removed. Setup is often a few days.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. Give SI read access to draft time entries, the calendar, and the attorney's notes, or a de-identified export of the same. Include a few past narratives the firm considers clear, with client details removed. Setup is often a few days.",
     "human_checks": [
       "The timekeeper confirms the work was actually done and the time is accurate, edits the narratives, and approves the bill.",
       "An attorney reviews and approves before the bill leaves the firm.",
@@ -3382,7 +3382,7 @@
     "summary": "SI builds an aging list from the billing system and drafts polite reminders at the firm's intervals, highlighting accounts that need a personal call.",
     "problem": "Overdue invoices sit because nobody wants to chase them, or reminders go out on no set schedule.",
     "what_si_does": "SI builds an aging list from the billing system, drafts polite reminders at the intervals the firm sets, and highlights accounts that need a personal call.",
-    "setup": "Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. Use a read-only aging export from the billing system, plus the reminder wording and intervals the firm has already chosen. Setup is often a few days.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. Use a read-only aging export from the billing system, plus the reminder wording and intervals the firm has already chosen. Setup is often a few days.",
     "human_checks": [
       "A person or attorney approves each reminder before it is sent.",
       "The attorney decides how to handle sensitive accounts, payment plans, and write-offs, and makes any collection decision.",
@@ -3420,7 +3420,7 @@
     "summary": "SI keeps a tracker of records requests and drafts routine follow-up notes from approved wording, so overdue items are visible.",
     "problem": "Requests for records, and the responses to the firm's own requests, are tracked in email and memory, so follow-ups slip.",
     "what_si_does": "SI keeps a tracker of each request (what was asked, from whom, the date sent, and when a follow-up is due), drafts routine follow-up notes from approved wording, and shows what is overdue.",
-    "setup": "Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. Use the tracker the firm already keeps, or a simple sheet, plus the follow-up wording the firm has approved. Records stay in the firm's secured systems. Setup is often a few days.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. Use the tracker the firm already keeps, or a simple sheet, plus the follow-up wording the firm has approved. Records stay in the firm's secured systems. Setup is often a few days.",
     "human_checks": [
       "Staff sends the requests and the follow-ups.",
       "An attorney approves anything that characterizes the matter, and a person reviews the records received.",
@@ -3458,7 +3458,7 @@
     "summary": "From notes or a transcript the attorney provides, SI drafts a summary with action items and owners, labeled as a draft for attorney review.",
     "problem": "Notes from client calls and internal meetings are thin or never written, and action items get lost.",
     "what_si_does": "From a transcript or notes the attorney provides, SI drafts a summary with action items, open questions, and who owns each, labeled \"DRAFT, for attorney review.\"",
-    "setup": "Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. The attorney chooses the transcript or notes to provide. Recording or transcribing a call may require consent, which varies by state, so the firm gets that first. Setup is often a day or two once the tool has been vetted.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. The attorney chooses the transcript or notes to provide. Recording or transcribing a call may require consent, which varies by state, so the firm gets that first. Setup is often a day or two once the tool has been vetted.",
     "human_checks": [
       "The attorney checks the summary against what actually happened, corrects it, and decides what goes in the file or to the client.",
       "An attorney reviews and approves before anything leaves the firm.",
@@ -3496,7 +3496,7 @@
     "summary": "SI drafts newsletters, site updates, and review requests from topics the firm chooses, and a person approves every piece before it is published.",
     "problem": "Firms know they should send newsletters, update the website, and ask clients for reviews, and the drafting rarely gets done.",
     "what_si_does": "SI drafts newsletter issues, website updates, and social posts from topics the firm chooses and from public information such as firm news, builds a simple calendar for them, and drafts polite review-request messages for the firm to send to clients the attorney chooses.",
-    "setup": "Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. Start with topics the firm chooses, a few past newsletters as a tone sample, and review-request wording an attorney has approved. Setup is often a few days.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds client information, the firm reviews the vendor's terms, data retention and training practices, confirms access controls, and obtains any required client consent. Start with sample or de-identified material. Start with topics the firm chooses, a few past newsletters as a tone sample, and review-request wording an attorney has approved. Setup is often a few days.",
     "human_checks": [
       "An attorney reviews and approves every piece before it is published, and picks who is asked for a review.",
       "A person checks that nothing reveals client information.",
