@@ -471,7 +471,6 @@ def draw_inventory() -> list[list[str]]:
         _outline(g, x, y, 10, 8, "#")
         _rect(g, x + 1, y + 1, 8, 6, "+")
         _rect(g, x + 1, y + 3, 8, 2, "#")
-        _vline(g, x + 4, y + 1, 6, "=")
         _plot(g, x + 1, y + 1, "s")
 
     crate(7, 3)
@@ -546,8 +545,8 @@ def draw_scales() -> list[list[str]]:
     _hline(g, 13, 11, 8, "#")
     _hline(g, 14, 12, 6, "=")
     _hline(g, 15, 13, 4, "#")
-    _rect(g, 10, 19, 4, 1, "#")
-    _rect(g, 8, 20, 8, 2, "#")
+    _rect(g, 9, 19, 6, 1, "#")
+    _rect(g, 7, 20, 10, 2, "#")
     return g
 
 
@@ -562,8 +561,9 @@ def draw_shield() -> list[list[str]]:
     _vline(g, 14, 5, 6, "=")
     _outline(g, 5, 10, 14, 11, "#")
     _rect(g, 6, 11, 12, 9, "=")
-    _rect(g, 10, 13, 4, 4, "@")
-    _rect(g, 11, 17, 2, 2, "@")
+    _rect(g, 10, 13, 4, 3, "@")
+    _rect(g, 11, 16, 2, 3, "@")
+    _plot(g, 11, 14, "d")
     _plot(g, 6, 11, "s")
     return g
 
