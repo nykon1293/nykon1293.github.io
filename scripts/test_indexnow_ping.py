@@ -41,13 +41,17 @@ class FileToUrlTests(unittest.TestCase):
         )
         self.assertIsNone(ping.file_to_url("scripts/indexnow_ping.py"))
         self.assertIsNone(ping.file_to_url("23c3690d323f2e5687c21ef152e1cd87.txt"))
+        self.assertIsNone(ping.file_to_url(f"{ping.ACTIVE_KEY}.txt"))
 
 
 class DiscoverKeyTests(unittest.TestCase):
     def test_repo_key_matches_filename(self) -> None:
         key, path = ping.discover_key()
+        self.assertEqual(key, ping.ACTIVE_KEY)
+        self.assertEqual(path.name, f"{ping.ACTIVE_KEY}.txt")
         self.assertEqual(key, path.stem)
-        self.assertTrue(path.name.endswith(".txt"))
+        self.assertNotEqual(key, "23c3690d323f2e5687c21ef152e1cd87")
+        self.assertTrue((ping.ROOT / "23c3690d323f2e5687c21ef152e1cd87.txt").is_file())
 
 
 class LiveKeyTests(unittest.TestCase):

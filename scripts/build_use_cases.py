@@ -22,6 +22,7 @@ from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from indexnow_ping import ACTIVE_KEY
 from seo_schema import (
     APPROVAL_LINE,
     BUSINESS_ID,
@@ -1794,6 +1795,7 @@ def write_llms_txt(entries: list) -> None:
         "- Advisory & Fractional CTO (inquire first): https://gemmisi.com/advisory.html",
         "- Anonymized case study: https://gemmisi.com/work/governed-ai-content-engine.html",
         "- Sitemap: https://gemmisi.com/sitemap.xml",
+        f"- IndexNow key: https://gemmisi.com/{ACTIVE_KEY}.txt",
         "",
         "## Use-case hub and landings",
         "",

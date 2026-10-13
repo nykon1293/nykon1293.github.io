@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Submit changed public URLs (or the sitemap) to IndexNow for gemmisi.com.
 
-Finds the 32-hex key file at the repo root, maps git-changed HTML to
+Uses ACTIVE_KEY (the 32-hex `{key}.txt` at the repo root). Older key files
+may stay on disk so prior verifications do not 404. Maps git-changed HTML to
 https://gemmisi.com/ URLs, waits until the live key URL returns that key,
 then POSTs to each IndexNow engine.
 
@@ -29,6 +30,9 @@ HOST = "gemmisi.com"
 BASE = f"https://{HOST}"
 SITEMAP = ROOT / "sitemap.xml"
 KEY_NAME = re.compile(r"^[0-9a-f]{32}$")
+# Bing latched 403 UserForbiddedToAccessSite on 23c3690d323f2e5687c21ef152e1cd87.
+# Keep that file at the site root; submit with this key only.
+ACTIVE_KEY = "f702ca108ee22cc8602abd433bed3cf5"
 ZERO_SHA = "0" * 40
 USER_AGENT = "gemmisi-indexnow/1.0 (+https://gemmisi.com/)"
 
@@ -77,10 +81,10 @@ def discover_key() -> tuple[str, Path]:
         for path in ROOT.glob("*.txt")
         if KEY_NAME.fullmatch(path.stem)
     ]
-    if len(matches) != 1:
-        names = ", ".join(path.name for path in matches) or "none"
-        raise SystemExit(f"expected one 32-hex IndexNow key file at repo root, found {names}")
-    path = matches[0]
+    path = next((item for item in matches if item.stem == ACTIVE_KEY), None)
+    if path is None:
+        names = ", ".join(item.name for item in matches) or "none"
+        raise SystemExit(f"active IndexNow key {ACTIVE_KEY}.txt missing at repo root (found {names})")
     key = path.read_text(encoding="utf-8").strip()
     if key != path.stem:
         raise SystemExit(f"{path.name} must contain its own 32-hex filename as the key")
