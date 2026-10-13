@@ -1,23 +1,42 @@
 name: IndexNow
 
+# Ping search engines only after GitHub Pages has finished publishing the
+# commit. The previous `on: push` trigger raced `pages-build-deployment`, so
+# Bing fetched the key file (and new HTML) before origin Last-Modified updated
+# and then returned 403 UserForbiddedToAccessSite.
 on:
-  push:
+  workflow_run:
+    workflows:
+      - pages-build-deployment
+      - pages build and deployment
+    types:
+      - completed
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   ping:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      actions: read
     steps:
-      - name: Check out
+      - name: Check out deployed commit
         uses: actions/checkout@v4
         with:
           fetch-depth: 2
+          # workflow_run's github.sha is the default branch tip, which can
+          # already be a newer commit than the Pages deploy that just finished.
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
 
-      - name: Submit changed public URLs
+      - name: Submit public URLs
         env:
-          INDEXNOW_BEFORE: ${{ github.event.before }}
-          INDEXNOW_AFTER: ${{ github.sha }}
-        run: python3 scripts/indexnow_ping.py
+          INDEXNOW_AFTER: ${{ github.event.workflow_run.head_sha || github.sha }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            python3 scripts/indexnow_ping.py --all
+          else
+            python3 scripts/indexnow_ping.py
+          fi
