@@ -283,6 +283,61 @@ def industry_faqs(slug: str) -> list[tuple[str, str]]:
                 f"{OWN_ACCOUNTS} Education records belong only in tools the school has checked. Use access controls. Use only the minimum necessary. Never put them in consumer chat apps. This is not a guarantee of FERPA compliance.",
             ),
         ]
+    elif slug == "restaurants-food":
+        extra = [
+            (
+                "Does SI send kitchen tickets on its own?",
+                "Unclear items and allergy notes wait. A person can require a check on every ticket. SI does not take payment.",
+            ),
+            (
+                "Does SI set menu prices or place supplier orders?",
+                "No. SI writes tickets and drafts. The owner sets prices and places orders.",
+            ),
+        ]
+    elif slug == "auto-repair":
+        extra = [
+            (
+                "Does SI name the repair?",
+                "No. SI sorts year, make, and the problem the customer wrote. A tech reviews it.",
+            ),
+            (
+                "Does SI book the bay?",
+                "No. It suggests a slot. A person confirms. SI does not give repair advice.",
+            ),
+        ]
+    elif slug == "fitness-salons-wellness":
+        extra = [
+            (
+                "Does SI book a class or a chair?",
+                "No. SI drafts from the owner's calendar. The owner or desk confirms every slot.",
+            ),
+            (
+                "Will SI text members on its own?",
+                f"No. {APPROVAL_LINE} Check-ins wait for a person.",
+            ),
+        ]
+    elif slug == "short-term-rentals":
+        extra = [
+            (
+                "Does SI talk to guests on its own?",
+                "No. Guest notes, check-in steps, and cleaner lists wait for the host.",
+            ),
+            (
+                "Does SI set house rules or prices?",
+                "No. It drafts from the host's own wording. The host still decides.",
+            ),
+        ]
+    elif slug == "insurance-agencies":
+        extra = [
+            (
+                "Does SI sell a policy or pick a carrier?",
+                "No. SI flags dates and lines up quotes. The licensed agent decides.",
+            ),
+            (
+                "Is this insurance advice?",
+                "No. This is office help. The licensed agent reviews every quote.",
+            ),
+        ]
     else:
         extra = [
             (
@@ -1814,7 +1869,7 @@ def write_llms_txt(entries: list) -> None:
             "",
             "## Use cases",
             "",
-            f"The library lists {n} practical SI (AI) jobs for small teams, community organizations, teachers, tutors and schools, the business side of solo and small law practices, the business side of small healthcare practices, real estate and property management, home-service contractors, and small accounting, tax and bookkeeping firms. They are illustrations of what is possible, not reports of client results. A person still approves anything that sends, pays, orders, or posts. Education pages are operations help only. SI does not grade students. A person approves anything sent to a student or parent. Student records stay on the school's own equipment and accounts. Legal-practice pages are operations help only. SI does not give legal advice. Medical-practice pages are operations help only. SI does not give medical advice or make clinical decisions. Real-estate pages are operations help only. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. Home-services pages are office help only; the owner approves every quote and message. Accounting-firm pages are operations help only. SI does not give tax advice or file returns. {OWN_ACCOUNTS}",
+            f"The library lists {n} practical SI (AI) jobs for small teams, community organizations, teachers, tutors and schools, the business side of solo and small law practices, the business side of small healthcare practices, real estate and property management, home-service contractors, small accounting, tax and bookkeeping firms, restaurants and food shops, auto repair shops, gyms and salons, short-term rentals, and insurance agencies. They are illustrations of what is possible, not reports of client results. A person still approves anything that sends, pays, orders, or posts. Education pages are operations help only. SI does not grade students. A person approves anything sent to a student or parent. Student records stay on the school's own equipment and accounts. Legal-practice pages are operations help only. SI does not give legal advice. Medical-practice pages are operations help only. SI does not give medical advice or make clinical decisions. Real-estate pages are operations help only. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. Home-services pages are office help only; the owner approves every quote and message. Accounting-firm pages are operations help only. SI does not give tax advice or file returns. Restaurant, shop, gym, rental, and agency pages are office help. A person still checks. {OWN_ACCOUNTS}",
             "",
         ]
     )

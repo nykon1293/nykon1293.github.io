@@ -376,6 +376,11 @@ html.uc-js .uc-group:not(.is-open) .uc-card.uc-extra { display: none; }
 .uc-motif--home-services { --uc-accent: #d3aa55; }
 .uc-motif--accounting { --uc-accent: #cfc09a; }
 .uc-motif--education { --uc-accent: #8aa07a; }
+.uc-motif--restaurants-food { --uc-accent: #d0894e; }
+.uc-motif--auto-repair { --uc-accent: #b89a58; }
+.uc-motif--fitness-salons-wellness { --uc-accent: #9aaf7a; }
+.uc-motif--short-term-rentals { --uc-accent: #c9a878; }
+.uc-motif--insurance-agencies { --uc-accent: #8aa0b0; }
 .uc-motif--default { --uc-accent: #d3aa55; }
 .uc-motif-frame {
   aspect-ratio: 1;
