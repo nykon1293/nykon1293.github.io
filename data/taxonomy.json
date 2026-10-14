@@ -129,6 +129,46 @@
       "needles": [
         "FERPA"
       ]
+    },
+    "restaurants-food": {
+      "label": "Restaurants & food",
+      "blurb": "SI helps with phone and text orders. It also drafts weekly supplier lists and catering quotes.",
+      "seo_title": "SI (AI) use cases for restaurants & food | GemmiSI",
+      "seo_h1": "Use cases for restaurants and food shops",
+      "meta": "SI (AI) jobs for restaurants and food shops: phone orders, supplier lists, and catering quotes. A person still checks.",
+      "regulated": false
+    },
+    "auto-repair": {
+      "label": "Auto repair",
+      "blurb": "SI helps sort repair requests. It drafts service reminders from the shop's own history.",
+      "seo_title": "SI (AI) use cases for auto repair | GemmiSI",
+      "seo_h1": "Use cases for auto repair shops",
+      "meta": "SI (AI) jobs for auto repair shops: request sorting, reply drafts, and service reminders. A person still checks.",
+      "regulated": false
+    },
+    "fitness-salons-wellness": {
+      "label": "Fitness, salons & wellness",
+      "blurb": "SI helps keep class lists full. It drafts salon booking notes from the owner's calendar.",
+      "seo_title": "SI (AI) use cases for gyms and salons | GemmiSI",
+      "seo_h1": "Use cases for gyms, salons and wellness shops",
+      "meta": "SI (AI) jobs for gyms, salons, and wellness shops: class check-ins and booking drafts. A person still checks.",
+      "regulated": false
+    },
+    "short-term-rentals": {
+      "label": "Short-term rentals",
+      "blurb": "SI drafts guest notes, check-in steps, house rules, and cleaner lists from each booking.",
+      "seo_title": "SI (AI) use cases for short-term rentals | GemmiSI",
+      "seo_h1": "Use cases for short-term rentals",
+      "meta": "SI (AI) jobs for short-term rentals: guest notes, check-in steps, and cleaner lists. A person still checks.",
+      "regulated": false
+    },
+    "insurance-agencies": {
+      "label": "Insurance agencies",
+      "blurb": "SI flags policies due to renew. It lines up carrier quotes for the agent to review.",
+      "seo_title": "SI (AI) use cases for insurance agencies | GemmiSI",
+      "seo_h1": "Use cases for insurance agencies",
+      "meta": "SI (AI) jobs for insurance agencies: renewal flags and side-by-side quote sheets. The agent still decides.",
+      "regulated": false
     }
   },
   "functions": {

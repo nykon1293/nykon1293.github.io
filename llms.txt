@@ -25,7 +25,7 @@ https://calendly.com/josh-gemmi/30min
 
 ## Use-case hub and landings
 
-- Hub (168 practical SI / AI examples; illustrations, not client results): https://gemmisi.com/use-cases/
+- Hub (181 practical SI / AI examples; illustrations, not client results): https://gemmisi.com/use-cases/
 - Browse by industry: https://gemmisi.com/use-cases/industry/
 - Any business: https://gemmisi.com/use-cases/industry/any-business/
 - Ecommerce: https://gemmisi.com/use-cases/industry/ecommerce/
@@ -36,6 +36,11 @@ https://calendly.com/josh-gemmi/30min
 - Home services: https://gemmisi.com/use-cases/industry/home-services/
 - Accounting: https://gemmisi.com/use-cases/industry/accounting/
 - Education: https://gemmisi.com/use-cases/industry/education/
+- Restaurants & food: https://gemmisi.com/use-cases/industry/restaurants-food/
+- Auto repair: https://gemmisi.com/use-cases/industry/auto-repair/
+- Fitness, salons & wellness: https://gemmisi.com/use-cases/industry/fitness-salons-wellness/
+- Short-term rentals: https://gemmisi.com/use-cases/industry/short-term-rentals/
+- Insurance agencies: https://gemmisi.com/use-cases/industry/insurance-agencies/
 - Browse by function: https://gemmisi.com/use-cases/function/
 - Customer support: https://gemmisi.com/use-cases/function/customer-support/
 - Sales & follow-up: https://gemmisi.com/use-cases/function/sales-follow-up/
@@ -50,7 +55,7 @@ https://calendly.com/josh-gemmi/30min
 
 ## Use cases
 
-The library lists 168 practical SI (AI) jobs for small teams, community organizations, teachers, tutors and schools, the business side of solo and small law practices, the business side of small healthcare practices, real estate and property management, home-service contractors, and small accounting, tax and bookkeeping firms. They are illustrations of what is possible, not reports of client results. A person still approves anything that sends, pays, orders, or posts. Education pages are operations help only. SI does not grade students. A person approves anything sent to a student or parent. Student records stay on the school's own equipment and accounts. Legal-practice pages are operations help only. SI does not give legal advice. Medical-practice pages are operations help only. SI does not give medical advice or make clinical decisions. Real-estate pages are operations help only. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. Home-services pages are office help only; the owner approves every quote and message. Accounting-firm pages are operations help only. SI does not give tax advice or file returns. GemmiSI sets this up on your own equipment and accounts; your data stays with you.
+The library lists 181 practical SI (AI) jobs for small teams, community organizations, teachers, tutors and schools, the business side of solo and small law practices, the business side of small healthcare practices, real estate and property management, home-service contractors, small accounting, tax and bookkeeping firms, restaurants and food shops, auto repair shops, gyms and salons, short-term rentals, and insurance agencies. They are illustrations of what is possible, not reports of client results. A person still approves anything that sends, pays, orders, or posts. Education pages are operations help only. SI does not grade students. A person approves anything sent to a student or parent. Student records stay on the school's own equipment and accounts. Legal-practice pages are operations help only. SI does not give legal advice. Medical-practice pages are operations help only. SI does not give medical advice or make clinical decisions. Real-estate pages are operations help only. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. Home-services pages are office help only; the owner approves every quote and message. Accounting-firm pages are operations help only. SI does not give tax advice or file returns. Restaurant, shop, gym, rental, and agency pages are office help. A person still checks. GemmiSI sets this up on your own equipment and accounts; your data stays with you.
 
 - Morning inbox sort into labeled queues: https://gemmisi.com/use-cases/inbox-triage/
 - A weekly list of emails still waiting on you: https://gemmisi.com/use-cases/unanswered-threads/
@@ -220,6 +225,19 @@ The library lists 168 practical SI (AI) jobs for small teams, community organiza
 - Field-trip permission and form chasing: https://gemmisi.com/use-cases/field-trip-form-chasing/
 - Tuition and payment reminder drafts for the business office: https://gemmisi.com/use-cases/tuition-payment-reminders/
 - Parent-teacher conference scheduling drafts: https://gemmisi.com/use-cases/parent-teacher-conference-scheduling/
+- Phone and text orders written into kitchen tickets: https://gemmisi.com/use-cases/restaurant-phone-text-orders/
+- Weekly supplier order drafts from what was used: https://gemmisi.com/use-cases/restaurant-supplier-order-drafts/
+- Catering and party requests turned into quote drafts: https://gemmisi.com/use-cases/catering-party-quote-drafts/
+- Car repair requests sorted with a suggested slot: https://gemmisi.com/use-cases/auto-repair-request-sorting/
+- Oil-change and inspection reminders from shop history: https://gemmisi.com/use-cases/auto-service-history-reminders/
+- Class lists kept full and 30-day member check-ins: https://gemmisi.com/use-cases/fitness-class-list-check-ins/
+- Salon and spa booking drafts over WhatsApp: https://gemmisi.com/use-cases/salon-whatsapp-booking-drafts/
+- Guest notes, check-in steps and cleaner lists from each booking: https://gemmisi.com/use-cases/str-guest-message-drafts/
+- Policies due in 60 days lined up with carrier quotes: https://gemmisi.com/use-cases/insurance-renewal-quote-compare/
+- Weekly list of local shops showing buying signs: https://gemmisi.com/use-cases/local-buying-signs-call-list/
+- Supplier invoice checks for duplicates and tax: https://gemmisi.com/use-cases/supplier-invoice-tax-duplicate-check/
+- Weekly site search-health check and drafted fixes: https://gemmisi.com/use-cases/weekly-site-search-health/
+- One quote request to several suppliers in one sheet: https://gemmisi.com/use-cases/supplier-rfq-price-lead-sheet/
 
 ## Facts to keep straight
 

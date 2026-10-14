@@ -7375,5 +7375,569 @@
     ],
     "effect": "Open conference times are visible. Families hear from a person after the teacher or office confirms the slot.",
     "caution": "SI drafts conference holds. A person confirms every time."
+  },
+  {
+    "slug": "restaurant-phone-text-orders",
+    "title": "Phone and text orders written into kitchen tickets",
+    "industries": [
+      "restaurants-food"
+    ],
+    "functions": [
+      "customer-support"
+    ],
+    "summary": "SI reads phone and text orders and writes them into a kitchen ticket the shop already uses. A person still checks anything unclear before the ticket is final.",
+    "problem": "Calls and texts pile up at the counter while the cook is already on the line, so details get missed. The same order can be written twice, or it never reaches the kitchen at all.",
+    "what_si_does": "SI reads the call note or the incoming text and pulls the items, the pickup time, and any extra note the customer wrote. It writes that ticket into the kitchen queue the shop already uses, and it leaves allergy notes and large orders for a person. SI does not take payment, store a card, or promise a ready time on its own.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Connect the shop phone or text line with permission to read and draft, not to charge a card or send a ticket on its own. Name the kitchen queue the shop already uses, and write what counts as a large order so those tickets wait. Setup is often a few days while you check a handful of real orders.",
+    "human_checks": [
+      "A person checks unclear items, allergy notes, and large orders before the ticket is treated as final.",
+      "SI does not take payment or promise a ready time on behalf of the shop.",
+      "A person sends or prints the ticket when the shop wants a last look."
+    ],
+    "examples": [
+      {
+        "business_type": "Neighborhood pizza shop",
+        "scenario": "A text for two pies and a salad becomes a kitchen ticket with extra cheese listed as a note, and the cook works from that ticket."
+      },
+      {
+        "business_type": "Lunch counter",
+        "scenario": "A call for three boxed lunches writes a ticket with the pickup time, and the owner confirms that time before it is final."
+      },
+      {
+        "business_type": "Food truck",
+        "scenario": "After-hours texts become a morning list the cook can print, and unclear items stay off the ticket until a person checks them."
+      }
+    ],
+    "copy_prompt": "Read these phone notes or texts [paste]. Write a kitchen ticket with items, time, and notes. Flag allergy notes and large orders for a person. Do not take payment. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Voice",
+      "Gmail",
+      "WhatsApp",
+      "Square",
+      "Google Sheets"
+    ],
+    "effect": "The kitchen sees a written ticket instead of a raw call or text, and unclear orders still wait for a person.",
+    "caution": "Unclear items and allergy notes wait for a person before they go to the kitchen."
+  },
+  {
+    "slug": "restaurant-supplier-order-drafts",
+    "title": "Weekly supplier order drafts from what was used",
+    "industries": [
+      "restaurants-food"
+    ],
+    "functions": [
+      "inventory-orders"
+    ],
+    "summary": "SI drafts the weekly supplier order from what was actually used, including prep and spoilage. A person still places the order after reviewing the list.",
+    "problem": "The weekly order is often guessed from memory, so prep and spoilage get left out. The shop then runs out of a staple or over-orders something that will not keep.",
+    "what_si_does": "SI reads last week's use, the prep notes, and the spoilage you already record, then drafts an order grouped by supplier. It notes items that look low and flags gaps in the count sheet instead of filling them in. SI does not send the order or change stock counts on its own.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Use the count sheet, invoices, or sales export you already keep, and name each supplier you buy from. Write how you handle prep and spoilage so the draft can follow that rule. Setup is often a few days while you check one real week against the draft.",
+    "human_checks": [
+      "A person reviews the draft and is the only one who places the order.",
+      "SI does not send an order or change stock counts on its own.",
+      "Odd gaps and missing counts are flagged for review, not guessed."
+    ],
+    "examples": [
+      {
+        "business_type": "Cafe",
+        "scenario": "Milk, pastry, and coffee use from last week become a draft for two suppliers, and spoilage on cream is called out on the list."
+      },
+      {
+        "business_type": "Neighborhood restaurant",
+        "scenario": "Produce use and prep trim become a produce-house draft, and items with no count on the sheet are set aside."
+      },
+      {
+        "business_type": "Bakery",
+        "scenario": "Flour and butter use, plus known waste, become a wholesale draft, and the owner still sends the order."
+      }
+    ],
+    "copy_prompt": "Using last week's use [file], prep notes [file], and spoilage [file], draft a weekly order by supplier. Account for prep and spoilage the way I describe [paste]. Do not send the order. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Sheets",
+      "Excel",
+      "Square",
+      "QuickBooks Online",
+      "Gmail"
+    ],
+    "effect": "The weekly order starts from what was used, not from memory, and a person still places it.",
+    "caution": "SI drafts the order from use. A person still places it with the supplier."
+  },
+  {
+    "slug": "catering-party-quote-drafts",
+    "title": "Catering and party requests turned into quote drafts",
+    "industries": [
+      "restaurants-food"
+    ],
+    "functions": [
+      "sales-follow-up"
+    ],
+    "summary": "SI turns catering and party requests into quote drafts with date, headcount, menu, and deposit. A person still sets the price before anything goes out.",
+    "problem": "Party requests sit in email and texts while date, headcount, and menu notes are spread across messages. A quote then goes out late, or it goes out with a missing fact the owner has to fix.",
+    "what_si_does": "SI reads the request and pulls the date, headcount, menu notes, and any deposit rule you already use. It drafts a quote from your rate sheet and flags facts that are still missing so the owner can fill them in. It does not send the quote, take a deposit, or invent a new price.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Use the inbox or form where requests arrive, and add your menu, rate sheet, and deposit rule. Permission is to draft, not to send or take money. Setup is often a few days while you check a few real requests against the draft.",
+    "human_checks": [
+      "The owner checks the date, headcount, and price before anything goes out.",
+      "SI does not set a new price or take a deposit on its own.",
+      "Missing dates or counts wait for a person instead of being guessed."
+    ],
+    "examples": [
+      {
+        "business_type": "Catering kitchen",
+        "scenario": "A request for 40 people on a Saturday becomes a draft with the platter list and the usual deposit, and the owner checks the price."
+      },
+      {
+        "business_type": "Restaurant with a private room",
+        "scenario": "An email for a birthday dinner pulls the date and headcount, and the owner adds the room fee before it is sent."
+      },
+      {
+        "business_type": "Bakery that does parties",
+        "scenario": "A cake and drop-off request becomes a draft from the cake list, and a missing pickup time is flagged for the owner."
+      }
+    ],
+    "copy_prompt": "Read this catering or party request [paste]. Pull date, headcount, menu notes, and deposit using these rates [file]. Draft a quote. Flag missing facts. Do not send it or change prices. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Gmail",
+      "Google Sheets",
+      "Google Docs",
+      "Square",
+      "WhatsApp"
+    ],
+    "effect": "A quote draft waits with the date, headcount, and menu already pulled out, and the owner still prices it.",
+    "caution": "Quote drafts wait for the owner. SI does not set the price."
+  },
+  {
+    "slug": "auto-repair-request-sorting",
+    "title": "Car repair requests sorted with a suggested slot",
+    "industries": [
+      "auto-repair"
+    ],
+    "functions": [
+      "customer-support",
+      "scheduling"
+    ],
+    "summary": "SI sorts car repair requests by year, make, and the problem the customer wrote. It drafts a reply with a suggested slot for a person to confirm.",
+    "problem": "Calls and forms mix oil changes, noises, and wrecks, and year and make are easy to miss in a busy inbox. A reply waits while the bay list stays unclear, so customers hear back late.",
+    "what_si_does": "SI reads the request and pulls year, make, and the problem in the customer's own words, then groups like jobs together. It drafts a reply that suggests an open slot from the shop calendar. It does not name the fault, promise a repair, or book the bay on its own.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Connect the inbox or form and share the shop calendar with read access only. Write the reply wording you already use, and keep permission to draft, not to book. Setup is often a few days while you check a handful of real requests.",
+    "human_checks": [
+      "A tech or advisor reviews the problem and the suggested slot before anyone is told it is set.",
+      "SI does not name a fault or promise a repair on behalf of the shop.",
+      "A person sends the reply and is the one who books the time."
+    ],
+    "examples": [
+      {
+        "business_type": "Independent garage",
+        "scenario": "A form for a 2016 sedan with a brake noise is sorted, and the draft offers Tuesday at 9 from the open slots."
+      },
+      {
+        "business_type": "Quick-lube shop",
+        "scenario": "Oil-change texts are grouped together, and each draft offers the next open bay for the desk to confirm."
+      },
+      {
+        "business_type": "Body and mechanical shop",
+        "scenario": "A wreck note is flagged for a person and is not given a slot from the regular list."
+      }
+    ],
+    "copy_prompt": "Read these repair requests [paste]. Pull year, make, and the problem the customer wrote. Group like jobs. Draft a reply and suggest a slot from this calendar [file]. Do not name the fault or book the bay. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Gmail",
+      "Google Calendar",
+      "Google Sheets",
+      "WhatsApp",
+      "Outlook"
+    ],
+    "effect": "Requests land in clear piles with a draft reply and a suggested time, and a person still books the bay.",
+    "caution": "SI does not name a car fault. A tech reviews the suggested slot."
+  },
+  {
+    "slug": "auto-service-history-reminders",
+    "title": "Oil-change and inspection reminders from shop history",
+    "industries": [
+      "auto-repair"
+    ],
+    "functions": [
+      "content-marketing"
+    ],
+    "summary": "SI drafts oil-change and inspection reminders from the shop's own service history. A person still decides who is contacted and sends the note.",
+    "problem": "Due dates sit in old tickets, and nobody writes the reminder until the customer calls. Repeat visits slip because the list is never made from the shop's own history.",
+    "what_si_does": "SI reads the shop's service history and lists cars due for an oil change or inspection by the interval you already use. It drafts a short reminder from wording the shop has already approved. It does not send the note or invent a due date that is not in the file.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Use the shop's history export or ticket list, and write the interval and reminder wording you already send. Permission is to draft, not to send mail or texts. Setup is often a few days while you check the first list against real tickets.",
+    "human_checks": [
+      "A person checks the list against the tickets before anyone is contacted.",
+      "SI does not send texts or email on its own.",
+      "Get consent before you text, and honor opt-outs right away."
+    ],
+    "examples": [
+      {
+        "business_type": "Family garage",
+        "scenario": "Cars last serviced near the shop's oil interval get a short draft, and the advisor reads it before sending."
+      },
+      {
+        "business_type": "Inspection station",
+        "scenario": "Cars with an inspection due in the next month are listed, and the draft uses the shop's usual wording."
+      },
+      {
+        "business_type": "Fleet-friendly shop",
+        "scenario": "A small fleet list shows units due this week, and the owner picks which ones to contact."
+      }
+    ],
+    "copy_prompt": "Using this service history [file] and these intervals [paste], list cars due for an oil change or inspection. Draft a short reminder from this wording [paste]. Do not send it. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Sheets",
+      "Gmail",
+      "Excel",
+      "Google Docs",
+      "Outlook"
+    ],
+    "effect": "Due cars are a list with a draft note from the shop's own history, and a person still sends it.",
+    "caution": "Reminder drafts wait for a person. Get consent before you text."
+  },
+  {
+    "slug": "fitness-class-list-check-ins",
+    "title": "Class lists kept full and 30-day member check-ins",
+    "industries": [
+      "fitness-salons-wellness"
+    ],
+    "functions": [
+      "sales-follow-up"
+    ],
+    "summary": "SI helps keep class lists full and drafts check-ins for members who have not visited in 30 days. A person still sends every note.",
+    "problem": "Empty spots show up late, and members who stop coming get no note until they cancel. The owner often finds out from the roster after the week is already thin.",
+    "what_si_does": "SI reads the class roster and visit history, then lists open spots for the week and members with no visit in 30 days. It drafts a short check-in from wording you already use. It does not book a class, sell a membership, or send the note on its own.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Use the roster or booking export and the visit list you already keep, and write the check-in wording. Permission is to draft, not to send or book a class. Setup is often a few days while you check the first weekly list.",
+    "human_checks": [
+      "A person reviews who is contacted and which open spots are offered.",
+      "SI does not sell a membership or book a class on its own.",
+      "A person sends every check-in after reading the draft."
+    ],
+    "examples": [
+      {
+        "business_type": "Group fitness studio",
+        "scenario": "Thursday evening still has three open spots, and members with no visit in 30 days get a draft check-in for the owner to send."
+      },
+      {
+        "business_type": "Yoga loft",
+        "scenario": "The week's open mats are listed, and a calm draft goes to people who have not come in a month for the owner to edit."
+      },
+      {
+        "business_type": "Small gym",
+        "scenario": "Members with no swipe in 30 days are listed, and the owner picks who gets the note that week."
+      }
+    ],
+    "copy_prompt": "Using this roster [file] and visit history [file], list open class spots for [week]. List members with no visit in 30 days. Draft a short check-in from this wording [paste]. Do not book a class or send the note. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Sheets",
+      "Gmail",
+      "Google Calendar",
+      "WhatsApp",
+      "Excel"
+    ],
+    "effect": "Open spots and quiet members are a list the owner can act on, and check-ins wait for a person.",
+    "caution": "SI does not sell a membership. A person sends each check-in."
+  },
+  {
+    "slug": "salon-whatsapp-booking-drafts",
+    "title": "Salon and spa booking drafts over WhatsApp",
+    "industries": [
+      "fitness-salons-wellness"
+    ],
+    "functions": [
+      "scheduling"
+    ],
+    "summary": "SI drafts salon and spa booking and reschedule notes over WhatsApp from the owner's calendar. The owner still confirms every slot before the guest is told it is set.",
+    "problem": "Booking chats arrive while the owner is with a client, so times get double-booked. Reschedules wait until closing, when the calendar is finally open and the guest has already moved on.",
+    "what_si_does": "SI reads the WhatsApp note and the owner's calendar, then drafts a reply with an open time that fits the service length and buffer you set. It can draft a reschedule when the guest asks to move. It does not lock the time or send the message on its own.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Connect WhatsApp with permission to read and draft, not send, and share the owner's calendar. Write service lengths and buffer time so drafts stay inside those rules. Setup is often a few days while you check a handful of real chats.",
+    "human_checks": [
+      "The owner confirms every new time and every reschedule before the guest is told it is set.",
+      "SI does not book or move a slot on its own.",
+      "Get consent before you text, and honor opt-outs right away."
+    ],
+    "examples": [
+      {
+        "business_type": "One-chair salon",
+        "scenario": "A color request on WhatsApp gets a draft for Thursday at 2, and the owner sends it after the current client."
+      },
+      {
+        "business_type": "Neighborhood spa",
+        "scenario": "A massage reschedule is drafted from the next open 60-minute block, and the desk confirms the time."
+      },
+      {
+        "business_type": "Barber shop",
+        "scenario": "A Saturday cut request is drafted against the barber's calendar, and two overlapping asks are flagged for a person."
+      }
+    ],
+    "copy_prompt": "Read this WhatsApp note [paste] and this calendar [file]. Draft a booking or reschedule reply that fits these service lengths [paste]. Do not lock the time or send the message. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "WhatsApp",
+      "Google Calendar",
+      "Gmail",
+      "Google Sheets",
+      "Outlook"
+    ],
+    "effect": "Booking chats get a draft time from the real calendar, and the owner still confirms the slot.",
+    "caution": "SI does not book on its own. The owner confirms every slot."
+  },
+  {
+    "slug": "str-guest-message-drafts",
+    "title": "Guest notes, check-in steps and cleaner lists from each booking",
+    "industries": [
+      "short-term-rentals"
+    ],
+    "functions": [
+      "scheduling",
+      "customer-support"
+    ],
+    "summary": "SI drafts guest messages, check-in steps, house rules, and cleaner lists from each booking. The host still sends them after a review.",
+    "problem": "Each stay needs a guest note, check-in steps, house rules, and a cleaner time, and those details live in a few tools. Something is often sent late or skipped when two turnovers land on the same day.",
+    "what_si_does": "SI reads the booking and drafts the guest note, check-in steps, and house rules from the host's own wording. It also drafts a cleaner time that fits checkout and the next check-in. It does not send the notes, change the listing, or book the cleaner on its own.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Use the booking export or calendar, and add the host's guest wording, house rules, and cleaner list. Permission is to draft, not to send messages or book a cleaner. Setup is often a few days while you check a few real stays.",
+    "human_checks": [
+      "The host reviews every guest note and cleaner time before anyone is contacted.",
+      "SI does not send messages or book a cleaner on its own.",
+      "House rules stay the host's own words and are not rewritten as new policy."
+    ],
+    "examples": [
+      {
+        "business_type": "One-unit host",
+        "scenario": "A Friday-to-Monday stay becomes a guest note, lock-box steps, and a Sunday cleaner draft, and the host sends them."
+      },
+      {
+        "business_type": "Small multi-unit host",
+        "scenario": "Two same-day turnovers get cleaner drafts that do not overlap, and guest notes wait for the host to send."
+      },
+      {
+        "business_type": "Weekend cabin",
+        "scenario": "The draft uses the cabin's own check-in steps and quiet hours, and the host still sends the note."
+      }
+    ],
+    "copy_prompt": "Using this booking [file] and the host's wording for guest notes, check-in steps, and house rules [paste], draft those notes and a cleaner time that fits checkout and the next check-in. Do not send or book. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Calendar",
+      "Gmail",
+      "Google Sheets",
+      "WhatsApp",
+      "Google Docs"
+    ],
+    "effect": "Each booking has draft guest notes and a cleaner time ready, and the host still sends them.",
+    "caution": "Guest notes are drafts. House rules stay the owner's words."
+  },
+  {
+    "slug": "insurance-renewal-quote-compare",
+    "title": "Policies due in 60 days lined up with carrier quotes",
+    "industries": [
+      "insurance-agencies"
+    ],
+    "functions": [
+      "sales-follow-up"
+    ],
+    "summary": "SI flags policies due to renew in 60 days and lines up carrier quotes side by side for the agent. The licensed agent still decides.",
+    "problem": "Renewal dates sit in the book of business, and quotes come back in different formats. The agent then rebuilds the compare sheet by hand before every outreach, which slows the follow-up.",
+    "what_si_does": "SI reads the renewal list and flags policies due in 60 days. It drafts a request from the agent's usual wording and lines up price and term from quotes the agent already has. It does not pick a carrier, sell a policy, or bind coverage.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Use the agency's renewal list or export and the compare sheet layout you already use. Permission is to draft and line up figures, not to send mail or bind a policy. Setup is often a few days while the agent checks the first sheet.",
+    "human_checks": [
+      "The licensed agent reviews every date, quote, and message before anything goes out.",
+      "SI does not sell coverage or give insurance advice.",
+      "A person sends every request and binds nothing from a draft."
+    ],
+    "examples": [
+      {
+        "business_type": "Independent agency",
+        "scenario": "Home policies due in 60 days are listed, and two carrier quotes land in one sheet for the agent to review."
+      },
+      {
+        "business_type": "Small commercial book",
+        "scenario": "A shop policy due next month is flagged, and premium and term from three quotes sit side by side."
+      },
+      {
+        "business_type": "Personal-lines desk",
+        "scenario": "Auto renewals in the next 60 days get a draft outreach note, and the agent edits the wording before sending."
+      }
+    ],
+    "copy_prompt": "Using this renewal list [file], flag policies due in 60 days. Draft a quote request from this wording [paste]. Line up price and term from these quotes [files] in one sheet. Do not pick a carrier or send anything. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Sheets",
+      "Excel",
+      "Gmail",
+      "Google Docs",
+      "Outlook"
+    ],
+    "effect": "Renewals due in 60 days are a list, and quotes sit in one sheet for the agent to review.",
+    "caution": "SI does not sell coverage or give insurance advice."
+  },
+  {
+    "slug": "local-buying-signs-call-list",
+    "title": "Weekly list of local shops showing buying signs",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "sales-follow-up"
+    ],
+    "summary": "SI builds a weekly list of local businesses that show buying signs such as new openings, bad reviews, or job posts. The owner decides who to call.",
+    "problem": "The owner wants a short call list, but the signs are spread across listings, reviews, and job boards. Hunting them by hand can eat a whole morning before the first call is made.",
+    "what_si_does": "SI scans the public sources you name and lists local shops with a new opening, a run of bad reviews, or a new job post. It adds a one-line note and a suggested reason to call. It does not contact anyone or invent a review or job post that is not in those sources.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Name the area, the kinds of shops, and the sources you already watch, and write what counts as a buying sign. Setup is often a few days, then a weekly run once the first list looks right.",
+    "human_checks": [
+      "The owner decides who to call and what to say on that call.",
+      "SI does not send outreach or add people to a campaign on its own.",
+      "Public facts only. SI does not invent a review or a job post."
+    ],
+    "examples": [
+      {
+        "business_type": "Bookkeeping practice",
+        "scenario": "New shops on the main street and shops hiring a bookkeeper are listed, and the owner picks who to call."
+      },
+      {
+        "business_type": "Sign shop",
+        "scenario": "New openings and a few one-star review streaks become a Friday call list, and the owner picks who to visit."
+      },
+      {
+        "business_type": "IT support firm",
+        "scenario": "Job posts for an office manager at nearby clinics are listed, and the owner picks two to call that week."
+      }
+    ],
+    "copy_prompt": "Using these sources [list] and this area and shop type [paste], list local businesses with a new opening, a run of bad reviews, or a new job post. Add a one-line note. Do not contact anyone. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Sheets",
+      "Google Docs",
+      "Gmail",
+      "Excel",
+      "Google Alerts"
+    ],
+    "effect": "The owner starts the week with a short call list built from public signs, and the owner still makes the call.",
+    "caution": "The list is a hint. The owner decides who to call."
+  },
+  {
+    "slug": "supplier-invoice-tax-duplicate-check",
+    "title": "Supplier invoice checks for duplicates and tax",
+    "industries": [
+      "any-business",
+      "accounting"
+    ],
+    "functions": [
+      "billing-admin"
+    ],
+    "summary": "SI checks supplier invoices for duplicates and for missing or wrong tax before you pay. A person still pays the bill after reviewing the flags.",
+    "problem": "A bill can arrive twice, and tax can be missing or wrong on a line that should have it. Those issues often show up only after the bill is already paid and harder to unwind.",
+    "what_si_does": "SI reads new supplier invoices and recent bills, then flags the same invoice number or the same amount from the same vendor. It checks tax against the rule you give it and lists missing or odd tax. It does not pay, code, or edit the bill on its own.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Use new invoices and recent bill history, and write the tax rule you already use. Permission is to flag issues, not to pay or change a bill. Setup is often a few days while you check the first flags against real bills.",
+    "human_checks": [
+      "A person confirms a flag before anyone pays or voids a bill.",
+      "SI does not pay, code, or file tax on its own.",
+      "Odd matches stay on a review list and are not forced to match."
+    ],
+    "examples": [
+      {
+        "business_type": "Small manufacturer",
+        "scenario": "A parts bill matches last week's invoice number, and it is flagged before payables run."
+      },
+      {
+        "business_type": "Bookkeeping firm",
+        "scenario": "A vendor bill has no tax on a taxable line, and the draft note waits for the bookkeeper."
+      },
+      {
+        "business_type": "Retail shop",
+        "scenario": "Two PDFs from the same supplier show the same total and date, and one is marked as a likely duplicate."
+      }
+    ],
+    "copy_prompt": "Read these supplier invoices [files] and recent bills [file]. Flag duplicates by invoice number, vendor, amount, or date. Check tax against this rule [paste]. List missing or wrong tax. Do not pay or edit bills. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "QuickBooks Online",
+      "Xero",
+      "Google Sheets",
+      "Gmail",
+      "Excel"
+    ],
+    "effect": "Duplicates and tax gaps show up before pay, and a person still pays the bill.",
+    "caution": "SI flags issues. A person still pays the bill."
+  },
+  {
+    "slug": "weekly-site-search-health",
+    "title": "Weekly site search-health check and drafted fixes",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "content-marketing"
+    ],
+    "summary": "SI runs a weekly site search-health check for broken pages and weak titles. It drafts fixes for a person to approve before anything goes live.",
+    "problem": "Broken pages and thin titles sit for weeks even when the search report already shows them. Nobody writes the fix, so the same errors come back on the next weekly report.",
+    "what_si_does": "SI reads the search report you export and lists broken pages and weak titles. It drafts a short fix for each one from your own wording and title style. It does not change the live site, publish a page, or add a redirect on its own.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Use a weekly search report or crawl export, and add the title style you already use. Permission is to draft fixes, not to publish or redirect. Setup is often a day or two, then a weekly run.",
+    "human_checks": [
+      "A person reviews every draft before a page on the live site changes.",
+      "SI does not publish or redirect on its own.",
+      "Legal, price, and claim wording stay with a person."
+    ],
+    "examples": [
+      {
+        "business_type": "Local service shop",
+        "scenario": "Three broken pages and two thin titles become a Friday list with draft titles, and the owner edits them."
+      },
+      {
+        "business_type": "Small online store",
+        "scenario": "Category pages with missing titles get draft titles from the catalog names, and the owner still publishes."
+      },
+      {
+        "business_type": "Clinic site",
+        "scenario": "A broken hours page is listed with a draft title, and staff still write the hours themselves."
+      }
+    ],
+    "copy_prompt": "Using this search or crawl report [file] and this title style [paste], list broken pages and weak titles. Draft a short fix for each. Do not publish or redirect. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Search Console",
+      "Google Sheets",
+      "Google Docs",
+      "WordPress",
+      "Gmail"
+    ],
+    "effect": "Broken pages and weak titles are a weekly list with drafts, and a person still publishes every change.",
+    "caution": "SI drafts fixes. A person approves every change before it goes live."
+  },
+  {
+    "slug": "supplier-rfq-price-lead-sheet",
+    "title": "One quote request to several suppliers in one sheet",
+    "industries": [
+      "any-business",
+      "home-services"
+    ],
+    "functions": [
+      "inventory-orders",
+      "research-documents"
+    ],
+    "summary": "SI drafts the same quote request for several suppliers and lines up price and lead time in one sheet. A person still picks the supplier.",
+    "problem": "The same ask is typed into a few emails, and replies land in different threads. Price and lead time are hard to compare when they are not sitting in one place.",
+    "what_si_does": "SI drafts the same quote request for each supplier you name, using the item list you provide. When replies come back, it lines up price and lead time in one sheet. It does not send the mail, place an order, or pick a winner on its own.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Give the item list, the supplier list, and the request wording you already use. Connect the mailbox with permission to draft, not send. Setup is often a few days while you check the first compare sheet.",
+    "human_checks": [
+      "A person reviews each request before it is sent to a supplier.",
+      "SI does not place an order or pick a supplier on its own.",
+      "Odd or incomplete replies stay on a review list instead of being guessed."
+    ],
+    "examples": [
+      {
+        "business_type": "HVAC shop",
+        "scenario": "A condenser and a coil list go to three suppliers as drafts, and price and lead time land in one sheet for the owner."
+      },
+      {
+        "business_type": "General contractor",
+        "scenario": "Lumber and hardware asks go to two yards, and late replies are listed as missing instead of guessed."
+      },
+      {
+        "business_type": "Janitorial firm",
+        "scenario": "A paper and soap list goes to three vendors, and the owner picks from the compare sheet."
+      }
+    ],
+    "copy_prompt": "Using this item list [file], these suppliers [list], and this request wording [paste], draft the same quote request for each supplier. When replies arrive [paste], line up price and lead time in one sheet. Do not send mail or pick a supplier. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Gmail",
+      "Google Sheets",
+      "Excel",
+      "Outlook",
+      "Google Docs"
+    ],
+    "effect": "Each supplier gets the same ask, and price and lead time sit in one sheet for a person to pick.",
+    "caution": "SI lines up quotes. A person picks the supplier."
   }
 ]
