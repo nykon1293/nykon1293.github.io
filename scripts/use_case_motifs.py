@@ -11,6 +11,7 @@ field ``motif`` overrides the keyword rules.
 
 from __future__ import annotations
 
+import html
 import re
 from pathlib import Path
 
@@ -34,6 +35,25 @@ FUNCTION_MOTIFS = (
     "scales",
 )
 MOTIFS = FUNCTION_MOTIFS + ("shield",)
+
+# Plain-language alt for the <img> thumbnails. Lockups stay alt="".
+MOTIF_ALT = {
+    "inbox": "Pixel drawing of an open email inbox",
+    "calendar": "Pixel drawing of a calendar with marked days",
+    "invoices": "Pixel drawing of a paper invoice and a stamp",
+    "dashboard": "Pixel drawing of a dashboard with bars and charts",
+    "inventory": "Pixel drawing of three stacked stock boxes",
+    "documents": "Pixel drawing of stacked papers with a seal",
+    "phone": "Pixel drawing of a phone next to a short message",
+    "checklist": "Pixel drawing of a checklist with two boxes checked",
+    "scales": "Pixel drawing of a balance scale",
+    "shield": "Pixel drawing of a padlock",
+}
+
+
+def motif_alt_text(motif: str) -> str:
+    return MOTIF_ALT.get(motif, "Pixel drawing for this use case")
+
 
 INDUSTRY_ACCENT = {
     "legal": ("legal", "#c9a45c"),
@@ -705,7 +725,7 @@ def motif_html_from_parts(motif: str, key: str, accent: str, *, inline: bool = T
     else:
         inner = (
             f'<img src="/assets/use-case-motifs/{motif}--{key}.svg" '
-            f'width="220" height="220" alt="" decoding="async">'
+            f'width="220" height="220" alt="{html.escape(motif_alt_text(motif), quote=True)}" decoding="async">'
         )
     return (
         f'<div class="uc-motif uc-motif--{key}" data-motif="{motif}" aria-hidden="true">\n'
