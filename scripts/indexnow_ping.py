@@ -52,7 +52,6 @@ ENGINES: tuple[tuple[str, str], ...] = (
 
 SKIP_PREFIXES = (
     "chatbot/",
-    "sofer-preview/",
     "scripts/",
     "data/",
     "docs/",
