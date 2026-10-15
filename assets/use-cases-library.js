@@ -145,7 +145,7 @@
   };
 
   const syncTiles = () => {
-    document.querySelectorAll(".uc-tile[data-industry]").forEach((tile) => {
+    document.querySelectorAll("[data-industry]").forEach((tile) => {
       const on = industries.includes(tile.dataset.industry);
       tile.classList.toggle("is-active", on);
       tile.setAttribute("aria-current", on ? "true" : "false");
@@ -279,6 +279,13 @@
       apply();
     }
 
+    const scrollToResults = () => {
+      const results = document.getElementById("featured-h") || document.getElementById("uc-grid");
+      if (!results) return;
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      results.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+    };
+
     document.querySelectorAll(".uc-tile[data-industry]").forEach((tile) => {
       tile.addEventListener("click", (event) => {
         if (!filtering() && !industries.length) return;
@@ -289,6 +296,20 @@
         pageSize = PAGE;
         writeUrl("pushState");
         activateFilter();
+      });
+    });
+
+    document.querySelectorAll(".uc-industry-chip[data-industry]").forEach((chip) => {
+      chip.addEventListener("click", (event) => {
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        const slug = chip.dataset.industry;
+        if (industries.includes(slug)) industries = industries.filter((item) => item !== slug);
+        else industries = [slug];
+        pageSize = PAGE;
+        writeUrl("pushState");
+        activateFilter();
+        scrollToResults();
       });
     });
 

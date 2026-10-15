@@ -17,6 +17,7 @@ https://calendly.com/josh-gemmi/30min
 - Dashboards & reporting: https://gemmisi.com/services/dashboards-reporting.html
 - Ecommerce operations: https://gemmisi.com/services/ecommerce-operations.html
 - Tutoring & project help: https://gemmisi.com/services/tutoring-project-help.html
+- Tutoring short URL: https://gemmisi.com/tutoring/
 - Stocky dump recovery (Shopify CSV after Stocky shut down; not a Stocky replacement app): https://gemmisi.com/services/stocky-recovery.html
 - Advisory & Fractional CTO (inquire first): https://gemmisi.com/advisory.html
 - Anonymized case study: https://gemmisi.com/work/governed-ai-content-engine.html
