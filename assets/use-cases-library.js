@@ -57,6 +57,21 @@
     return indexPromise;
   };
 
+  const MOTIF_ALT = {
+    inbox: "Pixel drawing of an open email inbox",
+    calendar: "Pixel drawing of a calendar with marked days",
+    invoices: "Pixel drawing of a paper invoice and a stamp",
+    dashboard: "Pixel drawing of a dashboard with bars and charts",
+    inventory: "Pixel drawing of three stacked stock boxes",
+    documents: "Pixel drawing of stacked papers with a seal",
+    phone: "Pixel drawing of a phone next to a short message",
+    checklist: "Pixel drawing of a checklist with two boxes checked",
+    scales: "Pixel drawing of a balance scale",
+    shield: "Pixel drawing of a padlock",
+  };
+
+  const motifAlt = (motif) => MOTIF_ALT[motif] || "Pixel drawing for this use case";
+
   const cardHTML = (item) => {
     const note =
       mode !== "hub" && item.n ? `\n              <p class="uc-card-note">${escapeHtml(item.n)}</p>` : "";
@@ -65,7 +80,7 @@
     const f = (item.f || []).join(",");
     const motif =
       item.m && item.c
-        ? `<div class="uc-motif uc-motif--${escapeHtml(item.c)}" data-motif="${escapeHtml(item.m)}" aria-hidden="true"><div class="uc-motif-frame"><img src="/assets/use-case-motifs/${encodeURIComponent(item.m)}--${encodeURIComponent(item.c)}.svg" width="64" height="64" alt="" decoding="async"></div></div>`
+        ? `<div class="uc-motif uc-motif--${escapeHtml(item.c)}" data-motif="${escapeHtml(item.m)}" aria-hidden="true"><div class="uc-motif-frame"><img src="/assets/use-case-motifs/${encodeURIComponent(item.m)}--${encodeURIComponent(item.c)}.svg" width="64" height="64" alt="${escapeHtml(motifAlt(item.m))}" decoding="async"></div></div>`
         : "";
     return `<li class="uc-card uc-injected" data-slug="${escapeHtml(item.s)}" data-i="${escapeHtml(i)}" data-f="${escapeHtml(f)}">
             <a href="/use-cases/${escapeHtml(item.s)}/">
