@@ -21,6 +21,7 @@ from seo_schema import (
     clip_meta,
     common_head_tags,
     font_and_css_links,
+    icon_links,
     service_page_graph,
 )
 from use_case_motifs import landing_motif_html, motif_thumb_html
@@ -900,12 +901,7 @@ def render(page: dict) -> str:
   <meta name="author" content="Yonatan Gemmi" />
 {og_block}
 {font_and_css_links(stylesheet=f"../styles.css?v={CSS_VERSION}", extra_css=f"../assets/use-cases.css?v={CSS_VERSION}")}
-  <link rel="icon" href="/favicon.ico" sizes="any" />
-  <link rel="icon" href="/assets/brand/gemmisi-icon.svg" type="image/svg+xml" />
-  <link rel="icon" href="/assets/brand/gemmisi-icon-32.png" type="image/png" sizes="32x32" />
-  <link rel="icon" href="/assets/brand/gemmisi-icon-16.png" type="image/png" sizes="16x16" />
-  <link rel="apple-touch-icon" href="/assets/brand/gemmisi-icon-180.png" />
-  <link rel="manifest" href="/site.webmanifest" />
+{icon_links()}
   <script type="application/ld+json">
 {schema}
   </script>

@@ -12,11 +12,15 @@ BUSINESS_ID = f"{BASE}/#business"
 WEBSITE_ID = f"{BASE}/#website"
 CALENDLY = "https://calendly.com/josh-gemmi/30min"
 LINKEDIN = "https://www.linkedin.com/in/joshuah-gemmi-16046233/"
+GITHUB = "https://github.com/nykon1293"
 OG_IMAGE = f"{BASE}/assets/brand/gemmisi-og.png"
 PORTRAIT = f"{BASE}/assets/yonatan-gemmi-pixel-portrait-256.png"
 LOGO = f"{BASE}/assets/brand/gemmisi-icon-512.png"
 OG_IMAGE_ALT = "GemmiSI — SI & AI, automation, dashboards, and technical operations"
 SITE_NAME = "GemmiSI"
+SITE_ALTERNATE_NAME = "GemmiSI - Super Intelligence (SI) AI implementation"
+THEME_COLOR = "#d3aa55"
+BACKGROUND_COLOR = "#080b0a"
 OWN_EQUIPMENT = (
     "GemmiSI sets this up on your own equipment and accounts; your data stays with you."
 )
@@ -61,6 +65,7 @@ AREA_SERVED = [
     {"@type": "AdministrativeArea", "name": "Miami-Dade County"},
     {"@type": "AdministrativeArea", "name": "Broward County"},
     {"@type": "AdministrativeArea", "name": "South Florida"},
+    {"@type": "Country", "name": "United States"},
     {"@type": "Place", "name": "Remote"},
 ]
 
@@ -191,7 +196,7 @@ def person_node() -> dict:
         "areaServed": AREA_SERVED,
         "sameAs": [
             LINKEDIN,
-            "https://github.com/nykon1293",
+            GITHUB,
         ],
         "knowsAbout": KNOWS_ABOUT,
     }
@@ -201,17 +206,22 @@ def professional_service_node(*, include_catalog: bool = True) -> dict:
     node: dict = {
         "@type": ["ProfessionalService", "Organization"],
         "@id": BUSINESS_ID,
-        "name": "GemmiSI",
-        "alternateName": "Yonatan Gemmi",
+        "name": SITE_NAME,
+        "alternateName": SITE_ALTERNATE_NAME,
         "url": f"{BASE}/",
         "image": OG_IMAGE,
-        "logo": LOGO,
+        "logo": {
+            "@type": "ImageObject",
+            "url": LOGO,
+            "width": 512,
+            "height": 512,
+        },
         "email": "y@gemmisi.com",
         "description": (
             "SI (Super Intelligence, also known as AI) implementation, AI automation, "
             "AI agents, dashboards, ecommerce operations, Hermes Desk setups, tutoring, "
             "and Stocky dump recovery. Based in North Miami Beach. Serves Miami-Dade, "
-            "Broward, South Florida, and remote clients."
+            "Broward, South Florida, the United States, and remote clients."
         ),
         "priceRange": "$$",
         "currenciesAccepted": "USD",
@@ -225,14 +235,14 @@ def professional_service_node(*, include_catalog: bool = True) -> dict:
         "founder": {
             "@type": "Person",
             "@id": PERSON_ID,
-            "name": "Yonatan (Josh) Gemmi",
-            "alternateName": "Josh Gemmi",
+            "name": "Josh Gemmi",
+            "alternateName": "Yonatan (Josh) Gemmi",
         },
         "employee": {"@id": PERSON_ID},
         "knowsAbout": KNOWS_ABOUT,
         "sameAs": [
             LINKEDIN,
-            "https://github.com/nykon1293",
+            GITHUB,
         ],
         "contactPoint": {
             "@type": "ContactPoint",
@@ -318,6 +328,7 @@ def website_node() -> dict:
         "@id": WEBSITE_ID,
         "url": f"{BASE}/",
         "name": SITE_NAME,
+        "alternateName": SITE_ALTERNATE_NAME,
         "inLanguage": "en-US",
         "publisher": {"@id": BUSINESS_ID},
         "about": {"@id": BUSINESS_ID},
@@ -421,6 +432,34 @@ CLOUDFLARE_WEB_ANALYTICS = (
     "<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' "
     "data-cf-beacon='{\"token\": \"c9c911628ffd4644bce7bea8d47eb16c\"}'></script><!-- End Cloudflare Web Analytics -->\n"
 )
+
+ICON_BLOCK_RE = re.compile(
+    r'  <link rel="icon" href="/favicon\.ico"[^>]*>\n'
+    r'(?:  <link rel="(?:icon|apple-touch-icon)"[^>]*>\n)*'
+    r'(?:  <link rel="manifest" href="/site\.webmanifest" />\n)?'
+    r'(?:  <meta name="theme-color"[^>]*>\n)?'
+)
+
+
+def icon_links() -> str:
+    """Favicon, apple touch, manifest, and theme color used on every public page."""
+    return f"""  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon-16.png" type="image/png" sizes="16x16" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon-32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon-48.png" type="image/png" sizes="48x48" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon-96.png" type="image/png" sizes="96x96" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon-192.png" type="image/png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="/assets/brand/gemmisi-icon-180.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="{THEME_COLOR}" />"""
+
+
+def replace_icon_links(html: str) -> str:
+    updated, count = ICON_BLOCK_RE.subn(icon_links() + "\n", html, count=1)
+    if count != 1:
+        raise SystemExit(f"expected 1 favicon block, found {count}")
+    return updated
 
 
 def common_head_tags(*, title: str, description: str, canonical: str, og_type: str = "website") -> str:
