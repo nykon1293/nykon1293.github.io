@@ -91,14 +91,64 @@
 .uc-pill.is-active { color: #121006; background: var(--accent); border-color: var(--accent); }
 .uc-pill.is-active span { color: #3b2f0d; }
 .uc-count { margin-top: 10px; font-size: .88rem; color: var(--muted-2); }
+.uc-industry-bar {
+  padding: 4px 0 22px;
+  margin: 0 0 4px;
+  max-width: 100%;
+}
+.uc-chip-legend,
 .uc-tile-legend {
-  margin: 16px 0 8px;
+  margin: 0 0 8px;
   font-family: "JetBrains Mono", ui-monospace, monospace;
   font-size: .78rem;
   font-weight: 700;
   letter-spacing: .04em;
   text-transform: uppercase;
   color: var(--muted-2);
+}
+.uc-industry-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 100%;
+}
+.uc-industry-chip {
+  --uc-accent: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+  min-height: 44px;
+  padding: 5px 14px 5px 5px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--uc-accent) 42%, var(--line-soft));
+  background: color-mix(in srgb, var(--uc-accent) 12%, var(--surface));
+  color: var(--text);
+  text-decoration: none;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  white-space: nowrap;
+}
+.uc-industry-chip img {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: #121914;
+  flex-shrink: 0;
+}
+.uc-industry-chip:hover,
+.uc-industry-chip:focus-visible {
+  border-color: color-mix(in srgb, var(--uc-accent) 70%, var(--line));
+  background: color-mix(in srgb, var(--uc-accent) 18%, var(--surface-strong));
+}
+.uc-industry-chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.uc-industry-chip.is-active {
+  color: #121006;
+  background: var(--uc-accent);
+  border-color: var(--uc-accent);
+}
+.uc-tile-legend {
+  margin: 16px 0 8px;
 }
 .uc-tiles {
   display: grid;
@@ -560,7 +610,18 @@ html.uc-js .uc-group:not(.is-open) .uc-card.uc-extra { display: none; }
   .uc-cta-band { flex-direction: column; align-items: flex-start; }
   .uc-cta-band .actions, .uc-cta-band .button { width: 100%; }
   .uc-tools { top: 72px; }
-  .uc-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .uc-tiles,
+  .uc-tile-legend { display: none; }
+  .uc-industry-chips {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 6px;
+    touch-action: pan-x;
+  }
+  .uc-industry-chips::-webkit-scrollbar { display: none; }
   .uc-pills { scrollbar-width: none; }
   .uc-pills::-webkit-scrollbar { display: none; }
   .uc-pill { min-height: 44px; }

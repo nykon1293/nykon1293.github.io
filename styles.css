@@ -822,6 +822,38 @@ p { color: var(--muted); font-size: var(--text-base); }
 }
 .tag.violet { color: #efe2c8; border-color: rgba(184,154,116,.34); background: rgba(184,154,116,.14); }
 .tag.green { color: #dfffee; border-color: rgba(54,211,153,.30); background: rgba(54,211,153,.12); }
+.tag.sage {
+  color: #87b58a;
+  border-color: rgba(135, 181, 138, .45);
+  background: rgba(135, 181, 138, .12);
+}
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 12px;
+  margin-bottom: 20px;
+}
+.hero-tags .eyebrow { margin-bottom: 0; }
+.hero-tags .tag {
+  font-size: .72rem;
+  letter-spacing: .02em;
+}
+.own-accounts-note {
+  margin: 16px 0 0;
+  max-width: 52ch;
+  color: #cfe0d1;
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+.price-lead {
+  margin-top: 16px;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: .01em;
+}
 
 .service-grid, .faq-grid {
   display: grid;
