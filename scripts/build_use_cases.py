@@ -35,6 +35,7 @@ from seo_schema import (
     clip_meta,
     faq_node,
     font_and_css_links,
+    icon_links,
     person_node,
     professional_service_node,
     use_case_seo_desc,
@@ -820,12 +821,7 @@ def head(
   <meta name="twitter:image:alt" content="{e(OG_ALT)}" />
   <link rel="sitemap" type="application/xml" title="Sitemap" href="{BASE}/sitemap.xml" />
 {assets}
-  <link rel="icon" href="/favicon.ico" sizes="any" />
-  <link rel="icon" href="/assets/brand/gemmisi-icon.svg" type="image/svg+xml" />
-  <link rel="icon" href="/assets/brand/gemmisi-icon-32.png" type="image/png" sizes="32x32" />
-  <link rel="icon" href="/assets/brand/gemmisi-icon-16.png" type="image/png" sizes="16x16" />
-  <link rel="apple-touch-icon" href="/assets/brand/gemmisi-icon-180.png" />
-  <link rel="manifest" href="/site.webmanifest" />
+{icon_links()}
   <script type="application/ld+json">
 {json_ld(ld, compact=compact_ld)}
   </script>
@@ -1660,6 +1656,8 @@ def update_sitemap(entries: list) -> None:
     blocks.extend(url_block(f"{BASE}/use-cases/{item['slug']}/", "0.6") for item in entries)
     if "</urlset>" not in text:
         raise SystemExit("sitemap.xml is missing </urlset>")
+    today = date.today().isoformat()
+    text = re.sub(r"<lastmod>[^<]+</lastmod>", f"<lastmod>{today}</lastmod>", text)
     text = text.replace("</urlset>", "".join(blocks) + "</urlset>")
     SITEMAP.write_text(text, encoding="utf-8")
 
@@ -1735,6 +1733,8 @@ def assert_wording(entries: list) -> None:
             raise SystemExit(f"{item['slug']} must link to a service page")
         if "https://gemmisi.com/#business" not in page:
             raise SystemExit(f"{item['slug']} JSON-LD must reference GemmiSI")
+        if "BreadcrumbList" not in page:
+            raise SystemExit(f"{item['slug']} is missing BreadcrumbList JSON-LD")
         if page.count("cloudflareinsights.com/beacon.min.js") != 1:
             raise SystemExit(f"{item['slug']} must include exactly one Cloudflare beacon")
         if 'class="uc-motif' not in page or "aria-hidden" not in page:
@@ -1779,6 +1779,8 @@ def assert_wording(entries: list) -> None:
             raise SystemExit(f"{slug} landing needs a visible FAQ with 4–6 questions")
         if "FAQPage" not in html_page:
             raise SystemExit(f"{slug} landing is missing FAQPage JSON-LD")
+        if "BreadcrumbList" not in html_page:
+            raise SystemExit(f"{slug} landing is missing BreadcrumbList JSON-LD")
         if OWN_ACCOUNTS not in html_page or APPROVAL_LINE not in html_page:
             raise SystemExit(f"{slug} landing FAQ must include own-equipment and approval-before-send")
         if "SI" not in html_page.split("<title>", 1)[1].split("</title>", 1)[0] or "AI" not in html_page.split("<title>", 1)[1].split("</title>", 1)[0]:

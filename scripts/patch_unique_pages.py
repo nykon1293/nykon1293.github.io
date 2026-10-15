@@ -20,6 +20,7 @@ from seo_schema import (
     graph_payload,
     person_node,
     professional_service_node,
+    replace_icon_links,
     service_node,
     webpage_node,
     website_node,
@@ -202,7 +203,7 @@ def patch_head(
         count=1,
         flags=re.DOTALL,
     )
-    return html
+    return replace_icon_links(html)
 
 
 def home_graph() -> str:
@@ -628,12 +629,33 @@ HAND_PAGES = [
 ]
 
 
+def patch_404() -> None:
+    path = ROOT / "404.html"
+    html = path.read_text(encoding="utf-8")
+    title = "Page not found | SI (AI) | GemmiSI"
+    description = "That SI (AI) page is not on GemmiSI. Try home, pricing, Hermes desks, or ecommerce ops."
+    canonical = f"{BASE}/404.html"
+    if 'property="og:title"' not in html:
+        og = common_head_tags(title=title, description=description, canonical=canonical)
+        html = html.replace(
+            '  <link rel="preload"',
+            og + "\n  <link rel=\"preload\"",
+            1,
+        )
+        if 'property="og:title"' not in html:
+            raise SystemExit("could not insert 404 Open Graph tags")
+    html = replace_icon_links(html)
+    path.write_text(html, encoding="utf-8")
+    print("patched", path.relative_to(ROOT))
+
+
 def refresh_jsonld_only() -> None:
     """Replace JSON-LD on hand-maintained pages without mutating visible HTML."""
     for spec in HAND_PAGES:
         html = spec["path"].read_text(encoding="utf-8")
         spec["path"].write_text(replace_jsonld(html, spec["graph"]()), encoding="utf-8")
         print("jsonld", spec["path"].relative_to(ROOT))
+    patch_404()
 
 
 def refresh_head_and_jsonld() -> None:
@@ -652,6 +674,7 @@ def refresh_head_and_jsonld() -> None:
         html = replace_jsonld(html, spec["graph"]())
         spec["path"].write_text(html, encoding="utf-8")
         print("patched", spec["path"].relative_to(ROOT))
+    patch_404()
 
 
 def main() -> None:

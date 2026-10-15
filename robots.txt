@@ -1,6 +1,9 @@
 # IndexNow (active): https://gemmisi.com/f702ca108ee22cc8602abd433bed3cf5.txt
 User-agent: *
 Allow: /
+Allow: /favicon.ico
+Allow: /assets/brand/
+Allow: /site.webmanifest
 Allow: /use-cases/
 Allow: /f702ca108ee22cc8602abd433bed3cf5.txt
 Disallow: /chatbot/

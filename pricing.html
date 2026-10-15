@@ -29,10 +29,14 @@
   <link rel="stylesheet" href="styles.css?v=perf-1" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" href="/assets/brand/gemmisi-icon.svg" type="image/svg+xml" />
-  <link rel="icon" href="/assets/brand/gemmisi-icon-32.png" type="image/png" sizes="32x32" />
   <link rel="icon" href="/assets/brand/gemmisi-icon-16.png" type="image/png" sizes="16x16" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon-32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon-48.png" type="image/png" sizes="48x48" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon-96.png" type="image/png" sizes="96x96" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon-192.png" type="image/png" sizes="192x192" />
   <link rel="apple-touch-icon" href="/assets/brand/gemmisi-icon-180.png" />
   <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#d3aa55" />
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -42,6 +46,7 @@
       "@id": "https://gemmisi.com/#website",
       "url": "https://gemmisi.com/",
       "name": "GemmiSI",
+      "alternateName": "GemmiSI - Super Intelligence (SI) AI implementation",
       "inLanguage": "en-US",
       "publisher": {
         "@id": "https://gemmisi.com/#business"
@@ -91,6 +96,10 @@
           "name": "South Florida"
         },
         {
+          "@type": "Country",
+          "name": "United States"
+        },
+        {
           "@type": "Place",
           "name": "Remote"
         }
@@ -129,12 +138,18 @@
       ],
       "@id": "https://gemmisi.com/#business",
       "name": "GemmiSI",
-      "alternateName": "Yonatan Gemmi",
+      "alternateName": "GemmiSI - Super Intelligence (SI) AI implementation",
       "url": "https://gemmisi.com/",
       "image": "https://gemmisi.com/assets/brand/gemmisi-og.png",
-      "logo": "https://gemmisi.com/assets/brand/gemmisi-icon-512.png",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gemmisi.com/assets/brand/gemmisi-icon-512.png",
+        "width": 512,
+        "height": 512
+      },
       "email": "y@gemmisi.com",
-      "description": "SI (Super Intelligence, also known as AI) implementation, AI automation, AI agents, dashboards, ecommerce operations, Hermes Desk setups, tutoring, and Stocky dump recovery. Based in North Miami Beach. Serves Miami-Dade, Broward, South Florida, and remote clients.",
+      "telephone": "+1-310-621-2704",
+      "description": "SI (Super Intelligence, also known as AI) implementation, AI automation, AI agents, dashboards, ecommerce operations, Hermes Desk setups, tutoring, and Stocky dump recovery. Based in North Miami Beach. Serves Miami-Dade, Broward, South Florida, the United States, and remote clients.",
       "priceRange": "$$",
       "currenciesAccepted": "USD",
       "address": {
@@ -166,6 +181,10 @@
           "name": "South Florida"
         },
         {
+          "@type": "Country",
+          "name": "United States"
+        },
+        {
           "@type": "Place",
           "name": "Remote"
         }
@@ -173,8 +192,8 @@
       "founder": {
         "@type": "Person",
         "@id": "https://gemmisi.com/#person",
-        "name": "Yonatan (Josh) Gemmi",
-        "alternateName": "Josh Gemmi"
+        "name": "Josh Gemmi",
+        "alternateName": "Yonatan (Josh) Gemmi"
       },
       "employee": {
         "@id": "https://gemmisi.com/#person"
@@ -209,6 +228,7 @@
         "@type": "ContactPoint",
         "contactType": "sales",
         "email": "y@gemmisi.com",
+        "telephone": "+1-310-621-2704",
         "url": "https://calendly.com/josh-gemmi/30min",
         "availableLanguage": "English"
       },
