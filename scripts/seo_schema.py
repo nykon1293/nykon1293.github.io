@@ -19,7 +19,6 @@ LOGO = f"{BASE}/assets/brand/gemmisi-icon-512.png"
 OG_IMAGE_ALT = "GemmiSI — SI & AI, automation, dashboards, and technical operations"
 SITE_NAME = "GemmiSI"
 SITE_ALTERNATE_NAME = "GemmiSI - Super Intelligence (SI) AI implementation"
-TELEPHONE = "+1-310-621-2704"
 THEME_COLOR = "#d3aa55"
 BACKGROUND_COLOR = "#080b0a"
 OWN_EQUIPMENT = (
@@ -218,7 +217,6 @@ def professional_service_node(*, include_catalog: bool = True) -> dict:
             "height": 512,
         },
         "email": "y@gemmisi.com",
-        "telephone": TELEPHONE,
         "description": (
             "SI (Super Intelligence, also known as AI) implementation, AI automation, "
             "AI agents, dashboards, ecommerce operations, Hermes Desk setups, tutoring, "
@@ -250,7 +248,6 @@ def professional_service_node(*, include_catalog: bool = True) -> dict:
             "@type": "ContactPoint",
             "contactType": "sales",
             "email": "y@gemmisi.com",
-            "telephone": TELEPHONE,
             "url": CALENDLY,
             "availableLanguage": "English",
         },

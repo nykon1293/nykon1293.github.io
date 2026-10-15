@@ -16,7 +16,6 @@ ROBOTS = ROOT / "robots.txt"
 BASE = "https://gemmisi.com"
 SITE_NAME = "GemmiSI"
 SITE_ALTERNATE_NAME = "GemmiSI - Super Intelligence (SI) AI implementation"
-TELEPHONE = "+1-310-621-2704"
 LOGO_URL = f"{BASE}/assets/brand/gemmisi-icon-512.png"
 SKIP_SITEMAP_DIRS = {"chatbot", "sofer-preview"}
 NEW_INDUSTRY_PAGES = (
@@ -270,8 +269,10 @@ def main() -> None:
                 org = next((n for n in orgs if n.get("@id") == f"{BASE}/#business"), orgs[0])
                 if org.get("name") != SITE_NAME:
                     errors.append(f"{rel}: organization name should be GemmiSI")
-                if org.get("telephone") != TELEPHONE:
-                    errors.append(f"{rel}: organization telephone should be {TELEPHONE}")
+                if org.get("email") != "y@gemmisi.com":
+                    errors.append(f"{rel}: organization email should be y@gemmisi.com")
+                if "telephone" in org or "telephone" in (org.get("contactPoint") or {}):
+                    errors.append(f"{rel}: telephone must be omitted from structured data")
                 if "streetAddress" in json.dumps(org.get("address") or {}):
                     errors.append(f"{rel}: no street address")
                 logo = org.get("logo")
@@ -293,6 +294,8 @@ def main() -> None:
                     errors.append(f"{rel}: WebSite name should be GemmiSI")
                 if site.get("alternateName") != SITE_ALTERNATE_NAME:
                     errors.append(f"{rel}: WebSite alternateName should describe SI/AI")
+            if '"telephone"' in json.dumps(nodes):
+                errors.append(f"{rel}: telephone must not appear in JSON-LD")
             people = [n for n in nodes if isinstance(n, dict) and n.get("@id") == f"{BASE}/#person"]
             if people and people[0].get("alternateName") != "Josh Gemmi":
                 errors.append(f"{rel}: Person alternateName should be Josh Gemmi")
