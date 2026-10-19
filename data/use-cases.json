@@ -5816,7 +5816,7 @@
         "scenario": "The firm's calendar of record stays with the professional. SI only tracks what was entered."
       }
     ],
-    "copy_prompt": "Keep a tracker from these due dates a professional has already verified [paste]. Remind assigned staff at these intervals [paste]. Show a weekly coming-up and overdue list. Do not calculate or confirm any due date, threshold or tax; list only what I give you for a professional to verify. Do not determine whether anyone must file. Tax dates and rules differ by state, so the firm checks theirs. Do not send anything. Do not calculate or confirm any due date, threshold or tax; list only what I give you for a professional to verify. Pause and show me before sending, filing, posting or changing anything. Use only the sample or made-up information I provide; do not include real client names, SSNs, account numbers or tax details.",
+    "copy_prompt": "Keep a tracker from these due dates a professional has already verified [paste]. Remind assigned staff at these intervals [paste]. Show a weekly coming-up and overdue list. Do not calculate or confirm any due date, threshold or tax; list only what I give you for a professional to verify. Do not determine whether anyone must file. Tax dates and rules differ by state, so the firm checks theirs. Do not send anything. Pause and show me before sending, filing, posting or changing anything. Use only the sample or made-up information I provide; do not include real client names, SSNs, account numbers or tax details.",
     "tools_examples": [
       "Google Workspace",
       "Microsoft 365",
@@ -6331,7 +6331,7 @@
     "summary": "When a payment is disputed, SI gathers the order, shipment, tracking, and messages you already have. It puts them in one packet and leaves the filing to you.",
     "problem": "Chargebacks and marketplace disputes arrive with a short deadline. The evidence is spread across the store, the shipping tool, and the inbox. Someone spends an afternoon hunting screenshots. The packet is incomplete or late.",
     "what_si_does": "SI collects, from the sources you point at, the order, payment, shipping label, and tracking. It also collects the delivery scan if any. It collects the product page or description as you saved it, and the customer messages. It builds a packet with a short timeline and a checklist of what the processor asked for. It flags missing pieces, such as no delivery scan or no copy of the policy shown at checkout. It does not file the dispute. It does not write a legal argument.",
-    "setup": "You need the dispute notice and read access to orders, shipping, and the helpdesk or inbox. Add your posted policies. Setup is often a few days, then a repeatable packet per dispute.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. You need the dispute notice and read access to orders, shipping, and the helpdesk or inbox. Add your posted policies. Setup is often a few days, then a repeatable packet per dispute.",
     "human_checks": [
       "A person files the dispute. SI never submits to the processor or marketplace.",
       "Missing evidence stays listed as missing. SI does not invent screenshots or dates.",
