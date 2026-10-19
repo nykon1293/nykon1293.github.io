@@ -97,6 +97,68 @@ def with_si_gloss(text: str) -> str:
     return f"{SI_GLOSS} can help with this kind of work. {text}"
 
 
+# Explicit document titles and meta for conversion pages. Keep SI, AI, and
+# GemmiSI in every title; keep SI (AI) in every description; stay ≤60 / ≤155.
+USE_CASE_SEO = {
+    "rubric-lesson-plan-outlines": {
+        "title": "Lesson Plan & Rubric Outlines with SI (AI) | GemmiSI",
+        "description": (
+            "SI (AI) drafts lesson outlines and rubric skeletons from the "
+            "standards you already chose. You decide what to teach. Free copy-ready prompt."
+        ),
+    },
+    "tuition-payment-reminders": {
+        "title": "Tuition Payment Reminder Drafts with SI (AI) | GemmiSI",
+        "description": (
+            "SI (AI) drafts calm tuition reminders from your aging list. "
+            "Your business office approves and sends every one. No fees or balance changes."
+        ),
+    },
+    "missing-assignment-reminders": {
+        "title": "Missing Assignment Reminders with SI (AI) | GemmiSI",
+        "description": (
+            "Turn a gradebook export into a missing-work list and gentle reminder drafts. "
+            "SI (AI) never changes scores. You decide who is contacted."
+        ),
+    },
+    "enrollment-inquiry-follow-up": {
+        "title": "Enrollment Inquiry Follow-Up Drafts | SI (AI) | GemmiSI",
+        "description": (
+            "SI (AI) turns tour requests and inquiry emails into one list, then drafts "
+            "replies in your approved wording. Admissions sends every reply."
+        ),
+    },
+    "parent-teacher-conference-scheduling": {
+        "title": "Parent-Teacher Conference Scheduling | SI (AI) | GemmiSI",
+        "description": (
+            "SI (AI) finds open conference slots, flags double-bookings and drafts "
+            "confirmations. A teacher or office confirms every time."
+        ),
+    },
+    "missed-call-text-back": {
+        "title": "Missed-Call Text-Back for Businesses | SI (AI) | GemmiSI",
+        "description": (
+            "SI (AI) sends your pre-approved, facts-only text after a missed call and logs it. "
+            "You call back, quote and book. Set up on your own accounts."
+        ),
+    },
+    "tax-deadline-tracking": {
+        "title": "Due Date Tracking for Accountants | SI (AI) | GemmiSI",
+        "description": (
+            "One tracker for tax due dates your firm already verified. SI (AI) reminds staff "
+            "and shows a weekly coming-up and overdue list. Never adds dates."
+        ),
+    },
+    "chargeback-and-dispute-evidence": {
+        "title": "Chargeback Packet, Built for You to File | SI (AI) | GemmiSI",
+        "description": (
+            "SI (AI) gathers the order, tracking and messages into one dispute evidence packet "
+            "with a timeline, and flags what's missing. You file it."
+        ),
+    },
+}
+
+
 def use_case_seo_title(title: str) -> str:
     """Lead the qualifier with SI, add AI, brand as GemmiSI. Prefer ≤60 characters."""
     name = re.sub(r"^(A|An|The) ", "", title).strip()
@@ -122,12 +184,33 @@ def use_case_seo_title(title: str) -> str:
     return candidate
 
 
+def _seo_override_title(slug: str) -> str | None:
+    raw = (USE_CASE_SEO.get(slug) or {}).get("title")
+    if not raw:
+        return None
+    title = re.sub(r"\s+", " ", raw).strip()
+    if len(title) > 60:
+        raise SystemExit(f"{slug} seo title is {len(title)} chars")
+    if "SI" not in title or "AI" not in title or "GemmiSI" not in title:
+        raise SystemExit(f"{slug} seo title must include SI, AI, and GemmiSI")
+    return title
+
+
 def use_case_seo_titles(entries: list[dict]) -> dict[str, str]:
     """Unique document titles; disambiguate with industry or slug if a short form collides."""
     assigned: dict[str, str] = {}
     used: set[str] = set()
     suffix = " | SI (AI) | GemmiSI"
     for item in entries:
+        override = _seo_override_title(item["slug"])
+        if override:
+            if override.casefold() in used:
+                raise SystemExit(f"{item['slug']} seo title collides")
+            assigned[item["slug"]] = override
+            used.add(override.casefold())
+    for item in entries:
+        if item["slug"] in assigned:
+            continue
         candidate = use_case_seo_title(item["title"])
         if candidate.casefold() in used:
             industry = str((item.get("industries") or ["use-case"])[0]).replace("-", " ")
@@ -151,8 +234,18 @@ def use_case_seo_titles(entries: list[dict]) -> dict[str, str]:
     return assigned
 
 
-def use_case_seo_desc(summary: str) -> str:
-    return clip_meta(with_si_ai(summary))
+def use_case_seo_desc(item: dict | str) -> str:
+    if isinstance(item, str):
+        return clip_meta(with_si_ai(item))
+    raw = (USE_CASE_SEO.get(item["slug"]) or {}).get("description")
+    if raw:
+        text = re.sub(r"\s+", " ", raw).strip()
+        if len(text) > 155:
+            raise SystemExit(f"{item['slug']} seo description is {len(text)} chars")
+        if "SI" not in text or "AI" not in text:
+            raise SystemExit(f"{item['slug']} seo description must include SI and AI")
+        return text
+    return clip_meta(with_si_ai(item["summary"]))
 
 
 def _offer(name: str, url: str, *, price: str | None = None, service: str, description: str | None = None) -> dict:
@@ -400,7 +493,7 @@ def service_node(*, name: str, description: str, url: str) -> dict:
     }
 
 
-CSS_VERSION = "uc-motifs-2"
+CSS_VERSION = "uc-book-1"
 
 
 def graph_payload(nodes: list[dict]) -> str:

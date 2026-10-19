@@ -495,6 +495,27 @@ html.uc-js .uc-group:not(.is-open) .uc-card.uc-extra { display: none; }
   overflow-wrap: anywhere;
 }
 .uc-caution strong { color: #e8d9ae; }
+.uc-book-lead {
+  display: none;
+  margin: 16px 0 2px;
+  max-width: 28rem;
+}
+.uc-book-lead .button { width: 100%; }
+.uc-book-quiet {
+  margin: 14px 0 0;
+  max-width: 68ch;
+  font-size: .95rem;
+  line-height: 1.5;
+}
+.uc-book-quiet a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+.uc-book-quiet a:hover {
+  color: #f0d692;
+  text-decoration: underline;
+}
 .uc-ex-intro { font-size: .94rem !important; color: var(--muted-2) !important; margin-bottom: 14px; }
 .uc-examples { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; max-width: 68ch; }
 .uc-ex { padding: 16px 18px; border: 1px solid var(--line-soft); border-radius: 14px; background: var(--surface); min-width: 0; }
@@ -577,6 +598,8 @@ html.uc-js .uc-group:not(.is-open) .uc-card.uc-extra { display: none; }
 .uc-side-cta p + .button { margin-top: 14px; }
 .uc-faq { padding-top: 36px; margin-top: 12px; }
 .uc-service-link p { margin: 0; }
+.uc-service-link p + p { margin-top: 10px; }
+.uc-service-link a[href="/tutoring/"] { white-space: nowrap; }
 .uc-related { padding: 48px 0 8px; margin-top: 24px; border-top: 1px solid var(--line-soft); }
 .uc-related h2 { font-size: clamp(1.4rem, 2.4vw, 2rem); margin-bottom: 18px; }
 .uc-all { margin-top: 16px; }
@@ -601,6 +624,8 @@ html.uc-js .uc-group:not(.is-open) .uc-card.uc-extra { display: none; }
   .uc-detail-side { margin-top: 8px; }
   .uc-side-stick { position: static; }
   .uc-side-cta { display: none; }
+  .uc-book-lead { display: block; }
+  .uc-book-quiet { display: none; }
 }
 @media (max-width: 1000px) {
   .uc-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }

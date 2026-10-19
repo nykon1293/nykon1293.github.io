@@ -45,6 +45,7 @@ from seo_schema import (
 )
 from use_case_motifs import (
     landing_motif_html,
+    landing_motif_parts,
     motif_bytes,
     motif_html,
     motif_thumb_html,
@@ -113,6 +114,26 @@ STOCKY_SLUGS = {
 HERMES_SLUGS = {
     "standing-si-desk-approval-queue",
 }
+SCHOOL_OFFICE_SLUGS = {
+    "tuition-payment-reminders",
+    "enrollment-inquiry-follow-up",
+    "parent-teacher-conference-scheduling",
+}
+RELATED_PINNED = {
+    "rubric-lesson-plan-outlines": (
+        "tuition-payment-reminders",
+        "missing-assignment-reminders",
+    ),
+    "tuition-payment-reminders": (
+        "rubric-lesson-plan-outlines",
+        "missing-assignment-reminders",
+    ),
+    "missing-assignment-reminders": (
+        "rubric-lesson-plan-outlines",
+        "tuition-payment-reminders",
+    ),
+    "tax-deadline-tracking": ("year-end-tax-document-packet",),
+}
 
 
 def e(value) -> str:
@@ -177,6 +198,8 @@ def relevant_service(item: dict) -> tuple[str, str]:
         return ("/services/stocky-recovery.html", "Stocky dump recovery")
     if slug in HERMES_SLUGS or "hermes" in blob:
         return ("/services/hermes-agents.html", "Hermes Agents")
+    if slug in SCHOOL_OFFICE_SLUGS:
+        return ("/services/ai-automation.html", "SI automation")
     if primary_industry(item) == "education":
         return ("/services/tutoring-project-help.html", "Tutoring & project help")
     if primary_industry(item) == "ecommerce" or "inventory-orders" in item["functions"]:
@@ -184,6 +207,27 @@ def relevant_service(item: dict) -> tuple[str, str]:
     if "reporting-dashboards" in item["functions"]:
         return ("/services/dashboards-reporting.html", "Dashboards & reporting")
     return ("/services/ai-automation.html", "SI automation")
+
+
+def related_service_html(item: dict) -> str:
+    if item["slug"] in SCHOOL_OFFICE_SLUGS:
+        return (
+            "<p>Schools: "
+            '<a class="text-link" href="/services/ai-automation.html">SI automation</a> '
+            'or <a class="text-link" href="/services/hermes-agents.html">Hermes</a>. '
+            'Teachers and tutors: <a class="text-link" href="/tutoring/">'
+            "SI (AI) Tutoring, $175 for 90 minutes</a>.</p>"
+        )
+    href, label = relevant_service(item)
+    html_out = (
+        f'<p>This job usually fits <a class="text-link" href="{e(href)}">{e(label)}</a>.</p>'
+    )
+    if primary_industry(item) == "education":
+        html_out += (
+            "\n              <p>A teacher can learn this in one 90-minute "
+            '<a class="text-link" href="/tutoring/">SI (AI) Tutoring</a> session ($175).</p>'
+        )
+    return html_out
 
 
 def industry_faqs(slug: str) -> list[tuple[str, str]]:
@@ -657,6 +701,14 @@ def load() -> list:
         if item.get("featured"):
             featured_flags.append(slug)
         slugs.append(slug)
+    missing_pins = [
+        f"{slug}->{pin}"
+        for slug, pins in RELATED_PINNED.items()
+        for pin in [slug, *pins]
+        if pin not in slugs
+    ]
+    if missing_pins:
+        raise SystemExit(f"RELATED_PINNED points at unknown slugs: {missing_pins}")
     dupes = {slug for slug in slugs if slugs.count(slug) > 1}
     if dupes:
         raise SystemExit(f"Duplicate slugs: {', '.join(sorted(dupes))}")
@@ -774,7 +826,7 @@ def foot(depth: int) -> str:
 
 
 SCRIPTS = NAV_SCRIPT
-LIBRARY_JS = '  <script src="/assets/use-cases-library.js" defer></script>\n'
+LIBRARY_JS = f'  <script src="/assets/use-cases-library.js?v={CSS_VERSION}" defer></script>\n'
 PAGE_END = CLOUDFLARE_WEB_ANALYTICS + "</body>\n</html>\n"
 
 
@@ -952,6 +1004,29 @@ def breadcrumb_html(depth: int, items: list[tuple[str, str | None]]) -> str:
     return f'        <nav class="breadcrumb" aria-label="Breadcrumb">\n          ' + "\n          ".join(parts) + "\n        </nav>"
 
 
+def industry_chips(entries: list) -> str:
+    counts = industry_counts(entries)
+    chips = []
+    for slug, info in INDUSTRIES.items():
+        if not counts[slug]:
+            continue
+        motif, key, _accent = landing_motif_parts("industry", slug)
+        chips.append(
+            f'          <a class="uc-industry-chip uc-motif--{e(key)}" href="/use-cases/industry/{e(slug)}/" data-industry="{e(slug)}">\n'
+            f'            <img src="/assets/use-case-motifs/{motif}--{key}.svg" width="28" height="28" alt="" decoding="async">\n'
+            f"            <span>{e(info['label'])}</span>\n"
+            f"          </a>"
+        )
+    return (
+        '      <section class="uc-industry-bar" aria-labelledby="uc-industry-chips-label">\n'
+        '        <p class="uc-chip-legend" id="uc-industry-chips-label">Industry</p>\n'
+        '        <div class="uc-industry-chips" role="navigation" aria-label="Filter or open an industry">\n'
+        + "\n".join(chips)
+        + "\n        </div>\n"
+        "      </section>\n"
+    )
+
+
 def industry_tiles(entries: list, *, current: str | None = None, extra_query: str = "") -> str:
     counts = industry_counts(entries)
     tiles = []
@@ -1120,6 +1195,7 @@ def library_page(entries: list) -> str:
         </div>
       </section>
 
+{industry_chips(entries)}
       <section id="library" class="uc-tools" aria-label="Search and filter use cases">
         <div class="uc-search">
           <label for="uc-q" class="visually-hidden">Search use cases</label>
@@ -1423,6 +1499,16 @@ def function_landing(slug: str, entries: list) -> str:
 
 def related_entries(item: dict, entries: list, cap: int = 3) -> list:
     self_slug = item["slug"]
+    by_slug = {other["slug"]: other for other in entries}
+    picked: list = []
+    seen = {self_slug}
+    for slug in RELATED_PINNED.get(self_slug, ()):
+        other = by_slug.get(slug)
+        if other and other["slug"] not in seen:
+            picked.append(other)
+            seen.add(other["slug"])
+        if len(picked) >= cap:
+            return picked
     ind = set(item["industries"])
     fn = set(item["functions"])
     primary_i = primary_industry(item)
@@ -1438,9 +1524,13 @@ def related_entries(item: dict, entries: list, cap: int = 3) -> list:
             shared_f,
         )
 
-    others = [other for other in entries if other["slug"] != self_slug]
+    others = [other for other in entries if other["slug"] not in seen]
     others.sort(key=score, reverse=True)
-    return others[:cap]
+    for other in others:
+        picked.append(other)
+        if len(picked) >= cap:
+            break
+    return picked
 
 
 def detail_page(item: dict, entries: list) -> str:
@@ -1449,8 +1539,8 @@ def detail_page(item: dict, entries: list) -> str:
     info = industry_info(ind)
     url = f"/use-cases/{item['slug']}/"
     title = SEO_TITLES[item["slug"]]
-    desc = use_case_seo_desc(item["summary"])
-    service_href, service_label = relevant_service(item)
+    desc = use_case_seo_desc(item)
+    service_html = related_service_html(item)
     trail = [("Home", BASE + "/"), ("Use cases", BASE + "/use-cases/")]
     if ind != "any-business":
         trail.append((info["label"], BASE + f"/use-cases/industry/{ind}/"))
@@ -1484,6 +1574,20 @@ def detail_page(item: dict, entries: list) -> str:
     caution = ""
     if (item.get("caution") or "").strip():
         caution = f'<p class="uc-caution" role="note"><strong>Worth knowing:</strong> {e(item["caution"])}</p>'
+    mobile_book = (
+        f'<p class="uc-book-lead"><a class="button primary" href="{CAL}" '
+        f'target="_blank" rel="noreferrer">{CTA}</a></p>'
+    )
+    quiet_book = (
+        f'<p class="uc-book-quiet"><a href="{CAL}" target="_blank" rel="noreferrer">'
+        "Want this built? Book a free 30-minute call</a></p>"
+    )
+    more_schools = ""
+    if ind == "education":
+        more_schools = (
+            '<p class="uc-all"><a class="text-link" href="../industry/education/">'
+            "More for schools →</a></p>\n          "
+        )
     legal_note = ""
     if info.get("regulated") and ind != "education":
         legal_note = f'<p class="uc-read-first" role="note">{e(info["short"])}</p>\n          '
@@ -1509,7 +1613,9 @@ def detail_page(item: dict, entries: list) -> str:
               <p class="uc-card-cat">{tag_html}</p>
               <h1>{e(item['title'])}</h1>
               <p class="lead">{e(with_si_gloss(item['summary']))}</p>
+              {mobile_book}
               {legal_note}{caution}
+              {quiet_book}
             </div>
             {graphic}
           </div>
@@ -1565,7 +1671,7 @@ def detail_page(item: dict, entries: list) -> str:
             </div>
             <div class="uc-side-card uc-service-link">
               <h3>Related service</h3>
-              <p>This job usually fits <a class="text-link" href="{e(service_href)}">{e(service_label)}</a>.</p>
+              {service_html}
             </div>
             <div class="uc-side-card uc-side-cta">
               <p class="section-kicker">Want this built?</p>
@@ -1581,7 +1687,7 @@ def detail_page(item: dict, entries: list) -> str:
           <ul class="uc-grid">
           {related_html}
           </ul>
-          <p class="uc-all"><a class="text-link" href="../index.html">See all {n} use cases →</a></p>
+          {more_schools}<p class="uc-all"><a class="text-link" href="../index.html">See all {n} use cases →</a></p>
         </section>
 
         <section class="uc-cta-band" aria-labelledby="cta-h">
@@ -1687,6 +1793,8 @@ def assert_wording(entries: list) -> None:
         raise SystemExit("Hub must not hide function filters behind More filters")
     if 'data-industry=' not in library or 'id="uc-functions"' not in library:
         raise SystemExit("Hub needs industry tiles and visible function filter chips")
+    if "uc-industry-chips" not in library or "uc-industry-chip" not in library:
+        raise SystemExit("Hub is missing industry chips")
     if "uc-card-note" in library:
         raise SystemExit("Hub cards must not include regulated-industry disclaimer notes")
     if "Browse the use cases" in library:
@@ -1725,6 +1833,27 @@ def assert_wording(entries: list) -> None:
             raise SystemExit(f"{item['slug']} title must include SI, AI, and GemmiSI")
         if "SI" not in page_desc or "AI" not in page_desc:
             raise SystemExit(f"{item['slug']} meta must include SI and AI")
+        if len(page_title) > 60:
+            raise SystemExit(f"{item['slug']} title is {len(page_title)} chars")
+        if len(page_desc) > 155:
+            raise SystemExit(f"{item['slug']} meta is {len(page_desc)} chars")
+        if 'class="uc-book-lead"' not in page or 'class="uc-book-quiet"' not in page:
+            raise SystemExit(f"{item['slug']} is missing the shared booking CTAs")
+        og_title = re.search(r'<meta property="og:title" content="(.*?)" />', page)
+        tw_title = re.search(r'<meta name="twitter:title" content="(.*?)" />', page)
+        og_desc = re.search(r'<meta property="og:description" content="(.*?)" />', page)
+        tw_desc = re.search(r'<meta name="twitter:description" content="(.*?)" />', page)
+        if not og_title or html.unescape(og_title.group(1)) != page_title:
+            raise SystemExit(f"{item['slug']} og:title should match the document title")
+        if not tw_title or html.unescape(tw_title.group(1)) != page_title:
+            raise SystemExit(f"{item['slug']} twitter:title should match the document title")
+        if not og_desc or html.unescape(og_desc.group(1)) != page_desc:
+            raise SystemExit(f"{item['slug']} og:description should match the meta description")
+        if not tw_desc or html.unescape(tw_desc.group(1)) != page_desc:
+            raise SystemExit(f"{item['slug']} twitter:description should match the meta description")
+        for pin in RELATED_PINNED.get(item["slug"], ()):
+            if f"/use-cases/{pin}/" not in page:
+                raise SystemExit(f"{item['slug']} should link to related {pin}")
         if "noindex" in page or "Nous" in page or "Brandgate" in page:
             raise SystemExit(f"Wording check failed for {item['slug']}")
         if "Super Intelligence" not in page:
@@ -1758,6 +1887,15 @@ def assert_wording(entries: list) -> None:
                     raise SystemExit(f"{item['slug']} should not repeat the Education landing banner")
                 if "Administrative support only:" in page:
                     raise SystemExit(f"{item['slug']} should keep the long shared caution on the landing only")
+                if "More for schools" not in page:
+                    raise SystemExit(f"{item['slug']} should link to More for schools")
+                if item["slug"] in SCHOOL_OFFICE_SLUGS:
+                    if "/services/ai-automation.html" not in page or "/tutoring/" not in page:
+                        raise SystemExit(f"{item['slug']} should point schools to SI automation and tutoring")
+                    if "This job usually fits" in page.split("Related service", 1)[-1].split("uc-side-cta", 1)[0]:
+                        raise SystemExit(f"{item['slug']} should not keep tutoring as the school-office related service")
+                elif "90-minute" not in page or "/tutoring/" not in page:
+                    raise SystemExit(f"{item['slug']} should mention a 90-minute SI (AI) Tutoring session")
             elif e(info["short"]) not in page:
                 raise SystemExit(f"{item['slug']} is missing the short industry disclaimer")
             if OWN_ACCOUNTS not in page:
@@ -1848,6 +1986,7 @@ def write_llms_txt(entries: list) -> None:
         "- Dashboards & reporting: https://gemmisi.com/services/dashboards-reporting.html",
         "- Ecommerce operations: https://gemmisi.com/services/ecommerce-operations.html",
         "- Tutoring & project help: https://gemmisi.com/services/tutoring-project-help.html",
+        "- Tutoring short URL: https://gemmisi.com/tutoring/",
         "- Stocky dump recovery (Shopify CSV after Stocky shut down; not a Stocky replacement app): https://gemmisi.com/services/stocky-recovery.html",
         "- Advisory & Fractional CTO (inquire first): https://gemmisi.com/advisory.html",
         "- Anonymized case study: https://gemmisi.com/work/governed-ai-content-engine.html",
