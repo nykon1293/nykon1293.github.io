@@ -199,12 +199,12 @@ body::after {
 }
 
 .hero {
-  min-height: clamp(560px, calc(100vh - 140px), 720px);
+  min-height: auto;
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(300px, .82fr);
   gap: 56px;
   align-items: center;
-  padding: 28px 0 64px;
+  padding: 28px 0 40px;
 }
 
 @media (max-width: 768px) {
