@@ -495,6 +495,19 @@ p { color: var(--muted); font-size: var(--text-base); }
   margin-right: .3em;
 }
 .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
+.hero-copy .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+  max-width: 36rem;
+}
+.hero-copy .hero-actions .button {
+  flex: 1 1 calc(50% - 6px);
+  min-width: 11.5rem;
+  justify-content: center;
+  text-align: center;
+}
 .button {
   display: inline-flex;
   align-items: center;
@@ -2083,6 +2096,60 @@ footer p { font-size: .92rem; }
 }
 .work-booking .button { min-width: 280px; }
 
+/* Homepage audience tiles — who is this for */
+.audience-band {
+  padding: 8px 0 56px;
+  border-top: 0;
+}
+.audience-band .section-heading { margin-bottom: 20px; }
+.audience-band h2 { font-size: clamp(1.45rem, 2.6vw, 2.15rem); }
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+.audience-tile {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 100%;
+  padding: 22px 20px;
+  border: 1px solid var(--line-soft);
+  border-radius: 16px;
+  background: var(--surface);
+  color: inherit;
+  text-decoration: none;
+  transition: transform .18s var(--ease-out-quart), border-color .18s, background .18s;
+}
+.audience-tile:hover,
+.audience-tile:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(211, 170, 85, .42);
+  background: var(--surface-strong);
+}
+.audience-tile .uc-motif {
+  width: 56px;
+  margin: 0 0 14px;
+  justify-self: start;
+}
+.audience-tile .uc-motif-frame { box-shadow: none; }
+.audience-tile h3 {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+  color: var(--text);
+}
+.audience-tile p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+@media (prefers-reduced-motion: reduce) {
+  .audience-tile,
+  .audience-tile:hover,
+  .audience-tile:focus-visible { transform: none; }
+}
+
 /* Needs grid — where I can help */
 .needs-grid {
   display: grid;
@@ -2217,14 +2284,22 @@ footer a:hover { color: var(--text); text-decoration: underline; }
 /* Responsive */
 @media (max-width: 950px) {
   .needs-grid { grid-template-columns: 1fr 1fr; }
+  .audience-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 680px) {
   .selected-work-grid { grid-template-columns: 1fr; }
   .needs-grid { grid-template-columns: 1fr; }
+  .hero-copy .hero-actions { max-width: none; }
+  .hero-copy .hero-actions .button {
+    flex-basis: 100%;
+    min-width: 0;
+    width: 100%;
+  }
   .working-steps { grid-template-columns: 1fr; }
   .about-identity { flex-direction: column; text-align: center; }
   .about-identity img { width: 80px; height: 80px; }
   .work-booking .button { width: 100%; }
+  .audience-band { padding: 4px 0 40px; }
   .hero .proof-strip {
     grid-template-columns: 1fr;
     max-width: 100%;
@@ -2237,6 +2312,9 @@ footer a:hover { color: var(--text); text-decoration: underline; }
     padding-left: 0;
     border-top: 1px solid var(--line-soft);
   }
+}
+@media (max-width: 420px) {
+  .audience-grid { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {
