@@ -2065,12 +2065,29 @@ def write_tree(entries: list) -> None:
         (folder / "index.html").write_text(detail_page(item, entries), encoding="utf-8")
 
 
+def sync_home_library_count(n: int) -> None:
+    """Keep hand-written homepage counts aligned with data/use-cases.json."""
+    path = ROOT / "index.html"
+    html = path.read_text(encoding="utf-8")
+    updated, hero = re.subn(r"Browse \d+ examples", f"Browse {n} examples", html)
+    updated, intro = re.subn(r"The library has \d+\.", f"The library has {n}.", updated)
+    updated, more = re.subn(r"See all \d+ use cases", f"See all {n} use cases", updated)
+    if hero < 1:
+        raise SystemExit("homepage hero is missing Browse N examples")
+    if intro < 1 or more < 1:
+        raise SystemExit("homepage use-case section is missing the library count")
+    if updated != html:
+        path.write_text(updated, encoding="utf-8")
+        print(f"synced homepage library count to {n}")
+
+
 def main() -> None:
     entries = load()
     write_motif_assets(entries)
     write_tree(entries)
     update_sitemap(entries)
     write_llms_txt(entries)
+    sync_home_library_count(len(entries))
     assert_wording(entries)
     sizes = [motif_bytes(item) for item in entries]
     motifs = Counter(pick_motif(item) for item in entries)
