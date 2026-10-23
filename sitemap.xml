@@ -85,13 +85,25 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://gemmisi.com/use-cases/industry/real-estate/</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gemmisi.com/use-cases/industry/home-services/</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://gemmisi.com/use-cases/industry/ecommerce/</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://gemmisi.com/use-cases/industry/local-seasonal/</loc>
+    <loc>https://gemmisi.com/use-cases/industry/accounting/</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -109,24 +121,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://gemmisi.com/use-cases/industry/real-estate/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/industry/home-services/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/industry/accounting/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://gemmisi.com/use-cases/industry/education/</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
@@ -139,73 +133,61 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://gemmisi.com/use-cases/industry/auto-repair/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/industry/fitness-salons-wellness/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/industry/short-term-rentals/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/industry/insurance-agencies/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/industry/appraisers/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/industry/travel-agencies/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/industry/marketing-agencies/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://gemmisi.com/use-cases/industry/nonprofits/</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://gemmisi.com/use-cases/industry/warehousing-wholesale/</loc>
+    <loc>https://gemmisi.com/use-cases/industry/local-shops/</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://gemmisi.com/use-cases/function/customer-support/</loc>
+    <loc>https://gemmisi.com/use-cases/function/getting-paid/</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://gemmisi.com/use-cases/function/sales-follow-up/</loc>
+    <loc>https://gemmisi.com/use-cases/function/after-hours/</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://gemmisi.com/use-cases/function/billing-admin/</loc>
+    <loc>https://gemmisi.com/use-cases/function/answering-customers/</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gemmisi.com/use-cases/function/leads-and-quotes/</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gemmisi.com/use-cases/function/paperwork/</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gemmisi.com/use-cases/function/reading-documents/</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gemmisi.com/use-cases/function/stock/</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gemmisi.com/use-cases/function/numbers/</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -217,19 +199,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://gemmisi.com/use-cases/function/reporting-dashboards/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/function/inventory-orders/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/function/content-marketing/</loc>
+    <loc>https://gemmisi.com/use-cases/function/marketing/</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -241,13 +211,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://gemmisi.com/use-cases/function/research-documents/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/function/community/</loc>
+    <loc>https://gemmisi.com/use-cases/landlord-kit/</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -295,19 +259,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://gemmisi.com/use-cases/after-hours-call-coverage/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://gemmisi.com/use-cases/quote-follow-ups/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/lead-intake-to-crm/</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -637,31 +589,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://gemmisi.com/use-cases/weekly-member-announcements/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://gemmisi.com/use-cases/donation-acknowledgments/</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://gemmisi.com/use-cases/volunteer-scheduling/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://gemmisi.com/use-cases/event-registration-logistics/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/membership-renewals/</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -745,18 +679,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://gemmisi.com/use-cases/after-hours-inquiry-triage/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/intake-summaries-conflict-prep/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://gemmisi.com/use-cases/new-client-onboarding-checklists/</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
@@ -787,49 +709,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://gemmisi.com/use-cases/time-entry-cleanup/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/invoice-follow-up-reminders/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://gemmisi.com/use-cases/records-request-tracking/</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://gemmisi.com/use-cases/meeting-call-summaries/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/firm-marketing-drafts/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/appointment-reminders/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://gemmisi.com/use-cases/cancellation-waitlist/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/new-patient-intake-checklist/</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -853,19 +739,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://gemmisi.com/use-cases/patient-balance-reminders/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://gemmisi.com/use-cases/referral-loop-tracking/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/after-hours-patient-message-triage/</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -878,18 +752,6 @@
   </url>
   <url>
     <loc>https://gemmisi.com/use-cases/recall-visit-outreach/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/review-request-drafts/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/rental-lead-inquiry-follow-up/</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -937,19 +799,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://gemmisi.com/use-cases/vendor-work-order-tracking/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://gemmisi.com/use-cases/move-in-move-out-checklists/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/property-hurricane-season-prep/</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -967,19 +817,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://gemmisi.com/use-cases/contractor-quote-follow-up/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://gemmisi.com/use-cases/quote-estimate-drafts/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/crew-dispatch-schedule-prep/</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -991,25 +829,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://gemmisi.com/use-cases/contractor-invoice-reminders/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/contractor-review-reply-drafts/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://gemmisi.com/use-cases/warranty-maintenance-reminders/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/parts-materials-reordering/</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1021,55 +841,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://gemmisi.com/use-cases/contractor-after-hours-sorting/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/contractor-license-insurance-tracker/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://gemmisi.com/use-cases/client-document-chasing/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/tax-new-client-intake/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/tax-deadline-tracking/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/accounting-engagement-letter-assembly/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/tax-client-status-updates/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/accounting-invoice-follow-up/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/bookkeeping-month-end-checklist/</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1093,12 +865,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://gemmisi.com/use-cases/sales-tax-filing-reminders/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://gemmisi.com/use-cases/security-plan-upkeep-checklists/</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
@@ -1111,19 +877,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://gemmisi.com/use-cases/shipping-exceptions-package-watch/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://gemmisi.com/use-cases/chargeback-and-dispute-evidence/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/product-feed-catalog-error-checks/</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1135,61 +889,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://gemmisi.com/use-cases/returns-and-exchange-handling-prep/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/marketplace-listing-sync-checks/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/fulfillment-sla-watch/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/customer-service-macros-from-past-tickets/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/sales-tax-and-1099-prep-notes/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/seasonal-staffing-schedules/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/holiday-hours-across-listings/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/event-booking-waitlists/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://gemmisi.com/use-cases/weather-rescheduling-notices/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/season-opening-re-engagement/</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1225,18 +925,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://gemmisi.com/use-cases/tutoring-session-progress-notes/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/enrollment-inquiry-follow-up/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://gemmisi.com/use-cases/substitute-plan-packets/</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
@@ -1244,12 +932,6 @@
   </url>
   <url>
     <loc>https://gemmisi.com/use-cases/field-trip-form-chasing/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/tuition-payment-reminders/</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1285,19 +967,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://gemmisi.com/use-cases/auto-service-history-reminders/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://gemmisi.com/use-cases/fitness-class-list-check-ins/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/salon-whatsapp-booking-drafts/</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1321,18 +991,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://gemmisi.com/use-cases/supplier-invoice-tax-duplicate-check/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/weekly-site-search-health/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://gemmisi.com/use-cases/supplier-rfq-price-lead-sheet/</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
@@ -1351,25 +1009,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://gemmisi.com/use-cases/food-distributor-order-stock/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://gemmisi.com/use-cases/repair-order-parts-cart/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/class-court-chat-bookings/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/trainer-client-onboarding/</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1405,12 +1045,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://gemmisi.com/use-cases/contract-work-orders-insurance-check/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://gemmisi.com/use-cases/permit-form-drafts-for-submit/</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
@@ -1418,24 +1052,6 @@
   </url>
   <url>
     <loc>https://gemmisi.com/use-cases/nightly-prices-into-estimates/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/site-crawler-read-check/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/monthly-vendor-invoices-to-accountant/</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gemmisi.com/use-cases/tutoring-whatsapp-appointments/</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

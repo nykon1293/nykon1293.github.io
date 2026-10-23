@@ -91,7 +91,7 @@ def use_case_title_map() -> dict[str, str]:
 SERVICE_MOTIF = {
     "hermes-agents": ("function", "hiring"),
     "ai-automation": ("industry", "any-business"),
-    "dashboards-reporting": ("function", "reporting-dashboards"),
+    "dashboards-reporting": ("function", "numbers"),
     "ecommerce-operations": ("industry", "ecommerce"),
     "tutoring-project-help": ("industry", "education"),
     "stocky-recovery": ("industry", "ecommerce"),
@@ -283,12 +283,12 @@ PAGES = [
             "standing-si-desk-approval-queue",
             "inbox-triage",
             "weekly-owner-snapshot",
-            "after-hours-inquiry-triage",
+            "missed-call-text-back",
         ],
         "related_landings": [
             ("/use-cases/", "the use-case hub"),
             ("/use-cases/industry/any-business/", "any-business use cases"),
-            ("/use-cases/function/customer-support/", "customer support"),
+            ("/use-cases/function/answering-customers/", "answering customers"),
         ],
         "faqs": [
             (
@@ -376,14 +376,14 @@ PAGES = [
             "quote-follow-ups",
             "invoice-intake-to-draft-bills",
             "bilingual-english-spanish-replies",
-            "appointment-reminders",
+            "appointment-confirmations",
             "client-document-chasing",
         ],
         "related_landings": [
             ("/use-cases/", "the use-case hub"),
             ("/use-cases/industry/any-business/", "any-business use cases"),
-            ("/use-cases/function/customer-support/", "customer support"),
-            ("/use-cases/function/sales-follow-up/", "sales & follow-up"),
+            ("/use-cases/function/answering-customers/", "answering customers"),
+            ("/use-cases/function/leads-and-quotes/", "leads and quotes"),
         ],
         "faqs": [
             (
@@ -491,7 +491,7 @@ PAGES = [
             "ad-spend-vs-results",
         ],
         "related_landings": [
-            ("/use-cases/function/reporting-dashboards/", "reporting & dashboards"),
+            ("/use-cases/function/numbers/", "knowing your numbers"),
             ("/use-cases/industry/ecommerce/", "ecommerce use cases"),
         ],
         "faqs": [
@@ -592,14 +592,13 @@ PAGES = [
         "related_use_cases": [
             "reorder-from-sales-pace",
             "abandoned-checkout-follow-up-drafts",
-            "shipping-exceptions-package-watch",
+            "status-question-replies",
             "store-stock-and-spreadsheet-agreement",
-            "marketplace-listing-sync-checks",
             "catalog-pricing-and-margin-check",
         ],
         "related_landings": [
             ("/use-cases/industry/ecommerce/", "ecommerce use cases"),
-            ("/use-cases/function/inventory-orders/", "inventory & orders"),
+            ("/use-cases/function/stock/", "keeping stock right"),
         ],
         "faqs": [
             (
@@ -699,7 +698,7 @@ PAGES = [
         "related_landings": [
             ("/use-cases/", "the use-case hub"),
             ("/use-cases/industry/education/", "education use cases"),
-            ("/use-cases/function/research-documents/", "research & documents"),
+            ("/use-cases/function/paperwork/", "paperwork and forms"),
         ],
         "faqs": [
             (

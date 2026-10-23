@@ -85,7 +85,9 @@ SHOW_MORE = 18
 ANY_VISIBLE = 12
 HUB_MIN_BYTES = 20_000
 HUB_MAX_BYTES = 90_000
-CTA = "Book a free 30-minute consult"
+CTA = "Book a free 30-minute consultation"
+STANDARD_LINE = "SI drafts. You approve."
+MIN_INDUSTRY_CHIP = 5
 
 BANNED_SUBSTRINGS = ("Nous", "Brandgate", "Ohr", "Kayla", "josh.gemmi@gmail.com")
 HIPAA_CLAIM = re.compile(
@@ -115,24 +117,21 @@ HERMES_SLUGS = {
     "standing-si-desk-approval-queue",
 }
 SCHOOL_OFFICE_SLUGS = {
-    "tuition-payment-reminders",
-    "enrollment-inquiry-follow-up",
     "parent-teacher-conference-scheduling",
 }
 RELATED_PINNED = {
     "rubric-lesson-plan-outlines": (
-        "tuition-payment-reminders",
         "missing-assignment-reminders",
-    ),
-    "tuition-payment-reminders": (
-        "rubric-lesson-plan-outlines",
-        "missing-assignment-reminders",
+        "parent-teacher-conference-scheduling",
     ),
     "missing-assignment-reminders": (
         "rubric-lesson-plan-outlines",
-        "tuition-payment-reminders",
+        "parent-email-drafts",
     ),
-    "tax-deadline-tracking": ("year-end-tax-document-packet",),
+    "parent-teacher-conference-scheduling": (
+        "rubric-lesson-plan-outlines",
+        "missing-assignment-reminders",
+    ),
 }
 
 
@@ -202,9 +201,9 @@ def relevant_service(item: dict) -> tuple[str, str]:
         return ("/services/ai-automation.html", "SI automation")
     if primary_industry(item) == "education":
         return ("/services/tutoring-project-help.html", "Tutoring & project help")
-    if primary_industry(item) == "ecommerce" or "inventory-orders" in item["functions"]:
+    if primary_industry(item) == "ecommerce" or "stock" in item["functions"]:
         return ("/services/ecommerce-operations.html", "Ecommerce operations")
-    if "reporting-dashboards" in item["functions"]:
+    if "numbers" in item["functions"]:
         return ("/services/dashboards-reporting.html", "Dashboards & reporting")
     return ("/services/ai-automation.html", "SI automation")
 
@@ -416,6 +415,17 @@ def industry_faqs(slug: str) -> list[tuple[str, str]]:
                 "No. It writes the report. You decide any change in spend.",
             ),
         ]
+    elif slug == "local-shops":
+        extra = [
+            (
+                "Does SI book the bay, the class, or the policy?",
+                "No. SI drafts the note or the reply. A person confirms the time, the repair, or the quote.",
+            ),
+            (
+                "Is this insurance, repair, or travel advice?",
+                "No. This is office help. The owner or the licensed person still decides.",
+            ),
+        ]
     elif slug == "nonprofits":
         extra = [
             (
@@ -465,10 +475,10 @@ def load_taxonomy() -> None:
     FUNCTIONS = TAX["functions"]
     OWN_ACCOUNTS = TAX["own_accounts"]
     ALSO_USED_NOTE = TAX["also_used_note"]
-    FEATURED_SLUGS = list(TAX["featured"])
+    FEATURED_SLUGS = []
     LEGACY = dict(TAX["legacy_anchors"])
-    if len(FEATURED_SLUGS) != 12:
-        raise SystemExit(f"taxonomy.featured must list 12 slugs, found {len(FEATURED_SLUGS)}")
+    if "start_here" not in TAX:
+        raise SystemExit("taxonomy.start_here is missing")
     if OWN_ACCOUNTS != "GemmiSI sets this up on your own equipment and accounts; your data stays with you.":
         raise SystemExit("taxonomy.own_accounts must keep the approved own-accounts line")
 
@@ -675,7 +685,6 @@ def load() -> list:
     if not isinstance(entries, list) or not entries:
         raise SystemExit("data/use-cases.json must be a non-empty list")
     slugs = []
-    featured_flags = []
     for item in entries:
         missing = [key for key in REQUIRED if key not in item]
         if missing:
@@ -689,8 +698,8 @@ def load() -> list:
         fns = item["functions"]
         if not isinstance(inds, list) or not inds or not isinstance(fns, list) or not fns:
             raise SystemExit(f"{slug} needs non-empty industries and functions lists")
-        if len(inds) > 4:
-            raise SystemExit(f"{slug} industries cap is 4")
+        if len(inds) > 6:
+            raise SystemExit(f"{slug} industries cap is 6")
         if len(set(inds)) != len(inds) or len(set(fns)) != len(fns):
             raise SystemExit(f"{slug} has duplicate industry or function tags")
         for ind in inds:
@@ -753,8 +762,6 @@ def load() -> list:
             _check_education_entry(item)
         elif ind in ("real-estate", "home-services", "accounting"):
             _check_industry_entry(item)
-        if item.get("featured"):
-            featured_flags.append(slug)
         slugs.append(slug)
     missing_pins = [
         f"{slug}->{pin}"
@@ -767,19 +774,49 @@ def load() -> list:
     dupes = {slug for slug in slugs if slugs.count(slug) > 1}
     if dupes:
         raise SystemExit(f"Duplicate slugs: {', '.join(sorted(dupes))}")
-    if set(featured_flags) != set(FEATURED_SLUGS):
-        raise SystemExit(
-            "featured: true flags must match taxonomy.featured "
-            f"(flags={sorted(featured_flags)} taxonomy={FEATURED_SLUGS})"
-        )
+    start_here = TAX.get("start_here") or {}
+    for industry, picks in start_here.items():
+        if industry not in INDUSTRIES:
+            raise SystemExit(f"start_here industry {industry!r} is unknown")
+        if len(picks) != 3:
+            raise SystemExit(f"start_here for {industry} needs 3 slugs")
+        for pick in picks:
+            match = next((item for item in entries if item["slug"] == pick), None)
+            if not match:
+                raise SystemExit(f"start_here {industry} points at unknown {pick}")
+            if industry not in match["industries"]:
+                raise SystemExit(f"start_here {pick} is not tagged {industry}")
     global SEO_TITLES
     SEO_TITLES = use_case_seo_titles(entries)
     return entries
 
 
-def featured_entries(entries: list) -> list:
+def start_here_items(entries: list, industry: str) -> list:
     by_slug = {item["slug"]: item for item in entries}
-    return [by_slug[slug] for slug in FEATURED_SLUGS]
+    picks = []
+    for slug in (TAX.get("start_here") or {}).get(industry, []):
+        item = by_slug.get(slug)
+        if item:
+            picks.append(item)
+    return picks
+
+
+def hub_start_entries(entries: list) -> list:
+    counts = industry_counts(entries)
+    picked = []
+    seen = set()
+    for industry in INDUSTRIES:
+        if counts.get(industry, 0) < MIN_INDUSTRY_CHIP:
+            continue
+        items = start_here_items(entries, industry)
+        if not items:
+            continue
+        item = items[0]
+        if item["slug"] in seen:
+            continue
+        picked.append(item)
+        seen.add(item["slug"])
+    return picked
 
 
 def matching_industry(entries: list, slug: str) -> list:
@@ -948,6 +985,9 @@ def haystack(item: dict) -> str:
         parts.append(function_info(slug)["label"])
         parts.append(slug.replace("-", " "))
     parts.extend(item.get("tools_examples") or [])
+    parts.extend(item.get("aliases") or [])
+    for tag in item.get("tags") or []:
+        parts.append(str(tag).replace("-", " "))
     for example in item.get("examples") or []:
         parts.append(example.get("business_type", ""))
         parts.append(example.get("scenario", ""))
@@ -1063,13 +1103,14 @@ def industry_chips(entries: list) -> str:
     counts = industry_counts(entries)
     chips = []
     for slug, info in INDUSTRIES.items():
-        if not counts[slug]:
+        n = counts[slug]
+        if n < MIN_INDUSTRY_CHIP:
             continue
         motif, key, _accent = landing_motif_parts("industry", slug)
         chips.append(
             f'          <a class="uc-industry-chip uc-motif--{e(key)}" href="/use-cases/industry/{e(slug)}/" data-industry="{e(slug)}">\n'
             f'            <img src="/assets/use-case-motifs/{motif}--{key}.svg" width="28" height="28" alt="" decoding="async">\n'
-            f"            <span>{e(info['label'])}</span>\n"
+            f"            <span>{e(info['label'])} ({n})</span>\n"
             f"          </a>"
         )
     return (
@@ -1146,7 +1187,7 @@ def function_chip_row(
 ) -> str:
     pills = function_pills(entries, current=current_fn, industry=industry, toggles=toggles)
     return (
-        '<div class="uc-pills" id="uc-functions" role="group" aria-label="Filter by function">\n'
+        '<div class="uc-pills" id="uc-functions" role="group" aria-label="Filter by problem">\n'
         f"            {pills}\n"
         "          </div>"
     )
@@ -1166,7 +1207,11 @@ def read_first_banner(industry: str) -> str:
 
 def search_records(entries: list) -> list[dict]:
     records = []
-    featured = set(FEATURED_SLUGS)
+    featured = {
+        slug
+        for picks in (TAX.get("start_here") or {}).values()
+        for slug in picks
+    }
     for item in entries:
         row = {
             "s": item["slug"],
@@ -1189,7 +1234,12 @@ def search_records(entries: list) -> list[dict]:
 
 
 def write_search_index(entries: list) -> None:
-    payload = {"legacy": LEGACY, "page": SHOW_MORE, "items": search_records(entries)}
+    payload = {
+        "legacy": LEGACY,
+        "page": SHOW_MORE,
+        "synonyms": TAX.get("search_synonyms") or {},
+        "items": search_records(entries),
+    }
     (OUT / "search.json").write_text(
         json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n",
         encoding="utf-8",
@@ -1201,7 +1251,7 @@ def closing_section() -> str:
         <div class="contact-panel">
           <p class="section-kicker">Don’t see yours?</p>
           <h2>Bring the task that keeps eating your week</h2>
-          <p class="section-intro">If the work repeats and follows rules, SI can often draft it. That includes email, spreadsheets, a store, or a CRM. You still check it. Book a free 30-minute call and we will look at it together.</p>
+          <p class="section-intro">If the work repeats and follows rules, SI can often draft it. That includes email, spreadsheets, a store, or a CRM. You still check it. Book a free 30-minute consultation and we will look at it together.</p>
           <div class="actions"><a class="button primary" href="{CAL}" target="_blank" rel="noreferrer">{CTA}</a></div>
         </div>
       </section>"""
@@ -1209,7 +1259,7 @@ def closing_section() -> str:
 
 def library_page(entries: list) -> str:
     n = len(entries)
-    featured = featured_entries(entries)
+    featured = hub_start_entries(entries)
     title = "SI (AI) use cases for small teams | GemmiSI"
     desc = clip_meta(
         f"{n} practical SI (AI) jobs that take routine work off a small team. "
@@ -1258,17 +1308,15 @@ def library_page(entries: list) -> str:
           <input id="uc-q" type="search" placeholder="Search, e.g. invoices, schedule, Gmail" autocomplete="off" />
         </div>
         {function_chip_row(entries, toggles=True)}
-        <p class="uc-tile-legend">Industry</p>
-        {industry_tiles(entries)}
         <p class="uc-count" id="uc-count" role="status" aria-live="polite">Showing {len(featured)} of {n} use cases</p>
         <button type="button" class="uc-clear" id="uc-clear" hidden>Clear all</button>
       </section>
 
       <section class="uc-group" aria-labelledby="featured-h">
         <div class="uc-group-head">
-          <span class="section-kicker">Featured</span>
-          <h2 id="featured-h">A dozen places to start</h2>
-          <p>Twelve examples from the library. Pick an industry above for the rest. Or show more.</p>
+          <span class="section-kicker">Start here</span>
+          <h2 id="featured-h">Start here</h2>
+          <p>One place to start in each industry. Open an industry for its top three. Or show more.</p>
         </div>
         <ul class="uc-grid" id="uc-grid">
           {cards}
@@ -1276,7 +1324,7 @@ def library_page(entries: list) -> str:
         <button type="button" class="uc-more uc-show-all" id="uc-show-more">Show more</button>
       </section>
       <p class="uc-empty" id="uc-empty" hidden>No use case matches that search. Try a broader word, or <a class="text-link" href="{CAL}" target="_blank" rel="noreferrer">tell me what you need</a> on a free call.</p>
-      <p class="uc-noscript-links"><a class="text-link" href="industry/">Browse by industry</a> · <a class="text-link" href="function/">Browse by function</a></p>
+      <p class="uc-noscript-links"><a class="text-link" href="industry/">Browse by industry</a> · <a class="text-link" href="function/">Browse by problem</a></p>
 
       {closing_section()}
     </main>
@@ -1291,14 +1339,14 @@ def dimension_index_page(kind: str, entries: list) -> str:
     title = (
         "SI (AI) use cases by industry | GemmiSI"
         if is_industry
-        else "SI (AI) use cases by function | GemmiSI"
+        else "SI (AI) use cases by problem | GemmiSI"
     )
     desc = (
         "Browse the GemmiSI SI (AI) use-case library by industry."
         if is_industry
-        else "Browse the GemmiSI SI (AI) use-case library by the kind of job. Support, sales, billing, scheduling, and more."
+        else "Browse the GemmiSI SI (AI) use-case library by the problem. Getting paid, after-hours replies, leads, paperwork, stock, and numbers."
     )
-    h1 = "Browse by industry" if is_industry else "Browse by function"
+    h1 = "Browse by industry" if is_industry else "Browse by problem"
     canon = f"/use-cases/{kind}/"
     listed = [{"slug": slug, "title": info["label"]} for slug, info in catalog.items() if counts[slug]]
     ld_items = [
@@ -1316,7 +1364,7 @@ def dimension_index_page(kind: str, entries: list) -> str:
             crumbs(
                 ("Home", BASE + "/"),
                 ("Use cases", BASE + "/use-cases/"),
-                ("Industries" if is_industry else "Functions", BASE + canon),
+                ("Industries" if is_industry else "Problems", BASE + canon),
             ),
             website_node(),
             person_node(),
@@ -1347,7 +1395,7 @@ def dimension_index_page(kind: str, entries: list) -> str:
             f'<span class="uc-card-more">View use cases <span aria-hidden="true">→</span></span>'
             f"</a></li>"
         )
-    crumb_label = "Industries" if is_industry else "Functions"
+    crumb_label = "Industries" if is_industry else "Problems"
     return head(title, desc, canon, 2, ld, compact_ld=True) + f"""
     <main id="top">
       <section class="uc-hero">
@@ -1368,7 +1416,11 @@ def industry_landing(slug: str, entries: list) -> str:
     dedicated_items = dedicated(entries, slug)
     main_items, extra_groups = split_optional_groups(dedicated_items, slug)
     also = cross_tagged(entries, slug)
-    all_items = dedicated_items + also
+    starters = start_here_items(entries, slug)
+    starter_slugs = {item["slug"] for item in starters}
+    main_items = [item for item in main_items if item["slug"] not in starter_slugs]
+    also = [item for item in also if item["slug"] not in starter_slugs]
+    all_items = starters + [item for item in dedicated_items + also if item["slug"] not in starter_slugs]
     if not all_items:
         raise SystemExit(f"Refusing empty industry landing {slug}")
     lazy = slug == "any-business"
@@ -1438,6 +1490,27 @@ def industry_landing(slug: str, entries: list) -> str:
     foot_note = ""
     if info.get("regulated"):
         foot_note = f'      <p class="uc-cat-foot">{e(info["foot"])}</p>\n'
+    start_html = ""
+    if starters:
+        start_cards = "\n          ".join(card(item) for item in starters)
+        kit_link = ""
+        for kit in TAX.get("kits") or []:
+            if kit.get("industry") == slug:
+                kit_link = (
+                    f'<p class="uc-kit-link"><a class="text-link" href="/use-cases/{e(kit["slug"])}/">'
+                    f'{e(kit["title"])}</a> puts the rental jobs on one page.</p>'
+                )
+        start_html = f"""      <section class="uc-group" id="start-here" aria-labelledby="start-here-h">
+        <div class="uc-group-head">
+          <span class="section-kicker">Start here</span>
+          <h2 id="start-here-h">Start here</h2>
+          {kit_link}
+        </div>
+        <ul class="uc-grid">
+          {start_cards}
+        </ul>
+      </section>
+"""
     body = f'data-uc="industry" data-uc-slug="{slug}"' + (' data-uc-lazy="1"' if lazy else "")
     config = json.dumps(
         {"n": len(dedicated_items), "page": SHOW_MORE, "mode": "industry"},
@@ -1468,7 +1541,7 @@ def industry_landing(slug: str, entries: list) -> str:
         </form>
         {function_chip_row(entries, industry=slug)}
       </section>
-      <section class="uc-group" aria-labelledby="list-h">
+{start_html}      <section class="uc-group" aria-labelledby="list-h">
         <h2 id="list-h" class="visually-hidden">{e(info["label"])} use cases</h2>
         <ul class="uc-grid" id="uc-grid">
           {cards}
@@ -1588,6 +1661,42 @@ def related_entries(item: dict, entries: list, cap: int = 3) -> list:
     return picked
 
 
+def board_html(item: dict) -> str:
+    drafts = item.get("si_drafts") or [item["summary"]]
+    stays = item.get("stays_yours") or list(item["human_checks"])[:4]
+    draft_items = "".join(f"<li>{e(line)}</li>" for line in drafts)
+    stay_items = "".join(f"<li>{e(line)}</li>" for line in stays)
+    return (
+        '<section class="uc-board" aria-label="Start here / Stays yours">\n'
+        "              <h2>Start here / Stays yours</h2>\n"
+        '              <div class="uc-board-grid">\n'
+        "                <div>\n"
+        "                  <h3>SI drafts</h3>\n"
+        f"                  <ul>{draft_items}</ul>\n"
+        "                </div>\n"
+        "                <div>\n"
+        "                  <h3>Stays yours</h3>\n"
+        f"                  <ul>{stay_items}</ul>\n"
+        "                </div>\n"
+        "              </div>\n"
+        "            </section>"
+    )
+
+
+def video_html(item: dict) -> str:
+    url = str(item.get("video") or "").strip()
+    if not url:
+        return ""
+    if not re.match(r"^https://(www\.youtube\.com/embed/|player\.vimeo\.com/video/)[\w-]+", url):
+        return ""
+    return (
+        '<section class="uc-video" aria-label="Video">\n'
+        f'              <iframe src="{e(url)}" title="Video about this use case" '
+        'loading="lazy" allowfullscreen></iframe>\n'
+        "            </section>"
+    )
+
+
 def detail_page(item: dict, entries: list) -> str:
     n = len(entries)
     ind = primary_industry(item)
@@ -1635,7 +1744,7 @@ def detail_page(item: dict, entries: list) -> str:
     )
     quiet_book = (
         f'<p class="uc-book-quiet"><a href="{CAL}" target="_blank" rel="noreferrer">'
-        "Want this built? Book a free 30-minute call</a></p>"
+        f"{CTA}</a></p>"
     )
     more_schools = ""
     if ind == "education":
@@ -1667,6 +1776,7 @@ def detail_page(item: dict, entries: list) -> str:
             <div class="uc-detail-copy">
               <p class="uc-card-cat">{tag_html}</p>
               <h1>{e(item['title'])}</h1>
+              <p class="uc-approval-line">{STANDARD_LINE}</p>
               <p class="lead">{e(with_si_gloss(item['summary']))}</p>
               {mobile_book}
               {legal_note}{caution}
@@ -1678,6 +1788,8 @@ def detail_page(item: dict, entries: list) -> str:
 
         <div class="uc-detail-body">
           <div class="uc-detail-main">
+            {video_html(item)}
+            {board_html(item)}
             <section class="uc-block" aria-labelledby="problem">
               <h2 id="problem">The problem</h2>
               <p>{e(item['problem'])}</p>
@@ -1748,7 +1860,7 @@ def detail_page(item: dict, entries: list) -> str:
         <section class="uc-cta-band" aria-labelledby="cta-h">
           <div>
             <p class="section-kicker">Next step</p>
-            <h2 id="cta-h">Want this built? Book a free 30-minute consult</h2>
+            <h2 id="cta-h">Want this built? {CTA}</h2>
             <p>Bring one real example, such as an export, an inbox, or a spreadsheet. We will map the steps and decide what SI drafts and what you approve.</p>
           </div>
           <div class="actions"><a class="button primary" href="{CAL}" target="_blank" rel="noreferrer">{CTA}</a></div>
@@ -1814,6 +1926,8 @@ def update_sitemap(entries: list) -> None:
     for slug in FUNCTIONS:
         if matching_function(entries, slug):
             blocks.append(url_block(f"{BASE}/use-cases/function/{slug}/", "0.7"))
+    for kit in TAX.get("kits") or []:
+        blocks.append(url_block(f"{BASE}/use-cases/{kit['slug']}/", "0.7"))
     blocks.extend(url_block(f"{BASE}/use-cases/{item['slug']}/", "0.6") for item in entries)
     if "</urlset>" not in text:
         raise SystemExit("sitemap.xml is missing </urlset>")
@@ -1838,16 +1952,22 @@ def assert_wording(entries: list) -> None:
     size = len(library.encode("utf-8"))
     if size < HUB_MIN_BYTES or size > HUB_MAX_BYTES:
         raise SystemExit(f"Hub HTML must be {HUB_MIN_BYTES}-{HUB_MAX_BYTES} bytes, found {size}")
-    if library.count('class="uc-card') < 12:
-        raise SystemExit("Hub must include about 12 featured cards")
-    if library.count('class="uc-motif') < 21:
-        raise SystemExit("Hub tiles and featured cards need motifs")
+    if library.count('class="uc-card') < 8:
+        raise SystemExit("Hub must include a start-here card for each large industry")
+    if "Start here" not in library:
+        raise SystemExit("Hub must lead with Start here")
+    if 'class="uc-tiles"' in library:
+        raise SystemExit("Hub must show industry links once, not a second tile set")
+    if not re.search(r"Real estate &amp; rentals \(\d+\)", library):
+        raise SystemExit("Hub industry links must include a count")
+    if library.count('class="uc-motif') < 8:
+        raise SystemExit("Hub industry links and start-here cards need motifs")
     if "uc-motif--education" not in library:
         raise SystemExit("Hub is missing the Education motif accent")
     if "More filters" in library:
         raise SystemExit("Hub must not hide function filters behind More filters")
     if 'data-industry=' not in library or 'id="uc-functions"' not in library:
-        raise SystemExit("Hub needs industry tiles and visible function filter chips")
+        raise SystemExit("Hub needs industry links and visible problem filter chips")
     if "uc-industry-chips" not in library or "uc-industry-chip" not in library:
         raise SystemExit("Hub is missing industry chips")
     if "uc-card-note" in library:
@@ -1894,6 +2014,16 @@ def assert_wording(entries: list) -> None:
             raise SystemExit(f"{item['slug']} meta is {len(page_desc)} chars")
         if 'class="uc-book-lead"' not in page or 'class="uc-book-quiet"' not in page:
             raise SystemExit(f"{item['slug']} is missing the shared booking CTAs")
+        if CTA not in page:
+            raise SystemExit(f"{item['slug']} must use the consultation call to action")
+        if "30-minute consult<" in page or ">Book a free 30-minute consult<" in page:
+            raise SystemExit(f"{item['slug']} must say consultation, not consult")
+        if STANDARD_LINE not in page:
+            raise SystemExit(f"{item['slug']} is missing the SI drafts line")
+        if 'class="uc-board"' not in page or "Stays yours" not in page:
+            raise SystemExit(f"{item['slug']} is missing the Start here / Stays yours board")
+        if not item.get("video") and "<iframe" in page:
+            raise SystemExit(f"{item['slug']} must not show a video player without a video")
         og_title = re.search(r'<meta property="og:title" content="(.*?)" />', page)
         tw_title = re.search(r'<meta name="twitter:title" content="(.*?)" />', page)
         og_desc = re.search(r'<meta property="og:description" content="(.*?)" />', page)
@@ -2013,7 +2143,58 @@ def assert_wording(entries: list) -> None:
             raise SystemExit(f"Empty function landing should not exist: {slug}")
     titles = []
     for path in OUT.rglob("index.html"):
-        titles.append(html.unescape(path.read_text(encoding="utf-8").split("<title>", 1)[1].split("</title>", 1)[0]))
+        text = path.read_text(encoding="utf-8")
+        if 'content="noindex' in text:
+            continue
+        titles.append(html.unescape(text.split("<title>", 1)[1].split("</title>", 1)[0]))
+    redirects = TAX.get("redirects") or {}
+    removed_slugs = list((redirects.get("use_cases") or {}).keys())
+    for slug in removed_slugs:
+        page = OUT / slug / "index.html"
+        if not page.exists():
+            raise SystemExit(f"Missing redirect for removed slug {slug}")
+        html_page = page.read_text(encoding="utf-8")
+        target = (redirects.get("use_cases") or {})[slug]
+        if f'rel="canonical" href="{BASE}{target}"' not in html_page:
+            raise SystemExit(f"Redirect {slug} must canonicalize to {target}")
+        if 'http-equiv="refresh"' not in html_page:
+            raise SystemExit(f"Redirect {slug} needs a refresh redirect")
+    for kind, folder in (("industries", "industry"), ("functions", "function")):
+        for slug, target in (redirects.get(kind) or {}).items():
+            page = OUT / folder / slug / "index.html"
+            if not page.exists():
+                raise SystemExit(f"Missing {kind} redirect {slug}")
+            html_page = page.read_text(encoding="utf-8")
+            if f'rel="canonical" href="{BASE}{target}"' not in html_page:
+                raise SystemExit(f"{kind} redirect {slug} must canonicalize to {target}")
+    live_html = []
+    for path in OUT.rglob("index.html"):
+        text = path.read_text(encoding="utf-8")
+        if 'content="noindex' in text:
+            continue
+        live_html.append((path, text))
+    for slug in removed_slugs:
+        needle = f"/use-cases/{slug}/"
+        for path, text in live_html:
+            if needle in text:
+                raise SystemExit(f"{path.relative_to(ROOT)} still links to removed slug {slug}")
+    kit_path = OUT / "landlord-kit" / "index.html"
+    if not kit_path.exists():
+        raise SystemExit("Landlord kit page is missing")
+    kit_html = kit_path.read_text(encoding="utf-8")
+    if STANDARD_LINE not in kit_html or OWN_ACCOUNTS not in kit_html or CTA not in kit_html:
+        raise SystemExit("Landlord kit must include the SI line, own-accounts line, and consultation CTA")
+    if "not legal advice" not in kit_html.lower() or "manager reviews" not in kit_html.lower():
+        raise SystemExit("Landlord kit deposit letters must say this is not legal advice and the manager reviews the letter")
+    real_estate = (OUT / "industry" / "real-estate" / "index.html").read_text(encoding="utf-8")
+    if "/use-cases/landlord-kit/" not in real_estate:
+        raise SystemExit("Real estate page must link to the landlord kit")
+    start_chunk = real_estate.split('id="start-here"', 1)[-1].split('id="list-h"', 1)[0]
+    for needle in ("Rent reminder", "Security deposit", "Maintenance"):
+        if needle not in start_chunk:
+            raise SystemExit(f"Real estate Start here must lead with {needle}")
+    if f"{BASE}/use-cases/landlord-kit/" not in sitemap:
+        raise SystemExit("sitemap is missing the landlord kit")
     dupes = [t for t in titles if titles.count(t) > 1]
     if dupes:
         raise SystemExit(f"Duplicate generated titles: {sorted(set(dupes))[:5]}")
@@ -2056,7 +2237,7 @@ def write_llms_txt(entries: list) -> None:
     for slug, info in INDUSTRIES.items():
         if matching_industry(entries, slug):
             lines.append(f"- {info['label']}: https://gemmisi.com/use-cases/industry/{slug}/")
-    lines.append("- Browse by function: https://gemmisi.com/use-cases/function/")
+    lines.append("- Browse by problem: https://gemmisi.com/use-cases/function/")
     for slug, info in FUNCTIONS.items():
         if matching_function(entries, slug):
             lines.append(f"- {info['label']}: https://gemmisi.com/use-cases/function/{slug}/")
@@ -2065,7 +2246,7 @@ def write_llms_txt(entries: list) -> None:
             "",
             "## Use cases",
             "",
-            f"The library lists {n} practical SI (AI) jobs for small teams, community organizations, teachers, tutors and schools, the business side of solo and small law practices, the business side of small healthcare practices, real estate and property management, home-service contractors, small accounting, tax and bookkeeping firms, restaurants and food shops, auto repair shops, gyms and salons, short-term rentals, insurance agencies, appraisers, travel agencies, marketing agencies, nonprofits, and warehousing and wholesale. They are illustrations of what is possible, not reports of client results. A person still approves anything that sends, pays, orders, or posts. Education pages are operations help only. SI does not grade students. A person approves anything sent to a student or parent. Student records stay on the school's own equipment and accounts. Legal-practice pages are operations help only. SI does not give legal advice. Medical-practice pages are operations help only. SI does not give medical advice or make clinical decisions. Real-estate pages are operations help only. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. Home-services pages are office help only; the owner approves every quote and message. Accounting-firm pages are operations help only. SI does not give tax advice or file returns. Restaurant, shop, gym, rental, and agency pages are office help. A person still checks. {OWN_ACCOUNTS}",
+            f"The library lists {n} practical SI (AI) jobs for small teams. Industries include any business, real estate and rentals, home services, retail and ecommerce, accounting, legal, medical, education, restaurants, nonprofits and community groups, and shops, gyms, and agencies. They are illustrations of what is possible, not reports of client results. {STANDARD_LINE} A person still approves anything that sends, pays, orders, or posts. Education pages are operations help only. SI does not grade students. A person approves anything sent to a student or parent. Student records stay on the school's own equipment and accounts. Legal-practice pages are operations help only. SI does not give legal advice. Medical-practice pages are operations help only. SI does not give medical advice or make clinical decisions. Real-estate pages are operations help only. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. Home-services pages are office help only; the owner approves every quote and message. Accounting-firm pages are operations help only. SI does not give tax advice or file returns. Restaurant, shop, gym, rental, and agency pages are office help. A person still checks. {OWN_ACCOUNTS}",
             "",
         ]
     )
@@ -2087,6 +2268,136 @@ def write_llms_txt(entries: list) -> None:
         ]
     )
     (ROOT / "llms.txt").write_text("\n".join(lines), encoding="utf-8")
+
+
+def kit_page(kit: dict, entries: list) -> str:
+    by_slug = {item["slug"]: item for item in entries}
+    jobs = []
+    for slug in kit["jobs"]:
+        item = by_slug.get(slug)
+        if not item:
+            raise SystemExit(f"Kit {kit['slug']} points at unknown {slug}")
+        jobs.append(item)
+    industry = kit["industry"]
+    info = industry_info(industry)
+    title = kit["seo_title"]
+    desc = clip_meta(kit["meta"])
+    canon = f"/use-cases/{kit['slug']}/"
+    url = BASE + canon
+    ld = collection_ld(
+        kit["seo_h1"],
+        url,
+        desc,
+        jobs,
+        [
+            ("Home", BASE + "/"),
+            ("Use cases", BASE + "/use-cases/"),
+            (info["label"], BASE + f"/use-cases/industry/{industry}/"),
+            (kit["title"], url),
+        ],
+    )
+    blocks = []
+    for item in jobs:
+        note = ""
+        if item["slug"] == "security-deposit-deduction-letters":
+            note = (
+                '<p class="uc-caution" role="note"><strong>Worth knowing:</strong> '
+                "This is not legal advice. The manager reviews the letter before it is sent.</p>"
+            )
+        stays = "".join(f"<li>{e(line)}</li>" for line in item["human_checks"][:3])
+        blocks.append(
+            f'''<article class="uc-kit-job" id="{e(item["slug"])}">
+            <h2><a href="/use-cases/{e(item["slug"])}/">{e(item["title"])}</a></h2>
+            <p>{e(item["summary"])}</p>
+            {note}
+            <div class="uc-board">
+              <div class="uc-board-grid">
+                <div>
+                  <h3>SI drafts</h3>
+                  <p>{e(item["summary"])}</p>
+                </div>
+                <div>
+                  <h3>Stays yours</h3>
+                  <ul>{stays}</ul>
+                </div>
+              </div>
+            </div>
+          </article>'''
+        )
+    body = "\n          ".join(blocks)
+    return head(title, desc, canon, 2, ld, compact_ld=True, body_attrs='data-uc="kit"') + f"""
+    <main id="top">
+      <article class="uc-detail">
+        <header class="uc-detail-head">
+{breadcrumb_html(2, [("Home", "../../index.html"), ("Use cases", "../index.html"), (info["label"], f"../industry/{industry}/"), (kit["title"], None)])}
+          <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>{len(jobs)} jobs</p>
+          <h1>{e(kit["seo_h1"])}</h1>
+          <p class="uc-approval-line">{STANDARD_LINE}</p>
+          <p class="lead">{e(with_si_gloss(kit["intro"]))}</p>
+          <p class="uc-own-accounts">{e(OWN_ACCOUNTS)}</p>
+          <p class="uc-book-lead"><a class="button primary" href="{CAL}" target="_blank" rel="noreferrer">{CTA}</a></p>
+        </header>
+        <div class="uc-kit-jobs">
+          {body}
+        </div>
+        <section class="uc-cta-band" aria-labelledby="cta-h">
+          <div>
+            <p class="section-kicker">Next step</p>
+            <h2 id="cta-h">Want this built? {CTA}</h2>
+            <p>Bring one real example, such as a rent roll or a maintenance email. We will map what SI drafts and what you approve.</p>
+          </div>
+          <div class="actions"><a class="button primary" href="{CAL}" target="_blank" rel="noreferrer">{CTA}</a></div>
+        </section>
+      </article>
+    </main>
+""" + foot(2) + SCRIPTS + PAGE_END
+
+
+def redirect_page(source_title: str, target_path: str) -> str:
+    title = f"Moved: {source_title} | SI (AI) | GemmiSI"
+    if len(title) > 70:
+        title = f"Moved page | SI (AI) | GemmiSI"
+    return f"""<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{e(title)}</title>
+  <meta name="description" content="This SI (AI) page moved. GemmiSI drafts the work. You approve it." />
+  <meta http-equiv="refresh" content="0; url={e(target_path)}" />
+  <link rel="canonical" href="{BASE}{target_path}" />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <script>location.replace("{e(target_path)}");</script>
+</head>
+<body>
+  <p>This page moved to <a href="{e(target_path)}">{e(source_title)}</a>.</p>
+</body>
+</html>
+"""
+
+
+def write_redirects() -> None:
+    redirects = TAX.get("redirects") or {}
+    for slug, target in (redirects.get("use_cases") or {}).items():
+        folder = OUT / slug
+        folder.mkdir(parents=True, exist_ok=True)
+        (folder / "index.html").write_text(redirect_page(slug.replace("-", " "), target), encoding="utf-8")
+    for slug, target in (redirects.get("industries") or {}).items():
+        folder = OUT / "industry" / slug
+        folder.mkdir(parents=True, exist_ok=True)
+        (folder / "index.html").write_text(redirect_page(slug.replace("-", " "), target), encoding="utf-8")
+    for slug, target in (redirects.get("functions") or {}).items():
+        folder = OUT / "function" / slug
+        folder.mkdir(parents=True, exist_ok=True)
+        (folder / "index.html").write_text(redirect_page(slug.replace("-", " "), target), encoding="utf-8")
+
+
+def write_kits(entries: list) -> None:
+    for kit in TAX.get("kits") or []:
+        folder = OUT / kit["slug"]
+        folder.mkdir(parents=True, exist_ok=True)
+        (folder / "index.html").write_text(kit_page(kit, entries), encoding="utf-8")
 
 
 def write_tree(entries: list) -> None:
@@ -2118,6 +2429,8 @@ def write_tree(entries: list) -> None:
         folder = OUT / item["slug"]
         folder.mkdir(parents=True, exist_ok=True)
         (folder / "index.html").write_text(detail_page(item, entries), encoding="utf-8")
+    write_kits(entries)
+    write_redirects()
 
 
 def sync_home_library_count(n: int) -> None:

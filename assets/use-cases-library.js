@@ -26,6 +26,7 @@
 
   let index = null;
   let indexPromise = null;
+  let synonyms = {};
   let industries = [];
   let functions = [];
   let pageSize = mode === "hub" ? 12 : 12;
@@ -50,6 +51,7 @@
           if (payload.legacy && !Object.keys(legacy).length) {
             Object.assign(legacy, payload.legacy);
           }
+          synonyms = payload.synonyms || {};
           index = Array.isArray(data) ? data : payload.items || [];
           return index;
         });
@@ -105,8 +107,14 @@
     if (!okI || !okF) return false;
     const needles = terms();
     if (!needles.length) return true;
-    const hay = (item.h || `${item.t} ${item.u}`).toLowerCase();
-    return needles.every((term) => hay.includes(term));
+    const hay = ` ${(item.h || `${item.t} ${item.u}`).toLowerCase()} `;
+    return needles.every((term) => {
+      const group = synonyms[term] || [term];
+      return group.some((alt) => {
+        const needle = String(alt).toLowerCase().replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+        return new RegExp(`[^a-z0-9]${needle}[^a-z0-9]`).test(hay);
+      });
+    });
   };
 
   const parseList = (raw) =>
@@ -168,7 +176,7 @@
         if (intro) intro.hidden = true;
         if (kicker) kicker.hidden = true;
       } else {
-        featuredHead.textContent = "A dozen places to start";
+        featuredHead.textContent = "Start here";
         if (intro) intro.hidden = false;
         if (kicker) kicker.hidden = false;
       }

@@ -20,15 +20,10 @@ LOGO_URL = f"{BASE}/assets/brand/gemmisi-icon-512.png"
 SKIP_SITEMAP_DIRS = {"chatbot", "sofer-preview"}
 NEW_INDUSTRY_PAGES = (
     "restaurants-food",
-    "auto-repair",
-    "fitness-salons-wellness",
-    "short-term-rentals",
-    "insurance-agencies",
-    "appraisers",
-    "travel-agencies",
-    "marketing-agencies",
+    "local-shops",
     "nonprofits",
-    "warehousing-wholesale",
+    "real-estate",
+    "ecommerce",
 )
 
 
@@ -109,6 +104,14 @@ def expected_canonical(path: Path) -> str:
     return f"{BASE}/{rel}"
 
 
+def is_moved_page(path: Path) -> bool:
+    try:
+        text = path.read_text(encoding="utf-8")
+    except OSError:
+        return False
+    return 'http-equiv="refresh"' in text and "noindex" in text
+
+
 def public_html_files() -> list[Path]:
     files = []
     for path in ROOT.rglob("*.html"):
@@ -170,7 +173,7 @@ def check_assets(errors: list[str]) -> None:
             errors.append(f"sitemap missing industry landing {slug}")
     loc_set = set(locs)
     for path in public_html_files():
-        if path.name == "404.html":
+        if path.name == "404.html" or is_moved_page(path):
             continue
         canon = expected_canonical(path)
         if canon not in loc_set:
