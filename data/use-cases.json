@@ -7939,5 +7939,978 @@
     ],
     "effect": "Each supplier gets the same ask, and price and lead time sit in one sheet for a person to pick.",
     "caution": "SI lines up quotes. A person picks the supplier."
+  },
+  {
+    "slug": "restaurant-whatsapp-table-bookings",
+    "title": "WhatsApp table bookings for restaurants",
+    "industries": [
+      "restaurants-food"
+    ],
+    "functions": [
+      "scheduling",
+      "customer-support"
+    ],
+    "summary": "SI drafts table booking replies on WhatsApp from open times. A person approves each reply before the booking system holds the table.",
+    "problem": "Booking chats arrive while the host is on the floor. Tables get double booked. Guests wait for a yes that never comes.",
+    "what_si_does": "SI reads the WhatsApp note and the open tables for that day. It drafts a reply with a time that fits the party size and the turn time you set. A person approves the reply before it is sent. After that yes, the booking system you already use holds the table. SI does not hold the table, take a deposit, or send the note on its own.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Connect WhatsApp and the booking tool with permission to read and draft, not to hold a table or send. Write the party-size rules and the wording you already use. We sit with you, plan the steps, and teach you to run it. Setup is often a few days while you check a handful of real chats.",
+    "human_checks": [
+      "A person approves every reply before it is sent.",
+      "The booking system holds the table only after that approval.",
+      "SI does not take a deposit or promise a table on its own.",
+      "Texting rules vary. Get consent and honor opt-outs."
+    ],
+    "examples": [
+      {
+        "business_type": "Neighborhood bistro",
+        "scenario": "A guest asks for four people at 7 on Friday. SI drafts a reply with the open four-top. The host sends it, and the booking tool holds the table."
+      },
+      {
+        "business_type": "Beach cafe",
+        "scenario": "Two chats ask for the same patio time. SI drafts both and flags the clash. The host picks one and sends only that reply."
+      },
+      {
+        "business_type": "Family pizza shop",
+        "scenario": "A large party asks for a date that is already full. SI drafts a note with the next open time. The owner sends it."
+      }
+    ],
+    "copy_prompt": "Read this WhatsApp note [paste] and these open tables [file]. Draft a reply for a party of [size] that fits the turn time I set. Do not hold the table, take a deposit, or send the note. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "WhatsApp",
+      "OpenTable",
+      "Google Calendar",
+      "Google Sheets",
+      "Gmail"
+    ],
+    "effect": "Table chats get a draft the same day. The host still decides which table is held.",
+    "caution": "A person approves every booking reply. SI does not hold the table or take a deposit."
+  },
+  {
+    "slug": "restaurant-menu-allergy-chat",
+    "title": "Menu and allergy chat for restaurants",
+    "industries": [
+      "restaurants-food"
+    ],
+    "functions": [
+      "customer-support"
+    ],
+    "summary": "SI drafts chat replies from your menu, hours, allergy list, and delivery area. Hard questions go to staff. A person approves anything sent.",
+    "problem": "Guests ask the same menu, allergy, and delivery questions all day. Staff answer late, or they guess when the list is not in front of them.",
+    "what_si_does": "SI reads only the menu, hours, allergy list, and delivery area the restaurant approved. It drafts a short reply from those pages. If the answer is not on them, the question goes to staff with no guess. A person approves anything sent. SI does not give medical advice. It does not change the menu or take an order on its own.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Save the current menu, hours, allergy list, and delivery area in one folder the shop controls. Permission is to draft, not to send. We sit with you, plan the steps, and teach you to run it. Setup is often a few days while staff check the first replies.",
+    "human_checks": [
+      "A person approves anything sent.",
+      "Questions that are not on the approved lists go to staff.",
+      "SI does not give medical advice or guess about an allergy.",
+      "The restaurant updates the lists when the menu or hours change."
+    ],
+    "examples": [
+      {
+        "business_type": "Lunch counter",
+        "scenario": "A guest asks if a soup has nuts. The allergy list says it does. SI drafts that fact. A manager sends it."
+      },
+      {
+        "business_type": "Sushi bar",
+        "scenario": "A guest asks about a special that is not on the menu. SI does not guess. The note goes to the chef."
+      },
+      {
+        "business_type": "Pizza shop with delivery",
+        "scenario": "A guest asks if a street is in the delivery area. SI drafts a yes or no from the map list. Staff send it."
+      }
+    ],
+    "copy_prompt": "Using only this menu, hours, allergy list, and delivery area [paste], draft a reply to this question [paste]. If the answer is not on those pages, say it needs a person and do not guess. Do not give medical advice. Do not send. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "WhatsApp",
+      "Gmail",
+      "Google Docs",
+      "Square",
+      "Google Sheets"
+    ],
+    "effect": "Common menu questions get a draft from the shop's own lists. Staff still send every reply.",
+    "caution": "SI does not give medical advice. It answers only from the lists the restaurant approved. A person sends every reply."
+  },
+  {
+    "slug": "food-distributor-order-stock",
+    "title": "Distributor order and stock follow-up",
+    "industries": [
+      "restaurants-food"
+    ],
+    "functions": [
+      "inventory-orders",
+      "sales-follow-up"
+    ],
+    "summary": "SI drafts order follow-ups and a stock watch for a food distributor. A person approves each note and each order.",
+    "problem": "Open orders live in texts, calls, and sheets. Late orders and low stock get chased by memory. The same buyer gets asked twice, or not at all.",
+    "what_si_does": "SI reads the order sheet and the stock counts you already keep. It lists late orders and items that are under the level you set. It drafts a short follow-up for each late order. A person approves the note before it is sent and approves any order before it is placed. SI does not place an order, change a count, or send a note on its own.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Use the order sheet and stock sheet you already keep. Write what counts as late and what count is low. Permission is to draft, not to send or order. We sit with you, plan the steps, and teach you to run it. Setup is often a few days while you check the first list.",
+    "human_checks": [
+      "A person approves every follow-up before it is sent.",
+      "A person approves every order before it is placed.",
+      "SI does not change stock counts on its own.",
+      "Items with a missing count are flagged, not filled in."
+    ],
+    "examples": [
+      {
+        "business_type": "Produce distributor",
+        "scenario": "Three restaurant orders are still open past the day you set. SI drafts a short check-in for each. The sales lead sends them."
+      },
+      {
+        "business_type": "Dry-goods supplier",
+        "scenario": "Rice is under the level on the sheet. SI lists it for reorder. The buyer approves the order before it goes to the mill."
+      },
+      {
+        "business_type": "Small meat distributor",
+        "scenario": "A count cell is blank. SI flags the row and does not invent a number. The warehouse lead fills the count."
+      }
+    ],
+    "copy_prompt": "Using this order sheet [file] and stock sheet [file], list orders late past [rule] and items under [level]. Draft a short follow-up for each late order. Flag blank counts. Do not place an order, change a count, or send. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Sheets",
+      "Gmail",
+      "WhatsApp",
+      "QuickBooks",
+      "Google Drive"
+    ],
+    "effect": "Late orders and low items sit on one list. A person still sends the notes and places the orders.",
+    "caution": "A person approves anything sent or ordered. SI does not change stock counts."
+  },
+  {
+    "slug": "repair-order-parts-cart",
+    "title": "Parts cart from the repair order",
+    "industries": [
+      "auto-repair"
+    ],
+    "functions": [
+      "inventory-orders"
+    ],
+    "summary": "SI builds a parts cart from the repair order and the shop's parts list. The shop approves the cart before checkout.",
+    "problem": "Parts for a job get typed into a supplier site by hand. The wrong part number slips in. The cart is checked out before the advisor looks.",
+    "what_si_does": "SI reads the repair order and the parts list the shop keeps. It drafts a cart with the part numbers that match the lines on the order. It flags lines it cannot match. The shop approves the cart before checkout. SI does not check out, pay, or promise a part is right for the car.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Use the repair-order export and the parts list or supplier login the shop already has. Permission is to fill a cart, not to check out or pay. We sit with you, plan the steps, and teach you to run it. Setup is often a few days while an advisor checks the first carts.",
+    "human_checks": [
+      "The shop approves the cart before checkout.",
+      "SI does not pay or place the order on its own.",
+      "Unmatched lines wait for a parts person.",
+      "A tech or advisor confirms the part fits the car."
+    ],
+    "examples": [
+      {
+        "business_type": "Independent repair shop",
+        "scenario": "A brake job lists pads and rotors. SI drafts the cart from the shop's parts list. The advisor checks the numbers and checks out."
+      },
+      {
+        "business_type": "Tire and service shop",
+        "scenario": "One line has no part number on the order. SI leaves that line blank and flags it. The parts counter fills it."
+      },
+      {
+        "business_type": "Two-bay garage",
+        "scenario": "The cart total looks high versus the last buy. SI notes the gap. The owner decides whether to check out."
+      }
+    ],
+    "copy_prompt": "From this repair order [paste] and this parts list [file], draft a parts cart. Flag lines you cannot match. Do not check out, pay, or say a part fits the car. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Sheets",
+      "Gmail",
+      "Shop management export",
+      "Supplier portal"
+    ],
+    "effect": "The cart starts from the repair order. Checkout still waits for the shop.",
+    "caution": "The shop approves the cart before checkout. SI does not pay or name the repair."
+  },
+  {
+    "slug": "class-court-chat-bookings",
+    "title": "Class and court bookings by chat",
+    "industries": [
+      "fitness-salons-wellness"
+    ],
+    "functions": [
+      "scheduling"
+    ],
+    "summary": "SI drafts class and court booking replies from open times. A person approves each reply. Then the booking system holds the slot.",
+    "problem": "Members book by chat while the desk is with someone else. The same court gets offered twice. The slot is never held.",
+    "what_si_does": "SI reads the chat and the open class or court times. It drafts a reply with a slot that fits the length you set. A person approves the reply before it is sent. After that yes, the booking system you already use holds the slot. SI does not hold the slot, charge a fee, or send the note on its own.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Connect the chat and share the booking calendar with read access. Write the class length and the court rules. Permission is to draft, not to hold a slot or send. We sit with you, plan the steps, and teach you to run it. Setup is often a few days while the desk checks real chats.",
+    "human_checks": [
+      "A person approves every reply before it is sent.",
+      "The booking system holds the slot only after that approval.",
+      "SI does not charge a fee or sell a membership.",
+      "Texting rules vary. Get consent and honor opt-outs."
+    ],
+    "examples": [
+      {
+        "business_type": "Tennis and pickleball club",
+        "scenario": "A member asks for a court at 6. SI drafts the open court. The desk sends the note, and the booking tool holds the court."
+      },
+      {
+        "business_type": "Yoga studio",
+        "scenario": "Two people ask for the last spot in one class. SI drafts both and flags the clash. The owner sends one."
+      },
+      {
+        "business_type": "Gym with group classes",
+        "scenario": "A member asks to move a class. SI drafts a new time from the open list. Staff approve it before the old spot is released."
+      }
+    ],
+    "copy_prompt": "Read this chat [paste] and these open class or court times [file]. Draft a reply that fits the length I set. Do not hold the slot, charge a fee, or send. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "WhatsApp",
+      "Google Calendar",
+      "Mindbody",
+      "Google Sheets",
+      "Gmail"
+    ],
+    "effect": "Chat bookings get a draft from the real open times. The desk still holds the slot.",
+    "caution": "A person approves every booking reply. SI does not hold the slot or charge a fee."
+  },
+  {
+    "slug": "trainer-client-onboarding",
+    "title": "Trainer onboarding notes and reminders",
+    "industries": [
+      "fitness-salons-wellness"
+    ],
+    "functions": [
+      "scheduling",
+      "customer-support"
+    ],
+    "summary": "SI drafts a training-schedule PDF and reminder notes for a new client. The trainer approves them before they are sent.",
+    "problem": "A new client starts, and the plan stays in the trainer's head. The PDF goes out late. Reminder notes are missed.",
+    "what_si_does": "SI reads the plan the trainer already wrote and the start date. It drafts a simple schedule as a PDF and a few reminder notes in the trainer's wording. The trainer approves the PDF and each note before they are sent. SI does not send them, change the plan, or give health advice.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Use the plan template and reminder wording the trainer already likes. Permission is to draft, not to send. We sit with you, plan the steps, and teach you to run it. Setup is often a day or two while you check one sample client.",
+    "human_checks": [
+      "The trainer approves the PDF and every note before they are sent.",
+      "SI does not change the training plan or give health advice.",
+      "A person sends anything that goes to the client.",
+      "Texting rules vary. Get consent and honor opt-outs."
+    ],
+    "examples": [
+      {
+        "business_type": "Independent trainer",
+        "scenario": "A new client starts Monday. SI drafts a four-week PDF from the trainer's plan. The trainer sends it after a read."
+      },
+      {
+        "business_type": "Small studio",
+        "scenario": "SI drafts a reminder for the first three sessions. The coach edits one line and sends the notes."
+      },
+      {
+        "business_type": "Youth sports coach",
+        "scenario": "The plan has a blank week. SI leaves that week blank and flags it. The coach fills it before the PDF goes out."
+      }
+    ],
+    "copy_prompt": "From this training plan [paste] and start date [date], draft a schedule PDF and reminder notes in this wording [paste]. Do not change the plan, give health advice, or send. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Docs",
+      "Gmail",
+      "WhatsApp",
+      "Google Calendar",
+      "Google Drive"
+    ],
+    "effect": "New clients get a draft schedule and reminders. The trainer still sends them.",
+    "caution": "The trainer approves the PDF and every note. SI does not give health advice."
+  },
+  {
+    "slug": "nightly-rate-nearby-check",
+    "title": "Weekly nightly price check for hosts",
+    "industries": [
+      "short-term-rentals"
+    ],
+    "functions": [
+      "reporting-dashboards"
+    ],
+    "summary": "Once a week SI checks your nightly price against nearby listings you chose. The host approves before any price changes.",
+    "problem": "Nearby nightly prices move. The host finds out late, often from a guest. Checking each listing by hand does not fit the week.",
+    "what_si_does": "SI reads the nightly prices on the public listings the host listed, and the host's own price for the same dates. It drafts a short note on what changed. The host approves before any price is changed. SI does not change the listing, message a guest, or set a price on its own.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Save the list of nearby listings and the dates to watch. Permission is to read public pages and draft a note, not to edit the listing. We sit with you, plan the steps, and teach you to run it. Setup is often a few days while you check the first note.",
+    "human_checks": [
+      "The host approves before any price is changed.",
+      "SI does not edit the listing or message a guest.",
+      "The host chooses which nearby listings are in the check.",
+      "A missing price is flagged, not filled in."
+    ],
+    "examples": [
+      {
+        "business_type": "One beach condo",
+        "scenario": "Three nearby listings dropped their rate for a holiday week. SI drafts the gap. The host decides whether to change the price."
+      },
+      {
+        "business_type": "Two-home host",
+        "scenario": "One listing page will not open. SI flags that row and still drafts the rest. The host checks the closed page."
+      },
+      {
+        "business_type": "Small cabin rental",
+        "scenario": "The host's price is already in line with the list. SI says no change is suggested. The host leaves the rate as it is."
+      }
+    ],
+    "copy_prompt": "Compare my nightly prices [file] with these nearby public listings [links] for these dates [dates]. Draft a short note on what changed. Do not change my listing, message a guest, or set a price. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Sheets",
+      "Airbnb host calendar",
+      "Google Docs",
+      "Gmail"
+    ],
+    "effect": "The host sees a weekly price note. The listing changes only after the host says yes.",
+    "caution": "The host approves any price change. SI does not edit the listing."
+  },
+  {
+    "slug": "rental-property-profit-loss",
+    "title": "Profit and loss sheet per rental",
+    "industries": [
+      "real-estate"
+    ],
+    "functions": [
+      "reporting-dashboards",
+      "billing-admin"
+    ],
+    "summary": "SI drafts a profit and loss sheet for each rental from your property export. The manager reviews the sheet before anyone uses it.",
+    "problem": "Rent, repairs, and fees sit in the property tool. A plain profit and loss sheet for each home still gets built by hand at month end.",
+    "what_si_does": "SI reads the export from the property software you already use. It drafts a profit and loss sheet for each property, with income and costs in the groups you set. It flags rows it cannot place. The manager reviews the sheet before anyone uses it. SI does not change the books, file a return, or give tax advice. SI prepares drafts for the licensed agent or owner. SI does not lease, collect rent, screen or rank applicants.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds applicant or tenant information, the business checks the tool's terms. It also checks data practices. It sets access controls. It limits SI to the minimum necessary. Start with sample or made-up information. Use a sample export and the sheet layout the manager already wants. Permission is to draft, not to change the books. We sit with you, plan the steps, and teach you to run it. Setup is often a few days.",
+    "human_checks": [
+      "The manager reviews the sheet before anyone uses it.",
+      "The agent, broker, or manager approves before anything goes to a client, tenant, applicant, or vendor.",
+      "SI never sends, posts, signs, or changes records on its own.",
+      "SI does not change the books or give tax advice.",
+      "The business decides what personal data SI may see. Testing starts with sample information."
+    ],
+    "examples": [
+      {
+        "business_type": "Owner with four rentals",
+        "scenario": "SI drafts one sheet per home from the monthly export. The owner checks a repair that landed in the wrong group."
+      },
+      {
+        "business_type": "Small property office",
+        "scenario": "A fee has no category. SI flags the row. The manager places it before the sheet is shared."
+      },
+      {
+        "business_type": "Landlord with a duplex",
+        "scenario": "Both units are on one export. SI splits them by the unit names the owner set. The owner reviews both sheets."
+      }
+    ],
+    "copy_prompt": "From this property export [file], draft a profit and loss sheet per property using these groups [paste]. Flag rows you cannot place. Do not change the books, file anything, or give tax advice. Do not lease, collect rent, screen or rank applicants. Pause and show me before sending, posting, signing or changing anything. Use only the sample or made-up information I provide; do not include real tenant or applicant names, IDs or financial details.",
+    "tools_examples": [
+      "Google Sheets",
+      "QuickBooks",
+      "Property export",
+      "Excel",
+      "Google Drive"
+    ],
+    "effect": "Each rental gets a draft sheet from the export. The manager still checks it before it is used.",
+    "caution": "This is office support only. SI does not give legal or lease advice. SI does not make leasing, screening, or pricing decisions. SI does not act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything that faces a client, a tenant, or a contract. Fair housing laws apply. SI never screens, ranks, steers, or targets by protected characteristics. Applicant and tenant information is used only in checked tools, with access controls and the minimum necessary. SI does not change the books or give tax advice. The manager reviews the sheet before anyone uses it."
+  },
+  {
+    "slug": "inspection-maintenance-plan",
+    "title": "Planned maintenance from inspections",
+    "industries": [
+      "real-estate"
+    ],
+    "functions": [
+      "scheduling",
+      "research-documents"
+    ],
+    "summary": "SI drafts a planned upkeep list from inspection reports and receipts, plus vendor messages. The manager approves every message before it is sent.",
+    "problem": "Inspection notes and receipts sit in folders. Planned upkeep is easy to forget until something fails. Vendor asks live in texts.",
+    "what_si_does": "SI reads the inspection reports and receipts the manager provides. It drafts a planned upkeep list with the item, the property, and the timing the manager's notes already state. It drafts vendor messages from wording the manager approved. The manager approves every message before it is sent. SI does not hire a vendor, pay a bill, or decide what the law requires. SI prepares drafts for the licensed agent or owner. SI does not lease, collect rent, screen or rank applicants.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds applicant or tenant information, the business checks the tool's terms. It also checks data practices. It sets access controls. It limits SI to the minimum necessary. Start with sample or made-up information. Use sample reports, receipts, and the vendor note the manager already likes. Permission is to draft, not to send or pay. We sit with you, plan the steps, and teach you to run it. Setup is often a few days.",
+    "human_checks": [
+      "The manager approves every vendor message before it is sent.",
+      "The agent, broker, or manager approves before anything goes to a client, tenant, applicant, or vendor.",
+      "SI never sends, posts, signs, or changes records on its own.",
+      "SI does not hire or pay a vendor.",
+      "The business decides what personal data SI may see. Testing starts with sample information."
+    ],
+    "examples": [
+      {
+        "business_type": "Small rental portfolio",
+        "scenario": "An inspection says the water heater is old. SI adds it to the upkeep list and drafts a vendor note. The manager sends the note."
+      },
+      {
+        "business_type": "Single-family landlord",
+        "scenario": "A receipt has no property name. SI flags it. The owner files it before it hits the list."
+      },
+      {
+        "business_type": "Property office",
+        "scenario": "Three roofs are due in the notes this year. SI lists them by the dates the manager wrote. The manager picks who to call."
+      }
+    ],
+    "copy_prompt": "From these inspection reports and receipts [files], draft a planned upkeep list using only dates and items in the notes. Draft vendor messages from this wording [paste]. Do not hire, pay, send, or decide what the law requires. Do not lease, collect rent, screen or rank applicants. Pause and show me before sending, posting, signing or changing anything. Use only the sample or made-up information I provide; do not include real tenant or applicant names, IDs or financial details.",
+    "tools_examples": [
+      "Google Drive",
+      "Gmail",
+      "Google Sheets",
+      "Google Docs",
+      "Property export"
+    ],
+    "effect": "Upkeep from inspections sits on one list. Vendor notes still wait for the manager.",
+    "caution": "This is office support only. SI does not give legal or lease advice. SI does not make leasing, screening, or pricing decisions. SI does not act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything that faces a client, a tenant, or a contract. Fair housing laws apply. SI never screens, ranks, steers, or targets by protected characteristics. Applicant and tenant information is used only in checked tools, with access controls and the minimum necessary. The manager approves every message before it is sent. SI does not hire or pay a vendor."
+  },
+  {
+    "slug": "security-deposit-deduction-letters",
+    "title": "Security deposit deduction letter drafts",
+    "industries": [
+      "real-estate"
+    ],
+    "functions": [
+      "research-documents",
+      "customer-support"
+    ],
+    "summary": "SI drafts a deposit letter from the manager's list and the lease text. This is not legal advice. The manager reviews the letter before it is sent.",
+    "problem": "Move-out letters get written in a rush. A deduction can miss the lease line the manager meant to cite. The letter goes out before a second read.",
+    "what_si_does": "SI drafts a deposit letter from the deduction list the manager wrote and the lease lines the manager marked. It also checks that list against a Florida checklist the manager or an attorney already wrote. It flags any line that does not match. It does not decide what the lease or Florida law requires. This is not legal advice. The manager reviews the letter before it is sent. SI does not send it. SI prepares drafts for the licensed agent or owner. SI does not lease, collect rent, screen or rank applicants.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds applicant or tenant information, the business checks the tool's terms. It also checks data practices. It sets access controls. It limits SI to the minimum necessary. Start with sample or made-up information. Use a sample lease, a sample deduction list, and the Florida checklist the manager or an attorney already approved. Permission is to draft, not to send. We sit with you, plan the steps, and teach you to run it. Setup is often a few days.",
+    "human_checks": [
+      "This is not legal advice. The manager reviews the letter before it is sent.",
+      "The agent, broker, or manager approves before anything goes to a client, tenant, applicant, or vendor.",
+      "SI never sends, posts, signs, or changes records on its own.",
+      "SI does not decide what the lease or Florida law requires.",
+      "The business decides what personal data SI may see. Testing starts with sample information."
+    ],
+    "examples": [
+      {
+        "business_type": "Florida landlord",
+        "scenario": "The manager lists a carpet charge and marks the lease line. SI drafts the letter and flags a charge with no lease line. The manager reviews it before sending."
+      },
+      {
+        "business_type": "Small property office in Florida",
+        "scenario": "A checklist item the attorney wrote is missing from the letter. SI flags the gap. The manager fixes the draft. This is not legal advice."
+      },
+      {
+        "business_type": "Owner of one rental in Florida",
+        "scenario": "SI drafts the letter from made-up sample amounts. The owner compares it to the lease text and sends it only after that review."
+      }
+    ],
+    "copy_prompt": "Draft a security deposit letter from this deduction list [paste], these lease lines I marked [paste], and this Florida checklist I or my attorney already wrote [paste]. Flag lines that do not match. Do not decide what the lease or Florida law requires. This is not legal advice. Do not send the letter. Label it DRAFT for manager review. Do not lease, collect rent, screen or rank applicants. Pause and show me before sending, posting, signing or changing anything. Use only the sample or made-up information I provide; do not include real tenant or applicant names, IDs or financial details.",
+    "tools_examples": [
+      "Google Docs",
+      "Gmail",
+      "Google Drive",
+      "Google Sheets"
+    ],
+    "effect": "The manager gets a draft letter with flags. The manager reviews it before it is sent. This is not legal advice.",
+    "caution": "This is office support only. SI does not give legal or lease advice. SI does not make leasing, screening, or pricing decisions. SI does not act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything that faces a client, a tenant, or a contract. Fair housing laws apply. SI never screens, ranks, steers, or targets by protected characteristics. Applicant and tenant information is used only in checked tools, with access controls and the minimum necessary. This is not legal advice. The manager reviews the letter before it is sent. SI does not decide what the lease or Florida law requires."
+  },
+  {
+    "slug": "appraisal-report-drafts",
+    "title": "Appraisal report drafts from notes",
+    "industries": [
+      "appraisers"
+    ],
+    "functions": [
+      "research-documents"
+    ],
+    "summary": "SI drafts report sections from the appraiser's notes and template. The appraiser reviews the draft and signs it. SI does not set the value.",
+    "problem": "The field notes are done, and the report still takes a long night. The same sections get retyped from the appraiser's own template.",
+    "what_si_does": "SI reads the appraiser's notes and the appraiser's own report template. It drafts the sections the appraiser asked it to fill. It leaves the value blank unless the appraiser already wrote the number in the notes. The appraiser reviews the draft and signs it. SI does not sign, send the report, or state a value on its own.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Use the appraiser's template and a sample set of notes with client details removed. Permission is to draft, not to sign or send. We sit with you, plan the steps, and teach you to run it. Setup is often a few days while the appraiser checks the first draft.",
+    "human_checks": [
+      "The appraiser reviews the draft and signs it.",
+      "SI does not set a value or sign the report.",
+      "A person approves anything sent or submitted.",
+      "Client files stay on the appraiser's own accounts."
+    ],
+    "examples": [
+      {
+        "business_type": "Residential appraiser",
+        "scenario": "SI drafts the property description from the field notes. The value line stays blank. The appraiser writes the value and signs."
+      },
+      {
+        "business_type": "Two-person appraisal shop",
+        "scenario": "A note is hard to read. SI flags that line and does not guess. The appraiser fills it."
+      },
+      {
+        "business_type": "Commercial appraiser",
+        "scenario": "SI drafts the section headings from the shop's template. The appraiser edits the draft before it leaves the office."
+      }
+    ],
+    "copy_prompt": "From these notes [paste] and this report template [paste], draft the sections I name. Leave the value blank unless I already wrote the number. Do not sign, send, or state a value on your own. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Docs",
+      "Microsoft Word",
+      "Google Drive",
+      "Excel"
+    ],
+    "effect": "The first draft follows the appraiser's notes and template. The appraiser still signs.",
+    "caution": "SI does not set the value or sign the report. The appraiser reviews the draft and signs it."
+  },
+  {
+    "slug": "contract-work-orders-insurance-check",
+    "title": "Work orders from signed contracts",
+    "industries": [
+      "home-services"
+    ],
+    "functions": [
+      "scheduling",
+      "research-documents"
+    ],
+    "summary": "SI drafts work orders from the signed contract and flags insurance forms that do not match the job rules. The owner approves before anyone is told.",
+    "problem": "A contract is signed, and the crew still waits on a work order someone has to type. An insurance form on file can name the wrong job or show old dates.",
+    "what_si_does": "SI reads the signed contract and drafts a work order with the job, the site, and the dates the contract states. It reads the insurance form the owner saved and flags it when the name, dates, or dollar amount do not match the job rules the owner wrote. The owner approves the work order and the flag before anyone is told. SI does not decide if coverage is enough. SI does not send the work order or tell a sub to start.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds customer information, the business checks the tool's terms. It also checks data practices. It sets access controls. It limits SI to the minimum necessary. Start with sample or made-up information. Use a sample contract, the work-order layout, and the job rules the owner wrote for insurance forms. Permission is to draft, not to send. We sit with you, plan the steps, and teach you to run it. Setup is often a few days.",
+    "human_checks": [
+      "The owner approves the work order before it goes to the crew or a sub.",
+      "The owner or office manager approves before anything goes to a customer, vendor, or inspector.",
+      "SI never sends a quote, takes a payment, books a job, or submits anything on its own.",
+      "SI does not decide if an insurance form is enough.",
+      "The business decides what customer data SI may see. Testing starts with sample information."
+    ],
+    "examples": [
+      {
+        "business_type": "Roofing contractor",
+        "scenario": "A signed contract names the address and start week. SI drafts the work order. The owner sends it to the crew."
+      },
+      {
+        "business_type": "HVAC company",
+        "scenario": "The insurance form shows a date that already passed. SI flags it. The owner asks the sub for a new form before work is scheduled."
+      },
+      {
+        "business_type": "Remodel shop",
+        "scenario": "The form names a different company than the job rules. SI flags the name. The owner reviews it before anyone is told to start."
+      }
+    ],
+    "copy_prompt": "From this signed contract [paste], draft a work order with the job, site, and dates stated in the contract. Compare this insurance form [file] to these job rules I wrote [paste]. Flag a mismatch in name, dates, or dollar amount. Do not decide if coverage is enough. Do not send or start the job. Pause and show me before sending, quoting, booking, ordering or changing anything. Use only the sample or made-up information I provide; do not include real customer names, addresses or payment details.",
+    "tools_examples": [
+      "Google Docs",
+      "Google Drive",
+      "Gmail",
+      "Google Sheets"
+    ],
+    "effect": "Signed jobs get a draft work order. Insurance mismatches wait for the owner.",
+    "caution": "This is office support only. SI does not set prices. SI does not promise prices. SI does not give safety, repair, code, or insurance advice. SI does not make any commitment for the business. The owner or an authorized person reviews every quote, schedule commitment, and customer message. They must approve it. License, ad, deposit, and permit rules vary by state. Customer information is used only in checked tools with access controls. The owner approves the work order before anyone is told. SI does not decide if coverage is enough."
+  },
+  {
+    "slug": "permit-form-drafts-for-submit",
+    "title": "Permit forms filled for you to submit",
+    "industries": [
+      "home-services"
+    ],
+    "functions": [
+      "research-documents"
+    ],
+    "summary": "SI fills permit and inspection forms from the job file. It stops before submit. The contractor reviews the form and submits it.",
+    "problem": "The same job facts get typed into city forms. A blank field stalls the form. Someone submits it before the owner reads it.",
+    "what_si_does": "SI reads the job file the owner provides and fills the permit and inspection form fields it can match. It lists fields it could not fill. It stops before submit. The contractor reviews the form and submits it. SI does not decide if a permit is needed, if work passes code, or what a deadline is. SI does not submit the form.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds customer information, the business checks the tool's terms. It also checks data practices. It sets access controls. It limits SI to the minimum necessary. Start with sample or made-up information. Use a sample job file and the form the city uses. Mark which fields SI may fill. Permission stops before submit. We sit with you, plan the steps, and teach you to run it. Setup is often a few days.",
+    "human_checks": [
+      "The contractor reviews the form and submits it.",
+      "The owner or office manager approves before anything goes to a customer, vendor, or inspector.",
+      "SI never sends a quote, takes a payment, books a job, or submits anything on its own.",
+      "SI does not decide if a permit is needed or if work passes code.",
+      "The business decides what customer data SI may see. Testing starts with sample information."
+    ],
+    "examples": [
+      {
+        "business_type": "Roofing contractor",
+        "scenario": "SI fills the city form from the job file and leaves the signature blank. The owner reviews it and submits it."
+      },
+      {
+        "business_type": "Electrical shop",
+        "scenario": "A license number is not in the job file. SI leaves that box blank and lists it. The owner adds it before submit."
+      },
+      {
+        "business_type": "Plumbing contractor",
+        "scenario": "SI fills an inspection request from dates the owner entered. The owner checks the date and submits the form."
+      }
+    ],
+    "copy_prompt": "Fill this permit or inspection form [form] from this job file [file]. List fields you cannot fill. Stop before submit. Do not decide if a permit is needed, if work passes code, or what a deadline is. Do not sign or submit. Pause and show me before sending, quoting, booking, ordering or changing anything. Use only the sample or made-up information I provide; do not include real customer names, addresses or payment details.",
+    "tools_examples": [
+      "City permit portal",
+      "Google Drive",
+      "Google Docs",
+      "Gmail"
+    ],
+    "effect": "The form is filled from the job file. The contractor still submits it.",
+    "caution": "This is office support only. SI does not set prices. SI does not promise prices. SI does not give safety, repair, code, or insurance advice. SI does not make any commitment for the business. The owner or an authorized person reviews every quote, schedule commitment, and customer message. They must approve it. License, ad, deposit, and permit rules vary by state. Customer information is used only in checked tools with access controls. The contractor submits the form. SI does not decide if a permit is needed."
+  },
+  {
+    "slug": "nightly-prices-into-estimates",
+    "title": "Nightly supplier prices in estimates",
+    "industries": [
+      "home-services"
+    ],
+    "functions": [
+      "billing-admin"
+    ],
+    "summary": "Each night SI drafts supplier price updates for the estimate sheet. The owner approves before those prices are used on a quote.",
+    "problem": "Supplier prices change, and the estimate sheet stays on last month's numbers. Quotes go out with a cost the shop no longer pays.",
+    "what_si_does": "SI reads the supplier price file and the estimate sheet. It drafts the new unit price next to the old one for items that match. It flags items it cannot match. The owner approves before the new prices are used on a quote. SI does not send a quote or set a sell price on its own.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds customer information, the business checks the tool's terms. It also checks data practices. It sets access controls. It limits SI to the minimum necessary. Start with sample or made-up information. Use the supplier price file and the estimate sheet the owner already keeps. Permission is to draft price rows, not to send a quote. We sit with you, plan the steps, and teach you to run it. Setup is often a few days.",
+    "human_checks": [
+      "The owner approves new prices before they are used on a quote.",
+      "The owner or office manager approves before anything goes to a customer, vendor, or inspector.",
+      "SI never sends a quote, takes a payment, books a job, or submits anything on its own.",
+      "SI does not set the sell price.",
+      "The business decides what customer data SI may see. Testing starts with sample information."
+    ],
+    "examples": [
+      {
+        "business_type": "Plumbing contractor",
+        "scenario": "A supplier file shows a higher unit cost on copper fittings. SI drafts the new cost on the sheet. The owner accepts it before the next quote."
+      },
+      {
+        "business_type": "Electrical contractor",
+        "scenario": "One item code does not match the sheet. SI flags it and leaves the old price. The owner matches it."
+      },
+      {
+        "business_type": "Roofing supplier buyer",
+        "scenario": "SI drafts the night's changes in a short list. The owner uses them on the next estimate after a review."
+      }
+    ],
+    "copy_prompt": "From this supplier price file [file] and this estimate sheet [file], draft updated unit costs for items that match. Show the old price and the new price. Flag items you cannot match. Do not set a sell price or send a quote. Pause and show me before sending, quoting, booking, ordering or changing anything. Use only the sample or made-up information I provide; do not include real customer names, addresses or payment details.",
+    "tools_examples": [
+      "Google Sheets",
+      "Excel",
+      "Supplier price file",
+      "Gmail"
+    ],
+    "effect": "The estimate sheet can follow supplier costs. Quotes still wait for the owner.",
+    "caution": "This is office support only. SI does not set prices. SI does not promise prices. SI does not give safety, repair, code, or insurance advice. SI does not make any commitment for the business. The owner or an authorized person reviews every quote, schedule commitment, and customer message. They must approve it. License, ad, deposit, and permit rules vary by state. Customer information is used only in checked tools with access controls. The owner approves price updates before they are used on a quote."
+  },
+  {
+    "slug": "site-crawler-read-check",
+    "title": "Check if SI tools can read your site",
+    "industries": [
+      "any-business"
+    ],
+    "functions": [
+      "content-marketing",
+      "research-documents"
+    ],
+    "summary": "SI checks whether SI search tools can open and read your public pages. It drafts a note. A person approves any change to the site.",
+    "problem": "A site can look fine to people and still block the tools that read pages for search. The block sits in a rules file or a tag nobody checks.",
+    "what_si_does": "SI reads the public pages you name. It checks robots.txt, the file that tells crawlers what they may open, and the page tags you already use. It drafts a short note on what a search tool can and cannot read. A person approves any change to the site. SI does not edit the live site, add a tag, or change the rules file on its own.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Name the public pages to check. Permission is to read those pages and draft a note, not to edit the site. We sit with you, plan the steps, and teach you to run it. Setup is often a day or two while you review the first note.",
+    "human_checks": [
+      "A person approves any change to the site before it goes live.",
+      "SI does not edit the live site or the rules file on its own.",
+      "The note covers only the pages you named.",
+      "A person decides which fixes to make."
+    ],
+    "examples": [
+      {
+        "business_type": "Local cleaning company",
+        "scenario": "SI finds a rule that blocks the main service page. It drafts the note. The owner decides whether to change the file."
+      },
+      {
+        "business_type": "Small shop site",
+        "scenario": "A page has no title tag. SI lists it. The owner approves a new title before it is published."
+      },
+      {
+        "business_type": "Consultant site",
+        "scenario": "The pages SI was asked to read are open. The note says so. No change is made."
+      }
+    ],
+    "copy_prompt": "Check these public pages [links]. Read robots.txt and the page tags. Draft a note on what a search tool can and cannot read. Do not edit the live site. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "A web browser",
+      "Google Search Console",
+      "Google Docs",
+      "The site host you already use"
+    ],
+    "effect": "You get a plain note on what search tools can read. The site changes only after you approve them.",
+    "caution": "SI does not edit the live site. A person approves any change before it goes live."
+  },
+  {
+    "slug": "monthly-vendor-invoices-to-accountant",
+    "title": "Vendor invoices sent to your accountant",
+    "industries": [
+      "any-business",
+      "accounting"
+    ],
+    "functions": [
+      "billing-admin"
+    ],
+    "summary": "Each month SI downloads invoices from the vendor sites you list and drafts an email to your accountant. A person sends it.",
+    "problem": "Monthly invoices sit inside vendor sites. Someone logs in, downloads each file, and forwards the pile. A month gets skipped.",
+    "what_si_does": "SI logs into the vendor sites you list, using access you grant on your own accounts. It downloads that month's invoices into the folder you choose. It drafts an email to your accountant with those files attached. A person reviews the files and sends the email. SI does not pay a bill, change a vendor account, or send the email on its own.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. List the vendor sites, the folder, and the accountant's address. Permission is to download and draft, not to pay or send. We sit with you, plan the steps, and teach you to run it. Setup is often a few days while you check the first month.",
+    "human_checks": [
+      "A person reviews the files and sends the email to the accountant.",
+      "SI does not pay a bill or send mail on its own.",
+      "A missing invoice is listed, not skipped in silence.",
+      "Vendor logins stay on your own accounts."
+    ],
+    "examples": [
+      {
+        "business_type": "Small retail shop",
+        "scenario": "SI downloads six vendor invoices into one folder and drafts the email. The owner sends it to the bookkeeper."
+      },
+      {
+        "business_type": "Clinic office",
+        "scenario": "One vendor site has no invoice this month. SI lists that gap in the draft. The office manager checks it before sending."
+      },
+      {
+        "business_type": "Landlord",
+        "scenario": "SI saves utility invoices from the portals the owner named. The owner sends the packet. Nothing is paid from the draft."
+      }
+    ],
+    "copy_prompt": "Log into these vendor sites [list] and download this month's invoices into [folder]. Draft an email to my accountant with the files. List any site with no invoice. Do not pay, change account settings, or send. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Drive",
+      "Gmail",
+      "Vendor portals",
+      "QuickBooks"
+    ],
+    "effect": "The month's vendor invoices land in one draft email. A person still sends it.",
+    "caution": "A person sends the email. SI does not pay a bill."
+  },
+  {
+    "slug": "tutoring-whatsapp-appointments",
+    "title": "Tutoring bookings over WhatsApp",
+    "industries": [
+      "education"
+    ],
+    "functions": [
+      "scheduling"
+    ],
+    "summary": "SI drafts tutoring replies on WhatsApp from open times. A person approves anything sent to a student or parent before the time is held.",
+    "problem": "Families book tutoring in WhatsApp while the tutor is in a session. Times get double booked. A slot is promised in chat and never put on the calendar.",
+    "what_si_does": "SI reads the WhatsApp note and the tutor's open times. It drafts a reply with a time that fits the session length. A person approves anything sent to a student or parent. The calendar holds the time only after that approval. SI does not hold the slot, take payment, or send the note on its own.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. The school reviews each tool before it holds student records. Check the vendor's terms, access controls, and any FERPA or state student-privacy duties. Start with sample or de-identified material. Share the tutor calendar with read access and the reply wording already approved. Permission is to draft, not to send or book. We sit with you, plan the steps, and teach you to run it. Setup is often a few days.",
+    "human_checks": [
+      "A person approves anything sent to a student or parent.",
+      "The calendar holds the time only after that approval.",
+      "SI does not take payment or hold a slot on its own.",
+      "Texting rules vary. Get consent and honor opt-outs."
+    ],
+    "examples": [
+      {
+        "business_type": "Independent tutor",
+        "scenario": "A parent asks for Thursday after school. SI drafts an open time. The tutor sends it, and the calendar holds the slot."
+      },
+      {
+        "business_type": "Small tutoring group",
+        "scenario": "Two families ask for the same hour. SI drafts both and flags the clash. Staff send only one."
+      },
+      {
+        "business_type": "After-school program",
+        "scenario": "A note asks to move a session. SI drafts a new time. A staff member approves it before the old time is dropped."
+      }
+    ],
+    "copy_prompt": "Read this WhatsApp note [paste] and these open tutoring times [file]. Draft a reply that fits the session length. Do not hold the time, take payment, or send. Pause and show me before sending, posting or changing anything. Use only the sample or de-identified information I provide; do not include real student names, grades, or family contact details.",
+    "tools_examples": [
+      "WhatsApp",
+      "Google Calendar",
+      "Gmail",
+      "Google Sheets"
+    ],
+    "effect": "Tutoring chats get a draft from the real open times. A person still sends the reply.",
+    "caution": "A person approves anything sent to a student or parent. SI does not hold the tutoring time on its own."
+  },
+  {
+    "slug": "homework-scan-filing",
+    "title": "Handwritten homework filed by student",
+    "industries": [
+      "education"
+    ],
+    "functions": [
+      "research-documents"
+    ],
+    "summary": "SI splits a homework scan and files each part by the class list. The teacher reviews the filing. SI does not grade the work.",
+    "problem": "A stack of handwritten pages is scanned as one file. Sorting it by student takes the evening. A page can land in the wrong folder.",
+    "what_si_does": "SI reads the scan and the class list the teacher provides. It splits the pages by student and files each part under that name on the class list. It flags a page it cannot match. The teacher reviews the filing. SI does not grade the work, score a page, or send anything to a student or parent.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. The school reviews each tool before it holds student records. Check the vendor's terms, access controls, and any FERPA or state student-privacy duties. Start with sample or de-identified material. Use a sample scan and a sample class list. Permission is to file copies in the folder the teacher names, not to grade or send. We sit with you, plan the steps, and teach you to run it. Setup is often a few days.",
+    "human_checks": [
+      "The teacher reviews the filing before it is treated as final.",
+      "SI does not grade, score, or comment on the work.",
+      "A person approves anything sent to a student or parent.",
+      "Pages that do not match the class list are flagged, not guessed."
+    ],
+    "examples": [
+      {
+        "business_type": "Classroom teacher",
+        "scenario": "A 30-page scan is split by the names on the class list. The teacher checks two flagged pages and files them."
+      },
+      {
+        "business_type": "Tutor with a small group",
+        "scenario": "One page has no name. SI leaves it in a needs-review folder. The tutor matches it."
+      },
+      {
+        "business_type": "School office",
+        "scenario": "SI files a sample packet into the folders the teacher named. Nothing is sent home. The teacher reviews the folders."
+      }
+    ],
+    "copy_prompt": "Split this homework scan [file] by this class list [file]. File each part under the matching student. Flag pages you cannot match. Do not grade, score, or send anything to a student or parent. Pause and show me before sending, posting or changing anything. Use only the sample or de-identified information I provide; do not include real student names, grades, or family contact details.",
+    "tools_examples": [
+      "Google Drive",
+      "Google Classroom",
+      "A scanner",
+      "Microsoft 365 Education"
+    ],
+    "effect": "The scan is split into a draft filing. The teacher still reviews it. SI does not grade.",
+    "caution": "SI files pages only. It does not grade. A person approves anything sent to a student or parent."
+  },
+  {
+    "slug": "trip-checklist-welcome-back",
+    "title": "Trip checklists and welcome-back notes",
+    "industries": [
+      "travel-agencies"
+    ],
+    "functions": [
+      "scheduling",
+      "customer-support"
+    ],
+    "summary": "SI drafts a trip checklist three days before you leave and a welcome-back note from the trip sheet. A person approves both before WhatsApp.",
+    "problem": "Each trip needs a checklist before departure and a note when people get home. Those messages get typed from the trip sheet at the last minute, or they are skipped.",
+    "what_si_does": "SI reads the trip sheet you already keep. Three days before departure, it drafts a checklist from that sheet. After the trip date, it drafts a short welcome-back note. A person approves each message before it is sent on WhatsApp. SI does not buy travel, change a booking, or send the note on its own.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Use the trip sheet and the checklist wording you already like. Permission is to draft, not to send or change a booking. We sit with you, plan the steps, and teach you to run it. Setup is often a few days while you check one sample trip.",
+    "human_checks": [
+      "A person approves the checklist and the welcome-back note before they are sent.",
+      "SI does not buy travel or change a booking.",
+      "Texting rules vary. Get consent and honor opt-outs.",
+      "Traveler details stay on your own accounts."
+    ],
+    "examples": [
+      {
+        "business_type": "Small travel agency",
+        "scenario": "A family trip leaves Friday. On Tuesday, SI drafts a checklist from the trip sheet. The agent sends it on WhatsApp after a read."
+      },
+      {
+        "business_type": "Independent advisor",
+        "scenario": "The return date has passed. SI drafts a welcome-back note. The advisor sends it."
+      },
+      {
+        "business_type": "Group trip planner",
+        "scenario": "The sheet is missing a hotel name. SI flags that line and still drafts the rest. The planner fills the gap before sending."
+      }
+    ],
+    "copy_prompt": "From this trip sheet [file], draft a checklist to send three days before departure and a short welcome-back note for after the trip. Use this wording [paste]. Do not buy travel, change a booking, or send. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "WhatsApp",
+      "Google Sheets",
+      "Gmail",
+      "Google Docs"
+    ],
+    "effect": "Checklists and welcome-back notes start from the trip sheet. A person still sends them.",
+    "caution": "A person approves every WhatsApp note. SI does not buy or change travel."
+  },
+  {
+    "slug": "monthly-client-marketing-reports",
+    "title": "Monthly marketing reports for clients",
+    "industries": [
+      "marketing-agencies"
+    ],
+    "functions": [
+      "reporting-dashboards"
+    ],
+    "summary": "SI drafts a monthly client report from the search, social, and site numbers you export. A person reviews it and sends it.",
+    "problem": "Each client report means pulling numbers from a few tools and writing the same kind of note. The month closes before the report goes out.",
+    "what_si_does": "SI reads the search, social, and site exports you provide. It drafts a monthly report in the layout the agency already uses. It flags a number it cannot find. A person reviews the report and sends it to the client. SI does not change ad spend, post on a client's account, or send the report on its own.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Save a sample export and the report layout you already send. Permission is to draft, not to send or change ads. We sit with you, plan the steps, and teach you to run it. Setup is often a few days while you check the first report.",
+    "human_checks": [
+      "A person reviews the report and sends it to the client.",
+      "SI does not change ad spend or post on a client account.",
+      "Missing numbers are flagged, not invented.",
+      "Client exports stay on your own accounts."
+    ],
+    "examples": [
+      {
+        "business_type": "Small marketing agency",
+        "scenario": "SI drafts the June report from three exports. The account lead fixes one line and sends it."
+      },
+      {
+        "business_type": "Freelance marketer",
+        "scenario": "The social export is missing. SI flags that section. The freelancer adds it before the report goes out."
+      },
+      {
+        "business_type": "Agency with five clients",
+        "scenario": "SI drafts one report per client from that client's files. Each report waits for a person to send."
+      }
+    ],
+    "copy_prompt": "From these search, social, and site exports [files], draft a monthly report in this layout [paste]. Flag any number you cannot find. Do not change ad spend, post, or send the report. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Sheets",
+      "Google Docs",
+      "Looker Studio",
+      "Gmail",
+      "Google Drive"
+    ],
+    "effect": "The monthly report starts as a draft from the exports. A person still sends it.",
+    "caution": "A person sends the report. SI does not change ad spend or post for the client."
+  },
+  {
+    "slug": "weekly-open-grants-list",
+    "title": "Weekly sheet of open grants",
+    "industries": [
+      "nonprofits"
+    ],
+    "functions": [
+      "research-documents",
+      "community"
+    ],
+    "summary": "Each week SI lists open grants from the sources you name, in one sheet. A person decides what to pursue. SI does not submit an application.",
+    "problem": "Open grants are spread across many sites. A weekly pass takes hours. A due date is missed because nobody made the list.",
+    "what_si_does": "SI reads the grant sources you name. It drafts one sheet with the funder, the program, the due date shown on the page, the link, and a one-line fit note from rules you wrote. A person decides what to pursue. SI does not submit an application, promise funding, or fill a grant form on its own.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. List the sources and the fit rules, such as place, topic, and who may apply. Permission is to draft the sheet, not to submit. We sit with you, plan the steps, and teach you to run it. Setup is often a few days while you check the first sheet.",
+    "human_checks": [
+      "A person decides what to pursue.",
+      "SI does not submit an application.",
+      "A person checks each due date on the source page before anyone relies on it.",
+      "SI does not promise that a grant will be awarded."
+    ],
+    "examples": [
+      {
+        "business_type": "Local food pantry",
+        "scenario": "SI lists grants open this week that match the rules the board wrote. The director marks two to read and ignores the rest."
+      },
+      {
+        "business_type": "Youth nonprofit",
+        "scenario": "A page has no due date. SI leaves that cell blank and flags it. Staff open the link before acting."
+      },
+      {
+        "business_type": "Arts group",
+        "scenario": "SI drafts the sheet only. Nobody submits a form from the list until the board says yes."
+      }
+    ],
+    "copy_prompt": "From these grant sources [links], draft a sheet with funder, program, due date shown, link, and a one-line fit note using these rules [paste]. Leave a blank if the page does not show a due date. Do not submit an application or promise funding. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Sheets",
+      "A web browser",
+      "Google Docs",
+      "Gmail"
+    ],
+    "effect": "Open grants land on one weekly sheet. A person still decides, and SI does not submit.",
+    "caution": "A person decides what to pursue. SI does not submit an application or promise funding."
+  },
+  {
+    "slug": "warehouse-sow-billing-drafts",
+    "title": "Warehouse paperwork into billing drafts",
+    "industries": [
+      "warehousing-wholesale"
+    ],
+    "functions": [
+      "billing-admin",
+      "research-documents"
+    ],
+    "summary": "SI turns receipts, estimates, and invoices into a draft work statement and a bill. A person approves them before anything is sent or billed.",
+    "problem": "Job papers arrive as receipts, estimates, and invoices. Turning them into a statement of work and a bill is a retype. A bill can go out before the papers match.",
+    "what_si_does": "SI reads the receipts, estimates, and invoices you provide. It drafts a statement of work that lists the job and the price from those papers. It also drafts a bill from the same lines. It flags totals that do not match. A person approves both drafts before anything is sent or billed. SI does not send the bill, change stock counts, or take payment.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Use the statement layout and bill layout you already send. Permission is to draft, not to send or record a payment. We sit with you, plan the steps, and teach you to run it. Setup is often a few days while you check a sample job.",
+    "human_checks": [
+      "A person approves the statement of work and the bill before they are sent or billed.",
+      "SI does not send a bill or take payment.",
+      "Totals that do not match are flagged, not forced to agree.",
+      "SI does not change stock counts."
+    ],
+    "examples": [
+      {
+        "business_type": "Small warehouse",
+        "scenario": "SI drafts a statement of work and a bill from a stack of receipts and one estimate. The office manager sends them after a check."
+      },
+      {
+        "business_type": "Wholesale distributor",
+        "scenario": "The invoice total does not match the estimate. SI flags the gap. The owner resolves it before the bill goes out."
+      },
+      {
+        "business_type": "Fulfillment shop",
+        "scenario": "SI drafts the papers only. Stock counts stay as the warehouse left them. A person approves the bill."
+      }
+    ],
+    "copy_prompt": "From these receipts, estimates, and invoices [files], draft a statement of work and a billing draft in these layouts [paste]. Flag totals that do not match. Do not send, bill, take payment, or change stock counts. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Docs",
+      "Google Sheets",
+      "QuickBooks",
+      "Gmail",
+      "Google Drive"
+    ],
+    "effect": "Job papers become draft statements and bills. A person still approves them before they go out.",
+    "caution": "A person approves anything sent or billed. SI does not take payment or change stock counts."
   }
 ]

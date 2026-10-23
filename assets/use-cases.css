@@ -431,6 +431,11 @@ html.uc-js .uc-group:not(.is-open) .uc-card.uc-extra { display: none; }
 .uc-motif--fitness-salons-wellness { --uc-accent: #9aaf7a; }
 .uc-motif--short-term-rentals { --uc-accent: #c9a878; }
 .uc-motif--insurance-agencies { --uc-accent: #8aa0b0; }
+.uc-motif--appraisers { --uc-accent: #b7a48a; }
+.uc-motif--travel-agencies { --uc-accent: #7aa0c4; }
+.uc-motif--marketing-agencies { --uc-accent: #c4786a; }
+.uc-motif--nonprofits { --uc-accent: #6f9a86; }
+.uc-motif--warehousing-wholesale { --uc-accent: #b09a62; }
 .uc-motif--default { --uc-accent: #d3aa55; }
 .uc-motif-frame {
   aspect-ratio: 1;
