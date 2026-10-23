@@ -169,6 +169,46 @@
       "seo_h1": "Use cases for insurance agencies",
       "meta": "SI (AI) jobs for insurance agencies: renewal flags and side-by-side quote sheets. The agent still decides.",
       "regulated": false
+    },
+    "appraisers": {
+      "label": "Appraisers",
+      "blurb": "SI drafts a report from the appraiser's own notes. The appraiser reviews and signs.",
+      "seo_title": "SI (AI) use cases for appraisers | GemmiSI",
+      "seo_h1": "Use cases for appraisers",
+      "meta": "SI (AI) jobs for appraisers: report drafts from the appraiser's own notes. The appraiser reviews and signs. SI does not set the value.",
+      "regulated": false
+    },
+    "travel-agencies": {
+      "label": "Travel agencies",
+      "blurb": "SI drafts a trip checklist and a welcome-back note from the trip sheet. A person still sends them.",
+      "seo_title": "SI (AI) use cases for travel agencies | GemmiSI",
+      "seo_h1": "Use cases for travel agencies",
+      "meta": "SI (AI) jobs for travel agencies: a trip checklist and a welcome-back note from the trip sheet. A person still sends them.",
+      "regulated": false
+    },
+    "marketing-agencies": {
+      "label": "Marketing agencies",
+      "blurb": "SI drafts a monthly client report from the numbers you export. You still review and send it.",
+      "seo_title": "SI (AI) use cases for marketing agencies | GemmiSI",
+      "seo_h1": "Use cases for marketing agencies",
+      "meta": "SI (AI) jobs for marketing agencies: monthly client reports from search, social, and site numbers. You still send them.",
+      "regulated": false
+    },
+    "nonprofits": {
+      "label": "Nonprofits",
+      "blurb": "SI lists open grants in one weekly sheet. A person still decides what to pursue.",
+      "seo_title": "SI (AI) use cases for nonprofits | GemmiSI",
+      "seo_h1": "Use cases for nonprofits",
+      "meta": "SI (AI) jobs for nonprofits: a weekly sheet of open grants. A person decides what to pursue. SI does not submit an application.",
+      "regulated": false
+    },
+    "warehousing-wholesale": {
+      "label": "Warehousing/wholesale",
+      "blurb": "SI drafts bills from receipts, estimates, and invoices. You still approve them.",
+      "seo_title": "SI (AI) use cases for warehousing and wholesale | GemmiSI",
+      "seo_h1": "Use cases for warehouse and wholesale teams",
+      "meta": "SI (AI) jobs for warehouse and wholesale teams. SI drafts bills from receipts, estimates, and invoices. You still approve them.",
+      "regulated": false
     }
   },
   "functions": {

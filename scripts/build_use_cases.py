@@ -383,6 +383,61 @@ def industry_faqs(slug: str) -> list[tuple[str, str]]:
                 "No. This is office help. The licensed agent reviews every quote.",
             ),
         ]
+    elif slug == "appraisers":
+        extra = [
+            (
+                "Does SI sign the report or set the value?",
+                "No. SI drafts from the appraiser's notes. The appraiser reviews the draft and signs it. SI does not set the value.",
+            ),
+            (
+                "Is the draft an appraisal on its own?",
+                "No. It is a draft for the appraiser. The appraiser still reviews it and signs it.",
+            ),
+        ]
+    elif slug == "travel-agencies":
+        extra = [
+            (
+                "Does SI message travelers on its own?",
+                "No. SI drafts the checklist and the welcome-back note. A person approves them before they are sent.",
+            ),
+            (
+                "Does SI buy or change a trip?",
+                "No. It reads the trip sheet you already made. It does not buy flights, hotels, or changes.",
+            ),
+        ]
+    elif slug == "marketing-agencies":
+        extra = [
+            (
+                "Does SI send the client report?",
+                "No. SI drafts it from the exports you provide. A person reviews it and sends it.",
+            ),
+            (
+                "Does SI change ad spend?",
+                "No. It writes the report. You decide any change in spend.",
+            ),
+        ]
+    elif slug == "nonprofits":
+        extra = [
+            (
+                "Does SI apply for a grant?",
+                "No. SI lists open grants in a sheet. A person decides what to pursue. SI does not submit an application.",
+            ),
+            (
+                "Does the sheet promise funding?",
+                "No. It is a list to review. It is not a promise that a grant will be awarded.",
+            ),
+        ]
+    elif slug == "warehousing-wholesale":
+        extra = [
+            (
+                "Does SI send a bill or a work statement?",
+                "No. SI drafts them from receipts, estimates, and invoices. A person approves before anything is sent or billed.",
+            ),
+            (
+                "Does SI change stock counts?",
+                "No. It drafts the paperwork. Your team still checks the counts and the prices.",
+            ),
+        ]
     else:
         extra = [
             (
@@ -2010,7 +2065,7 @@ def write_llms_txt(entries: list) -> None:
             "",
             "## Use cases",
             "",
-            f"The library lists {n} practical SI (AI) jobs for small teams, community organizations, teachers, tutors and schools, the business side of solo and small law practices, the business side of small healthcare practices, real estate and property management, home-service contractors, small accounting, tax and bookkeeping firms, restaurants and food shops, auto repair shops, gyms and salons, short-term rentals, and insurance agencies. They are illustrations of what is possible, not reports of client results. A person still approves anything that sends, pays, orders, or posts. Education pages are operations help only. SI does not grade students. A person approves anything sent to a student or parent. Student records stay on the school's own equipment and accounts. Legal-practice pages are operations help only. SI does not give legal advice. Medical-practice pages are operations help only. SI does not give medical advice or make clinical decisions. Real-estate pages are operations help only. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. Home-services pages are office help only; the owner approves every quote and message. Accounting-firm pages are operations help only. SI does not give tax advice or file returns. Restaurant, shop, gym, rental, and agency pages are office help. A person still checks. {OWN_ACCOUNTS}",
+            f"The library lists {n} practical SI (AI) jobs for small teams, community organizations, teachers, tutors and schools, the business side of solo and small law practices, the business side of small healthcare practices, real estate and property management, home-service contractors, small accounting, tax and bookkeeping firms, restaurants and food shops, auto repair shops, gyms and salons, short-term rentals, insurance agencies, appraisers, travel agencies, marketing agencies, nonprofits, and warehousing and wholesale. They are illustrations of what is possible, not reports of client results. A person still approves anything that sends, pays, orders, or posts. Education pages are operations help only. SI does not grade students. A person approves anything sent to a student or parent. Student records stay on the school's own equipment and accounts. Legal-practice pages are operations help only. SI does not give legal advice. Medical-practice pages are operations help only. SI does not give medical advice or make clinical decisions. Real-estate pages are operations help only. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. Home-services pages are office help only; the owner approves every quote and message. Accounting-firm pages are operations help only. SI does not give tax advice or file returns. Restaurant, shop, gym, rental, and agency pages are office help. A person still checks. {OWN_ACCOUNTS}",
             "",
         ]
     )

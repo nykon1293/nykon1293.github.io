@@ -24,6 +24,11 @@ NEW_INDUSTRY_PAGES = (
     "fitness-salons-wellness",
     "short-term-rentals",
     "insurance-agencies",
+    "appraisers",
+    "travel-agencies",
+    "marketing-agencies",
+    "nonprofits",
+    "warehousing-wholesale",
 )
 
 

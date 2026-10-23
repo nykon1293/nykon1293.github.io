@@ -69,6 +69,11 @@ INDUSTRY_ACCENT = {
     "fitness-salons-wellness": ("fitness-salons-wellness", "#9aaf7a"),
     "short-term-rentals": ("short-term-rentals", "#c9a878"),
     "insurance-agencies": ("insurance-agencies", "#8aa0b0"),
+    "appraisers": ("appraisers", "#b7a48a"),
+    "travel-agencies": ("travel-agencies", "#7aa0c4"),
+    "marketing-agencies": ("marketing-agencies", "#c4786a"),
+    "nonprofits": ("nonprofits", "#6f9a86"),
+    "warehousing-wholesale": ("warehousing-wholesale", "#b09a62"),
 }
 
 FUNCTION_ACCENT = {
@@ -101,6 +106,11 @@ INDUSTRY_MOTIF = {
     "fitness-salons-wellness": "calendar",
     "short-term-rentals": "calendar",
     "insurance-agencies": "documents",
+    "appraisers": "documents",
+    "travel-agencies": "calendar",
+    "marketing-agencies": "dashboard",
+    "nonprofits": "checklist",
+    "warehousing-wholesale": "inventory",
 }
 
 FUNCTION_MOTIF = {
