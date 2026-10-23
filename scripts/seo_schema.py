@@ -138,15 +138,8 @@ USE_CASE_SEO = {
     "missed-call-text-back": {
         "title": "Missed-Call Text-Back for Businesses | SI (AI) | GemmiSI",
         "description": (
-            "SI (AI) sends your pre-approved, facts-only text after a missed call and logs it. "
-            "You call back, quote and book. Set up on your own accounts."
-        ),
-    },
-    "tax-deadline-tracking": {
-        "title": "Due Date Tracking for Accountants | SI (AI) | GemmiSI",
-        "description": (
-            "One tracker for tax due dates your firm already verified. SI (AI) reminds staff "
-            "and shows a weekly coming-up and overdue list. Never adds dates."
+            "SI (AI) drafts a short text after a missed call and sorts after-hours notes. "
+            "You call back, quote, and book. Set up on your own accounts."
         ),
     },
     "chargeback-and-dispute-evidence": {
@@ -493,7 +486,7 @@ def service_node(*, name: str, description: str, url: str) -> dict:
     }
 
 
-CSS_VERSION = "uc-book-1"
+CSS_VERSION = "uc-refine-1"
 
 
 def graph_payload(nodes: list[dict]) -> str:

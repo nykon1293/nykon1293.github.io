@@ -74,6 +74,7 @@ INDUSTRY_ACCENT = {
     "marketing-agencies": ("marketing-agencies", "#c4786a"),
     "nonprofits": ("nonprofits", "#6f9a86"),
     "warehousing-wholesale": ("warehousing-wholesale", "#b09a62"),
+    "local-shops": ("local-shops", "#9aaf7a"),
 }
 
 FUNCTION_ACCENT = {
@@ -87,6 +88,15 @@ FUNCTION_ACCENT = {
     "hiring": ("hiring", "#b89a74"),
     "research-documents": ("research", "#cfc09a"),
     "community": ("community", "#d4a06e"),
+    "getting-paid": ("billing", "#d3aa55"),
+    "after-hours": ("support", "#d3aa55"),
+    "answering-customers": ("support", "#d3aa55"),
+    "leads-and-quotes": ("sales", "#dbb05e"),
+    "paperwork": ("research", "#cfc09a"),
+    "reading-documents": ("research", "#cfc09a"),
+    "stock": ("inventory", "#c4a056"),
+    "numbers": ("reporting", "#8fbf9a"),
+    "marketing": ("marketing", "#d3aa55"),
 }
 
 DEFAULT_INDUSTRY = ("default", "#d3aa55")
@@ -111,6 +121,7 @@ INDUSTRY_MOTIF = {
     "marketing-agencies": "dashboard",
     "nonprofits": "checklist",
     "warehousing-wholesale": "inventory",
+    "local-shops": "phone",
 }
 
 FUNCTION_MOTIF = {
@@ -124,6 +135,15 @@ FUNCTION_MOTIF = {
     "hiring": "checklist",
     "research-documents": "documents",
     "community": "inbox",
+    "getting-paid": "invoices",
+    "after-hours": "phone",
+    "answering-customers": "inbox",
+    "leads-and-quotes": "inbox",
+    "paperwork": "documents",
+    "reading-documents": "documents",
+    "stock": "inventory",
+    "numbers": "dashboard",
+    "marketing": "documents",
 }
 
 # First matching keyword wins. Slug, then title, then summary. Short tokens
