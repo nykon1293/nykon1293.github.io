@@ -172,11 +172,12 @@ def check_assets(errors: list[str]) -> None:
         if needle not in locs:
             errors.append(f"sitemap missing industry landing {slug}")
     loc_set = set(locs)
-    tracking_data = ROOT / "data" / "tracking-links.json"
-    if tracking_data.is_file():
-        payload = json.loads(tracking_data.read_text(encoding="utf-8"))
-        raw = payload.get("slugs") if isinstance(payload, dict) else None
-        tracking_slugs = [slug for slug in raw or [] if isinstance(slug, str)]
+    try:
+        import build_tracking_links as tracking_links
+        tracking_slugs = tracking_links.load_slugs()
+    except Exception:
+        tracking_slugs = []
+    if tracking_slugs:
         for slug in tracking_slugs:
             needle = f"{BASE}/{slug}/"
             if needle in loc_set or f"{BASE}/{slug}" in loc_set:

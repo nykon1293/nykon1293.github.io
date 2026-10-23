@@ -1,33 +1,22 @@
 {
-  "destination": "https://gemmisi.com/",
-  "note": "Per-post tracking paths for Cloudflare Web Analytics. Query strings are ignored, so each campaign gets its own path. fb = Facebook, li = LinkedIn, wa = WhatsApp. Four-digit suffixes are post date MMDD. Bare fb/li/wa are generic channel links. Pages are noindex and must stay out of sitemap.xml.",
-  "slugs": [
-    "fb1025",
-    "fb1026",
-    "fb1027",
-    "fb1028",
-    "fb1029",
-    "fb1030",
-    "fb1101",
-    "fb1102",
-    "fb1103",
-    "fb1104",
-    "fb1105",
-    "fb1106",
-    "li1025",
-    "li1026",
-    "li1027",
-    "li1028",
-    "li1029",
-    "li1030",
-    "li1101",
-    "li1102",
-    "li1103",
-    "li1104",
-    "li1105",
-    "li1106",
-    "wa",
-    "fb",
-    "li"
-  ]
+  "note": "Per-post tracking paths for Cloudflare Web Analytics. Query strings are ignored, so each campaign gets its own path. posts keys are MMDD and create both /fbMMDD and /liMMDD. generic keys are /fb, /li, /wa. Pages are noindex and must stay out of sitemap.xml. 1028 and 1104 originally linked to slugs that now 200 as moved stubs; those dates use the merged live pages instead.",
+  "generic": {
+    "fb": "/",
+    "li": "/",
+    "wa": "/"
+  },
+  "posts": {
+    "1025": "/use-cases/",
+    "1026": "/use-cases/report-card-comment-drafts/",
+    "1027": "/use-cases/missed-call-text-back/",
+    "1028": "/use-cases/status-question-replies/",
+    "1029": "/use-cases/daily-briefing/",
+    "1030": "/use-cases/",
+    "1101": "/use-cases/quote-follow-ups/",
+    "1102": "/",
+    "1103": "/use-cases/client-document-chasing/",
+    "1104": "/use-cases/requests-to-scheduled-jobs/",
+    "1105": "/",
+    "1106": "/use-cases/invoice-intake-to-draft-bills/"
+  }
 }

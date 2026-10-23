@@ -4,7 +4,7 @@
 Cloudflare Web Analytics ignores query strings, so each social post gets a
 real path such as /fb1101 or /li1025. GitHub Pages serves <slug>/index.html
 at /<slug>/ and 301s /<slug> there. Each page loads the same JS beacon as
-the rest of the site, waits ~300ms, then forwards to the homepage.
+the rest of the site, waits ~300ms, then forwards to that post's destination.
 
 Source of truth: data/tracking-links.json
 
@@ -23,7 +23,10 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "tracking-links.json"
 MARKER = "gemmisi-tracking-link"
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:[a-z0-9-]*[a-z0-9])?$")
-DESTINATION_DEFAULT = "https://gemmisi.com/"
+DATE_RE = re.compile(r"^\d{4}$")
+PATH_RE = re.compile(r"^/(?:[a-z0-9]+(?:-[a-z0-9]+)*/)*$")
+BASE = "https://gemmisi.com"
+CHANNELS = ("fb", "li")
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from seo_schema import CLOUDFLARE_WEB_ANALYTICS  # noqa: E402
@@ -36,27 +39,71 @@ def load_config() -> dict:
     return data
 
 
-def load_slugs() -> list[str]:
-    slugs = load_config().get("slugs")
-    if not isinstance(slugs, list) or not slugs:
-        raise SystemExit("data/tracking-links.json needs a non-empty slugs list")
+def absolute_url(path: str) -> str:
+    if not isinstance(path, str) or not PATH_RE.fullmatch(path):
+        raise SystemExit(f"invalid tracking destination path: {path!r}")
+    return BASE + path
+
+
+def local_page_for_path(path: str) -> Path:
+    if path == "/":
+        return ROOT / "index.html"
+    return ROOT / path.strip("/") / "index.html"
+
+
+def assert_real_destination(path: str) -> None:
+    page = local_page_for_path(path)
+    rel = page.relative_to(ROOT).as_posix()
+    if not page.is_file():
+        raise SystemExit(f"destination {path} has no local file {rel}")
+    html = page.read_text(encoding="utf-8")
+    if MARKER in html:
+        raise SystemExit(f"destination {path} must not be a tracking short link")
+    if 'http-equiv="refresh"' in html and "noindex" in html:
+        raise SystemExit(
+            f"destination {path} is a moved stub ({rel}); use the merged live page"
+        )
+
+
+def load_links() -> list[tuple[str, str]]:
+    cfg = load_config()
+    posts = cfg.get("posts")
+    generic = cfg.get("generic")
+    if not isinstance(posts, dict) or not isinstance(generic, dict):
+        raise SystemExit("data/tracking-links.json needs posts and generic objects")
+
+    links: list[tuple[str, str]] = []
     seen: set[str] = set()
-    out: list[str] = []
-    for raw in slugs:
-        if not isinstance(raw, str) or not SLUG_RE.fullmatch(raw):
-            raise SystemExit(f"invalid tracking slug: {raw!r}")
-        if raw in seen:
-            raise SystemExit(f"duplicate tracking slug: {raw}")
-        seen.add(raw)
-        out.append(raw)
-    return out
+
+    def add(slug: str, path: str) -> None:
+        if not SLUG_RE.fullmatch(slug):
+            raise SystemExit(f"invalid tracking slug: {slug!r}")
+        if slug in seen:
+            raise SystemExit(f"duplicate tracking slug: {slug}")
+        assert_real_destination(path)
+        seen.add(slug)
+        links.append((slug, absolute_url(path)))
+
+    for date, path in posts.items():
+        if not isinstance(date, str) or not DATE_RE.fullmatch(date):
+            raise SystemExit(f"invalid post date key: {date!r}")
+        if not isinstance(path, str):
+            raise SystemExit(f"post {date} destination must be a path string")
+        for channel in CHANNELS:
+            add(f"{channel}{date}", path)
+
+    for slug, path in generic.items():
+        if not isinstance(slug, str) or not isinstance(path, str):
+            raise SystemExit(f"invalid generic tracking entry: {slug!r}")
+        add(slug, path)
+
+    if not links:
+        raise SystemExit("data/tracking-links.json produced no tracking slugs")
+    return links
 
 
-def destination() -> str:
-    dest = str(load_config().get("destination") or DESTINATION_DEFAULT).strip()
-    if dest != DESTINATION_DEFAULT:
-        raise SystemExit(f"tracking destination must be {DESTINATION_DEFAULT}")
-    return dest
+def load_slugs() -> list[str]:
+    return [slug for slug, _dest in load_links()]
 
 
 def tracking_slug_set() -> set[str]:
@@ -145,14 +192,13 @@ def existing_tracking_dirs() -> list[Path]:
     return found
 
 
-def planned_files(slugs: list[str], dest: str) -> dict[Path, str]:
-    html = page_html(dest)
-    return {ROOT / slug / "index.html": html for slug in slugs}
+def planned_files(links: list[tuple[str, str]]) -> dict[Path, str]:
+    return {ROOT / slug / "index.html": page_html(dest) for slug, dest in links}
 
 
 def build(check_only: bool = False) -> int:
-    slugs = load_slugs()
-    dest = destination()
+    links = load_links()
+    slugs = [slug for slug, _dest in links]
     reserved = reserved_names(set(slugs))
     collisions = [slug for slug in slugs if slug in reserved]
     if collisions:
@@ -160,7 +206,7 @@ def build(check_only: bool = False) -> int:
             "tracking slugs collide with existing site paths: " + ", ".join(collisions)
         )
 
-    planned = planned_files(slugs, dest)
+    planned = planned_files(links)
     stale = [
         folder
         for folder in existing_tracking_dirs()
