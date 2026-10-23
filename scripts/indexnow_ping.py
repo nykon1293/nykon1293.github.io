@@ -70,6 +70,21 @@ SKIP_FILES = {
     "favicon.ico",
     "_config.yml",
 }
+TRACKING_LINKS = ROOT / "data" / "tracking-links.json"
+
+
+def tracking_slugs() -> set[str]:
+    """Campaign short links are noindex and must not be submitted to IndexNow."""
+    if not TRACKING_LINKS.is_file():
+        return set()
+    try:
+        data = json.loads(TRACKING_LINKS.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return set()
+    slugs = data.get("slugs") if isinstance(data, dict) else None
+    if not isinstance(slugs, list):
+        return set()
+    return {slug for slug in slugs if isinstance(slug, str) and slug}
 
 SleepFn = Callable[[float], None]
 
@@ -105,6 +120,9 @@ def file_to_url(rel: str) -> str | None:
     if KEY_NAME.fullmatch(Path(rel).stem) and rel.endswith(".txt"):
         return None
     if re.fullmatch(r"google[0-9a-f]+\.html", Path(rel).name):
+        return None
+    parts = rel.split("/")
+    if len(parts) == 2 and parts[1] == "index.html" and parts[0] in tracking_slugs():
         return None
     if rel == "index.html":
         return f"{BASE}/"

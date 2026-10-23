@@ -42,6 +42,9 @@ class FileToUrlTests(unittest.TestCase):
         self.assertIsNone(ping.file_to_url("scripts/indexnow_ping.py"))
         self.assertIsNone(ping.file_to_url("23c3690d323f2e5687c21ef152e1cd87.txt"))
         self.assertIsNone(ping.file_to_url(f"{ping.ACTIVE_KEY}.txt"))
+        self.assertIsNone(ping.file_to_url("fb1101/index.html"))
+        self.assertIsNone(ping.file_to_url("wa/index.html"))
+        self.assertIsNone(ping.file_to_url("li1025/index.html"))
 
 
 class DiscoverKeyTests(unittest.TestCase):

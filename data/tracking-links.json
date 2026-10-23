@@ -1,0 +1,33 @@
+{
+  "destination": "https://gemmisi.com/",
+  "note": "Per-post tracking paths for Cloudflare Web Analytics. Query strings are ignored, so each campaign gets its own path. fb = Facebook, li = LinkedIn, wa = WhatsApp. Four-digit suffixes are post date MMDD. Bare fb/li/wa are generic channel links. Pages are noindex and must stay out of sitemap.xml.",
+  "slugs": [
+    "fb1025",
+    "fb1026",
+    "fb1027",
+    "fb1028",
+    "fb1029",
+    "fb1030",
+    "fb1101",
+    "fb1102",
+    "fb1103",
+    "fb1104",
+    "fb1105",
+    "fb1106",
+    "li1025",
+    "li1026",
+    "li1027",
+    "li1028",
+    "li1029",
+    "li1030",
+    "li1101",
+    "li1102",
+    "li1103",
+    "li1104",
+    "li1105",
+    "li1106",
+    "wa",
+    "fb",
+    "li"
+  ]
+}
