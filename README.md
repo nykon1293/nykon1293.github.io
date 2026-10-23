@@ -16,3 +16,15 @@ To add one entry:
 The hub at `/use-cases/` is a light page: search, problem chips, one row of industry links with counts, a start-here card for each industry, and a show-more control that loads the rest from `use-cases/search.json`. Static landings live at `/use-cases/industry/<slug>/` and `/use-cases/function/<slug>/`. Old slugs redirect with a canonical to the merged page. GitHub Pages serves those files as they are. SI (Super Intelligence) is the official term; put “AI” next to it in titles, meta, and the first body mention so searches still match. Do not rewrite the rest of the copy. Examples are illustrations, not client results. After data edits, also run `python3 scripts/build-service-pages.py` and `python3 scripts/patch_unique_pages.py` so service pages and shared JSON-LD stay in sync.
 
 After the GitHub Pages workflow (`pages-build-deployment`) succeeds on `main`, `.github/workflows/indexnow.yml` runs `python3 scripts/indexnow_ping.py` to POST changed public URLs (or the sitemap) to IndexNow. Use **Run workflow** (`workflow_dispatch`) to resubmit every sitemap URL. The active key file is `f702ca108ee22cc8602abd433bed3cf5.txt` at the repo root (`scripts/indexnow_ping.py` `ACTIVE_KEY`). Older 32-hex key files may stay at the root so prior verifications do not 404; do not move the active file off the site root.
+
+## Social tracking short links
+
+Cloudflare Web Analytics ignores query strings, so campaign clicks are counted by path (`/fb1101`, `/li1025`, `/wa`, …) instead of `?utm=`. Each slug is a tiny noindex page at `<slug>/index.html`. GitHub Pages serves `/<slug>/` and 301s `/<slug>` there, so both URLs work. The page loads the same Cloudflare JS beacon used on public pages (`CLOUDFLARE_WEB_ANALYTICS` in `scripts/seo_schema.py`; token `c9c911628ffd4644bce7bea8d47eb16c`), waits about 300ms, then `location.replace`s to `https://gemmisi.com/`. A 1-second meta refresh is the no-JS fallback. These URLs stay out of `sitemap.xml` and IndexNow.
+
+Analytics is the HTML snippet, not Cloudflare HTML auto-injection (the live site is served by GitHub Pages). Do not omit the beacon or these visits will not be counted.
+
+To add a slug:
+
+1. Append it to `slugs` in `data/tracking-links.json`. Use `fbMMDD` / `liMMDD` for dated Facebook and LinkedIn posts, or a short generic such as `wa`, `fb`, or `li`. Lowercase letters and digits only.
+2. From the repo root, run `python3 scripts/build_tracking_links.py`.
+3. Commit the JSON and the new `<slug>/index.html`. Removing a slug and re-running the generator deletes that folder. `python3 scripts/build_tracking_links.py --check` confirms committed pages match the list. Do not add these paths to `sitemap.xml`.

@@ -172,6 +172,26 @@ def check_assets(errors: list[str]) -> None:
         if needle not in locs:
             errors.append(f"sitemap missing industry landing {slug}")
     loc_set = set(locs)
+    tracking_data = ROOT / "data" / "tracking-links.json"
+    if tracking_data.is_file():
+        payload = json.loads(tracking_data.read_text(encoding="utf-8"))
+        raw = payload.get("slugs") if isinstance(payload, dict) else None
+        tracking_slugs = [slug for slug in raw or [] if isinstance(slug, str)]
+        for slug in tracking_slugs:
+            needle = f"{BASE}/{slug}/"
+            if needle in loc_set or f"{BASE}/{slug}" in loc_set:
+                errors.append(f"sitemap must not include tracking path {needle}")
+            page = ROOT / slug / "index.html"
+            if not page.is_file():
+                errors.append(f"missing tracking page {slug}/index.html")
+                continue
+            html = page.read_text(encoding="utf-8")
+            if not is_moved_page(page):
+                errors.append(f"{slug}/index.html must be noindex with a refresh")
+            if html.count("cloudflareinsights.com/beacon.min.js") != 1:
+                errors.append(f"{slug}/index.html: expected one Cloudflare beacon")
+            if "location.replace" not in html:
+                errors.append(f"{slug}/index.html: missing location.replace")
     for path in public_html_files():
         if path.name == "404.html" or is_moved_page(path):
             continue
