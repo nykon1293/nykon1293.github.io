@@ -3762,7 +3762,7 @@
     "setup": "Give SI the checklist and contact list you already use. Add one message you have sent before. Setup is often a day.",
     "human_checks": [
       "A person decides what is urgent and what gets sent.",
-      "The manager reviews any tenant message. This is not legal advice.",
+      "A person reviews every staff or customer message. This is not legal advice.",
       "Safety calls stay with you. SI does not replace an emergency plan."
     ],
     "examples": [
