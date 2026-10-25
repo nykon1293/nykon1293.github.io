@@ -149,6 +149,118 @@ USE_CASE_SEO = {
             "with a timeline, and flags what's missing. You file it."
         ),
     },
+    "rental-lead-inquiry-follow-up": {
+        "title": "Rental Inquiry Follow-Up for Landlords | SI (AI) | GemmiSI",
+        "description": (
+            "SI (AI) drafts a fast rental reply from your unit sheet: rent, dates, pets, "
+            "and parking. It can offer showing times. You approve."
+        ),
+    },
+    "rental-prospect-question-replies": {
+        "title": "Rental Prospect Question Replies | SI (AI) | GemmiSI",
+        "description": (
+            "SI (AI) answers still-available, pets, and parking from your listing sheet. "
+            "Same facts for everyone. You approve each reply."
+        ),
+    },
+    "landlord-morning-list": {
+        "title": "Landlord Morning List | SI (AI) | GemmiSI",
+        "description": (
+            "SI (AI) builds a morning list of new rental questions, today's showings, "
+            "late rent, and open repairs. You decide what to do."
+        ),
+    },
+    "package-problem-watch": {
+        "title": "Package Problem Watch | SI (AI) | GemmiSI",
+        "description": (
+            "SI (AI) flags late, stuck, exception, and return-to-sender tracking each "
+            "morning, before customers ask. You decide the next step."
+        ),
+    },
+    "heads-up-delay-emails": {
+        "title": "Heads-Up Delay Email Drafts | SI (AI) | GemmiSI",
+        "description": (
+            "When tracking stalls, SI (AI) drafts a heads-up delay email from the scan "
+            "on file. You approve it before it goes out."
+        ),
+    },
+    "missing-item-upload-replies": {
+        "title": "Missing-Item Upload Replies | SI (AI) | GemmiSI",
+        "description": (
+            "After a client uploads files, SI (AI) drafts a got-these, still-need-these "
+            "note from your checklist. A person sends it."
+        ),
+    },
+    "after-hours-call-summary-to-owner": {
+        "title": "After-Hours Call Summary to Owner | SI (AI) | GemmiSI",
+        "description": (
+            "SI (AI) turns overnight home-service calls into a morning summary for the "
+            "owner. You still call back, quote, and book."
+        ),
+    },
+    "estimate-day-follow-up": {
+        "title": "Estimate-Day Follow-Up for Trades | SI (AI) | GemmiSI",
+        "description": (
+            "SI (AI) drafts same-day, day-3, and day-7 follow-ups after an estimate visit. "
+            "The owner approves every note. No price changes."
+        ),
+    },
+    "weekly-money-in-digest": {
+        "title": "Weekly Money-In Digest | SI (AI) | GemmiSI",
+        "description": (
+            "SI (AI) lists payments that came in this week and what is still owed. "
+            "You check it against your books. No money is moved."
+        ),
+    },
+    "tutoring-session-progress-notes": {
+        "title": "Tutoring Progress Notes | SI (AI) | GemmiSI",
+        "description": (
+            "After a session, SI (AI) turns the tutor's notes into a short parent "
+            "summary. The tutor still approves it."
+        ),
+    },
+    "vendor-work-order-tracking": {
+        "title": "Vendor Work-Order Tracking | SI (AI) | GemmiSI",
+        "description": (
+            "SI (AI) keeps landlord vendors and work orders in one tracker and drafts "
+            "status notes. You hire, pay, and send."
+        ),
+    },
+    "property-hurricane-season-prep": {
+        "title": "Rental Hurricane Ready Sheets | SI (AI) | GemmiSI",
+        "description": (
+            "Before the season, SI (AI) builds a rental-property ready sheet and "
+            "tenant message drafts. You decide what to send."
+        ),
+    },
+    "hurricane-season-readiness": {
+        "title": "Shop Hurricane-Season Checklist | SI (AI) | GemmiSI",
+        "description": (
+            "SI (AI) turns shop, crew, or office records into a storm checklist and "
+            "draft messages. You decide what to send."
+        ),
+    },
+    "salon-whatsapp-booking-drafts": {
+        "title": "Salon WhatsApp Booking Drafts | SI (AI) | GemmiSI",
+        "description": (
+            "SI (AI) drafts salon and spa booking replies from the owner's calendar. "
+            "The owner still confirms every slot."
+        ),
+    },
+    "auto-service-history-reminders": {
+        "title": "Auto Service History Reminders | SI (AI) | GemmiSI",
+        "description": (
+            "SI (AI) drafts oil-change and inspection reminders from the shop's own "
+            "history. A person still sends each note."
+        ),
+    },
+    "contractor-license-insurance-tracker": {
+        "title": "Contractor License Tracker | SI (AI) | GemmiSI",
+        "description": (
+            "SI (AI) tracks license, insurance, and subcontractor dates the owner "
+            "verified. You decide who may work."
+        ),
+    },
 }
 
 
@@ -486,7 +598,7 @@ def service_node(*, name: str, description: str, url: str) -> dict:
     }
 
 
-CSS_VERSION = "uc-refine-1"
+CSS_VERSION = "uc-rental-1"
 
 
 def graph_payload(nodes: list[dict]) -> str:

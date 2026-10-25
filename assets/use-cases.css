@@ -608,6 +608,7 @@ html.uc-js .uc-group:not(.is-open) .uc-card.uc-extra { display: none; }
 .uc-related { padding: 48px 0 8px; margin-top: 24px; border-top: 1px solid var(--line-soft); }
 .uc-related h2 { font-size: clamp(1.4rem, 2.4vw, 2rem); margin-bottom: 18px; }
 .uc-all { margin-top: 16px; }
+.uc-also-see { margin-top: 12px; }
 .uc-cta-band {
   display: flex;
   align-items: center;
