@@ -145,8 +145,37 @@ RELATED_PINNED = {
         "rental-lead-inquiry-follow-up",
     ),
     "rental-application-completeness": ("rental-lead-inquiry-follow-up",),
-    "maintenance-request-intake": ("landlord-morning-list",),
+    "maintenance-request-intake": (
+        "landlord-morning-list",
+        "vendor-work-order-tracking",
+    ),
     "lease-renewal-expiration-tracking": ("landlord-morning-list",),
+    "hurricane-season-readiness": ("property-hurricane-season-prep",),
+    "property-hurricane-season-prep": (
+        "hurricane-season-readiness",
+        "tenant-notice-drafts",
+    ),
+    "vendor-work-order-tracking": (
+        "maintenance-request-intake",
+        "requests-to-scheduled-jobs",
+    ),
+    "requests-to-scheduled-jobs": ("vendor-work-order-tracking",),
+    "tutoring-session-progress-notes": (
+        "session-notes-to-progress-updates",
+        "parent-email-drafts",
+    ),
+    "session-notes-to-progress-updates": ("tutoring-session-progress-notes",),
+    "auto-service-history-reminders": (
+        "warranty-maintenance-reminders",
+        "auto-repair-request-sorting",
+    ),
+    "warranty-maintenance-reminders": ("auto-service-history-reminders",),
+    "contractor-license-insurance-tracker": (
+        "license-and-certification-tracker",
+        "permit-inspection-tracking",
+    ),
+    "license-and-certification-tracker": ("contractor-license-insurance-tracker",),
+    "salon-whatsapp-booking-drafts": ("fitness-class-list-check-ins",),
     "speed-to-lead-replies": ("rental-lead-inquiry-follow-up",),
     "status-question-replies": (
         "package-problem-watch",

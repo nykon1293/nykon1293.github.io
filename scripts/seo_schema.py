@@ -212,6 +212,55 @@ USE_CASE_SEO = {
             "You check it against your books. No money is moved."
         ),
     },
+    "tutoring-session-progress-notes": {
+        "title": "Tutoring Progress Notes | SI (AI) | GemmiSI",
+        "description": (
+            "After a session, SI (AI) turns the tutor's notes into a short parent "
+            "summary. The tutor still approves it."
+        ),
+    },
+    "vendor-work-order-tracking": {
+        "title": "Vendor Work-Order Tracking | SI (AI) | GemmiSI",
+        "description": (
+            "SI (AI) keeps landlord vendors and work orders in one tracker and drafts "
+            "status notes. You hire, pay, and send."
+        ),
+    },
+    "property-hurricane-season-prep": {
+        "title": "Rental Hurricane Ready Sheets | SI (AI) | GemmiSI",
+        "description": (
+            "Before the season, SI (AI) builds a rental-property ready sheet and "
+            "tenant message drafts. You decide what to send."
+        ),
+    },
+    "hurricane-season-readiness": {
+        "title": "Shop Hurricane-Season Checklist | SI (AI) | GemmiSI",
+        "description": (
+            "SI (AI) turns shop, crew, or office records into a storm checklist and "
+            "draft messages. You decide what to send."
+        ),
+    },
+    "salon-whatsapp-booking-drafts": {
+        "title": "Salon WhatsApp Booking Drafts | SI (AI) | GemmiSI",
+        "description": (
+            "SI (AI) drafts salon and spa booking replies from the owner's calendar. "
+            "The owner still confirms every slot."
+        ),
+    },
+    "auto-service-history-reminders": {
+        "title": "Auto Service History Reminders | SI (AI) | GemmiSI",
+        "description": (
+            "SI (AI) drafts oil-change and inspection reminders from the shop's own "
+            "history. A person still sends each note."
+        ),
+    },
+    "contractor-license-insurance-tracker": {
+        "title": "Contractor License Tracker | SI (AI) | GemmiSI",
+        "description": (
+            "SI (AI) tracks license, insurance, and subcontractor dates the owner "
+            "verified. You decide who may work."
+        ),
+    },
 }
 
 

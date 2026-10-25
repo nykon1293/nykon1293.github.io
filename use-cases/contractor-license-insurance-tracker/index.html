@@ -3,15 +3,531 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Moved: contractor license insurance tracker | SI (AI) | GemmiSI</title>
-  <meta name="description" content="This SI (AI) page moved. GemmiSI drafts the work. You approve it." />
-  <meta http-equiv="refresh" content="0; url=/use-cases/license-and-certification-tracker/" />
-  <link rel="canonical" href="https://gemmisi.com/use-cases/license-and-certification-tracker/" />
-  <meta name="robots" content="noindex, follow" />
+  <title>Contractor License Tracker | SI (AI) | GemmiSI</title>
+  <meta name="description" content="SI (AI) tracks license, insurance, and subcontractor dates the owner verified. You decide who may work." />
+  <link rel="canonical" href="https://gemmisi.com/use-cases/contractor-license-insurance-tracker/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Yonatan Gemmi" />
+  <meta property="og:title" content="Contractor License Tracker | SI (AI) | GemmiSI" />
+  <meta property="og:description" content="SI (AI) tracks license, insurance, and subcontractor dates the owner verified. You decide who may work." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://gemmisi.com/use-cases/contractor-license-insurance-tracker/" />
+  <meta property="og:site_name" content="GemmiSI" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content="https://gemmisi.com/assets/brand/gemmisi-og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="GemmiSI — SI &amp; AI, automation, dashboards, and technical operations" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contractor License Tracker | SI (AI) | GemmiSI" />
+  <meta name="twitter:description" content="SI (AI) tracks license, insurance, and subcontractor dates the owner verified. You decide who may work." />
+  <meta name="twitter:image" content="https://gemmisi.com/assets/brand/gemmisi-og.png" />
+  <meta name="twitter:image:alt" content="GemmiSI — SI &amp; AI, automation, dashboards, and technical operations" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://gemmisi.com/sitemap.xml" />
+  <link rel="preload" href="/assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <style>@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 400 700; font-display: swap; src: url("/assets/fonts/ibm-plex-sans-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; } @font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 500 700; font-display: optional; src: url("/assets/fonts/jetbrains-mono-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }</style>
+  <link rel="stylesheet" href="../../styles.css?v=uc-rental-1" />
+  <link rel="stylesheet" href="../../assets/use-cases.css?v=uc-rental-1" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
-  <script>location.replace("/use-cases/license-and-certification-tracker/");</script>
+  <link rel="icon" href="/assets/brand/gemmisi-icon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon-16.png" type="image/png" sizes="16x16" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon-32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon-48.png" type="image/png" sizes="48x48" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon-96.png" type="image/png" sizes="96x96" />
+  <link rel="icon" href="/assets/brand/gemmisi-icon-192.png" type="image/png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="/assets/brand/gemmisi-icon-180.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#d3aa55" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://gemmisi.com/#website",
+      "url": "https://gemmisi.com/",
+      "name": "GemmiSI",
+      "alternateName": "GemmiSI - Super Intelligence (SI) AI implementation",
+      "inLanguage": "en-US",
+      "publisher": {
+        "@id": "https://gemmisi.com/#business"
+      },
+      "about": {
+        "@id": "https://gemmisi.com/#business"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://gemmisi.com/#person",
+      "name": "Yonatan (Josh) Gemmi",
+      "alternateName": "Josh Gemmi",
+      "url": "https://gemmisi.com/",
+      "image": "https://gemmisi.com/assets/yonatan-gemmi-pixel-portrait-256.png",
+      "email": "mailto:y@gemmisi.com",
+      "jobTitle": "Technical Operations and SI Implementation Specialist",
+      "worksFor": {
+        "@id": "https://gemmisi.com/#business"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "North Miami Beach",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "North Miami Beach",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Florida",
+            "addressCountry": "US"
+          }
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Miami-Dade County"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Broward County"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "South Florida"
+        },
+        {
+          "@type": "Country",
+          "name": "United States"
+        },
+        {
+          "@type": "Place",
+          "name": "Remote"
+        }
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/joshuah-gemmi-16046233/",
+        "https://github.com/nykon1293"
+      ],
+      "knowsAbout": [
+        "SI",
+        "Super Intelligence",
+        "AI automation",
+        "AI agents",
+        "dashboards",
+        "ecommerce operations",
+        "Hermes Agents",
+        "Hermes Desk setup",
+        "SI implementation",
+        "workflow automation",
+        "technical operations",
+        "data dashboards",
+        "Shopify inventory",
+        "Stocky dump recovery",
+        "Custom GPTs",
+        "ChatGPT workflows",
+        "technical tutoring",
+        "Google BigQuery",
+        "Amazon FBA",
+        "eBay operations"
+      ]
+    },
+    {
+      "@type": [
+        "ProfessionalService",
+        "Organization"
+      ],
+      "@id": "https://gemmisi.com/#business",
+      "name": "GemmiSI",
+      "alternateName": "GemmiSI - Super Intelligence (SI) AI implementation",
+      "url": "https://gemmisi.com/",
+      "image": "https://gemmisi.com/assets/brand/gemmisi-og.png",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gemmisi.com/assets/brand/gemmisi-icon-512.png",
+        "width": 512,
+        "height": 512
+      },
+      "email": "y@gemmisi.com",
+      "description": "SI (Super Intelligence, also known as AI) implementation, AI automation, AI agents, dashboards, ecommerce operations, Hermes Desk setups, tutoring, and Stocky dump recovery. Based in North Miami Beach. Serves Miami-Dade, Broward, South Florida, the United States, and remote clients.",
+      "priceRange": "$$",
+      "currenciesAccepted": "USD",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "North Miami Beach",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "North Miami Beach",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Florida",
+            "addressCountry": "US"
+          }
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Miami-Dade County"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Broward County"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "South Florida"
+        },
+        {
+          "@type": "Country",
+          "name": "United States"
+        },
+        {
+          "@type": "Place",
+          "name": "Remote"
+        }
+      ],
+      "founder": {
+        "@type": "Person",
+        "@id": "https://gemmisi.com/#person",
+        "name": "Josh Gemmi",
+        "alternateName": "Yonatan (Josh) Gemmi"
+      },
+      "employee": {
+        "@id": "https://gemmisi.com/#person"
+      },
+      "knowsAbout": [
+        "SI",
+        "Super Intelligence",
+        "AI automation",
+        "AI agents",
+        "dashboards",
+        "ecommerce operations",
+        "Hermes Agents",
+        "Hermes Desk setup",
+        "SI implementation",
+        "workflow automation",
+        "technical operations",
+        "data dashboards",
+        "Shopify inventory",
+        "Stocky dump recovery",
+        "Custom GPTs",
+        "ChatGPT workflows",
+        "technical tutoring",
+        "Google BigQuery",
+        "Amazon FBA",
+        "eBay operations"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/joshuah-gemmi-16046233/",
+        "https://github.com/nykon1293"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "email": "y@gemmisi.com",
+        "url": "https://calendly.com/josh-gemmi/30min",
+        "availableLanguage": "English"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://gemmisi.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Use cases",
+          "item": "https://gemmisi.com/use-cases/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Home services",
+          "item": "https://gemmisi.com/use-cases/industry/home-services/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "License, insurance and subcontractor document tracking",
+          "item": "https://gemmisi.com/use-cases/contractor-license-insurance-tracker/"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://gemmisi.com/use-cases/contractor-license-insurance-tracker/#webpage",
+      "name": "Contractor License Tracker | SI (AI) | GemmiSI",
+      "url": "https://gemmisi.com/use-cases/contractor-license-insurance-tracker/",
+      "description": "SI (AI) tracks license, insurance, and subcontractor dates the owner verified. You decide who may work.",
+      "isPartOf": {
+        "@id": "https://gemmisi.com/#website"
+      },
+      "about": {
+        "@id": "https://gemmisi.com/#business"
+      },
+      "author": {
+        "@id": "https://gemmisi.com/#person"
+      }
+    }
+  ]
+}
+  </script>
 </head>
 <body>
-  <p>This page moved to <a href="/use-cases/license-and-certification-tracker/">contractor license insurance tracker</a>.</p>
+  <div class="site-shell">
+    <header class="nav">
+      <a class="brand" href="../../index.html" aria-label="GemmiSI home">
+        <img class="brand-lockup" src="../../assets/brand/gemmisi-lockup-dark.svg" alt="" width="159" height="36" />
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open site menu">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+        <span class="nav-toggle__label">Menu</span>
+      </button>
+      <nav id="site-nav" class="nav-links" aria-label="Primary navigation">
+        <a href="../../index.html">Home</a>
+        <a href="../../index.html#work">Work</a>
+        <details class="nav-dropdown">
+          <summary class="nav-dropdown-trigger">Services</summary>
+          <div class="nav-dropdown-menu">
+            <a href="../../services/hermes-agents.html">Hermes Agents</a>
+            <a href="../../services/ai-automation.html">SI automation</a>
+            <a href="../../services/dashboards-reporting.html">Dashboards &amp; reporting</a>
+            <a href="../../services/ecommerce-operations.html">Ecommerce operations</a>
+            <a href="../../services/tutoring-project-help.html">Tutoring &amp; project help</a>
+            <a class="nav-dropdown-muted" href="../../services/stocky-recovery.html">Stocky dump recovery</a>
+            <a class="nav-dropdown-muted" href="../../index.html#service-hub">All services</a>
+            <a class="nav-dropdown-muted" href="../../advisory.html">Advisory &amp; Fractional (ask first)</a>
+          </div>
+        </details>
+        <a href="../index.html" aria-current="page">Use cases</a>
+        <a href="../../pricing.html">Pricing</a>
+      </nav>
+      <a class="nav-cta" href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book consultation</a>
+    </header>
+
+    <main id="top">
+      <article class="uc-detail">
+        <header class="uc-detail-head">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../../index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="../index.html">Use cases</a>
+          <span aria-hidden="true">/</span>
+          <a href="../industry/home-services/">Home services</a>
+          <span aria-hidden="true">/</span>
+          <span>License, insurance and subcontractor document tracking</span>
+        </nav>
+          <div class="uc-detail-intro">
+            <div class="uc-detail-copy">
+              <p class="uc-card-cat"><a href="../industry/home-services/">Home services</a> <span aria-hidden="true">·</span> <a href="../function/paperwork/">Paperwork and forms</a></p>
+              <h1>License, insurance and subcontractor document tracking</h1>
+              <p class="uc-approval-line">SI drafts. You approve.</p>
+              <p class="lead">The business&#x27;s own and its subs&#x27; license, insurance, and tax-form dates sit in a tracker. The owner verified those dates. SI (Super Intelligence, the new name for AI) drafts reminders and requests.</p>
+              <p class="uc-book-lead"><a class="button primary" href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book a free 30-minute consultation</a></p>
+              <p class="uc-read-first" role="note">Office help for HVAC, plumbing, roofing, electrical, landscaping, pool, and cleaning businesses. SI drafts, tracks, and reminds. The owner approves every quote and message. No price promises. No safety or code advice. Customer information stays private.</p>
+          <p class="uc-caution" role="note"><strong>Worth knowing:</strong> This is office support only. SI does not set prices. SI does not promise prices. SI does not give safety, repair, code, or insurance advice. SI does not make any commitment for the business. The owner or an authorized person reviews every quote, schedule commitment, and customer message. They must approve it. License, ad, deposit, and permit rules vary by state. Customer information is used only in checked tools with access controls. SI tracks dates and requests documents only. SI never confirms that a license or policy is valid. SI never decides who may do licensed work. SI gives no insurance or licensing advice.</p>
+              <p class="uc-book-quiet"><a href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book a free 30-minute consultation</a></p>
+            </div>
+            <div class="uc-motif uc-motif--home-services" data-motif="checklist" aria-hidden="true">
+            <div class="uc-motif-frame">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="220" height="220" focusable="false" shape-rendering="crispEdges"><rect width="24" height="24" fill="#121914"/><rect x="3" y="2" width="18" height="1" fill="#d3aa55"/><rect x="3" y="3" width="1" height="19" fill="#d3aa55"/><rect x="4" y="3" width="1" height="18" fill="#efe6c8"/><rect x="5" y="3" width="1" height="1" fill="#dfc385"/><rect x="6" y="3" width="14" height="2" fill="#efe6c8"/><rect x="20" y="3" width="1" height="19" fill="#d3aa55"/><rect x="5" y="4" width="1" height="17" fill="#efe6c8"/><rect x="6" y="5" width="4" height="1" fill="#866e38"/><rect x="10" y="5" width="1" height="1" fill="#36d399"/><rect x="11" y="5" width="9" height="1" fill="#efe6c8"/><rect x="6" y="6" width="1" height="1" fill="#866e38"/><rect x="7" y="6" width="2" height="1" fill="#1a231c"/><rect x="9" y="6" width="1" height="1" fill="#36d399"/><rect x="10" y="6" width="2" height="5" fill="#efe6c8"/><rect x="12" y="6" width="6" height="1" fill="#d3aa55"/><rect x="18" y="6" width="2" height="15" fill="#efe6c8"/><rect x="6" y="7" width="1" height="1" fill="#36d399"/><rect x="7" y="7" width="1" height="1" fill="#1a231c"/><rect x="8" y="7" width="1" height="1" fill="#36d399"/><rect x="9" y="7" width="1" height="2" fill="#866e38"/><rect x="12" y="7" width="6" height="5" fill="#efe6c8"/><rect x="6" y="8" width="1" height="1" fill="#866e38"/><rect x="7" y="8" width="1" height="1" fill="#36d399"/><rect x="8" y="8" width="1" height="1" fill="#866e38"/><rect x="6" y="9" width="4" height="2" fill="#efe6c8"/><rect x="6" y="11" width="4" height="1" fill="#866e38"/><rect x="10" y="11" width="1" height="1" fill="#36d399"/><rect x="11" y="11" width="1" height="10" fill="#efe6c8"/><rect x="6" y="12" width="1" height="1" fill="#866e38"/><rect x="7" y="12" width="2" height="1" fill="#1a231c"/><rect x="9" y="12" width="1" height="1" fill="#36d399"/><rect x="10" y="12" width="1" height="9" fill="#efe6c8"/><rect x="12" y="12" width="6" height="1" fill="#866e38"/><rect x="6" y="13" width="1" height="1" fill="#36d399"/><rect x="7" y="13" width="1" height="1" fill="#1a231c"/><rect x="8" y="13" width="1" height="1" fill="#36d399"/><rect x="9" y="13" width="1" height="2" fill="#866e38"/><rect x="12" y="13" width="6" height="5" fill="#efe6c8"/><rect x="6" y="14" width="1" height="1" fill="#866e38"/><rect x="7" y="14" width="1" height="1" fill="#36d399"/><rect x="8" y="14" width="1" height="1" fill="#866e38"/><rect x="6" y="15" width="4" height="2" fill="#efe6c8"/><rect x="6" y="17" width="4" height="1" fill="#d3aa55"/><rect x="6" y="18" width="1" height="4" fill="#d3aa55"/><rect x="7" y="18" width="2" height="2" fill="#1a231c"/><rect x="9" y="18" width="1" height="4" fill="#d3aa55"/><rect x="12" y="18" width="4" height="1" fill="#866e38"/><rect x="16" y="18" width="2" height="3" fill="#efe6c8"/><rect x="12" y="19" width="4" height="2" fill="#efe6c8"/><rect x="7" y="20" width="2" height="2" fill="#d3aa55"/><rect x="4" y="21" width="2" height="1" fill="#d3aa55"/><rect x="10" y="21" width="10" height="1" fill="#d3aa55"/></svg>
+            </div>
+          </div>
+          </div>
+        </header>
+
+        <div class="uc-detail-body">
+          <div class="uc-detail-main">
+            
+            <section class="uc-board" aria-label="Start here / Stays yours">
+              <h2>Start here / Stays yours</h2>
+              <div class="uc-board-grid">
+                <div>
+                  <h3>SI drafts</h3>
+                  <ul><li>The business&#x27;s own and its subs&#x27; license, insurance, and tax-form dates sit in a tracker. The owner verified those dates. SI drafts reminders and requests.</li></ul>
+                </div>
+                <div>
+                  <h3>Stays yours</h3>
+                  <ul><li>The owner or office manager approves before anything goes to a customer, vendor, or inspector.</li><li>SI never sends a quote, takes a payment, books a job, or submits anything on its own.</li><li>Urgent or unusual items go to a &quot;needs owner review&quot; queue.</li><li>The business decides what customer data SI may see. Testing starts with sample information.</li></ul>
+                </div>
+              </div>
+            </section>
+            <section class="uc-block" aria-labelledby="problem">
+              <h2 id="problem">The problem</h2>
+              <p>Certificates of insurance, licenses, and W-9s for subs and vendors expire. They go missing until a customer or GC asks.</p>
+            </section>
+            <section class="uc-block" aria-labelledby="what">
+              <h2 id="what">What SI does</h2>
+              <p>SI keeps a tracker of the business&#x27;s own and its subs&#x27; license, insurance, and tax-form documents. It also tracks dates the owner has verified. SI reminds the office ahead of expiry. SI drafts please-send-an-updated-certificate requests.</p>
+              <p class="uc-also-see">Related in this library: <a class="text-link" href="../license-and-certification-tracker/">Licenses, insurance, and certification tracking</a>, <a class="text-link" href="../permit-inspection-tracking/">Permit and inspection tracking</a>, <a class="text-link" href="../quote-estimate-drafts/">Quote and estimate drafting</a>.</p>
+            </section>
+            <section class="uc-block" aria-labelledby="examples">
+              <h2 id="examples">Examples</h2>
+              <p class="uc-ex-intro">The same job looks different in different businesses. These are examples, not client results.</p>
+              <ul class="uc-examples">
+            <li class="uc-ex"><span class="uc-ex-type">Two-crew roofing business</span><p>Expiry dates the owner verified sit in one tracker. A request draft for an updated certificate waits for the owner.</p></li>
+            <li class="uc-ex"><span class="uc-ex-type">Small HVAC company</span><p>The office is reminded ahead of a date the owner entered. SI does not confirm that a policy is valid.</p></li>
+            <li class="uc-ex"><span class="uc-ex-type">Landscaping crew</span><p>W-9 and license documents are listed as on file or missing. The owner decides who may work.</p></li>
+              </ul>
+            </section>
+            <section class="uc-block" aria-labelledby="setup">
+              <h2 id="setup">What it takes to set up</h2>
+              <p>GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds customer information, the business checks the tool&#x27;s terms. It also checks data practices. It sets access controls. It limits SI to the minimum necessary. Start with sample or made-up information. Use dates the owner has verified against the issuing source. Permission is to track and draft, not to confirm validity. Setup is often a few days.</p>
+            </section>
+            <section class="uc-block uc-checks" aria-labelledby="checks">
+              <h2 id="checks">What a human still checks</h2>
+              <ul class="uc-checklist">
+            <li>The owner or office manager approves before anything goes to a customer, vendor, or inspector.</li>
+            <li>SI never sends a quote, takes a payment, books a job, or submits anything on its own.</li>
+            <li>Urgent or unusual items go to a &quot;needs owner review&quot; queue.</li>
+            <li>The business decides what customer data SI may see. Testing starts with sample information.</li>
+            <li>The owner verifies documents against the issuing source. The owner decides whether a sub may work. The owner handles renewals.</li>
+              </ul>
+            </section>
+            <section class="uc-block" aria-labelledby="prompt">
+              <h2 id="prompt">Try it yourself</h2>
+              <p>Paste this into your SI tool. Swap the [bracketed] parts for your own details. It asks SI to stop and show you before it does anything.</p>
+              <div class="uc-prompt">
+                <div class="uc-prompt-bar">
+                  <span class="uc-prompt-label">Copy-ready prompt</span>
+                  <button type="button" class="uc-copy" id="uc-copy" aria-live="polite">Copy</button>
+                </div>
+                <pre id="uc-prompt-text">Keep a tracker of these license, insurance, and tax-form documents and dates the owner has verified [paste]. Remind the office ahead of expiry. Draft please-send-an-updated-certificate requests from this wording [paste]. Do not confirm that a license or policy is valid, decide who may do licensed work, or give insurance or licensing advice. Do not send anything. Pause and show me before sending, quoting, booking, ordering or changing anything. Use only the sample or made-up information I provide; do not include real customer names, addresses or payment details.</pre>
+              </div>
+            </section>
+          </div>
+
+          <aside class="uc-detail-side" aria-label="At a glance">
+            <div class="uc-side-stick">
+            <div class="uc-side-card">
+              <h3>Typical effect</h3>
+              <p>Document dates the owner verified are visible. Request drafts are ready before something expires.</p>
+              <h3>Tools it usually touches</h3>
+              <div class="uc-tags"><span class="tag green">Spreadsheets</span><span class="tag green">Google Workspace</span><span class="tag green">Microsoft 365</span><span class="tag green">QuickBooks</span></div>
+            </div>
+            <div class="uc-side-card uc-service-link">
+              <h3>Related service</h3>
+              <p>This job usually fits <a class="text-link" href="/services/ai-automation.html">SI automation</a>.</p>
+            </div>
+            <div class="uc-side-card uc-side-cta">
+              <p class="section-kicker">Want this built?</p>
+              <p>I will look at your setup on a free call and tell you honestly whether this is worth doing.</p>
+              <a class="button primary full" href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book a free 30-minute consultation</a>
+            </div>
+            </div>
+          </aside>
+        </div>
+
+        <section class="uc-related" aria-labelledby="related">
+          <h2 id="related">Related use cases</h2>
+          <ul class="uc-grid">
+          <li class="uc-card" data-slug="license-and-certification-tracker" data-i="any-business,home-services,medical" data-f="hiring">
+            <a href="/use-cases/license-and-certification-tracker/">
+              <span class="uc-card-cat">Hiring and team setup</span>
+              <div class="uc-motif uc-motif--hiring" data-motif="checklist" aria-hidden="true">
+            <div class="uc-motif-frame">
+              <img src="/assets/use-case-motifs/checklist--hiring.svg" width="220" height="220" alt="Pixel drawing of a checklist with two boxes checked" decoding="async">
+            </div>
+          </div>
+              <h3>Licenses, insurance, and certification tracking</h3>
+              <p>SI keeps one staff credential list. It covers licenses, certifications, and required training. The list includes expiry dates. It reminds people well before anything lapses.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="permit-inspection-tracking" data-i="home-services" data-f="scheduling,paperwork">
+            <a href="/use-cases/permit-inspection-tracking/">
+              <span class="uc-card-cat">Home services</span>
+              <div class="uc-motif uc-motif--home-services" data-motif="checklist" aria-hidden="true">
+            <div class="uc-motif-frame">
+              <img src="/assets/use-case-motifs/checklist--home-services.svg" width="220" height="220" alt="Pixel drawing of a checklist with two boxes checked" decoding="async">
+            </div>
+          </div>
+              <h3>Permit and inspection tracking</h3>
+              <p>The owner enters each job&#x27;s permit and inspection dates. Those dates sit in a tracker. SI adds reminders and routine status-email drafts.</p>
+              <p class="uc-card-note">Office help for HVAC, plumbing, roofing, electrical, landscaping, pool, and cleaning businesses. SI drafts, tracks, and reminds. The owner approves every quote and message. No price promises. No safety or code advice. Customer information stays private.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          <li class="uc-card" data-slug="quote-estimate-drafts" data-i="home-services" data-f="leads-and-quotes">
+            <a href="/use-cases/quote-estimate-drafts/">
+              <span class="uc-card-cat">Home services</span>
+              <div class="uc-motif uc-motif--home-services" data-motif="phone" aria-hidden="true">
+            <div class="uc-motif-frame">
+              <img src="/assets/use-case-motifs/phone--home-services.svg" width="220" height="220" alt="Pixel drawing of a phone next to a short message" decoding="async">
+            </div>
+          </div>
+              <h3>Quote and estimate drafting</h3>
+              <p>Field notes are put on the business&#x27;s quote template. The quote is labeled as a draft the owner must approve.</p>
+              <p class="uc-card-note">Office help for HVAC, plumbing, roofing, electrical, landscaping, pool, and cleaning businesses. SI drafts, tracks, and reminds. The owner approves every quote and message. No price promises. No safety or code advice. Customer information stays private.</p>
+              <span class="uc-card-more">Read the use case <span aria-hidden="true">→</span></span>
+            </a>
+          </li>
+          </ul>
+          <p class="uc-all"><a class="text-link" href="../index.html">See all 160 use cases →</a></p>
+        </section>
+
+        <section class="uc-cta-band" aria-labelledby="cta-h">
+          <div>
+            <p class="section-kicker">Next step</p>
+            <h2 id="cta-h">Want this built? Book a free 30-minute consultation</h2>
+            <p>Bring one real example, such as an export, an inbox, or a spreadsheet. We will map the steps and decide what SI drafts and what you approve.</p>
+          </div>
+          <div class="actions"><a class="button primary" href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book a free 30-minute consultation</a></div>
+        </section>
+      </article>
+    </main>
+    <footer>
+      <a class="footer-brand" href="../../index.html" aria-label="GemmiSI home">
+        <img class="footer-lockup" src="../../assets/brand/gemmisi-lockup-dark.svg" alt="" width="123" height="28" />
+      </a>
+      <p>© <span id="year"></span> Yonatan Gemmi. Based in North Miami Beach, Florida · Miami-Dade, Broward, and remote</p>
+      <p class="footer-nav">
+        <a href="../../index.html">Home</a>
+        <a href="../index.html">Use cases</a>
+        <a href="../../pricing.html">Pricing</a>
+        <a href="../../services/hermes-agents.html">Hermes desks</a>
+        <a href="../../services/ai-automation.html">SI automation</a>
+        <a href="../../services/dashboards-reporting.html">Dashboards</a>
+        <a href="../../services/ecommerce-operations.html">Ecommerce</a>
+        <a href="../../services/tutoring-project-help.html">Tutoring</a>
+        <a href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book consultation</a>
+      </p>
+    </footer>  <script src="/assets/nav.js" defer></script>
+  <script>
+    (() => {
+      const button = document.getElementById('uc-copy');
+      const text = document.getElementById('uc-prompt-text');
+      if (!button || !text) return;
+      button.addEventListener('click', async () => {
+        const value = text.textContent || '';
+        try {
+          await navigator.clipboard.writeText(value);
+        } catch (err) {
+          const range = document.createRange();
+          range.selectNodeContents(text);
+          const selection = getSelection();
+          selection.removeAllRanges();
+          selection.addRange(range);
+          document.execCommand('copy');
+          selection.removeAllRanges();
+        }
+        button.textContent = 'Copied';
+        button.classList.add('is-done');
+        window.setTimeout(() => {
+          button.textContent = 'Copy';
+          button.classList.remove('is-done');
+        }, 1800);
+      });
+    })();
+  </script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c9c911628ffd4644bce7bea8d47eb16c"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

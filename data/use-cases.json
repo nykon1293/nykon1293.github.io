@@ -1830,7 +1830,7 @@
     ],
     "summary": "SI turns a work request, a vendor job, or a signed scope into a scheduled job. A person still books it.",
     "problem": "Requests arrive by phone, text, email, and portal. They get written on paper, entered late, or lost. Customers do not know when someone is coming.",
-    "what_si_does": "SI reads each request. It creates a job ticket with the location, problem, urgency, and any photos. It checks capacity or vendor availability. It proposes a time slot or the right vendor by your rules. It drafts the message to the customer or tenant with the plan. It drafts the dispatch note to the technician or vendor. A property office can track vendor work orders. A contractor can draft a work order from a signed contract and check that insurance is on file. Crew dispatch still waits for the owner.",
+    "what_si_does": "SI reads each request. It creates a job ticket with the location, problem, urgency, and any photos. It checks capacity or vendor availability. It proposes a time slot or the right vendor by your rules. It drafts the message to the customer or tenant with the plan. It drafts the dispatch note to the technician or vendor. A contractor can draft a work order from a signed contract and check that insurance is on file. Crew dispatch still waits for the owner.",
     "setup": "Access to the request channels. The job or maintenance system. Your urgency and assignment rules. Setup is often one to two weeks.",
     "human_checks": [
       "A dispatcher or manager approves assignments and customer messages.",
@@ -1852,18 +1852,6 @@
       {
         "business_type": "School facilities office",
         "scenario": "Teacher requests for repairs are logged by building and room. They are grouped into the custodian's weekly plan."
-      },
-      {
-        "business_type": "Small property-management company",
-        "scenario": "Open work orders are listed by status. A status draft to a vendor waits for the manager to send it."
-      },
-      {
-        "business_type": "Landlord with a few rental units",
-        "scenario": "The vendor list holds trades and contacts the owner entered. SI does not recommend who to hire."
-      },
-      {
-        "business_type": "Independent real estate agent",
-        "scenario": "A weekly list shows stale jobs on properties the agent manages. The owner can follow up."
       }
     ],
     "copy_prompt": "For each request in [channels], create a ticket with location, problem, urgency per [rules], and attachments. Propose a time or vendor using [capacity calendar or vendor list]. Draft a message to the requester with the plan, and a dispatch note to the assignee. Pause and show me before sending, submitting, posting or changing anything.",
@@ -1882,15 +1870,16 @@
     "aliases": [
       "requests to scheduled jobs",
       "Turning incoming work and maintenance requests into scheduled jobs",
-      "vendor work order tracking",
-      "Vendor and work-order tracking",
       "contract work orders insurance check",
       "Work orders from signed contracts",
       "crew dispatch schedule prep",
       "Scheduling and dispatch prep for owner approval",
       "work order",
-      "dispatch",
-      "vendor tracking"
+      "dispatch"
+    ],
+    "related": [
+      "vendor-work-order-tracking",
+      "missed-call-text-back"
     ]
   },
   {
@@ -2867,7 +2856,7 @@
     ],
     "summary": "SI keeps one staff credential list. It covers licenses, certifications, and required training. The list includes expiry dates. It reminds people well before anything lapses.",
     "problem": "Licenses, certifications, and required trainings expire on different dates. A lapse can mean someone cannot work. It can also mean a problem at an inspection or audit.",
-    "what_si_does": "SI reads certificates and records from a shared folder or HR system. It builds a list of each person's credentials. The list includes issue and expiry dates. It sends reminders to the person and their manager ahead of each expiry. It flags anyone scheduled for work that needs a credential they do not hold. A contractor can track licenses, insurance certificates, and subcontractor documents in the same list. The owner checks the dates.",
+    "what_si_does": "SI reads certificates and records from a shared folder or HR system. It builds a list of each person's credentials. The list includes issue and expiry dates. It sends reminders to the person and their manager ahead of each expiry. It flags anyone scheduled for work that needs a credential they do not hold.",
     "setup": "Copies of certificates or HR records. You also need the list of required credentials per role. Setup is often a few days.",
     "human_checks": [
       "A manager confirms dates against the original documents.",
@@ -2889,18 +2878,6 @@
       {
         "business_type": "Home health agency",
         "scenario": "Nursing licenses are tracked for each caregiver. Required annual trainings are tracked too."
-      },
-      {
-        "business_type": "Two-crew roofing business",
-        "scenario": "Expiry dates the owner verified sit in one tracker. A request draft for an updated certificate waits for the owner."
-      },
-      {
-        "business_type": "Small HVAC company",
-        "scenario": "The office is reminded ahead of a date the owner entered. SI does not confirm that a policy is valid."
-      },
-      {
-        "business_type": "Landscaping crew",
-        "scenario": "W-9 and license documents are listed as on file or missing. The owner decides who may work."
       }
     ],
     "copy_prompt": "From these certificates and records [folder], build a list of each person's licenses, certifications and trainings with issue and expiry dates. Compare with required credentials per role [file]. Draft reminders [60] and [14] days before expiry, and flag anyone scheduled for work needing a credential they lack. Pause and show me before sending, submitting, posting or changing anything.",
@@ -2919,11 +2896,11 @@
     "aliases": [
       "license and certification tracker",
       "Tracking staff licenses, certifications and training renewals",
-      "contractor license insurance tracker",
-      "License, insurance and subcontractor document tracking",
       "insurance certificate",
-      "license renewal",
-      "subcontractor insurance"
+      "license renewal"
+    ],
+    "related": [
+      "contractor-license-insurance-tracker"
     ]
   },
   {
@@ -3389,22 +3366,18 @@
     "functions": [
       "answering-customers"
     ],
-    "summary": "SI turns a tutor's or teacher's notes into a short progress update. A person approves it before a parent sees it.",
-    "problem": "After a session, the update to a parent is easy to skip. Notes stay in a notebook. Families hear nothing until a problem shows up.",
-    "what_si_does": "SI uses the notes the tutor or teacher just wrote. It drafts a short update in a steady format. A nonprofit program can use the same draft for a family note. SI does not grade or place a student. A person approves anything sent to a student or parent.",
-    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. The school reviews each tool before it holds student records. Check the vendor's terms, access controls, and any FERPA or state student-privacy duties. Start with sample or de-identified material. Use a simple notes form or voice-memo path. Use the tutor's summary template. Permission is to draft, not to send. Setup is often a day or two.",
+    "summary": "SI turns a teacher's or program's notes into a short family update. A person approves it before a parent sees it.",
+    "problem": "After class or a program hour, the update to a family is easy to skip. Notes stay in a notebook. Families hear nothing until a problem shows up.",
+    "what_si_does": "SI uses the notes the teacher or staff member just wrote. It drafts a short update in a steady format. A nonprofit program can use the same draft for a family note. SI does not grade or place a student. A person approves anything sent to a student or parent.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. The school reviews each tool before it holds student records. Check the vendor's terms, access controls, and any FERPA or state student-privacy duties. Start with sample or de-identified material. Use a simple notes form or voice-memo path. Use the teacher's or program's summary template. Permission is to draft, not to send. Setup is often a day or two.",
     "human_checks": [
       "A person approves anything sent to a student or parent.",
-      "The tutor reviews each draft.",
-      "Concerns are handled by the tutor, not by a template.",
+      "The teacher or staff member reviews each draft.",
+      "Concerns are handled by a person, not by a template.",
       "SI never sends, posts, or changes a record on its own.",
-      "Notes about minors stay on the tutor's or school's own accounts."
+      "Notes about minors stay on the school's or program's own accounts."
     ],
     "examples": [
-      {
-        "business_type": "Tutor",
-        "scenario": "After a session, SI drafts a short parent note from the tutor's bullets. The tutor sends it."
-      },
       {
         "business_type": "Teacher",
         "scenario": "SI drafts a progress line from the teacher's own notes. The teacher approves it before it goes to a parent."
@@ -3412,9 +3385,13 @@
       {
         "business_type": "After-school program",
         "scenario": "SI drafts a family update from the coach's notes. A staff member sends it."
+      },
+      {
+        "business_type": "Community learning nonprofit",
+        "scenario": "Weekly notes become a short family update. A coordinator reviews it first."
       }
     ],
-    "copy_prompt": "Turn these tutor notes [paste] into a short parent summary using this template [paste]: what was practiced, what to review, and what is next. Use only facts the tutor wrote. Flag notes that sound like a concern for the tutor to handle in person. Pause and show me before sending, posting or changing anything. Use only the sample or de-identified information I provide; do not include real student names, grades, or family contact details.",
+    "copy_prompt": "Turn these session notes [paste] into a short family update using this template [paste]: what was practiced, what to review, and what is next. Use only facts the teacher or staff member wrote. Flag notes that sound like a concern for a person to handle. Pause and show me before sending, posting or changing anything. Use only the sample or de-identified information I provide; do not include real student names, grades, or family contact details.",
     "tools_examples": [
       "Google Docs",
       "Gmail",
@@ -3424,11 +3401,16 @@
     "effect": "Families get a steady update, and a person still sends it.",
     "caution": "Progress summaries are drafts. SI does not assess or place a student.",
     "aliases": [
-      "tutoring session",
+      "session notes to progress updates",
+      "Progress updates for parents and families",
       "parent progress",
       "progress update",
-      "session notes",
-      "Tutoring session notes and parent progress summaries"
+      "session notes"
+    ],
+    "related": [
+      "tutoring-session-progress-notes",
+      "parent-email-drafts",
+      "report-card-comment-drafts"
     ]
   },
   {
@@ -3774,9 +3756,9 @@
     "functions": [
       "scheduling"
     ],
-    "summary": "Before a storm, SI turns your own records into a checklist and draft messages. You decide what to send and what to do.",
-    "problem": "Hurricane season arrives and the plan is still in someone's head. Inventory location, customer appointments, and supplier contacts are scattered. So are the files the business would need after a closure. Nothing else in the library is an emergency or keep-going checklist.",
-    "what_si_does": "SI reads the checklist, tenant list, or job list you keep. It drafts who to notify, what to protect, and which files to copy. For a rental, it drafts a tenant message from the manager's own wording. For a contractor, it lists open jobs and materials to secure. A person sends every message. This is not legal advice. SI does not lease, collect rent, screen or rank applicants.",
+    "summary": "Before a storm, SI turns your shop, crew, or office records into a checklist and draft messages. You decide what to send and what to do.",
+    "problem": "Hurricane season arrives and the plan is still in someone's head. Inventory location, customer appointments, and supplier contacts are scattered. So are the files the business would need after a closure. This is the shop and crew checklist, not a rental-property ready sheet.",
+    "what_si_does": "SI reads the checklist, job list, or contact list you keep. It drafts who to notify, what to protect, and which files to copy. For a contractor, it lists open jobs and materials to secure. A person sends every message. This is not legal advice. SI does not lease, collect rent, screen or rank applicants.",
     "setup": "Give SI the checklist and contact list you already use. Add one message you have sent before. Setup is often a day.",
     "human_checks": [
       "A person decides what is urgent and what gets sent.",
@@ -3789,12 +3771,12 @@
         "scenario": "SI lists open jobs, loose materials, and clients to text before a storm. The owner sends the notes."
       },
       {
-        "business_type": "Property manager",
-        "scenario": "SI drafts a tenant message from last year's note and the manager's list. The manager reviews it. This is not legal advice."
-      },
-      {
         "business_type": "Shop owner",
         "scenario": "SI turns the closing checklist into a short staff list. The owner checks it."
+      },
+      {
+        "business_type": "Neighborhood restaurant",
+        "scenario": "SI lists supplier contacts and draft closure texts from last year's note. The owner reviews them."
       }
     ],
     "copy_prompt": "Using this checklist [file] and this contact list [file], draft a storm prep list and any messages in my wording. Do not send them. This is not legal advice. Pause and show me before sending, posting or changing anything.",
@@ -3816,11 +3798,13 @@
     "aliases": [
       "hurricane season readiness",
       "Hurricane-season readiness and continuity plan",
-      "property hurricane season prep",
-      "Hurricane-season readiness and tenant message prep",
       "hurricane",
       "storm prep",
-      "tenant message"
+      "shop storm checklist"
+    ],
+    "related": [
+      "property-hurricane-season-prep",
+      "weather-rescheduling-notices"
     ]
   },
   {
@@ -5333,7 +5317,7 @@
     ],
     "summary": "The owner provides install, service, or warranty dates. From those, SI drafts seasonal maintenance messages for approval.",
     "problem": "Customers forget yearly tune-ups, filter changes, and warranty dates. The business loses repeat work.",
-    "what_si_does": "SI builds a reminder list from the install, service, or warranty dates the owner provides. SI drafts a seasonal time-for-your-[service] message for approval. SI tracks who responded. An auto shop can draft an oil-change or inspection reminder from its own history. A person sends it.",
+    "what_si_does": "SI builds a reminder list from the install, service, or warranty dates the owner provides. SI drafts a seasonal time-for-your-[service] message for approval. SI tracks who responded. A person sends it.",
     "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds customer information, the business checks the tool's terms. It also checks data practices. It sets access controls. It limits SI to the minimum necessary. Start with sample or made-up information. Use dates the owner has on file. Use the reminder wording the owner has approved. Permission is to draft, not to send. Setup is often a few days.",
     "human_checks": [
       "The owner or office manager approves before anything goes to a customer, vendor, or inspector.",
@@ -5355,18 +5339,6 @@
       {
         "business_type": "Landscaping crew",
         "scenario": "A spring reminder uses the owner's wording. It includes no performance claims."
-      },
-      {
-        "business_type": "Family garage",
-        "scenario": "Cars last serviced near the shop's oil interval get a short draft, and the advisor reads it before sending."
-      },
-      {
-        "business_type": "Inspection station",
-        "scenario": "Cars with an inspection due in the next month are listed, and the draft uses the shop's usual wording."
-      },
-      {
-        "business_type": "Fleet-friendly shop",
-        "scenario": "A small fleet list shows units due this week, and the owner picks which ones to contact."
       }
     ],
     "copy_prompt": "From these install, service, or warranty dates [paste], build a reminder list and draft a seasonal time-for-your-[service] message from this approved wording [paste]. Track who responded. Do not state what a warranty covers or promise coverage. Keep reminders generic, with no safety or performance claims. Do not send anything. Texting rules vary; get consent and honor opt-outs. Pause and show me before sending, quoting, booking, ordering or changing anything. Use only the sample or made-up information I provide; do not include real customer names, addresses or payment details.",
@@ -5385,11 +5357,11 @@
     "aliases": [
       "warranty maintenance reminders",
       "Warranty and maintenance reminder drafts",
-      "auto service history reminders",
-      "Oil-change and inspection reminders from shop history",
-      "oil change",
-      "service reminder",
-      "auto maintenance"
+      "service reminder"
+    ],
+    "related": [
+      "auto-service-history-reminders",
+      "permit-inspection-tracking"
     ]
   },
   {
@@ -6656,7 +6628,7 @@
     ],
     "summary": "SI drafts a booking reply on WhatsApp or chat from the open times you keep. A person confirms it before the slot is held.",
     "problem": "Booking chats arrive while the host is on the floor. Tables get double booked. Guests wait for a yes that never comes.",
-    "what_si_does": "SI reads the open times and the guest's message. It drafts a reply that offers a table, a chair, a class, a court, or a tutoring time. It does not hold the slot or take a deposit. A restaurant, a salon, a gym, and a tutor can use the same pattern. A person approves anything sent to a student or parent. This is not medical advice.",
+    "what_si_does": "SI reads the open times and the guest's message. It drafts a reply that offers a table, a class, a court, or a tutoring time. It does not hold the slot or take a deposit. A restaurant, a gym, and a tutor can use the same pattern. A person approves anything sent to a student or parent. This is not medical advice.",
     "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Connect the chat you already use and the calendar or sheet of open times. Add two replies you like. Setup is often a day or two.",
     "human_checks": [
       "A person confirms every booking before the slot is held.",
@@ -6667,10 +6639,6 @@
       {
         "business_type": "Restaurant",
         "scenario": "A WhatsApp note asks for four people at 7. SI drafts a reply from open tables. The host sends it."
-      },
-      {
-        "business_type": "Salon",
-        "scenario": "A client asks for a Saturday cut. SI drafts two open times. The desk confirms."
       },
       {
         "business_type": "Tutor",
@@ -6692,8 +6660,6 @@
     "aliases": [
       "restaurant whatsapp table bookings",
       "WhatsApp table bookings for restaurants",
-      "salon whatsapp booking drafts",
-      "Salon and spa booking drafts over WhatsApp",
       "tutoring whatsapp appointments",
       "Tutoring bookings over WhatsApp",
       "class court chat bookings",
@@ -7847,6 +7813,335 @@
       "weekly money in digest",
       "payments received this week",
       "what is still owed"
+    ]
+  },
+  {
+    "slug": "tutoring-session-progress-notes",
+    "title": "Tutoring session notes and parent progress summaries",
+    "industries": [
+      "education"
+    ],
+    "functions": [
+      "answering-customers",
+      "paperwork"
+    ],
+    "summary": "After a session, SI turns the tutor's notes into a short parent summary in a consistent format, and the tutor approves it.",
+    "problem": "Tutors jot what was practiced and rarely have time to write a clear parent update. Families hear little until there is a problem.",
+    "what_si_does": "SI takes the tutor's notes and drafts a short summary of what was practiced, what to review, and what is next. It uses only what the tutor wrote. It keeps a running record the tutor can see. It flags notes that sound like a concern for the tutor to handle in person.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. The school reviews each tool before it holds student records. Check the vendor's terms, access controls, and any FERPA or state student-privacy duties. Start with sample or de-identified material. Use a simple notes form or voice-memo path. Use the tutor's summary template. Permission is to draft, not to send. Setup is often a day or two.",
+    "human_checks": [
+      "A person approves anything sent to a student or parent.",
+      "The tutor reviews each draft.",
+      "Concerns are handled by the tutor, not by a template.",
+      "SI never sends, posts, or changes a record on its own.",
+      "Notes about minors stay on the tutor's or school's own accounts."
+    ],
+    "examples": [
+      {
+        "business_type": "Independent math tutor",
+        "scenario": "A two-line note on fractions practice becomes a parent summary. It uses the next-session focus the tutor already wrote."
+      },
+      {
+        "business_type": "Writing tutor",
+        "scenario": "Session notes become a short update on the essay stage the student is in. No grade is invented."
+      },
+      {
+        "business_type": "School-based tutoring hour",
+        "scenario": "The draft stays in the tutor's queue. The school decides whether the family receives it through the usual parent channel."
+      }
+    ],
+    "copy_prompt": "Turn these tutor notes [paste] into a short parent summary using this template [paste]: what was practiced, what to review, and what is next. Use only facts the tutor wrote. Flag notes that sound like a concern for the tutor to handle in person. Pause and show me before sending, posting or changing anything. Use only the sample or de-identified information I provide; do not include real student names, grades, or family contact details.",
+    "tools_examples": [
+      "Google Docs",
+      "Gmail",
+      "Google Sheets",
+      "Microsoft 365 Education"
+    ],
+    "effect": "Parents get a consistent draft after sessions. The tutor still decides what is said.",
+    "caution": "Progress summaries are drafts. SI does not assess or place a student.",
+    "related": [
+      "session-notes-to-progress-updates",
+      "parent-email-drafts",
+      "report-card-comment-drafts"
+    ],
+    "aliases": [
+      "tutoring session progress notes",
+      "Tutoring session notes and parent progress summaries",
+      "tutor parent summary",
+      "tutoring session notes"
+    ]
+  },
+  {
+    "slug": "vendor-work-order-tracking",
+    "title": "Vendor and work-order tracking",
+    "industries": [
+      "real-estate"
+    ],
+    "functions": [
+      "scheduling"
+    ],
+    "summary": "Vendors and work orders sit in one tracker. SI drafts scheduling notes and a weekly list of open and stale jobs.",
+    "problem": "Who was called lives in texts and memory. So do the quote and whether the job got done.",
+    "what_si_does": "SI keeps a vendor list with trade, contact, rates the manager entered, and notes. SI also keeps a work-order tracker with ticket, vendor, quote, status, and invoice received. SI drafts scheduling and status messages. SI lists open and stale jobs each week. SI prepares drafts for the licensed agent or owner. SI does not lease, collect rent, screen or rank applicants.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds applicant or tenant information, the business checks the tool's terms. It also checks data practices. It sets access controls. It limits SI to the minimum necessary. Start with sample or made-up information. Start from the vendor list and work-order sheet the manager already keeps. Permission is to draft, not to hire or pay. Setup is often a few days.",
+    "human_checks": [
+      "The agent, broker, or manager approves before anything goes to a client, tenant, applicant, or vendor.",
+      "SI never sends, posts, signs, or changes records on its own.",
+      "Unusual items go to a \"needs manager or attorney review\" queue.",
+      "The business decides what personal data SI may see. Testing starts with sample information.",
+      "The manager chooses vendors. The manager approves quotes and invoices. The manager verifies work. The manager confirms vendors' licenses and insurance."
+    ],
+    "examples": [
+      {
+        "business_type": "Small property-management company",
+        "scenario": "Open work orders are listed by status. A status draft to a vendor waits for the manager to send it."
+      },
+      {
+        "business_type": "Landlord with a few rental units",
+        "scenario": "The vendor list holds trades and contacts the owner entered. SI does not recommend who to hire."
+      },
+      {
+        "business_type": "Independent real estate agent",
+        "scenario": "A weekly list shows stale jobs on properties the agent manages. The owner can follow up."
+      }
+    ],
+    "copy_prompt": "Update this vendor list and work-order tracker [paste] with these items [paste]. Draft scheduling and status messages from this approved wording [paste]. List open and stale jobs. Do not hire, approve spending, or pay. Do not recommend a vendor on quality or safety grounds, and do not vouch that a vendor is licensed or insured. Give no repair or code advice. Do not send anything. Pause and show me before sending, posting, signing or changing anything. Use only the sample or made-up information I provide; do not include real tenant or applicant names, IDs or financial details.",
+    "tools_examples": [
+      "Spreadsheets",
+      "Google Workspace",
+      "Microsoft 365",
+      "Accounting software"
+    ],
+    "effect": "Open jobs and vendor contacts sit in one tracker. Status drafts are ready for the manager.",
+    "caution": "This is office support only. SI does not give legal or lease advice. SI does not make leasing, screening, or pricing decisions. SI does not act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything that faces a client, a tenant, or a contract. Fair housing laws apply. SI never screens, ranks, steers, or targets by protected characteristics. Applicant and tenant information is used only in checked tools, with access controls and the minimum necessary. SI never hires. SI never approves spending. SI never pays. SI does not recommend a vendor on quality or safety grounds. SI does not vouch that a vendor is licensed or insured. SI gives no repair or code advice.",
+    "related": [
+      "maintenance-request-intake",
+      "landlord-morning-list",
+      "requests-to-scheduled-jobs"
+    ],
+    "aliases": [
+      "vendor work order tracking",
+      "Vendor and work-order tracking",
+      "vendor tracking",
+      "open work orders",
+      "stale vendor jobs"
+    ]
+  },
+  {
+    "slug": "property-hurricane-season-prep",
+    "title": "Rental property hurricane-season ready sheets",
+    "industries": [
+      "real-estate"
+    ],
+    "functions": [
+      "scheduling"
+    ],
+    "summary": "Before the season, SI builds a property-by-property ready sheet from the manager's details. It drafts tenant message templates for review in advance.",
+    "problem": "When a storm is forecast, landlords scramble. They hunt for contacts, shutter and drain checklists, and what to tell residents. A shop or crew storm checklist is a different job.",
+    "what_si_does": "Before the season, SI builds a property-by-property ready sheet from the manager's details. The sheet has vendor and insurance contacts, utility shutoffs, a photo checklist, and a resident contact list. SI drafts message templates for the manager to review in advance. The templates cover what we are doing and where to find official updates. This is the rental ready sheet, not a shop or crew storm checklist. SI prepares drafts for the licensed agent or owner. SI does not lease, collect rent, screen or rank applicants.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds applicant or tenant information, the business checks the tool's terms. It also checks data practices. It sets access controls. It limits SI to the minimum necessary. Start with sample or made-up information. Use contacts and checklists the manager already keeps. Drafts stay in a review folder until a person sends them. Setup is often a few days before the season.",
+    "human_checks": [
+      "The agent, broker, or manager approves before anything goes to a client, tenant, applicant, or vendor.",
+      "SI never sends, posts, signs, or changes records on its own.",
+      "Unusual items go to a \"needs manager or attorney review\" queue.",
+      "The business decides what personal data SI may see. Testing starts with sample information.",
+      "The manager decides what to do and what to tell residents. The manager follows the instructions of local authorities. Insurance and licensed-professional decisions stay in human hands."
+    ],
+    "examples": [
+      {
+        "business_type": "Small property-management company",
+        "scenario": "A ready sheet for [Property] lists vendor and insurance contacts the manager entered. It also has a photo checklist."
+      },
+      {
+        "business_type": "Landlord with a few rental units",
+        "scenario": "Message templates point residents to official emergency sources. The owner reviews them before hurricane season."
+      },
+      {
+        "business_type": "Independent real estate agent",
+        "scenario": "A South Florida listing the agent manages has a shutoff and contact sheet. It is ready for the owner to use."
+      }
+    ],
+    "copy_prompt": "From this manager-supplied information [paste], build a property-by-property readiness sheet with vendor and insurance contacts, utility shutoffs, a photo-documentation checklist, and the resident contact list. Draft message templates for what we are doing and where to find official updates. Do not give evacuation, safety, or insurance-claim advice, do not tell anyone to stay or go, and make no timing or damage predictions. Point to official emergency sources and 911. Do not send anything. Pause and show me before sending, posting, signing or changing anything. Use only the sample or made-up information I provide; do not include real tenant or applicant names, IDs or financial details.",
+    "tools_examples": [
+      "Spreadsheets",
+      "Google Workspace",
+      "Microsoft 365",
+      "Google Drive"
+    ],
+    "effect": "Ready sheets and message templates are reviewed before a storm is forecast. They are not built during one.",
+    "caution": "This is office support only. SI does not give legal or lease advice. SI does not make leasing, screening, or pricing decisions. SI does not act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything that faces a client, a tenant, or a contract. Fair housing laws apply. SI never screens, ranks, steers, or targets by protected characteristics. Applicant and tenant information is used only in checked tools, with access controls and the minimum necessary. SI never gives evacuation, safety, or insurance-claim advice. SI never tells anyone to stay or go. SI points to official emergency sources and 911. SI makes no timing or damage predictions.",
+    "related": [
+      "hurricane-season-readiness",
+      "tenant-notice-drafts",
+      "maintenance-request-intake"
+    ],
+    "aliases": [
+      "property hurricane season prep",
+      "Hurricane-season readiness and tenant message prep",
+      "rental hurricane ready sheet",
+      "tenant hurricane message"
+    ]
+  },
+  {
+    "slug": "salon-whatsapp-booking-drafts",
+    "title": "Salon and spa booking drafts over WhatsApp",
+    "industries": [
+      "local-shops"
+    ],
+    "functions": [
+      "scheduling"
+    ],
+    "summary": "SI drafts salon and spa booking and reschedule notes over WhatsApp from the owner's calendar. The owner still confirms every slot before the guest is told it is set.",
+    "problem": "Booking chats arrive while the owner is with a client, so times get double-booked. Reschedules wait until closing, when the calendar is finally open and the guest has already moved on.",
+    "what_si_does": "SI reads the WhatsApp note and the owner's calendar, then drafts a reply with an open time that fits the service length and buffer you set. It can draft a reschedule when the guest asks to move. It does not lock the time or send the message on its own.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Connect WhatsApp with permission to read and draft, not send, and share the owner's calendar. Write service lengths and buffer time so drafts stay inside those rules. Setup is often a few days while you check a handful of real chats.",
+    "human_checks": [
+      "The owner confirms every new time and every reschedule before the guest is told it is set.",
+      "SI does not book or move a slot on its own.",
+      "Get consent before you text, and honor opt-outs right away."
+    ],
+    "examples": [
+      {
+        "business_type": "One-chair salon",
+        "scenario": "A color request on WhatsApp gets a draft for Thursday at 2, and the owner sends it after the current client."
+      },
+      {
+        "business_type": "Neighborhood spa",
+        "scenario": "A massage reschedule is drafted from the next open 60-minute block, and the desk confirms the time."
+      },
+      {
+        "business_type": "Barber shop",
+        "scenario": "A Saturday cut request is drafted against the barber's calendar, and two overlapping asks are flagged for a person."
+      }
+    ],
+    "copy_prompt": "Read this WhatsApp note [paste] and this calendar [file]. Draft a booking or reschedule reply that fits these service lengths [paste]. Do not lock the time or send the message. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "WhatsApp",
+      "Google Calendar",
+      "Gmail",
+      "Google Sheets",
+      "Outlook"
+    ],
+    "effect": "Booking chats get a draft time from the real calendar, and the owner still confirms the slot.",
+    "caution": "SI does not book on its own. The owner confirms every slot. Get consent before you text, and honor opt-outs right away.",
+    "related": [
+      "fitness-class-list-check-ins",
+      "auto-repair-request-sorting"
+    ],
+    "aliases": [
+      "salon whatsapp booking drafts",
+      "Salon and spa booking drafts over WhatsApp",
+      "salon booking chat",
+      "spa whatsapp booking"
+    ]
+  },
+  {
+    "slug": "auto-service-history-reminders",
+    "title": "Oil-change and inspection reminders from shop history",
+    "industries": [
+      "local-shops"
+    ],
+    "functions": [
+      "scheduling"
+    ],
+    "summary": "SI drafts oil-change and inspection reminders from the shop's own service history. A person still decides who is contacted and sends the note.",
+    "problem": "Due dates sit in old tickets, and nobody writes the reminder until the customer calls. Repeat visits slip because the list is never made from the shop's own history.",
+    "what_si_does": "SI reads the shop's service history and lists cars due for an oil change or inspection by the interval you already use. It drafts a short reminder from wording the shop has already approved. It does not send the note or invent a due date that is not in the file.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Use the shop's history export or ticket list, and write the interval and reminder wording you already send. Permission is to draft, not to send mail or texts. Setup is often a few days while you check the first list against real tickets.",
+    "human_checks": [
+      "A person checks the list against the tickets before anyone is contacted.",
+      "SI does not send texts or email on its own.",
+      "Get consent before you text, and honor opt-outs right away."
+    ],
+    "examples": [
+      {
+        "business_type": "Family garage",
+        "scenario": "Cars last serviced near the shop's oil interval get a short draft, and the advisor reads it before sending."
+      },
+      {
+        "business_type": "Inspection station",
+        "scenario": "Cars with an inspection due in the next month are listed, and the draft uses the shop's usual wording."
+      },
+      {
+        "business_type": "Fleet-friendly shop",
+        "scenario": "A small fleet list shows units due this week, and the owner picks which ones to contact."
+      }
+    ],
+    "copy_prompt": "Using this service history [file] and these intervals [paste], list cars due for an oil change or inspection. Draft a short reminder from this wording [paste]. Do not send it. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Sheets",
+      "Gmail",
+      "Excel",
+      "Google Docs",
+      "Outlook"
+    ],
+    "effect": "Due cars are a list with a draft note from the shop's own history, and a person still sends it.",
+    "caution": "Reminder drafts wait for a person. Get consent before you text.",
+    "related": [
+      "warranty-maintenance-reminders",
+      "auto-repair-request-sorting",
+      "repair-order-parts-cart"
+    ],
+    "aliases": [
+      "auto service history reminders",
+      "Oil-change and inspection reminders from shop history",
+      "oil change reminder",
+      "auto maintenance reminder"
+    ]
+  },
+  {
+    "slug": "contractor-license-insurance-tracker",
+    "title": "License, insurance and subcontractor document tracking",
+    "industries": [
+      "home-services"
+    ],
+    "functions": [
+      "paperwork"
+    ],
+    "summary": "The business's own and its subs' license, insurance, and tax-form dates sit in a tracker. The owner verified those dates. SI drafts reminders and requests.",
+    "problem": "Certificates of insurance, licenses, and W-9s for subs and vendors expire. They go missing until a customer or GC asks.",
+    "what_si_does": "SI keeps a tracker of the business's own and its subs' license, insurance, and tax-form documents. It also tracks dates the owner has verified. SI reminds the office ahead of expiry. SI drafts please-send-an-updated-certificate requests.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds customer information, the business checks the tool's terms. It also checks data practices. It sets access controls. It limits SI to the minimum necessary. Start with sample or made-up information. Use dates the owner has verified against the issuing source. Permission is to track and draft, not to confirm validity. Setup is often a few days.",
+    "human_checks": [
+      "The owner or office manager approves before anything goes to a customer, vendor, or inspector.",
+      "SI never sends a quote, takes a payment, books a job, or submits anything on its own.",
+      "Urgent or unusual items go to a \"needs owner review\" queue.",
+      "The business decides what customer data SI may see. Testing starts with sample information.",
+      "The owner verifies documents against the issuing source. The owner decides whether a sub may work. The owner handles renewals."
+    ],
+    "examples": [
+      {
+        "business_type": "Two-crew roofing business",
+        "scenario": "Expiry dates the owner verified sit in one tracker. A request draft for an updated certificate waits for the owner."
+      },
+      {
+        "business_type": "Small HVAC company",
+        "scenario": "The office is reminded ahead of a date the owner entered. SI does not confirm that a policy is valid."
+      },
+      {
+        "business_type": "Landscaping crew",
+        "scenario": "W-9 and license documents are listed as on file or missing. The owner decides who may work."
+      }
+    ],
+    "copy_prompt": "Keep a tracker of these license, insurance, and tax-form documents and dates the owner has verified [paste]. Remind the office ahead of expiry. Draft please-send-an-updated-certificate requests from this wording [paste]. Do not confirm that a license or policy is valid, decide who may do licensed work, or give insurance or licensing advice. Do not send anything. Pause and show me before sending, quoting, booking, ordering or changing anything. Use only the sample or made-up information I provide; do not include real customer names, addresses or payment details.",
+    "tools_examples": [
+      "Spreadsheets",
+      "Google Workspace",
+      "Microsoft 365",
+      "QuickBooks"
+    ],
+    "effect": "Document dates the owner verified are visible. Request drafts are ready before something expires.",
+    "caution": "This is office support only. SI does not set prices. SI does not promise prices. SI does not give safety, repair, code, or insurance advice. SI does not make any commitment for the business. The owner or an authorized person reviews every quote, schedule commitment, and customer message. They must approve it. License, ad, deposit, and permit rules vary by state. Customer information is used only in checked tools with access controls. SI tracks dates and requests documents only. SI never confirms that a license or policy is valid. SI never decides who may do licensed work. SI gives no insurance or licensing advice.",
+    "related": [
+      "license-and-certification-tracker",
+      "permit-inspection-tracking",
+      "quote-estimate-drafts"
+    ],
+    "aliases": [
+      "contractor license insurance tracker",
+      "License, insurance and subcontractor document tracking",
+      "subcontractor insurance",
+      "certificate of insurance tracker"
     ]
   }
 ]
