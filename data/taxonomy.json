@@ -239,8 +239,8 @@
       "overdue-invoice-reminders"
     ],
     "real-estate": [
+      "rental-lead-inquiry-follow-up",
       "rent-reminder-drafts",
-      "security-deposit-deduction-letters",
       "maintenance-request-intake"
     ],
     "home-services": [
@@ -295,10 +295,11 @@
       "title": "Landlord kit",
       "seo_title": "Landlord kit for rentals | SI (AI) | GemmiSI",
       "seo_h1": "Landlord kit",
-      "meta": "SI (AI) drafts for landlords: rent reminders, deposit letters, maintenance, leases, and move-in lists. You approve. Your data stays with you.",
+      "meta": "SI (AI) drafts for landlords: rental inquiries, rent reminders, deposit letters, maintenance, leases, and move-in lists. You approve.",
       "industry": "real-estate",
-      "intro": "Six jobs landlords repeat every month. SI drafts each one on your own accounts. You approve before anything goes to a tenant. This is not legal advice.",
+      "intro": "Jobs landlords repeat: new rental questions, rent, repairs, and leases. SI drafts each one on your own accounts. You approve before anything goes to a tenant. This is not legal advice.",
       "jobs": [
+        "rental-lead-inquiry-follow-up",
         "rent-reminder-drafts",
         "security-deposit-deduction-letters",
         "maintenance-request-intake",
@@ -345,7 +346,6 @@
       "patient-balance-reminders": "/use-cases/overdue-invoice-reminders/",
       "product-feed-catalog-error-checks": "/use-cases/descriptions-and-catalog-cleanup/",
       "property-hurricane-season-prep": "/use-cases/hurricane-season-readiness/",
-      "rental-lead-inquiry-follow-up": "/use-cases/speed-to-lead-replies/",
       "returns-and-exchange-handling-prep": "/use-cases/policy-request-checks/",
       "review-request-drafts": "/use-cases/review-and-comment-replies/",
       "sales-tax-and-1099-prep-notes": "/use-cases/vendor-1099-information-collection/",
@@ -409,6 +409,18 @@
       "landlord",
       "rent",
       "tenant"
+    ],
+    "package": [
+      "package",
+      "parcel",
+      "tracking",
+      "shipment",
+      "shipping"
+    ],
+    "showing": [
+      "showing",
+      "rental",
+      "tour"
     ],
     "invoice": [
       "invoice",

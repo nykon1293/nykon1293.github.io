@@ -132,6 +132,43 @@ RELATED_PINNED = {
         "rubric-lesson-plan-outlines",
         "missing-assignment-reminders",
     ),
+    "showing-scheduling-confirmations": (
+        "rental-lead-inquiry-follow-up",
+        "landlord-morning-list",
+    ),
+    "showing-open-house-follow-up": (
+        "rental-lead-inquiry-follow-up",
+        "rental-prospect-question-replies",
+    ),
+    "listing-rental-ad-drafts": (
+        "rental-prospect-question-replies",
+        "rental-lead-inquiry-follow-up",
+    ),
+    "rental-application-completeness": ("rental-lead-inquiry-follow-up",),
+    "maintenance-request-intake": ("landlord-morning-list",),
+    "lease-renewal-expiration-tracking": ("landlord-morning-list",),
+    "speed-to-lead-replies": ("rental-lead-inquiry-follow-up",),
+    "status-question-replies": (
+        "package-problem-watch",
+        "heads-up-delay-emails",
+    ),
+    "stock-and-stuck-order-watch": (
+        "package-problem-watch",
+        "heads-up-delay-emails",
+    ),
+    "client-document-chasing": (
+        "missing-item-upload-replies",
+        "year-end-tax-document-packet",
+    ),
+    "year-end-tax-document-packet": (
+        "missing-item-upload-replies",
+        "client-document-chasing",
+    ),
+    "missed-call-text-back": ("after-hours-call-summary-to-owner",),
+    "front-desk-call-summaries": ("after-hours-call-summary-to-owner",),
+    "quote-follow-ups": ("estimate-day-follow-up",),
+    "daily-briefing": ("weekly-money-in-digest",),
+    "weekly-owner-snapshot": ("weekly-money-in-digest",),
 }
 
 
@@ -573,10 +610,13 @@ def _check_industry_entry(item: dict) -> None:
             "listing-rental-ad-drafts",
             "maintenance-request-intake",
             "rental-application-completeness",
+            "rental-lead-inquiry-follow-up",
+            "rental-prospect-question-replies",
         ):
             extra = "Do not describe or evaluate any person or neighborhood; describe only the property."
         texting = item["slug"] in (
             "rental-lead-inquiry-follow-up",
+            "rental-prospect-question-replies",
             "showing-scheduling-confirmations",
             "showing-open-house-follow-up",
             "rent-reminder-drafts",
@@ -617,6 +657,8 @@ def _check_industry_entry(item: dict) -> None:
             "contractor-review-reply-drafts",
             "warranty-maintenance-reminders",
             "contractor-after-hours-sorting",
+            "estimate-day-follow-up",
+            "after-hours-call-summary-to-owner",
         )
         for phrase in (
             "lowest price",
@@ -771,6 +813,14 @@ def load() -> list:
     ]
     if missing_pins:
         raise SystemExit(f"RELATED_PINNED points at unknown slugs: {missing_pins}")
+    missing_related = [
+        f"{item['slug']}->{pin}"
+        for item in entries
+        for pin in item.get("related") or []
+        if pin not in slugs
+    ]
+    if missing_related:
+        raise SystemExit(f"related field points at unknown slugs: {missing_related}")
     dupes = {slug for slug in slugs if slugs.count(slug) > 1}
     if dupes:
         raise SystemExit(f"Duplicate slugs: {', '.join(sorted(dupes))}")
@@ -1625,12 +1675,24 @@ def function_landing(slug: str, entries: list) -> str:
 """ + foot(3) + SCRIPTS + PAGE_END
 
 
+def related_pins(item: dict) -> list[str]:
+    pins: list[str] = []
+    seen = {item["slug"]}
+    for slug in list(item.get("related") or ()) + list(RELATED_PINNED.get(item["slug"], ())):
+        if slug and slug not in seen:
+            pins.append(slug)
+            seen.add(slug)
+    return pins
+
+
 def related_entries(item: dict, entries: list, cap: int = 3) -> list:
     self_slug = item["slug"]
     by_slug = {other["slug"]: other for other in entries}
     picked: list = []
     seen = {self_slug}
-    for slug in RELATED_PINNED.get(self_slug, ()):
+    pins = related_pins(item)
+    cap = max(cap, min(len(pins), 8))
+    for slug in pins:
         other = by_slug.get(slug)
         if other and other["slug"] not in seen:
             picked.append(other)
@@ -1659,6 +1721,23 @@ def related_entries(item: dict, entries: list, cap: int = 3) -> list:
         if len(picked) >= cap:
             break
     return picked
+
+
+def also_see_html(item: dict, entries: list) -> str:
+    by_slug = {other["slug"]: other for other in entries}
+    links = []
+    for slug in related_pins(item):
+        other = by_slug.get(slug)
+        if not other:
+            continue
+        links.append(
+            f'<a class="text-link" href="../{e(other["slug"])}/">{e(other["title"])}</a>'
+        )
+        if len(links) >= 8:
+            break
+    if not links:
+        return ""
+    return f'<p class="uc-also-see">Related in this library: {", ".join(links)}.</p>'
 
 
 def board_html(item: dict) -> str:
@@ -1797,6 +1876,7 @@ def detail_page(item: dict, entries: list) -> str:
             <section class="uc-block" aria-labelledby="what">
               <h2 id="what">What SI does</h2>
               <p>{e(item['what_si_does'])}</p>
+              {also_see_html(item, entries)}
             </section>
             <section class="uc-block" aria-labelledby="examples">
               <h2 id="examples">Examples</h2>
@@ -2036,7 +2116,7 @@ def assert_wording(entries: list) -> None:
             raise SystemExit(f"{item['slug']} og:description should match the meta description")
         if not tw_desc or html.unescape(tw_desc.group(1)) != page_desc:
             raise SystemExit(f"{item['slug']} twitter:description should match the meta description")
-        for pin in RELATED_PINNED.get(item["slug"], ()):
+        for pin in related_pins(item):
             if f"/use-cases/{pin}/" not in page:
                 raise SystemExit(f"{item['slug']} should link to related {pin}")
         if "noindex" in page or "Nous" in page or "Brandgate" in page:
@@ -2190,7 +2270,7 @@ def assert_wording(entries: list) -> None:
     if "/use-cases/landlord-kit/" not in real_estate:
         raise SystemExit("Real estate page must link to the landlord kit")
     start_chunk = real_estate.split('id="start-here"', 1)[-1].split('id="list-h"', 1)[0]
-    for needle in ("Rent reminder", "Security deposit", "Maintenance"):
+    for needle in ("Rental inquiry", "Rent reminder", "Maintenance"):
         if needle not in start_chunk:
             raise SystemExit(f"Real estate Start here must lead with {needle}")
     if f"{BASE}/use-cases/landlord-kit/" not in sitemap:

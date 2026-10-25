@@ -3927,16 +3927,16 @@
       "Speed-to-lead replies for new inquiries",
       "lead intake to crm",
       "Turning form and email inquiries into clean CRM records",
-      "rental lead inquiry follow up",
-      "Lead and inquiry follow-up for agent or manager review",
       "enrollment inquiry follow up",
       "Enrollment and admissions inquiry follow-up drafts",
       "speed to lead",
       "crm",
       "inquiry",
       "enrollment",
-      "rental lead",
       "lead intake"
+    ],
+    "related": [
+      "rental-lead-inquiry-follow-up"
     ]
   },
   {
@@ -7321,5 +7321,532 @@
     ],
     "effect": "Job papers become draft statements and bills. A person still approves them before they go out.",
     "caution": "A person approves anything sent or billed. SI does not take payment or change stock counts."
+  },
+  {
+    "slug": "rental-lead-inquiry-follow-up",
+    "title": "Rental inquiry follow-up for landlords",
+    "industries": [
+      "real-estate"
+    ],
+    "functions": [
+      "leads-and-quotes",
+      "scheduling"
+    ],
+    "summary": "A rental question comes in. SI drafts a fast reply from your unit sheet. It can offer open showing times. You approve before anything goes out.",
+    "problem": "Rental questions sit in email, texts, and listing sites. People ask if the unit is still open. They ask about rent, pets, parking, and move-in dates. By the time you reply, they have booked a showing somewhere else.",
+    "what_si_does": "SI reads each new rental question. It matches it to the unit on your listing sheet. It drafts a first reply with the facts you already wrote: rent, open date, pet rule, parking, and move-in notes. If they ask still available, pets, or parking, SI pulls the answer from that same sheet. It offers the open showing times you listed. It can place a hold on your calendar for you to confirm. Every inquiry for the same unit gets the same facts. SI prepares drafts for the licensed agent or owner. SI does not lease, collect rent, screen or rank applicants.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds applicant or tenant information, the business checks the tool's terms. It also checks data practices. It sets access controls. It limits SI to the minimum necessary. Start with sample or made-up information. Connect the inbox, form, or listing messages you already use. Give permission to read and draft, not to send. Save the listing sheet and the reply wording you already approved. Add the showing windows you are willing to offer. We sit with you, plan the steps, and teach you to run it. Setup is often a few days.",
+    "human_checks": [
+      "The agent, broker, or manager approves before anything goes to a client, tenant, applicant, or vendor.",
+      "SI never sends, posts, signs, or changes records on its own.",
+      "Unusual items go to a \"needs manager or attorney review\" queue.",
+      "The business decides what personal data SI may see. Testing starts with sample information.",
+      "The owner or manager sends every reply. SI does not promise a lease or a locked time.",
+      "Every person who asks about the same unit gets the same facts and the same open times.",
+      "The owner confirms every showing before the calendar hold becomes a real visit."
+    ],
+    "examples": [
+      {
+        "business_type": "Landlord with a few rental units",
+        "scenario": "A Zillow note asks if [Unit] is still open and whether cats are allowed. The draft uses rent, the open date, and the pet rule from the owner's sheet. It waits for the owner."
+      },
+      {
+        "business_type": "Small property-management company",
+        "scenario": "A form asks about parking and a June move-in. The draft repeats the parking note and the move-in window from the sheet. It lists two open showing times."
+      },
+      {
+        "business_type": "Independent real estate agent",
+        "scenario": "An email asks to see the unit Saturday. SI drafts a reply with the agent's open windows and a calendar hold. The agent confirms before anyone is told the time is booked."
+      }
+    ],
+    "copy_prompt": "For each new rental inquiry in [inbox or form], match it to this listing sheet [paste]. Draft a first reply with only these facts from the sheet: rent, open date, pet rule, parking, and move-in notes. If they ask if it is still available, or about pets or parking, answer from that sheet only. Offer these open showing times [paste]. Make a calendar hold for me to confirm. Give every person who asks about the same unit the same facts and the same times. Do not decide who gets a showing. Do not send anything. Texting rules vary; get consent and honor opt-outs. Do not describe or evaluate any person or neighborhood; describe only the property. Pause and show me before sending, posting, signing or changing anything. Use only the sample or made-up information I provide; do not include real tenant or applicant names, IDs or financial details.",
+    "tools_examples": [
+      "Gmail",
+      "Google Workspace",
+      "Calendly",
+      "Spreadsheets",
+      "Microsoft 365"
+    ],
+    "effect": "New rental questions get a reviewed reply with unit facts. Showing times wait for you to confirm.",
+    "caution": "This is office support only. SI does not give legal or lease advice. SI does not make leasing, screening, or pricing decisions. SI does not act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything that faces a client, a tenant, or a contract. Fair housing laws apply. SI never screens, ranks, steers, or targets by protected characteristics. Applicant and tenant information is used only in checked tools, with access controls and the minimum necessary. SI uses only facts from the listing sheet you provide. SI does not negotiate rent. SI does not decide who may apply or who gets a showing. Texting rules vary; get consent and honor opt-outs.",
+    "si_drafts": [
+      "A first reply with rent, open date, pets, parking, and move-in notes from your sheet",
+      "Short answers to still available, pets, and parking from that same sheet",
+      "Open showing times, plus a calendar hold for you to confirm"
+    ],
+    "stays_yours": [
+      "You approve and send every reply.",
+      "SI does not lease, collect rent, screen or rank applicants.",
+      "You confirm every showing time.",
+      "The same unit facts go to everyone who asks."
+    ],
+    "related": [
+      "showing-scheduling-confirmations",
+      "rental-prospect-question-replies",
+      "listing-rental-ad-drafts",
+      "showing-open-house-follow-up",
+      "rental-application-completeness",
+      "maintenance-request-intake",
+      "lease-renewal-expiration-tracking",
+      "speed-to-lead-replies"
+    ],
+    "aliases": [
+      "rental lead inquiry follow up",
+      "Lead and inquiry follow-up for agent or manager review",
+      "rental lead",
+      "landlord inquiry follow up",
+      "rental showing booking",
+      "still available pets parking"
+    ]
+  },
+  {
+    "slug": "rental-prospect-question-replies",
+    "title": "Rental prospect question replies from your listing sheet",
+    "industries": [
+      "real-estate"
+    ],
+    "functions": [
+      "answering-customers",
+      "leads-and-quotes"
+    ],
+    "summary": "Someone already asked about a unit. They write back with pets, parking, or still available. SI drafts the answer from your listing sheet. You send it.",
+    "problem": "After the first reply, the same five questions keep coming. Still available. Pets. Parking. Laundry. Move-in date. You retype the sheet from memory. Answers drift.",
+    "what_si_does": "SI reads the follow-up question. It matches it to the unit on your listing sheet. It drafts a short reply using only the facts on that sheet. The same question gets the same answer for every person. If the sheet does not cover the ask, SI flags it for you. SI prepares drafts for the licensed agent or owner. SI does not lease, collect rent, screen or rank applicants.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds applicant or tenant information, the business checks the tool's terms. It also checks data practices. It sets access controls. It limits SI to the minimum necessary. Start with sample or made-up information. Save the listing sheet you already use. Connect the inbox or text thread. Give permission to draft, not to send. We sit with you, plan the steps, and teach you to run it. Setup is often a day or two.",
+    "human_checks": [
+      "The agent, broker, or manager approves before anything goes to a client, tenant, applicant, or vendor.",
+      "SI never sends, posts, signs, or changes records on its own.",
+      "Unusual items go to a \"needs manager or attorney review\" queue.",
+      "The business decides what personal data SI may see. Testing starts with sample information.",
+      "The owner or manager sends every answer. SI does not invent a rule that is not on the sheet.",
+      "Questions the sheet does not cover wait for a person."
+    ],
+    "examples": [
+      {
+        "business_type": "Landlord with a duplex",
+        "scenario": "A second text asks if [Unit] allows a cat. The draft repeats the pet rule from the sheet. It does not ask about the person."
+      },
+      {
+        "business_type": "Small property-management company",
+        "scenario": "Three people ask if parking is included. Each draft uses the same parking line from the listing sheet."
+      },
+      {
+        "business_type": "Independent real estate agent",
+        "scenario": "A note asks about laundry. The sheet has no laundry line. SI flags it. The agent writes that part."
+      }
+    ],
+    "copy_prompt": "For each follow-up question about a rental unit in [inbox or thread], match it to this listing sheet [paste]. Draft a short reply using only facts on the sheet. Give every person who asks the same question the same answer. If the sheet does not cover the ask, flag it for me and do not guess. Do not send anything. Texting rules vary; get consent and honor opt-outs. Do not describe or evaluate any person or neighborhood; describe only the property. Pause and show me before sending, posting, signing or changing anything. Use only the sample or made-up information I provide; do not include real tenant or applicant names, IDs or financial details.",
+    "tools_examples": [
+      "Gmail",
+      "Google Workspace",
+      "Spreadsheets",
+      "WhatsApp",
+      "Microsoft 365"
+    ],
+    "effect": "Repeat questions get the same facts from your sheet. You still send the reply.",
+    "caution": "This is office support only. SI does not give legal or lease advice. SI does not make leasing, screening, or pricing decisions. SI does not act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything that faces a client, a tenant, or a contract. Fair housing laws apply. SI never screens, ranks, steers, or targets by protected characteristics. Applicant and tenant information is used only in checked tools, with access controls and the minimum necessary. SI answers from the listing sheet only. SI does not add neighborhood notes. SI does not say who the home is for. Texting rules vary; get consent and honor opt-outs.",
+    "related": [
+      "rental-lead-inquiry-follow-up",
+      "listing-rental-ad-drafts",
+      "showing-open-house-follow-up"
+    ],
+    "aliases": [
+      "rental prospect questions",
+      "still available pets parking",
+      "listing sheet replies"
+    ]
+  },
+  {
+    "slug": "landlord-morning-list",
+    "title": "Landlord morning list of inquiries, showings, rent, and repairs",
+    "industries": [
+      "real-estate"
+    ],
+    "functions": [
+      "scheduling",
+      "numbers"
+    ],
+    "summary": "Each morning SI puts new rental questions, today's showings, late rent, and open repairs on one list. You decide what to do first.",
+    "problem": "The day starts in four places. New rental emails. A showing calendar. A rent roll. Repair texts. You spend the first hour building the list that should already exist.",
+    "what_si_does": "SI reads the inboxes, calendar, rent roll, and repair tickets you point it at. It writes a short morning list: new inquiries, showings today, late rent you already marked, and open repairs. Urgent repair words such as gas, fire, or flooding go to the top for a person. SI prepares drafts for the licensed agent or owner. SI does not lease, collect rent, screen or rank applicants.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds applicant or tenant information, the business checks the tool's terms. It also checks data practices. It sets access controls. It limits SI to the minimum necessary. Start with sample or made-up information. Give read access to the inbox, calendar, rent-roll export, and repair list you already keep. Permission is to read and list, not to send or collect. We sit with you, plan the steps, and teach you to run it. Setup is often a few days.",
+    "human_checks": [
+      "The agent, broker, or manager approves before anything goes to a client, tenant, applicant, or vendor.",
+      "SI never sends, posts, signs, or changes records on its own.",
+      "Unusual items go to a \"needs manager or attorney review\" queue.",
+      "The business decides what personal data SI may see. Testing starts with sample information.",
+      "The list is read-only. You decide what to send, collect, or schedule.",
+      "Late rent comes only from the roll you provided. SI does not add fees."
+    ],
+    "examples": [
+      {
+        "business_type": "Landlord with a few rental units",
+        "scenario": "The morning note lists two new questions about [Unit], one showing at 4 p.m., and a leak ticket flagged to the top."
+      },
+      {
+        "business_type": "Small property-management company",
+        "scenario": "Late rent rows match the export the manager uploaded. No late-fee math is added."
+      },
+      {
+        "business_type": "Owner who self-manages a triplex",
+        "scenario": "Open repairs sit next to today's showings so the owner does not double-book a unit that is being fixed."
+      }
+    ],
+    "copy_prompt": "Each morning, read [inbox], [calendar], this rent-roll export [paste], and these repair tickets [paste]. Write a short list: new rental inquiries, showings today, late rent already marked on the roll, and open repairs. Flag gas, fire, flooding, or no power at the top. Do not collect rent, add fees, or send anything. Do not describe or evaluate any person or neighborhood; describe only the property. Pause and show me before sending, posting, signing or changing anything. Use only the sample or made-up information I provide; do not include real tenant or applicant names, IDs or financial details.",
+    "tools_examples": [
+      "Gmail",
+      "Google Calendar",
+      "Spreadsheets",
+      "Google Workspace",
+      "Property-management software"
+    ],
+    "effect": "The day starts with one list. Urgent repairs sit at the top for a person.",
+    "caution": "This is office support only. SI does not give legal or lease advice. SI does not make leasing, screening, or pricing decisions. SI does not act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything that faces a client, a tenant, or a contract. Fair housing laws apply. SI never screens, ranks, steers, or targets by protected characteristics. Applicant and tenant information is used only in checked tools, with access controls and the minimum necessary. SI does not collect rent. SI does not decide repair priority. SI does not send the list to tenants.",
+    "related": [
+      "rental-lead-inquiry-follow-up",
+      "showing-scheduling-confirmations",
+      "rent-reminder-drafts",
+      "maintenance-request-intake",
+      "daily-briefing"
+    ],
+    "aliases": [
+      "landlord morning briefing",
+      "rental daily list",
+      "owner morning list"
+    ]
+  },
+  {
+    "slug": "package-problem-watch",
+    "title": "Morning watch for late, stuck, and returned packages",
+    "industries": [
+      "ecommerce"
+    ],
+    "functions": [
+      "answering-customers",
+      "stock"
+    ],
+    "summary": "Each morning SI flags tracking that is late, stuck, excepted, or headed back. You see it before the customer writes.",
+    "problem": "Customers ask where a package is after it has already sat. Late scans, exceptions, and return-to-sender notes hide in the shipping tool until the inbox fills up.",
+    "what_si_does": "SI reads tracking you already have. It lists packages with no scan after the wait you set. It lists exceptions and return-to-sender scans. It groups them by what went wrong. It can attach a draft note for you to send. It does not contact the carrier or the customer on its own.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Give read access to orders and tracking. Write the wait that counts as stuck. Share a few notes you have sent before. Permission is to list and draft, not to send. We sit with you, plan the steps, and teach you to run it. Setup is often a few days.",
+    "human_checks": [
+      "A person decides whether to email the customer, call the carrier, or wait.",
+      "SI does not promise a delivery date that is not on the scan.",
+      "Address changes and claims are made by a person.",
+      "A person approves any customer message."
+    ],
+    "examples": [
+      {
+        "business_type": "Shopify store shipping two-day",
+        "scenario": "Five packages have no scan in four days. Two show a delivery exception. The morning list waits for the owner."
+      },
+      {
+        "business_type": "Beauty brand",
+        "scenario": "A return-to-sender scan is listed with the order. A draft asks the customer to confirm the door code. The owner sends it."
+      },
+      {
+        "business_type": "Outdoor gear shop",
+        "scenario": "Weekend scans lag, so SI still lists exceptions. It marks ones that already have a customer email so you do not double-reply."
+      }
+    ],
+    "copy_prompt": "From [orders and tracking], list packages with no scan in [days], carrier exceptions, and return-to-sender scans. Group them by problem. Draft a short note for each using only the scan on file. Do not promise a date that is not on the scan. Do not send. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Shopify",
+      "ShipStation",
+      "Google Sheets",
+      "Gorgias",
+      "Gmail"
+    ],
+    "effect": "Tracking problems show up in the morning, before the where-is-it email.",
+    "caution": "A person decides the next step. SI does not contact the carrier or issue a refund. Email and texting rules vary. Honor opt-outs.",
+    "related": [
+      "status-question-replies",
+      "stock-and-stuck-order-watch",
+      "heads-up-delay-emails"
+    ],
+    "aliases": [
+      "package problem watch",
+      "shipping exception watch",
+      "return to sender list",
+      "stuck package list"
+    ]
+  },
+  {
+    "slug": "heads-up-delay-emails",
+    "title": "Heads-up delay emails when a shipment stalls",
+    "industries": [
+      "ecommerce"
+    ],
+    "functions": [
+      "answering-customers"
+    ],
+    "summary": "When tracking stalls, SI drafts a heads-up delay email from the scan on file. You approve it before it goes out.",
+    "problem": "A package sits with no scan. The first message the customer gets is their own complaint. A short delay note would have helped. Nobody wrote it in time.",
+    "what_si_does": "When a shipment has no scan after the wait you set, SI drafts a short delay email. The draft uses only the last scan, the order, and your wording. It does not invent a new delivery date. It waits in a queue for you.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Give read access to orders and tracking. Save delay wording you already like. Permission is to draft, not to send. We sit with you, plan the steps, and teach you to run it. Setup is often a few days.",
+    "human_checks": [
+      "A person approves every delay email.",
+      "SI does not promise a date that is not on the scan.",
+      "Refunds, reships, and address changes are made by a person.",
+      "Opt-outs are honored. SI does not guess consent."
+    ],
+    "examples": [
+      {
+        "business_type": "Shopify apparel store",
+        "scenario": "An order has no scan for five days. The draft says the last scan date and asks the customer to watch for the next one. The owner sends it."
+      },
+      {
+        "business_type": "Home-goods store",
+        "scenario": "A weather delay is on the scan. The draft repeats that line. It does not add a new arrival day."
+      },
+      {
+        "business_type": "Marketplace seller",
+        "scenario": "Orders that already have a customer email about the same shipment are skipped so you do not send two notes."
+      }
+    ],
+    "copy_prompt": "When a shipment in [tracking export] has no scan for [days], draft a short delay email from this wording [paste] using only the last scan and order details. Do not invent a delivery date. Skip orders that already have a customer email about this shipment. Do not send. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Shopify",
+      "Gorgias",
+      "Klaviyo",
+      "Gmail",
+      "ShipStation"
+    ],
+    "effect": "A delay note waits in the queue while the package is still quiet.",
+    "caution": "A person sends every note. SI does not promise dates, refunds, or reships. Email and texting rules vary. Honor opt-outs.",
+    "related": [
+      "package-problem-watch",
+      "status-question-replies",
+      "stock-and-stuck-order-watch"
+    ],
+    "aliases": [
+      "delay email drafts",
+      "shipment stall notice",
+      "heads up tracking delay"
+    ]
+  },
+  {
+    "slug": "missing-item-upload-replies",
+    "title": "Got-these, still-need-these replies after client uploads",
+    "industries": [
+      "accounting"
+    ],
+    "functions": [
+      "paperwork",
+      "answering-customers"
+    ],
+    "summary": "A client drops files in the portal. SI checks them against the firm's list. It drafts a got-these, still-need-these note. Staff send it.",
+    "problem": "Clients upload a batch and think they are done. Staff open the folder later and find half the list. The next chase starts from scratch.",
+    "what_si_does": "SI compares the files just uploaded with the firm's checklist for that client. It drafts a short note: we got these items, we still need these items. Items are listed by name only. No account numbers, SSNs, or amounts. It tells the client to use the firm's portal. A person sends the note.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Check each tool before it holds client information. Match it to the written information security plan. Confirm the agreements and any client consent needed for tax return information. Set access controls and multi-factor authentication. Limit SI to the minimum necessary. Start with sample or made-up information. Use the firm's checklist and a sample of what has been received. Permission is to draft, not to send. We sit with you, plan the steps, and teach you to run it. Setup is often a few days.",
+    "human_checks": [
+      "The CPA, EA, or preparer reviews and approves before anything goes to a client, agency, or third party.",
+      "SI never sends, files, e-signs, or posts on its own.",
+      "Unusual items go to a \"needs professional review\" queue.",
+      "The firm decides what client data SI may see. Testing starts with sample or made-up information.",
+      "Staff check the files before the note goes out. SI does not decide if a document is valid.",
+      "Staff send or approve each note. The note lists items by name only."
+    ],
+    "examples": [
+      {
+        "business_type": "Small tax-preparation office",
+        "scenario": "A client uploads W-2s and a 1099. The draft says those arrived and that the property-tax bill is still missing. Staff send it."
+      },
+      {
+        "business_type": "Solo CPA",
+        "scenario": "The note lists items by name only. It points the client back to the portal. No amounts appear."
+      },
+      {
+        "business_type": "Two-partner bookkeeping firm",
+        "scenario": "A month-end drop is missing two bank PDFs. The draft names those two files. A bookkeeper reviews it first."
+      }
+    ],
+    "copy_prompt": "Compare these newly uploaded file names [paste] with this firm checklist [paste]. Draft a short note that lists what arrived and what is still missing. List items by name only; avoid account numbers, SSNs, or amounts. Tell clients to use the firm's secure portal rather than plain email. Do not tell a client what they owe, what to claim, or what is deductible. Do not send anything. Tax return information has special disclosure and use rules for preparers; check with your professional advisor before using any outside tool. Pause and show me before sending, filing, posting or changing anything. Use only the sample or made-up information I provide; do not include real client names, SSNs, account numbers or tax details.",
+    "tools_examples": [
+      "Google Workspace",
+      "Microsoft 365",
+      "Practice portal",
+      "Spreadsheets",
+      "Gmail"
+    ],
+    "effect": "Each upload gets a clear got-these, still-need-these draft. Staff still send it.",
+    "caution": "This is office support only. SI does not give tax or accounting advice. SI does not prepare or sign returns or reports. SI does not file anything. SI does not calculate legal deadlines. A qualified professional reviews, signs, and approves all work product and every date SI tracks. Client information is used only in tools the firm has vetted. Use the firm's written security plan. Include any client consent or agreements the rules require. SI does not say a document is enough for a return. SI does not give tax advice. Tax return information has special disclosure and use rules for preparers. Check with your professional advisor before using any outside tool.",
+    "related": [
+      "client-document-chasing",
+      "year-end-tax-document-packet"
+    ],
+    "aliases": [
+      "got these still need these",
+      "client upload missing items",
+      "document receipt reply"
+    ]
+  },
+  {
+    "slug": "after-hours-call-summary-to-owner",
+    "title": "After-hours call summary for the owner",
+    "industries": [
+      "home-services"
+    ],
+    "functions": [
+      "after-hours"
+    ],
+    "summary": "Overnight calls and voicemails become a morning summary for the owner. You still call back, quote, and book.",
+    "problem": "The phone rings while you are on a roof or in bed. In the morning you replay voicemails one by one. A true emergency can sit next to a routine quote request.",
+    "what_si_does": "SI reads overnight calls, voicemails, or staff notes you already keep. It drafts a morning summary: who called, what they asked, and a suggested callback order. Gas, fire, smoke, or flooding is flagged to the top for a person. The customer-facing text, if you use one, stays the wording you already approved. SI does not quote, book, or dispatch.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds customer information, the business checks the tool's terms. It also checks data practices. It sets access controls. It limits SI to the minimum necessary. Start with sample or made-up information. Connect the business phone or voicemail export. Save the fact-only customer text you already approved, if you use one. Permission is to log and draft, not to quote or book. We sit with you, plan the steps, and teach you to run it. Setup is often a few days.",
+    "human_checks": [
+      "The owner or office manager approves before anything goes to a customer, vendor, or inspector.",
+      "SI never sends a quote, takes a payment, books a job, or submits anything on its own.",
+      "Urgent or unusual items go to a \"needs owner review\" queue.",
+      "The business decides what customer data SI may see. Testing starts with sample information.",
+      "The owner or on-call person reads the summary first. They call back, quote, and book.",
+      "Anything that sounds like an emergency goes to a person and to 911 or the utility."
+    ],
+    "examples": [
+      {
+        "business_type": "HVAC contractor",
+        "scenario": "Four overnight calls become a morning note. No heat with a gas smell is at the top. The owner calls that number first."
+      },
+      {
+        "business_type": "Solo plumber",
+        "scenario": "A voicemail about a slow drain is listed with the callback number. SI does not say a tech is on the way."
+      },
+      {
+        "business_type": "Two-crew roofing business",
+        "scenario": "After a storm, leak calls are grouped. Quote requests stay in a second pile for the office."
+      }
+    ],
+    "copy_prompt": "From these overnight calls or voicemail notes [paste], write a morning summary for the owner: caller, request, and a suggested callback order. Flag gas, fire, smoke, flooding, or electrical hazards to the top. Do not quote, book, or say a crew is coming. Do not give safety instructions. Texting rules vary; get consent and honor opt-outs. Pause and show me before sending, quoting, booking, ordering or changing anything. Use only the sample or made-up information I provide; do not include real customer names, addresses or payment details.",
+    "tools_examples": [
+      "Google Workspace",
+      "Microsoft 365",
+      "Field-service software",
+      "Spreadsheets",
+      "Gmail"
+    ],
+    "effect": "The owner gets one morning summary. Urgent calls sit at the top.",
+    "caution": "This is office support only. SI does not set prices. SI does not promise prices. SI does not give safety, repair, code, or insurance advice. SI does not make any commitment for the business. The owner or an authorized person reviews every quote, schedule commitment, and customer message. They must approve it. License, ad, deposit, and permit rules vary by state. Customer information is used only in checked tools with access controls. SI never gives safety instructions. SI never says the crew will arrive at a time. For gas, fire, smoke, or flooding near electricity, a person handles it. Call 911 or the utility. Texting rules vary; get consent and honor opt-outs.",
+    "related": [
+      "missed-call-text-back",
+      "front-desk-call-summaries",
+      "daily-briefing"
+    ],
+    "aliases": [
+      "owner after hours call summary",
+      "overnight voicemail summary",
+      "contractor morning call list"
+    ]
+  },
+  {
+    "slug": "estimate-day-follow-up",
+    "title": "Same-day, day-3, and day-7 estimate follow-up",
+    "industries": [
+      "home-services"
+    ],
+    "functions": [
+      "leads-and-quotes"
+    ],
+    "summary": "After an estimate visit, SI drafts a same-day thanks, a day-3 check-in, and a day-7 last note. You approve each one. Prices do not change.",
+    "problem": "The estimate goes out. Then silence. Same-day thanks gets skipped. A day-3 check-in never happens. By day 7 the job is gone.",
+    "what_si_does": "From the estimate you already sent, SI drafts three notes on your schedule: a same-day thanks, a day-3 check-in, and a day-7 last note. Each draft names the job and uses your wording. It does not change the price. It does not add a fake deadline. Quotes you marked for a personal call are set aside.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Before connecting anything that holds customer information, the business checks the tool's terms. It also checks data practices. It sets access controls. It limits SI to the minimum necessary. Start with sample or made-up information. Use a read-only list of estimates you already keep. Save the three notes you want and the days they go out. Permission is to draft, not to send. We sit with you, plan the steps, and teach you to run it. Setup is often a few days.",
+    "human_checks": [
+      "The owner or office manager approves before anything goes to a customer, vendor, or inspector.",
+      "SI never sends a quote, takes a payment, books a job, or submits anything on its own.",
+      "Urgent or unusual items go to a \"needs owner review\" queue.",
+      "The business decides what customer data SI may see. Testing starts with sample information.",
+      "The owner approves each follow-up. Nothing is discounted without the owner.",
+      "Quotes marked for a personal call do not get a standard note."
+    ],
+    "examples": [
+      {
+        "business_type": "Two-crew roofing business",
+        "scenario": "A same-day draft thanks the homeowner for the visit and restates the job name. The price stays as the owner wrote it."
+      },
+      {
+        "business_type": "Small HVAC company",
+        "scenario": "Day 3 asks if they have questions. Day 7 is a last note. Quotes the owner marked to call are left off the list."
+      },
+      {
+        "business_type": "Landscaping crew",
+        "scenario": "The day-7 draft uses the owner's wording. It does not add a sale or a cutoff date."
+      }
+    ],
+    "copy_prompt": "From this estimate list [paste], draft a same-day thanks, a day-3 check-in, and a day-7 last note from this wording [paste]. Name the job. Do not change, discount, or promise a price. Do not add a fake deadline. Skip quotes marked for a personal call. Do not send anything. Texting rules vary; get consent and honor opt-outs. Pause and show me before sending, quoting, booking, ordering or changing anything. Use only the sample or made-up information I provide; do not include real customer names, addresses or payment details.",
+    "tools_examples": [
+      "Jobber",
+      "QuickBooks",
+      "Gmail",
+      "Spreadsheets",
+      "Google Workspace"
+    ],
+    "effect": "Each estimate has three reviewed notes on a clock you set. Prices stay yours.",
+    "caution": "This is office support only. SI does not set prices. SI does not promise prices. SI does not give safety, repair, code, or insurance advice. SI does not make any commitment for the business. The owner or an authorized person reviews every quote, schedule commitment, and customer message. They must approve it. License, ad, deposit, and permit rules vary by state. Customer information is used only in checked tools with access controls. SI never changes, discounts, or promises a price. SI never uses fake deadlines. Texting rules vary; get consent and honor opt-outs.",
+    "related": [
+      "quote-follow-ups",
+      "quote-estimate-drafts",
+      "speed-to-lead-replies"
+    ],
+    "aliases": [
+      "estimate day follow up",
+      "same day day 3 day 7 quote",
+      "trades estimate cadence"
+    ]
+  },
+  {
+    "slug": "weekly-money-in-digest",
+    "title": "Weekly money-in digest of payments and what is owed",
+    "industries": [
+      "any-business",
+      "accounting"
+    ],
+    "functions": [
+      "getting-paid",
+      "numbers"
+    ],
+    "summary": "Once a week SI lists payments that came in and what is still owed. You check it against your books. No money is moved.",
+    "problem": "You know invoices went out. You do not have a plain weekly view of what actually landed and what is still open. That check happens in three tools, so it happens late.",
+    "what_si_does": "SI reads the payment and open-invoice export you provide. It lists money that came in during the week. It lists what is still owed, grouped the way you already use. It flags rows with no date. It does not collect, deposit, or change a balance.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Give a weekly export of payments and open invoices, or read access to the books. Say which statuses count as paid and which count as owed. Setup is often a day or two.",
+    "human_checks": [
+      "A person checks the digest against the books before relying on it.",
+      "SI does not collect, deposit, or change a balance.",
+      "Rows with no date stay listed as unknown. They are not assigned a date."
+    ],
+    "examples": [
+      {
+        "business_type": "Bookkeeping firm",
+        "scenario": "Monday's page lists client payments from last week and the invoices still open. A partner checks two that look late."
+      },
+      {
+        "business_type": "Contractor",
+        "scenario": "Draws that posted sit next to invoices still unpaid. SI does not send a reminder from this list."
+      },
+      {
+        "business_type": "Agency with retainers",
+        "scenario": "Retainer payments that landed are grouped by client. Open invoices with no due date are called out."
+      }
+    ],
+    "copy_prompt": "From this payment export [file] and this open-invoice export [file], list money that came in during [week] and what is still owed. Group by [customer or job]. Flag rows with no date. Do not collect, deposit, or change a balance. Pause and show me before sending, submitting, posting, paying, or changing anything.",
+    "tools_examples": [
+      "QuickBooks Online",
+      "Xero",
+      "Google Sheets",
+      "FreshBooks",
+      "Gmail"
+    ],
+    "effect": "Once a week you see what landed and what is still open, from the file you provided.",
+    "caution": "This is a digest from payments and open invoices already on file. It is not tax or financial advice. SI does not move money. It is not a client result.",
+    "related": [
+      "daily-briefing",
+      "weekly-owner-snapshot",
+      "cash-flow-look-ahead",
+      "overdue-invoice-reminders"
+    ],
+    "aliases": [
+      "weekly money in digest",
+      "payments received this week",
+      "what is still owed"
+    ]
   }
 ]

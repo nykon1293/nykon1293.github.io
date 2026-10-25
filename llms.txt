@@ -26,7 +26,7 @@ https://calendly.com/josh-gemmi/30min
 
 ## Use-case hub and landings
 
-- Hub (145 practical SI / AI examples; illustrations, not client results): https://gemmisi.com/use-cases/
+- Hub (154 practical SI / AI examples; illustrations, not client results): https://gemmisi.com/use-cases/
 - Browse by industry: https://gemmisi.com/use-cases/industry/
 - Any business: https://gemmisi.com/use-cases/industry/any-business/
 - Real estate & rentals: https://gemmisi.com/use-cases/industry/real-estate/
@@ -54,7 +54,7 @@ https://calendly.com/josh-gemmi/30min
 
 ## Use cases
 
-The library lists 145 practical SI (AI) jobs for small teams. Industries include any business, real estate and rentals, home services, retail and ecommerce, accounting, legal, medical, education, restaurants, nonprofits and community groups, and shops, gyms, and agencies. They are illustrations of what is possible, not reports of client results. SI drafts. You approve. A person still approves anything that sends, pays, orders, or posts. Education pages are operations help only. SI does not grade students. A person approves anything sent to a student or parent. Student records stay on the school's own equipment and accounts. Legal-practice pages are operations help only. SI does not give legal advice. Medical-practice pages are operations help only. SI does not give medical advice or make clinical decisions. Real-estate pages are operations help only. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. Home-services pages are office help only; the owner approves every quote and message. Accounting-firm pages are operations help only. SI does not give tax advice or file returns. Restaurant, shop, gym, rental, and agency pages are office help. A person still checks. GemmiSI sets this up on your own equipment and accounts; your data stays with you.
+The library lists 154 practical SI (AI) jobs for small teams. Industries include any business, real estate and rentals, home services, retail and ecommerce, accounting, legal, medical, education, restaurants, nonprofits and community groups, and shops, gyms, and agencies. They are illustrations of what is possible, not reports of client results. SI drafts. You approve. A person still approves anything that sends, pays, orders, or posts. Education pages are operations help only. SI does not grade students. A person approves anything sent to a student or parent. Student records stay on the school's own equipment and accounts. Legal-practice pages are operations help only. SI does not give legal advice. Medical-practice pages are operations help only. SI does not give medical advice or make clinical decisions. Real-estate pages are operations help only. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. Home-services pages are office help only; the owner approves every quote and message. Accounting-firm pages are operations help only. SI does not give tax advice or file returns. Restaurant, shop, gym, rental, and agency pages are office help. A person still checks. GemmiSI sets this up on your own equipment and accounts; your data stays with you.
 
 - Morning inbox sort into labeled queues: https://gemmisi.com/use-cases/inbox-triage/
 - A weekly list of emails still waiting on you: https://gemmisi.com/use-cases/unanswered-threads/
@@ -201,6 +201,15 @@ The library lists 145 practical SI (AI) jobs for small teams. Industries include
 - Monthly marketing reports for clients: https://gemmisi.com/use-cases/monthly-client-marketing-reports/
 - Weekly sheet of open grants: https://gemmisi.com/use-cases/weekly-open-grants-list/
 - Warehouse paperwork into billing drafts: https://gemmisi.com/use-cases/warehouse-sow-billing-drafts/
+- Rental inquiry follow-up for landlords: https://gemmisi.com/use-cases/rental-lead-inquiry-follow-up/
+- Rental prospect question replies from your listing sheet: https://gemmisi.com/use-cases/rental-prospect-question-replies/
+- Landlord morning list of inquiries, showings, rent, and repairs: https://gemmisi.com/use-cases/landlord-morning-list/
+- Morning watch for late, stuck, and returned packages: https://gemmisi.com/use-cases/package-problem-watch/
+- Heads-up delay emails when a shipment stalls: https://gemmisi.com/use-cases/heads-up-delay-emails/
+- Got-these, still-need-these replies after client uploads: https://gemmisi.com/use-cases/missing-item-upload-replies/
+- After-hours call summary for the owner: https://gemmisi.com/use-cases/after-hours-call-summary-to-owner/
+- Same-day, day-3, and day-7 estimate follow-up: https://gemmisi.com/use-cases/estimate-day-follow-up/
+- Weekly money-in digest of payments and what is owed: https://gemmisi.com/use-cases/weekly-money-in-digest/
 
 ## Facts to keep straight
 

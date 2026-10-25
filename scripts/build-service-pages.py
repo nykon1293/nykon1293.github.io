@@ -375,7 +375,7 @@ PAGES = [
             "inbox-triage",
             "quote-follow-ups",
             "invoice-intake-to-draft-bills",
-            "bilingual-english-spanish-replies",
+            "rental-lead-inquiry-follow-up",
             "appointment-confirmations",
             "client-document-chasing",
         ],
@@ -488,7 +488,7 @@ PAGES = [
             "weekly-team-report",
             "revenue-in-one-view",
             "cash-flow-look-ahead",
-            "ad-spend-vs-results",
+            "weekly-money-in-digest",
         ],
         "related_landings": [
             ("/use-cases/function/numbers/", "knowing your numbers"),
@@ -593,8 +593,8 @@ PAGES = [
             "reorder-from-sales-pace",
             "abandoned-checkout-follow-up-drafts",
             "status-question-replies",
+            "package-problem-watch",
             "store-stock-and-spreadsheet-agreement",
-            "catalog-pricing-and-margin-check",
         ],
         "related_landings": [
             ("/use-cases/industry/ecommerce/", "ecommerce use cases"),
