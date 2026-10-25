@@ -563,6 +563,29 @@ EDU_SAMPLE = (
     "Use only the sample or de-identified information I provide; "
     "do not include real student names, grades, or family contact details"
 )
+SHORT_CAUTION_CHARS = 220
+
+
+def _sentence_count(text: str) -> int:
+    text = re.sub(r"\s+", " ", (text or "").strip())
+    if not text:
+        return 0
+    bits = re.findall(r"[^.!?]+[.!?]+", text)
+    leftover = re.sub(r"[^.!?]+[.!?]+", "", text).strip()
+    return len(bits) + (1 if leftover else 0)
+
+
+def _assert_short_caution(item: dict, *, max_sentences: int = 2, max_chars: int = SHORT_CAUTION_CHARS) -> None:
+    slug = item["slug"]
+    caution = (item.get("caution") or "").strip()
+    if not caution:
+        raise SystemExit(f"{slug} needs a short caution")
+    if "\n" in caution:
+        raise SystemExit(f"{slug} caution must be one or two short sentences")
+    if len(caution) > max_chars:
+        raise SystemExit(f"{slug} caution must stay under {max_chars} characters")
+    if _sentence_count(caution) > max_sentences:
+        raise SystemExit(f"{slug} caution must be at most {max_sentences} short sentences")
 
 
 def _check_education_entry(item: dict) -> None:
@@ -621,8 +644,15 @@ def _check_industry_entry(item: dict) -> None:
     if len(item["human_checks"]) < 3:
         raise SystemExit(f"{item['slug']} needs at least three human checks")
     prefix = info.get("caution_prefix") or ""
-    if prefix and not caution.startswith(prefix):
-        raise SystemExit(f"{item['slug']} caution must start with the {ind} guardrail")
+    if ind == "real-estate":
+        if prefix and caution.startswith(prefix):
+            raise SystemExit(
+                f"{item['slug']} caution must be at most two short sentences; "
+                "shared real-estate guardrails stay on the industry landing"
+            )
+        _assert_short_caution(item)
+    elif prefix and not caution.startswith(prefix):
+        _assert_short_caution(item)
     extra = ""
     texting = False
     if ind == "real-estate":
@@ -2190,8 +2220,14 @@ def assert_wording(entries: list) -> None:
                         raise SystemExit(f"{item['slug']} should not keep tutoring as the school-office related service")
                 elif "90-minute" not in page or "/tutoring/" not in page:
                     raise SystemExit(f"{item['slug']} should mention a 90-minute SI (AI) Tutoring session")
-            elif e(info["short"]) not in page:
-                raise SystemExit(f"{item['slug']} is missing the short industry disclaimer")
+            else:
+                if e(info["short"]) not in page:
+                    raise SystemExit(f"{item['slug']} is missing the short industry disclaimer")
+                prefix = info.get("caution_prefix") or ""
+                if ind == "real-estate" and prefix and prefix in page:
+                    raise SystemExit(
+                        f"{item['slug']} should keep the long shared caution on the Real estate landing only"
+                    )
             if OWN_ACCOUNTS not in page:
                 raise SystemExit(f"{item['slug']} is missing the own-equipment setup line")
         if ind == "medical" and re.search(r"diagnose", page, re.I):

@@ -1157,7 +1157,7 @@
       "Google Sheets"
     ],
     "effect": "Tax prep starts organized. The back-and-forth with the preparer tends to be shorter.",
-    "caution": "Tax: SI organizes documents and drafts summaries. It does not give tax advice. It does not decide what is deductible. A qualified accountant or tax preparer makes those calls."
+    "caution": "SI organizes documents and drafts summaries. It does not give tax advice."
   },
   {
     "slug": "weekly-owner-snapshot",
@@ -1770,7 +1770,7 @@
       "Calendly"
     ],
     "effect": "Less back-and-forth to set meetings. Fewer dates fall off the calendar.",
-    "caution": "Legal deadlines: SI-created entries are a convenience. They are not a docketing system. An attorney must confirm court and filing deadlines."
+    "caution": "SI-created calendar entries are a convenience, not a docketing system. An attorney must confirm court and filing deadlines."
   },
   {
     "slug": "daily-briefing",
@@ -3791,7 +3791,7 @@
       "Spreadsheets"
     ],
     "effect": "Storm prep starts from your own list instead of a blank page.",
-    "caution": "This is a checklist from your files. It is not legal advice and not an emergency plan. A person sends every message. SI does not lease, collect rent, screen or rank applicants.",
+    "caution": "This is a shop and crew checklist from your files, not an emergency plan. A person sends every message.",
     "tags": [
       "local-seasonal"
     ],
@@ -3902,7 +3902,7 @@
       "Typeform"
     ],
     "effect": "New inquiries get a reviewed first reply, and the details land in one list.",
-    "caution": "A person sends every reply. This is not legal advice. SI does not lease, collect rent, screen or rank applicants. Texting rules vary; get consent and honor opt-outs.",
+    "caution": "A person sends every reply. SI does not lease, collect rent, screen or rank applicants.",
     "tags": [
       "local-seasonal"
     ],
@@ -4785,7 +4785,7 @@
       "Spreadsheets"
     ],
     "effect": "Showing windows and confirm drafts are ready. The agent or manager reviews them before anyone is told a time.",
-    "caution": "This is office support only. SI does not give legal or lease advice. SI does not make leasing, screening, or pricing decisions. SI does not act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything that faces a client, a tenant, or a contract. Fair housing laws apply. SI never screens, ranks, steers, or targets by protected characteristics. Applicant and tenant information is used only in checked tools, with access controls and the minimum necessary. SI never shares lockbox codes in messages without the business's approval. The same is true for access notes and occupant details. SI offers the same access options to everyone. Texting rules vary. Get consent. Honor opt-outs."
+    "caution": "This is office support only. The owner or licensed agent approves everything; SI does not lease, collect rent, screen or rank applicants, and fair housing laws apply."
   },
   {
     "slug": "showing-open-house-follow-up",
@@ -4829,7 +4829,7 @@
       "Calendly"
     ],
     "effect": "Every visitor is on one list. The same follow-up draft is ready for the agent to send.",
-    "caution": "This is office support only. SI does not give legal or lease advice. SI does not make leasing, screening, or pricing decisions. SI does not act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything that faces a client, a tenant, or a contract. Fair housing laws apply. SI never screens, ranks, steers, or targets by protected characteristics. Applicant and tenant information is used only in checked tools, with access controls and the minimum necessary. Every visitor gets the same follow-up. SI never tailors messages to a person's apparent race, family, religion, disability, or other protected trait. SI never makes statements about neighbors, schools, or type of residents. Texting rules vary. Get consent. Honor opt-outs."
+    "caution": "This is office support only. The owner or licensed agent approves everything; SI does not lease, collect rent, screen or rank applicants, and fair housing laws apply."
   },
   {
     "slug": "listing-rental-ad-drafts",
@@ -4874,7 +4874,7 @@
       "Property-management software"
     ],
     "effect": "A description draft and a flagged-phrases list wait. The agent or broker reviews them before anything is published.",
-    "caution": "This is office support only. SI does not give legal or lease advice. SI does not make leasing, screening, or pricing decisions. SI does not act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything that faces a client, a tenant, or a contract. Fair housing laws apply. SI never screens, ranks, steers, or targets by protected characteristics. Applicant and tenant information is used only in checked tools, with access controls and the minimum necessary. SI describes the property, not people or neighborhoods. SI never writes about who a home is for. SI never writes about residents, schools, or safety. The flagged list is a helper, not a legal review. A person checks fair housing rules before anything is published."
+    "caution": "This is office support only. The owner or licensed agent approves everything; SI does not lease, collect rent, screen or rank applicants, and fair housing laws apply."
   },
   {
     "slug": "maintenance-request-intake",
@@ -4919,7 +4919,7 @@
       "Property-management software"
     ],
     "effect": "Requests are tickets in queues. Anything that sounds urgent sits at the top for a person.",
-    "caution": "This is office support only. SI does not give legal or lease advice. SI does not make leasing, screening, or pricing decisions. SI does not act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything that faces a client, a tenant, or a contract. Fair housing laws apply. SI never screens, ranks, steers, or targets by protected characteristics. Applicant and tenant information is used only in checked tools, with access controls and the minimum necessary. SI never gives repair, safety, or code advice. SI never promises response times or repairs. SI does not decide who is responsible under a lease. The emergency line is limited to the approved text."
+    "caution": "This is office support only. The owner or licensed agent approves everything; SI does not lease, collect rent, screen or rank applicants, and fair housing laws apply."
   },
   {
     "slug": "tenant-notice-drafts",
@@ -4963,7 +4963,7 @@
       "Property-management software"
     ],
     "effect": "Routine notices start from the manager's own templates. They stay labeled as drafts until they are sent.",
-    "caution": "This is office support only. SI does not give legal or lease advice. SI does not make leasing, screening, or pricing decisions. SI does not act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything that faces a client, a tenant, or a contract. Fair housing laws apply. SI never screens, ranks, steers, or targets by protected characteristics. Applicant and tenant information is used only in checked tools, with access controls and the minimum necessary. SI drafts routine, non-legal notices only. SI never writes late, default, entry, eviction, or lease-violation notices. SI never writes anything with a legal deadline. SI does not decide what the lease or the law requires."
+    "caution": "This is office support only. The owner or licensed agent approves everything; SI does not lease, collect rent, screen or rank applicants, and fair housing laws apply."
   },
   {
     "slug": "rent-reminder-drafts",
@@ -5007,7 +5007,7 @@
       "Microsoft 365"
     ],
     "effect": "Reminders are drafted on the manager's schedule. Accounts that need a call are set aside for a person.",
-    "caution": "This is office support only. SI does not give legal or lease advice. SI does not make leasing, screening, or pricing decisions. SI does not act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything that faces a client, a tenant, or a contract. Fair housing laws apply. SI never screens, ranks, steers, or targets by protected characteristics. Applicant and tenant information is used only in checked tools, with access controls and the minimum necessary. SI never states or calculates late fees. SI never threatens action. SI never issues notices. SI sends nothing on its own. SI treats every tenant the same way under the same rules. Texting rules vary. Get consent. Honor opt-outs."
+    "caution": "This is office support only. The owner or licensed agent approves everything; SI does not lease, collect rent, screen or rank applicants, and fair housing laws apply."
   },
   {
     "slug": "lease-renewal-expiration-tracking",
@@ -5052,7 +5052,7 @@
       "Property-management software"
     ],
     "effect": "Verified end dates sit in one list with reminders. The renewal draft waits for the manager.",
-    "caution": "This is office support only. SI does not give legal or lease advice. SI does not make leasing, screening, or pricing decisions. SI does not act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything that faces a client, a tenant, or a contract. Fair housing laws apply. SI never screens, ranks, steers, or targets by protected characteristics. Applicant and tenant information is used only in checked tools, with access controls and the minimum necessary. SI tracks dates a person has verified. SI never calculates legal notice deadlines. SI never proposes rent amounts or renewal terms. SI never decides who is renewed. Nothing about renewal is based on a protected characteristic."
+    "caution": "This is office support only. The owner or licensed agent approves everything; SI does not lease, collect rent, screen or rank applicants, and fair housing laws apply."
   },
   {
     "slug": "move-in-move-out-checklists",
@@ -5096,7 +5096,7 @@
       "Property-management software"
     ],
     "effect": "Condition photos and notes are grouped for the manager. The summary stays a draft.",
-    "caution": "This is office support only. SI does not give legal or lease advice. SI does not make leasing, screening, or pricing decisions. SI does not act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything that faces a client, a tenant, or a contract. Fair housing laws apply. SI never screens, ranks, steers, or targets by protected characteristics. Applicant and tenant information is used only in checked tools, with access controls and the minimum necessary. SI organizes records only. SI never determines charges, deposit deductions, or responsibility. SI never decides what the law requires for deposit handling or timing."
+    "caution": "This is office support only. The owner or licensed agent approves everything; SI does not lease, collect rent, screen or rank applicants, and fair housing laws apply."
   },
   {
     "slug": "rental-application-completeness",
@@ -5141,7 +5141,7 @@
       "Property-management software"
     ],
     "effect": "Missing items are listed in the order applications arrived. Every decision stays with the manager.",
-    "caution": "This is office support only. SI does not give legal or lease advice. SI does not make leasing, screening, or pricing decisions. SI does not act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything that faces a client, a tenant, or a contract. Fair housing laws apply. SI never screens, ranks, steers, or targets by protected characteristics. Applicant and tenant information is used only in checked tools, with access controls and the minimum necessary. SI never reviews, scores, ranks, recommends, or denies an applicant. SI never evaluates credit, background, or income. SI never filters on any protected characteristic or its proxies. The manager applies written criteria equally to everyone. The manager gets legal advice on screening rules."
+    "caution": "This is office support only. The owner or licensed agent approves everything; SI does not lease, collect rent, screen or rank applicants, and fair housing laws apply."
   },
   {
     "slug": "missed-call-text-back",
@@ -6482,7 +6482,7 @@
       "Google Docs"
     ],
     "effect": "Each booking has draft guest notes and a cleaner time ready, and the host still sends them.",
-    "caution": "This is office support only. SI does not give legal or lease advice. SI does not make leasing, screening, or pricing decisions. SI does not act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything that faces a client, a tenant, or a contract. Fair housing laws apply. SI never screens, ranks, steers, or targets by protected characteristics. Applicant and tenant information is used only in checked tools, with access controls and the minimum necessary. Guest notes are drafts. House rules stay the owner's words."
+    "caution": "This is office support only. The owner or licensed agent approves everything; SI does not lease, collect rent, screen or rank applicants, and fair housing laws apply."
   },
   {
     "slug": "insurance-renewal-quote-compare",
@@ -6800,7 +6800,7 @@
       "Gmail"
     ],
     "effect": "The host sees a weekly price note. The listing changes only after the host says yes.",
-    "caution": "This is office support only. SI does not give legal or lease advice. SI does not make leasing, screening, or pricing decisions. SI does not act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything that faces a client, a tenant, or a contract. Fair housing laws apply. SI never screens, ranks, steers, or targets by protected characteristics. Applicant and tenant information is used only in checked tools, with access controls and the minimum necessary. The host approves any price change. SI does not edit the listing."
+    "caution": "This is office support only. The owner or licensed agent approves everything; SI does not lease, collect rent, screen or rank applicants, and fair housing laws apply."
   },
   {
     "slug": "rental-property-profit-loss",
@@ -6846,7 +6846,7 @@
       "Google Drive"
     ],
     "effect": "Each rental gets a draft sheet from the export. The manager still checks it before it is used.",
-    "caution": "This is office support only. SI does not give legal or lease advice. SI does not make leasing, screening, or pricing decisions. SI does not act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything that faces a client, a tenant, or a contract. Fair housing laws apply. SI never screens, ranks, steers, or targets by protected characteristics. Applicant and tenant information is used only in checked tools, with access controls and the minimum necessary. SI does not change the books or give tax advice. The manager reviews the sheet before anyone uses it."
+    "caution": "This is office support only. The owner or licensed agent approves everything; SI does not lease, collect rent, screen or rank applicants, and fair housing laws apply."
   },
   {
     "slug": "inspection-maintenance-plan",
@@ -6892,7 +6892,7 @@
       "Property export"
     ],
     "effect": "Upkeep from inspections sits on one list. Vendor notes still wait for the manager.",
-    "caution": "This is office support only. SI does not give legal or lease advice. SI does not make leasing, screening, or pricing decisions. SI does not act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything that faces a client, a tenant, or a contract. Fair housing laws apply. SI never screens, ranks, steers, or targets by protected characteristics. Applicant and tenant information is used only in checked tools, with access controls and the minimum necessary. The manager approves every message before it is sent. SI does not hire or pay a vendor."
+    "caution": "This is office support only. The owner or licensed agent approves everything; SI does not lease, collect rent, screen or rank applicants, and fair housing laws apply."
   },
   {
     "slug": "security-deposit-deduction-letters",
@@ -6936,7 +6936,7 @@
       "Google Sheets"
     ],
     "effect": "The manager gets a draft letter with flags. The manager reviews it before it is sent. This is not legal advice.",
-    "caution": "This is office support only. SI does not give legal or lease advice. SI does not make leasing, screening, or pricing decisions. SI does not act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything that faces a client, a tenant, or a contract. Fair housing laws apply. SI never screens, ranks, steers, or targets by protected characteristics. Applicant and tenant information is used only in checked tools, with access controls and the minimum necessary. This is not legal advice. The manager reviews the letter before it is sent. SI does not decide what the lease or Florida law requires."
+    "caution": "This is office support only. The owner or licensed agent approves everything; SI does not lease, collect rent, screen or rank applicants, and fair housing laws apply."
   },
   {
     "slug": "appraisal-report-drafts",
@@ -6979,7 +6979,7 @@
       "Excel"
     ],
     "effect": "The first draft follows the appraiser's notes and template. The appraiser still signs.",
-    "caution": "This is office support only. SI does not give legal or lease advice. SI does not make leasing, screening, or pricing decisions. SI does not act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything that faces a client, a tenant, or a contract. Fair housing laws apply. SI never screens, ranks, steers, or targets by protected characteristics. Applicant and tenant information is used only in checked tools, with access controls and the minimum necessary. SI does not set the value or sign the report. The appraiser reviews the draft and signs it."
+    "caution": "This is office support only. The owner or licensed agent approves everything; SI does not lease, collect rent, screen or rank applicants, and fair housing laws apply."
   },
   {
     "slug": "permit-form-drafts-for-submit",
@@ -7334,7 +7334,7 @@
       "Microsoft 365"
     ],
     "effect": "New rental questions get a reviewed reply with unit facts. Showing times wait for you to confirm.",
-    "caution": "This is office support only. SI does not give legal or lease advice. SI does not make leasing, screening, or pricing decisions. SI does not act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything that faces a client, a tenant, or a contract. Fair housing laws apply. SI never screens, ranks, steers, or targets by protected characteristics. Applicant and tenant information is used only in checked tools, with access controls and the minimum necessary. SI uses only facts from the listing sheet you provide. SI does not negotiate rent. SI does not decide who may apply or who gets a showing. Texting rules vary; get consent and honor opt-outs.",
+    "caution": "This is office support only. The owner or licensed agent approves everything; SI does not lease, collect rent, screen or rank applicants, and fair housing laws apply.",
     "si_drafts": [
       "A first reply with rent, open date, pets, parking, and move-in notes from your sheet",
       "Short answers to still available, pets, and parking from that same sheet",
@@ -7410,7 +7410,7 @@
       "Microsoft 365"
     ],
     "effect": "Repeat questions get the same facts from your sheet. You still send the reply.",
-    "caution": "This is office support only. SI does not give legal or lease advice. SI does not make leasing, screening, or pricing decisions. SI does not act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything that faces a client, a tenant, or a contract. Fair housing laws apply. SI never screens, ranks, steers, or targets by protected characteristics. Applicant and tenant information is used only in checked tools, with access controls and the minimum necessary. SI answers from the listing sheet only. SI does not add neighborhood notes. SI does not say who the home is for. Texting rules vary; get consent and honor opt-outs.",
+    "caution": "This is office support only. The owner or licensed agent approves everything; SI does not lease, collect rent, screen or rank applicants, and fair housing laws apply.",
     "related": [
       "rental-lead-inquiry-follow-up",
       "listing-rental-ad-drafts",
@@ -7467,7 +7467,7 @@
       "Property-management software"
     ],
     "effect": "The day starts with one list. Urgent repairs sit at the top for a person.",
-    "caution": "This is office support only. SI does not give legal or lease advice. SI does not make leasing, screening, or pricing decisions. SI does not act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything that faces a client, a tenant, or a contract. Fair housing laws apply. SI never screens, ranks, steers, or targets by protected characteristics. Applicant and tenant information is used only in checked tools, with access controls and the minimum necessary. SI does not collect rent. SI does not decide repair priority. SI does not send the list to tenants.",
+    "caution": "This is office support only. The owner or licensed agent approves everything; SI does not lease, collect rent, screen or rank applicants, and fair housing laws apply.",
     "related": [
       "rental-lead-inquiry-follow-up",
       "showing-scheduling-confirmations",
@@ -7524,7 +7524,7 @@
       "Gmail"
     ],
     "effect": "Tracking problems show up in the morning, before the where-is-it email.",
-    "caution": "A person decides the next step. SI does not contact the carrier or issue a refund. Email and texting rules vary. Honor opt-outs.",
+    "caution": "A person decides the next step. SI does not contact the carrier or issue a refund.",
     "related": [
       "status-question-replies",
       "stock-and-stuck-order-watch",
@@ -7579,7 +7579,7 @@
       "ShipStation"
     ],
     "effect": "A delay note waits in the queue while the package is still quiet.",
-    "caution": "A person sends every note. SI does not promise dates, refunds, or reships. Email and texting rules vary. Honor opt-outs.",
+    "caution": "A person sends every note. SI does not promise dates, refunds, or reships.",
     "related": [
       "package-problem-watch",
       "status-question-replies",
@@ -7636,7 +7636,7 @@
       "Gmail"
     ],
     "effect": "Each upload gets a clear got-these, still-need-these draft. Staff still send it.",
-    "caution": "This is office support only. SI does not give tax or accounting advice. SI does not prepare or sign returns or reports. SI does not file anything. SI does not calculate legal deadlines. A qualified professional reviews, signs, and approves all work product and every date SI tracks. Client information is used only in tools the firm has vetted. Use the firm's written security plan. Include any client consent or agreements the rules require. SI does not say a document is enough for a return. SI does not give tax advice. Tax return information has special disclosure and use rules for preparers. Check with your professional advisor before using any outside tool.",
+    "caution": "This is office support only. A professional reviews the list; SI does not give tax advice.",
     "related": [
       "client-document-chasing",
       "year-end-tax-document-packet"
@@ -7691,7 +7691,7 @@
       "Gmail"
     ],
     "effect": "The owner gets one morning summary. Urgent calls sit at the top.",
-    "caution": "This is office support only. SI does not set prices. SI does not promise prices. SI does not give safety, repair, code, or insurance advice. SI does not make any commitment for the business. The owner or an authorized person reviews every quote, schedule commitment, and customer message. They must approve it. License, ad, deposit, and permit rules vary by state. Customer information is used only in checked tools with access controls. SI never gives safety instructions. SI never says the crew will arrive at a time. For gas, fire, smoke, or flooding near electricity, a person handles it. Call 911 or the utility. Texting rules vary; get consent and honor opt-outs.",
+    "caution": "This is office support only. The owner reviews the morning list; SI does not quote, book, or give safety advice.",
     "related": [
       "missed-call-text-back",
       "front-desk-call-summaries",
@@ -7747,7 +7747,7 @@
       "Google Workspace"
     ],
     "effect": "Each estimate has three reviewed notes on a clock you set. Prices stay yours.",
-    "caution": "This is office support only. SI does not set prices. SI does not promise prices. SI does not give safety, repair, code, or insurance advice. SI does not make any commitment for the business. The owner or an authorized person reviews every quote, schedule commitment, and customer message. They must approve it. License, ad, deposit, and permit rules vary by state. Customer information is used only in checked tools with access controls. SI never changes, discounts, or promises a price. SI never uses fake deadlines. Texting rules vary; get consent and honor opt-outs.",
+    "caution": "This is office support only. The owner approves every follow-up; SI never changes a price.",
     "related": [
       "quote-follow-ups",
       "quote-estimate-drafts",
@@ -7802,7 +7802,7 @@
       "Gmail"
     ],
     "effect": "Once a week you see what landed and what is still open, from the file you provided.",
-    "caution": "This is a digest from payments and open invoices already on file. It is not tax or financial advice. SI does not move money. It is not a client result.",
+    "caution": "This is a digest from payments already on file. SI does not move money.",
     "related": [
       "daily-briefing",
       "weekly-owner-snapshot",
@@ -7913,7 +7913,7 @@
       "Accounting software"
     ],
     "effect": "Open jobs and vendor contacts sit in one tracker. Status drafts are ready for the manager.",
-    "caution": "This is office support only. SI does not give legal or lease advice. SI does not make leasing, screening, or pricing decisions. SI does not act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything that faces a client, a tenant, or a contract. Fair housing laws apply. SI never screens, ranks, steers, or targets by protected characteristics. Applicant and tenant information is used only in checked tools, with access controls and the minimum necessary. SI never hires. SI never approves spending. SI never pays. SI does not recommend a vendor on quality or safety grounds. SI does not vouch that a vendor is licensed or insured. SI gives no repair or code advice.",
+    "caution": "This is office support only. The owner or licensed agent approves everything; SI does not lease, collect rent, screen or rank applicants, and fair housing laws apply.",
     "related": [
       "maintenance-request-intake",
       "landlord-morning-list",
@@ -7969,7 +7969,7 @@
       "Google Drive"
     ],
     "effect": "Ready sheets and message templates are reviewed before a storm is forecast. They are not built during one.",
-    "caution": "This is office support only. SI does not give legal or lease advice. SI does not make leasing, screening, or pricing decisions. SI does not act as an agent or broker. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. A licensed professional or the property owner reviews and approves anything that faces a client, a tenant, or a contract. Fair housing laws apply. SI never screens, ranks, steers, or targets by protected characteristics. Applicant and tenant information is used only in checked tools, with access controls and the minimum necessary. SI never gives evacuation, safety, or insurance-claim advice. SI never tells anyone to stay or go. SI points to official emergency sources and 911. SI makes no timing or damage predictions.",
+    "caution": "This is office support only. The owner or licensed agent approves everything; SI does not lease, collect rent, screen or rank applicants, and fair housing laws apply.",
     "related": [
       "hurricane-season-readiness",
       "tenant-notice-drafts",
@@ -8023,7 +8023,7 @@
       "Outlook"
     ],
     "effect": "Booking chats get a draft time from the real calendar, and the owner still confirms the slot.",
-    "caution": "SI does not book on its own. The owner confirms every slot. Get consent before you text, and honor opt-outs right away.",
+    "caution": "SI does not book on its own. The owner confirms every slot.",
     "related": [
       "fitness-class-list-check-ins",
       "auto-repair-request-sorting"
@@ -8131,7 +8131,7 @@
       "QuickBooks"
     ],
     "effect": "Document dates the owner verified are visible. Request drafts are ready before something expires.",
-    "caution": "This is office support only. SI does not set prices. SI does not promise prices. SI does not give safety, repair, code, or insurance advice. SI does not make any commitment for the business. The owner or an authorized person reviews every quote, schedule commitment, and customer message. They must approve it. License, ad, deposit, and permit rules vary by state. Customer information is used only in checked tools with access controls. SI tracks dates and requests documents only. SI never confirms that a license or policy is valid. SI never decides who may do licensed work. SI gives no insurance or licensing advice.",
+    "caution": "This is office support only. SI tracks dates the owner verified; it does not confirm a license or say who may work.",
     "related": [
       "license-and-certification-tracker",
       "permit-inspection-tracking",
