@@ -1,5 +1,5 @@
 {
-  "note": "Per-post tracking paths for Cloudflare Web Analytics. Query strings are ignored, so each campaign gets its own path. posts keys are MMDD and create both /fbMMDD and /liMMDD. generic keys are /fb, /li, /wa. Pages are noindex and must stay out of sitemap.xml. 1028 and 1104 originally linked to slugs that now 200 as moved stubs; those dates use the merged live pages instead.",
+  "note": "Per-post tracking paths for Cloudflare Web Analytics. Query strings are ignored, so each campaign gets its own path. posts keys are MMDD (optional letter suffix for a second post that day, e.g. 1026b) and create both /fbMMDD and /liMMDD. generic keys are /fb, /li, /wa. Pages are noindex and must stay out of sitemap.xml. 1028 and 1104 originally linked to slugs that now 200 as moved stubs; those dates use the merged live pages instead.",
   "generic": {
     "fb": "/",
     "li": "/",
@@ -8,6 +8,7 @@
   "posts": {
     "1025": "/use-cases/",
     "1026": "/use-cases/report-card-comment-drafts/",
+    "1026b": "/",
     "1027": "/use-cases/missed-call-text-back/",
     "1028": "/use-cases/status-question-replies/",
     "1029": "/use-cases/daily-briefing/",

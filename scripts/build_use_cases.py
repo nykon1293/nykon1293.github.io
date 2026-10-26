@@ -35,6 +35,8 @@ from seo_schema import (
     clip_meta,
     faq_node,
     font_and_css_links,
+    contact_social_links,
+    footer_social_links,
     icon_links,
     person_node,
     professional_service_node,
@@ -1022,6 +1024,7 @@ def foot(depth: int) -> str:
         <a href="{up}services/ecommerce-operations.html">Ecommerce</a>
         <a href="{up}services/tutoring-project-help.html">Tutoring</a>
         <a href="{CAL}" target="_blank" rel="noreferrer">Book consultation</a>
+        {footer_social_links()}
       </p>
     </footer>"""
 
@@ -1362,6 +1365,7 @@ def closing_section() -> str:
           <h2>Bring the task that keeps eating your week</h2>
           <p class="section-intro">If the work repeats and follows rules, SI can often draft it. That includes email, spreadsheets, a store, or a CRM. You still check it. Book a free 30-minute consultation and we will look at it together.</p>
           <div class="actions"><a class="button primary" href="{CAL}" target="_blank" rel="noreferrer">{CTA}</a></div>
+          <p class="contact-quiet">{contact_social_links()}</p>
         </div>
       </section>"""
 

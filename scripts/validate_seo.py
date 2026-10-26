@@ -17,6 +17,8 @@ BASE = "https://gemmisi.com"
 SITE_NAME = "GemmiSI"
 SITE_ALTERNATE_NAME = "GemmiSI - Super Intelligence (SI) AI implementation"
 LOGO_URL = f"{BASE}/assets/brand/gemmisi-icon-512.png"
+LINKEDIN_PROFILE = "https://www.linkedin.com/in/joshuah-gemmi-16046233/"
+FACEBOOK_PAGE = "https://www.facebook.com/1392236803978006"
 SKIP_SITEMAP_DIRS = {"chatbot", "sofer-preview"}
 NEW_INDUSTRY_PAGES = (
     "restaurants-food",
@@ -314,6 +316,11 @@ def main() -> None:
                 served = json.dumps(org.get("areaServed") or [])
                 if "South Florida" not in served or "United States" not in served:
                     errors.append(f"{rel}: areaServed should include South Florida and United States")
+                same = org.get("sameAs") or []
+                if not isinstance(same, list):
+                    same = [same]
+                if LINKEDIN_PROFILE in same and FACEBOOK_PAGE not in same:
+                    errors.append(f"{rel}: organization sameAs should include the Facebook Page")
             sites = [n for n in nodes if isinstance(n, dict) and n.get("@type") == "WebSite"]
             if not sites:
                 errors.append(f"{rel}: missing WebSite JSON-LD")
@@ -328,6 +335,12 @@ def main() -> None:
             people = [n for n in nodes if isinstance(n, dict) and n.get("@id") == f"{BASE}/#person"]
             if people and people[0].get("alternateName") != "Josh Gemmi":
                 errors.append(f"{rel}: Person alternateName should be Josh Gemmi")
+            if people:
+                person_same = people[0].get("sameAs") or []
+                if not isinstance(person_same, list):
+                    person_same = [person_same]
+                if LINKEDIN_PROFILE in person_same and FACEBOOK_PAGE not in person_same:
+                    errors.append(f"{rel}: person sameAs should include the Facebook Page")
             services = [n for n in nodes if isinstance(n, dict) and n.get("@type") == "Service"]
             for svc in services:
                 provider = svc.get("provider") or {}
