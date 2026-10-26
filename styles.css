@@ -2276,6 +2276,11 @@ footer p { font-size: .92rem; }
   color: var(--muted);
   font-size: var(--text-sm);
 }
+.contact-quiet {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: var(--text-sm);
+}
 
 /* Footer link */
 footer a { color: var(--muted); text-decoration: none; }

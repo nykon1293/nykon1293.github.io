@@ -20,7 +20,9 @@ from seo_schema import (
     OWN_EQUIPMENT,
     clip_meta,
     common_head_tags,
+    contact_social_links,
     font_and_css_links,
+    footer_social_links,
     icon_links,
     service_page_graph,
 )
@@ -742,6 +744,7 @@ FOOTER_SCRIPTS = f"""
         <a href="ecommerce-operations.html">Ecommerce</a>
         <a href="tutoring-project-help.html">Tutoring</a>
         <a href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book consultation</a>
+        {footer_social_links()}
       </p>
     </footer>
   </div>
@@ -954,7 +957,7 @@ def render(page: dict) -> str:
         </div>
         <div class="contact-panel">
           <a class="button primary full" href="{CALENDLY}" target="_blank" rel="noreferrer">{cta_primary}</a>
-          <p class="contact-quiet">Or <a class="text-link" href="mailto:y@gemmisi.com">email me</a> instead.</p>
+          <p class="contact-quiet">Or <a class="text-link" href="mailto:y@gemmisi.com">email me</a> · {contact_social_links()}</p>
         </div>
       </section>
     </main>
