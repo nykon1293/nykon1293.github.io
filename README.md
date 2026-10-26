@@ -25,6 +25,6 @@ Analytics is the HTML snippet, not Cloudflare HTML auto-injection (the live site
 
 To add a slug:
 
-1. Edit `data/tracking-links.json`. For a dated Facebook/LinkedIn pair, add `"MMDD": "/destination/"` under `posts` (that creates both `/fbMMDD` and `/liMMDD`). For a generic channel link, add `"wa": "/"` (or `fb` / `li`) under `generic`. Destinations are site paths that already exist as real pages, not moved stubs.
+1. Edit `data/tracking-links.json`. For a dated Facebook/LinkedIn pair, add `"MMDD": "/destination/"` under `posts` (that creates both `/fbMMDD` and `/liMMDD`). A second post on the same day uses a letter suffix, e.g. `"1026b"` → `/fb1026b` and `/li1026b`. For a generic channel link, add `"wa": "/"` (or `fb` / `li`) under `generic`. Destinations are site paths that already exist as real pages, not moved stubs.
 2. From the repo root, run `python3 scripts/build_tracking_links.py`.
 3. Commit the JSON and the new `<slug>/index.html`. Removing a slug and re-running the generator deletes that folder. `python3 scripts/build_tracking_links.py --check` confirms committed pages match the list. Do not add these paths to `sitemap.xml`.

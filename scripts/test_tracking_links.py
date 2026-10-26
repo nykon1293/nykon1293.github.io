@@ -39,6 +39,12 @@ class TrackingConfigTests(unittest.TestCase):
                 self.assertEqual(dest_by_slug[prefix + date], dest)
         for generic in ("wa", "fb", "li"):
             self.assertEqual(dest_by_slug[generic], "https://gemmisi.com/")
+        for prefix in ("fb", "li"):
+            self.assertEqual(dest_by_slug[prefix + "1026b"], "https://gemmisi.com/")
+            self.assertEqual(
+                dest_by_slug[prefix + "1026"],
+                "https://gemmisi.com/use-cases/report-card-comment-drafts/",
+            )
 
     def test_pages_match_generator(self) -> None:
         self.assertEqual(tracking.build(check_only=True), 0)
@@ -64,6 +70,16 @@ class TrackingConfigTests(unittest.TestCase):
         crew = (ROOT / "li1104" / "index.html").read_text(encoding="utf-8")
         self.assertIn("/use-cases/requests-to-scheduled-jobs/", crew)
         self.assertNotIn("crew-dispatch-schedule-prep", crew)
+
+    def test_second_oct26_consult_pages_go_home_not_report_card(self) -> None:
+        for slug in ("fb1026b", "li1026b"):
+            html = (ROOT / slug / "index.html").read_text(encoding="utf-8")
+            self.assertIn("location.replace('https://gemmisi.com/')", html)
+            self.assertNotIn("report-card-comment-drafts", html)
+            self.assertIn("noindex", html)
+            self.assertIn(tracking.MARKER, html)
+        first = (ROOT / "fb1026" / "index.html").read_text(encoding="utf-8")
+        self.assertIn("/use-cases/report-card-comment-drafts/", first)
 
     def test_not_in_sitemap(self) -> None:
         sitemap = SITEMAP.read_text(encoding="utf-8")
