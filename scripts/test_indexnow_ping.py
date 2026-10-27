@@ -47,6 +47,8 @@ class FileToUrlTests(unittest.TestCase):
         self.assertIsNone(ping.file_to_url("li1025/index.html"))
         self.assertIsNone(ping.file_to_url("fb1026b/index.html"))
         self.assertIsNone(ping.file_to_url("li1026b/index.html"))
+        self.assertIsNone(ping.file_to_url("fb1027b/index.html"))
+        self.assertIsNone(ping.file_to_url("li1027b/index.html"))
 
 
 class DiscoverKeyTests(unittest.TestCase):

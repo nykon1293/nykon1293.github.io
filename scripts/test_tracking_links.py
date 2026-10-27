@@ -45,6 +45,14 @@ class TrackingConfigTests(unittest.TestCase):
                 dest_by_slug[prefix + "1026"],
                 "https://gemmisi.com/use-cases/report-card-comment-drafts/",
             )
+            self.assertEqual(
+                dest_by_slug[prefix + "1027b"],
+                "https://gemmisi.com/use-cases/overdue-invoice-reminders/",
+            )
+            self.assertEqual(
+                dest_by_slug[prefix + "1027"],
+                "https://gemmisi.com/use-cases/missed-call-text-back/",
+            )
 
     def test_pages_match_generator(self) -> None:
         self.assertEqual(tracking.build(check_only=True), 0)
@@ -80,6 +88,19 @@ class TrackingConfigTests(unittest.TestCase):
             self.assertIn(tracking.MARKER, html)
         first = (ROOT / "fb1026" / "index.html").read_text(encoding="utf-8")
         self.assertIn("/use-cases/report-card-comment-drafts/", first)
+
+    def test_second_oct27_pages_go_to_overdue_invoices(self) -> None:
+        dest = "https://gemmisi.com/use-cases/overdue-invoice-reminders/"
+        for slug in ("fb1027b", "li1027b"):
+            html = (ROOT / slug / "index.html").read_text(encoding="utf-8")
+            self.assertIn(f"location.replace('{dest}')", html)
+            self.assertIn(f'url={dest}', html)
+            self.assertIn(f'rel="canonical" href="{dest}"', html)
+            self.assertNotIn("missed-call-text-back", html)
+            self.assertIn("noindex", html)
+            self.assertIn(tracking.MARKER, html)
+        first = (ROOT / "fb1027" / "index.html").read_text(encoding="utf-8")
+        self.assertIn("/use-cases/missed-call-text-back/", first)
 
     def test_not_in_sitemap(self) -> None:
         sitemap = SITEMAP.read_text(encoding="utf-8")
