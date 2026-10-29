@@ -3,10 +3,14 @@
 
 Uses ACTIVE_KEY (the 32-hex `{key}.txt` at the repo root). Older key files
 may stay on disk so prior verifications do not 404. Maps git-changed HTML to
-https://gemmisi.com/ URLs, waits until the live key URL returns that key,
+https://gemmisi.com/ URLs only when that page's public content actually
+changed (not shared chrome). Waits until the live key URL returns that key,
 then POSTs to each IndexNow engine.
 
-    python3 scripts/indexnow_ping.py              # changed files, else sitemap
+Automatic runs never fall back to the full sitemap. If more than AUTO_SUBMIT_CAP
+URLs would be sent, the run skips unless `--all` was passed (workflow_dispatch).
+
+    python3 scripts/indexnow_ping.py              # pages whose content changed
     python3 scripts/indexnow_ping.py --all        # every sitemap URL
     python3 scripts/indexnow_ping.py --dry-run    # print payload, do not POST
     python3 scripts/indexnow_ping.py --check      # verify the key file only
@@ -35,6 +39,8 @@ KEY_NAME = re.compile(r"^[0-9a-f]{32}$")
 ACTIVE_KEY = "f702ca108ee22cc8602abd433bed3cf5"
 ZERO_SHA = "0" * 40
 USER_AGENT = "gemmisi-indexnow/1.0 (+https://gemmisi.com/)"
+# Automatic deploys skip rather than IndexNow-spam Bing with a library rebuild.
+AUTO_SUBMIT_CAP = 50
 
 OK_STATUSES = {200, 202}
 RETRY_STATUSES = {403, 429}
@@ -70,6 +76,30 @@ SKIP_FILES = {
     "favicon.ico",
     "_config.yml",
 }
+
+TITLE_RE = re.compile(r"<title>(.*?)</title>", re.I | re.S)
+CANONICAL_RE = re.compile(
+    r'<link\s+rel=["\']canonical["\']\s+href=["\'](.*?)["\']',
+    re.I,
+)
+META_RE = re.compile(
+    r"<meta\b([^>]*?)/?>",
+    re.I | re.S,
+)
+ATTR_RE = re.compile(r'([^\s=]+)(?:\s*=\s*["\'](.*?)["\'])?', re.I | re.S)
+HEADER_FOOTER_RE = re.compile(
+    r"<(header|footer)\b[^>]*>.*?</\1>",
+    re.I | re.S,
+)
+SCRIPT_STYLE_RE = re.compile(
+    r"<(script|style)\b[^>]*>.*?</\1>",
+    re.I | re.S,
+)
+SEE_ALL_RE = re.compile(r"See all \d+ use cases", re.I)
+CSS_QUERY_RE = re.compile(r"\?v=[A-Za-z0-9._-]+")
+WHITESPACE_RE = re.compile(r"\s+")
+
+
 def tracking_slugs() -> set[str]:
     """Campaign short links are noindex and must not be submitted to IndexNow."""
     try:
@@ -125,28 +155,95 @@ def file_to_url(rel: str) -> str | None:
     return None
 
 
-def git_changed_files(before: str, after: str) -> list[str]:
-    if not before or before == ZERO_SHA:
-        return []
-    result = subprocess.run(
-        ["git", "diff", "--name-only", "--diff-filter=ACDMRT", before, after or "HEAD"],
+def _git(*args: str) -> subprocess.CompletedProcess[str]:
+    return subprocess.run(
+        ["git", *args],
         cwd=ROOT,
         capture_output=True,
         text=True,
+        encoding="utf-8",
+        errors="replace",
         check=False,
     )
+
+
+def first_parent(sha: str) -> str:
+    """Return the first parent of sha, or empty if it cannot be resolved."""
+    if not sha or sha == ZERO_SHA:
+        return ""
+    result = _git("rev-parse", "--verify", f"{sha}^1")
     if result.returncode != 0:
-        fallback = subprocess.run(
-            ["git", "diff", "--name-only", "--diff-filter=ACDMRT", "HEAD~1", "HEAD"],
-            cwd=ROOT,
-            capture_output=True,
-            text=True,
-            check=False,
-        )
-        if fallback.returncode != 0:
-            return []
-        result = fallback
+        return ""
+    return result.stdout.strip()
+
+
+def git_changed_files(before: str, after: str) -> list[str]:
+    """Files changed between before and after. Empty on a missing range; no HEAD~1 fallback."""
+    if not before or before == ZERO_SHA:
+        return []
+    result = _git(
+        "diff",
+        "--name-only",
+        "--diff-filter=ACDMRT",
+        before,
+        after or "HEAD",
+    )
+    if result.returncode != 0:
+        return []
     return [line.strip() for line in result.stdout.splitlines() if line.strip()]
+
+
+def git_file_at(sha: str, rel: str) -> str | None:
+    if not sha or sha == ZERO_SHA:
+        return None
+    result = _git("show", f"{sha}:{rel}")
+    if result.returncode != 0:
+        return None
+    return result.stdout
+
+
+def _tag_inner(html: str, tag: str) -> str:
+    match = re.search(rf"<{tag}\b[^>]*>(.*)</{tag}>", html, flags=re.I | re.S)
+    return match.group(1) if match else ""
+
+
+def _meta_content(html: str, name: str) -> str:
+    want = name.lower()
+    for match in META_RE.finditer(html):
+        attrs = {
+            key.lower(): (value or "")
+            for key, value in ATTR_RE.findall(match.group(1))
+        }
+        if attrs.get("name", "").lower() == want:
+            return attrs.get("content", "")
+    return ""
+
+
+def page_content_fingerprint(html: str) -> str:
+    """Indexable page content, ignoring shared chrome that is rebuilt on every page.
+
+    Title, meta description, canonical, robots, and `<main>` (else body minus
+    header/footer). Strips scripts/styles, CSS cache-bust queries, and the
+    generated "See all N use cases" count so a library-size bump does not look
+    like every use-case page changed.
+    """
+    title = TITLE_RE.search(html)
+    canonical = CANONICAL_RE.search(html)
+    main = _tag_inner(html, "main") or _tag_inner(html, "article")
+    if not main:
+        main = HEADER_FOOTER_RE.sub("", _tag_inner(html, "body"))
+    main = SCRIPT_STYLE_RE.sub("", main)
+    main = SEE_ALL_RE.sub("See all N use cases", main)
+    main = CSS_QUERY_RE.sub("", main)
+    main = WHITESPACE_RE.sub(" ", main).strip()
+    parts = [
+        title.group(1).strip() if title else "",
+        _meta_content(html, "description"),
+        canonical.group(1).strip() if canonical else "",
+        _meta_content(html, "robots"),
+        main,
+    ]
+    return "\n".join(parts)
 
 
 def urls_from_files(files: list[str]) -> list[str]:
@@ -158,6 +255,35 @@ def urls_from_files(files: list[str]) -> list[str]:
             seen.add(url)
             urls.append(url)
     return urls
+
+
+def urls_from_page_changes(files: list[str], before: str, after: str) -> list[str]:
+    """Public URLs whose page content (not shared chrome) changed between SHAs."""
+    urls: list[str] = []
+    seen: set[str] = set()
+    after_sha = after or "HEAD"
+    for rel in files:
+        url = file_to_url(rel)
+        if not url or url.startswith(f"{BASE}/chatbot/") or url in seen:
+            continue
+        old_html = git_file_at(before, rel) if before else None
+        new_html = git_file_at(after_sha, rel)
+        if old_html is None and new_html is None:
+            continue
+        if old_html is not None and new_html is not None:
+            if page_content_fingerprint(old_html) == page_content_fingerprint(new_html):
+                continue
+        seen.add(url)
+        urls.append(url)
+    return urls
+
+
+def resolve_diff_range() -> tuple[str, str]:
+    after = os.environ.get("INDEXNOW_AFTER", "").strip() or "HEAD"
+    before = os.environ.get("INDEXNOW_BEFORE", "").strip()
+    if not before:
+        before = first_parent(after)
+    return before, after
 
 
 def _headers() -> dict[str, str]:
@@ -299,26 +425,28 @@ def submit_to_engines(
     return accepted, rejected
 
 
-def resolve_urls(all_urls: bool) -> tuple[list[str], str]:
-    before = os.environ.get("INDEXNOW_BEFORE", "").strip()
-    after = os.environ.get("INDEXNOW_AFTER", "").strip()
+def resolve_urls(all_urls: bool, cap: int = AUTO_SUBMIT_CAP) -> tuple[list[str], str]:
+    """Pick URLs to submit. `--all` is the only path that returns the sitemap."""
     if all_urls:
         return sitemap_urls(), "sitemap"
-    if not before:
-        parent = subprocess.run(
-            ["git", "rev-parse", "HEAD~1"],
-            cwd=ROOT,
-            capture_output=True,
-            text=True,
-            check=False,
-        )
-        if parent.returncode == 0:
-            before = parent.stdout.strip()
+    before, after = resolve_diff_range()
+    if not before or before == ZERO_SHA:
+        return [], "no diff"
     files = git_changed_files(before, after)
-    urls = urls_from_files(files)
-    if urls:
-        return urls, "changed files"
-    return sitemap_urls(), "sitemap fallback"
+    urls = urls_from_page_changes(files, before, after)
+    if not urls:
+        return [], "no content changes"
+    if cap and len(urls) > cap:
+        return urls, f"capped ({len(urls)} > {cap})"
+    return urls, "changed page content"
+
+
+def should_submit(all_urls: bool, urls: list[str], source: str) -> bool:
+    if not urls:
+        return False
+    if all_urls:
+        return True
+    return not source.startswith("capped")
 
 
 def main() -> None:
@@ -335,6 +463,7 @@ def main() -> None:
         print(f"keyLocation {key_location}", flush=True)
         print(f"sitemap {len(sitemap_urls())} urls", flush=True)
         print(f"engines {', '.join(name for name, _ in ENGINES)}", flush=True)
+        print(f"autoCap {AUTO_SUBMIT_CAP}", flush=True)
         return
 
     urls, source = resolve_urls(args.all)
@@ -349,6 +478,19 @@ def main() -> None:
         preview = dict(payload)
         preview["urlList"] = urls[:8] + (["…"] if len(urls) > 8 else [])
         print(json.dumps(preview, indent=2, ensure_ascii=False), flush=True)
+        return
+
+    if not should_submit(args.all, urls, source):
+        if source.startswith("capped"):
+            print(
+                f"skip: automatic submit would send {len(urls)} URLs "
+                f"(cap {AUTO_SUBMIT_CAP}); use workflow_dispatch --all if intended",
+                flush=True,
+            )
+        elif source == "no diff":
+            print("skip: could not resolve the previous commit to diff against", flush=True)
+        else:
+            print("skip: no public page content changed", flush=True)
         return
 
     wait_for_live_key(key, key_location)

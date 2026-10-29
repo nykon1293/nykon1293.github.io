@@ -4,20 +4,28 @@ name: IndexNow
 # commit. The previous `on: push` trigger raced `pages-build-deployment`, so
 # Bing fetched the key file (and new HTML) before origin Last-Modified updated
 # and then returned 403 UserForbiddedToAccessSite.
+#
+# GitHub Pages uses the workflow name "pages build and deployment" (id
+# pages-build-deployment). Listing both names matches either historical label
+# without double-firing: only one of those workflows exists.
 on:
   workflow_run:
     workflows:
-      - pages-build-deployment
       - pages build and deployment
+      - pages-build-deployment
     types:
       - completed
     branches:
       - main
   workflow_dispatch:
 
+concurrency:
+  group: indexnow-${{ github.event.workflow_run.head_sha || github.run_id }}
+  cancel-in-progress: true
+
 jobs:
   ping:
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event_name == 'workflow_dispatch' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main') }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -26,14 +34,49 @@ jobs:
       - name: Check out deployed commit
         uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          fetch-depth: 50
           # workflow_run's github.sha is the default branch tip, which can
           # already be a newer commit than the Pages deploy that just finished.
           ref: ${{ github.event.workflow_run.head_sha || github.sha }}
 
+      - name: Previous Pages commit
+        if: ${{ github.event_name == 'workflow_run' }}
+        id: base
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CURRENT_RUN: ${{ github.event.workflow_run.id }}
+          AFTER: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          set -uo pipefail
+          PREV=""
+          if [ -n "${CURRENT_RUN:-}" ]; then
+            PREV="$(gh run list --workflow=pages-build-deployment --branch main --status success --limit 20 --json databaseId,headSha --jq "[.[] | select(.databaseId < ${CURRENT_RUN})] | .[0].headSha // empty" || true)"
+          fi
+          if [ -z "${PREV}" ]; then
+            if git rev-parse --verify "${AFTER}^1" >/dev/null 2>&1; then
+              PREV="$(git rev-parse "${AFTER}^1")"
+            fi
+          elif [ "${PREV}" = "${AFTER}" ]; then
+            # Same commit rebuilt; empty diff, do not fall back to ^1.
+            :
+          elif ! git cat-file -e "${PREV}^{commit}" 2>/dev/null; then
+            git fetch --depth=50 origin "${PREV}" || true
+            if ! git cat-file -e "${PREV}^{commit}" 2>/dev/null; then
+              if git rev-parse --verify "${AFTER}^1" >/dev/null 2>&1; then
+                PREV="$(git rev-parse "${AFTER}^1")"
+              else
+                PREV=""
+              fi
+            fi
+          fi
+          echo "before=${PREV}" >> "${GITHUB_OUTPUT}"
+          echo "INDEXNOW_BEFORE=${PREV}"
+          echo "INDEXNOW_AFTER=${AFTER}"
+
       - name: Submit public URLs
         env:
           INDEXNOW_AFTER: ${{ github.event.workflow_run.head_sha || github.sha }}
+          INDEXNOW_BEFORE: ${{ steps.base.outputs.before }}
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             python3 scripts/indexnow_ping.py --all
