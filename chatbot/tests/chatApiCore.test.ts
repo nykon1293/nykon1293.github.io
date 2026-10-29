@@ -101,7 +101,10 @@ async function testProfileIntentAnswersAvoidGeminiKey() {
   await assertLocalCanned("Where can I see his resume or work experience?", /9\+ years|experience|linkedin|resume/i);
   await assertLocalCanned("What projects has Yonatan built?", /projects|data platforms|etl|inventory|crm/i);
   await assertLocalCanned("What skills and tech stack does he have?", /skills|bigquery|cloud run|integrations|ecommerce/i);
-  await assertLocalCanned("What are his GitHub and LinkedIn links?", /github\.com|linkedin\.com|introductory call/i);
+  await assertLocalCanned(
+    "What are his GitHub and LinkedIn links?",
+    /linkedin\.com\/in\/joshuah-gemmi-16046233\/[\s\S]*linkedin\.com\/company\/gemmisi\/[\s\S]*facebook\.com\/1392236803978006[\s\S]*github\.com\/nykon1293/i
+  );
   await assertLocalCanned("Does he have certifications or credentials?", /salesforce|android enterprise|hubspot|credential/i);
   await assertLocalCanned("Is Yonatan available to hire?", /available|consulting|contract|timeline|30-minute introductory call/i);
   const contact = await assertLocalCanned("How do I get in touch?", /30-minute introductory call/i);

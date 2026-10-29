@@ -12,9 +12,10 @@ BUSINESS_ID = f"{BASE}/#business"
 WEBSITE_ID = f"{BASE}/#website"
 CALENDLY = "https://calendly.com/josh-gemmi/30min"
 LINKEDIN = "https://www.linkedin.com/in/joshuah-gemmi-16046233/"
+LINKEDIN_COMPANY = "https://www.linkedin.com/company/gemmisi/"
 FACEBOOK = "https://www.facebook.com/1392236803978006"
 GITHUB = "https://github.com/nykon1293"
-SAME_AS = [LINKEDIN, FACEBOOK, GITHUB]
+SAME_AS = [LINKEDIN, LINKEDIN_COMPANY, FACEBOOK, GITHUB]
 OG_IMAGE = f"{BASE}/assets/brand/gemmisi-og.png"
 PORTRAIT = f"{BASE}/assets/yonatan-gemmi-pixel-portrait-256.png"
 LOGO = f"{BASE}/assets/brand/gemmisi-icon-512.png"
@@ -78,17 +79,19 @@ def social_anchor(url: str, label: str, *, css_class: str | None = None) -> str:
 
 
 def footer_social_links() -> str:
-    """LinkedIn then Facebook, styled like other footer-nav labels."""
+    """Personal LinkedIn, company LinkedIn, then Facebook."""
     return (
         f"{social_anchor(LINKEDIN, 'LinkedIn')}\n"
+        f"        {social_anchor(LINKEDIN_COMPANY, 'GemmiSI on LinkedIn')}\n"
         f"        {social_anchor(FACEBOOK, 'Facebook')}"
     )
 
 
 def contact_social_links() -> str:
-    """Quiet LinkedIn · Facebook pair for contact panels."""
+    """Quiet LinkedIn · GemmiSI · Facebook for contact panels."""
     return (
         f"{social_anchor(LINKEDIN, 'LinkedIn', css_class='text-link')} · "
+        f"{social_anchor(LINKEDIN_COMPANY, 'GemmiSI', css_class='text-link')} · "
         f"{social_anchor(FACEBOOK, 'Facebook', css_class='text-link')}"
     )
 
