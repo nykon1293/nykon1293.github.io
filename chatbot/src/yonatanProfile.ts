@@ -5,6 +5,8 @@ export const YONATAN_PROFILE = {
   location: "North Miami Beach, Florida / Remote",
   contactEmail: "y@gemmisi.com",
   linkedInUrl: "https://www.linkedin.com/in/joshuah-gemmi-16046233/",
+  companyLinkedInUrl: "https://www.linkedin.com/company/gemmisi/",
+  facebookUrl: "https://www.facebook.com/1392236803978006",
   githubUrl: "https://github.com/nykon1293",
   availability: "Available for consulting projects, contract work, tutoring, coaching, technical troubleshooting, SI implementation, data platforms, technical operations, solutions engineering, ecommerce systems, and operator-builder engagements. The default next step is a free 30-minute introductory call. Tell visitors to pick a time at https://calendly.com/josh-gemmi/30min. Do not ask them to send a note or email in order to schedule.",
   positioning: "Yonatan is an operator-builder, creator, and technical translator who turns messy operational, learning, or project problems into usable systems. He can assess unfamiliar environments quickly, identify the right technology approach, personally create and drive implementation, and explain the work clearly: custom SI workflows, tutoring and coaching, cloud data platforms, Salesforce/HubSpot CRM workflows, warehouse SOPs, ecommerce operations, PPC audit and campaign-management workflows, approval-led social content operations, full network/workstation infrastructure, and SI-augmented development workflows.",

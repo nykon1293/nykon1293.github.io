@@ -208,8 +208,8 @@ const cannedRules: CannedRule[] = [
   },
   {
     name: "links",
-    test: (text) => hasAny(text, [/\b(github|git hub|linkedin|linked in|links|profile)\b/]),
-    answer: () => `You can find Yonatan on LinkedIn at ${YONATAN_PROFILE.linkedInUrl} and GitHub at ${YONATAN_PROFILE.githubUrl}. For a project conversation, ${introCallCta("a short note about what you need", true)}`
+    test: (text) => hasAny(text, [/\b(github|git hub|linkedin|linked in|facebook|links|profile)\b/]),
+    answer: () => `You can find Yonatan on LinkedIn at ${YONATAN_PROFILE.linkedInUrl}. GemmiSI is on LinkedIn at ${YONATAN_PROFILE.companyLinkedInUrl} and on Facebook at ${YONATAN_PROFILE.facebookUrl}. GitHub is at ${YONATAN_PROFILE.githubUrl}. For a project conversation, ${introCallCta("a short note about what you need", true)}`
   },
   {
     name: "credentials",

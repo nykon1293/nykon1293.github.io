@@ -18,6 +18,7 @@ SITE_NAME = "GemmiSI"
 SITE_ALTERNATE_NAME = "GemmiSI - Super Intelligence (SI) AI implementation"
 LOGO_URL = f"{BASE}/assets/brand/gemmisi-icon-512.png"
 LINKEDIN_PROFILE = "https://www.linkedin.com/in/joshuah-gemmi-16046233/"
+LINKEDIN_COMPANY = "https://www.linkedin.com/company/gemmisi/"
 FACEBOOK_PAGE = "https://www.facebook.com/1392236803978006"
 SKIP_SITEMAP_DIRS = {"chatbot", "sofer-preview"}
 NEW_INDUSTRY_PAGES = (
@@ -321,6 +322,8 @@ def main() -> None:
                     same = [same]
                 if LINKEDIN_PROFILE in same and FACEBOOK_PAGE not in same:
                     errors.append(f"{rel}: organization sameAs should include the Facebook Page")
+                if FACEBOOK_PAGE in same and LINKEDIN_COMPANY not in same:
+                    errors.append(f"{rel}: organization sameAs should include the LinkedIn company page")
             sites = [n for n in nodes if isinstance(n, dict) and n.get("@type") == "WebSite"]
             if not sites:
                 errors.append(f"{rel}: missing WebSite JSON-LD")
@@ -341,6 +344,8 @@ def main() -> None:
                     person_same = [person_same]
                 if LINKEDIN_PROFILE in person_same and FACEBOOK_PAGE not in person_same:
                     errors.append(f"{rel}: person sameAs should include the Facebook Page")
+                if FACEBOOK_PAGE in person_same and LINKEDIN_COMPANY not in person_same:
+                    errors.append(f"{rel}: person sameAs should include the LinkedIn company page")
             services = [n for n in nodes if isinstance(n, dict) and n.get("@type") == "Service"]
             for svc in services:
                 provider = svc.get("provider") or {}
@@ -352,6 +357,13 @@ def main() -> None:
             for offer in offers:
                 if offer.get("offeredBy", {}).get("@id") not in (None, f"{BASE}/#business"):
                     errors.append(f"{rel}: Offer should link to the organization")
+
+        if FACEBOOK_PAGE in html and LINKEDIN_COMPANY not in html:
+            errors.append(f"{rel}: Facebook Page is listed without the LinkedIn company page")
+        for url, name in ((LINKEDIN_COMPANY, "LinkedIn company"), (FACEBOOK_PAGE, "Facebook Page")):
+            for tag in re.findall(rf'<a\b[^>]*href="{re.escape(url)}"[^>]*>.*?</a>', html, flags=re.S):
+                if "<svg" not in tag:
+                    errors.append(f"{rel}: {name} link is missing an inline brand icon")
 
         rel_str = str(rel)
         industry_landing = bool(re.fullmatch(r"use-cases/industry/[^/]+/index.html", rel_str))

@@ -11,12 +11,15 @@ from seo_schema import (
     APPROVAL_LINE,
     BASE,
     CALENDLY,
+    CSS_VERSION,
     OWN_EQUIPMENT,
     _offer,
+    apply_company_social_icons,
     breadcrumb_node,
     common_head_tags,
     faq_node,
     font_and_css_links,
+    footer_social_links,
     graph_payload,
     person_node,
     professional_service_node,
@@ -410,7 +413,7 @@ def patch_home() -> None:
         title=title,
         description=description,
         canonical=f"{BASE}/",
-        stylesheet="styles.css?v=perf-1",
+        stylesheet=f"styles.css?v={CSS_VERSION}",
         icon="assets/yonatan-gemmi-pixel-portrait-256.png",
     )
     html = replace_jsonld(html, home_graph())
@@ -447,7 +450,7 @@ def patch_pricing() -> None:
         title=title,
         description=description,
         canonical=f"{BASE}/pricing.html",
-        stylesheet="styles.css?v=perf-1",
+        stylesheet=f"styles.css?v={CSS_VERSION}",
         icon="assets/yonatan-gemmi-pixel-portrait-256.png",
     )
     html = replace_jsonld(html, pricing_graph())
@@ -461,7 +464,9 @@ def patch_pricing() -> None:
     html = html.replace(old_faq, new_faq, 1)
     html = html.replace(
         '      <p>© <span id="year"></span> Yonatan Gemmi. Built with GitHub Pages • Based in North Miami Beach, Florida • <a class="text-link" href="https://www.linkedin.com/in/joshuah-gemmi-16046233/" target="_blank" rel="noreferrer">LinkedIn</a></p>',
-        '      <p>© <span id="year"></span> Yonatan Gemmi. Based in North Miami Beach, Florida · Miami-Dade, Broward, and remote</p>\n      <p class="footer-nav">\n        <a href="index.html">Home</a>\n        <a href="pricing.html">Pricing</a>\n        <a href="services/stocky-recovery.html">Stocky recovery</a>\n        <a href="services/hermes-agents.html">Hermes desks</a>\n        <a href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book consultation</a>\n        <a href="https://www.linkedin.com/in/joshuah-gemmi-16046233/" target="_blank" rel="noreferrer">LinkedIn</a>\n        <a href="https://www.facebook.com/1392236803978006" target="_blank" rel="noreferrer">Facebook</a>\n      </p>',
+        "      <p>© <span id=\"year\"></span> Yonatan Gemmi. Based in North Miami Beach, Florida · Miami-Dade, Broward, and remote</p>\n      <p class=\"footer-nav\">\n        <a href=\"index.html\">Home</a>\n        <a href=\"pricing.html\">Pricing</a>\n        <a href=\"services/stocky-recovery.html\">Stocky recovery</a>\n        <a href=\"services/hermes-agents.html\">Hermes desks</a>\n        <a href=\"https://calendly.com/josh-gemmi/30min\" target=\"_blank\" rel=\"noreferrer\">Book consultation</a>\n        "
+        + footer_social_links()
+        + "\n      </p>",
     )
     path.write_text(html, encoding="utf-8")
     print("patched", path.relative_to(ROOT))
@@ -477,13 +482,15 @@ def patch_advisory() -> None:
         title=title,
         description=description,
         canonical=f"{BASE}/advisory.html",
-        stylesheet="styles.css?v=perf-1",
+        stylesheet=f"styles.css?v={CSS_VERSION}",
         icon="assets/yonatan-gemmi-pixel-portrait-256.png",
     )
     html = replace_jsonld(html, advisory_graph())
     html = html.replace(
         '      <p>© <span id="year"></span> Yonatan Gemmi. Built with GitHub Pages • Based in North Miami Beach, Florida • <a class="text-link" href="https://www.linkedin.com/in/joshuah-gemmi-16046233/" target="_blank" rel="noreferrer">LinkedIn</a></p>',
-        '      <p>© <span id="year"></span> Yonatan Gemmi. Based in North Miami Beach, Florida · Miami-Dade, Broward, and remote</p>\n      <p class="footer-nav">\n        <a href="index.html">Home</a>\n        <a href="pricing.html">Pricing</a>\n        <a href="services/stocky-recovery.html">Stocky recovery</a>\n        <a href="services/hermes-agents.html">Hermes desks</a>\n        <a href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book consultation</a>\n        <a href="https://www.linkedin.com/in/joshuah-gemmi-16046233/" target="_blank" rel="noreferrer">LinkedIn</a>\n        <a href="https://www.facebook.com/1392236803978006" target="_blank" rel="noreferrer">Facebook</a>\n      </p>',
+        "      <p>© <span id=\"year\"></span> Yonatan Gemmi. Based in North Miami Beach, Florida · Miami-Dade, Broward, and remote</p>\n      <p class=\"footer-nav\">\n        <a href=\"index.html\">Home</a>\n        <a href=\"pricing.html\">Pricing</a>\n        <a href=\"services/stocky-recovery.html\">Stocky recovery</a>\n        <a href=\"services/hermes-agents.html\">Hermes desks</a>\n        <a href=\"https://calendly.com/josh-gemmi/30min\" target=\"_blank\" rel=\"noreferrer\">Book consultation</a>\n        "
+        + footer_social_links()
+        + "\n      </p>",
     )
     path.write_text(html, encoding="utf-8")
     print("patched", path.relative_to(ROOT))
@@ -502,7 +509,7 @@ def patch_stocky() -> None:
         title=title,
         description=description,
         canonical=f"{BASE}/services/stocky-recovery.html",
-        stylesheet="../styles.css?v=perf-1",
+        stylesheet=f"../styles.css?v={CSS_VERSION}",
         icon="../assets/yonatan-gemmi-pixel-portrait-256.png",
     )
     html = replace_jsonld(html, stocky_graph())
@@ -552,13 +559,15 @@ def patch_work() -> None:
         description=description,
         canonical=f"{BASE}/work/governed-ai-content-engine.html",
         og_type="article",
-        stylesheet="../styles.css?v=perf-1",
+        stylesheet=f"../styles.css?v={CSS_VERSION}",
         icon="../assets/yonatan-gemmi-pixel-portrait-256.png",
     )
     html = replace_jsonld(html, work_graph())
     html = html.replace(
         '      <p>© <span id="year"></span> Yonatan Gemmi. Built with GitHub Pages • Based in North Miami Beach, Florida • <a class="text-link" href="https://www.linkedin.com/in/joshuah-gemmi-16046233/" target="_blank" rel="noreferrer">LinkedIn</a></p>',
-        '      <p>© <span id="year"></span> Yonatan Gemmi. Based in North Miami Beach, Florida · Miami-Dade, Broward, and remote</p>\n      <p class="footer-nav">\n        <a href="../index.html">Home</a>\n        <a href="../pricing.html">Pricing</a>\n        <a href="../services/stocky-recovery.html">Stocky recovery</a>\n        <a href="../services/hermes-agents.html">Hermes desks</a>\n        <a href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book consultation</a>\n        <a href="https://www.linkedin.com/in/joshuah-gemmi-16046233/" target="_blank" rel="noreferrer">LinkedIn</a>\n        <a href="https://www.facebook.com/1392236803978006" target="_blank" rel="noreferrer">Facebook</a>\n      </p>',
+        "      <p>© <span id=\"year\"></span> Yonatan Gemmi. Based in North Miami Beach, Florida · Miami-Dade, Broward, and remote</p>\n      <p class=\"footer-nav\">\n        <a href=\"../index.html\">Home</a>\n        <a href=\"../pricing.html\">Pricing</a>\n        <a href=\"../services/stocky-recovery.html\">Stocky recovery</a>\n        <a href=\"../services/hermes-agents.html\">Hermes desks</a>\n        <a href=\"https://calendly.com/josh-gemmi/30min\" target=\"_blank\" rel=\"noreferrer\">Book consultation</a>\n        "
+        + footer_social_links()
+        + "\n      </p>",
     )
     path.write_text(html, encoding="utf-8")
     print("patched", path.relative_to(ROOT))
@@ -573,7 +582,7 @@ HAND_PAGES = [
             "Free 30-minute consult. Remote or North Miami Beach."
         ),
         "canonical": f"{BASE}/",
-        "stylesheet": "styles.css?v=perf-1",
+        "stylesheet": f"styles.css?v={CSS_VERSION}",
         "icon": "assets/yonatan-gemmi-pixel-portrait-256.png",
         "graph": home_graph,
     },
@@ -585,7 +594,7 @@ HAND_PAGES = [
             "Free 30-minute consultation. North Miami Beach / remote."
         ),
         "canonical": f"{BASE}/pricing.html",
-        "stylesheet": "styles.css?v=perf-1",
+        "stylesheet": f"styles.css?v={CSS_VERSION}",
         "icon": "assets/yonatan-gemmi-pixel-portrait-256.png",
         "graph": pricing_graph,
     },
@@ -597,7 +606,7 @@ HAND_PAGES = [
             "Limited seats. Inquire first. Not Care and not a Desk."
         ),
         "canonical": f"{BASE}/advisory.html",
-        "stylesheet": "styles.css?v=perf-1",
+        "stylesheet": f"styles.css?v={CSS_VERSION}",
         "icon": "assets/yonatan-gemmi-pixel-portrait-256.png",
         "graph": advisory_graph,
     },
@@ -609,7 +618,7 @@ HAND_PAGES = [
             "Sheets system on seats you already pay for — not a replacement app."
         ),
         "canonical": f"{BASE}/services/stocky-recovery.html",
-        "stylesheet": "../styles.css?v=perf-1",
+        "stylesheet": f"../styles.css?v={CSS_VERSION}",
         "icon": "../assets/yonatan-gemmi-pixel-portrait-256.png",
         "graph": stocky_graph,
     },
@@ -622,7 +631,7 @@ HAND_PAGES = [
         ),
         "canonical": f"{BASE}/work/governed-ai-content-engine.html",
         "og_type": "article",
-        "stylesheet": "../styles.css?v=perf-1",
+        "stylesheet": f"../styles.css?v={CSS_VERSION}",
         "icon": "../assets/yonatan-gemmi-pixel-portrait-256.png",
         "graph": work_graph,
     },
@@ -677,9 +686,25 @@ def refresh_head_and_jsonld() -> None:
     patch_404()
 
 
+def apply_social_icons() -> None:
+    """Insert Facebook/LinkedIn brand icons on unique pages and bust CSS cache."""
+    pages = [spec["path"] for spec in HAND_PAGES]
+    pages.append(ROOT / "404.html")
+    for path in pages:
+        html = path.read_text(encoding="utf-8")
+        updated = apply_company_social_icons(html)
+        updated = re.sub(r"styles\.css\?v=[^\"]+", f"styles.css?v={CSS_VERSION}", updated)
+        if updated != html:
+            path.write_text(updated, encoding="utf-8")
+            print("social-icons", path.relative_to(ROOT))
+
+
 def main() -> None:
     if "--jsonld-only" in sys.argv:
         refresh_jsonld_only()
+        return
+    if "--social-icons" in sys.argv:
+        apply_social_icons()
         return
     refresh_head_and_jsonld()
 
