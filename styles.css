@@ -1069,6 +1069,40 @@ footer p { font-size: .92rem; }
 }
 .footer-nav a { color: var(--muted); }
 .footer-nav a:hover { color: var(--text); }
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+.social-link .social-icon {
+  width: 1em;
+  height: 1em;
+  flex: 0 0 auto;
+  display: block;
+}
+.social-pair {
+  display: inline;
+}
+.footer-nav .social-pair {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  vertical-align: middle;
+}
+.contact-quiet .social-pair {
+  white-space: nowrap;
+}
+.social-pair--stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  margin-top: 6px;
+  white-space: normal;
+}
 
 @media (max-width: 950px) {
   .hero, .split, .closing-card { grid-template-columns: 1fr; }
@@ -1094,6 +1128,7 @@ footer p { font-size: .92rem; }
   .brand { grid-column: 1; grid-row: 1; min-width: 0; }
   .brand-lockup { height: 26px; max-width: 118px; }
   .footer-lockup { height: 24px; }
+  .footer-nav .social-pair { flex-basis: 100%; }
   .nav-links {
     display: none;
     grid-column: 1 / -1;
@@ -2260,6 +2295,8 @@ footer p { font-size: .92rem; }
 .about-copy { max-width: 62ch; }
 .about-copy p { margin-bottom: 12px; font-size: var(--text-md); color: #cdcec2; }
 .about-copy .text-link { display: inline-block; margin-top: 6px; }
+.about-copy .social-link { display: inline-flex; }
+.about-copy .social-pair--stack .text-link { margin-top: 0; }
 
 /* Contact section refinements */
 .booking-detail {
@@ -2281,6 +2318,7 @@ footer p { font-size: .92rem; }
   color: var(--muted);
   font-size: var(--text-sm);
 }
+.contact-quiet .social-link { display: inline-flex; }
 
 /* Footer link */
 footer a { color: var(--muted); text-decoration: none; }
@@ -2303,6 +2341,7 @@ footer a:hover { color: var(--text); text-decoration: underline; }
   .working-steps { grid-template-columns: 1fr; }
   .about-identity { flex-direction: column; text-align: center; }
   .about-identity img { width: 80px; height: 80px; }
+  .about-copy .social-pair--stack { align-items: center; }
   .work-booking .button { width: 100%; }
   .audience-band { padding: 4px 0 40px; }
   .hero .proof-strip {

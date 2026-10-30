@@ -360,6 +360,10 @@ def main() -> None:
 
         if FACEBOOK_PAGE in html and LINKEDIN_COMPANY not in html:
             errors.append(f"{rel}: Facebook Page is listed without the LinkedIn company page")
+        for url, name in ((LINKEDIN_COMPANY, "LinkedIn company"), (FACEBOOK_PAGE, "Facebook Page")):
+            for tag in re.findall(rf'<a\b[^>]*href="{re.escape(url)}"[^>]*>.*?</a>', html, flags=re.S):
+                if "<svg" not in tag:
+                    errors.append(f"{rel}: {name} link is missing an inline brand icon")
 
         rel_str = str(rel)
         industry_landing = bool(re.fullmatch(r"use-cases/industry/[^/]+/index.html", rel_str))

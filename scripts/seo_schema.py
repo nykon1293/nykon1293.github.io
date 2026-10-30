@@ -73,17 +73,67 @@ AREA_SERVED = [
 ]
 
 
+# Simple Icons paths (CC0). Decorative; the visible link text is the accessible name.
+_LINKEDIN_ICON_PATH = (
+    "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 "
+    "1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 "
+    "3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 "
+    "0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 "
+    "2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 "
+    "23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+)
+_FACEBOOK_ICON_PATH = (
+    "M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 "
+    "11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 "
+    "2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 "
+    "3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+)
+
+
+def _social_icon_svg(path: str) -> str:
+    return (
+        '<svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" '
+        'width="1em" height="1em" aria-hidden="true" focusable="false">'
+        f'<path fill="currentColor" d="{path}"/></svg>'
+    )
+
+
+def social_icon_for_url(url: str) -> str:
+    """Brand mark for the GemmiSI LinkedIn company page and Facebook Page only."""
+    if url.rstrip("/") == LINKEDIN_COMPANY.rstrip("/"):
+        return _social_icon_svg(_LINKEDIN_ICON_PATH)
+    if url == FACEBOOK:
+        return _social_icon_svg(_FACEBOOK_ICON_PATH)
+    return ""
+
+
 def social_anchor(url: str, label: str, *, css_class: str | None = None) -> str:
-    cls = f' class="{css_class}"' if css_class else ""
-    return f'<a{cls} href="{url}" target="_blank" rel="noreferrer">{label}</a>'
+    icon = social_icon_for_url(url)
+    classes = [part for part in (css_class, "social-link" if icon else None) if part]
+    cls = f' class="{" ".join(classes)}"' if classes else ""
+    return f'<a{cls} href="{url}" target="_blank" rel="noreferrer">{icon}{label}</a>'
+
+
+def company_social_pair(
+    *,
+    css_class: str | None = None,
+    linkedin_label: str,
+    facebook_label: str,
+    joiner: str = "\n        ",
+    extra_class: str = "",
+) -> str:
+    """GemmiSI LinkedIn page next to Facebook, grouped for wrapping."""
+    linkedin = social_anchor(LINKEDIN_COMPANY, linkedin_label, css_class=css_class)
+    facebook = social_anchor(FACEBOOK, facebook_label, css_class=css_class)
+    cls = "social-pair" + (f" {extra_class}" if extra_class else "")
+    return f'<span class="{cls}">{linkedin}{joiner}{facebook}</span>'
 
 
 def footer_social_links() -> str:
-    """Personal LinkedIn, company LinkedIn, then Facebook."""
+    """Personal LinkedIn, then the company LinkedIn + Facebook pair."""
     return (
         f"{social_anchor(LINKEDIN, 'LinkedIn')}\n"
-        f"        {social_anchor(LINKEDIN_COMPANY, 'GemmiSI on LinkedIn')}\n"
-        f"        {social_anchor(FACEBOOK, 'Facebook')}"
+        f"        {company_social_pair(linkedin_label='GemmiSI on LinkedIn', facebook_label='Facebook')}"
     )
 
 
@@ -91,9 +141,64 @@ def contact_social_links() -> str:
     """Quiet LinkedIn · GemmiSI · Facebook for contact panels."""
     return (
         f"{social_anchor(LINKEDIN, 'LinkedIn', css_class='text-link')} · "
-        f"{social_anchor(LINKEDIN_COMPANY, 'GemmiSI', css_class='text-link')} · "
-        f"{social_anchor(FACEBOOK, 'Facebook', css_class='text-link')}"
+        f"{company_social_pair(css_class='text-link', linkedin_label='GemmiSI', facebook_label='Facebook', joiner=' · ')}"
     )
+
+
+def about_company_social_links() -> str:
+    """Homepage About: company LinkedIn then Facebook, stacked."""
+    return company_social_pair(
+        css_class="text-link",
+        linkedin_label="GemmiSI on LinkedIn ↗",
+        facebook_label="GemmiSI on Facebook ↗",
+        joiner="",
+        extra_class="social-pair--stack",
+    )
+
+
+_FOOTER_COMPANY_RE = re.compile(
+    r'<a href="'
+    + re.escape(LINKEDIN_COMPANY)
+    + r'" target="_blank" rel="noreferrer">GemmiSI on LinkedIn</a>\s*'
+    r'<a href="'
+    + re.escape(FACEBOOK)
+    + r'" target="_blank" rel="noreferrer">Facebook</a>'
+)
+_CONTACT_COMPANY_RE = re.compile(
+    r'<a class="text-link" href="'
+    + re.escape(LINKEDIN_COMPANY)
+    + r'" target="_blank" rel="noreferrer">GemmiSI</a> · '
+    r'<a class="text-link" href="'
+    + re.escape(FACEBOOK)
+    + r'" target="_blank" rel="noreferrer">Facebook</a>'
+)
+_ABOUT_COMPANY_RE = re.compile(
+    r'<a class="text-link" href="'
+    + re.escape(LINKEDIN_COMPANY)
+    + r'" target="_blank" rel="noreferrer">GemmiSI on LinkedIn ↗</a><br />\s*'
+    r'<a class="text-link" href="'
+    + re.escape(FACEBOOK)
+    + r'" target="_blank" rel="noreferrer">GemmiSI on Facebook ↗</a>'
+)
+
+
+def apply_company_social_icons(html: str) -> str:
+    """Insert brand icons into existing company LinkedIn and Facebook anchors. Idempotent."""
+    html = _FOOTER_COMPANY_RE.sub(
+        lambda _: company_social_pair(linkedin_label="GemmiSI on LinkedIn", facebook_label="Facebook"),
+        html,
+    )
+    html = _CONTACT_COMPANY_RE.sub(
+        lambda _: company_social_pair(
+            css_class="text-link",
+            linkedin_label="GemmiSI",
+            facebook_label="Facebook",
+            joiner=" · ",
+        ),
+        html,
+    )
+    html = _ABOUT_COMPANY_RE.sub(lambda _: about_company_social_links(), html)
+    return html
 
 
 def clip_meta(text: str, limit: int = 155) -> str:
@@ -618,7 +723,7 @@ def service_node(*, name: str, description: str, url: str) -> dict:
     }
 
 
-CSS_VERSION = "uc-rental-1"
+CSS_VERSION = "social-1"
 
 
 def graph_payload(nodes: list[dict]) -> str:
