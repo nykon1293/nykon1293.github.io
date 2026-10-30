@@ -2318,7 +2318,15 @@ footer p { font-size: .92rem; }
   color: var(--muted);
   font-size: var(--text-sm);
 }
-.contact-quiet .social-link { display: inline-flex; }
+.contact-quiet .social-link {
+  display: inline;
+  vertical-align: baseline;
+}
+.contact-quiet .social-icon {
+  display: inline-block;
+  vertical-align: -0.15em;
+  margin-inline-end: 0.35em;
+}
 
 /* Footer link */
 footer a { color: var(--muted); text-decoration: none; }
@@ -2341,7 +2349,6 @@ footer a:hover { color: var(--text); text-decoration: underline; }
   .working-steps { grid-template-columns: 1fr; }
   .about-identity { flex-direction: column; text-align: center; }
   .about-identity img { width: 80px; height: 80px; }
-  .about-copy .social-pair--stack { align-items: center; }
   .work-booking .button { width: 100%; }
   .audience-band { padding: 4px 0 40px; }
   .hero .proof-strip {
