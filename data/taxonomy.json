@@ -131,6 +131,14 @@
       "seo_h1": "Use cases for shops, gyms and agencies",
       "meta": "SI (AI) jobs for auto shops, gyms, salons, and small agencies. A person still checks every draft before it goes out.",
       "regulated": false
+    },
+    "hobbies-collections": {
+      "label": "Hobbies & collections",
+      "blurb": "Sports cards and TCG. SI takes the manual entry out of PriceCharting. A person still approves.",
+      "seo_title": "SI (AI) use cases for hobbies | GemmiSI",
+      "seo_h1": "Use cases for hobbies and collections",
+      "meta": "SI (AI) jobs for sports cards and TCG. PriceCharting for TCG. SportsCardsPro for sports. You still approve.",
+      "regulated": false
     }
   },
   "functions": {
@@ -287,6 +295,11 @@
       "auto-repair-request-sorting",
       "fitness-class-list-check-ins",
       "insurance-renewal-quote-compare"
+    ],
+    "hobbies-collections": [
+      "card-pricecharting-collection",
+      "card-collection-value-before-show",
+      "card-record-sales"
     ]
   },
   "kits": [
@@ -505,6 +518,105 @@
       "booking",
       "whatsapp",
       "appointment"
+    ],
+    "card": [
+      "card",
+      "cards",
+      "collection",
+      "pricecharting",
+      "tcg"
+    ],
+    "cards": [
+      "card",
+      "cards",
+      "collection"
+    ],
+    "collection": [
+      "collection",
+      "card",
+      "pricecharting"
+    ],
+    "pricecharting": [
+      "pricecharting",
+      "sportscardspro",
+      "collection",
+      "card"
+    ],
+    "sportscardspro": [
+      "sportscardspro",
+      "pricecharting",
+      "card"
+    ],
+    "hobby": [
+      "hobby",
+      "hobbies",
+      "collection",
+      "card"
+    ],
+    "hobbies": [
+      "hobby",
+      "hobbies",
+      "collection"
+    ],
+    "grading": [
+      "grading",
+      "grade",
+      "slab"
+    ],
+    "show": [
+      "show",
+      "card"
+    ],
+    "tcg": [
+      "tcg",
+      "pokemon",
+      "card",
+      "pricecharting"
+    ],
+    "pokemon": [
+      "pokemon",
+      "tcg",
+      "card",
+      "pricecharting"
     ]
+  },
+  "hobbies_hub": {
+    "seo_title": "Hobbies & collections | SI (AI) | GemmiSI",
+    "seo_h1": "Hobbies and collections",
+    "meta": "SI (AI) setups for hobbies. Sports cards and TCG are first. PriceCharting for TCG; SportsCardsPro for sports. Free 30-minute consultation.",
+    "blurb": "Hobbies make a lot of small chores. Lists, prices, packages, and notes. SI can draft that busywork on your own computer and accounts. You still decide. Small businesses and individuals are welcome.",
+    "intro": "Sports cards and TCG are first. SI takes the manual entry out of PriceCharting. Sports cards go on SportsCardsPro. TCG and other non-sports stay on PriceCharting. More hobbies can follow, such as sneakers, coins, and vinyl."
+  },
+  "hobbies": {
+    "trading-cards": {
+      "status": "live",
+      "label": "Sports cards and TCG",
+      "seo_title": "Sports cards and TCG | SI (AI) | GemmiSI",
+      "seo_h1": "Sports cards and TCG",
+      "meta": "SI (AI) for sports cards and TCG. PriceCharting for TCG and non-sports. SportsCardsPro for sports. You still approve.",
+      "blurb": "SI takes the manual entry out of PriceCharting. Sports cards go on SportsCardsPro. Pokémon, Magic, One Piece, Yu-Gi-Oh!, and other non-sports stay on PriceCharting.",
+      "lead": "SI takes the manual entry out of PriceCharting.",
+      "intro": "This is for card collectors in general: sports cards and TCG (trading card games like Pokémon, Magic: The Gathering, One Piece, and Yu-Gi-Oh!), plus other non-sports. Today collectors type every card, grade, cert, and price by hand. With SI you send a photo or say the card. Sports cards go on SportsCardsPro. TCG and other non-sports stay on PriceCharting. Same login. SI adds, edits, reviews, and reports. You still approve.",
+      "featured": [
+        "card-pricecharting-collection",
+        "card-collection-value-before-show"
+      ],
+      "industry": "hobbies-collections"
+    },
+    "sneakers": {
+      "status": "coming",
+      "label": "Sneakers",
+      "blurb": "Watching restocks and keeping a list. Coming later."
+    },
+    "coins": {
+      "status": "coming",
+      "label": "Coins",
+      "blurb": "Keeping a list and checking values. Coming later."
+    },
+    "vinyl": {
+      "status": "coming",
+      "label": "Vinyl records",
+      "blurb": "Want lists, pressings, and shop finds. Coming later."
+    }
   }
 }

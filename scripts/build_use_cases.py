@@ -60,6 +60,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "use-cases.json"
 TAXONOMY_PATH = ROOT / "data" / "taxonomy.json"
 OUT = ROOT / "use-cases"
+HOBBIES_OUT = ROOT / "hobbies"
 SITEMAP = ROOT / "sitemap.xml"
 
 BASE = "https://gemmisi.com"
@@ -101,10 +102,16 @@ HOSTING_CLAIM = re.compile(
     r"hosted by gemmisi|gemmisi hosts your|stores client data",
     re.I,
 )
+WEEKDAY_RE = re.compile(
+    r"\b(monday|tuesday|wednesday|thursday|friday|saturday|sunday)\b",
+    re.I,
+)
 
 TAX: dict = {}
 INDUSTRIES: dict = {}
 FUNCTIONS: dict = {}
+HOBBIES: dict = {}
+HOBBIES_HUB: dict = {}
 OWN_ACCOUNTS = ""
 ALSO_USED_NOTE = ""
 FEATURED_SLUGS: list[str] = []
@@ -200,6 +207,16 @@ RELATED_PINNED = {
     "quote-follow-ups": ("estimate-day-follow-up",),
     "daily-briefing": ("weekly-money-in-digest",),
     "weekly-owner-snapshot": ("weekly-money-in-digest",),
+    "card-pricecharting-collection": (
+        "card-collection-value-before-show",
+        "card-identify-from-photo",
+        "card-record-sales",
+    ),
+    "card-collection-value-before-show": (
+        "card-pricecharting-collection",
+        "card-record-sales",
+        "card-local-show-finder",
+    ),
 }
 
 
@@ -223,6 +240,22 @@ def primary_function(item: dict) -> str:
     return item["functions"][0]
 
 
+def primary_hobby(item: dict) -> str | None:
+    hobbies = item.get("hobbies") or []
+    return hobbies[0] if hobbies else None
+
+
+def hobby_info(slug: str) -> dict:
+    info = HOBBIES.get(slug)
+    if not info:
+        raise SystemExit(f"Unknown hobby {slug!r}")
+    return info
+
+
+def matching_hobby(entries: list, slug: str) -> list:
+    return [item for item in entries if slug in (item.get("hobbies") or [])]
+
+
 def is_regulated(slug: str) -> bool:
     return bool(INDUSTRIES.get(slug, {}).get("regulated"))
 
@@ -242,6 +275,9 @@ def function_info(slug: str) -> dict:
 
 
 def card_label(item: dict) -> str:
+    hobby = primary_hobby(item)
+    if hobby:
+        return hobby_info(hobby)["label"]
     ind = primary_industry(item)
     if ind != "any-business":
         return industry_info(ind)["label"]
@@ -269,6 +305,8 @@ def relevant_service(item: dict) -> tuple[str, str]:
         return ("/services/ai-automation.html", "SI automation")
     if primary_industry(item) == "education":
         return ("/services/tutoring-project-help.html", "Tutoring & project help")
+    if primary_industry(item) == "hobbies-collections":
+        return ("/services/ai-automation.html", "SI automation")
     if primary_industry(item) == "ecommerce" or "stock" in item["functions"]:
         return ("/services/ecommerce-operations.html", "Ecommerce operations")
     if "numbers" in item["functions"]:
@@ -516,6 +554,17 @@ def industry_faqs(slug: str) -> list[tuple[str, str]]:
                 "No. It drafts the paperwork. Your team still checks the counts and the prices.",
             ),
         ]
+    elif slug == "hobbies-collections":
+        extra = [
+            (
+                "Is this only for sports cards?",
+                "No. Sports cards and TCG. Pokémon, Magic: The Gathering, One Piece, Yu-Gi-Oh!, and other non-sports too. Sports cards go on SportsCardsPro. TCG stays on PriceCharting.",
+            ),
+            (
+                "Does SI type my cards into PriceCharting for me?",
+                "You send a photo or say the card. SI drafts the add, the edit, the review, and the report. Sports cards go on SportsCardsPro. TCG and other non-sports stay on PriceCharting. You approve before anything is saved.",
+            ),
+        ]
     else:
         extra = [
             (
@@ -537,10 +586,12 @@ def faq_html(faqs: list[tuple[str, str]]) -> str:
 
 
 def load_taxonomy() -> None:
-    global TAX, INDUSTRIES, FUNCTIONS, OWN_ACCOUNTS, ALSO_USED_NOTE, FEATURED_SLUGS, LEGACY
+    global TAX, INDUSTRIES, FUNCTIONS, HOBBIES, HOBBIES_HUB, OWN_ACCOUNTS, ALSO_USED_NOTE, FEATURED_SLUGS, LEGACY
     TAX = json.loads(TAXONOMY_PATH.read_text(encoding="utf-8"))
     INDUSTRIES = TAX["industries"]
     FUNCTIONS = TAX["functions"]
+    HOBBIES = TAX.get("hobbies") or {}
+    HOBBIES_HUB = TAX.get("hobbies_hub") or {}
     OWN_ACCOUNTS = TAX["own_accounts"]
     ALSO_USED_NOTE = TAX["also_used_note"]
     FEATURED_SLUGS = []
@@ -549,6 +600,12 @@ def load_taxonomy() -> None:
         raise SystemExit("taxonomy.start_here is missing")
     if OWN_ACCOUNTS != "GemmiSI sets this up on your own equipment and accounts; your data stays with you.":
         raise SystemExit("taxonomy.own_accounts must keep the approved own-accounts line")
+    if "hobbies-collections" not in INDUSTRIES:
+        raise SystemExit("taxonomy is missing the hobbies-collections industry")
+    if "trading-cards" not in HOBBIES:
+        raise SystemExit("taxonomy is missing the trading-cards hobby")
+    if "smart intelligence" in json.dumps(TAX).lower():
+        raise SystemExit("taxonomy must say Super Intelligence, not smart intelligence")
 
 
 def _check_banned_blob(item: dict, blob: str) -> None:
@@ -811,6 +868,22 @@ def load() -> list:
         for fn in fns:
             if fn not in FUNCTIONS:
                 raise SystemExit(f"Unknown function {fn!r} on {slug}")
+        hobbies = item.get("hobbies") or []
+        if hobbies:
+            if not isinstance(hobbies, list) or len(set(hobbies)) != len(hobbies):
+                raise SystemExit(f"{slug} hobbies must be a unique list")
+            for hobby in hobbies:
+                if hobby not in HOBBIES:
+                    raise SystemExit(f"Unknown hobby {hobby!r} on {slug}")
+                if HOBBIES[hobby].get("status") != "live":
+                    raise SystemExit(f"{slug} is tagged with a hobby that is not live: {hobby}")
+            if primary_industry(item) != "hobbies-collections":
+                raise SystemExit(f"{slug} hobby entries must keep hobbies-collections primary")
+            weekday = WEEKDAY_RE.search(json.dumps(item))
+            if weekday:
+                raise SystemExit(
+                    f"{slug} must not name a day of the week ({weekday.group(1)})"
+                )
         if primary_industry(item) != "any-business" and "any-business" in inds:
             raise SystemExit(f"{slug} dedicated vertical entries must not also be any-business")
         group_id = item.get("group")
@@ -897,6 +970,18 @@ def load() -> list:
                 raise SystemExit(f"start_here {industry} points at unknown {pick}")
             if industry not in match["industries"]:
                 raise SystemExit(f"start_here {pick} is not tagged {industry}")
+    for hobby, info in HOBBIES.items():
+        if info.get("status") != "live":
+            continue
+        featured = info.get("featured") or []
+        if len(featured) != 2:
+            raise SystemExit(f"hobby {hobby} needs exactly two featured slugs")
+        for pick in featured:
+            match = next((item for item in entries if item["slug"] == pick), None)
+            if not match:
+                raise SystemExit(f"hobby {hobby} featured unknown {pick}")
+            if hobby not in (match.get("hobbies") or []):
+                raise SystemExit(f"hobby featured {pick} is not tagged {hobby}")
     global SEO_TITLES
     SEO_TITLES = use_case_seo_titles(entries)
     return entries
@@ -972,9 +1057,11 @@ def function_counts(entries: list) -> dict[str, int]:
     return {slug: len(matching_function(entries, slug)) for slug in FUNCTIONS}
 
 
-def nav(depth: int) -> str:
+def nav(depth: int, current: str = "use-cases") -> str:
     up = "../" * depth
-    library = "../" * (depth - 1) + "index.html" if depth else "index.html"
+    library = f"{up}use-cases/"
+    uc_cur = ' aria-current="page"' if current == "use-cases" else ""
+    hob_cur = ' aria-current="page"' if current == "hobbies" else ""
     return f"""    <header class="nav">
       <a class="brand" href="{up}index.html" aria-label="GemmiSI home">
         <img class="brand-lockup" src="{up}assets/brand/gemmisi-lockup-dark.svg" alt="" width="159" height="36" />
@@ -999,7 +1086,8 @@ def nav(depth: int) -> str:
             <a class="nav-dropdown-muted" href="{up}advisory.html">Advisory &amp; Fractional (ask first)</a>
           </div>
         </details>
-        <a href="{library}" aria-current="page">Use cases</a>
+        <a href="{library}"{uc_cur}>Use cases</a>
+        <a href="{up}hobbies/"{hob_cur}>Hobbies</a>
         <a href="{up}pricing.html">Pricing</a>
       </nav>
       <a class="nav-cta" href="{CAL}" target="_blank" rel="noreferrer">Book consultation</a>
@@ -1008,7 +1096,7 @@ def nav(depth: int) -> str:
 
 def foot(depth: int) -> str:
     up = "../" * depth
-    library = "../" * (depth - 1) + "index.html" if depth else "index.html"
+    library = f"{up}use-cases/"
     return f"""    <footer>
       <a class="footer-brand" href="{up}index.html" aria-label="GemmiSI home">
         <img class="footer-lockup" src="{up}assets/brand/gemmisi-lockup-dark.svg" alt="" width="123" height="28" />
@@ -1017,6 +1105,7 @@ def foot(depth: int) -> str:
       <p class="footer-nav">
         <a href="{up}index.html">Home</a>
         <a href="{library}">Use cases</a>
+        <a href="{up}hobbies/">Hobbies</a>
         <a href="{up}pricing.html">Pricing</a>
         <a href="{up}services/hermes-agents.html">Hermes desks</a>
         <a href="{up}services/ai-automation.html">SI automation</a>
@@ -1043,6 +1132,7 @@ def head(
     *,
     compact_ld: bool = False,
     body_attrs: str = "",
+    current: str = "use-cases",
 ) -> str:
     up = "../" * depth
     assets = font_and_css_links(
@@ -1084,7 +1174,7 @@ def head(
 </head>
 <body{attrs}>
   <div class="site-shell">
-{nav(depth)}
+{nav(depth, current=current)}
 """
 
 
@@ -1096,6 +1186,11 @@ def haystack(item: dict) -> str:
     for slug in item["functions"]:
         parts.append(function_info(slug)["label"])
         parts.append(slug.replace("-", " "))
+    for slug in item.get("hobbies") or []:
+        parts.append(hobby_info(slug)["label"])
+        parts.append(slug.replace("-", " "))
+        parts.append("pricecharting")
+        parts.append("sportscardspro")
     parts.extend(item.get("tools_examples") or [])
     parts.extend(item.get("aliases") or [])
     for tag in item.get("tags") or []:
@@ -1613,6 +1708,12 @@ def industry_landing(slug: str, entries: list) -> str:
                     f'<p class="uc-kit-link"><a class="text-link" href="/use-cases/{e(kit["slug"])}/">'
                     f'{e(kit["title"])}</a> puts the rental jobs on one page.</p>'
                 )
+        if slug == "hobbies-collections":
+            hobby_label = hobby_info("trading-cards")["label"]
+            kit_link = (
+                '<p class="uc-kit-link"><a class="text-link" href="/hobbies/trading-cards/">'
+                f"{e(hobby_label)}</a> is the hobby view of these jobs.</p>"
+            )
         start_html = f"""      <section class="uc-group" id="start-here" aria-labelledby="start-here-h">
         <div class="uc-group-head">
           <span class="section-kicker">Start here</span>
@@ -1847,8 +1948,16 @@ def detail_page(item: dict, entries: list) -> str:
     title = SEO_TITLES[item["slug"]]
     desc = use_case_seo_desc(item)
     service_html = related_service_html(item)
+    hobby = primary_hobby(item)
+    hobby_meta = hobby_info(hobby) if hobby else None
     trail = [("Home", BASE + "/"), ("Use cases", BASE + "/use-cases/")]
-    if ind != "any-business":
+    if hobby:
+        trail = [
+            ("Home", BASE + "/"),
+            ("Hobbies", BASE + "/hobbies/"),
+            (hobby_meta["label"], BASE + f"/hobbies/{hobby}/"),
+        ]
+    elif ind != "any-business":
         trail.append((info["label"], BASE + f"/use-cases/industry/{ind}/"))
     trail.append((item["title"], BASE + url))
     ld = {
@@ -1889,7 +1998,12 @@ def detail_page(item: dict, entries: list) -> str:
         f"{CTA}</a></p>"
     )
     more_schools = ""
-    if ind == "education":
+    if hobby:
+        more_schools = (
+            f'<p class="uc-all"><a class="text-link" href="/hobbies/{e(hobby)}/">'
+            f"More for {e(hobby_meta['label'].lower())} →</a></p>\n          "
+        )
+    elif ind == "education":
         more_schools = (
             '<p class="uc-all"><a class="text-link" href="../industry/education/">'
             "More for schools →</a></p>\n          "
@@ -1900,16 +2014,29 @@ def detail_page(item: dict, entries: list) -> str:
     tools = "".join(f'<span class="tag green">{e(tool)}</span>' for tool in item["tools_examples"])
     graphic = motif_html(item)
     crumb_items = [("Home", "../../index.html"), ("Use cases", "../index.html")]
-    if ind != "any-business":
+    if hobby:
+        crumb_items = [
+            ("Home", "../../index.html"),
+            ("Hobbies", "../../hobbies/"),
+            (hobby_meta["label"], f"../../hobbies/{hobby}/"),
+        ]
+    elif ind != "any-business":
         crumb_items.append((info["label"], f"../industry/{ind}/"))
     crumb_items.append((item["title"], None))
     tags = []
-    if ind != "any-business":
+    if hobby:
+        tags.append(f'<a href="/hobbies/{e(hobby)}/">{e(hobby_meta["label"])}</a>')
+    elif ind != "any-business":
         tags.append(f'<a href="../industry/{e(ind)}/">{e(info["label"])}</a>')
     for fn in item["functions"]:
         tags.append(f'<a href="../function/{e(fn)}/">{e(function_info(fn)["label"])}</a>')
     tag_html = ' <span aria-hidden="true">·</span> '.join(tags)
-    return head(title, desc, url, 2, ld) + f"""
+    examples_intro = (
+        "The same job looks different for different collectors. These are examples, not client results."
+        if hobby
+        else "The same job looks different in different businesses. These are examples, not client results."
+    )
+    return head(title, desc, url, 2, ld, current="hobbies" if hobby else "use-cases") + f"""
     <main id="top">
       <article class="uc-detail">
         <header class="uc-detail-head">
@@ -1943,7 +2070,7 @@ def detail_page(item: dict, entries: list) -> str:
             </section>
             <section class="uc-block" aria-labelledby="examples">
               <h2 id="examples">Examples</h2>
-              <p class="uc-ex-intro">The same job looks different in different businesses. These are examples, not client results.</p>
+              <p class="uc-ex-intro">{e(examples_intro)}</p>
               <ul class="uc-examples">
             {examples}
               </ul>
@@ -2055,12 +2182,24 @@ def url_block(loc: str, priority: str) -> str:
 def update_sitemap(entries: list) -> None:
     text = SITEMAP.read_text(encoding="utf-8")
     text = re.sub(
+        r"\n  <url>\s*<loc>https://[^<]*/hobbies/.*?</url>",
+        "",
+        text,
+        flags=re.S,
+    )
+    text = re.sub(
         r"\n  <url>\s*<loc>https://[^<]*/use-cases/.*?</url>",
         "",
         text,
         flags=re.S,
     )
-    blocks = [url_block(f"{BASE}/use-cases/", "0.8")]
+    blocks = [
+        url_block(f"{BASE}/hobbies/", "0.8"),
+    ]
+    for slug, info in HOBBIES.items():
+        if info.get("status") == "live" and matching_hobby(entries, slug):
+            blocks.append(url_block(f"{BASE}/hobbies/{slug}/", "0.75"))
+    blocks.append(url_block(f"{BASE}/use-cases/", "0.8"))
     blocks.append(url_block(f"{BASE}/use-cases/industry/", "0.7"))
     blocks.append(url_block(f"{BASE}/use-cases/function/", "0.7"))
     for slug in INDUSTRIES:
@@ -2184,6 +2323,14 @@ def assert_wording(entries: list) -> None:
                 raise SystemExit(f"{item['slug']} should link to related {pin}")
         if "noindex" in page or "Nous" in page or "Brandgate" in page:
             raise SystemExit(f"Wording check failed for {item['slug']}")
+        if "smart intelligence" in page.lower():
+            raise SystemExit(f"{item['slug']} must say Super Intelligence, not smart intelligence")
+        if primary_hobby(item):
+            weekday = WEEKDAY_RE.search(page)
+            if weekday:
+                raise SystemExit(
+                    f"{item['slug']} must not name a day of the week ({weekday.group(1)})"
+                )
         if "Super Intelligence" not in page:
             raise SystemExit(f"{item['slug']} needs a first-mention SI gloss")
         if "Related service" not in page or "/services/" not in page:
@@ -2344,6 +2491,60 @@ def assert_wording(entries: list) -> None:
             raise SystemExit(f"Real estate Start here must lead with {needle}")
     if f"{BASE}/use-cases/landlord-kit/" not in sitemap:
         raise SystemExit("sitemap is missing the landlord kit")
+    hobbies_hub = HOBBIES_OUT / "index.html"
+    if not hobbies_hub.exists():
+        raise SystemExit("Hobbies hub is missing")
+    hobbies_html = hobbies_hub.read_text(encoding="utf-8")
+    if "smart intelligence" in hobbies_html.lower():
+        raise SystemExit("Hobbies hub must not say smart intelligence")
+    weekday = WEEKDAY_RE.search(hobbies_html)
+    if weekday:
+        raise SystemExit(f"Hobbies hub must not name a day of the week ({weekday.group(1)})")
+    if "Super Intelligence" not in hobbies_html or "SI (AI)" not in hobbies_html:
+        raise SystemExit("Hobbies hub must explain SI and include AI")
+    if "manual entry out of PriceCharting" not in hobbies_html:
+        raise SystemExit("Hobbies hub must lead trading cards with the PriceCharting manual-entry line")
+    if "Sports cards and TCG" not in hobbies_html:
+        raise SystemExit("Hobbies hub must name sports cards and TCG")
+    if "SportsCardsPro" not in hobbies_html or "PriceCharting" not in hobbies_html:
+        raise SystemExit("Hobbies hub must name PriceCharting and SportsCardsPro")
+    if CTA not in hobbies_html or OWN_ACCOUNTS not in hobbies_html:
+        raise SystemExit("Hobbies hub must include the consultation CTA and own-accounts line")
+    if f"{BASE}/hobbies/" not in sitemap:
+        raise SystemExit("sitemap is missing /hobbies/")
+    cards_path = HOBBIES_OUT / "trading-cards" / "index.html"
+    if not cards_path.exists():
+        raise SystemExit("Trading cards landing is missing")
+    cards_html = cards_path.read_text(encoding="utf-8")
+    if "smart intelligence" in cards_html.lower():
+        raise SystemExit("Trading cards landing must not say smart intelligence")
+    weekday = WEEKDAY_RE.search(cards_html)
+    if weekday:
+        raise SystemExit(
+            f"Trading cards landing must not name a day of the week ({weekday.group(1)})"
+        )
+    if "SI takes the manual entry out of PriceCharting" not in cards_html:
+        raise SystemExit("Trading cards landing must lead with the PriceCharting manual-entry line")
+    if "Sports cards and TCG" not in cards_html:
+        raise SystemExit("Trading cards landing must name sports cards and TCG")
+    if "Pokémon" not in cards_html or "SportsCardsPro" not in cards_html:
+        raise SystemExit("Trading cards landing must name TCG examples and SportsCardsPro")
+    if "upcoming show" not in cards_html and "before a show" not in cards_html and "before the show" not in cards_html:
+        raise SystemExit("Trading cards landing should mention an upcoming show without naming a day")
+    for featured_slug in ("card-pricecharting-collection", "card-collection-value-before-show"):
+        if f"/use-cases/{featured_slug}/" not in cards_html:
+            raise SystemExit(f"Trading cards landing must feature {featured_slug}")
+    start_chunk = cards_html.split('id="start-here"', 1)[-1].split('id="list-h"', 1)[0]
+    if "Keep a live collection on PriceCharting" not in start_chunk:
+        raise SystemExit("Trading cards Start here must lead with the live collection job")
+    if "Know collection value before a show" not in start_chunk:
+        raise SystemExit("Trading cards Start here must include the value-check job")
+    if 'id="faq"' not in cards_html or cards_html.count('class="faq-item"') < 4:
+        raise SystemExit("Trading cards landing needs a visible FAQ")
+    if f"{BASE}/hobbies/trading-cards/" not in sitemap:
+        raise SystemExit("sitemap is missing /hobbies/trading-cards/")
+    if OWN_ACCOUNTS not in cards_html or CTA not in cards_html:
+        raise SystemExit("Trading cards landing must include own-accounts and the consultation CTA")
     dupes = [t for t in titles if titles.count(t) > 1]
     if dupes:
         raise SystemExit(f"Duplicate generated titles: {sorted(set(dupes))[:5]}")
@@ -2375,12 +2576,16 @@ def write_llms_txt(entries: list) -> None:
         "- Stocky dump recovery (Shopify CSV after Stocky shut down; not a Stocky replacement app): https://gemmisi.com/services/stocky-recovery.html",
         "- Advisory & Fractional CTO (inquire first): https://gemmisi.com/advisory.html",
         "- Anonymized case study: https://gemmisi.com/work/governed-ai-content-engine.html",
+        "- Hobbies & collections: https://gemmisi.com/hobbies/",
+        "- Sports cards and TCG: https://gemmisi.com/hobbies/trading-cards/",
         "- Sitemap: https://gemmisi.com/sitemap.xml",
         f"- IndexNow key: https://gemmisi.com/{ACTIVE_KEY}.txt",
         "",
         "## Use-case hub and landings",
         "",
         f"- Hub ({n} practical SI / AI examples; illustrations, not client results): https://gemmisi.com/use-cases/",
+        "- Hobbies & collections: https://gemmisi.com/hobbies/",
+        "- Sports cards and TCG (SI takes the manual entry out of PriceCharting): https://gemmisi.com/hobbies/trading-cards/",
         "- Browse by industry: https://gemmisi.com/use-cases/industry/",
     ]
     for slug, info in INDUSTRIES.items():
@@ -2395,7 +2600,7 @@ def write_llms_txt(entries: list) -> None:
             "",
             "## Use cases",
             "",
-            f"The library lists {n} practical SI (AI) jobs for small teams. Industries include any business, real estate and rentals, home services, retail and ecommerce, accounting, legal, medical, education, restaurants, nonprofits and community groups, and shops, gyms, and agencies. They are illustrations of what is possible, not reports of client results. {STANDARD_LINE} A person still approves anything that sends, pays, orders, or posts. Education pages are operations help only. SI does not grade students. A person approves anything sent to a student or parent. Student records stay on the school's own equipment and accounts. Legal-practice pages are operations help only. SI does not give legal advice. Medical-practice pages are operations help only. SI does not give medical advice or make clinical decisions. Real-estate pages are operations help only. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. Home-services pages are office help only; the owner approves every quote and message. Accounting-firm pages are operations help only. SI does not give tax advice or file returns. Restaurant, shop, gym, rental, and agency pages are office help. A person still checks. {OWN_ACCOUNTS}",
+            f"The library lists {n} practical SI (AI) jobs for small teams and individuals. Industries include any business, real estate and rentals, home services, retail and ecommerce, accounting, legal, medical, education, restaurants, nonprofits and community groups, shops, gyms, and agencies, and hobbies and collections. Trading card pages cover sports cards and TCG. SI takes the manual entry out of PriceCharting: send a photo or say the card; SI adds, edits, reviews, and reports. Sports cards go on SportsCardsPro. TCG and other non-sports stay on PriceCharting. Those are the collector's own tools, not a GemmiSI partnership. They are illustrations of what is possible, not reports of client work. {STANDARD_LINE} A person still approves anything that sends, pays, orders, or posts. Education pages are operations help only. SI does not grade students. A person approves anything sent to a student or parent. Student records stay on the school's own equipment and accounts. Legal-practice pages are operations help only. SI does not give legal advice. Medical-practice pages are operations help only. SI does not give medical advice or make clinical decisions. Real-estate pages are operations help only. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. Home-services pages are office help only; the owner approves every quote and message. Accounting-firm pages are operations help only. SI does not give tax advice or file returns. Restaurant, shop, gym, rental, and agency pages are office help. A person still checks. {OWN_ACCOUNTS}",
             "",
         ]
     )
@@ -2526,6 +2731,285 @@ def redirect_page(source_title: str, target_path: str) -> str:
 """
 
 
+def hobby_faqs(slug: str) -> list[tuple[str, str]]:
+    info = hobby_info(slug)
+    label = info["label"]
+    extra = [
+        (
+            "Is this only for sports cards?",
+            "No. Sports cards and TCG. Pokémon, Magic: The Gathering, One Piece, Yu-Gi-Oh!, and other non-sports too. Sports cards go on SportsCardsPro. TCG and other non-sports stay on PriceCharting. Same login.",
+        ),
+        (
+            "Does SI type cards into PriceCharting for me?",
+            "You send a photo or say the card. SI drafts the add, the edit, the review, and the report. Sports cards go on SportsCardsPro. TCG stays on PriceCharting. You approve before anything is saved.",
+        ),
+        (
+            "Does GemmiSI partner with PriceCharting?",
+            "No. PriceCharting is for TCG and other non-sports. SportsCardsPro is for sports cards. They share one login. GemmiSI does not partner with them. Your collection stays on your account.",
+        ),
+    ]
+    shared = [
+        (
+            "Does this hobby SI run on my own computer?",
+            f"Yes. {OWN_ACCOUNTS}",
+        ),
+        (
+            "Will SI save, buy, or message on its own?",
+            f"No. {APPROVAL_LINE}",
+        ),
+        (
+            "Are these client results?",
+            "No. These are examples of what is possible. They are not reports of client work. Setup times are rough.",
+        ),
+        (
+            "How do we start?",
+            "Book a free 30-minute consultation. Bring one real example, such as a photo, a folder, or a shipping email. No note is required.",
+        ),
+    ]
+    return (extra + shared)[:6]
+
+
+def coming_hobby_card(slug: str, info: dict) -> str:
+    return (
+        f'<li class="uc-card uc-coming">'
+        f'<span class="uc-card-cat">Coming later</span>'
+        f'{landing_motif_html("industry", "hobbies-collections", inline=False)}'
+        f'<h3>{e(info["label"])}</h3>'
+        f'<p>{e(info["blurb"])}</p>'
+        f"</li>"
+    )
+
+
+def live_hobby_card(slug: str, info: dict, count: int) -> str:
+    return (
+        f'<li class="uc-card uc-featured">'
+        f'<a href="/hobbies/{e(slug)}/">'
+        f'<span class="uc-card-cat">{count} use cases</span>'
+        f'{landing_motif_html("industry", "hobbies-collections", inline=False)}'
+        f'<h3>{e(info["label"])}</h3>'
+        f'<p>{e(info["blurb"])}</p>'
+        f'<span class="uc-card-more">Open this hobby <span aria-hidden="true">→</span></span>'
+        f"</a></li>"
+    )
+
+
+def hobby_hub_page(entries: list) -> str:
+    info = HOBBIES_HUB
+    title = info["seo_title"]
+    desc = clip_meta(info["meta"])
+    h1 = info["seo_h1"]
+    live = [(slug, meta) for slug, meta in HOBBIES.items() if meta.get("status") == "live"]
+    coming = [(slug, meta) for slug, meta in HOBBIES.items() if meta.get("status") == "coming"]
+    live_items = []
+    for slug, meta in live:
+        live_items.extend(matching_hobby(entries, slug))
+    if not live_items:
+        raise SystemExit("Refusing empty hobbies hub")
+    canon = "/hobbies/"
+    faqs = [
+        (
+            "What can SI do for a hobby?",
+            "Lists, prices, packages, and notes. SI drafts the busywork on your own computer and accounts. You still decide.",
+        ),
+        (
+            "Is this only for businesses?",
+            "No. Small businesses and individuals are welcome. Collectors can start with one folder or one inbox.",
+        ),
+        (
+            "Is this only for sports cards?",
+            "No. Sports cards and TCG. Pokémon, Magic: The Gathering, One Piece, Yu-Gi-Oh!, and other non-sports too. Sports cards go on SportsCardsPro. TCG stays on PriceCharting.",
+        ),
+        (
+            "Does this run on my own accounts?",
+            f"Yes. {OWN_ACCOUNTS}",
+        ),
+        (
+            "How do we start?",
+            "Book a free 30-minute consultation. Bring one real example, such as a photo or a shipping email.",
+        ),
+    ]
+    ld = collection_ld(
+        h1,
+        BASE + canon,
+        desc,
+        live_items,
+        [("Home", BASE + "/"), ("Hobbies", BASE + canon)],
+        faqs=faqs,
+    )
+    live_cards = "\n          ".join(
+        live_hobby_card(slug, meta, len(matching_hobby(entries, slug))) for slug, meta in live
+    )
+    coming_cards = "\n          ".join(coming_hobby_card(slug, meta) for slug, meta in coming)
+    coming_html = ""
+    if coming_cards:
+        coming_html = f"""      <section class="uc-group" aria-labelledby="later-h">
+        <div class="uc-group-head">
+          <span class="section-kicker">Later</span>
+          <h2 id="later-h">More hobbies can follow</h2>
+          <p>Sneakers, coins, and vinyl are next. The same kind of setup: lists, prices, and busywork on your own accounts.</p>
+        </div>
+        <ul class="uc-grid">
+          {coming_cards}
+        </ul>
+      </section>
+"""
+    graphic = landing_motif_html("industry", "hobbies-collections")
+    return head(
+        title,
+        desc,
+        canon,
+        1,
+        ld,
+        compact_ld=True,
+        body_attrs='data-uc="hobbies"',
+        current="hobbies",
+    ) + f"""
+    <main id="top">
+      <section class="uc-hero has-motif">
+          <div class="uc-detail-intro">
+            <div class="uc-detail-copy">
+{breadcrumb_html(1, [("Home", "../index.html"), ("Hobbies", None)])}
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>For collectors and other hobbies</p>
+        <h1>{e(h1)}</h1>
+        <p class="lead">{e(with_si_gloss(info["blurb"]))}</p>
+        <p class="uc-note-intro">{e(info["intro"])}</p>
+        <p class="uc-own-accounts">{e(OWN_ACCOUNTS)}</p>
+        <div class="actions">
+          <a class="button primary" href="{CAL}" target="_blank" rel="noreferrer">{CTA}</a>
+        </div>
+            </div>
+            {graphic}
+          </div>
+      </section>
+      <section class="uc-group" id="trading-cards" aria-labelledby="live-h">
+        <div class="uc-group-head">
+          <span class="section-kicker">First hobby</span>
+          <h2 id="live-h">{e(live[0][1]["label"])}</h2>
+          <p>{e(live[0][1]["blurb"])}</p>
+        </div>
+        <ul class="uc-grid">
+          {live_cards}
+        </ul>
+      </section>
+{coming_html}      <section id="faq" class="section uc-faq">
+        <div class="section-heading stacked">
+          <h2>Questions about hobby SI (AI) setups</h2>
+        </div>
+        <div class="faq-grid faq-accordion">
+{faq_html(faqs)}
+        </div>
+      </section>
+      {closing_section()}
+    </main>
+""" + foot(1) + SCRIPTS + PAGE_END
+
+
+def hobby_landing(slug: str, entries: list) -> str:
+    info = hobby_info(slug)
+    items = matching_hobby(entries, slug)
+    if not items:
+        raise SystemExit(f"Refusing empty hobby landing {slug}")
+    featured_slugs = list(info.get("featured") or [])
+    by_slug = {item["slug"]: item for item in items}
+    featured = [by_slug[s] for s in featured_slugs if s in by_slug]
+    if len(featured) < 2:
+        raise SystemExit(f"{slug} needs two featured use cases")
+    rest = [item for item in items if item["slug"] not in {row["slug"] for row in featured}]
+    title = info["seo_title"]
+    desc = clip_meta(info["meta"])
+    faqs = hobby_faqs(slug)
+    canon = f"/hobbies/{slug}/"
+    ld = collection_ld(
+        info["seo_h1"],
+        BASE + canon,
+        desc,
+        items,
+        [
+            ("Home", BASE + "/"),
+            ("Hobbies", BASE + "/hobbies/"),
+            (info["label"], BASE + canon),
+        ],
+        faqs=faqs,
+    )
+    featured_cards = "\n          ".join(card(item, featured=True) for item in featured)
+    rest_cards = "\n          ".join(card(item) for item in rest)
+    graphic = landing_motif_html("industry", "hobbies-collections")
+    return head(
+        title,
+        desc,
+        canon,
+        2,
+        ld,
+        compact_ld=True,
+        body_attrs=f'data-uc="hobby" data-uc-slug="{slug}"',
+        current="hobbies",
+    ) + f"""
+    <main id="top">
+      <section class="uc-hero has-motif">
+          <div class="uc-detail-intro">
+            <div class="uc-detail-copy">
+{breadcrumb_html(2, [("Home", "../../index.html"), ("Hobbies", "../index.html"), (info["label"], None)])}
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>{len(items)} use cases</p>
+        <p class="uc-approval-line">{e(info.get("lead") or STANDARD_LINE)}</p>
+        <h1>{e(info["seo_h1"])}</h1>
+        <p class="lead">{e(with_si_gloss(info["intro"]))}</p>
+        <p class="uc-loop-steps" aria-label="PriceCharting loop">Add. Edit. Review. Report.</p>
+        <p class="uc-own-accounts">{e(OWN_ACCOUNTS)}</p>
+        <p class="uc-book-lead"><a class="button primary" href="{CAL}" target="_blank" rel="noreferrer">{CTA}</a></p>
+            </div>
+            {graphic}
+          </div>
+      </section>
+      <section class="uc-group" id="start-here" aria-labelledby="start-here-h">
+        <div class="uc-group-head">
+          <span class="section-kicker">Start here</span>
+          <h2 id="start-here-h">Keep the list, then know the value</h2>
+          <p>These two jobs do most of the typing. Send a photo or say the card. Then check what the folder is worth before a show.</p>
+        </div>
+        <ul class="uc-grid uc-featured-pair">
+          {featured_cards}
+        </ul>
+      </section>
+      <section class="uc-group" aria-labelledby="list-h">
+        <div class="uc-group-head">
+          <h2 id="list-h">More card jobs</h2>
+          <p>Sales, stickers, grading, shows, a child's folder, mystery cards, and shipments.</p>
+        </div>
+        <ul class="uc-grid">
+          {rest_cards}
+        </ul>
+      </section>
+      <section id="faq" class="section uc-faq">
+        <div class="section-heading stacked">
+          <h2>Questions about {e(info["label"])} SI (AI)</h2>
+        </div>
+        <div class="faq-grid faq-accordion">
+{faq_html(faqs)}
+        </div>
+      </section>
+      {closing_section()}
+    </main>
+""" + foot(2) + SCRIPTS + PAGE_END
+
+
+def write_hobbies(entries: list) -> None:
+    if HOBBIES_OUT.exists():
+        for path in HOBBIES_OUT.rglob("*"):
+            if path.is_file():
+                path.unlink()
+        for path in sorted(HOBBIES_OUT.rglob("*"), reverse=True):
+            if path.is_dir():
+                path.rmdir()
+    HOBBIES_OUT.mkdir(parents=True, exist_ok=True)
+    (HOBBIES_OUT / "index.html").write_text(hobby_hub_page(entries), encoding="utf-8")
+    for slug, info in HOBBIES.items():
+        if info.get("status") != "live":
+            continue
+        folder = HOBBIES_OUT / slug
+        folder.mkdir(parents=True, exist_ok=True)
+        (folder / "index.html").write_text(hobby_landing(slug, entries), encoding="utf-8")
+
+
 def write_redirects() -> None:
     redirects = TAX.get("redirects") or {}
     for slug, target in (redirects.get("use_cases") or {}).items():
@@ -2580,6 +3064,7 @@ def write_tree(entries: list) -> None:
         (folder / "index.html").write_text(detail_page(item, entries), encoding="utf-8")
     write_kits(entries)
     write_redirects()
+    write_hobbies(entries)
 
 
 def sync_home_library_count(n: int) -> None:

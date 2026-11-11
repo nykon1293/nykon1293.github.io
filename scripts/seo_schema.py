@@ -723,7 +723,7 @@ def service_node(*, name: str, description: str, url: str) -> dict:
     }
 
 
-CSS_VERSION = "social-1"
+CSS_VERSION = "hobbies-1"
 
 
 def graph_payload(nodes: list[dict]) -> str:

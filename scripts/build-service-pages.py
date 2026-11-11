@@ -59,6 +59,7 @@ def nav_for(slug: str) -> str:
     lines.append("          </div>")
     lines.append("        </details>")
     lines.append('        <a href="../use-cases/">Use cases</a>')
+    lines.append('        <a href="../hobbies/">Hobbies</a>')
     lines.append('        <a href="../pricing.html">Pricing</a>')
     lines.append("      </nav>")
     lines.append(f'      <a class="nav-cta" href="{CALENDLY}" target="_blank" rel="noreferrer">Book consultation</a>')
@@ -737,6 +738,7 @@ FOOTER_SCRIPTS = f"""
       <p class="footer-nav">
         <a href="../index.html">Home</a>
         <a href="../use-cases/">Use cases</a>
+        <a href="../hobbies/">Hobbies</a>
         <a href="../pricing.html">Pricing</a>
         <a href="hermes-agents.html">Hermes desks</a>
         <a href="ai-automation.html">SI automation</a>
