@@ -18,7 +18,6 @@ import json
 import re
 import sys
 from collections import Counter
-from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -45,6 +44,7 @@ from seo_schema import (
     website_node,
     with_si_gloss,
 )
+from sitemap_dates import LastmodIndex
 from use_case_motifs import (
     landing_motif_html,
     landing_motif_parts,
@@ -1059,11 +1059,10 @@ def function_counts(entries: list) -> dict[str, int]:
 
 def nav(depth: int, current: str = "use-cases") -> str:
     up = "../" * depth
-    library = f"{up}use-cases/"
     uc_cur = ' aria-current="page"' if current == "use-cases" else ""
     hob_cur = ' aria-current="page"' if current == "hobbies" else ""
     return f"""    <header class="nav">
-      <a class="brand" href="{up}index.html" aria-label="GemmiSI home">
+      <a class="brand" href="/" aria-label="GemmiSI home">
         <img class="brand-lockup" src="{up}assets/brand/gemmisi-lockup-dark.svg" alt="" width="159" height="36" />
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open site menu">
@@ -1071,24 +1070,24 @@ def nav(depth: int, current: str = "use-cases") -> str:
         <span class="nav-toggle__label">Menu</span>
       </button>
       <nav id="site-nav" class="nav-links" aria-label="Primary navigation">
-        <a href="{up}index.html">Home</a>
-        <a href="{up}index.html#work">Work</a>
+        <a href="/">Home</a>
+        <a href="/#work">Work</a>
         <details class="nav-dropdown">
           <summary class="nav-dropdown-trigger">Services</summary>
           <div class="nav-dropdown-menu">
-            <a href="{up}services/hermes-agents.html">Hermes Agents</a>
-            <a href="{up}services/ai-automation.html">SI automation</a>
-            <a href="{up}services/dashboards-reporting.html">Dashboards &amp; reporting</a>
-            <a href="{up}services/ecommerce-operations.html">Ecommerce operations</a>
-            <a href="{up}services/tutoring-project-help.html">Tutoring &amp; project help</a>
-            <a class="nav-dropdown-muted" href="{up}services/stocky-recovery.html">Stocky dump recovery</a>
-            <a class="nav-dropdown-muted" href="{up}index.html#service-hub">All services</a>
-            <a class="nav-dropdown-muted" href="{up}advisory.html">Advisory &amp; Fractional (ask first)</a>
+            <a href="/services/hermes-agents.html">Hermes Agents</a>
+            <a href="/services/ai-automation.html">SI automation</a>
+            <a href="/services/dashboards-reporting.html">Dashboards &amp; reporting</a>
+            <a href="/services/ecommerce-operations.html">Ecommerce operations</a>
+            <a href="/services/tutoring-project-help.html">Tutoring &amp; project help</a>
+            <a class="nav-dropdown-muted" href="/services/stocky-recovery.html">Stocky dump recovery</a>
+            <a class="nav-dropdown-muted" href="/#service-hub">All services</a>
+            <a class="nav-dropdown-muted" href="/advisory.html">Advisory &amp; Fractional (ask first)</a>
           </div>
         </details>
-        <a href="{library}"{uc_cur}>Use cases</a>
-        <a href="{up}hobbies/"{hob_cur}>Hobbies</a>
-        <a href="{up}pricing.html">Pricing</a>
+        <a href="/use-cases/"{uc_cur}>Use cases</a>
+        <a href="/hobbies/"{hob_cur}>Hobbies</a>
+        <a href="/pricing.html">Pricing</a>
       </nav>
       <a class="nav-cta" href="{CAL}" target="_blank" rel="noreferrer">Book consultation</a>
     </header>"""
@@ -1096,22 +1095,21 @@ def nav(depth: int, current: str = "use-cases") -> str:
 
 def foot(depth: int) -> str:
     up = "../" * depth
-    library = f"{up}use-cases/"
     return f"""    <footer>
-      <a class="footer-brand" href="{up}index.html" aria-label="GemmiSI home">
+      <a class="footer-brand" href="/" aria-label="GemmiSI home">
         <img class="footer-lockup" src="{up}assets/brand/gemmisi-lockup-dark.svg" alt="" width="123" height="28" />
       </a>
       <p>© <span id="year"></span> Yonatan Gemmi. Based in North Miami Beach, Florida · Miami-Dade, Broward, and remote</p>
       <p class="footer-nav">
-        <a href="{up}index.html">Home</a>
-        <a href="{library}">Use cases</a>
-        <a href="{up}hobbies/">Hobbies</a>
-        <a href="{up}pricing.html">Pricing</a>
-        <a href="{up}services/hermes-agents.html">Hermes desks</a>
-        <a href="{up}services/ai-automation.html">SI automation</a>
-        <a href="{up}services/dashboards-reporting.html">Dashboards</a>
-        <a href="{up}services/ecommerce-operations.html">Ecommerce</a>
-        <a href="{up}services/tutoring-project-help.html">Tutoring</a>
+        <a href="/">Home</a>
+        <a href="/use-cases/">Use cases</a>
+        <a href="/hobbies/">Hobbies</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/services/hermes-agents.html">Hermes desks</a>
+        <a href="/services/ai-automation.html">SI automation</a>
+        <a href="/services/dashboards-reporting.html">Dashboards</a>
+        <a href="/services/ecommerce-operations.html">Ecommerce</a>
+        <a href="/services/tutoring-project-help.html">Tutoring</a>
         <a href="{CAL}" target="_blank" rel="noreferrer">Book consultation</a>
         {footer_social_links()}
       </p>
@@ -1498,7 +1496,7 @@ def library_page(entries: list) -> str:
     ) + f"""
     <main id="top">
       <section class="uc-hero">
-{breadcrumb_html(1, [("Home", "../index.html"), ("Use cases", None)])}
+{breadcrumb_html(1, [("Home", "/"), ("Use cases", None)])}
         <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>{n} practical examples</p>
         <h1>What SI can take off your plate</h1>
         <p class="lead">SI (Super Intelligence, the new name for AI) can take on a lot of repetitive work. It can read, sort, match, draft, check, and summarize. That work shows up in almost any business or group. Each entry describes one practical job. It shows what you need to start. It shows where a person stays in charge. Anything that sends, pays, orders, or posts always waits for your approval.</p>
@@ -1607,7 +1605,7 @@ def dimension_index_page(kind: str, entries: list) -> str:
     return head(title, desc, canon, 2, ld, compact_ld=True) + f"""
     <main id="top">
       <section class="uc-hero">
-{breadcrumb_html(2, [("Home", "../../index.html"), ("Use cases", "../index.html"), (crumb_label, None)])}
+{breadcrumb_html(2, [("Home", "/"), ("Use cases", "/use-cases/"), (crumb_label, None)])}
         <h1>{e(h1)}</h1>
         <p class="lead">{e(with_si_gloss(desc))}</p>
       </section>
@@ -1738,7 +1736,7 @@ def industry_landing(slug: str, entries: list) -> str:
       <section class="uc-hero has-motif">
           <div class="uc-detail-intro">
             <div class="uc-detail-copy">
-{breadcrumb_html(3, [("Home", "../../../index.html"), ("Use cases", "../../index.html"), (info["label"], None)])}
+{breadcrumb_html(3, [("Home", "/"), ("Use cases", "/use-cases/"), (info["label"], None)])}
         <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>{len(all_items)} use cases</p>
         <h1>{e(info["seo_h1"])}</h1>
         <p class="lead">{e(with_si_gloss(info["blurb"]))}</p>
@@ -1816,7 +1814,7 @@ def function_landing(slug: str, entries: list) -> str:
       <section class="uc-hero has-motif">
           <div class="uc-detail-intro">
             <div class="uc-detail-copy">
-{breadcrumb_html(3, [("Home", "../../../index.html"), ("Use cases", "../../index.html"), (info["label"], None)])}
+{breadcrumb_html(3, [("Home", "/"), ("Use cases", "/use-cases/"), (info["label"], None)])}
         <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>{len(items)} use cases</p>
         <h1>{e(info["seo_h1"])}</h1>
         <p class="lead">{e(with_si_gloss(info["blurb"]))}</p>
@@ -2013,12 +2011,12 @@ def detail_page(item: dict, entries: list) -> str:
         legal_note = f'<p class="uc-read-first" role="note">{e(info["short"])}</p>\n          '
     tools = "".join(f'<span class="tag green">{e(tool)}</span>' for tool in item["tools_examples"])
     graphic = motif_html(item)
-    crumb_items = [("Home", "../../index.html"), ("Use cases", "../index.html")]
+    crumb_items = [("Home", "/"), ("Use cases", "/use-cases/")]
     if hobby:
         crumb_items = [
-            ("Home", "../../index.html"),
-            ("Hobbies", "../../hobbies/"),
-            (hobby_meta["label"], f"../../hobbies/{hobby}/"),
+            ("Home", "/"),
+            ("Hobbies", "/hobbies/"),
+            (hobby_meta["label"], f"/hobbies/{hobby}/"),
         ]
     elif ind != "any-business":
         crumb_items.append((info["label"], f"../industry/{ind}/"))
@@ -2124,7 +2122,7 @@ def detail_page(item: dict, entries: list) -> str:
           <ul class="uc-grid">
           {related_html}
           </ul>
-          {more_schools}<p class="uc-all"><a class="text-link" href="../index.html">See all {n} use cases →</a></p>
+          {more_schools}<p class="uc-all"><a class="text-link" href="/use-cases/">See all {n} use cases →</a></p>
         </section>
 
         <section class="uc-cta-band" aria-labelledby="cta-h">
@@ -2167,8 +2165,7 @@ def detail_page(item: dict, entries: list) -> str:
 """ + PAGE_END
 
 
-def url_block(loc: str, priority: str) -> str:
-    lastmod = date.today().isoformat()
+def url_block(loc: str, priority: str, lastmod: str) -> str:
     return (
         "  <url>\n"
         f"    <loc>{loc}</loc>\n"
@@ -2180,43 +2177,85 @@ def url_block(loc: str, priority: str) -> str:
 
 
 def update_sitemap(entries: list) -> None:
-    text = SITEMAP.read_text(encoding="utf-8")
-    text = re.sub(
-        r"\n  <url>\s*<loc>https://[^<]*/hobbies/.*?</url>",
-        "",
-        text,
-        flags=re.S,
+    stamp = LastmodIndex(entries)
+    blocks: list[str] = []
+
+    def add(loc: str, priority: str, **kwargs) -> None:
+        blocks.append(url_block(loc, priority, stamp.for_url(loc, **kwargs)))
+
+    add(f"{BASE}/", "1.0")
+    add(f"{BASE}/pricing.html", "0.95")
+    add(f"{BASE}/services/hermes-agents.html", "0.9")
+    add(f"{BASE}/services/ai-automation.html", "0.9")
+    add(f"{BASE}/services/dashboards-reporting.html", "0.9")
+    add(f"{BASE}/services/ecommerce-operations.html", "0.9")
+    add(f"{BASE}/services/tutoring-project-help.html", "0.85")
+    add(f"{BASE}/services/stocky-recovery.html", "0.85")
+    add(f"{BASE}/work/governed-ai-content-engine.html", "0.75")
+    add(f"{BASE}/advisory.html", "0.7")
+    hobby_members = [item["slug"] for item in entries if item.get("hobbies")]
+    add(
+        f"{BASE}/hobbies/",
+        "0.8",
+        tax_keys=["hobbies_hub"] + [f"hobbies:{slug}" for slug, info in HOBBIES.items() if info.get("status") == "live"],
+        member_slugs=hobby_members,
     )
-    text = re.sub(
-        r"\n  <url>\s*<loc>https://[^<]*/use-cases/.*?</url>",
-        "",
-        text,
-        flags=re.S,
-    )
-    blocks = [
-        url_block(f"{BASE}/hobbies/", "0.8"),
-    ]
     for slug, info in HOBBIES.items():
         if info.get("status") == "live" and matching_hobby(entries, slug):
-            blocks.append(url_block(f"{BASE}/hobbies/{slug}/", "0.75"))
-    blocks.append(url_block(f"{BASE}/use-cases/", "0.8"))
-    blocks.append(url_block(f"{BASE}/use-cases/industry/", "0.7"))
-    blocks.append(url_block(f"{BASE}/use-cases/function/", "0.7"))
+            add(
+                f"{BASE}/hobbies/{slug}/",
+                "0.75",
+                hobby_slug=slug,
+                member_slugs=[item["slug"] for item in matching_hobby(entries, slug)],
+            )
+    add(
+        f"{BASE}/use-cases/",
+        "0.8",
+        tax_keys=["hobbies_hub"],
+        member_slugs=[item["slug"] for item in entries],
+    )
+    add(
+        f"{BASE}/use-cases/industry/",
+        "0.7",
+        tax_keys=[f"industries:{slug}" for slug in INDUSTRIES],
+    )
+    add(
+        f"{BASE}/use-cases/function/",
+        "0.7",
+        tax_keys=[f"functions:{slug}" for slug in FUNCTIONS],
+    )
     for slug in INDUSTRIES:
         if matching_industry(entries, slug):
-            blocks.append(url_block(f"{BASE}/use-cases/industry/{slug}/", "0.7"))
+            add(
+                f"{BASE}/use-cases/industry/{slug}/",
+                "0.7",
+                industry_slug=slug,
+                member_slugs=[item["slug"] for item in matching_industry(entries, slug)],
+            )
     for slug in FUNCTIONS:
         if matching_function(entries, slug):
-            blocks.append(url_block(f"{BASE}/use-cases/function/{slug}/", "0.7"))
+            add(
+                f"{BASE}/use-cases/function/{slug}/",
+                "0.7",
+                function_slug=slug,
+                member_slugs=[item["slug"] for item in matching_function(entries, slug)],
+            )
     for kit in TAX.get("kits") or []:
-        blocks.append(url_block(f"{BASE}/use-cases/{kit['slug']}/", "0.7"))
-    blocks.extend(url_block(f"{BASE}/use-cases/{item['slug']}/", "0.6") for item in entries)
-    if "</urlset>" not in text:
-        raise SystemExit("sitemap.xml is missing </urlset>")
-    today = date.today().isoformat()
-    text = re.sub(r"<lastmod>[^<]+</lastmod>", f"<lastmod>{today}</lastmod>", text)
-    text = text.replace("</urlset>", "".join(blocks) + "</urlset>")
-    SITEMAP.write_text(text, encoding="utf-8")
+        add(
+            f"{BASE}/use-cases/{kit['slug']}/",
+            "0.7",
+            kit_slug=kit["slug"],
+            member_slugs=list(kit.get("jobs") or []),
+        )
+    for item in entries:
+        add(f"{BASE}/use-cases/{item['slug']}/", "0.6", use_case_slug=item["slug"])
+    SITEMAP.write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        + "".join(blocks)
+        + "</urlset>\n",
+        encoding="utf-8",
+    )
 
 
 def assert_wording(entries: list) -> None:
@@ -2545,6 +2584,16 @@ def assert_wording(entries: list) -> None:
         raise SystemExit("sitemap is missing /hobbies/trading-cards/")
     if OWN_ACCOUNTS not in cards_html or CTA not in cards_html:
         raise SystemExit("Trading cards landing must include own-accounts and the consultation CTA")
+    index_href = re.compile(r'href="[^"]*index\.html[^"]*"')
+    for label, page_html in (
+        ("hobbies hub", hobbies_html),
+        ("trading cards", cards_html),
+        ("use-case hub", library),
+        ("sample use case", (OUT / entries[0]["slug"] / "index.html").read_text(encoding="utf-8")),
+    ):
+        found = index_href.search(page_html)
+        if found:
+            raise SystemExit(f"{label} still links to index.html ({found.group(0)})")
     dupes = [t for t in titles if titles.count(t) > 1]
     if dupes:
         raise SystemExit(f"Duplicate generated titles: {sorted(set(dupes))[:5]}")
@@ -2683,7 +2732,7 @@ def kit_page(kit: dict, entries: list) -> str:
     <main id="top">
       <article class="uc-detail">
         <header class="uc-detail-head">
-{breadcrumb_html(2, [("Home", "../../index.html"), ("Use cases", "../index.html"), (info["label"], f"../industry/{industry}/"), (kit["title"], None)])}
+{breadcrumb_html(2, [("Home", "/"), ("Use cases", "/use-cases/"), (info["label"], f"/use-cases/industry/{industry}/"), (kit["title"], None)])}
           <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>{len(jobs)} jobs</p>
           <h1>{e(kit["seo_h1"])}</h1>
           <p class="uc-approval-line">{STANDARD_LINE}</p>
@@ -2868,7 +2917,7 @@ def hobby_hub_page(entries: list) -> str:
       <section class="uc-hero has-motif">
           <div class="uc-detail-intro">
             <div class="uc-detail-copy">
-{breadcrumb_html(1, [("Home", "../index.html"), ("Hobbies", None)])}
+{breadcrumb_html(1, [("Home", "/"), ("Hobbies", None)])}
         <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>For collectors and other hobbies</p>
         <h1>{e(h1)}</h1>
         <p class="lead">{e(with_si_gloss(info["blurb"]))}</p>
@@ -2948,7 +2997,7 @@ def hobby_landing(slug: str, entries: list) -> str:
       <section class="uc-hero has-motif">
           <div class="uc-detail-intro">
             <div class="uc-detail-copy">
-{breadcrumb_html(2, [("Home", "../../index.html"), ("Hobbies", "../index.html"), (info["label"], None)])}
+{breadcrumb_html(2, [("Home", "/"), ("Hobbies", "/hobbies/"), (info["label"], None)])}
         <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>{len(items)} use cases</p>
         <p class="uc-approval-line">{e(info.get("lead") or STANDARD_LINE)}</p>
         <h1>{e(info["seo_h1"])}</h1>

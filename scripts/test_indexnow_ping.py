@@ -245,6 +245,14 @@ class PageContentFingerprintTests(unittest.TestCase):
             ping.page_content_fingerprint(body),
         )
 
+    def test_directory_index_hrefs_match_trailing_slash(self) -> None:
+        base = "https://gemmisi.com/use-cases/inbox-triage/"
+        cleaned = SAMPLE_PAGE.replace('href="../index.html"', 'href="/use-cases/"')
+        self.assertEqual(
+            ping.page_content_fingerprint(SAMPLE_PAGE, base_url=base),
+            ping.page_content_fingerprint(cleaned, base_url=base),
+        )
+
     def test_reads_meta_with_content_first(self) -> None:
         html = SAMPLE_PAGE.replace(
             '<meta name="description" content="A page" />',
