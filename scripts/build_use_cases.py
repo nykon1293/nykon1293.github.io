@@ -557,12 +557,12 @@ def industry_faqs(slug: str) -> list[tuple[str, str]]:
     elif slug == "hobbies-collections":
         extra = [
             (
-                "Does SI type my cards into PriceCharting for me?",
-                "You send a photo or say the card. SI drafts the add, the edit, the review, and the report. You approve before anything is saved. Your PriceCharting login stays yours.",
+                "Is this only for sports cards?",
+                "No. Sports cards and TCG. Pokémon, Magic: The Gathering, One Piece, Yu-Gi-Oh!, and other non-sports too. Sports cards go on SportsCardsPro. TCG stays on PriceCharting.",
             ),
             (
-                "Does GemmiSI partner with PriceCharting?",
-                "No. PriceCharting and SportsCardsPro are tools a collector may already use. GemmiSI does not partner with them. Collection data stays on your account.",
+                "Does SI type my cards into PriceCharting for me?",
+                "You send a photo or say the card. SI drafts the add, the edit, the review, and the report. Sports cards go on SportsCardsPro. TCG and other non-sports stay on PriceCharting. You approve before anything is saved.",
             ),
         ]
     else:
@@ -1709,9 +1709,10 @@ def industry_landing(slug: str, entries: list) -> str:
                     f'{e(kit["title"])}</a> puts the rental jobs on one page.</p>'
                 )
         if slug == "hobbies-collections":
+            hobby_label = hobby_info("trading-cards")["label"]
             kit_link = (
                 '<p class="uc-kit-link"><a class="text-link" href="/hobbies/trading-cards/">'
-                "Trading card collecting</a> is the hobby view of these jobs.</p>"
+                f"{e(hobby_label)}</a> is the hobby view of these jobs.</p>"
             )
         start_html = f"""      <section class="uc-group" id="start-here" aria-labelledby="start-here-h">
         <div class="uc-group-head">
@@ -2503,6 +2504,10 @@ def assert_wording(entries: list) -> None:
         raise SystemExit("Hobbies hub must explain SI and include AI")
     if "manual entry out of PriceCharting" not in hobbies_html:
         raise SystemExit("Hobbies hub must lead trading cards with the PriceCharting manual-entry line")
+    if "Sports cards and TCG" not in hobbies_html:
+        raise SystemExit("Hobbies hub must name sports cards and TCG")
+    if "SportsCardsPro" not in hobbies_html or "PriceCharting" not in hobbies_html:
+        raise SystemExit("Hobbies hub must name PriceCharting and SportsCardsPro")
     if CTA not in hobbies_html or OWN_ACCOUNTS not in hobbies_html:
         raise SystemExit("Hobbies hub must include the consultation CTA and own-accounts line")
     if f"{BASE}/hobbies/" not in sitemap:
@@ -2520,6 +2525,10 @@ def assert_wording(entries: list) -> None:
         )
     if "SI takes the manual entry out of PriceCharting" not in cards_html:
         raise SystemExit("Trading cards landing must lead with the PriceCharting manual-entry line")
+    if "Sports cards and TCG" not in cards_html:
+        raise SystemExit("Trading cards landing must name sports cards and TCG")
+    if "Pokémon" not in cards_html or "SportsCardsPro" not in cards_html:
+        raise SystemExit("Trading cards landing must name TCG examples and SportsCardsPro")
     if "upcoming show" not in cards_html and "before a show" not in cards_html and "before the show" not in cards_html:
         raise SystemExit("Trading cards landing should mention an upcoming show without naming a day")
     for featured_slug in ("card-pricecharting-collection", "card-collection-value-before-show"):
@@ -2568,7 +2577,7 @@ def write_llms_txt(entries: list) -> None:
         "- Advisory & Fractional CTO (inquire first): https://gemmisi.com/advisory.html",
         "- Anonymized case study: https://gemmisi.com/work/governed-ai-content-engine.html",
         "- Hobbies & collections: https://gemmisi.com/hobbies/",
-        "- Trading card collecting: https://gemmisi.com/hobbies/trading-cards/",
+        "- Sports cards and TCG: https://gemmisi.com/hobbies/trading-cards/",
         "- Sitemap: https://gemmisi.com/sitemap.xml",
         f"- IndexNow key: https://gemmisi.com/{ACTIVE_KEY}.txt",
         "",
@@ -2576,7 +2585,7 @@ def write_llms_txt(entries: list) -> None:
         "",
         f"- Hub ({n} practical SI / AI examples; illustrations, not client results): https://gemmisi.com/use-cases/",
         "- Hobbies & collections: https://gemmisi.com/hobbies/",
-        "- Trading card collecting (SI takes the manual entry out of PriceCharting): https://gemmisi.com/hobbies/trading-cards/",
+        "- Sports cards and TCG (SI takes the manual entry out of PriceCharting): https://gemmisi.com/hobbies/trading-cards/",
         "- Browse by industry: https://gemmisi.com/use-cases/industry/",
     ]
     for slug, info in INDUSTRIES.items():
@@ -2591,7 +2600,7 @@ def write_llms_txt(entries: list) -> None:
             "",
             "## Use cases",
             "",
-            f"The library lists {n} practical SI (AI) jobs for small teams and individuals. Industries include any business, real estate and rentals, home services, retail and ecommerce, accounting, legal, medical, education, restaurants, nonprofits and community groups, shops, gyms, and agencies, and hobbies and collections. Trading card pages show how SI takes the manual entry out of PriceCharting: send a photo or say the card; SI adds, edits, reviews, and reports. PriceCharting and SportsCardsPro are the collector's own tools, not a GemmiSI partnership. They are illustrations of what is possible, not reports of client work. {STANDARD_LINE} A person still approves anything that sends, pays, orders, or posts. Education pages are operations help only. SI does not grade students. A person approves anything sent to a student or parent. Student records stay on the school's own equipment and accounts. Legal-practice pages are operations help only. SI does not give legal advice. Medical-practice pages are operations help only. SI does not give medical advice or make clinical decisions. Real-estate pages are operations help only. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. Home-services pages are office help only; the owner approves every quote and message. Accounting-firm pages are operations help only. SI does not give tax advice or file returns. Restaurant, shop, gym, rental, and agency pages are office help. A person still checks. {OWN_ACCOUNTS}",
+            f"The library lists {n} practical SI (AI) jobs for small teams and individuals. Industries include any business, real estate and rentals, home services, retail and ecommerce, accounting, legal, medical, education, restaurants, nonprofits and community groups, shops, gyms, and agencies, and hobbies and collections. Trading card pages cover sports cards and TCG. SI takes the manual entry out of PriceCharting: send a photo or say the card; SI adds, edits, reviews, and reports. Sports cards go on SportsCardsPro. TCG and other non-sports stay on PriceCharting. Those are the collector's own tools, not a GemmiSI partnership. They are illustrations of what is possible, not reports of client work. {STANDARD_LINE} A person still approves anything that sends, pays, orders, or posts. Education pages are operations help only. SI does not grade students. A person approves anything sent to a student or parent. Student records stay on the school's own equipment and accounts. Legal-practice pages are operations help only. SI does not give legal advice. Medical-practice pages are operations help only. SI does not give medical advice or make clinical decisions. Real-estate pages are operations help only. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. Home-services pages are office help only; the owner approves every quote and message. Accounting-firm pages are operations help only. SI does not give tax advice or file returns. Restaurant, shop, gym, rental, and agency pages are office help. A person still checks. {OWN_ACCOUNTS}",
             "",
         ]
     )
@@ -2727,17 +2736,21 @@ def hobby_faqs(slug: str) -> list[tuple[str, str]]:
     label = info["label"]
     extra = [
         (
+            "Is this only for sports cards?",
+            "No. Sports cards and TCG. Pokémon, Magic: The Gathering, One Piece, Yu-Gi-Oh!, and other non-sports too. Sports cards go on SportsCardsPro. TCG and other non-sports stay on PriceCharting. Same login.",
+        ),
+        (
             "Does SI type cards into PriceCharting for me?",
-            "You send a photo or say the card. SI drafts the add, the edit, the review, and the report. You approve before anything is saved.",
+            "You send a photo or say the card. SI drafts the add, the edit, the review, and the report. Sports cards go on SportsCardsPro. TCG stays on PriceCharting. You approve before anything is saved.",
         ),
         (
             "Does GemmiSI partner with PriceCharting?",
-            "No. PriceCharting and SportsCardsPro are tools a collector may already use. They share one login. GemmiSI does not partner with them. Your collection stays on your account.",
+            "No. PriceCharting is for TCG and other non-sports. SportsCardsPro is for sports cards. They share one login. GemmiSI does not partner with them. Your collection stays on your account.",
         ),
     ]
     shared = [
         (
-            f"Does {label.lower()} SI run on my own computer?",
+            "Does this hobby SI run on my own computer?",
             f"Yes. {OWN_ACCOUNTS}",
         ),
         (
@@ -2801,6 +2814,10 @@ def hobby_hub_page(entries: list) -> str:
         (
             "Is this only for businesses?",
             "No. Small businesses and individuals are welcome. Collectors can start with one folder or one inbox.",
+        ),
+        (
+            "Is this only for sports cards?",
+            "No. Sports cards and TCG. Pokémon, Magic: The Gathering, One Piece, Yu-Gi-Oh!, and other non-sports too. Sports cards go on SportsCardsPro. TCG stays on PriceCharting.",
         ),
         (
             "Does this run on my own accounts?",
@@ -2867,8 +2884,8 @@ def hobby_hub_page(entries: list) -> str:
       <section class="uc-group" id="trading-cards" aria-labelledby="live-h">
         <div class="uc-group-head">
           <span class="section-kicker">First hobby</span>
-          <h2 id="live-h">Trading cards</h2>
-          <p>SI takes the manual entry out of PriceCharting. Send a photo or say the card. SI adds it, edits it, reviews the collection, and reports on it.</p>
+          <h2 id="live-h">{e(live[0][1]["label"])}</h2>
+          <p>{e(live[0][1]["blurb"])}</p>
         </div>
         <ul class="uc-grid">
           {live_cards}

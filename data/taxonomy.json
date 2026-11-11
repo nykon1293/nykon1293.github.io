@@ -134,10 +134,10 @@
     },
     "hobbies-collections": {
       "label": "Hobbies & collections",
-      "blurb": "SI takes the manual entry out of PriceCharting. Collectors send a photo or say the card. A person still approves.",
+      "blurb": "Sports cards and TCG. SI takes the manual entry out of PriceCharting. A person still approves.",
       "seo_title": "SI (AI) use cases for hobbies | GemmiSI",
       "seo_h1": "Use cases for hobbies and collections",
-      "meta": "SI (AI) jobs for collectors. SI takes the typing out of PriceCharting. You still approve. Data stays on your own accounts.",
+      "meta": "SI (AI) jobs for sports cards and TCG. PriceCharting for TCG. SportsCardsPro for sports. You still approve.",
       "regulated": false
     }
   },
@@ -523,7 +523,8 @@
       "card",
       "cards",
       "collection",
-      "pricecharting"
+      "pricecharting",
+      "tcg"
     ],
     "cards": [
       "card",
@@ -565,25 +566,37 @@
     "show": [
       "show",
       "card"
+    ],
+    "tcg": [
+      "tcg",
+      "pokemon",
+      "card",
+      "pricecharting"
+    ],
+    "pokemon": [
+      "pokemon",
+      "tcg",
+      "card",
+      "pricecharting"
     ]
   },
   "hobbies_hub": {
     "seo_title": "Hobbies & collections | SI (AI) | GemmiSI",
     "seo_h1": "Hobbies and collections",
-    "meta": "SI (AI) setups for hobbies and collections. Trading cards are first. Your data stays on your own accounts. Free 30-minute consultation.",
+    "meta": "SI (AI) setups for hobbies. Sports cards and TCG are first. PriceCharting for TCG; SportsCardsPro for sports. Free 30-minute consultation.",
     "blurb": "Hobbies make a lot of small chores. Lists, prices, packages, and notes. SI can draft that busywork on your own computer and accounts. You still decide. Small businesses and individuals are welcome.",
-    "intro": "Trading card collecting is first. SI takes the manual entry out of PriceCharting. More hobbies can follow, such as sneakers, coins, and vinyl."
+    "intro": "Sports cards and TCG are first. SI takes the manual entry out of PriceCharting. Sports cards go on SportsCardsPro. TCG and other non-sports stay on PriceCharting. More hobbies can follow, such as sneakers, coins, and vinyl."
   },
   "hobbies": {
     "trading-cards": {
       "status": "live",
-      "label": "Trading card collecting",
-      "seo_title": "Trading card collecting | SI (AI) | GemmiSI",
-      "seo_h1": "Trading card collecting",
-      "meta": "SI (AI) takes the typing out of PriceCharting. Send a photo or say the card. You approve. Data stays on your own accounts.",
-      "blurb": "SI takes the manual entry out of PriceCharting. Send a photo or say the card. SI adds it, edits it, reviews the collection, and reports on it.",
+      "label": "Sports cards and TCG",
+      "seo_title": "Sports cards and TCG | SI (AI) | GemmiSI",
+      "seo_h1": "Sports cards and TCG",
+      "meta": "SI (AI) for sports cards and TCG. PriceCharting for TCG and non-sports. SportsCardsPro for sports. You still approve.",
+      "blurb": "SI takes the manual entry out of PriceCharting. Sports cards go on SportsCardsPro. Pokémon, Magic, One Piece, Yu-Gi-Oh!, and other non-sports stay on PriceCharting.",
       "lead": "SI takes the manual entry out of PriceCharting.",
-      "intro": "Today collectors type every card, grade, cert, and price into PriceCharting by hand. With SI you send a photo or say the card. SI adds it, edits it, reviews the collection, and reports on it. You still approve. Your PriceCharting login stays yours.",
+      "intro": "This is for card collectors in general: sports cards and TCG (trading card games like Pokémon, Magic: The Gathering, One Piece, and Yu-Gi-Oh!), plus other non-sports. Today collectors type every card, grade, cert, and price by hand. With SI you send a photo or say the card. Sports cards go on SportsCardsPro. TCG and other non-sports stay on PriceCharting. Same login. SI adds, edits, reviews, and reports. You still approve.",
       "featured": [
         "card-pricecharting-collection",
         "card-collection-value-before-show"

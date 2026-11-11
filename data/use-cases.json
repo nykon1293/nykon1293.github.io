@@ -8157,31 +8157,31 @@
       "trading-cards"
     ],
     "motif": "inventory",
-    "summary": "SI takes the typing out of PriceCharting. You send a photo or say the card. SI finds the version and drafts the add. You approve.",
-    "problem": "Collectors type every card into PriceCharting by hand. Grade, cert, and price too. That is slow. The list lags. Duplicates sneak in. Sports cards and other cards sit on two sites under one login, so a card can land in the wrong folder.",
-    "what_si_does": "You send a photo, say the card out loud, or send a short list. SI finds the exact version: set, number, and parallel. It checks the folder for a duplicate. It drafts the add with raw or grade, cert number, quantity, and what was paid. It can draft edits too. Sports cards go on SportsCardsPro. Pokémon and other non-sports stay on PriceCharting. Both use the same login. SI can review the folder and draft a short report. Nothing is saved until you approve.",
+    "summary": "SI takes the typing out of PriceCharting. Sports cards go on SportsCardsPro. TCG and other non-sports stay on PriceCharting.",
+    "problem": "Collectors type every card by hand. Sports cards, TCG, and other non-sports. Grade, cert, and price too. That is slow. The list lags. Two sites share one login, so a card can land in the wrong folder.",
+    "what_si_does": "You send a photo, say the card out loud, or send a short list. SI finds the exact version: set, number, and parallel. It checks the folder for a duplicate. It drafts the add with raw or grade, cert number, quantity, and what was paid. It can draft edits too. Sports cards go on SportsCardsPro. TCG such as Pokémon, Magic, One Piece, and Yu-Gi-Oh!, plus other non-sports, stay on PriceCharting. Both use the same login. SI can review the folder and draft a short report. Nothing is saved until you approve.",
     "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Your PriceCharting login stays yours. SportsCardsPro uses the same account. GemmiSI does not hold the collection. Show SI how you name folders. Share a few past adds. Permission is to draft adds and edits, not to save on its own. We sit with you, plan the steps, and teach you to run it. Setup is often a few days.",
     "human_checks": [
       "You approve every add, edit, or move.",
       "SI does not invent a cert number, a grade, or a price.",
       "You confirm the exact version before it is saved.",
-      "Sports and non-sports land on the right site."
+      "Sports cards go to SportsCardsPro. TCG and other non-sports stay on PriceCharting."
     ],
     "examples": [
       {
-        "business_type": "Trading card collector",
-        "scenario": "A photo of a new pull arrives. SI drafts the add with set, number, and parallel. The collector confirms it is not already in the folder."
+        "business_type": "Pokémon collector",
+        "scenario": "A photo of a new pull arrives. SI drafts the add for PriceCharting with set, number, and parallel. The collector confirms it is not already in the folder."
       },
       {
-        "business_type": "Collector after a shop stop",
-        "scenario": "The collector says the card out loud. SI finds the version and waits. Nothing is saved yet."
+        "business_type": "Sports card collector after a shop stop",
+        "scenario": "The collector says the card out loud. SI finds the version on SportsCardsPro and waits. Nothing is saved yet."
       },
       {
-        "business_type": "Collector who buys live-break spots",
-        "scenario": "A short list from a break is matched one by one. Duplicates are flagged. Sports cards are drafted for SportsCardsPro."
+        "business_type": "Magic collector with a short list",
+        "scenario": "A short list is matched one by one on PriceCharting. Duplicates are flagged. Sports cards from the same pile are drafted for SportsCardsPro."
       }
     ],
-    "copy_prompt": "From this [photo, spoken name, or short list], find the exact card version (set, number, parallel) in my PriceCharting or SportsCardsPro catalog. Check folder [name] for a duplicate. Draft an add with raw or grade, cert number if I give one, quantity, and what I paid. Put sports cards on SportsCardsPro and Pokémon or other non-sports on PriceCharting. Draft edits the same way. Do not save. Do not invent a cert, grade, or price. Pause and show me before sending, submitting, posting or changing anything.",
+    "copy_prompt": "From this [photo, spoken name, or short list], find the exact card version (set, number, parallel) in my PriceCharting or SportsCardsPro catalog. Check folder [name] for a duplicate. Draft an add with raw or grade, cert number if I give one, quantity, and what I paid. Put sports cards on SportsCardsPro. Put TCG and other non-sports on PriceCharting. Draft edits the same way. Do not save. Do not invent a cert, grade, or price. Pause and show me before sending, submitting, posting or changing anything.",
     "tools_examples": [
       "PriceCharting",
       "SportsCardsPro",
@@ -8199,6 +8199,7 @@
       "pricecharting collection",
       "add cards from a photo",
       "sportscardspro folder",
+      "tcg folder",
       "live card list"
     ]
   },
@@ -8228,15 +8229,15 @@
     ],
     "examples": [
       {
-        "business_type": "Collector packing for a show",
-        "scenario": "SI lists slabs whose grade does not match the folder. A short value list of the top cards waits for the collector."
+        "business_type": "Pokémon collector packing for a show",
+        "scenario": "SI lists PriceCharting slabs whose grade does not match the folder. A short value list of the top cards waits."
       },
       {
-        "business_type": "Collector heading into a trade",
-        "scenario": "The folder is checked the night before. The list uses only the guide on file. No extra number is added."
+        "business_type": "Sports card collector heading into a trade",
+        "scenario": "The SportsCardsPro folder is checked the night before. The list uses only the guide on file. No extra number is added."
       },
       {
-        "business_type": "Collector with sports and non-sports",
+        "business_type": "Collector with sports and TCG",
         "scenario": "SportsCardsPro and PriceCharting are both read under the same login. One list comes back."
       }
     ],
@@ -8286,16 +8287,16 @@
     ],
     "examples": [
       {
-        "business_type": "Collector after a show",
-        "scenario": "Three cards sold as a lot. SI drafts sold marks and splits the cash total by guide value. The rest of the binder is unchanged."
+        "business_type": "TCG collector after a show",
+        "scenario": "Three Pokémon cards sold as a lot. SI drafts sold marks on PriceCharting and splits the cash total by guide value. The rest of the binder is unchanged."
       },
       {
         "business_type": "Collector who trades and sells",
-        "scenario": "A card that sold last month is in a new photo. SI flags it as already sold so it is not added twice."
+        "scenario": "A Magic card that sold last month is in a new photo. SI flags it as already sold so it is not added twice."
       },
       {
         "business_type": "Collector with a sports folder",
-        "scenario": "Sold sports cards are drafted on SportsCardsPro. Non-sports stay on PriceCharting."
+        "scenario": "Sold sports cards are drafted on SportsCardsPro. TCG stays on PriceCharting."
       }
     ],
     "copy_prompt": "These cards sold [list]. The lot total I received is [amount I state]. Mark them sold in folder [name]. Split that total across the sold cards by current guide value. Leave unsold cards in the folder. Later, check new slabs against sold cards so nothing is counted twice. Do not invent a price. Do not save. Pause and show me before sending, submitting, posting or changing anything.",
@@ -8343,16 +8344,16 @@
     ],
     "examples": [
       {
-        "business_type": "Collector at a show",
-        "scenario": "A sticker photo goes to SI. The note compares the sticker to recent sales and the guide. The collector still talks to the seller."
+        "business_type": "Yu-Gi-Oh! collector at a show",
+        "scenario": "A sticker photo goes to SI. The PriceCharting note compares the sticker to recent sales and the guide. The collector still talks to the seller."
       },
       {
-        "business_type": "Collector shopping a marketplace listing",
-        "scenario": "A listing link is checked. The draft says the ask looks high against comps. No offer is sent."
+        "business_type": "Sports card collector shopping a listing",
+        "scenario": "A listing link is checked on SportsCardsPro. The draft says the ask looks high against comps. No offer is sent."
       },
       {
-        "business_type": "Collector looking at a shop case",
-        "scenario": "A photo of the holder is enough to pull the version. The note waits. The collector decides."
+        "business_type": "One Piece collector looking at a shop case",
+        "scenario": "A photo of the holder is enough to pull the version on PriceCharting. The note waits. The collector decides."
       }
     ],
     "copy_prompt": "From this [photo, listing link, or sticker text], find the exact card version. Check recent sales and the guide on PriceCharting or SportsCardsPro. Draft a short note on whether the asking price looks fair and what I might offer. Use only comps on file. Do not invent a number. Do not send an offer. Pause and show me before sending, submitting, posting or changing anything.",
@@ -8401,16 +8402,16 @@
     ],
     "examples": [
       {
-        "business_type": "Collector with a new set",
-        "scenario": "The set is not in the catalog. SI drafts a request. The collector sends it. SI checks back later."
+        "business_type": "Pokémon collector with a new set",
+        "scenario": "The set is not in PriceCharting yet. SI drafts a request. The collector sends it. SI checks back later."
       },
       {
-        "business_type": "Collector with contributor access",
-        "scenario": "One card in an existing set has no page. SI drafts the add and a cleaned photo. The collector approves the upload."
+        "business_type": "Sports card collector with contributor access",
+        "scenario": "One card in an existing SportsCardsPro set has no page. SI drafts the add and a cleaned photo. The collector approves the upload."
       },
       {
-        "business_type": "Collector with a page that has no picture",
-        "scenario": "SI drafts a cropped photo for the empty catalog page. Nothing posts until the collector says yes."
+        "business_type": "Magic collector with a page that has no picture",
+        "scenario": "SI drafts a cropped photo for the empty PriceCharting page. Nothing posts until the collector says yes."
       }
     ],
     "copy_prompt": "Check whether [card or set] is in the PriceCharting or SportsCardsPro catalog. If it is missing, draft a request to the site from this wording [paste]. Check back until the page appears, then draft adds for my copies in folder [name]. If I have contributor access, draft a new card on the existing set and a cleaned photo for pages with no picture. Do not send or publish. Pause and show me before sending, submitting, posting or changing anything.",
@@ -8458,15 +8459,15 @@
     ],
     "examples": [
       {
-        "business_type": "Collector sorting a raw stack",
-        "scenario": "SI lists a few folder cards whose graded sales look stronger than raw after the fee. The collector still picks which ones go."
+        "business_type": "Pokémon collector sorting a raw stack",
+        "scenario": "SI lists a few PriceCharting cards whose graded sales look stronger than raw after the fee. The collector still picks which ones go."
       },
       {
-        "business_type": "Collector with a local drop-off",
+        "business_type": "Sports card collector with a local drop-off",
         "scenario": "The note includes the drop-off the collector already named. SI does not book it."
       },
       {
-        "business_type": "Collector getting slabs back",
+        "business_type": "TCG collector getting slabs back",
         "scenario": "Grades and certs the collector provides are drafted onto the PriceCharting entries. Nothing saves until they approve."
       }
     ],
@@ -8492,7 +8493,7 @@
   },
   {
     "slug": "card-favorite-team-deal-watch",
-    "title": "Watch for deals on a favorite team",
+    "title": "Watch for deals on a team or TCG",
     "industries": [
       "hobbies-collections"
     ],
@@ -8504,9 +8505,9 @@
     ],
     "motif": "inbox",
     "summary": "Each day SI checks listings against recent sales. It only messages you when something is well under comps.",
-    "problem": "Listings for a favorite team show up all day. Most are not a deal. By the time the collector checks, the good one is gone.",
-    "what_si_does": "You name the team and the kinds of cards you care about. Each day SI checks listings you already watch. It compares them with recent sales on SportsCardsPro or PriceCharting. It drafts a message only when a listing is well under those comps. It does not bid. It does not buy. You still decide.",
-    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Your PriceCharting login stays yours. SportsCardsPro uses the same account. GemmiSI does not hold the collection. Name the team and the listing sources you already use. Write what counts as well under comps. Permission is to watch and draft, not to bid. We sit with you, plan the steps, and teach you to run it. Setup is often a few days.",
+    "problem": "Listings for a favorite team or a TCG like Pokémon show up all day. Most are not a deal. By the time the collector checks, the good one is gone.",
+    "what_si_does": "You name the team, the game, or the kinds of cards you care about. Each day SI checks listings you already watch. It compares them with recent sales on SportsCardsPro or PriceCharting. It drafts a message only when a listing is well under those comps. It does not bid. It does not buy. You still decide.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Your PriceCharting login stays yours. SportsCardsPro uses the same account. GemmiSI does not hold the collection. Name the team, the TCG, and the listing sources you already use. Write what counts as well under comps. Permission is to watch and draft, not to bid. We sit with you, plan the steps, and teach you to run it. Setup is often a few days.",
     "human_checks": [
       "You decide whether to bid, message, or skip.",
       "SI does not bid or buy.",
@@ -8516,25 +8517,25 @@
     "examples": [
       {
         "business_type": "Collector who follows one team",
-        "scenario": "Most daily listings are quiet. One auction is well under recent sales. A short note waits. No bid is placed."
+        "scenario": "Most daily sports listings are quiet. One auction is well under SportsCardsPro sales. A short note waits. No bid is placed."
       },
       {
-        "business_type": "Collector watching a marketplace",
-        "scenario": "SI skips lots that already match the guide. Only the under-comp listing is drafted."
+        "business_type": "Pokémon collector watching a marketplace",
+        "scenario": "SI skips lots that already match the PriceCharting guide. Only the under-comp listing is drafted."
       },
       {
-        "business_type": "Collector with a sports folder",
-        "scenario": "Comps come from SportsCardsPro. The note uses only those sales. The collector still clicks or walks away."
+        "business_type": "Magic collector with a TCG folder",
+        "scenario": "Comps come from PriceCharting. The note uses only those sales. The collector still clicks or walks away."
       }
     ],
-    "copy_prompt": "Each day, check listings for [team and card types] on [sites I already use]. Compare each one with recent sales on SportsCardsPro or PriceCharting. Draft a message to me only when a listing is well under those comps, using the rule [what counts as well under]. Do not bid. Do not buy. Do not invent a sale. Pause and show me before sending, submitting, posting or changing anything.",
+    "copy_prompt": "Each day, check listings for [team, TCG, or card types] on [sites I already use]. Compare each one with recent sales on SportsCardsPro or PriceCharting. Draft a message to me only when a listing is well under those comps, using the rule [what counts as well under]. Do not bid. Do not buy. Do not invent a sale. Pause and show me before sending, submitting, posting or changing anything.",
     "tools_examples": [
       "SportsCardsPro",
       "PriceCharting",
       "eBay",
       "Gmail"
     ],
-    "effect": "You hear about the listing that is actually cheap against comps, not every team card.",
+    "effect": "You hear about the listing that is actually cheap against comps, not every team or TCG card.",
     "caution": "SI does not bid or buy. A quiet day means nothing cleared your under-comp rule.",
     "related": [
       "card-price-before-buying",
@@ -8543,6 +8544,7 @@
     ],
     "aliases": [
       "favorite team card deals",
+      "pokemon deal watch",
       "under comp listing watch",
       "daily team card check"
     ]
@@ -8572,16 +8574,16 @@
     ],
     "examples": [
       {
-        "business_type": "Collector planning a trip",
-        "scenario": "SI lists a nearby show with hours, entry, and parking from the current listing. An old flyer with different hours is flagged."
+        "business_type": "TCG collector planning a trip",
+        "scenario": "SI lists a nearby card show with hours, entry, and parking from the current listing. An old flyer with different hours is flagged."
       },
       {
-        "business_type": "Collector choosing show or shop",
-        "scenario": "The note says the show is open and the shop is the backup. The collector still picks."
+        "business_type": "Sports card collector choosing show or shop",
+        "scenario": "The note says the sports card show is open and the shop is the backup. The collector still picks."
       },
       {
         "business_type": "Collector new to the area",
-        "scenario": "A few upcoming shows in driving range are listed with size notes from the public listing. No ticket is bought."
+        "scenario": "A few upcoming shows in driving range are listed, including mixed sports and TCG tables, with size notes from the public listing. No ticket is bought."
       }
     ],
     "copy_prompt": "Look up local card shows for [area] on [date]. List date, hours, entry, parking, and size from current listings. Compare any flyer I send [photo] with those listings. Draft a short show-vs-shop note for that date. Do not buy a ticket. Do not invent hours. Pause and show me before sending, submitting, posting or changing anything.",
@@ -8619,7 +8621,7 @@
     "motif": "inventory",
     "summary": "A child's cards live in their own PriceCharting folder, apart from the main list. SI checks for duplicates across both.",
     "problem": "Kid pulls mix into the main binder in photos and lists. Values and duplicates get messy. The collector wants a separate folder that still gets the same photo-to-add help.",
-    "what_si_does": "You name the child's folder. New photos or short lists for that pile are drafted there, not into the main collection. SI checks both folders for duplicates. Sports cards still go on SportsCardsPro. Other cards stay on PriceCharting. Same login. You approve every add.",
+    "what_si_does": "You name the child's folder. New photos or short lists for that pile are drafted there, not into the main collection. SI checks both folders for duplicates. Sports cards still go on SportsCardsPro. TCG and other non-sports stay on PriceCharting. Same login. You approve every add.",
     "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Your PriceCharting login stays yours. SportsCardsPro uses the same account. GemmiSI does not hold the collection. Create or point to the child's folder. Tell SI how you tell those photos apart. Permission is to draft into that folder, not to mix piles on its own. We sit with you, plan the steps, and teach you to run it. Setup is often a day or two.",
     "human_checks": [
       "You confirm which pile a photo belongs to.",
@@ -8629,19 +8631,19 @@
     ],
     "examples": [
       {
-        "business_type": "Collector with a child's binder",
-        "scenario": "A photo from the kid pile is drafted into the child's folder. The main folder is left alone."
+        "business_type": "Collector with a child's Pokémon binder",
+        "scenario": "A photo from the kid pile is drafted into the child's PriceCharting folder. The main folder is left alone."
       },
       {
-        "business_type": "Collector sorting two piles",
+        "business_type": "Collector sorting sports and TCG piles",
         "scenario": "The same card is in both folders. SI flags the duplicate. The collector decides which folder keeps it."
       },
       {
         "business_type": "Collector adding a live-break spot for a child",
-        "scenario": "The short list is drafted into the child's folder with a duplicate check against the main list."
+        "scenario": "The short sports list is drafted into the child's SportsCardsPro folder with a duplicate check against the main list."
       }
     ],
-    "copy_prompt": "Treat folder [child folder] as separate from [main folder]. From this [photo or short list], draft adds only into the child folder. Check both folders for duplicates. Put sports cards on SportsCardsPro and other cards on PriceCharting. Do not move cards between folders. Do not save. Pause and show me before sending, submitting, posting or changing anything.",
+    "copy_prompt": "Treat folder [child folder] as separate from [main folder]. From this [photo or short list], draft adds only into the child folder. Check both folders for duplicates. Put sports cards on SportsCardsPro. Put TCG and other non-sports on PriceCharting. Do not move cards between folders. Do not save. Pause and show me before sending, submitting, posting or changing anything.",
     "tools_examples": [
       "PriceCharting",
       "SportsCardsPro",
@@ -8687,15 +8689,15 @@
     ],
     "examples": [
       {
-        "business_type": "Collector with an unlabeled toploader",
-        "scenario": "A photo is enough for SI to draft two likely versions. The collector picks the right one. No add is saved yet."
+        "business_type": "Pokémon collector with an unlabeled toploader",
+        "scenario": "A photo is enough for SI to draft two likely PriceCharting versions. The collector picks the right one. No add is saved yet."
       },
       {
-        "business_type": "Collector who only remembers the set",
-        "scenario": "A rough description plus a photo narrows the parallel. The price note waits."
+        "business_type": "Sports card collector who only remembers the set",
+        "scenario": "A rough description plus a photo narrows the parallel on SportsCardsPro. The price note waits."
       },
       {
-        "business_type": "Collector adding after a show",
+        "business_type": "Magic collector adding after a show",
         "scenario": "A table-find photo is identified, then drafted into PriceCharting once the collector confirms the version."
       }
     ],
@@ -8745,15 +8747,15 @@
     ],
     "examples": [
       {
-        "business_type": "Collector who buys live-break spots",
+        "business_type": "Sports card collector who buys live-break spots",
         "scenario": "Morning mail is sorted into shipped, still packing, and arriving today. No seller is contacted."
       },
       {
-        "business_type": "Collector with marketplace orders",
-        "scenario": "A package with no scan for days is flagged. A draft note to the seller waits. The collector sends it or waits."
+        "business_type": "TCG collector with marketplace orders",
+        "scenario": "A Pokémon package with no scan for days is flagged. A draft note to the seller waits. The collector sends it or waits."
       },
       {
-        "business_type": "Collector expecting cards today",
+        "business_type": "Magic collector expecting cards today",
         "scenario": "The update lists what is due today. Cards still in transit stay on the waiting list."
       }
     ],
