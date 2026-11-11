@@ -28,6 +28,7 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 from typing import Callable
+from urllib.parse import urljoin
 
 ROOT = Path(__file__).resolve().parents[1]
 HOST = "gemmisi.com"
@@ -98,6 +99,7 @@ SCRIPT_STYLE_RE = re.compile(
 SEE_ALL_RE = re.compile(r"See all \d+ use cases", re.I)
 CSS_QUERY_RE = re.compile(r"\?v=[A-Za-z0-9._-]+")
 WHITESPACE_RE = re.compile(r"\s+")
+HREF_ATTR_RE = re.compile(r'\bhref="([^"]*)"', re.I)
 
 
 def tracking_slugs() -> set[str]:
@@ -219,13 +221,41 @@ def _meta_content(html: str, name: str) -> str:
     return ""
 
 
-def page_content_fingerprint(html: str) -> str:
+def collapse_directory_index(url: str) -> str:
+    """Fold /foo/index.html onto /foo/ so href-only canonicalization is chrome."""
+    if "/index.html#" in url:
+        return url.replace("/index.html#", "/#", 1)
+    if url.endswith("/index.html"):
+        return url[: -len("index.html")]
+    if url.endswith("index.html"):
+        return url[: -len("index.html")] or "/"
+    return url
+
+
+def canonicalize_internal_hrefs(html: str, base_url: str | None) -> str:
+    if not base_url:
+        return html
+
+    def repl(match: re.Match[str]) -> str:
+        href = match.group(1)
+        if not href or href.startswith(("mailto:", "tel:", "javascript:", "data:", "#")):
+            return match.group(0)
+        joined = urljoin(base_url, href)
+        if "gemmisi.com" not in joined:
+            return match.group(0)
+        return f'href="{collapse_directory_index(joined)}"'
+
+    return HREF_ATTR_RE.sub(repl, html)
+
+
+def page_content_fingerprint(html: str, base_url: str | None = None) -> str:
     """Indexable page content, ignoring shared chrome that is rebuilt on every page.
 
     Title, meta description, canonical, robots, and `<main>` (else body minus
     header/footer). Strips scripts/styles, CSS cache-bust queries, and the
     generated "See all N use cases" count so a library-size bump does not look
-    like every use-case page changed.
+    like every use-case page changed. Directory index.html hrefs are folded onto
+    their trailing-slash URLs so a link-only canonicalization is not a change.
     """
     title = TITLE_RE.search(html)
     canonical = CANONICAL_RE.search(html)
@@ -233,6 +263,7 @@ def page_content_fingerprint(html: str) -> str:
     if not main:
         main = HEADER_FOOTER_RE.sub("", _tag_inner(html, "body"))
     main = SCRIPT_STYLE_RE.sub("", main)
+    main = canonicalize_internal_hrefs(main, base_url)
     main = SEE_ALL_RE.sub("See all N use cases", main)
     main = CSS_QUERY_RE.sub("", main)
     main = WHITESPACE_RE.sub(" ", main).strip()
@@ -271,7 +302,9 @@ def urls_from_page_changes(files: list[str], before: str, after: str) -> list[st
         if old_html is None and new_html is None:
             continue
         if old_html is not None and new_html is not None:
-            if page_content_fingerprint(old_html) == page_content_fingerprint(new_html):
+            if page_content_fingerprint(old_html, base_url=url) == page_content_fingerprint(
+                new_html, base_url=url
+            ):
                 continue
         seen.add(url)
         urls.append(url)

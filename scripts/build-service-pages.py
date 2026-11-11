@@ -41,9 +41,9 @@ SERVICE_PAGES = [
 
 def nav_for(slug: str) -> str:
     lines = ['<nav id="site-nav" class="nav-links" aria-label="Primary navigation">']
-    lines.append('        <a href="../index.html">Home</a>')
+    lines.append('        <a href="/">Home</a>')
     work_cur = ' aria-current="page"' if slug == "work" else ""
-    lines.append(f'        <a href="../index.html#work"{work_cur}>Work</a>')
+    lines.append(f'        <a href="/#work"{work_cur}>Work</a>')
     lines.append('        <details class="nav-dropdown">')
     lines.append('          <summary class="nav-dropdown-trigger">Services</summary>')
     lines.append('          <div class="nav-dropdown-menu">')
@@ -54,12 +54,12 @@ def nav_for(slug: str) -> str:
     lines.append(
         f'            <a class="nav-dropdown-muted" href="stocky-recovery.html"{stocky_cur}>Stocky dump recovery</a>'
     )
-    lines.append('            <a class="nav-dropdown-muted" href="../index.html#service-hub">All services</a>')
+    lines.append('            <a class="nav-dropdown-muted" href="/#service-hub">All services</a>')
     lines.append('            <a class="nav-dropdown-muted" href="../advisory.html">Advisory &amp; Fractional (ask first)</a>')
     lines.append("          </div>")
     lines.append("        </details>")
-    lines.append('        <a href="../use-cases/">Use cases</a>')
-    lines.append('        <a href="../hobbies/">Hobbies</a>')
+    lines.append('        <a href="/use-cases/">Use cases</a>')
+    lines.append('        <a href="/hobbies/">Hobbies</a>')
     lines.append('        <a href="../pricing.html">Pricing</a>')
     lines.append("      </nav>")
     lines.append(f'      <a class="nav-cta" href="{CALENDLY}" target="_blank" rel="noreferrer">Book consultation</a>')
@@ -731,14 +731,14 @@ PAGES = [
 
 FOOTER_SCRIPTS = f"""
     <footer>
-      <a class="footer-brand" href="../index.html" aria-label="GemmiSI home">
+      <a class="footer-brand" href="/" aria-label="GemmiSI home">
         <img class="footer-lockup" src="../assets/brand/gemmisi-lockup-dark.svg" alt="" width="123" height="28" />
       </a>
       <p>© <span id="year"></span> Yonatan Gemmi. Based in North Miami Beach, Florida · Miami-Dade, Broward, and remote</p>
       <p class="footer-nav">
-        <a href="../index.html">Home</a>
-        <a href="../use-cases/">Use cases</a>
-        <a href="../hobbies/">Hobbies</a>
+        <a href="/">Home</a>
+        <a href="/use-cases/">Use cases</a>
+        <a href="/hobbies/">Hobbies</a>
         <a href="../pricing.html">Pricing</a>
         <a href="hermes-agents.html">Hermes desks</a>
         <a href="ai-automation.html">SI automation</a>
@@ -913,7 +913,7 @@ def render(page: dict) -> str:
 <body>
   <div class="site-shell">
     <header class="nav">
-      <a class="brand" href="../index.html" aria-label="GemmiSI home">
+      <a class="brand" href="/" aria-label="GemmiSI home">
         <img class="brand-lockup" src="../assets/brand/gemmisi-lockup-dark.svg" alt="" width="159" height="36" />
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open site menu">
@@ -927,7 +927,7 @@ def render(page: dict) -> str:
       <section class="hero service-landing-hero">
         <div class="hero-copy">
           <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="../index.html">Home</a>
+            <a href="/">Home</a>
             <span aria-hidden="true">/</span>
             <span>{service_name}</span>
           </nav>
@@ -935,7 +935,7 @@ def render(page: dict) -> str:
           <p class="lead">{page['lead']}</p>
           <div class="actions">
             <a class="button primary" href="{CALENDLY}" target="_blank" rel="noreferrer">{cta_primary}</a>
-            <a class="button ghost" href="../index.html#work">See work examples</a>
+            <a class="button ghost" href="/#work">See work examples</a>
           </div>
         </div>
 {pfd_card_html(page)}

@@ -6,6 +6,7 @@ import json
 import re
 import struct
 import sys
+from datetime import date
 from html import unescape
 from pathlib import Path
 from urllib.parse import urlparse
@@ -21,6 +22,7 @@ LINKEDIN_PROFILE = "https://www.linkedin.com/in/joshuah-gemmi-16046233/"
 LINKEDIN_COMPANY = "https://www.linkedin.com/company/gemmisi/"
 FACEBOOK_PAGE = "https://www.facebook.com/1392236803978006"
 SKIP_SITEMAP_DIRS = {"chatbot", "sofer-preview"}
+INDEX_HREF_RE = re.compile(r"""href\s*=\s*["']([^"']*index\.html[^"']*)["']""", re.I)
 NEW_INDUSTRY_PAGES = (
     "restaurants-food",
     "local-shops",
@@ -166,6 +168,18 @@ def check_assets(errors: list[str]) -> None:
         errors.append("sitemap.xml must not include github.io URLs")
     locs = re.findall(r"<loc>(.*?)</loc>", sitemap)
     blocks = re.findall(r"<url>(.*?)</url>", sitemap, flags=re.S)
+    lastmods = re.findall(r"<lastmod>(\d{4}-\d{2}-\d{2})</lastmod>", sitemap)
+    today = date.today().isoformat()
+    if lastmods and len(set(lastmods)) < 5:
+        errors.append(
+            "sitemap lastmod should vary by page source date, "
+            f"found {len(set(lastmods))} distinct value(s)"
+        )
+    if lastmods and all(item == today for item in lastmods):
+        errors.append("sitemap lastmod must not stamp every URL with today")
+    for item in lastmods:
+        if item > today:
+            errors.append(f"sitemap lastmod {item} is in the future")
     for block in blocks:
         if "<lastmod>" not in block:
             loc = re.search(r"<loc>(.*?)</loc>", block)
@@ -222,6 +236,11 @@ def main() -> None:
     for path in paths:
         html = path.read_text(encoding="utf-8")
         rel = path.relative_to(ROOT)
+        if not is_moved_page(path):
+            for href in INDEX_HREF_RE.findall(html):
+                if href.startswith("http") and "gemmisi.com" not in href:
+                    continue
+                errors.append(f"{rel}: internal href still points at index.html ({href})")
         title_m = re.search(r"<title>(.*?)</title>", html, flags=re.S)
         desc_m = re.search(r'<meta name="description" content="(.*?)" />', html)
         if not title_m:

@@ -30,6 +30,13 @@ from seo_schema import (
 )
 
 ROOT = Path(__file__).resolve().parent.parent
+HOME_INDEX_HREF = re.compile(r'href="(?:(?:\.\./)+|/)?index\.html(#[^"]*)?"')
+
+
+def rewrite_home_index_hrefs(html: str) -> str:
+    """Fold Home links like index.html and ../index.html onto /."""
+    return HOME_INDEX_HREF.sub(lambda m: f'href="/{m.group(1) or ""}"', html)
+
 
 HOME_FAQS = [
     (
@@ -464,7 +471,7 @@ def patch_pricing() -> None:
     html = html.replace(old_faq, new_faq, 1)
     html = html.replace(
         '      <p>© <span id="year"></span> Yonatan Gemmi. Built with GitHub Pages • Based in North Miami Beach, Florida • <a class="text-link" href="https://www.linkedin.com/in/joshuah-gemmi-16046233/" target="_blank" rel="noreferrer">LinkedIn</a></p>',
-        "      <p>© <span id=\"year\"></span> Yonatan Gemmi. Based in North Miami Beach, Florida · Miami-Dade, Broward, and remote</p>\n      <p class=\"footer-nav\">\n        <a href=\"index.html\">Home</a>\n        <a href=\"pricing.html\">Pricing</a>\n        <a href=\"services/stocky-recovery.html\">Stocky recovery</a>\n        <a href=\"services/hermes-agents.html\">Hermes desks</a>\n        <a href=\"https://calendly.com/josh-gemmi/30min\" target=\"_blank\" rel=\"noreferrer\">Book consultation</a>\n        "
+        "      <p>© <span id=\"year\"></span> Yonatan Gemmi. Based in North Miami Beach, Florida · Miami-Dade, Broward, and remote</p>\n      <p class=\"footer-nav\">\n        <a href=\"/\">Home</a>\n        <a href=\"pricing.html\">Pricing</a>\n        <a href=\"services/stocky-recovery.html\">Stocky recovery</a>\n        <a href=\"services/hermes-agents.html\">Hermes desks</a>\n        <a href=\"https://calendly.com/josh-gemmi/30min\" target=\"_blank\" rel=\"noreferrer\">Book consultation</a>\n        "
         + footer_social_links()
         + "\n      </p>",
     )
@@ -488,7 +495,7 @@ def patch_advisory() -> None:
     html = replace_jsonld(html, advisory_graph())
     html = html.replace(
         '      <p>© <span id="year"></span> Yonatan Gemmi. Built with GitHub Pages • Based in North Miami Beach, Florida • <a class="text-link" href="https://www.linkedin.com/in/joshuah-gemmi-16046233/" target="_blank" rel="noreferrer">LinkedIn</a></p>',
-        "      <p>© <span id=\"year\"></span> Yonatan Gemmi. Based in North Miami Beach, Florida · Miami-Dade, Broward, and remote</p>\n      <p class=\"footer-nav\">\n        <a href=\"index.html\">Home</a>\n        <a href=\"pricing.html\">Pricing</a>\n        <a href=\"services/stocky-recovery.html\">Stocky recovery</a>\n        <a href=\"services/hermes-agents.html\">Hermes desks</a>\n        <a href=\"https://calendly.com/josh-gemmi/30min\" target=\"_blank\" rel=\"noreferrer\">Book consultation</a>\n        "
+        "      <p>© <span id=\"year\"></span> Yonatan Gemmi. Based in North Miami Beach, Florida · Miami-Dade, Broward, and remote</p>\n      <p class=\"footer-nav\">\n        <a href=\"/\">Home</a>\n        <a href=\"pricing.html\">Pricing</a>\n        <a href=\"services/stocky-recovery.html\">Stocky recovery</a>\n        <a href=\"services/hermes-agents.html\">Hermes desks</a>\n        <a href=\"https://calendly.com/josh-gemmi/30min\" target=\"_blank\" rel=\"noreferrer\">Book consultation</a>\n        "
         + footer_social_links()
         + "\n      </p>",
     )
@@ -539,7 +546,7 @@ def patch_stocky() -> None:
     )
     html = html.replace(
         '      <p>© <span id="year"></span> Yonatan Gemmi. Built with GitHub Pages • Based in North Miami Beach, Florida</p>',
-        '      <p>© <span id="year"></span> Yonatan Gemmi. Based in North Miami Beach, Florida · Miami-Dade, Broward, and remote</p>\n      <p class="footer-nav">\n        <a href="../index.html">Home</a>\n        <a href="../pricing.html">Pricing</a>\n        <a href="stocky-recovery.html">Stocky recovery</a>\n        <a href="hermes-agents.html">Hermes desks</a>\n        <a href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book consultation</a>\n      </p>',
+        '      <p>© <span id="year"></span> Yonatan Gemmi. Based in North Miami Beach, Florida · Miami-Dade, Broward, and remote</p>\n      <p class="footer-nav">\n        <a href="/">Home</a>\n        <a href="../pricing.html">Pricing</a>\n        <a href="stocky-recovery.html">Stocky recovery</a>\n        <a href="hermes-agents.html">Hermes desks</a>\n        <a href="https://calendly.com/josh-gemmi/30min" target="_blank" rel="noreferrer">Book consultation</a>\n      </p>',
     )
     path.write_text(html, encoding="utf-8")
     print("patched", path.relative_to(ROOT))
@@ -565,7 +572,7 @@ def patch_work() -> None:
     html = replace_jsonld(html, work_graph())
     html = html.replace(
         '      <p>© <span id="year"></span> Yonatan Gemmi. Built with GitHub Pages • Based in North Miami Beach, Florida • <a class="text-link" href="https://www.linkedin.com/in/joshuah-gemmi-16046233/" target="_blank" rel="noreferrer">LinkedIn</a></p>',
-        "      <p>© <span id=\"year\"></span> Yonatan Gemmi. Based in North Miami Beach, Florida · Miami-Dade, Broward, and remote</p>\n      <p class=\"footer-nav\">\n        <a href=\"../index.html\">Home</a>\n        <a href=\"../pricing.html\">Pricing</a>\n        <a href=\"../services/stocky-recovery.html\">Stocky recovery</a>\n        <a href=\"../services/hermes-agents.html\">Hermes desks</a>\n        <a href=\"https://calendly.com/josh-gemmi/30min\" target=\"_blank\" rel=\"noreferrer\">Book consultation</a>\n        "
+        "      <p>© <span id=\"year\"></span> Yonatan Gemmi. Based in North Miami Beach, Florida · Miami-Dade, Broward, and remote</p>\n      <p class=\"footer-nav\">\n        <a href=\"/\">Home</a>\n        <a href=\"../pricing.html\">Pricing</a>\n        <a href=\"../services/stocky-recovery.html\">Stocky recovery</a>\n        <a href=\"../services/hermes-agents.html\">Hermes desks</a>\n        <a href=\"https://calendly.com/josh-gemmi/30min\" target=\"_blank\" rel=\"noreferrer\">Book consultation</a>\n        "
         + footer_social_links()
         + "\n      </p>",
     )
@@ -654,6 +661,7 @@ def patch_404() -> None:
         if 'property="og:title"' not in html:
             raise SystemExit("could not insert 404 Open Graph tags")
     html = replace_icon_links(html)
+    html = rewrite_home_index_hrefs(html)
     path.write_text(html, encoding="utf-8")
     print("patched", path.relative_to(ROOT))
 
@@ -681,6 +689,7 @@ def refresh_head_and_jsonld() -> None:
             icon=spec["icon"],
         )
         html = replace_jsonld(html, spec["graph"]())
+        html = rewrite_home_index_hrefs(html)
         spec["path"].write_text(html, encoding="utf-8")
         print("patched", spec["path"].relative_to(ROOT))
     patch_404()
