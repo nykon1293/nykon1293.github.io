@@ -21,12 +21,16 @@ https://calendly.com/josh-gemmi/30min
 - Stocky dump recovery (Shopify CSV after Stocky shut down; not a Stocky replacement app): https://gemmisi.com/services/stocky-recovery.html
 - Advisory & Fractional CTO (inquire first): https://gemmisi.com/advisory.html
 - Anonymized case study: https://gemmisi.com/work/governed-ai-content-engine.html
+- Hobbies & collections: https://gemmisi.com/hobbies/
+- Trading card collecting: https://gemmisi.com/hobbies/trading-cards/
 - Sitemap: https://gemmisi.com/sitemap.xml
 - IndexNow key: https://gemmisi.com/f702ca108ee22cc8602abd433bed3cf5.txt
 
 ## Use-case hub and landings
 
-- Hub (160 practical SI / AI examples; illustrations, not client results): https://gemmisi.com/use-cases/
+- Hub (171 practical SI / AI examples; illustrations, not client results): https://gemmisi.com/use-cases/
+- Hobbies & collections: https://gemmisi.com/hobbies/
+- Trading card collecting (SI takes the manual entry out of PriceCharting): https://gemmisi.com/hobbies/trading-cards/
 - Browse by industry: https://gemmisi.com/use-cases/industry/
 - Any business: https://gemmisi.com/use-cases/industry/any-business/
 - Real estate & rentals: https://gemmisi.com/use-cases/industry/real-estate/
@@ -39,6 +43,7 @@ https://calendly.com/josh-gemmi/30min
 - Restaurants & food: https://gemmisi.com/use-cases/industry/restaurants-food/
 - Nonprofits & community groups: https://gemmisi.com/use-cases/industry/nonprofits/
 - Shops, gyms & agencies: https://gemmisi.com/use-cases/industry/local-shops/
+- Hobbies & collections: https://gemmisi.com/use-cases/industry/hobbies-collections/
 - Browse by problem: https://gemmisi.com/use-cases/function/
 - Getting paid: https://gemmisi.com/use-cases/function/getting-paid/
 - Answering customers after hours: https://gemmisi.com/use-cases/function/after-hours/
@@ -54,7 +59,7 @@ https://calendly.com/josh-gemmi/30min
 
 ## Use cases
 
-The library lists 160 practical SI (AI) jobs for small teams. Industries include any business, real estate and rentals, home services, retail and ecommerce, accounting, legal, medical, education, restaurants, nonprofits and community groups, and shops, gyms, and agencies. They are illustrations of what is possible, not reports of client results. SI drafts. You approve. A person still approves anything that sends, pays, orders, or posts. Education pages are operations help only. SI does not grade students. A person approves anything sent to a student or parent. Student records stay on the school's own equipment and accounts. Legal-practice pages are operations help only. SI does not give legal advice. Medical-practice pages are operations help only. SI does not give medical advice or make clinical decisions. Real-estate pages are operations help only. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. Home-services pages are office help only; the owner approves every quote and message. Accounting-firm pages are operations help only. SI does not give tax advice or file returns. Restaurant, shop, gym, rental, and agency pages are office help. A person still checks. GemmiSI sets this up on your own equipment and accounts; your data stays with you.
+The library lists 171 practical SI (AI) jobs for small teams and individuals. Industries include any business, real estate and rentals, home services, retail and ecommerce, accounting, legal, medical, education, restaurants, nonprofits and community groups, shops, gyms, and agencies, and hobbies and collections. Trading card pages show how SI takes the manual entry out of PriceCharting: send a photo or say the card; SI adds, edits, reviews, and reports. PriceCharting and SportsCardsPro are the collector's own tools, not a GemmiSI partnership. They are illustrations of what is possible, not reports of client work. SI drafts. You approve. A person still approves anything that sends, pays, orders, or posts. Education pages are operations help only. SI does not grade students. A person approves anything sent to a student or parent. Student records stay on the school's own equipment and accounts. Legal-practice pages are operations help only. SI does not give legal advice. Medical-practice pages are operations help only. SI does not give medical advice or make clinical decisions. Real-estate pages are operations help only. SI prepares drafts for the licensed agent or owner and does not lease, collect rent, screen or rank applicants. Home-services pages are office help only; the owner approves every quote and message. Accounting-firm pages are operations help only. SI does not give tax advice or file returns. Restaurant, shop, gym, rental, and agency pages are office help. A person still checks. GemmiSI sets this up on your own equipment and accounts; your data stays with you.
 
 - Morning inbox sort into labeled queues: https://gemmisi.com/use-cases/inbox-triage/
 - A weekly list of emails still waiting on you: https://gemmisi.com/use-cases/unanswered-threads/
@@ -216,6 +221,17 @@ The library lists 160 practical SI (AI) jobs for small teams. Industries include
 - Salon and spa booking drafts over WhatsApp: https://gemmisi.com/use-cases/salon-whatsapp-booking-drafts/
 - Oil-change and inspection reminders from shop history: https://gemmisi.com/use-cases/auto-service-history-reminders/
 - License, insurance and subcontractor document tracking: https://gemmisi.com/use-cases/contractor-license-insurance-tracker/
+- Keep a live collection on PriceCharting: https://gemmisi.com/use-cases/card-pricecharting-collection/
+- Know collection value before a show: https://gemmisi.com/use-cases/card-collection-value-before-show/
+- Record a sale the right way: https://gemmisi.com/use-cases/card-record-sales/
+- Price a card before you buy: https://gemmisi.com/use-cases/card-price-before-buying/
+- Get missing cards into the price guide: https://gemmisi.com/use-cases/card-missing-catalog-requests/
+- Decide what is worth grading: https://gemmisi.com/use-cases/card-grading-worth-sending/
+- Watch for deals on a favorite team: https://gemmisi.com/use-cases/card-favorite-team-deal-watch/
+- Find a local card show: https://gemmisi.com/use-cases/card-local-show-finder/
+- Keep a child's cards in their own folder: https://gemmisi.com/use-cases/card-child-collection-folder/
+- Identify a card from a photo: https://gemmisi.com/use-cases/card-identify-from-photo/
+- Track card orders and shipments: https://gemmisi.com/use-cases/card-order-shipment-tracking/
 
 ## Facts to keep straight
 

@@ -75,6 +75,7 @@ INDUSTRY_ACCENT = {
     "nonprofits": ("nonprofits", "#6f9a86"),
     "warehousing-wholesale": ("warehousing-wholesale", "#b09a62"),
     "local-shops": ("local-shops", "#9aaf7a"),
+    "hobbies-collections": ("hobbies-collections", "#c9a45c"),
 }
 
 FUNCTION_ACCENT = {
@@ -122,6 +123,7 @@ INDUSTRY_MOTIF = {
     "nonprofits": "checklist",
     "warehousing-wholesale": "inventory",
     "local-shops": "phone",
+    "hobbies-collections": "inventory",
 }
 
 FUNCTION_MOTIF = {

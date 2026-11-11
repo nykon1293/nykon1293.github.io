@@ -436,6 +436,7 @@ html.uc-js .uc-group:not(.is-open) .uc-card.uc-extra { display: none; }
 .uc-motif--marketing-agencies { --uc-accent: #c4786a; }
 .uc-motif--nonprofits { --uc-accent: #6f9a86; }
 .uc-motif--warehousing-wholesale { --uc-accent: #b09a62; }
+.uc-motif--hobbies-collections { --uc-accent: #c9a45c; }
 .uc-motif--default { --uc-accent: #d3aa55; }
 .uc-motif-frame {
   aspect-ratio: 1;
@@ -693,6 +694,32 @@ html.uc-js .uc-group:not(.is-open) .uc-card.uc-extra { display: none; }
   border-bottom: 1px solid var(--line-soft);
 }
 .uc-kit-job h2 { margin-bottom: 8px; }
+.uc-loop-steps {
+  margin: 10px 0 14px;
+  font-size: .92rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: var(--accent);
+}
+.uc-featured-pair {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.uc-card.uc-coming {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 64px;
+  column-gap: 12px;
+  row-gap: 8px;
+  align-items: start;
+  width: 100%;
+  padding: 20px 18px;
+  border: 1px solid var(--line-soft);
+  border-radius: 16px;
+  background: var(--surface);
+  cursor: default;
+  opacity: .88;
+}
+.uc-card.uc-coming .uc-card-cat { color: var(--muted-2); }
 @media (max-width: 720px) {
   .uc-board-grid { grid-template-columns: 1fr; }
+  .uc-featured-pair { grid-template-columns: 1fr; }
 }

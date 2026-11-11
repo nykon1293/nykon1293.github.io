@@ -131,6 +131,14 @@
       "seo_h1": "Use cases for shops, gyms and agencies",
       "meta": "SI (AI) jobs for auto shops, gyms, salons, and small agencies. A person still checks every draft before it goes out.",
       "regulated": false
+    },
+    "hobbies-collections": {
+      "label": "Hobbies & collections",
+      "blurb": "SI takes the manual entry out of PriceCharting. Collectors send a photo or say the card. A person still approves.",
+      "seo_title": "SI (AI) use cases for hobbies | GemmiSI",
+      "seo_h1": "Use cases for hobbies and collections",
+      "meta": "SI (AI) jobs for collectors. SI takes the typing out of PriceCharting. You still approve. Data stays on your own accounts.",
+      "regulated": false
     }
   },
   "functions": {
@@ -287,6 +295,11 @@
       "auto-repair-request-sorting",
       "fitness-class-list-check-ins",
       "insurance-renewal-quote-compare"
+    ],
+    "hobbies-collections": [
+      "card-pricecharting-collection",
+      "card-collection-value-before-show",
+      "card-record-sales"
     ]
   },
   "kits": [
@@ -505,6 +518,92 @@
       "booking",
       "whatsapp",
       "appointment"
+    ],
+    "card": [
+      "card",
+      "cards",
+      "collection",
+      "pricecharting"
+    ],
+    "cards": [
+      "card",
+      "cards",
+      "collection"
+    ],
+    "collection": [
+      "collection",
+      "card",
+      "pricecharting"
+    ],
+    "pricecharting": [
+      "pricecharting",
+      "sportscardspro",
+      "collection",
+      "card"
+    ],
+    "sportscardspro": [
+      "sportscardspro",
+      "pricecharting",
+      "card"
+    ],
+    "hobby": [
+      "hobby",
+      "hobbies",
+      "collection",
+      "card"
+    ],
+    "hobbies": [
+      "hobby",
+      "hobbies",
+      "collection"
+    ],
+    "grading": [
+      "grading",
+      "grade",
+      "slab"
+    ],
+    "show": [
+      "show",
+      "card"
     ]
+  },
+  "hobbies_hub": {
+    "seo_title": "Hobbies & collections | SI (AI) | GemmiSI",
+    "seo_h1": "Hobbies and collections",
+    "meta": "SI (AI) setups for hobbies and collections. Trading cards are first. Your data stays on your own accounts. Free 30-minute consultation.",
+    "blurb": "Hobbies make a lot of small chores. Lists, prices, packages, and notes. SI can draft that busywork on your own computer and accounts. You still decide. Small businesses and individuals are welcome.",
+    "intro": "Trading card collecting is first. SI takes the manual entry out of PriceCharting. More hobbies can follow, such as sneakers, coins, and vinyl."
+  },
+  "hobbies": {
+    "trading-cards": {
+      "status": "live",
+      "label": "Trading card collecting",
+      "seo_title": "Trading card collecting | SI (AI) | GemmiSI",
+      "seo_h1": "Trading card collecting",
+      "meta": "SI (AI) takes the typing out of PriceCharting. Send a photo or say the card. You approve. Data stays on your own accounts.",
+      "blurb": "SI takes the manual entry out of PriceCharting. Send a photo or say the card. SI adds it, edits it, reviews the collection, and reports on it.",
+      "lead": "SI takes the manual entry out of PriceCharting.",
+      "intro": "Today collectors type every card, grade, cert, and price into PriceCharting by hand. With SI you send a photo or say the card. SI adds it, edits it, reviews the collection, and reports on it. You still approve. Your PriceCharting login stays yours.",
+      "featured": [
+        "card-pricecharting-collection",
+        "card-collection-value-before-show"
+      ],
+      "industry": "hobbies-collections"
+    },
+    "sneakers": {
+      "status": "coming",
+      "label": "Sneakers",
+      "blurb": "Watching restocks and keeping a list. Coming later."
+    },
+    "coins": {
+      "status": "coming",
+      "label": "Coins",
+      "blurb": "Keeping a list and checking values. Coming later."
+    },
+    "vinyl": {
+      "status": "coming",
+      "label": "Vinyl records",
+      "blurb": "Want lists, pressings, and shop finds. Coming later."
+    }
   }
 }

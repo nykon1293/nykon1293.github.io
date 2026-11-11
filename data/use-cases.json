@@ -8143,5 +8143,638 @@
       "subcontractor insurance",
       "certificate of insurance tracker"
     ]
+  },
+  {
+    "slug": "card-pricecharting-collection",
+    "title": "Keep a live collection on PriceCharting",
+    "industries": [
+      "hobbies-collections"
+    ],
+    "functions": [
+      "stock"
+    ],
+    "hobbies": [
+      "trading-cards"
+    ],
+    "motif": "inventory",
+    "summary": "SI takes the typing out of PriceCharting. You send a photo or say the card. SI finds the version and drafts the add. You approve.",
+    "problem": "Collectors type every card into PriceCharting by hand. Grade, cert, and price too. That is slow. The list lags. Duplicates sneak in. Sports cards and other cards sit on two sites under one login, so a card can land in the wrong folder.",
+    "what_si_does": "You send a photo, say the card out loud, or send a short list. SI finds the exact version: set, number, and parallel. It checks the folder for a duplicate. It drafts the add with raw or grade, cert number, quantity, and what was paid. It can draft edits too. Sports cards go on SportsCardsPro. Pokémon and other non-sports stay on PriceCharting. Both use the same login. SI can review the folder and draft a short report. Nothing is saved until you approve.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Your PriceCharting login stays yours. SportsCardsPro uses the same account. GemmiSI does not hold the collection. Show SI how you name folders. Share a few past adds. Permission is to draft adds and edits, not to save on its own. We sit with you, plan the steps, and teach you to run it. Setup is often a few days.",
+    "human_checks": [
+      "You approve every add, edit, or move.",
+      "SI does not invent a cert number, a grade, or a price.",
+      "You confirm the exact version before it is saved.",
+      "Sports and non-sports land on the right site."
+    ],
+    "examples": [
+      {
+        "business_type": "Trading card collector",
+        "scenario": "A photo of a new pull arrives. SI drafts the add with set, number, and parallel. The collector confirms it is not already in the folder."
+      },
+      {
+        "business_type": "Collector after a shop stop",
+        "scenario": "The collector says the card out loud. SI finds the version and waits. Nothing is saved yet."
+      },
+      {
+        "business_type": "Collector who buys live-break spots",
+        "scenario": "A short list from a break is matched one by one. Duplicates are flagged. Sports cards are drafted for SportsCardsPro."
+      }
+    ],
+    "copy_prompt": "From this [photo, spoken name, or short list], find the exact card version (set, number, parallel) in my PriceCharting or SportsCardsPro catalog. Check folder [name] for a duplicate. Draft an add with raw or grade, cert number if I give one, quantity, and what I paid. Put sports cards on SportsCardsPro and Pokémon or other non-sports on PriceCharting. Draft edits the same way. Do not save. Do not invent a cert, grade, or price. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "PriceCharting",
+      "SportsCardsPro",
+      "Gmail",
+      "Google Photos"
+    ],
+    "effect": "New cards get into the right folder without typing each line by hand.",
+    "caution": "PriceCharting and SportsCardsPro are tools you already use. GemmiSI does not partner with them. You approve every add.",
+    "related": [
+      "card-collection-value-before-show",
+      "card-identify-from-photo",
+      "card-record-sales"
+    ],
+    "aliases": [
+      "pricecharting collection",
+      "add cards from a photo",
+      "sportscardspro folder",
+      "live card list"
+    ]
+  },
+  {
+    "slug": "card-collection-value-before-show",
+    "title": "Know collection value before a show",
+    "industries": [
+      "hobbies-collections"
+    ],
+    "functions": [
+      "numbers",
+      "stock"
+    ],
+    "hobbies": [
+      "trading-cards"
+    ],
+    "motif": "dashboard",
+    "summary": "Before an upcoming show or a trade, SI checks that every slab is logged right. It sends a simple value list with the top cards.",
+    "problem": "A show is coming. The collector is not sure the folder matches the slabs in the case. Asking prices get guessed. Nobody wants to sit and click every card.",
+    "what_si_does": "SI signs in on your PriceCharting account. It checks each slab against the folder. Grade and grader should match. It drafts a simple value list from the guide. Top cards are called out so you know what to ask. It does not set your price. It does not make up a number that is not in the guide.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Your PriceCharting login stays yours. SportsCardsPro uses the same account. GemmiSI does not hold the collection. Tell SI which folder to use before the show. Permission is to read and list, not to change prices. We sit with you, plan the steps, and teach you to run it. Setup is often a day or two.",
+    "human_checks": [
+      "You review the value list before the show.",
+      "SI does not invent a guide value.",
+      "You decide what to ask. SI does not set a price.",
+      "Mismatched grade or grader waits for you."
+    ],
+    "examples": [
+      {
+        "business_type": "Collector packing for a show",
+        "scenario": "SI lists slabs whose grade does not match the folder. A short value list of the top cards waits for the collector."
+      },
+      {
+        "business_type": "Collector heading into a trade",
+        "scenario": "The folder is checked the night before. The list uses only the guide on file. No extra number is added."
+      },
+      {
+        "business_type": "Collector with sports and non-sports",
+        "scenario": "SportsCardsPro and PriceCharting are both read under the same login. One list comes back."
+      }
+    ],
+    "copy_prompt": "Sign in to my PriceCharting account. Check folder [name] so every slab is logged at the right grade and grader. Draft a simple value list from the guide only. Call out the top cards. Do not invent a value. Do not set an asking price. Do not change any record. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "PriceCharting",
+      "SportsCardsPro",
+      "Google Sheets",
+      "Gmail"
+    ],
+    "effect": "You walk into the show knowing what the folder says the top cards are worth.",
+    "caution": "The list uses the guide on your account. It is not an appraisal. You still decide what to ask.",
+    "related": [
+      "card-pricecharting-collection",
+      "card-record-sales",
+      "card-local-show-finder"
+    ],
+    "aliases": [
+      "collection value before a show",
+      "pricecharting value list",
+      "slab grade check"
+    ]
+  },
+  {
+    "slug": "card-record-sales",
+    "title": "Record a sale the right way",
+    "industries": [
+      "hobbies-collections"
+    ],
+    "functions": [
+      "stock",
+      "numbers"
+    ],
+    "hobbies": [
+      "trading-cards"
+    ],
+    "motif": "checklist",
+    "summary": "After a show, you say which cards sold and the lot total. SI marks them sold and splits the total by guide value.",
+    "problem": "A lot sold for one cash total. The folder still shows those cards as on hand. Typing each sale by hand is easy to skip. Later a new slab looks like a duplicate of a card that already sold.",
+    "what_si_does": "You name the cards that sold and the total cash for the lot. SI drafts sold marks in your PriceCharting folder. It splits the total across those cards by guide value so the sales history stays in line with the guide. Unsold cards stay in the folder. Later, SI checks new slabs against sold ones so nothing is counted twice. You approve before anything is saved.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Your PriceCharting login stays yours. SportsCardsPro uses the same account. GemmiSI does not hold the collection. Show SI how you mark a sale today. Permission is to draft sold marks, not to save them. We sit with you, plan the steps, and teach you to run it. Setup is often a few days.",
+    "human_checks": [
+      "You confirm which cards sold and the lot total.",
+      "SI does not invent a sale price. It only splits the total you gave.",
+      "You approve every sold mark.",
+      "Unsold cards stay in the folder until you say otherwise."
+    ],
+    "examples": [
+      {
+        "business_type": "Collector after a show",
+        "scenario": "Three cards sold as a lot. SI drafts sold marks and splits the cash total by guide value. The rest of the binder is unchanged."
+      },
+      {
+        "business_type": "Collector who trades and sells",
+        "scenario": "A card that sold last month is in a new photo. SI flags it as already sold so it is not added twice."
+      },
+      {
+        "business_type": "Collector with a sports folder",
+        "scenario": "Sold sports cards are drafted on SportsCardsPro. Non-sports stay on PriceCharting."
+      }
+    ],
+    "copy_prompt": "These cards sold [list]. The lot total I received is [amount I state]. Mark them sold in folder [name]. Split that total across the sold cards by current guide value. Leave unsold cards in the folder. Later, check new slabs against sold cards so nothing is counted twice. Do not invent a price. Do not save. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "PriceCharting",
+      "SportsCardsPro",
+      "Google Sheets",
+      "Gmail"
+    ],
+    "effect": "Sales history matches what actually sold, without typing each line after the show.",
+    "caution": "SI only splits the total you give. It does not set a sale price or move money.",
+    "related": [
+      "card-pricecharting-collection",
+      "card-collection-value-before-show",
+      "card-price-before-buying"
+    ],
+    "aliases": [
+      "mark cards sold",
+      "split a lot sale",
+      "pricecharting sales history"
+    ]
+  },
+  {
+    "slug": "card-price-before-buying",
+    "title": "Price a card before you buy",
+    "industries": [
+      "hobbies-collections"
+    ],
+    "functions": [
+      "numbers"
+    ],
+    "hobbies": [
+      "trading-cards"
+    ],
+    "motif": "dashboard",
+    "summary": "From a photo, a listing link, or a show sticker, SI checks recent sales and the guide. Then it says if the price looks fair.",
+    "problem": "A sticker or a listing asks for a number. Looking up comps on a phone in the aisle is slow. People guess, then regret it.",
+    "what_si_does": "You send a photo, a listing link, or the sticker text. SI finds the exact version. It reads recent sales and the guide value on PriceCharting or SportsCardsPro. It drafts a short note: the price looks fair, high, or low, and what you might offer. It uses only the comps on file. You decide whether to buy.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Your PriceCharting login stays yours. SportsCardsPro uses the same account. GemmiSI does not hold the collection. Share a few past lookups you trusted. Permission is to look up and draft, not to buy. We sit with you, plan the steps, and teach you to run it. Setup is often a day or two.",
+    "human_checks": [
+      "You decide whether to buy, walk away, or offer.",
+      "SI does not invent a sale or a guide value.",
+      "SI does not send an offer on its own.",
+      "You confirm the exact version before you trust the note."
+    ],
+    "examples": [
+      {
+        "business_type": "Collector at a show",
+        "scenario": "A sticker photo goes to SI. The note compares the sticker to recent sales and the guide. The collector still talks to the seller."
+      },
+      {
+        "business_type": "Collector shopping a marketplace listing",
+        "scenario": "A listing link is checked. The draft says the ask looks high against comps. No offer is sent."
+      },
+      {
+        "business_type": "Collector looking at a shop case",
+        "scenario": "A photo of the holder is enough to pull the version. The note waits. The collector decides."
+      }
+    ],
+    "copy_prompt": "From this [photo, listing link, or sticker text], find the exact card version. Check recent sales and the guide on PriceCharting or SportsCardsPro. Draft a short note on whether the asking price looks fair and what I might offer. Use only comps on file. Do not invent a number. Do not send an offer. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "PriceCharting",
+      "SportsCardsPro",
+      "eBay",
+      "Google Photos"
+    ],
+    "effect": "A fair-or-not note is ready before you pay a sticker or click buy.",
+    "caution": "This is a lookup, not advice to buy or sell. You still decide.",
+    "related": [
+      "card-identify-from-photo",
+      "card-pricecharting-collection",
+      "card-favorite-team-deal-watch"
+    ],
+    "aliases": [
+      "check a show sticker",
+      "is this card priced fair",
+      "comps before buying"
+    ]
+  },
+  {
+    "slug": "card-missing-catalog-requests",
+    "title": "Get missing cards into the price guide",
+    "industries": [
+      "hobbies-collections"
+    ],
+    "functions": [
+      "paperwork",
+      "stock"
+    ],
+    "hobbies": [
+      "trading-cards"
+    ],
+    "motif": "documents",
+    "summary": "If a card or set is missing from the catalog, SI drafts a request for you to send. It checks back, then adds your copies.",
+    "problem": "A new set is not in PriceCharting yet. Or one card in a set has no page. The collector cannot log copies until the catalog catches up.",
+    "what_si_does": "SI checks whether the card or set is in the catalog. If it is missing, SI drafts a request to the site. You approve it before it goes. SI checks back until the page appears, then drafts the add for your copies. If you have contributor access, SI can draft a new card on an existing set, upload a cleaned-up photo, and fill catalog pages that have no picture. You still approve each step.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Your PriceCharting login stays yours. SportsCardsPro uses the same account. GemmiSI does not hold the collection. Tell SI whether you have contributor access. Share a sample request you would actually send. Permission is to draft and check, not to publish on its own. We sit with you, plan the steps, and teach you to run it. Setup is often a few days.",
+    "human_checks": [
+      "You approve every catalog request before it is sent.",
+      "Contributor adds and photo uploads wait for you.",
+      "SI does not invent a card that is not in your photo or list.",
+      "Your copies are added only after the catalog page exists and you approve."
+    ],
+    "examples": [
+      {
+        "business_type": "Collector with a new set",
+        "scenario": "The set is not in the catalog. SI drafts a request. The collector sends it. SI checks back later."
+      },
+      {
+        "business_type": "Collector with contributor access",
+        "scenario": "One card in an existing set has no page. SI drafts the add and a cleaned photo. The collector approves the upload."
+      },
+      {
+        "business_type": "Collector with a page that has no picture",
+        "scenario": "SI drafts a cropped photo for the empty catalog page. Nothing posts until the collector says yes."
+      }
+    ],
+    "copy_prompt": "Check whether [card or set] is in the PriceCharting or SportsCardsPro catalog. If it is missing, draft a request to the site from this wording [paste]. Check back until the page appears, then draft adds for my copies in folder [name]. If I have contributor access, draft a new card on the existing set and a cleaned photo for pages with no picture. Do not send or publish. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "PriceCharting",
+      "SportsCardsPro",
+      "Gmail",
+      "Google Photos"
+    ],
+    "effect": "Missing catalog pages get a request, then your copies can be logged.",
+    "caution": "You send every request. Contributor edits wait for you. GemmiSI does not speak for the price guide.",
+    "related": [
+      "card-pricecharting-collection",
+      "card-identify-from-photo"
+    ],
+    "aliases": [
+      "request a missing pricecharting card",
+      "add a card to the catalog",
+      "contributor catalog photo"
+    ]
+  },
+  {
+    "slug": "card-grading-worth-sending",
+    "title": "Decide what is worth grading",
+    "industries": [
+      "hobbies-collections"
+    ],
+    "functions": [
+      "numbers",
+      "paperwork"
+    ],
+    "hobbies": [
+      "trading-cards"
+    ],
+    "motif": "checklist",
+    "summary": "SI compares grading fees and wait times with raw vs graded sales. It builds a short list of cards worth sending from your folder.",
+    "problem": "Grading costs money and time. Raw and graded sales tell different stories. The collector does not want to send a card that will not cover the fee.",
+    "what_si_does": "SI reads the fees and turnaround you point it at. It compares those with raw vs graded sales for cards in your folder. It drafts a short list of cards that look worth sending. It can note a local drop-off option you already use. It checks fees weekly for changes. After cards come back, it drafts folder updates with grade and cert. You pick the company. You decide what to send.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Your PriceCharting login stays yours. SportsCardsPro uses the same account. GemmiSI does not hold the collection. Point SI at the grading companies you actually use. Share fee pages and a local drop-off if you have one. Permission is to list and draft, not to submit an order. We sit with you, plan the steps, and teach you to run it. Setup is often a few days.",
+    "human_checks": [
+      "You choose the grading company and what to send.",
+      "SI does not submit a grading order.",
+      "Fee and sale numbers come from pages you provide. SI does not invent them.",
+      "Folder updates after return wait for your approval."
+    ],
+    "examples": [
+      {
+        "business_type": "Collector sorting a raw stack",
+        "scenario": "SI lists a few folder cards whose graded sales look stronger than raw after the fee. The collector still picks which ones go."
+      },
+      {
+        "business_type": "Collector with a local drop-off",
+        "scenario": "The note includes the drop-off the collector already named. SI does not book it."
+      },
+      {
+        "business_type": "Collector getting slabs back",
+        "scenario": "Grades and certs the collector provides are drafted onto the PriceCharting entries. Nothing saves until they approve."
+      }
+    ],
+    "copy_prompt": "From folder [name], compare grading-company fees and turnaround I provide [paste] with raw vs graded sales on PriceCharting or SportsCardsPro. Draft a short list of cards that look worth sending. Note this local drop-off if I named one [name]. Check those fee pages weekly for changes. After return, draft grade and cert updates from the labels I send. Do not submit an order. Do not invent a fee or a sale. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "PriceCharting",
+      "SportsCardsPro",
+      "AGS",
+      "Google Sheets"
+    ],
+    "effect": "A short send-or-keep list is ready before you pay a grading fee.",
+    "caution": "This is a comparison from pages you provide. It is not grading advice. You still choose what to send.",
+    "related": [
+      "card-pricecharting-collection",
+      "card-collection-value-before-show",
+      "card-price-before-buying"
+    ],
+    "aliases": [
+      "is this card worth grading",
+      "grading fee compare",
+      "update slabs after grading"
+    ]
+  },
+  {
+    "slug": "card-favorite-team-deal-watch",
+    "title": "Watch for deals on a favorite team",
+    "industries": [
+      "hobbies-collections"
+    ],
+    "functions": [
+      "stock"
+    ],
+    "hobbies": [
+      "trading-cards"
+    ],
+    "motif": "inbox",
+    "summary": "Each day SI checks listings against recent sales. It only messages you when something is well under comps.",
+    "problem": "Listings for a favorite team show up all day. Most are not a deal. By the time the collector checks, the good one is gone.",
+    "what_si_does": "You name the team and the kinds of cards you care about. Each day SI checks listings you already watch. It compares them with recent sales on SportsCardsPro or PriceCharting. It drafts a message only when a listing is well under those comps. It does not bid. It does not buy. You still decide.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Your PriceCharting login stays yours. SportsCardsPro uses the same account. GemmiSI does not hold the collection. Name the team and the listing sources you already use. Write what counts as well under comps. Permission is to watch and draft, not to bid. We sit with you, plan the steps, and teach you to run it. Setup is often a few days.",
+    "human_checks": [
+      "You decide whether to bid, message, or skip.",
+      "SI does not bid or buy.",
+      "A listing that is not well under comps is not sent to you.",
+      "You confirm the exact version before you act."
+    ],
+    "examples": [
+      {
+        "business_type": "Collector who follows one team",
+        "scenario": "Most daily listings are quiet. One auction is well under recent sales. A short note waits. No bid is placed."
+      },
+      {
+        "business_type": "Collector watching a marketplace",
+        "scenario": "SI skips lots that already match the guide. Only the under-comp listing is drafted."
+      },
+      {
+        "business_type": "Collector with a sports folder",
+        "scenario": "Comps come from SportsCardsPro. The note uses only those sales. The collector still clicks or walks away."
+      }
+    ],
+    "copy_prompt": "Each day, check listings for [team and card types] on [sites I already use]. Compare each one with recent sales on SportsCardsPro or PriceCharting. Draft a message to me only when a listing is well under those comps, using the rule [what counts as well under]. Do not bid. Do not buy. Do not invent a sale. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "SportsCardsPro",
+      "PriceCharting",
+      "eBay",
+      "Gmail"
+    ],
+    "effect": "You hear about the listing that is actually cheap against comps, not every team card.",
+    "caution": "SI does not bid or buy. A quiet day means nothing cleared your under-comp rule.",
+    "related": [
+      "card-price-before-buying",
+      "card-pricecharting-collection",
+      "card-identify-from-photo"
+    ],
+    "aliases": [
+      "favorite team card deals",
+      "under comp listing watch",
+      "daily team card check"
+    ]
+  },
+  {
+    "slug": "card-local-show-finder",
+    "title": "Find a local card show",
+    "industries": [
+      "hobbies-collections"
+    ],
+    "functions": [
+      "scheduling"
+    ],
+    "hobbies": [
+      "trading-cards"
+    ],
+    "motif": "calendar",
+    "summary": "SI looks up date, hours, entry, parking, and size for a local show. It double-checks flyers and helps you pick show vs shop.",
+    "problem": "Flyers and old posts disagree. Hours change. The collector drives over and finds a closed hall, or picks a shop day when a show was the better trip.",
+    "what_si_does": "You name the area and the date you care about. SI looks up local card shows. It lists date, hours, entry, parking, and size from current listings. It checks flyers against those listings. It drafts a short note on show vs shop that day. You still decide where to go.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Tell SI the area you will actually drive. Share flyer photos when you have them. Permission is to look up and draft, not to buy a ticket. We sit with you, plan the steps, and teach you to run it. Setup is often a day or two.",
+    "human_checks": [
+      "You confirm hours and entry before you go.",
+      "SI does not buy a ticket or reserve a table.",
+      "A flyer that disagrees with the current listing is flagged for you.",
+      "You decide show vs shop."
+    ],
+    "examples": [
+      {
+        "business_type": "Collector planning a trip",
+        "scenario": "SI lists a nearby show with hours, entry, and parking from the current listing. An old flyer with different hours is flagged."
+      },
+      {
+        "business_type": "Collector choosing show or shop",
+        "scenario": "The note says the show is open and the shop is the backup. The collector still picks."
+      },
+      {
+        "business_type": "Collector new to the area",
+        "scenario": "A few upcoming shows in driving range are listed with size notes from the public listing. No ticket is bought."
+      }
+    ],
+    "copy_prompt": "Look up local card shows for [area] on [date]. List date, hours, entry, parking, and size from current listings. Compare any flyer I send [photo] with those listings. Draft a short show-vs-shop note for that date. Do not buy a ticket. Do not invent hours. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Google Search",
+      "Google Calendar",
+      "Gmail",
+      "Google Photos"
+    ],
+    "effect": "A show plan sits on one page: hours, parking, and whether the flyer still matches.",
+    "caution": "Listings change. You still confirm hours before you drive.",
+    "related": [
+      "card-collection-value-before-show",
+      "card-price-before-buying",
+      "card-record-sales"
+    ],
+    "aliases": [
+      "local card show hours",
+      "upcoming card show",
+      "show vs shop"
+    ]
+  },
+  {
+    "slug": "card-child-collection-folder",
+    "title": "Keep a child's cards in their own folder",
+    "industries": [
+      "hobbies-collections"
+    ],
+    "functions": [
+      "stock"
+    ],
+    "hobbies": [
+      "trading-cards"
+    ],
+    "motif": "inventory",
+    "summary": "A child's cards live in their own PriceCharting folder, apart from the main list. SI checks for duplicates across both.",
+    "problem": "Kid pulls mix into the main binder in photos and lists. Values and duplicates get messy. The collector wants a separate folder that still gets the same photo-to-add help.",
+    "what_si_does": "You name the child's folder. New photos or short lists for that pile are drafted there, not into the main collection. SI checks both folders for duplicates. Sports cards still go on SportsCardsPro. Other cards stay on PriceCharting. Same login. You approve every add.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Your PriceCharting login stays yours. SportsCardsPro uses the same account. GemmiSI does not hold the collection. Create or point to the child's folder. Tell SI how you tell those photos apart. Permission is to draft into that folder, not to mix piles on its own. We sit with you, plan the steps, and teach you to run it. Setup is often a day or two.",
+    "human_checks": [
+      "You confirm which pile a photo belongs to.",
+      "SI does not move cards between folders on its own.",
+      "Duplicate checks across both folders wait for you to decide.",
+      "You approve every add."
+    ],
+    "examples": [
+      {
+        "business_type": "Collector with a child's binder",
+        "scenario": "A photo from the kid pile is drafted into the child's folder. The main folder is left alone."
+      },
+      {
+        "business_type": "Collector sorting two piles",
+        "scenario": "The same card is in both folders. SI flags the duplicate. The collector decides which folder keeps it."
+      },
+      {
+        "business_type": "Collector adding a live-break spot for a child",
+        "scenario": "The short list is drafted into the child's folder with a duplicate check against the main list."
+      }
+    ],
+    "copy_prompt": "Treat folder [child folder] as separate from [main folder]. From this [photo or short list], draft adds only into the child folder. Check both folders for duplicates. Put sports cards on SportsCardsPro and other cards on PriceCharting. Do not move cards between folders. Do not save. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "PriceCharting",
+      "SportsCardsPro",
+      "Google Photos",
+      "Gmail"
+    ],
+    "effect": "The child's pile stays in its own folder, with the same photo-to-add help.",
+    "caution": "You still say which pile a photo belongs to. SI does not mix the folders on its own.",
+    "related": [
+      "card-pricecharting-collection",
+      "card-identify-from-photo",
+      "card-record-sales"
+    ],
+    "aliases": [
+      "kid card folder",
+      "separate child collection",
+      "duplicate check two folders"
+    ]
+  },
+  {
+    "slug": "card-identify-from-photo",
+    "title": "Identify a card from a photo",
+    "industries": [
+      "hobbies-collections"
+    ],
+    "functions": [
+      "reading-documents",
+      "stock"
+    ],
+    "hobbies": [
+      "trading-cards"
+    ],
+    "motif": "documents",
+    "summary": "You send a photo or a rough description. SI finds the likely card, then prices it or drafts the add.",
+    "problem": "A card sits in a toploader with no name the collector can recall. Set and parallel are unclear. Nothing gets logged until someone looks it up.",
+    "what_si_does": "You send a photo or a rough description. SI looks up the likely version in the PriceCharting or SportsCardsPro catalog: set, number, and parallel. It shows the match for you to confirm. Then it can draft a price note from the guide or draft an add to your folder. It does not guess a cert or a grade you did not give.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Your PriceCharting login stays yours. SportsCardsPro uses the same account. GemmiSI does not hold the collection. Share a few photos you already identified. Permission is to look up and draft, not to save. We sit with you, plan the steps, and teach you to run it. Setup is often a day or two.",
+    "human_checks": [
+      "You confirm the match before anything is added.",
+      "If SI is unsure, it says so. It does not pick a version at random.",
+      "SI does not invent a cert, grade, or price.",
+      "You approve any add or price note."
+    ],
+    "examples": [
+      {
+        "business_type": "Collector with an unlabeled toploader",
+        "scenario": "A photo is enough for SI to draft two likely versions. The collector picks the right one. No add is saved yet."
+      },
+      {
+        "business_type": "Collector who only remembers the set",
+        "scenario": "A rough description plus a photo narrows the parallel. The price note waits."
+      },
+      {
+        "business_type": "Collector adding after a show",
+        "scenario": "A table-find photo is identified, then drafted into PriceCharting once the collector confirms the version."
+      }
+    ],
+    "copy_prompt": "From this [photo or rough description], find the likely card version (set, number, parallel) in PriceCharting or SportsCardsPro. Show me the match. If more than one fits, list them. Then draft a guide-value note or an add to folder [name] only after I confirm. Do not invent a cert, grade, or price. Do not save. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "PriceCharting",
+      "SportsCardsPro",
+      "Google Photos",
+      "Gmail"
+    ],
+    "effect": "Mystery cards get a likely name, then a price or an add, after you confirm.",
+    "caution": "If the photo is unclear, SI should say so. You confirm the version.",
+    "related": [
+      "card-pricecharting-collection",
+      "card-price-before-buying",
+      "card-missing-catalog-requests"
+    ],
+    "aliases": [
+      "what card is this",
+      "identify card from photo",
+      "name this card"
+    ]
+  },
+  {
+    "slug": "card-order-shipment-tracking",
+    "title": "Track card orders and shipments",
+    "industries": [
+      "hobbies-collections"
+    ],
+    "functions": [
+      "stock",
+      "answering-customers"
+    ],
+    "hobbies": [
+      "trading-cards"
+    ],
+    "motif": "checklist",
+    "summary": "SI reads order and shipping emails from live breaks and marketplaces. You get a simple update on what shipped, tracking, and what arrives today.",
+    "problem": "Break spots and marketplace orders land in different inboxes. Tracking is buried. The collector finds out a package arrived only after looking around.",
+    "what_si_does": "SI reads order and shipping emails you give it access to. It lists what was bought, what shipped, tracking, and the estimated arrival. It drafts a simple update, including what arrives today. It can flag a package that looks late. It does not open a claim or write the seller until you ask. You still add the cards to PriceCharting when they land.",
+    "setup": "GemmiSI sets this up on your own equipment and accounts; your data stays with you. Connect the inbox with permission to read and draft, not send. Name the marketplaces and break hosts you use. We sit with you, plan the steps, and teach you to run it. Setup is often a few days.",
+    "human_checks": [
+      "You decide whether to wait, write a seller, or start a claim.",
+      "SI does not invent a tracking number or an arrival date.",
+      "Address changes and claims are made by a person.",
+      "New cards are added to PriceCharting only after you approve."
+    ],
+    "examples": [
+      {
+        "business_type": "Collector who buys live-break spots",
+        "scenario": "Morning mail is sorted into shipped, still packing, and arriving today. No seller is contacted."
+      },
+      {
+        "business_type": "Collector with marketplace orders",
+        "scenario": "A package with no scan for days is flagged. A draft note to the seller waits. The collector sends it or waits."
+      },
+      {
+        "business_type": "Collector expecting cards today",
+        "scenario": "The update lists what is due today. Cards still in transit stay on the waiting list."
+      }
+    ],
+    "copy_prompt": "Read order and shipping emails in [inbox] from live breaks and marketplaces. List what was bought, what shipped, tracking, and estimated arrival. Include what arrives today. Flag anything that looks late. Draft a seller note only if I ask. Do not invent tracking or dates. Do not send. Pause and show me before sending, submitting, posting or changing anything.",
+    "tools_examples": [
+      "Gmail",
+      "Whatnot",
+      "eBay",
+      "PriceCharting"
+    ],
+    "effect": "One update shows what shipped, what is late, and what should arrive today.",
+    "caution": "SI does not contact a seller or start a claim on its own. You still add cards when they land.",
+    "related": [
+      "card-pricecharting-collection",
+      "card-record-sales",
+      "card-child-collection-folder"
+    ],
+    "aliases": [
+      "card order tracking",
+      "live break shipping update",
+      "what arrives today"
+    ]
   }
 ]
